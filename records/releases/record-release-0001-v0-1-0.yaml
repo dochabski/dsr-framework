@@ -9,7 +9,7 @@ release_record:
     governance.
 
     '
-  status: public_draft_release_prepared
+  status: public_draft_release_published
   version: 0.1.0
   target_path: records/releases/record-release-0001-v0-1-0.yaml
   selection_id: record_release_v0_1_0
@@ -25,9 +25,9 @@ release_record:
       citable artifact package for planning, documenting, evaluating, reviewing, and publishing Design Science Research artifacts.
 
       '
-    release_status: public_draft_release_prepared
-    release_status_rationale: The release is prepared for GitHub publication with open licensing, updated root metadata, source
-      traceability remediation, and a reserved Zenodo DOI. Final Zenodo publication remains pending explicit confirmation.
+    release_status: public_draft_release_published
+    release_status_rationale: The v0.1.0 GitHub release and Zenodo deposition have been published. The release remains a public
+      draft under active validation and does not claim stable 1.0 maturity.
   responsible_party:
     role: repository_maintainer
     name: David Ochabski
@@ -61,7 +61,8 @@ release_record:
       - data_or_information_artifact
     repository_url: https://github.com/dochabski/dsr-framework
     release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
-    reserved_zenodo_doi: 10.5281/zenodo.19835424
+    published_zenodo_doi: 10.5281/zenodo.19835424
+    zenodo_record_url: https://zenodo.org/records/19835424
   release_basis:
     governing_selection:
       selection_id: record_release_v0_1_0
@@ -108,10 +109,11 @@ release_record:
         '
       structured_source_of_truth: true
   release_readiness_summary:
-    readiness_decision: go_for_public_draft_github_release
-    decision_label: Ready for v0.1.0 public draft GitHub release; Zenodo publication pending explicit confirmation.
-    decision_rationale: Root metadata, licensing, package inventory, crosswalk counts, citation metadata, and validation have
-      been updated. The release remains a draft under active validation and does not claim stable 1.0 maturity.
+    readiness_decision: public_draft_release_published
+    decision_label: v0.1.0 public draft GitHub release and Zenodo DOI published.
+    decision_rationale: Root metadata, licensing, package inventory, crosswalk counts, citation metadata, GitHub release,
+      and Zenodo archival deposit are complete for the v0.1.0 public draft. The release remains under active validation and
+      does not claim stable 1.0 maturity.
     validation_counts:
       total_corpus_sources: 71
       source_basis_only_or_no_substantive_hits: 0

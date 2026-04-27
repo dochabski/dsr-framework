@@ -136,7 +136,7 @@ authorship_and_contribution:
     github: dochabski
     role: repository_maintainer
 citation_metadata:
-  preferred_citation_status: reserved_zenodo_doi_pending_final_deposition_publish
+  preferred_citation_status: zenodo_doi_published
   title: DSR Framework
   version: 0.1.0
   release_date: '2026-04-27'
@@ -145,13 +145,16 @@ citation_metadata:
   - Ochabski, David
   citation_file: CITATION.cff
   doi:
-    status: reserved_pending_publish
+    status: published
     value: 10.5281/zenodo.19835424
     provider: Zenodo
-    draft_deposition_id: 19835424
+    record_url: https://zenodo.org/records/19835424
+    deposition_id: 19835424
   concept_doi:
-    status: not_yet_assigned_until_publish
+    status: concept_record_available
     value: null
+    provider: Zenodo
+    concept_recid: '19835423'
   url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
   abstract: 'The DSR Framework is a structured artifact package for Design Science Research documentation, review, evaluation,
     transparency, contribution positioning, and publication preparation.
@@ -177,6 +180,7 @@ citation_metadata:
     identifier_type: internal_corpus
     status: evidence_base_reference
   repository_url: https://github.com/dochabski/dsr-framework
+  archival_url: https://zenodo.org/records/19835424
 license_and_reuse:
   default_license:
     spdx_id: CC0-1.0
@@ -229,20 +233,19 @@ versioning_and_release:
   - deprecated
   - archived
   release_readiness:
-    current_state: public_draft_release
+    current_state: public_draft_release_published
     release_candidate: true
-    archival_publication_ready: pending_zenodo_publish_confirmation
-    required_before_release:
-    - publish_github_repository
-    - publish_github_release
-    - publish_zenodo_deposition_after_explicit_confirmation
+    archival_publication_ready: true
+    required_before_release: []
     completed_for_public_draft:
-    - root_metadata_updated
     - citation_metadata_updated
+    - github_release_published
     - license_files_added
     - package_inventory_updated
+    - root_metadata_updated
     - source_traceability_remediated
     - validation_passed
+    - zenodo_deposition_published
 conformance_metadata:
   declared_conformance_level: l2_reviewable_public_draft
   conformance_rationale: 'The package has root metadata, inventory, crosswalk traceability, validation evidence, and source
@@ -414,9 +417,9 @@ open_questions:
   resolution_needed_for: l2_reviewable_or_higher_conformance
 limitations:
 - This is a public draft release and remains under active validation.
-- The Zenodo DOI is reserved but not published until explicit final confirmation is given.
 - External utility evaluation, independent review, and reuse evidence remain future work.
 - The repaired extraction corpus and original source PDFs are not included in the public package.
+- The v0.1.0 Zenodo archive preserves the release package as uploaded at DOI publication time.
 acceptance_criteria:
 - criterion_id: ac_metadata_001
   criterion: The file parses as YAML.
@@ -429,7 +432,7 @@ acceptance_criteria:
     metadata.
   status: pass
 - criterion_id: ac_metadata_004
-  criterion: The file records the reserved Zenodo DOI without claiming final deposition publication before confirmation.
+  criterion: The file records the published Zenodo DOI and archival record URL.
   status: pass
 - criterion_id: ac_metadata_005
   criterion: The metadata aligns with CITATION.cff, .zenodo.json, package inventory, and manifest.
@@ -448,3 +451,9 @@ change_history:
     source traceability.
   responsible_party: GPT-5.5 Thinking
   related_request: publish_to_github_and_prepare_zenodo_doi
+- version: 0.1.0-postpublish
+  date: '2026-04-27'
+  change_type: zenodo_publication_status_update
+  description: Recorded publication of Zenodo DOI 10.5281/zenodo.19835424 at https://zenodo.org/records/19835424.
+  responsible_party: GPT-5.5 Thinking
+  related_request: confirm_zenodo_publish_deposition_19835424

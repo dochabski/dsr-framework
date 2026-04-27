@@ -27,4 +27,4 @@
 
 - This is a public draft release under active validation, not a stable 1.0 framework.
 - External utility evaluation and independent reuse evidence remain future work.
-- The Zenodo DOI is reserved in draft metadata until the deposition is explicitly published.
+- The Zenodo DOI is published at https://zenodo.org/records/19835424.

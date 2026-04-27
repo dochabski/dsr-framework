@@ -7,7 +7,7 @@ package_inventory:
   title: DSR Framework Package Inventory
   purpose: Inventory all required, planned, and controlled files in the DSR Framework package and assign validation responsibilities
     for each file class and file entry.
-  status: public_draft_release_prepared
+  status: public_draft_release_published
   version: 0.1.0
   date: '2026-04-27'
   owner: framework_maintainer
@@ -4187,7 +4187,7 @@ package_inventory:
       trace_objects_with_required_pattern: 142
       evidence_status_counts:
         substantive: 142
-    publication_metadata_status: updated_for_public_draft_release_2026-04-27
+    publication_metadata_status: published_github_and_zenodo_public_draft_2026-04-27
   assumptions:
   - Inventory status present_at_declared_path means the file exists at the organized package path; it does not mean the content
     is final or publication-ready.
@@ -4258,6 +4258,11 @@ package_inventory:
       internal audit/unmapped artifacts.
     responsible_party: framework_maintainer
     review_status: pending_final_github_and_zenodo_publication
+  - version: 0.1.0-postpublish
+    date: '2026-04-27'
+    change: Recorded publication of Zenodo DOI and archived v0.1.0 package.
+    responsible_party: framework_maintainer
+    review_status: zenodo_deposition_published
   normalization_status:
     status: organized_literature_trace_remediated_draft
     normalization_date: '2026-04-27'
@@ -4269,12 +4274,13 @@ package_inventory:
     schema_meta_validation_status: pass
     schema_template_record_validation_status: pass
     repaired_corpus_status: available_outside_package_root_for_next_literature_alignment_pass
-    publication_readiness_status: github_public_draft_prepared_zenodo_publish_pending_confirmation
+    publication_readiness_status: github_release_and_zenodo_deposition_published_public_draft
     latest_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
     literature_alignment_status: pass_with_required_followup
     source_traceability_status: passed_all_71_sources_multi_file_grounded
     latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
     source_traceability_validation_counts: *id001
-    reserved_zenodo_doi: 10.5281/zenodo.19835424
     github_repository: https://github.com/dochabski/dsr-framework
+    published_zenodo_doi: 10.5281/zenodo.19835424
+    zenodo_record_url: https://zenodo.org/records/19835424
   auxiliary_file_inventory: []
