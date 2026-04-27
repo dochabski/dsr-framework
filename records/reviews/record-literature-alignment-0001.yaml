@@ -1,0 +1,411 @@
+# SPDX-License-Identifier: CC0-1.0
+literature_alignment_review:
+  record_id: record_literature_alignment_0001
+  record_class: literature_alignment_review
+  item_type: record
+  title: Second-Pass Literature Alignment Review
+  purpose: >
+    Evaluate whether the organized DSR Framework package is coherent with the repaired DSR extraction corpus and
+    identify remaining source-to-framework alignment gaps before public repository preparation.
+  status: draft
+  version: "0.1.0"
+  date: "2026-04-27"
+  responsible_party:
+    role: framework_reviewer
+    name: GPT-5.5 Thinking
+  event_or_action: second_pass_literature_alignment_review_using_repaired_corpus
+  conformance_target: l2_reviewable
+
+  review_scope:
+    framework_root: "C:/Users/docha/Dropbox (Personal)/David's Stuff/Professional Development/Open Artifacts/DSR Framework/Framework_Files_Organized"
+    corpus_root: "C:/Users/docha/Dropbox (Personal)/David's Stuff/Professional Development/Open Artifacts/DSR Framework/Extractions_Repaired"
+    combined_corpus: "C:/Users/docha/Dropbox (Personal)/David's Stuff/Professional Development/Open Artifacts/DSR Framework/Extractions_Combined_Repaired/dsr_extractions_repaired_20260427.yaml"
+    reviewed_framework_families:
+      - root_control_files
+      - specs
+      - models
+      - vocabularies
+      - schemas
+      - templates
+      - checklists
+      - docs_protocol
+      - records
+    excluded_from_substantive_claims:
+      - original_unrepaired_extraction_parse_errors
+      - unpublished_pdf_full_text_reinspection
+      - external_literature_not_in_repaired_corpus
+
+  corpus_profile:
+    repaired_records_parsed: 71
+    parse_errors: 0
+    source_relevance_counts:
+      primary_dsr_source: 60
+      domain_application_source: 8
+      secondary_dsr_source: 3
+    source_type_counts:
+      conference_paper: 25
+      journal_article: 15
+      book_chapter: 13
+      book: 5
+      editorial: 5
+      conceptual_paper: 4
+      methodological_paper: 2
+      systematic_review: 1
+      mixed_journal_article_empirical_study_design_case: 1
+    dominant_genres:
+      design_science_research_methodology: 30
+      design_knowledge_synthesis: 12
+      canonical_design_science_research: 7
+      operations_management_design_science: 5
+      design_theory_contribution: 3
+      transdisciplinary_design_science: 3
+      artifact_evaluation_study: 3
+      management_design_science: 3
+    normalized_flag_counts:
+      evaluation_present:
+        true: 55
+        false: 15
+        partially: 1
+      validity_discussion_present:
+        true: 59
+        false: 12
+      reliability_discussion_present:
+        true: 37
+        false: 34
+      replication_discussion_present:
+        true: 55
+        false: 16
+      projectability_discussion_present:
+        true: 70
+        implicit_only: 1
+      stakeholder_involvement_present:
+        true: 68
+        false: 3
+      responsible_design_present:
+        true: 65
+        false: 6
+    systematic_review_section_coverage:
+      fully_present_in_71_records:
+        - definitions_and_scope
+        - intellectual_genealogy
+        - problem_space
+        - solution_objectives_and_requirements
+        - artifact_ontology
+        - design_process
+        - knowledge_contribution
+        - contribution_significance
+        - demonstration_and_use
+        - evaluation
+        - stakeholder_and_contextual_perspective
+        - limitations_and_research_agenda
+      present_in_70_records:
+        - validity
+        - reliability
+      present_in_69_records:
+        - replication_and_accumulation
+        - literature_review_and_evidence_synthesis
+        - reporting_and_publication_guidance
+
+  alignment_summary:
+    overall_alignment_status: aligned_but_uneven
+    summary: >
+      The framework's major constructs are broadly coherent with the repaired corpus. The package preserves core DSR
+      distinctions found across the corpus: artifact ontology, build/evaluate logic, problem and solution grounding,
+      contribution positioning, demonstration versus evaluation, validity, reliability, replication, projectability,
+      transparency, stakeholder/contextual evidence, and reporting/publication concerns. The principal weakness is not
+      conceptual absence, but uneven source integration: many sources are inventoried but not yet substantively mapped
+      into models, specifications, templates, checklists, or documentation.
+    current_strengths:
+      - Framework families cover all major systematic extraction sections.
+      - Controlled vocabularies now cover repaired corpus values and extraction-specification values for major axes.
+      - Schemas validate richer template and record structures that preserve literature-aligned DSR distinctions.
+      - All repaired corpus source IDs are present somewhere in the organized framework package.
+      - Transparency, artifact ontology, contribution positioning, evaluation, reliability, projectability, and publication readiness have dedicated models or guidance.
+    principal_alignment_risks:
+      - Source use is broad but shallow for much of the corpus.
+      - A small number of sources dominate substantive traceability.
+      - Several corpus themes are present but underweighted in downstream framework artifacts.
+      - Draft templates contain many TODO placeholders, which is acceptable for templates but should not be mistaken for completed literature grounding.
+      - One repaired extraction record remains partial and should not support strong claims until human reviewed or fully re-extracted.
+
+  evidence_checks:
+    source_id_coverage:
+      repaired_source_ids: 71
+      source_ids_mentioned_anywhere_in_framework: 71
+      source_ids_mentioned_only_in_source_basis_record: 55
+      source_ids_with_model_spec_doc_template_checklist_mentions: 16
+      interpretation: >
+        The framework has complete inventory-level source coverage but incomplete substantive source integration. This
+        is sufficient for an organized draft, but not sufficient for L3/L4 claims of literature-grounded framework maturity.
+    vocabulary_alignment:
+      artifact_type_values: pass
+      contribution_type_values: pass
+      knowledge_goal_values: pass
+      knowledge_scope_values: pass
+      evaluation_method_values: pass
+      validity_type_values: pass
+      reliability_type_values: pass
+      replication_type_values: pass
+      projectability_type_values: pass
+      transparency_dimension_values: pass
+      genre_type_values: pass
+      interpretation: >
+        No high-impact controlled vocabulary values used by the repaired corpus remain unmapped in the checked framework vocabularies.
+    schema_template_alignment:
+      status: pass
+      interpretation: >
+        Schema authority was reconciled toward the richer literature-aligned templates and records. Current schemas validate the generated
+        structures but should be tightened once structure and field semantics stabilize.
+
+  findings:
+    - finding_id: lar_finding_001
+      priority: high
+      title: Most corpus sources are inventoried but not substantively integrated
+      finding: >
+        All 71 repaired source IDs appear in the framework, but 55 appear only in the source-basis record. This means many
+        sources are represented as inventory evidence rather than actively grounding model decisions, template fields,
+        checklist criteria, or documentation claims.
+      evidence:
+        quantitative_check: 55_of_71_source_ids_only_in_source_basis_record
+        affected_framework_areas:
+          - models
+          - specs
+          - templates
+          - checklists
+          - docs_protocol
+      risk: >
+        The framework may appear literature-grounded while relying substantively on a much smaller set of sources than
+        the corpus inventory suggests.
+      remediation:
+        - Create a source-to-framework crosswalk that maps each corpus source to at least one framework construct, decision, exclusion, or limitation.
+        - Prioritize sources that currently appear only in the source-basis record and have primary_dsr_source relevance.
+        - Mark sources as background_only when they should not drive framework constructs.
+
+    - finding_id: lar_finding_002
+      priority: high
+      title: Source weighting is skewed toward a few dominant sources
+      finding: >
+        Hevner et al. 2024, Akoka et al. 2023, and Weigand et al. 2021 dominate substantive source mentions. These are
+        appropriate anchor sources for transparency, knowledge contribution, and artifact ontology, but the corpus also
+        contains substantial evidence on problem framing, practical relevance, context, evaluation, transdisciplinarity,
+        responsible design, and domain/practitioner DSR.
+      evidence:
+        highest_source_mentions:
+          - source_id: hevner_et_al_2024_transparency_in_design_science_research
+            mentions: 177
+          - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+            mentions: 69
+          - source_id: weigand_johannesson_andersson_2021_101878
+            mentions: 45
+      risk: >
+        The framework may overrepresent transparency, contribution-path, and artifact-ontology framings relative to
+        other DSR traditions represented in the repaired corpus.
+      remediation:
+        - Add balancing trace links from underused sources to models and checklists.
+        - Review problem-space, practical-relevance, context, stakeholder, transdisciplinary, and domain-application sources for missing operational requirements.
+
+    - finding_id: lar_finding_003
+      priority: medium
+      title: Problem-space and objective-setting literature needs stronger operational mapping
+      finding: >
+        The framework includes problem/objective templates and decision-flow logic, but sources focused on problem
+        conceptualization, DSR research questions, objectives, context, and practical relevance are mostly not yet
+        substantively integrated beyond source inventory.
+      evidence:
+        representative_underintegrated_sources:
+          - maedche_gregor_morana_feine_2019_problem_space_dsr
+          - purao_2021_dsr_problems_where_do_they_come_from
+          - thuan_drechsler_antunes_2019_construction_dsr_questions
+          - zur_heiden_2020_considering_context_dsr
+          - vom_brocke_weber_grisold_2021_dsr_practical_relevance
+      risk: >
+        Users may receive strong guidance on artifact and evaluation structure while receiving less operational support
+        for problem origin, problem class, objective formulation, and relevance justification.
+      remediation:
+        - Strengthen `templates/problem-and-objectives-template.md` and the decision-flow model with explicit source links.
+        - Add problem-origin and objective-quality checks to `checklists/dsr-minimum-viable-study-checklist.yaml`.
+        - Add traceability from problem-space sources to `models/dsr-lifecycle-model.yaml` and `models/dsr-decision-flow.yaml`.
+
+    - finding_id: lar_finding_004
+      priority: medium
+      title: Stakeholder, responsible-design, and externality concerns are present but not yet fully operationalized
+      finding: >
+        The repaired corpus shows stakeholder involvement in 68 records and responsible-design presence in 65 records.
+        The framework has responsible-design values and transparency constructs, but stakeholder and externality logic
+        should be more explicitly connected to artifact profile, evaluation planning, and publication readiness.
+      evidence:
+        corpus_counts:
+          stakeholder_involvement_present_true: 68
+          responsible_design_present_true: 65
+        representative_sources_for_followup:
+          - hevner_storey_2021_externalities_dsr
+          - suero_montero_kapinga_2019_dsr_strengthened
+          - moller_kruse_schoormann_otto_2022_boundary_spanning_design_principles
+      risk: >
+        Responsible design may remain a vocabulary category rather than a required operational review concern.
+      remediation:
+        - Add explicit stakeholder/externality checks to evaluation and publication-readiness checklists.
+        - Link responsible-design values to artifact-profile and evaluation-plan templates.
+        - Record when responsible-design evidence is not applicable and why.
+
+    - finding_id: lar_finding_005
+      priority: medium
+      title: Evaluation is well represented, but reliability evidence is more mixed and should stay calibrated
+      finding: >
+        Evaluation is present in 55 corpus records, validity in 59, replication in 55, and projectability in 70. Reliability
+        is present in 37 and absent in 34. The framework has a dedicated reliability model and checklist, which is useful,
+        but it should avoid implying reliability is uniformly central across all DSR genres.
+      evidence:
+        corpus_counts:
+          evaluation_present_true: 55
+          validity_discussion_present_true: 59
+          reliability_discussion_present_true: 37
+          reliability_discussion_present_false: 34
+          replication_discussion_present_true: 55
+          projectability_discussion_present_true: 70
+      risk: >
+        A reliability-heavy review regime could overburden DSR genres where projectability, transparency, or evaluation
+        adequacy are more appropriate than reliability in a strict sense.
+      remediation:
+        - Keep reliability as a calibrated dimension with not-applicable and genre-specific pathways.
+        - Ensure `reliability-checklist.yaml` distinguishes artifact, method, measure, design-knowledge, and record reliability.
+        - Preserve projectability as a separate concept rather than collapsing it into reliability or replication.
+
+    - finding_id: lar_finding_006
+      priority: medium
+      title: Domain-application and practitioner DSR sources need clearer status in the framework
+      finding: >
+        The corpus includes domain application and practitioner-oriented DSR sources that currently appear mostly as
+        source inventory entries. These sources can help calibrate the framework against operational use, practical
+        relevance, domain transfer, and situated constraints.
+      evidence:
+        domain_application_source_count: 8
+        representative_sources:
+          - nagle_sammon_doyle_2017_insights_pdsr
+          - krasikov_legner_eurich_2021_open_data_sourcing
+          - beinke_fitte_teuteberg_2019_blockchain_ehr
+          - tqm-01-2023-0017
+          - skalli_cherrafi_charkaoui_chiarini_shokri_antony_garza_reyes_foster_2025_lss40_framework
+      risk: >
+        The framework may remain methodologically coherent but less operationally tested against domain/practitioner
+        use cases.
+      remediation:
+        - Use selected domain/practitioner sources to stress-test templates and checklists.
+        - Treat domain sources as calibration examples rather than as universal DSR theory.
+        - Add at least one worked example only after template expectations stabilize.
+
+    - finding_id: lar_finding_007
+      priority: low
+      title: Repaired partial extraction requires human review before strong use
+      finding: >
+        `pekkola_2023_reflections_supervising_postgraduate_dsr_thesis` was repaired from a truncated extraction and
+        marked `repaired_partial`. It is useful for teaching, supervision, feasibility, and lightweight DSR constraints,
+        but should not support strong framework claims until human reviewed or fully re-extracted.
+      evidence:
+        repaired_source_id: pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+        repair_status: repaired_partial
+      risk: >
+        A repaired extraction could accidentally be treated as equally strong as complete records.
+      remediation:
+        - Human-review or re-extract the Pekkola source before public release.
+        - Keep its confidence and repair-status flags visible in source-basis and literature-alignment records.
+
+  recommended_workplan:
+    - work_item_id: lar_work_001
+      priority: high
+      action: Create `crosswalks/source-to-framework-alignment.yaml`.
+      rationale: >
+        The framework needs a controlled mapping from each repaired corpus source to framework constructs, file paths,
+        decisions, exclusions, and evidence statuses.
+      minimum_fields:
+        - source_id
+        - source_role
+        - mapped_framework_files
+        - mapped_constructs
+        - evidence_status
+        - use_strength
+        - limitations_or_exclusions
+    - work_item_id: lar_work_002
+      priority: high
+      action: Strengthen problem-space, objective-setting, and relevance traceability.
+      target_files:
+        - templates/problem-and-objectives-template.md
+        - models/dsr-decision-flow.yaml
+        - checklists/dsr-minimum-viable-study-checklist.yaml
+        - docs/protocol/00-framework-overview.md
+    - work_item_id: lar_work_003
+      priority: medium
+      action: Add stakeholder, externality, and responsible-design checks to operational templates and checklists.
+      target_files:
+        - artifact-profile.yaml
+        - templates/evaluation-plan-template.yaml
+        - checklists/evaluation-readiness-checklist.yaml
+        - checklists/publication-readiness-checklist.yaml
+        - vocabularies/responsible-design-values.yaml
+    - work_item_id: lar_work_004
+      priority: medium
+      action: Recalibrate reliability and projectability guidance by genre.
+      target_files:
+        - models/dsr-reliability-model.yaml
+        - models/dsr-projectability-model.yaml
+        - checklists/reliability-checklist.yaml
+        - checklists/replication-projectability-checklist.yaml
+    - work_item_id: lar_work_005
+      priority: medium
+      action: Select domain/practitioner corpus records for template stress testing.
+      target_files:
+        - examples
+        - templates/artifact-specification-template.md
+        - templates/evaluation-report-template.yaml
+        - checklists/artifact-package-readiness-checklist.yaml
+    - work_item_id: lar_work_006
+      priority: low
+      action: Human-review duplicate-title candidates and the repaired partial extraction.
+      target_sources:
+        - baskerville_kaul_priesheje_storey_2019_inducing_creativity
+        - baskerville_kaul_priesheje_storey_2019_inducing_creativity_dsr
+        - van_aken_chandrasekaran_halman_2016_jom_dsr
+        - van_aken_chandrasekaran_halman_2016_jom_design_science_research
+        - pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+
+  outcome:
+    result: pass_with_required_followup
+    summary: >
+      The framework is conceptually aligned with the repaired DSR literature corpus at an organized-draft level. It is
+      not yet sufficiently source-mapped for a strong claim of comprehensive literature-grounded operational maturity.
+      The next required artifact is a controlled source-to-framework alignment crosswalk.
+    conformance_implication: >
+      Supports continued L2 reviewable development. Does not support L4 reusable or L5 archival/publication-ready claims.
+
+  validation:
+    record_parse_status: pending_final_validation
+    corpus_parse_status: passed_71_records
+    framework_parse_status_at_review_time: passed
+    schema_template_record_validation_status_at_review_time: passed
+
+  related_items:
+    upstream:
+      - "../Extractions_Repaired"
+      - "../Extractions_Combined_Repaired/dsr_extractions_repaired_20260427.yaml"
+      - "records/source-basis/record-source-basis-0001-dsr-corpus.yaml"
+    peer:
+      - "FRAMEWORK_AUDIT_2026-04-27.md"
+      - "package-inventory.yaml"
+      - "manifest.yaml"
+    downstream_recommended:
+      - "crosswalks/source-to-framework-alignment.yaml"
+      - "templates/problem-and-objectives-template.md"
+      - "models/dsr-decision-flow.yaml"
+      - "checklists/dsr-minimum-viable-study-checklist.yaml"
+
+  retention_rule:
+    retention_class: review_record
+    minimum_retention: retain_for_life_of_repository
+    supersession_rule: Supersede with a new literature-alignment review after source-to-framework crosswalk completion.
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change_type: create_new
+      summary: Created second-pass literature alignment review from repaired corpus and organized framework package.
+      responsible_party: GPT-5.5 Thinking

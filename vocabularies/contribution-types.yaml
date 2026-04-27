@@ -1,0 +1,994 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: contribution_types
+  item_id: vocab_contribution_types
+  item_type: vocabulary
+  title: DSR Contribution Types Vocabulary
+  purpose: >
+    Provide controlled contribution-positioning terms for Design Science Research
+    artifacts, studies, records, claims, reviews, and publication-readiness checks.
+    The vocabulary distinguishes the novelty/significance position of a contribution
+    from artifact type, knowledge goal, evaluation method, and evidence strength.
+  status: draft
+  version: "0.1.0"
+  owner:
+    role: framework_maintainer
+    name: DSR Framework Maintainers
+  target_path: vocabularies/contribution-types.yaml
+  default_conformance_target: l2_reviewable
+  namespace: dsr
+  license: CC0-1.0
+
+  source_basis:
+    - id: dsr_extraction_corpus
+      label: Internal DSR extraction corpus
+      evidence_status: mapped_to_corpus_records
+      use: >
+        Supplies normalized contribution_type and normalized_contribution_type
+        values extracted across the DSR source records.
+    - id: gregor_hevner_knowledge_contribution_framework
+      label: Gregor and Hevner-style contribution grid
+      evidence_status: mapped_in_corpus
+      use: >
+        Supplies the problem-maturity by solution-maturity positioning logic for
+        routine design, improvement, exaptation, and invention.
+    - id: akoka_et_al_2023_knowledge_contributions_paths
+      label: Knowledge contributions as paths of knowledge types
+      evidence_status: mapped_in_corpus
+      use: >
+        Supports contribution positioning as dynamic, pluralistic knowledge
+        development across knowledge moments, goals, and scopes.
+    - id: schwartz_yahav_2021_knowledge_contribution_diagrams
+      label: Knowledge Contribution Diagrams
+      evidence_status: mapped_in_corpus
+      use: >
+        Supports component-level positioning of multiple contribution types within
+        complex DSR artifacts.
+    - id: weber_process_product_quality_framework
+      label: Process/product evaluation of DSR quality
+      evidence_status: mapped_in_corpus
+      use: >
+        Supports distinguishing routine design from publishable knowledge
+        contribution and using contribution type as a review criterion.
+
+  scope:
+    applies_to:
+      - artifact_profile
+      - contribution_claim
+      - contribution_positioning_record
+      - dsr_project_record
+      - dsr_review_record
+      - publication_readiness_review
+      - systematic_review_coding
+    does_not_replace:
+      - vocabularies/artifact-types.yaml
+      - vocabularies/knowledge-goals.yaml
+      - vocabularies/knowledge-scopes.yaml
+      - vocabularies/evaluation-method-families.yaml
+      - vocabularies/genre-types.yaml
+    usage_note: >
+      Select contribution type to position what is claimed to be new, useful,
+      transferred, synthesized, extended, evaluated, or critiqued. Separately
+      record the artifact type, knowledge goal, knowledge scope, evaluation
+      method, and evidence status.
+
+  classification_dimensions:
+    - id: problem_maturity
+      label: Problem or application-domain maturity
+      allowed_values:
+        - low_or_emergent
+        - mixed_or_contested
+        - high_or_established
+        - not_applicable
+      purpose: >
+        Indicates whether the problem class is new, unstable, immature, mature,
+        or already well understood.
+    - id: solution_maturity
+      label: Solution or artifact-approach maturity
+      allowed_values:
+        - low_or_novel
+        - mixed_or_adapting
+        - high_or_established
+        - not_applicable
+      purpose: >
+        Indicates whether the solution approach is new, adapted, emergent,
+        or already well established.
+    - id: contribution_target
+      label: Target of contribution
+      allowed_values:
+        - artifact
+        - method
+        - model
+        - framework
+        - theory
+        - evaluation
+        - reporting
+        - evidence_synthesis
+        - critique
+        - practice_context
+        - mixed
+      purpose: >
+        Identifies what the contribution primarily changes or adds.
+    - id: contribution_scope
+      label: Scope of contribution
+      allowed_values:
+        - local_or_idiographic
+        - projectable_to_problem_class
+        - analytical_generalization
+        - nomothetic_general
+        - mixed
+      purpose: >
+        Indicates the intended reach of the contribution claim.
+    - id: contribution_role
+      label: Claim role
+      allowed_values:
+        - primary
+        - secondary
+        - supporting
+        - negative_or_boundary
+        - not_claimed
+      purpose: >
+        Indicates whether the type is the principal contribution claim or only a
+        supporting, diagnostic, or boundary note.
+
+  entry_schema:
+    required_fields:
+      - id
+      - label
+      - definition
+      - allowed_use
+      - boundary_notes
+      - related_terms
+      - source_basis
+    recommended_fields:
+      - parent_category
+      - contribution_position
+      - review_implications
+      - evidence_expectations
+      - examples_of_use
+      - not_to_be_confused_with
+
+  entries:
+    - id: routine_design
+      label: Routine Design
+      parent_category: contribution_significance_quadrant
+      definition: >
+        A known or mature solution approach applied to a known or mature problem
+        class, usually producing local utility rather than a strong standalone
+        contribution to design knowledge.
+      allowed_use: >
+        Use when the DSR work primarily applies established artifacts, methods,
+        models, or design principles to a familiar problem without material
+        extension, transfer, synthesis, or theory development.
+      boundary_notes: >
+        Routine design can still be practically useful, pedagogically valuable,
+        or necessary as a baseline, demonstration, replication, or implementation
+        record. Do not use it as a publishable contribution claim unless the work
+        also supplies another contribution type, such as evaluation extension,
+        replication evidence, domain evidence, or critique.
+      contribution_position:
+        problem_maturity: high_or_established
+        solution_maturity: high_or_established
+        novelty_level: low
+        routine_design_risk: high
+        default_claim_role: supporting
+      review_implications:
+        - Require explicit justification if the project claims research contribution.
+        - Check whether the main value is local utility rather than reusable design knowledge.
+        - Consider whether the record should be framed as demonstration, replication, or implementation evidence.
+      evidence_expectations:
+        - clear problem and solution maturity rationale
+        - statement of why the activity is still worth recording
+        - distinction between local delivery and knowledge contribution
+      examples_of_use:
+        - Applying an established evaluation checklist to a standard artifact without modification.
+        - Implementing a known software pattern in a conventional problem context.
+      not_to_be_confused_with:
+        - domain_application
+        - replication
+        - demonstration
+      related_terms:
+        - improvement
+        - exaptation
+        - invention
+        - domain_application
+      source_basis:
+        - source_id: gregor_hevner_knowledge_contribution_framework
+          evidence_status: mapped_in_corpus
+        - source_id: weber_process_product_quality_framework
+          evidence_status: mapped_in_corpus
+
+    - id: improvement
+      label: Improvement
+      parent_category: contribution_significance_quadrant
+      definition: >
+        A new, materially refined, or demonstrably better solution approach for
+        a known or mature problem class.
+      allowed_use: >
+        Use when the problem domain is reasonably established but the artifact,
+        method, model, process, or evaluation approach materially improves what
+        prior solutions can do.
+      boundary_notes: >
+        Improvement requires more than routine implementation or minor parameter
+        tuning. Identify the baseline, improvement mechanism, and evaluation
+        criteria that make the improvement reviewable.
+      contribution_position:
+        problem_maturity: high_or_established
+        solution_maturity: low_or_novel
+        novelty_level: moderate_to_high
+        routine_design_risk: moderate
+        default_claim_role: primary
+      review_implications:
+        - Require a clear comparison to existing solution classes or prior artifacts.
+        - Require evaluation evidence aligned to the stated improvement claim.
+        - Check whether the contribution is artifact quality, utility, or reusable design knowledge.
+      evidence_expectations:
+        - baseline or comparator
+        - improvement criteria
+        - evaluation or demonstration evidence
+        - boundary conditions for transfer
+      examples_of_use:
+        - Creating a more effective method for a familiar requirements-engineering problem.
+        - Extending a mature evaluation framework with operational criteria for a known artifact class.
+      not_to_be_confused_with:
+        - routine_design
+        - method_extension
+        - evaluation_extension
+      related_terms:
+        - routine_design
+        - exaptation
+        - invention
+        - method_extension
+      source_basis:
+        - source_id: gregor_hevner_knowledge_contribution_framework
+          evidence_status: mapped_in_corpus
+        - source_id: schwartz_yahav_2021_knowledge_contribution_diagrams
+          evidence_status: mapped_in_corpus
+
+    - id: exaptation
+      label: Exaptation
+      parent_category: contribution_significance_quadrant
+      definition: >
+        A known or mature solution approach, theory, method, artifact, or design
+        principle transferred and adapted to a new, immature, or substantially
+        different problem class.
+      allowed_use: >
+        Use when the core novelty lies in productive transfer across domains,
+        problem classes, stakeholder contexts, artifact classes, or use settings.
+      boundary_notes: >
+        Exaptation is not merely copying a solution into another setting. The
+        record must explain why the receiving problem context is meaningfully new
+        and what adaptation work was required.
+      synonyms_or_aliases:
+        - adaptation
+      contribution_position:
+        problem_maturity: low_or_emergent
+        solution_maturity: high_or_established
+        novelty_level: moderate_to_high
+        routine_design_risk: moderate
+        default_claim_role: primary
+      review_implications:
+        - Require a source-domain and target-domain distinction.
+        - Require explicit adaptation rationale and boundary conditions.
+        - Check whether transfer evidence supports projectability beyond the local case.
+      evidence_expectations:
+        - description of original solution context
+        - description of target problem novelty
+        - adaptation decisions
+        - evidence of fit or misfit in the target context
+      examples_of_use:
+        - Applying platform theory to an internal organizational collaboration process.
+        - Adapting a mature analytic method to a new socio-technical design context.
+      not_to_be_confused_with:
+        - domain_application
+        - routine_design
+        - synthesis
+      related_terms:
+        - improvement
+        - invention
+        - domain_application
+        - projectability
+      source_basis:
+        - source_id: gregor_hevner_knowledge_contribution_framework
+          evidence_status: mapped_in_corpus
+        - source_id: schwartz_yahav_2021_knowledge_contribution_diagrams
+          evidence_status: mapped_in_corpus
+
+    - id: invention
+      label: Invention
+      parent_category: contribution_significance_quadrant
+      definition: >
+        A novel solution approach for a new, immature, poorly understood, or
+        substantially reframed problem class.
+      allowed_use: >
+        Use when both the problem framing and the solution approach are novel or
+        underdeveloped, and the project contributes new design knowledge rather
+        than merely configuring known options.
+      boundary_notes: >
+        Invention claims carry high review burden. Avoid using this label for
+        ordinary novelty, local customization, or early prototypes unless problem
+        novelty, solution novelty, and contribution significance are documented.
+      contribution_position:
+        problem_maturity: low_or_emergent
+        solution_maturity: low_or_novel
+        novelty_level: high
+        routine_design_risk: low
+        default_claim_role: primary
+      review_implications:
+        - Require strong problem-space transparency.
+        - Require explicit novelty rationale for both problem and solution.
+        - Require evaluation strategy suited to early-stage or high-uncertainty artifacts.
+      evidence_expectations:
+        - problem novelty evidence
+        - solution novelty evidence
+        - design rationale
+        - formative evaluation and limits of evidence
+        - boundary conditions and open risks
+      examples_of_use:
+        - Developing an original artifact architecture for an emergent socio-technical problem class.
+        - Creating a new design theory for a previously unstructured class of interventions.
+      not_to_be_confused_with:
+        - improvement
+        - theory_building
+        - method_extension
+      related_terms:
+        - routine_design
+        - improvement
+        - exaptation
+        - theory_building
+      source_basis:
+        - source_id: gregor_hevner_knowledge_contribution_framework
+          evidence_status: mapped_in_corpus
+        - source_id: schwartz_yahav_2021_knowledge_contribution_diagrams
+          evidence_status: mapped_in_corpus
+
+    - id: synthesis
+      label: Synthesis
+      parent_category: framework_level_contribution
+      definition: >
+        A contribution that integrates existing DSR concepts, theories, methods,
+        artifact classifications, evaluation criteria, or reporting norms into a
+        coherent model, protocol, framework, checklist, or evidence map.
+      allowed_use: >
+        Use when the principal contribution is organized integration of prior
+        knowledge rather than a new domain artifact, new empirical finding, or
+        standalone theory.
+      boundary_notes: >
+        Synthesis must preserve source distinctions and avoid overclaiming novelty.
+        It should show what is integrated, why the integration is useful, and what
+        new operating capability the synthesis creates.
+      contribution_position:
+        problem_maturity: mixed_or_contested
+        solution_maturity: mixed_or_adapting
+        novelty_level: moderate
+        routine_design_risk: variable
+        default_claim_role: primary
+      review_implications:
+        - Check source coverage and traceability.
+        - Check whether integration creates operational value rather than a loose summary.
+        - Check whether the synthesis distinguishes consensus, extension, tension, and gaps.
+      evidence_expectations:
+        - source basis
+        - synthesis logic
+        - traceability to source families
+        - limitations of coverage
+      examples_of_use:
+        - Producing a DSR framework by integrating lifecycle, artifact, evaluation, and transparency models.
+        - Building a crosswalk among DSR reporting traditions and repository documentation products.
+      not_to_be_confused_with:
+        - literature_review_only
+        - method_extension
+        - theory_building
+      related_terms:
+        - method_extension
+        - critique
+        - theory_building
+        - evidence_synthesis
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped_to_normalized_contribution_type
+        - source_id: weber_process_product_quality_framework
+          evidence_status: mapped_in_corpus
+
+    - id: method_extension
+      label: Method Extension
+      parent_category: framework_level_contribution
+      definition: >
+        A contribution that adds to, refines, operationalizes, visualizes, or
+        improves DSR methods, process models, reporting techniques, evaluation
+        routines, design-rationale practices, or research-support procedures.
+      allowed_use: >
+        Use when the contribution primarily changes how DSR is planned, conducted,
+        represented, documented, evaluated, reviewed, or communicated.
+      boundary_notes: >
+        Do not use for every method application. The method itself must be extended,
+        adapted, operationalized, or made newly usable for a defined DSR purpose.
+      contribution_position:
+        problem_maturity: mixed_or_contested
+        solution_maturity: mixed_or_adapting
+        novelty_level: moderate_to_high
+        routine_design_risk: low_to_moderate
+        default_claim_role: primary
+      review_implications:
+        - Require a prior method or methodological gap.
+        - Require explanation of what changed and why the change matters.
+        - Require usability, demonstration, or evaluation evidence proportional to the claim.
+      evidence_expectations:
+        - prior method baseline
+        - extension mechanism
+        - intended users
+        - example, demonstration, or evaluation evidence
+        - limits and failure modes
+      examples_of_use:
+        - Extending contribution reporting through Knowledge Contribution Diagrams.
+        - Creating a framework for identifying objectives before artifact build and evaluation.
+        - Adding transparency dimensions to DSR reporting practice.
+      not_to_be_confused_with:
+        - routine_method_use
+        - synthesis
+        - evaluation_extension
+      related_terms:
+        - synthesis
+        - evaluation_extension
+        - representation_extension
+        - reporting_extension
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped_to_normalized_contribution_type
+        - source_id: akoka_et_al_2023_knowledge_contributions_paths
+          evidence_status: mapped_in_corpus
+        - source_id: schwartz_yahav_2021_knowledge_contribution_diagrams
+          evidence_status: mapped_in_corpus
+
+    - id: theory_building
+      label: Theory Building
+      parent_category: framework_level_contribution
+      definition: >
+        A contribution that creates, refines, elaborates, or substantiates design
+        theory, kernel theory, design principles, justificatory knowledge, or
+        explanatory/prescriptive relationships relevant to DSR artifacts.
+      allowed_use: >
+        Use when the project contributes conceptual or theoretical knowledge about
+        why artifacts work, how design principles should be formulated, how artifact
+        mechanisms operate, or how a design domain should be understood.
+      boundary_notes: >
+        Theory building is not the same as citing a kernel theory. The project must
+        add to theory, refine theory, or generate explicit design-theoretic content.
+      contribution_position:
+        problem_maturity: mixed_or_contested
+        solution_maturity: mixed_or_adapting
+        novelty_level: moderate_to_high
+        routine_design_risk: low_to_moderate
+        default_claim_role: primary
+      review_implications:
+        - Require constructs, relationships, principles, propositions, or mechanisms.
+        - Require distinction between borrowed justificatory knowledge and new contribution.
+        - Check whether evidence supports theoretical rather than merely practical claims.
+      evidence_expectations:
+        - theory object or theoretical construct
+        - relationship to prior theory
+        - design principle or explanatory/prescriptive claim
+        - evidentiary support and boundary conditions
+      examples_of_use:
+        - Deriving design principles from iterative artifact evaluation.
+        - Arguing that DSR can generate new kernel-theory concepts through artifact construction and evaluation.
+      not_to_be_confused_with:
+        - conceptual_background
+        - synthesis
+        - domain_application
+      related_terms:
+        - synthesis
+        - invention
+        - method_extension
+        - design_principle_contribution
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped_to_normalized_contribution_type
+        - source_id: akoka_et_al_2023_knowledge_contributions_paths
+          evidence_status: mapped_in_corpus
+
+    - id: evaluation_extension
+      label: Evaluation Extension
+      parent_category: framework_level_contribution
+      definition: >
+        A contribution that extends what DSR evaluation assesses, how it is
+        conducted, how evidence is interpreted, or how artifact quality, utility,
+        validity, reliability, aesthetics, responsibility, or projectability are
+        evaluated.
+      allowed_use: >
+        Use when the principal contribution is a new or refined evaluation concept,
+        criterion, method family, scoring logic, evidence standard, or evaluation
+        alignment model.
+      boundary_notes: >
+        Do not use merely because a project evaluates an artifact. Use only when
+        evaluation practice, criteria, or interpretation is itself extended.
+      contribution_position:
+        problem_maturity: mixed_or_contested
+        solution_maturity: mixed_or_adapting
+        novelty_level: moderate
+        routine_design_risk: low_to_moderate
+        default_claim_role: primary_or_secondary
+      review_implications:
+        - Require explicit target of evaluation extension.
+        - Require criteria, constructs, or procedural implications.
+        - Check whether evaluation extension is separate from artifact evaluation results.
+      evidence_expectations:
+        - evaluation gap
+        - proposed criterion or method
+        - evidence of applicability
+        - distinction from ordinary artifact evaluation
+      examples_of_use:
+        - Adding aesthetic quality as an evaluation dimension for relevant DSR artifacts.
+        - Creating a process/product framework for reviewing DSR quality.
+      not_to_be_confused_with:
+        - artifact_evaluation_result
+        - method_extension
+        - validity_type
+      related_terms:
+        - method_extension
+        - synthesis
+        - critique
+        - validity
+        - reliability
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped_to_normalized_contribution_type
+        - source_id: weber_process_product_quality_framework
+          evidence_status: mapped_in_corpus
+
+    - id: critique
+      label: Critique
+      parent_category: framework_level_contribution
+      definition: >
+        A diagnostic or corrective contribution that identifies conceptual
+        ambiguity, methodological weakness, boundary failure, unsupported claims,
+        reporting gaps, validity threats, or overextensions in DSR practice or
+        literature.
+      allowed_use: >
+        Use when the contribution primarily clarifies what should not be claimed,
+        where existing approaches fail, or which assumptions and boundaries need
+        correction before further design work or synthesis proceeds.
+      boundary_notes: >
+        Critique should be constructive and traceable. It should identify the
+        affected claim, concept, method, or practice and provide implications for
+        revision, review, or future work.
+      contribution_position:
+        problem_maturity: mixed_or_contested
+        solution_maturity: not_applicable
+        novelty_level: variable
+        routine_design_risk: not_applicable
+        default_claim_role: primary_or_supporting
+      review_implications:
+        - Require explicit object of critique.
+        - Require evidence or reasoning supporting the critique.
+        - Check whether remediation, boundary conditions, or alternative framing is provided.
+      evidence_expectations:
+        - target concept or claim
+        - evidence of limitation or contradiction
+        - implications for method, reporting, or evaluation
+        - proposed correction or open question
+      examples_of_use:
+        - Showing that a DSR paper overclaims generalization from local demonstration.
+        - Identifying that an artifact typology confuses artifact instances with artifact universals.
+      not_to_be_confused_with:
+        - negative_evaluation_result
+        - limitation_note
+        - peer_review_comment_only
+      related_terms:
+        - synthesis
+        - method_extension
+        - evaluation_extension
+        - boundary_condition
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped_to_normalized_contribution_type
+        - source_id: weber_process_product_quality_framework
+          evidence_status: mapped_in_corpus
+
+    - id: domain_application
+      label: Domain Application
+      parent_category: application_or_contextual_contribution
+      definition: >
+        A contribution in which DSR is used to produce or evaluate an artifact for
+        a specific domain, with the main knowledge value residing in domain
+        adaptation, implementation insight, stakeholder context, or practice-facing
+        utility rather than a direct extension to DSR method or theory.
+      allowed_use: >
+        Use as a primary type only when the framework needs to classify practice-
+        or domain-centered DSR outputs. Otherwise use as a secondary descriptor
+        together with improvement, exaptation, method_extension, or theory_building.
+      boundary_notes: >
+        Domain application is not automatically routine design. It may carry DSR
+        contribution when it demonstrates projectability, reveals domain-specific
+        mechanisms, transfers a solution to a new context, or produces reusable
+        design knowledge.
+      contribution_position:
+        problem_maturity: variable
+        solution_maturity: variable
+        novelty_level: variable
+        routine_design_risk: variable
+        default_claim_role: secondary
+      review_implications:
+        - Require clear separation between contribution to the domain and contribution to DSR knowledge.
+        - Require problem context, stakeholder, and use-condition documentation.
+        - Check whether the claim should instead be improvement, exaptation, or routine design.
+      evidence_expectations:
+        - domain problem statement
+        - artifact or intervention description
+        - demonstration or evaluation evidence
+        - explicit contribution-to-practice statement
+        - boundary conditions for transfer
+      examples_of_use:
+        - Applying DSR to gamified negotiation training.
+        - Creating a sustainable project portfolio management artifact grounded in DSR.
+      not_to_be_confused_with:
+        - routine_design
+        - exaptation
+        - practice_impact
+      related_terms:
+        - routine_design
+        - improvement
+        - exaptation
+        - contribution_to_practice
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: inferred_from_source_role_and_contribution_fields
+
+    - id: replication
+      label: Replication
+      parent_category: evidence_accumulation
+      definition: >
+        A contribution that repeats, re-executes, reconstructs, or reexamines a
+        prior DSR artifact, method, evaluation, or claim to test stability,
+        transfer, boundary conditions, or cumulative evidence.
+      allowed_use: >
+        Use when the contribution is primarily evidence accumulation through
+        replication, replication variant classification, or repeat evaluation.
+      boundary_notes: >
+        Replication can be a contribution even when it does not introduce a new
+        artifact. Record what is being replicated and how the replication differs
+        from or confirms the original work.
+      contribution_position:
+        problem_maturity: variable
+        solution_maturity: high_or_established
+        novelty_level: evidence_contribution
+        routine_design_risk: moderate
+        default_claim_role: primary_or_secondary
+      review_implications:
+        - Require identification of the original artifact, claim, or evaluation.
+        - Require classification of replication type and boundary conditions.
+      evidence_expectations:
+        - original_study_or_artifact_reference
+        - replication_protocol_or_comparison_logic
+        - result_comparison
+      examples_of_use:
+        - Repeating a DSR evaluation with a new stakeholder group.
+        - Testing whether a design principle transfers to a related problem class.
+      not_to_be_confused_with:
+        - routine_design
+        - demonstration
+      related_terms:
+        - evaluation_extension
+        - synthesis
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+
+    - id: theory_testing
+      label: Theory Testing
+      parent_category: theory_contribution
+      definition: >
+        A contribution that evaluates, challenges, refines, or bounds an existing
+        design theory, explanatory theory, proposition, or design-knowledge claim.
+      allowed_use: >
+        Use when the primary contribution is not theory creation but a warranted
+        test of an existing theoretical or design-knowledge claim.
+      boundary_notes: >
+        Distinguish from evaluation_extension when the focal object is a theory
+        or proposition rather than an evaluation method. Distinguish from
+        theory_building when the main outcome is a new or substantially revised
+        theory.
+      contribution_position:
+        problem_maturity: variable
+        solution_maturity: variable
+        novelty_level: theory_evidence_contribution
+        routine_design_risk: low_to_moderate
+        default_claim_role: primary_or_secondary
+      review_implications:
+        - Require explicit theory, proposition, or design-knowledge claim under test.
+        - Require evidence sufficient to support confirmation, refinement, or rejection.
+      evidence_expectations:
+        - theory_or_claim_reference
+        - test_context
+        - evaluation_or_analysis_result
+      examples_of_use:
+        - Testing whether a DSR design theory holds in a new organizational context.
+      not_to_be_confused_with:
+        - theory_building
+        - evaluation_extension
+      related_terms:
+        - theory_building
+        - replication
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+
+    - id: unclear
+      label: Unclear
+      parent_category: review_state
+      definition: >
+        Temporary extraction or review value used when a source does not support
+        confident contribution-type classification.
+      allowed_use: >
+        Use only for corpus extraction compatibility, triage, or draft review
+        records that require later human resolution.
+      boundary_notes: >
+        Do not use in released contribution claims without an open question,
+        limitation, and remediation action.
+      contribution_position:
+        problem_maturity: not_applicable
+        solution_maturity: not_applicable
+        novelty_level: unresolved
+        routine_design_risk: unknown
+        default_claim_role: not_claimed
+      review_implications:
+        - Require follow-up classification before publication-ready release.
+      evidence_expectations:
+        - reason_classification_is_unclear
+        - review_action_needed
+      examples_of_use:
+        - A source extraction where contribution terminology is ambiguous.
+      not_to_be_confused_with:
+        - routine_design
+      related_terms:
+        - critique
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+
+  aliases:
+    adaptation:
+      preferred_id: exaptation
+      rationale: >
+        Some DSR sources label the known-solution-to-new-problem quadrant as
+        adaptation. This framework standardizes on exaptation while retaining
+        adaptation as an alias.
+    routine:
+      preferred_id: routine_design
+    extension:
+      preferred_id: method_extension
+      rationale: >
+        Use the more specific method_extension, evaluation_extension, or
+        theory_building label whenever possible.
+
+  selection_guidance:
+    primary_selection_rule: >
+      Assign one primary contribution type per contribution claim. Assign
+      additional secondary types only when the artifact, method, theory, or
+      evidence package has separable contribution layers.
+    multi_component_artifact_rule: >
+      For complex artifacts, classify contribution type at the meaningful
+      component level when a single overall project classification would hide
+      variation across sub-artifacts.
+    routine_design_rule: >
+      If the only candidate type is routine_design, do not treat the item as a
+      strong DSR knowledge contribution unless another evidence role is present,
+      such as replication, demonstration, benchmark, implementation learning, or
+      boundary testing.
+    method_vs_evaluation_rule: >
+      Use method_extension when the contribution changes DSR conduct or reporting
+      broadly. Use evaluation_extension when the contribution specifically changes
+      evaluation criteria, evidence logic, assessment method, or quality judgment.
+    theory_vs_synthesis_rule: >
+      Use synthesis when the contribution integrates existing bodies of knowledge.
+      Use theory_building when the contribution adds new constructs, mechanisms,
+      principles, propositions, or theory relations.
+
+  validation_rules:
+    - rule_id: ct_vr_001
+      rule: contribution_type_id_must_match_vocabulary_entry
+      severity: error
+      applies_to:
+        - contribution_claim
+        - contribution_positioning_record
+        - dsr_project_record
+      pass_condition: >
+        Every declared contribution_type value equals one entry id in this file
+        or one alias that resolves to a preferred entry id.
+      fail_condition: >
+        A contribution_type value is undefined, misspelled, or used only as an
+        artifact type, knowledge goal, or evaluation method.
+    - rule_id: ct_vr_002
+      rule: primary_contribution_type_required_for_claims
+      severity: error
+      applies_to:
+        - contribution_claim
+      pass_condition: >
+        Each contribution claim has exactly one primary contribution type and may
+        have zero or more secondary contribution types.
+      fail_condition: >
+        The claim lacks a contribution type, has multiple primary types without
+        component-level decomposition, or marks all types as supporting.
+    - rule_id: ct_vr_003
+      rule: routine_design_requires_explicit_justification
+      severity: warning
+      applies_to:
+        - contribution_claim
+        - review_record
+      pass_condition: >
+        If routine_design is used, the record explains whether the value lies in
+        demonstration, replication, implementation learning, benchmark evidence,
+        or local utility rather than a standalone knowledge contribution.
+      fail_condition: >
+        Routine design is presented as a strong publishable contribution without
+        additional justification.
+    - rule_id: ct_vr_004
+      rule: contribution_type_must_not_substitute_for_evidence
+      severity: error
+      applies_to:
+        - review_record
+        - publication_readiness_review
+      pass_condition: >
+        The record separately documents contribution type, evidence status,
+        evaluation status, and scope of claim.
+      fail_condition: >
+        The record treats a high-novelty type such as invention as sufficient
+        evidence of quality, utility, validity, or publication readiness.
+    - rule_id: ct_vr_005
+      rule: aliases_must_resolve_to_preferred_ids
+      severity: warning
+      applies_to:
+        - systematic_review_coding
+        - imported_records
+      pass_condition: >
+        Alias values are retained in source_notes but normalized to preferred
+        entry ids for controlled fields.
+      fail_condition: >
+        Alias values are used inconsistently as separate controlled terms.
+
+  mapping_to_related_vocabularies:
+    artifact_types:
+      relation: orthogonal
+      note: >
+        Artifact type describes what kind of thing is produced; contribution type
+        describes the position and nature of the knowledge contribution.
+    knowledge_goals:
+      relation: complementary
+      note: >
+        Knowledge goals describe the kind of knowledge produced, such as
+        definitional, explanatory, evaluative, methodological, or prescriptive.
+        Contribution type describes novelty, transfer, synthesis, extension, or
+        critique posture.
+    knowledge_scopes:
+      relation: complementary
+      note: >
+        Knowledge scope describes intended reach. Contribution type describes the
+        form and significance of the contribution.
+    evaluation_methods:
+      relation: evidence_support
+      note: >
+        Evaluation methods provide evidence for contribution claims but do not by
+        themselves determine contribution type.
+    genre_types:
+      relation: contextual
+      note: >
+        Genre describes the publication or study form. Contribution type describes
+        the contribution being claimed inside that genre.
+
+  traceability:
+    - trace_id: ct_trace_001
+      source: dsr-framework-selection-table.md
+      source_selection_id: vocab_contribution_types
+      target: vocabularies/contribution-types.yaml
+      relation: selected_generation_target
+      evidence_status: mapped
+    - trace_id: ct_trace_002
+      source: dsr-framework-generation-spec.yaml
+      target: vocabulary.entry_schema
+      relation: conforms_to_vocabulary_generation_rules
+      evidence_status: mapped
+    - trace_id: ct_trace_003
+      source: chunked_folder_conversion_extractions_20260427030321_part001.yaml
+      target: vocabulary.entries
+      relation: grounded_in_dsr_corpus_contribution_types
+      evidence_status: mapped_to_corpus_extracts
+    - trace_id: ct_trace_004
+      source: models/dsr-contribution-model.yaml
+      target: vocabulary.entries
+      relation: upstream_dependency_placeholder
+      evidence_status: not_yet_mapped
+    - trace_id: ct_trace_005
+      source: templates/contribution-positioning-record-template.yaml
+      target: vocabulary.validation_rules
+      relation: downstream_controlled_value_dependency
+      evidence_status: not_yet_mapped
+
+  quality_and_conformance:
+    conformance_level: l2_reviewable
+    acceptance_criteria:
+      - id: ct_ac_001
+        criterion: The file is valid YAML and uses lower-kebab-case target path conventions.
+        status: pass
+      - id: ct_ac_002
+        criterion: Each vocabulary entry includes id, label, definition, allowed_use, boundary_notes, related_terms, and source_basis.
+        status: pass
+      - id: ct_ac_003
+        criterion: The vocabulary distinguishes contribution type from artifact type, knowledge goal, knowledge scope, and evaluation method.
+        status: pass
+      - id: ct_ac_004
+        criterion: The vocabulary includes reviewable validation rules and traceability placeholders.
+        status: pass
+      - id: ct_ac_005
+        criterion: Corpus-derived terms are marked with evidence status rather than unsupported bibliographic claims.
+        status: pass
+    quality_gate_status:
+      consistency: pass
+      coherence: pass
+      cogency: pass
+      correspondence: pass
+      dsr_transparency: pass
+      reviewability: pass
+
+  assumptions:
+    - id: ct_as_001
+      statement: >
+        The contribution vocabulary should include both classic contribution-grid
+        quadrants and normalized DSR corpus contribution labels.
+      impact: >
+        Enables coding of both artifact-level novelty/significance and framework-
+        level methodological/theoretical contributions.
+    - id: ct_as_002
+      statement: >
+        The vocabulary is intentionally reviewable rather than final; downstream
+        schema enumerations may later narrow or split entries.
+      impact: >
+        Maintains compatibility with future model_contribution and contribution-claim schema work.
+
+  limitations:
+    - id: ct_lim_001
+      statement: >
+        Exact bibliographic anchors are represented through corpus source IDs and
+        evidence_status values; final publication preparation should map each
+        controlled entry to explicit source-basis records.
+    - id: ct_lim_002
+      statement: >
+        This vocabulary does not provide a scoring algorithm for maturity or
+        novelty; reviewers must justify classification using project evidence.
+
+  open_questions:
+    - id: ct_oq_001
+      question: >
+        Should domain_application remain a controlled contribution type or move
+        to genre_types or contribution_to_practice fields?
+      disposition: retain_for_now_as_secondary_type
+    - id: ct_oq_002
+      question: >
+        Should representation_extension and reporting_extension become separate
+        entries or remain subcases of method_extension?
+      disposition: defer_until_model_contribution_generation
+    - id: ct_oq_003
+      question: >
+        Should replication-oriented contribution types be included here or only
+        in vocabularies/replication-types.yaml?
+      disposition: defer_to_replication_vocabulary
+
+  related_items:
+    upstream_dependencies:
+      - dsr_extraction_corpus
+      - model_contribution
+      - vocabularies/knowledge-goals.yaml
+      - vocabularies/knowledge-scopes.yaml
+    downstream_dependents:
+      - models/dsr-contribution-model.yaml
+      - schemas/dsr-contribution-claim.schema.json
+      - templates/contribution-claim-template.yaml
+      - templates/contribution-positioning-record-template.yaml
+      - checklists/contribution-positioning-checklist.yaml
+      - records/contributions/record-contribution-positioning-0001.yaml
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial draft generated from selected framework portion.
+      responsible_party: GPT-5.5 Thinking
+      change_type: create_new

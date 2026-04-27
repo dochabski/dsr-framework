@@ -1,0 +1,587 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: dsr_minimum_viable_study_checklist
+  item_id: checklist_minimum_dsr
+  item_type: procedure
+  title: DSR Minimum Viable Study Checklist
+  purpose: Provide a reviewer-facing checklist for determining whether a project has the minimum identity conditions needed
+    to be treated as a Design Science Research study rather than only a design project, consulting engagement, engineering
+    build, implementation report, or behavioral study.
+  status: draft
+  version: "0.1.0"
+  owner: DSR Framework maintainer
+  target_path: checklists/dsr-minimum-viable-study-checklist.yaml
+  selection_id: checklist_minimum_dsr
+  default_conformance: l2_reviewable
+  checklist_class: minimum_identity_screen
+  intended_users:
+  - DSR researcher
+  - project mentor
+  - artifact package reviewer
+  - journal or conference reviewer
+  - repository maintainer
+  applicability:
+    use_when:
+    - screening a proposed or completed study for minimum Design Science Research identity
+    - deciding whether a project should proceed to detailed evaluation-readiness, package-readiness, transparency, contribution-positioning,
+      or publication-readiness review
+    - triaging whether missing evidence is a fatal DSR identity gap or a later-stage documentation improvement
+    do_not_use_as:
+    - a full publication-readiness checklist
+    - a complete artifact package readiness checklist
+    - a substitute for domain-specific ethical, legal, security, or methodological review
+    - proof that the artifact is useful, reusable, generalizable, or publication-ready
+    minimum_interpretation: Passing this checklist means the project can reasonably be classified and reviewed as DSR. It
+      does not mean the study is fully evaluated, reproducible, generalizable, reusable, or ready for archival publication.
+  review_decision_logic:
+    decision_values:
+    - pass
+    - conditional_pass
+    - fail
+    - not_applicable_with_rationale
+    critical_item_rule: 'Every item with criticality: identity_required must be pass or conditional_pass. A single fail on
+      an identity_required item means the study does not yet meet minimum DSR identity.'
+    conditional_pass_rule: Use conditional_pass only when the core evidence exists but requires clarification, restructuring,
+      or stronger traceability before downstream review.
+    recommended_item_rule: 'Items with criticality: strongly_recommended do not block minimum identity by themselves, but
+      repeated failures should trigger remediation before higher conformance claims.'
+    overall_decision_values:
+    - minimum_dsr_identity_met
+    - minimum_dsr_identity_met_with_conditions
+    - minimum_dsr_identity_not_met
+  source_basis:
+  - source_id: dsr_framework_generation_spec
+    role: generation_and_repository_governance
+    evidence_status: mapped_to_project_file
+    notes: Requires YAML for checklists, stable identifiers, source_basis, related_items, traceability, explicit evidence
+      requirements, and reviewable quality gates.
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure_and_quality_standard
+    evidence_status: mapped_to_project_file
+    notes: Requires preserving DSR distinctions among artifact utility, artifact quality, knowledge contribution, demonstration,
+      evaluation, transparency, validity, reliability, replication, and projectability.
+  - source_id: dsr_framework_selection_table
+    role: selected_target_definition
+    evidence_status: mapped_to_project_file
+    notes: Defines checklist_minimum_dsr as checklists/dsr-minimum-viable-study-checklist.yaml with L2 conformance and DSR
+      lifecycle model dependency.
+  - source_id: weber_2018_design_science_research
+    role: canonical_dsr_lifecycle_and_quality_basis
+    citation_anchor_ids:
+    - A02
+    - A03
+    - A06
+    - A09
+    - A10
+    - A11
+    - A12
+    - A13
+    - A14
+    evidence_status: mapped_to_extraction_corpus
+    notes: Supports build/evaluate logic, useful artifact orientation, Hevner guideline summary, Peffers six-step DSRM sequence,
+      process/product quality distinction, problem specification, contribution type, solution derivation, and artifact-specific
+      outcome criteria.
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    role: dsr_transparency_basis
+    citation_anchor_ids:
+    - CA01
+    - CA05
+    - CA06
+    - CA07
+    - CA08
+    - CA09
+    - CA10
+    - CA11
+    - CA16
+    - CA17
+    evidence_status: mapped_to_extraction_corpus
+    notes: Supports process, problem-space, solution-space, build, evaluation, and contribution transparency expectations,
+      while warning that detailed prescriptive checklists remain developing.
+  - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    role: artifact_identity_and_boundary_basis
+    citation_anchor_ids:
+    - A09
+    - A15
+    - A16
+    - A17
+    - A18
+    - A19
+    - A20
+    evidence_status: mapped_to_extraction_corpus
+    notes: Supports artifact-universal framing, design specification, make plan, use plan, capacity specification, stakeholder
+      design conversation, and DSR artifact boundary distinctions.
+  - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+    role: knowledge_contribution_and_projectability_basis
+    citation_anchor_ids:
+    - A07
+    - A08
+    - A10
+    - A13
+    - A14
+    - A16
+    evidence_status: mapped_to_extraction_corpus
+    notes: Supports explicit attention to knowledge moments, knowledge type, strategy, contribution progression, and contribution
+      communication.
+  related_items:
+    upstream_dependencies:
+    - models/dsr-lifecycle-model.yaml
+    - models/dsr-artifact-ontology.yaml
+    - models/dsr-contribution-model.yaml
+    - models/dsr-evaluation-alignment-model.yaml
+    - models/dsr-transparency-model.yaml
+    - specs/product-dsr-lifecycle-and-contribution-model.yaml
+    - specs/product-dsr-quality-conformance-and-review-model.yaml
+    - specs/product-dsr-templates-and-checklists.yaml
+    downstream_uses:
+    - checklists/evaluation-readiness-checklist.yaml
+    - checklists/contribution-positioning-checklist.yaml
+    - checklists/dsr-transparency-crosswalk-checklist.yaml
+    - checklists/artifact-package-readiness-checklist.yaml
+    - templates/review-record-template.yaml
+    - records/reviews/record-review-0001-self-review.yaml
+    companion_templates:
+    - templates/problem-and-objectives-template.md
+    - templates/solution-space-record-template.yaml
+    - templates/artifact-specification-template.md
+    - templates/design-rationale-template.md
+    - templates/demonstration-record-template.yaml
+    - templates/evaluation-plan-template.yaml
+    - templates/evaluation-report-template.yaml
+    - templates/contribution-claim-template.yaml
+    - templates/dsr-transparency-crosswalk-template.yaml
+  lifecycle_stage_mapping:
+  - stage_id: problem_identification_and_motivation
+    minimum_evidence:
+    - MVC-01
+    - MVC-02
+  - stage_id: objectives_and_requirements_definition
+    minimum_evidence:
+    - MVC-03
+    - MVC-04
+  - stage_id: design_and_development
+    minimum_evidence:
+    - MVC-05
+    - MVC-06
+    - MVC-07
+  - stage_id: demonstration_or_use_context
+    minimum_evidence:
+    - MVC-08
+  - stage_id: evaluation
+    minimum_evidence:
+    - MVC-09
+    - MVC-10
+  - stage_id: communication_and_contribution
+    minimum_evidence:
+    - MVC-11
+    - MVC-12
+    - MVC-13
+  items:
+  - check_id: MVC-01
+    criticality: identity_required
+    category: problem_relevance
+    question: Does the study identify a meaningful problem, opportunity, or unsatisfactory state that motivates design intervention?
+    evidence_required:
+    - problem statement
+    - affected stakeholders or user groups
+    - current-state limitation or pain point
+    - reason the problem matters in the application context
+    pass_condition: The study describes a problem or opportunity with enough context, stakeholder relevance, and practical
+      importance to justify artifact design.
+    fail_condition: The study begins with a preferred technology, method, or build activity without showing the problem it
+      addresses or why it matters.
+    remediation_guidance: Add a problem-and-objectives record that states who is affected, what is unsatisfactory, why existing
+      means are insufficient, and what improvement is sought.
+    traceability:
+    - weber_2018:A11
+    - hevner_et_al_2024:CA07
+  - check_id: MVC-02
+    criticality: identity_required
+    category: research_identity
+    question: Does the study distinguish the research problem from a routine operational task, consulting request, implementation
+      assignment, or purely explanatory behavioral question?
+    evidence_required:
+    - statement of DSR framing
+    - non-goals or boundary statement
+    - distinction from routine design or normal implementation
+    - reason artifact design is necessary for inquiry
+    pass_condition: The study explains why a design-and-evaluate research approach is appropriate rather than only routine
+      practice or descriptive inquiry.
+    fail_condition: The work could be fully understood as ordinary implementation, process improvement, consulting, or explanation
+      without a research artifact and design knowledge claim.
+    remediation_guidance: Clarify the researchable uncertainty, design challenge, and intended knowledge contribution that
+      make the work DSR.
+    traceability:
+    - weber_2018:A02
+    - weber_2018:A07
+    - weigand_et_al_2021:A17
+  - check_id: MVC-03
+    criticality: identity_required
+    category: objectives_and_requirements
+    question: Are solution objectives, requirements, success criteria, or desired end states stated before or alongside artifact
+      design?
+    evidence_required:
+    - objectives
+    - requirements or design constraints
+    - success criteria
+    - target use or improvement outcomes
+    pass_condition: Objectives and requirements are specific enough to guide design decisions and later evaluation.
+    fail_condition: The artifact is described without criteria for what it should accomplish or how adequacy would be recognized.
+    remediation_guidance: Define functional, quality, contextual, and contribution-oriented requirements; separate required
+      outcomes from optional enhancements.
+    traceability:
+    - weber_2018:A11
+    - weber_2018:A13
+    - weigand_et_al_2021:A15
+  - check_id: MVC-04
+    criticality: strongly_recommended
+    category: solution_space_grounding
+    question: Does the study show that the design is grounded in relevant prior knowledge, existing artifacts, theories, methods,
+      technologies, or domain constraints?
+    evidence_required:
+    - solution-space review
+    - relevant theories or justificatory knowledge
+    - existing artifacts or methods considered
+    - known constraints and boundary conditions
+    pass_condition: The study makes enough prior knowledge visible to show that design decisions are not arbitrary and that
+      novelty or adaptation can be judged.
+    fail_condition: The design appears ungrounded, with no account of related work, available alternatives, or justificatory
+      knowledge.
+    remediation_guidance: Add a solution-space record identifying relevant literature, existing artifacts, technologies, constraints,
+      and why the selected design direction is plausible.
+    traceability:
+    - hevner_et_al_2024:CA08
+    - weber_2018:A08
+  - check_id: MVC-05
+    criticality: identity_required
+    category: artifact_identity
+    question: Is there an identifiable artifact or artifact class produced, refined, configured, or theoretically specified
+      by the study?
+    evidence_required:
+    - artifact name or identifier
+    - artifact type or class
+    - artifact boundary
+    - artifact components or design specification
+    - relationship to constructs, models, methods, instantiations, systems, or design theories
+    pass_condition: A reviewer can identify what the artifact is, what type of artifact is claimed, what is inside its boundary,
+      and what is outside its boundary.
+    fail_condition: The study discusses activity, implementation, or outcomes but lacks a clear artifact object or reusable
+      artifact class.
+    remediation_guidance: Create an artifact specification that names the artifact, classifies it, defines its boundary, and
+      identifies its essential components and intended capacities.
+    traceability:
+    - weber_2018:A04
+    - weigand_et_al_2021:A09
+    - weigand_et_al_2021:A17
+  - check_id: MVC-06
+    criticality: identity_required
+    category: design_and_build
+    question: Does the study describe design, build, derivation, or configuration activity sufficient to connect the problem
+      and objectives to the artifact?
+    evidence_required:
+    - design process summary
+    - key design decisions or rationale
+    - make plan, build method, or construction procedure
+    - connection between requirements and artifact features
+    pass_condition: The artifact is shown as the result of a reasoned design or search process rather than as an unexplained
+      deliverable.
+    fail_condition: The artifact appears without design rationale, derivation logic, or traceability to problem objectives.
+    remediation_guidance: Add a design-rationale or build-transparency record showing major decisions, alternatives considered,
+      tradeoffs, and requirement-to-feature traceability.
+    traceability:
+    - weber_2018:A06
+    - weber_2018:A13
+    - hevner_et_al_2024:CA09
+  - check_id: MVC-07
+    criticality: strongly_recommended
+    category: artifact_use_logic
+    question: Does the study explain the intended use logic, mechanism, or capacity by which the artifact is expected to produce
+      improvement?
+    evidence_required:
+    - use plan or usage scenario
+    - artifact capacities or functions
+    - expected mechanism of improvement
+    - contextual conditions for use
+    pass_condition: A reviewer can see how artifact features are expected to act in use and under what conditions they should
+      matter.
+    fail_condition: The study states that the artifact should help but does not explain the use path, mechanism, or relevant
+      context.
+    remediation_guidance: Add a use scenario, make/use plan, or logic model that connects artifact capacities to intended
+      effects and contextual assumptions.
+    traceability:
+    - weigand_et_al_2021:A15
+    - weigand_et_al_2021:A16
+    - weigand_et_al_2021:A19
+  - check_id: MVC-08
+    criticality: identity_required
+    category: demonstration
+    question: Is there at least one demonstration, use scenario, instantiation, prototype, worked example, simulation, pilot,
+      or contextual application showing that the artifact can be used?
+    evidence_required:
+    - demonstration context
+    - use case or scenario
+    - artifact instance or representation used in the demonstration
+    - observed or illustrated output
+    pass_condition: The study provides enough demonstration evidence to show the artifact can be applied to a relevant task
+      or context.
+    fail_condition: The artifact remains purely asserted or proposed, with no demonstration, example, instantiation, or application
+      scenario.
+    remediation_guidance: Add a demonstration record with context, actors, task, artifact version, steps, outputs, and limits
+      of what the demonstration does and does not prove.
+    traceability:
+    - weber_2018:A09
+    - weigand_et_al_2021:A18
+  - check_id: MVC-09
+    criticality: identity_required
+    category: evaluation_presence
+    question: Does the study include or explicitly plan evaluation activity that assesses the artifact against stated objectives,
+      requirements, or criteria?
+    evidence_required:
+    - evaluation plan or report
+    - evaluation criteria
+    - data, observations, argument, expert judgment, test results, or other evidence
+    - alignment to objectives or requirements
+    pass_condition: Evaluation is present or credibly planned and is aligned with stated objectives, artifact qualities, utility
+      claims, or contribution claims.
+    fail_condition: The study offers only description or demonstration and no evaluative criteria or evidence path.
+    remediation_guidance: Create an evaluation plan that identifies evaluation questions, criteria, evidence sources, method
+      family, timing, and claim alignment.
+    traceability:
+    - weber_2018:A02
+    - weber_2018:A10
+    - hevner_et_al_2024:CA10
+  - check_id: MVC-10
+    criticality: strongly_recommended
+    category: evaluation_distinctions
+    question: Does the study distinguish artifact utility, artifact quality, and knowledge contribution when interpreting
+      evaluation evidence?
+    evidence_required:
+    - utility evidence or intended utility test
+    - artifact quality criteria
+    - contribution claim or contribution evaluation logic
+    - limitations on what the evidence supports
+    pass_condition: The study avoids treating one positive demonstration or metric as proof of every quality, utility, and
+      contribution claim.
+    fail_condition: The study collapses demonstration, evaluation, usefulness, technical quality, and contribution into an
+      unsupported single claim.
+    remediation_guidance: Separate claims and evidence into artifact utility, artifact quality, and contribution-to-knowledge
+      sections; state limits and missing evidence.
+    traceability:
+    - weber_2018:A10
+    - weber_2018:A14
+    - hevner_et_al_2024:CA10
+  - check_id: MVC-11
+    criticality: identity_required
+    category: knowledge_contribution
+    question: Does the study articulate a contribution to knowledge beyond local artifact delivery?
+    evidence_required:
+    - contribution claim
+    - intended contribution type
+    - knowledge audience
+    - relationship to prior knowledge or problem class
+    pass_condition: The study states what others can learn from the artifact, design process, evaluation, theory, method,
+      model, principle, or contextual findings.
+    fail_condition: The study only reports that an artifact was built or used locally and makes no transferable, projectable,
+      theoretical, methodological, or design-knowledge claim.
+    remediation_guidance: Add a contribution claim distinguishing practice contribution, scientific or design knowledge contribution,
+      contribution type, and scope.
+    traceability:
+    - weber_2018:A12
+    - akoka_et_al_2023:A07
+    - akoka_et_al_2023:A14
+  - check_id: MVC-12
+    criticality: strongly_recommended
+    category: knowledge_scope
+    question: Does the study identify the intended scope of the contribution, such as local idiographic knowledge, projectable
+      knowledge for a problem class, or more general nomothetic design knowledge?
+    evidence_required:
+    - knowledge-scope statement
+    - problem class or context boundary
+    - limits on transfer or reuse
+    - conditions under which the finding may apply elsewhere
+    pass_condition: The study makes clear whether the contribution is local, projectable to a problem class, or broadly generalizable,
+      and does not overclaim.
+    fail_condition: The study implies broad relevance without specifying context, problem class, boundary conditions, or evidence
+      limits.
+    remediation_guidance: State contribution scope explicitly and add boundary conditions, transfer assumptions, and evidence
+      limits.
+    traceability:
+    - akoka_et_al_2023:A08
+    - akoka_et_al_2023:A16
+    - hevner_et_al_2024:CA07
+  - check_id: MVC-13
+    criticality: identity_required
+    category: communication
+    question: Is the study communicated in a structure that lets reviewers trace problem, objectives, artifact, design process,
+      demonstration, evaluation, and contribution?
+    evidence_required:
+    - study narrative or package structure
+    - traceability among problem, objectives, artifact, demonstration, evaluation, and contribution
+    - clear definitions of key terms and claims
+    pass_condition: A reviewer can follow the DSR lifecycle and inspect the evidence chain without relying on hidden assumptions.
+    fail_condition: The study is fragmented or opaque, making it unclear how its DSR elements relate.
+    remediation_guidance: Reorganize the study using DSR lifecycle sections or a repository package structure and add trace
+      links among core records.
+    traceability:
+    - weber_2018:A06
+    - weber_2018:A09
+    - hevner_et_al_2024:CA06
+    - hevner_et_al_2024:CA16
+  - check_id: MVC-14
+    criticality: strongly_recommended
+    category: transparency
+    question: Does the study provide minimum transparency across process, problem space, solution space, build, evaluation,
+      and contribution dimensions?
+    evidence_required:
+    - process notes or design rationale
+    - problem-space record
+    - solution-space grounding
+    - build or artifact specification
+    - evaluation plan or report
+    - contribution claim
+    pass_condition: Each applicable transparency dimension is present or intentionally marked not applicable with rationale.
+    fail_condition: Important DSR dimensions are omitted or hidden such that reviewability, trust, reuse, or contribution
+      assessment is impaired.
+    remediation_guidance: Complete a DSR transparency crosswalk and mark each dimension as present, partial, missing, or not
+      applicable with rationale.
+    traceability:
+    - hevner_et_al_2024:CA01
+    - hevner_et_al_2024:CA05
+    - hevner_et_al_2024:CA16
+  - check_id: MVC-15
+    criticality: strongly_recommended
+    category: responsible_and_contextual_design
+    question: Does the study identify material ethical, security, privacy, accessibility, stakeholder, or contextual risks
+      that could affect artifact design, use, or reporting?
+    evidence_required:
+    - stakeholder and context description
+    - risk or responsibility assessment
+    - privacy, security, accessibility, or equity considerations where applicable
+    - mitigation or governance notes
+    pass_condition: Material responsible-design risks are either addressed or explicitly judged not applicable with rationale.
+    fail_condition: The study ignores foreseeable risks or stakeholder effects that could materially affect design, use, evaluation,
+      or communication.
+    remediation_guidance: Add a contextual and responsible-design section identifying affected stakeholders, material risks,
+      mitigation steps, and any constraints on transparency or reuse.
+    traceability:
+    - hevner_et_al_2024:CA15
+    - hevner_et_al_2024:CA18
+  - check_id: MVC-16
+    criticality: identity_required
+    category: minimum_package_evidence
+    question: Is the minimum evidence package sufficient for an independent reviewer to classify the work as DSR?
+    evidence_required:
+    - problem and objectives evidence
+    - artifact specification or equivalent description
+    - design/build evidence
+    - demonstration evidence
+    - evaluation evidence or evaluation plan
+    - contribution claim
+    - limitations and open questions
+    pass_condition: The project contains enough retained evidence for review of DSR identity even if later-stage quality,
+      reuse, or publication evidence remains incomplete.
+    fail_condition: The project depends on undocumented tacit knowledge or oral explanation for core DSR identity elements.
+    remediation_guidance: Assemble a minimum DSR evidence bundle and add missing records before claiming minimum DSR identity.
+    traceability:
+    - dsr_framework_generation_spec:qg_reviewability
+    - weber_2018:A10
+    - hevner_et_al_2024:CA16
+  quality_gate_mapping:
+  - quality_gate_id: qg_consistency
+    status: pass
+    evidence:
+    - target_path
+    - item_type
+    - checklist_file_pattern
+    - stable_check_ids
+  - quality_gate_id: qg_coherence
+    status: pass
+    evidence:
+    - related_items
+    - lifecycle_stage_mapping
+    - traceability
+  - quality_gate_id: qg_cogency
+    status: pass
+    evidence:
+    - review_decision_logic
+    - items
+    - remediation_guidance
+  - quality_gate_id: qg_correspondence
+    status: pass
+    evidence:
+    - selection_id
+    - default_conformance
+    - source_basis
+  - quality_gate_id: qg_dsr_transparency
+    status: pass
+    evidence:
+    - MVC-14
+    - source_basis:hevner_et_al_2024_transparency_in_design_science_research
+  - quality_gate_id: qg_reviewability
+    status: pass
+    evidence:
+    - evidence_required
+    - pass_condition
+    - fail_condition
+    - remediation_guidance
+  validation_rules:
+  - Every checklist item must include check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
+  - Every identity_required item must have a reviewer decision of pass or conditional_pass for minimum DSR identity to be
+    met.
+  - Every conditional_pass must include a reviewer condition and remediation owner in the review record.
+  - Every not_applicable_with_rationale decision must include an explicit rationale and must not be used for identity_required
+    items unless the checklist is being tailored for a nonstandard DSR genre.
+  - Traceability values must refer to source IDs, citation anchors, or controlled project files already present in the DSR
+    Framework source basis.
+  failure_modes:
+  - id: fm_artifact_absent
+    description: The study has a topic or intervention but no identifiable artifact or artifact class.
+    usually_failed_items:
+    - MVC-05
+    - MVC-06
+    - MVC-16
+  - id: fm_consulting_only
+    description: The study solves a local problem but does not articulate design knowledge or contribution beyond delivery.
+    usually_failed_items:
+    - MVC-02
+    - MVC-11
+    - MVC-12
+  - id: fm_demo_without_evaluation
+    description: The artifact is demonstrated or illustrated but not evaluated against criteria.
+    usually_failed_items:
+    - MVC-09
+    - MVC-10
+  - id: fm_untraceable_lifecycle
+    description: Core DSR elements exist but cannot be traced from problem to objectives, artifact, demonstration, evaluation,
+      and contribution.
+    usually_failed_items:
+    - MVC-03
+    - MVC-06
+    - MVC-13
+    - MVC-16
+  assumptions:
+  - This checklist screens minimum DSR identity at L2 reviewable conformance; it intentionally does not require L3 exercisable
+    validation assets or L4/L5 publication-readiness evidence.
+  - A study can meet minimum DSR identity with evaluation planned rather than completed only when the review context is proposal-stage
+    or pre-evaluation review; completed-study review should require evaluation evidence rather than only a plan.
+  - Artifact classes may include constructs, models, methods, instantiations, design theories, design principles, protocols,
+    and other controlled artifact types recognized elsewhere in the framework.
+  limitations:
+  - This checklist does not determine whether a study is methodologically strong, ethically approved, statistically valid,
+    reusable, or publication-ready.
+  - This checklist does not replace artifact-type-specific evaluation criteria.
+  - Some DSR genres may require tailoring, especially conceptual DSR, design theory contributions, or documentation-only protocol
+    artifacts.
+  open_questions:
+  - id: oq_minimum_evaluation_threshold
+    question: Should completed studies always require completed evaluation evidence to pass minimum DSR identity, or may a
+      strong evaluation plan support conditional identity in some repository contexts?
+    evidence_status: not_yet_mapped
+  - id: oq_genre_specific_minimums
+    question: Should different minimum item sets be defined for empirical artifact builds, conceptual DSR frameworks, design
+      theories, methods, and documentation protocols?
+    evidence_status: not_yet_mapped
+  change_history:
+  - version: 0.1.0
+    date: "2026-04-27"
+    change: Initial generated draft for checklist_minimum_dsr.
+    responsible_party: GPT-5.5 Thinking

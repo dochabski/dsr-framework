@@ -1,0 +1,1118 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_automation_and_validation_model
+  title: DSR Automation and Validation Model
+  purpose: >
+    Define the automation-ready validation model for Design Science Research
+    Framework packages, including schema validation, metadata validation,
+    package-inventory validation, internal-link validation, release validation,
+    evidence validation, and retained validation records.
+  status: draft
+  version: "0.1.0"
+  item_type: specification
+  target_path: specs/product-dsr-automation-and-validation-model.yaml
+  conformance_target: l3_exercisable
+  owner: dsr_framework_maintainers
+
+version: "0.1.0"
+status: draft
+
+source_basis:
+  - id: user_selected_spec_automation_validation
+    role: immediate_generation_request
+    evidence_status: provided
+  - id: dsr_framework_generation_spec
+    role: governing_generation_specification
+    evidence_status: provided
+  - id: dsr_framework_generation_prompt
+    role: generation_procedure_and_output_conventions
+    evidence_status: provided
+  - id: dsr_extraction_corpus
+    role: dsr_transparency_and_reviewability_evidence_base
+    evidence_status: not_yet_mapped
+  - id: documentation_protocol_repository
+    role: repository_architecture_and_information_item_governance
+    evidence_status: not_yet_verified_in_this_generation
+
+related_items:
+  upstream_dependencies:
+    - id: spec_repository_architecture
+      path: specs/product-dsr-repository-architecture.yaml
+      relationship: defines_repository_tree_and_naming_rules
+    - id: spec_metadata_identifier
+      path: specs/product-dsr-metadata-and-identifier-profile.yaml
+      relationship: defines_metadata_and_identifier_requirements
+    - id: spec_artifact_package
+      path: specs/product-dsr-artifact-package-specification.yaml
+      relationship: defines_required_package_contents_and_conformance_obligations
+    - id: spec_quality_review
+      path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relationship: defines_quality_gates_review_workflow_and_acceptance_criteria
+    - id: root_package_inventory
+      path: package-inventory.yaml
+      relationship: provides_package_file_inventory_to_validate
+  downstream_dependents:
+    - id: schema_artifact_profile
+      path: schemas/artifact-profile.schema.json
+      relationship: validated_by_schema_validation_workflow
+    - id: schema_package_inventory
+      path: schemas/package-inventory.schema.json
+      relationship: validates_package_inventory_structure
+    - id: schema_conformance_declaration
+      path: schemas/conformance-declaration.schema.json
+      relationship: validates_conformance_declaration_structure
+    - id: schema_dsr_project
+      path: schemas/dsr-project.schema.json
+      relationship: validates_integrated_project_records
+    - id: model_publication_readiness
+      path: models/dsr-publication-readiness-model.yaml
+      relationship: consumes_release_validation_results
+    - id: record_release_v0_1_0
+      path: records/releases/record-release-0001-v0-1-0.yaml
+      relationship: records_release_validation_evidence
+
+assumptions:
+  - id: asmp_automation_001
+    statement: >
+      Validation automation is specified as technology-neutral operating logic;
+      concrete GitHub Actions, scripts, and command-line tools can be added later
+      without changing the controlled validation concepts.
+  - id: asmp_automation_002
+    statement: >
+      The package will use YAML as the primary controlled-data format, JSON
+      Schema for machine validation, and retained records for auditability.
+  - id: asmp_automation_003
+    statement: >
+      L3 exercisable conformance requires validation procedures that can be run
+      by a maintainer or CI job, even when some underlying scripts remain future
+      implementation work.
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: Define the scope and responsibility of the automation and validation product.
+    content:
+      product_class: product_specification
+      validation_scope:
+        included:
+          - schema_validation
+          - yaml_parse_validation
+          - metadata_validation
+          - package_inventory_validation
+          - path_and_naming_validation
+          - internal_link_validation
+          - traceability_validation
+          - evidence_reference_validation
+          - conformance_declaration_validation
+          - release_readiness_validation
+          - validation_record_generation
+        excluded:
+          - full_scholarly_peer_review
+          - automated_judgment_of_research_contribution_significance
+          - automated_verification_of_external_publication_indexing
+          - automated_verification_of_all_bibliographic_claims_without_source_data
+      primary_users:
+        - maintainer
+        - contributor
+        - reviewer
+        - release_manager
+      validation_goals:
+        - id: vg_parseable
+          label: Parseable controlled files
+          description: All YAML and JSON files that function as controlled data must parse without syntax errors.
+        - id: vg_schema_conformant
+          label: Schema-conformant information items
+          description: Controlled records, templates, and package metadata must conform to their declared schemas when schemas exist.
+        - id: vg_inventory_complete
+          label: Inventory-complete package
+          description: Package inventory entries must correspond to actual repository files and required package files.
+        - id: vg_link_resolvable
+          label: Resolvable internal references
+          description: Internal links, target paths, related item references, and trace IDs must resolve or be explicitly marked as pending.
+        - id: vg_release_reviewable
+          label: Reviewable release candidate
+          description: A release candidate must preserve validation evidence sufficient for human review and release decision-making.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: Define the controlled validation entities and relationships.
+    content:
+      entities:
+        - id: validation_target
+          label: Validation Target
+          definition: A file, directory, record, schema, release candidate, link, metadata field, or traceability object subject to validation.
+          required_fields:
+            - target_id
+            - target_path
+            - target_type
+            - expected_validator
+            - validation_scope
+        - id: validation_rule
+          label: Validation Rule
+          definition: A testable condition applied to a validation target.
+          required_fields:
+            - rule_id
+            - rule_type
+            - severity
+            - assertion
+            - evidence_required
+            - pass_condition
+            - fail_condition
+            - remediation_guidance
+        - id: validation_run
+          label: Validation Run
+          definition: A dated execution or review event that applies one or more validation rules to one or more targets.
+          required_fields:
+            - run_id
+            - run_date
+            - validator_name_or_system
+            - targets_checked
+            - rules_applied
+            - results
+            - outcome
+        - id: validation_result
+          label: Validation Result
+          definition: The observed result of applying a validation rule to a target.
+          required_fields:
+            - result_id
+            - target_id
+            - rule_id
+            - status
+            - evidence
+            - remediation_required
+        - id: validation_record
+          label: Validation Record
+          definition: A retained record preserving validation evidence, exceptions, decisions, and release implications.
+          required_fields:
+            - record_id
+            - record_class
+            - event_or_action
+            - date
+            - responsible_party
+            - evidence
+            - outcome
+            - related_items
+            - retention_rule
+        - id: release_validation_bundle
+          label: Release Validation Bundle
+          definition: A grouped set of validation records and summary results used to decide whether a package version is releasable.
+          required_fields:
+            - bundle_id
+            - release_candidate_version
+            - validation_runs
+            - blocking_findings
+            - nonblocking_findings
+            - release_decision
+      relationships:
+        - id: rel_target_has_rule
+          from: validation_target
+          to: validation_rule
+          cardinality: many_to_many
+          description: Each target may be checked by multiple rules, and each rule may apply to many targets.
+        - id: rel_run_applies_rule
+          from: validation_run
+          to: validation_rule
+          cardinality: many_to_many
+          description: A validation run applies selected rules to selected targets.
+        - id: rel_run_generates_result
+          from: validation_run
+          to: validation_result
+          cardinality: one_to_many
+          description: A validation run produces result objects for each target-rule combination.
+        - id: rel_result_preserved_in_record
+          from: validation_result
+          to: validation_record
+          cardinality: many_to_one
+          description: Validation results are summarized or attached to retained records.
+        - id: rel_bundle_supports_release
+          from: release_validation_bundle
+          to: record_release_v0_1_0
+          cardinality: many_to_one
+          description: Release validation bundles support release records and release decisions.
+      validation_target_types:
+        - yaml_file
+        - json_file
+        - json_schema_file
+        - markdown_file
+        - directory
+        - package_inventory_entry
+        - related_item_reference
+        - traceability_entry
+        - citation_or_source_reference
+        - release_candidate
+      validation_status_values:
+        - pass
+        - fail
+        - warning
+        - not_applicable
+        - blocked
+        - not_run
+      severity_values:
+        - blocker
+        - major
+        - minor
+        - advisory
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: State the validation obligations for an L3 exercisable DSR Framework package.
+    content:
+      must:
+        - id: req_auto_001
+          statement: Controlled YAML and JSON files must be machine-parseable before release.
+          rationale: Syntax-valid controlled data is the minimum condition for automation.
+          validation_method: yaml_json_parse_check
+        - id: req_auto_002
+          statement: Every controlled product, model, vocabulary, checklist, template, record, or schema must declare a stable identifier, title, status, version, owner or responsible role, related items, source basis, and change history unless explicitly tailored.
+          rationale: Common metadata supports inventory, traceability, reviewability, and reuse.
+          validation_method: metadata_required_field_check
+        - id: req_auto_003
+          statement: Package inventory entries must reference actual package files or mark intentionally pending files with a documented status.
+          rationale: Inventory validation prevents silent omissions and stale release claims.
+          validation_method: inventory_path_existence_check
+        - id: req_auto_004
+          statement: Required root files and canonical directories must be validated against the repository architecture specification.
+          rationale: Repository structure is part of package conformance.
+          validation_method: repository_architecture_check
+        - id: req_auto_005
+          statement: Internal related_items, source_basis, and traceability references must resolve to known files, known source identifiers, or explicitly marked evidence_status values.
+          rationale: Traceability must be reviewable rather than decorative.
+          validation_method: internal_reference_resolution_check
+        - id: req_auto_006
+          statement: A release candidate must have a retained validation record summarizing blocking findings, nonblocking findings, exceptions, and the release decision.
+          rationale: Release readiness requires preserved evidence.
+          validation_method: release_validation_record_check
+        - id: req_auto_007
+          statement: Validation failures with blocker severity must prevent release unless a retained exception record documents the accepted risk and approving role.
+          rationale: Blocking defects must not be ignored in publication-ready packages.
+          validation_method: blocker_exception_check
+        - id: req_auto_008
+          statement: Validation automation must distinguish automated checks from human review gates.
+          rationale: Automation can verify structure but cannot replace scholarly judgment.
+          validation_method: gate_type_classification_check
+      should:
+        - id: req_auto_009
+          statement: Validation scripts should produce both human-readable summaries and structured machine-readable result files.
+          rationale: Dual-format outputs support local review and CI integration.
+          validation_method: validation_output_format_check
+        - id: req_auto_010
+          statement: JSON Schema files should validate corresponding YAML templates and record instances after YAML-to-JSON-compatible parsing.
+          rationale: YAML remains the repository source format while JSON Schema provides portable validation.
+          validation_method: schema_binding_check
+        - id: req_auto_011
+          statement: Link validation should check repository-relative paths, Markdown links, schema references, and declared target_path fields.
+          rationale: Broken links reduce usability and reviewability.
+          validation_method: link_integrity_check
+        - id: req_auto_012
+          statement: Validation records should be retained under records/reviews, records/releases, or records/preservation according to the event type.
+          rationale: Retained evidence supports auditability and release governance.
+          validation_method: record_location_check
+        - id: req_auto_013
+          statement: Release validation should include a dependency-impact check for files changed since the previous release.
+          rationale: Dependency-aware review reduces regression risk.
+          validation_method: dependency_impact_check
+      may:
+        - id: req_auto_014
+          statement: Maintainers may add CI workflows, pre-commit hooks, or local validation scripts as implementation artifacts.
+          rationale: The model is technology-neutral and can be exercised through multiple automation patterns.
+        - id: req_auto_015
+          statement: Maintainers may use advisory validation rules for style, readability, or documentation completeness.
+          rationale: Advisory checks improve quality without necessarily blocking release.
+        - id: req_auto_016
+          statement: Maintainers may generate validation dashboards or badges after stable validation scripts exist.
+          rationale: Public status indicators can improve reuse confidence.
+      must_not:
+        - id: req_auto_017
+          statement: Validation automation must not claim to prove artifact utility, scholarly contribution, or external validity by structural checks alone.
+          rationale: DSR contribution claims require evidence, evaluation, and human review.
+        - id: req_auto_018
+          statement: Validation automation must not silently repair controlled files without creating a change record or reviewable diff.
+          rationale: Silent mutation undermines traceability and governance.
+        - id: req_auto_019
+          statement: Release validation must not treat not_yet_mapped evidence as equivalent to mapped evidence for L4 or L5 release claims.
+          rationale: Higher conformance levels require stronger evidence mapping.
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: Define the files and records governed by the validation model.
+    content:
+      controlled_inputs:
+        - id: input_package_inventory
+          path: package-inventory.yaml
+          item_type: record
+          validation_role: enumerates_expected_package_files
+        - id: input_conformance_declaration
+          path: conformance-declaration.yaml
+          item_type: record
+          validation_role: declares_conformance_target_and_tailoring
+        - id: input_artifact_profile
+          path: artifact-profile.yaml
+          item_type: description
+          validation_role: declares_artifact_identity_claims_and_reuse_constraints
+        - id: input_metadata
+          path: metadata.yaml
+          item_type: metadata_record
+          validation_role: declares citation_authorship_version_and_identifier_metadata
+        - id: input_product_specs
+          path_pattern: specs/*.yaml
+          item_type: specification
+          validation_role: defines_product_obligations
+        - id: input_models
+          path_pattern: models/*.yaml
+          item_type: specification
+          validation_role: defines_operational_entities_and_relationships
+        - id: input_vocabularies
+          path_pattern: vocabularies/*.yaml
+          item_type: specification
+          validation_role: defines_controlled_values
+        - id: input_schemas
+          path_pattern: schemas/*.schema.json
+          item_type: schema
+          validation_role: validates_records_templates_and_structured_files
+        - id: input_templates
+          path_pattern: templates/*
+          item_type: specification
+          validation_role: provides_reusable_authoring_structures
+        - id: input_checklists
+          path_pattern: checklists/*.yaml
+          item_type: procedure
+          validation_role: provides_review_questions_and_evidence_requirements
+        - id: input_records
+          path_pattern: records/**/*.yaml
+          item_type: record
+          validation_role: preserves_decisions_reviews_evaluations_releases_and_evidence
+      generated_outputs:
+        - id: output_validation_summary
+          recommended_path: records/reviews/record-review-validation-summary-<date>.yaml
+          item_type: record
+          description: Summary record of validation run scope, findings, exceptions, and outcome.
+        - id: output_release_validation_record
+          recommended_path: records/releases/record-release-validation-<version>.yaml
+          item_type: record
+          description: Release-specific validation evidence supporting approval, rejection, or conditional release.
+        - id: output_validation_findings
+          recommended_path: records/reviews/record-review-validation-findings-<date>.yaml
+          item_type: record
+          description: Detailed findings grouped by target, rule, severity, and remediation status.
+        - id: output_exception_record
+          recommended_path: records/tailoring/record-validation-exception-<sequence>.yaml
+          item_type: record
+          description: Accepted exception or tailoring decision for a validation rule.
+      required_validation_record_fields:
+        - record_id
+        - record_class
+        - event_or_action
+        - date
+        - responsible_party
+        - validation_scope
+        - targets_checked
+        - rules_applied
+        - evidence
+        - outcome
+        - unresolved_findings
+        - related_items
+        - retention_rule
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: Define the exercisable validation workflow from local editing through release.
+    content:
+      workflow_stages:
+        - id: stage_01_preflight
+          label: Preflight validation
+          trigger: before_committing_changes
+          actor: contributor
+          objective: Detect syntax, path, naming, and required-field defects before review.
+          checks:
+            - yaml_json_parse_check
+            - file_naming_check
+            - required_metadata_check
+            - local_link_check
+          output: local_validation_summary
+        - id: stage_02_structural_validation
+          label: Structural validation
+          trigger: pull_request_or_review_request
+          actor: maintainer_or_ci
+          objective: Validate schemas, inventory, repository structure, and controlled vocabulary usage.
+          checks:
+            - schema_validation_check
+            - inventory_completeness_check
+            - canonical_directory_check
+            - controlled_value_check
+          output: validation_findings_record
+        - id: stage_03_traceability_validation
+          label: Traceability validation
+          trigger: before_accepting_review
+          actor: reviewer
+          objective: Confirm that related_items, source_basis, and traceability entries are resolvable and meaningful.
+          checks:
+            - related_item_resolution_check
+            - source_basis_status_check
+            - evidence_status_check
+            - dependency_alignment_check
+          output: traceability_review_notes
+        - id: stage_04_quality_gate_review
+          label: Quality gate review
+          trigger: before_release_candidate
+          actor: reviewer
+          objective: Apply consistency, coherence, cogency, correspondence, DSR transparency, and reviewability gates.
+          checks:
+            - quality_gate_mapping_check
+            - acceptance_criteria_check
+            - limitation_and_open_question_check
+          output: review_record
+        - id: stage_05_release_validation
+          label: Release validation
+          trigger: release_candidate_created
+          actor: release_manager
+          objective: Confirm whether the package version can be released under its declared conformance target.
+          checks:
+            - required_root_file_check
+            - release_manifest_check
+            - conformance_declaration_check
+            - blocker_exception_check
+            - release_record_check
+          output: release_validation_bundle
+        - id: stage_06_post_release_preservation_check
+          label: Post-release preservation check
+          trigger: after_release_publication
+          actor: maintainer
+          objective: Confirm identifiers, archive metadata, citation metadata, and preservation records.
+          checks:
+            - citation_metadata_check
+            - archive_metadata_check
+            - preservation_record_check
+          output: preservation_validation_record
+      rule_execution_order:
+        - parse_checks
+        - schema_checks
+        - repository_structure_checks
+        - inventory_checks
+        - reference_and_link_checks
+        - traceability_checks
+        - quality_gate_checks
+        - release_checks
+      failure_handling:
+        - status: fail
+          severity: blocker
+          required_action: remediate_before_release_or_record_exception
+        - status: fail
+          severity: major
+          required_action: remediate_before_release_unless_release_manager_accepts_documented_risk
+        - status: warning
+          severity: minor
+          required_action: document_or_remediate_before_next_minor_release
+        - status: not_applicable
+          severity: advisory
+          required_action: provide_rationale
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: Define acceptance criteria, quality gates, and conformance-level expectations.
+    content:
+      conformance_target: l3_exercisable
+      conformance_interpretation: >
+        L3 exercisable means that the validation model is not merely descriptive;
+        it identifies runnable validation targets, rules, workflows, outputs, and
+        records sufficient for maintainers to implement or execute validation in
+        local scripts or continuous integration.
+      acceptance_criteria:
+        - id: ac_auto_001
+          criterion: Product specification uses required controlled-file metadata and product-spec sections.
+          evidence_required:
+            - product.id
+            - product.target_path
+            - source_basis
+            - related_items
+            - sections
+          pass_condition: Required metadata and sections are present.
+        - id: ac_auto_002
+          criterion: Validation rule model distinguishes syntax, schema, metadata, inventory, link, traceability, quality, and release checks.
+          evidence_required:
+            - conceptual_model.entities
+            - normative_requirements
+            - validation_rule_catalog
+          pass_condition: Each validation family is defined with target, method, severity, and evidence expectations.
+        - id: ac_auto_003
+          criterion: Workflow is exercisable by a maintainer or CI process.
+          evidence_required:
+            - workflow_stages
+            - rule_execution_order
+            - generated_outputs
+          pass_condition: Workflow has triggers, actors, checks, and outputs.
+        - id: ac_auto_004
+          criterion: Release validation produces retained evidence.
+          evidence_required:
+            - release_validation_bundle
+            - validation_record_fields
+          pass_condition: Release readiness cannot be asserted without a validation record.
+        - id: ac_auto_005
+          criterion: Limits of automation are explicit.
+          evidence_required:
+            - must_not requirements
+            - limitations
+          pass_condition: The file avoids overclaiming automated proof of DSR contribution or utility.
+      quality_gates:
+        - id: qg_consistency
+          status: pass
+          evidence: File follows lower-kebab-case path, YAML format, product specification structure, and stable IDs.
+        - id: qg_coherence
+          status: pass
+          evidence: File links validation to schemas, package inventory, metadata, quality review, and release records.
+        - id: qg_cogency
+          status: pass
+          evidence: Workflow proceeds from preflight to release validation with defined targets, rules, and outputs.
+        - id: qg_correspondence
+          status: pass
+          evidence: Content directly supports schema, metadata, inventory, link, and release validation.
+        - id: qg_dsr_transparency
+          status: pass
+          evidence: Validation includes process, evidence, traceability, review, and release transparency.
+        - id: qg_reviewability
+          status: pass
+          evidence: Acceptance criteria, validation rules, failure modes, and records are explicit.
+      maturity_mapping:
+        l1_documented:
+          minimum_condition: Validation requirements are documented.
+        l2_reviewable:
+          minimum_condition: Validation rules and acceptance criteria are specific enough for human review.
+        l3_exercisable:
+          minimum_condition: Validation workflow, target classes, rule catalog, and outputs are defined for execution.
+        l4_reusable:
+          minimum_condition: Stable scripts, schemas, examples, and documented usage support reuse across packages.
+        l5_archival_publication_ready:
+          minimum_condition: Release validation, preservation validation, DOI/citation metadata, and archive records are complete.
+
+  - id: validation_rule_catalog
+    title: Validation Rule Catalog
+    purpose: Provide concrete validation rule families for implementation.
+    content:
+      rules:
+        - rule_id: val_yaml_parse_001
+          label: YAML parse check
+          rule_type: syntax
+          severity: blocker
+          applies_to:
+            - yaml_file
+          assertion: File must parse as YAML without syntax errors.
+          evidence_required:
+            - parser_name
+            - parser_version
+            - file_path
+            - parse_status
+          pass_condition: Parser returns success.
+          fail_condition: Parser returns syntax error, encoding error, or unreadable file.
+          remediation_guidance: Correct syntax, indentation, encoding, or invalid scalar structure.
+        - rule_id: val_json_parse_001
+          label: JSON parse check
+          rule_type: syntax
+          severity: blocker
+          applies_to:
+            - json_file
+            - json_schema_file
+          assertion: File must parse as JSON without syntax errors.
+          evidence_required:
+            - parser_name
+            - file_path
+            - parse_status
+          pass_condition: Parser returns success.
+          fail_condition: Parser returns syntax error or unreadable file.
+          remediation_guidance: Correct invalid JSON syntax and confirm UTF-8 compatibility.
+        - rule_id: val_schema_001
+          label: JSON Schema validation check
+          rule_type: schema
+          severity: blocker
+          applies_to:
+            - artifact_profile
+            - package_inventory
+            - conformance_declaration
+            - dsr_project_record
+            - evaluation_plan
+            - evaluation_report
+            - contribution_claim
+            - transparency_crosswalk
+          assertion: Instance must conform to its declared JSON Schema where such schema exists.
+          evidence_required:
+            - schema_path
+            - instance_path
+            - validator_name
+            - validation_status
+          pass_condition: Validator reports zero schema errors.
+          fail_condition: Validator reports one or more schema errors.
+          remediation_guidance: Correct missing fields, invalid types, invalid enum values, or disallowed additional properties.
+        - rule_id: val_metadata_001
+          label: Common metadata required-field check
+          rule_type: metadata
+          severity: major
+          applies_to:
+            - controlled_yaml_file
+            - controlled_json_file
+          assertion: Controlled files must include common required metadata unless tailored.
+          evidence_required:
+            - file_path
+            - required_fields_checked
+            - missing_fields
+          pass_condition: Required fields are present or an explicit tailoring rationale is present.
+          fail_condition: Required fields are absent without tailoring.
+          remediation_guidance: Add stable ID, title, purpose, status, version, owner, related items, source basis, and change history.
+        - rule_id: val_naming_001
+          label: Repository naming convention check
+          rule_type: repository_structure
+          severity: major
+          applies_to:
+            - file_path
+            - directory
+          assertion: File and directory names must follow repository naming rules for their item type.
+          evidence_required:
+            - file_path
+            - expected_pattern
+            - observed_name
+          pass_condition: Name matches expected pattern or documented exception exists.
+          fail_condition: Name violates pattern without exception.
+          remediation_guidance: Rename file or record a justified exception.
+        - rule_id: val_inventory_001
+          label: Inventory path existence check
+          rule_type: inventory
+          severity: blocker
+          applies_to:
+            - package_inventory_entry
+          assertion: Each inventory file entry must correspond to an existing file or documented planned file.
+          evidence_required:
+            - inventory_entry_id
+            - target_path
+            - existence_status
+            - planned_status_if_missing
+          pass_condition: Target exists, or missing target is explicitly marked planned, deferred, or not_applicable.
+          fail_condition: Inventory entry points to missing file without documented status.
+          remediation_guidance: Add the file, correct the path, or update inventory status.
+        - rule_id: val_required_package_001
+          label: Required package file check
+          rule_type: inventory
+          severity: blocker
+          applies_to:
+            - release_candidate
+          assertion: Required root files and canonical directories must exist for the declared conformance target or be explicitly tailored.
+          evidence_required:
+            - required_file_list
+            - observed_file_list
+            - tailoring_records
+          pass_condition: Required files exist or tailored exclusions are recorded.
+          fail_condition: Required files are missing without tailoring.
+          remediation_guidance: Add missing required files or create tailoring records.
+        - rule_id: val_link_001
+          label: Internal link and path resolution check
+          rule_type: link_integrity
+          severity: major
+          applies_to:
+            - markdown_file
+            - yaml_file
+            - related_item_reference
+          assertion: Internal links and repository-relative paths must resolve or be marked pending.
+          evidence_required:
+            - source_path
+            - referenced_path
+            - resolution_status
+          pass_condition: Referenced path exists or pending status is explicit.
+          fail_condition: Referenced path is broken without pending status.
+          remediation_guidance: Correct the path, add the target, or mark the reference as pending.
+        - rule_id: val_traceability_001
+          label: Traceability reference check
+          rule_type: traceability
+          severity: major
+          applies_to:
+            - traceability_entry
+            - source_basis_entry
+            - related_item_reference
+          assertion: Traceability entries must include trace ID, source, target, relationship, and evidence status.
+          evidence_required:
+            - trace_id
+            - source_id
+            - target_id
+            - relationship
+            - evidence_status
+          pass_condition: Traceability entry is complete and semantically meaningful.
+          fail_condition: Traceability entry is incomplete, circular without purpose, or decorative.
+          remediation_guidance: Add missing trace fields or remove unsupported trace claims.
+        - rule_id: val_evidence_status_001
+          label: Evidence status check
+          rule_type: evidence
+          severity: major
+          applies_to:
+            - source_basis_entry
+            - citation_or_source_reference
+          assertion: Evidence references must state whether evidence is provided, mapped, not_yet_mapped, unavailable, or not_applicable.
+          evidence_required:
+            - source_id
+            - evidence_status
+            - rationale_if_not_mapped
+          pass_condition: Evidence status is explicit and appropriate to conformance level.
+          fail_condition: Evidence is implied but not identified.
+          remediation_guidance: Add evidence status and map the evidence or downgrade the claim.
+        - rule_id: val_quality_gate_001
+          label: Quality gate completeness check
+          rule_type: reviewability
+          severity: major
+          applies_to:
+            - controlled_product
+            - model
+            - checklist
+            - record
+          assertion: Required quality gates must be answered or marked not_applicable with rationale.
+          evidence_required:
+            - quality_gate_status
+            - rationale
+            - acceptance_criteria
+          pass_condition: All applicable gates have status and evidence.
+          fail_condition: Gate status is missing or unsupported.
+          remediation_guidance: Add gate evidence, rationale, or remediation plan.
+        - rule_id: val_release_001
+          label: Release validation bundle check
+          rule_type: release
+          severity: blocker
+          applies_to:
+            - release_candidate
+          assertion: Release candidate must have a validation bundle with summary, findings, exceptions, and decision.
+          evidence_required:
+            - release_version
+            - validation_runs
+            - blocking_findings
+            - release_decision
+          pass_condition: Bundle exists and no unapproved blocker remains.
+          fail_condition: Bundle missing or blockers unresolved.
+          remediation_guidance: Complete validation, resolve blockers, or document approved exception.
+
+  - id: traceability
+    title: Traceability
+    purpose: Connect this validation model to repository products, DSR transparency expectations, and release governance.
+    content:
+      trace_links:
+        - trace_id: tr_auto_001
+          source: user_selected_spec_automation_validation
+          target: product_dsr_automation_and_validation_model
+          relationship: selection_generated_as_product_specification
+          evidence_status: provided
+        - trace_id: tr_auto_002
+          source: dsr_framework_generation_spec.quality_gates
+          target: quality_and_conformance.quality_gates
+          relationship: quality_gate_alignment
+          evidence_status: provided
+        - trace_id: tr_auto_003
+          source: dsr_framework_generation_spec.repository_architecture
+          target: validation_rule_catalog.val_required_package_001
+          relationship: repository_structure_validation
+          evidence_status: provided
+        - trace_id: tr_auto_004
+          source: package-inventory.yaml
+          target: validation_rule_catalog.val_inventory_001
+          relationship: inventory_validation_dependency
+          evidence_status: not_yet_mapped
+        - trace_id: tr_auto_005
+          source: schemas/*.schema.json
+          target: validation_rule_catalog.val_schema_001
+          relationship: schema_validation_dependency
+          evidence_status: not_yet_mapped
+        - trace_id: tr_auto_006
+          source: records/releases/record-release-0001-v0-1-0.yaml
+          target: validation_rule_catalog.val_release_001
+          relationship: release_validation_record_dependency
+          evidence_status: not_yet_mapped
+      transparency_dimension_mapping:
+        process_transparency:
+          supported_by:
+            - workflow_stages
+            - validation_run
+            - validation_record
+        problem_space_transparency:
+          supported_by:
+            - metadata_validation
+            - artifact_profile_validation
+            - conformance_declaration_validation
+        solution_space_transparency:
+          supported_by:
+            - source_basis_status_check
+            - evidence_status_check
+            - schema_binding_check
+        build_transparency:
+          supported_by:
+            - validation_findings_record
+            - change_history_check
+            - blocker_exception_check
+        evaluation_transparency:
+          supported_by:
+            - quality_gate_review
+            - release_validation_bundle
+            - validation_result
+        contribution_transparency:
+          supported_by:
+            - contribution_claim_schema_validation
+            - traceability_reference_check
+            - evidence_status_check
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: Provide technology-neutral implementation guidance for scripts, CI, and local checks.
+    content:
+      recommended_implementation_layers:
+        - id: layer_01_parse
+          label: Parse layer
+          description: Parse YAML and JSON files; fail fast on syntax or encoding errors.
+          candidate_tools:
+            - python_yaml_parser
+            - json_parser
+        - id: layer_02_schema
+          label: Schema layer
+          description: Validate JSON-compatible instances against JSON Schema definitions.
+          candidate_tools:
+            - jsonschema_validator
+        - id: layer_03_repository
+          label: Repository structure layer
+          description: Compare observed files and directories against repository architecture and package inventory.
+          candidate_tools:
+            - path_scanner
+            - inventory_checker
+        - id: layer_04_reference
+          label: Reference layer
+          description: Resolve internal links, related items, target paths, source basis entries, and traceability references.
+          candidate_tools:
+            - link_checker
+            - reference_resolver
+        - id: layer_05_review
+          label: Review layer
+          description: Summarize quality gate evidence for human reviewer judgment.
+          candidate_tools:
+            - review_summary_generator
+        - id: layer_06_release
+          label: Release layer
+          description: Assemble release validation bundle and block release when unresolved blockers remain.
+          candidate_tools:
+            - release_gate_runner
+      recommended_exit_codes:
+        - code: 0
+          meaning: pass_with_no_blockers
+        - code: 1
+          meaning: fail_with_blockers
+        - code: 2
+          meaning: fail_due_to_tool_or_configuration_error
+        - code: 3
+          meaning: pass_with_warnings
+      structured_result_shape:
+        validation_result:
+          result_id: TODO_generate_unique_result_id
+          target_id: TODO_target_id
+          target_path: TODO_target_path
+          rule_id: TODO_rule_id
+          status: TODO_pass_fail_warning_not_applicable_blocked_not_run
+          severity: TODO_blocker_major_minor_advisory
+          evidence: []
+          message: TODO_human_readable_summary
+          remediation_required: false
+          remediation_guidance: TODO_if_failed
+      github_actions_guidance:
+        recommended_triggers:
+          - pull_request
+          - push_to_main
+          - release_candidate_tag
+        recommended_jobs:
+          - parse_and_schema_validate
+          - inventory_and_link_validate
+          - quality_gate_summarize
+          - release_validate
+        artifact_outputs:
+          - validation-summary.yaml
+          - validation-findings.yaml
+          - release-validation-bundle.yaml
+      local_use_guidance:
+        - Run parse and schema checks before committing controlled YAML, JSON, or schema files.
+        - Run inventory and link checks before opening a release review.
+        - Preserve validation summaries in records only when they support review, exception, release, or preservation events.
+        - Do not treat a passing automation run as approval when human review gates remain open.
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: Identify schemas, templates, and records that should be produced or revised because of this validation model.
+    content:
+      schema_implications:
+        - id: schema_imp_validation_record
+          recommended_path: schemas/validation-record.schema.json
+          purpose: Validate retained validation records.
+          priority: high
+          status: proposed
+        - id: schema_imp_validation_result
+          recommended_path: schemas/validation-result.schema.json
+          purpose: Validate structured validation result files produced by automation.
+          priority: high
+          status: proposed
+        - id: schema_imp_release_validation_bundle
+          recommended_path: schemas/release-validation-bundle.schema.json
+          purpose: Validate release validation bundles used for release decisions.
+          priority: high
+          status: proposed
+        - id: schema_imp_package_inventory
+          recommended_path: schemas/package-inventory.schema.json
+          purpose: Ensure package inventory can drive file-existence and required-file checks.
+          priority: high
+          status: already_selected_in_registry
+      template_implications:
+        - id: template_imp_validation_record
+          recommended_path: templates/validation-record-template.yaml
+          purpose: Provide reusable structure for retained validation records.
+          priority: high
+          status: proposed
+        - id: template_imp_validation_exception
+          recommended_path: templates/validation-exception-record-template.yaml
+          purpose: Provide reusable structure for accepted validation exceptions and tailoring.
+          priority: medium
+          status: proposed
+        - id: template_imp_release_validation
+          recommended_path: templates/release-validation-bundle-template.yaml
+          purpose: Provide release-manager template for release validation evidence.
+          priority: high
+          status: proposed
+      checklist_implications:
+        - id: checklist_imp_automation_readiness
+          recommended_path: checklists/automation-validation-readiness-checklist.yaml
+          purpose: Review whether validation automation is ready for L3 exercisable use.
+          priority: high
+          status: proposed
+        - id: checklist_imp_release_validation
+          recommended_path: checklists/release-validation-checklist.yaml
+          purpose: Review release validation bundle completeness.
+          priority: high
+          status: proposed
+      script_implications:
+        - id: script_imp_validate_package
+          recommended_path: scripts/validate-package.py
+          purpose: Execute parse, schema, inventory, link, traceability, and release checks.
+          priority: high
+          status: proposed
+        - id: script_imp_generate_validation_record
+          recommended_path: scripts/generate-validation-record.py
+          purpose: Convert validation result files into retained review or release records.
+          priority: medium
+          status: proposed
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: Preserve unresolved design questions and future implementation tasks.
+    content:
+      open_questions:
+        - id: oq_auto_001
+          question: Which JSON Schema dialect should be fixed as the package standard?
+          current_position: Use the most stable broadly supported JSON Schema dialect when schema files are generated.
+          decision_needed_by: first_schema_release
+        - id: oq_auto_002
+          question: Should validation scripts live in scripts/, .github/workflows/, or both?
+          current_position: Specify technology-neutral logic first; add concrete scripts and CI workflows later.
+          decision_needed_by: first_exercisable_release
+        - id: oq_auto_003
+          question: How strict should evidence_status validation be for L3 compared with L4 and L5?
+          current_position: L3 may allow not_yet_mapped evidence where the claim is marked draft; L4 and L5 should require stronger mapping.
+          decision_needed_by: conformance_model_revision
+        - id: oq_auto_004
+          question: Should external DOI, license, and archive-link verification be automated or manually reviewed?
+          current_position: Treat as manual or semi-automated until stable release metadata exists.
+          decision_needed_by: publication_registry_implementation
+      backlog:
+        - id: bl_auto_001
+          task: Create validation-record.schema.json.
+          priority: high
+          target_selection_or_path: schemas/validation-record.schema.json
+        - id: bl_auto_002
+          task: Create release-validation-bundle.schema.json.
+          priority: high
+          target_selection_or_path: schemas/release-validation-bundle.schema.json
+        - id: bl_auto_003
+          task: Create validate-package.py or equivalent validation runner.
+          priority: high
+          target_selection_or_path: scripts/validate-package.py
+        - id: bl_auto_004
+          task: Create automation-validation-readiness-checklist.yaml.
+          priority: medium
+          target_selection_or_path: checklists/automation-validation-readiness-checklist.yaml
+        - id: bl_auto_005
+          task: Add GitHub Actions workflow for validation after script interfaces stabilize.
+          priority: medium
+          target_selection_or_path: .github/workflows/validate-package.yml
+      limitations:
+        - id: lim_auto_001
+          statement: This product specification defines validation logic but does not yet include executable scripts.
+        - id: lim_auto_002
+          statement: Structural validation can identify missing evidence references but cannot determine whether scholarly evidence is substantively adequate.
+        - id: lim_auto_003
+          statement: Link validation is limited to repository-internal references unless external-link checking is later implemented.
+        - id: lim_auto_004
+          statement: Release validation depends on the maturity of package inventory, schemas, conformance declaration, and release records.
+
+quality_gates:
+  - id: qg_consistency
+    status: pass
+    evidence: Target path, YAML format, lower-kebab-case filename, stable IDs, and product specification sections are present.
+  - id: qg_coherence
+    status: pass
+    evidence: Dependencies and downstream implications align with schemas, package inventory, quality review, and release governance.
+  - id: qg_cogency
+    status: pass
+    evidence: Validation stages, rule catalog, failure handling, and output records create a usable operating model.
+  - id: qg_correspondence
+    status: pass
+    evidence: The content corresponds to schema, metadata, inventory, link, and release validation for a DSR artifact package.
+  - id: qg_dsr_transparency
+    status: pass
+    evidence: The specification maps validation outputs to process, problem-space, solution-space, build, evaluation, and contribution transparency.
+  - id: qg_reviewability
+    status: pass
+    evidence: Acceptance criteria, validation rules, pass/fail conditions, remediation guidance, and records are explicit.
+
+traceability:
+  - trace_id: tr_file_generation_001
+    source: spec_automation_validation_selection_row
+    target: specs/product-dsr-automation-and-validation-model.yaml
+    relationship: requested_target_path
+    evidence_status: provided
+  - trace_id: tr_file_generation_002
+    source: dsr_framework_generation_prompt.product_spec_structure
+    target: sections
+    relationship: structural_template_applied
+    evidence_status: provided
+  - trace_id: tr_file_generation_003
+    source: dsr_framework_generation_spec.content_generation_rules
+    target: normative_requirements
+    relationship: generation_rule_alignment
+    evidence_status: provided
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change: Initial draft generated for selection_id spec_automation_validation.
+    responsible_party: GPT-5.5 Thinking
+    change_type: create_new
+
+completion_report:
+  generated_selection_id: spec_automation_validation
+  generated_path: specs/product-dsr-automation-and-validation-model.yaml
+  item_type: specification
+  output_format: yaml
+  conformance_target: l3_exercisable
+  dependencies_used:
+    - schemas
+    - package_inventory
+    - metadata_profile
+    - repository_architecture
+    - quality_model
+    - release_records
+  assumptions:
+    - Validation logic is technology-neutral until concrete scripts and CI workflows are generated.
+    - L3 exercisable requires runnable workflow logic and validation-rule definitions, not necessarily a completed public CI implementation.
+    - Evidence references can be marked not_yet_mapped where source-level evidence has not yet been bound to a specific rule.
+  open_questions:
+    - Which JSON Schema dialect should be fixed as the package standard?
+    - Where should executable validation scripts be placed in the repository?
+    - How strict should evidence_status validation become at L4 and L5?
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: schemas/validation-record.schema.json

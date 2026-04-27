@@ -1,0 +1,1422 @@
+# SPDX-License-Identifier: CC0-1.0
+record:
+  record_id: record_source_basis_0001_dsr_corpus
+  record_class: source_basis_record
+  item_type: record
+  title: DSR Corpus and Documentation Protocol Source Basis Record
+  purpose: Record the source basis used to generate the DSR Framework artifact package,
+    including the combined DSR extraction corpus, generation protocol files, and declared
+    documentation-protocol alignment.
+  status: draft
+  version: 0.1.0
+  event_or_action: registered_dsr_corpus_and_protocol_source_basis
+  date: '2026-04-27'
+  responsible_party:
+    role: dsr_framework_maintainer
+    name: David Ochabski
+    generator: GPT-5.5 Thinking
+  selected_portion:
+    selection_id: record_source_basis
+    target_path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    portion_type: record
+    output_format: yaml
+    purpose: Record DSR corpus and protocol source basis.
+    default_conformance: L2
+    key_dependencies:
+    - DSR corpus
+    - documentation protocol
+  evidence:
+    evidence_summary: The record is based on the uploaded DSR Framework generation
+      prompt, generation specification, selection table, extraction corpus manifest,
+      and combined extraction corpus YAML file.
+    evidence_items:
+    - evidence_id: evidence_selection_table
+      evidence_type: selection_registry
+      local_file_name: dsr-framework-selection-table.md
+      evidence_status: available
+      use_in_record: Identifies the selected row, target path, portion type, output
+        format, purpose, conformance level, and dependencies.
+    - evidence_id: evidence_generation_spec
+      evidence_type: generation_specification
+      local_file_name: dsr-framework-generation-spec.yaml
+      evidence_status: available
+      use_in_record: Defines record-required fields, repository architecture, naming
+        rules, quality gates, and completion-report expectations.
+    - evidence_id: evidence_generation_prompt
+      evidence_type: generation_prompt
+      local_file_name: dsr-framework-generation-prompt.md
+      evidence_status: available
+      use_in_record: Defines the governing-source order, output conventions, DSR distinctions,
+        and record behavior.
+    - evidence_id: evidence_corpus_manifest
+      evidence_type: corpus_manifest
+      local_file_name: chunked_folder_conversion_extractions_20260427030321_manifest_json_part001.json
+      evidence_status: available
+      use_in_record: Provides corpus identity, conversion status, source counts, source
+        filenames, hashes, and chunk references.
+    - evidence_id: evidence_combined_corpus_yaml
+      evidence_type: combined_extraction_corpus
+      local_file_name: chunked_folder_conversion_extractions_20260427030321_part001.yaml
+      evidence_status: available
+      use_in_record: Provides normalized DSR source extraction records, citation anchors,
+        systematic-review evidence fields, and master-table fields.
+    - evidence_id: evidence_documentation_protocol_repository
+      evidence_type: declared_external_protocol_source
+      repository: https://github.com/dochabski/documentation-protocol
+      evidence_status: declared_by_generation_prompt_and_spec_not_refetched
+      use_in_record: Provides the declared governing documentation-protocol model;
+        current external repository state was not checked because the current task
+        did not require external update verification.
+  source_basis:
+    governing_source_order:
+    - rank: 1
+      source_id: user_current_request
+      role: immediate_task_definition
+      evidence_status: available_in_conversation
+    - rank: 2
+      source_id: dsr_framework_generation_spec
+      role: governing_generation_rules
+      local_file_name: dsr-framework-generation-spec.yaml
+      evidence_status: available
+    - rank: 3
+      source_id: documentation_protocol_repository
+      role: governing_documentation_protocol
+      repository: https://github.com/dochabski/documentation-protocol
+      evidence_status: declared_not_refetched
+    - rank: 4
+      source_id: dsr_extraction_corpus
+      role: scholarly_and_methodological_evidence_base
+      evidence_status: available
+    - rank: 5
+      source_id: external_sources
+      role: supplemental_only_when_explicitly_allowed_or_current_metadata_required
+      evidence_status: not_used_for_this_record
+    corpus_basis:
+      corpus_id: corpus_68dbdc361e915654
+      output_namespace: chunked_folder_conversion
+      generated_at_utc: '2026-04-27T03:03:21.871178+00:00'
+      input_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open
+        Artifacts\DSR Framework\Extractions
+      output_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open
+        Artifacts\DSR Framework\Extractions_Combined
+      output_basename: chunked_folder_conversion_extractions_20260427030321
+      primary_format: yaml
+      primary_pattern: chunked_folder_conversion_extractions_20260427030321_partNNN.yaml
+      manifest_json_pattern: chunked_folder_conversion_extractions_20260427030321_manifest_json_partNNN.json
+      primary_part_count: 1
+      converted_count: 71
+      failed_count: 0
+      record_count: 71
+      source_chunk_count: 71
+      corpus_processing_status: complete_no_failed_conversions
+      source_inventory_status: parsed_from_combined_extraction_corpus_for_this_record
+    protocol_basis:
+      repository_architecture_alignment:
+        target_directory: records/source-basis
+        record_file_pattern: record-<record-class>-<sequence-or-date>.yaml
+        stable_identifier_style: lower_snake_case
+        yaml_extension: ".yaml"
+      required_record_fields_covered:
+      - record_id
+      - record_class
+      - event_or_action
+      - date
+      - responsible_party
+      - evidence
+      - outcome
+      - related_items
+      - retention_rule
+      controlled_information_item_alignment:
+        item_type: record
+        status: draft
+        version: 0.1.0
+        owner_or_responsible_role: dsr_framework_maintainer
+  corpus_coverage_summary:
+    source_count: 71
+    publication_year_range:
+      earliest: 2016
+      latest: 2026
+    source_type_counts:
+    - value: conference_paper
+      count: 25
+    - value: journal_article
+      count: 15
+    - value: book_chapter
+      count: 13
+    - value: book
+      count: 5
+    - value: editorial
+      count: 5
+    - value: conceptual_paper
+      count: 4
+    - value: methodological_paper
+      count: 2
+    - value: not_mapped
+      count: 1
+    - value: systematic_review
+      count: 1
+    dsr_relevance_level_counts:
+    - value: primary_dsr_source
+      count: 60
+    - value: domain_application_source
+      count: 8
+    - value: secondary_dsr_source
+      count: 3
+    dsr_genre_counts:
+    - value: design_science_research_methodology
+      count: 30
+    - value: design_knowledge_synthesis
+      count: 12
+    - value: canonical_design_science_research
+      count: 7
+    - value: operations_management_design_science
+      count: 5
+    - value: artifact_evaluation_study
+      count: 3
+    - value: design_theory_contribution
+      count: 3
+    - value: management_design_science
+      count: 3
+    - value: transdisciplinary_design_science
+      count: 3
+    - value: action_design_research
+      count: 2
+    - value: design_oriented_information_systems_research
+      count: 1
+    - value: design_principle_development
+      count: 1
+    - value: information_systems_design_theory
+      count: 1
+    systematic_review_role_counts:
+    - value: operationalization_resource
+      count: 19
+    - value: empirical_example
+      count: 9
+    - value: reporting_guidance
+      count: 8
+    - value: critique_or_gap_analysis
+      count: 6
+    - value: canonical_methodology
+      count: 5
+    - value: contribution_typology
+      count: 5
+    - value: process_model
+      count: 5
+    - value: domain_application
+      count: 4
+    - value: evaluation_framework
+      count: 4
+    - value: artifact_typology
+      count: 1
+    - value: foundational_theory
+      count: 1
+    - value: literature_review
+      count: 1
+    - value: not_mapped
+      count: 1
+    - value: reliability_framework
+      count: 1
+    - value: theory_grounding
+      count: 1
+    human_review_recommended_count: 22
+    human_review_not_recommended_count: 49
+    confidence_percent_range:
+      minimum: 72
+      maximum: 94
+    coverage_notes:
+    - The corpus is treated as a curated DSR evidence base for framework generation
+      rather than as a finalized published systematic review database.
+    - The corpus includes primary DSR methodology sources, secondary DSR sources,
+      and domain application sources; downstream files should select evidence by relevance
+      rather than treating every source as equally authoritative.
+    - Sources marked human_review_recommended should be reviewed before being used
+      for high-stakes bibliographic, legal, archival, or publication-readiness claims.
+  source_inventory:
+  - inventory_index: 1
+    source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+    short_citation: Akoka et al. (2023)
+    title: 'Knowledge contributions in design science research: Paths of knowledge
+      types'
+    publication_year: 2023
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: contribution_typology
+    venue: Decision Support Systems
+    doi: 10.1016/j.dss.2022.113898
+    extraction_record_id: dsr_extract__akoka_comyn_wattiau_prat_storey_2023__knowledge_contributions_paths
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 2
+    source_id: hevner_et_al_2024_transparency_in_design_science_research
+    short_citation: Hevner et al. (2024)
+    title: Transparency in design science research
+    publication_year: 2024
+    source_type: conceptual_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: reporting_guidance
+    venue: Decision Support Systems
+    doi: 10.1016/j.dss.2024.114236
+    extraction_record_id: dsr_extract__hevner_parsons_brendel_lukyanenko_tiefenbeck_tremblay_vombrocke_2024__transparency_in_dsr
+    extraction_confidence_percent: 94
+    human_review_recommended: true
+  - inventory_index: 3
+    source_id: weigand_johannesson_andersson_2021_101878
+    short_citation: Weigand, Johannesson, and Andersson 2021
+    title: An artifact ontology for design science research
+    publication_year: 2021
+    source_type: conceptual_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_theory_contribution
+    source_role_in_systematic_review: artifact_typology
+    venue: Data & Knowledge Engineering
+    doi: 10.1016/j.datak.2021.101878
+    extraction_record_id: dsr_extract__weigand_johannesson_andersson_2021_artifact_ontology__dke_101878
+    extraction_confidence_percent: 92
+    human_review_recommended: true
+  - inventory_index: 4
+    source_id: gregor_zwikael_2024_ijpm_102584
+    short_citation: Gregor & Zwikael, 2024
+    title: Design science research and the co-creation of project management knowledge
+    publication_year: 2024
+    source_type: methodological_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: International Journal of Project Management
+    doi: 10.1016/j.ijproman.2024.102584
+    extraction_record_id: dsr_extract__gregor_zwikael_2024__ijpm_102584
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 5
+    source_id: weber_2018_design_science_research
+    short_citation: Weber (2018)
+    title: Design-science research
+    publication_year: 2018
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: canonical_design_science_research
+    source_role_in_systematic_review: evaluation_framework
+    venue: 'Research Methods: Information, Systems, and Contexts'
+    doi: 10.1016/B978-0-08-102220-7.00011-X
+    extraction_record_id: dsr_extract__weber_2018_design_science_research__chapter11
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 6
+    source_id: reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation_dsr
+    short_citation: Reining et al. (2022)
+    title: Knowledge Accumulation in Design Science Research
+    publication_year: 2022
+    source_type: conceptual_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: critique_or_gap_analysis
+    venue: The DATA BASE for Advances in Information Systems
+    doi: 'null'
+    extraction_record_id: dsr_extract__reining_ahlemann_mueller_thakurta_2022__knowledge_accumulation_dsr
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 7
+    source_id: bub_2018_integrated_method_digital_innovation_dsr
+    short_citation: Bub (2018)
+    title: Towards an Integrated Method for the Engineering of Digital Innovation
+      and Design Science Research
+    publication_year: 2018
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: process_model
+    venue: Advances in Databases and Information Systems
+    doi: 10.1007/978-3-030-00063-9_31
+    extraction_record_id: dsr_extract__bub_2018_integrated_method_digital_innovation_dsr
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 8
+    source_id: suero_montero_kapinga_2019_dsr_strengthened
+    short_citation: Suero Montero & Kapinga (2019)
+    title: 'Design Science Research Strengthened: Integrating Co-creation and Co-design'
+    publication_year: 2019
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: process_model
+    venue: ICT4D 2019, IFIP Advances in Information and Communication Technology
+    doi: 10.1007/978-3-030-18400-1_40
+    extraction_record_id: dsr_extract__suero_montero_kapinga_2019__dsr_strengthened_cocreation_codesign
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 9
+    source_id: baskerville_kaul_priesheje_storey_2019_inducing_creativity
+    short_citation: Baskerville et al. 2019
+    title: Inducing Creativity in Design Science Research
+    publication_year: 2019
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: process_model
+    venue: 'Extending the Boundaries of Design Science Theory and Practice: 14th International
+      Conference on Design Science Research in Information Systems and Technology,
+      DESRIST 2019, Proceedings'
+    doi: 10.1007/978-3-030-19504-5_1
+    extraction_record_id: dsr_extract__baskerville_kaul_pries_heje_storey_2019__inducing_creativity
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 10
+    source_id: baskerville_kaul_priesheje_storey_2019_inducing_creativity_dsr
+    short_citation: Baskerville et al. (2019)
+    title: Inducing Creativity in Design Science Research
+    publication_year: 2019
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: process_model
+    venue: Design Science Research in Information Systems and Technologies, DESRIST
+      2019
+    doi: 10.1007/978-3-030-19504-5_1
+    extraction_record_id: dsr_extract__baskerville_kaul_priesheje_storey_2019__bounded_creativity
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 11
+    source_id: mullarkey_hevner_gill_dutta_2019_citizen_data_scientist
+    short_citation: Mullarkey et al. (2019)
+    title: 'Citizen Data Scientist: A Design Science Research Method for the Conduct
+      of Data Science Projects'
+    publication_year: 2019
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: action_design_research
+    source_role_in_systematic_review: operationalization_resource
+    venue: DESRIST 2019
+    doi: 10.1007/978-3-030-19504-5_13
+    extraction_record_id: dsr_extract__mullarkey_hevner_gill_dutta_2019__citizen_data_scientist
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 12
+    source_id: maedche_gregor_morana_feine_2019_problem_space_dsr
+    short_citation: Maedche et al. (2019)
+    title: Conceptualization of the Problem Space in Design Science Research
+    publication_year: 2019
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: 'Design Science Research. Cases: DESRIST 2019'
+    doi: 10.1007/978-3-030-19504-5_2
+    extraction_record_id: dsr_extract__maedche_gregor_morana_feine_2019__problem_space_conceptualization
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 13
+    source_id: feine_morana_maedche_2019_machine_executable_descriptive_knowledge
+    short_citation: Feine, Morana, and Maedche (2019)
+    title: Leveraging Machine-Executable Descriptive Knowledge in Design Science Research
+      – The Case of Designing Socially-Adaptive Chatbots
+    publication_year: 2019
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: not_mapped
+    venue: Design Science Research in Information Systems and Technologies, DESRIST
+      2019
+    doi: 10.1007/978-3-030-19504-5_6
+    extraction_record_id: dsr_extract__feine_morana_maedche_2019__machine_executable_descriptive_knowledge
+    extraction_confidence_percent: 91
+    human_review_recommended: true
+  - inventory_index: 14
+    source_id: van_der_merwe_gerber_smuts_2020_guidelines_conducting_dsr
+    short_citation: van der Merwe et al. (2020)
+    title: Guidelines for Conducting Design Science Research in Information Systems
+    publication_year: 2020
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: Social Computing and Social Media. Design, Human Behavior and Analytics
+      / SACLA 2019 proceedings in Communications in Computer and Information Science
+    doi: 10.1007/978-3-030-35629-3_11
+    extraction_record_id: dsr_extract__van_der_merwe_gerber_smuts_2020_guidelines_conducting_dsr__001
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 15
+    source_id: vom_brocke_hevner_maedche_2020_design_science_research_cases
+    short_citation: vom Brocke, Hevner, and Maedche (2020)
+    title: Design Science Research. Cases
+    publication_year: 2020
+    source_type: book
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: canonical_design_science_research
+    source_role_in_systematic_review: operationalization_resource
+    venue: Progress in IS
+    doi: 10.1007/978-3-030-46781-4
+    extraction_record_id: dsr_extract__vom_brocke_hevner_maedche_2020__design_science_research_cases
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 16
+    source_id: vom_brocke_hevner_maedche_2020_intro_dsr
+    short_citation: vom Brocke, Hevner, and Maedche (2020)
+    title: Introduction to Design Science Research
+    publication_year: 2020
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: canonical_design_science_research
+    source_role_in_systematic_review: foundational_theory
+    venue: Design Science Research. Cases
+    doi: 10.1007/978-3-030-46781-4_1
+    extraction_record_id: dsr_extract__vom_brocke_hevner_maedche_2020__intro_dsr
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 17
+    source_id: hansen_pries_heje_2020_situational_knowledge_network_nexus
+    short_citation: Hansen & Pries-Heje (2020)
+    title: A Situational Knowledge Network Nexus
+    publication_year: 2020
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_theory_contribution
+    source_role_in_systematic_review: empirical_example
+    venue: Design Science Research. Cases
+    doi: 10.1007/978-3-030-46781-4_11
+    extraction_record_id: dsr_extract__hansen_pries_heje_2020__situational_knowledge_network_nexus
+    extraction_confidence_percent: 93
+    human_review_recommended: true
+  - inventory_index: 18
+    source_id: desrist2020_tremblay_lucapp
+    short_citation: Tremblay et al. (2020)
+    title: Delivering Effective Care Through Mobile Apps
+    publication_year: 2020
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: canonical_design_science_research
+    source_role_in_systematic_review: domain_application
+    venue: 'Designing for Digital Transformation: Co-Creating Services with Citizens
+      and Industry'
+    doi: 10.1007/978-3-030-64823-7_1
+    extraction_record_id: dsr_extract__tremblay_2020_lucapp__desrist2020_ch01
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 19
+    source_id: zur_heiden_2020_considering_context_dsr
+    short_citation: zur Heiden (2020)
+    title: Considering Context in Design Science Research
+    publication_year: 2020
+    source_type: systematic_review
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: reporting_guidance
+    venue: Design Science Research. Cases
+    doi: 10.1007/978-3-030-64823-7_21
+    extraction_record_id: dsr_extract__zur_heiden_2020_context_dsr__001
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 20
+    source_id: opdenakker_talmar_2021_slr_examples_dsr
+    short_citation: Opdenakker and Talmar (2021)
+    title: What to Consider in a Systematic Literature Review
+    publication_year: 2021
+    source_type: book_chapter
+    dsr_relevance_level: secondary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: reporting_guidance
+    venue: Literature Reviews
+    doi: 10.1007/978-3-030-75722-9_8
+    extraction_record_id: dsr_extract__opdenakker_talmar_2021_slr_examples_dsr__001
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 21
+    source_id: johannesson_perjons_2021_intro_design_science_2e
+    short_citation: Johannesson & Perjons (2021)
+    title: An Introduction to Design Science
+    publication_year: 2021
+    source_type: book
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: canonical_methodology
+    venue: An Introduction to Design Science
+    doi: 10.1007/978-3-030-78132-3
+    extraction_record_id: dsr_extract__johannesson_perjons_2021__intro_design_science_2e
+    extraction_confidence_percent: 89
+    human_review_recommended: true
+  - inventory_index: 22
+    source_id: johannesson_perjons_2021_ch11
+    short_citation: Johannesson and Perjons 2021
+    title: Systems Development and the Method Framework for Design Science Research
+    publication_year: 2021
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: process_model
+    venue: An Introduction to Design Science
+    doi: 10.1007/978-3-030-78132-3_11
+    extraction_record_id: dsr_extract__johannesson_perjons_2021_systems_development_method_framework__ch11
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 23
+    source_id: '9783030821562'
+    short_citation: De Sordi 2021
+    title: Design Science Research Methodology
+    publication_year: 2021
+    source_type: book
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: canonical_methodology
+    venue: Palgrave Pivot
+    doi: 10.1007/978-3-030-82156-2
+    extraction_record_id: dsr_extract__de_sordi_2021_design_science_research_methodology__9783030821562
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 24
+    source_id: purao_2021_dsr_problems_where_do_they_come_from
+    short_citation: Purao (2021)
+    title: Design Science Research Problems … Where Do They Come From?
+    publication_year: 2021
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: DESRIST 2021; Lecture Notes in Computer Science, volume 12807
+    doi: 10.1007/978-3-030-82405-1_12
+    extraction_record_id: dsr_extract__purao_2021_dsr_problems__978-3-030-82405-1_12
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 25
+    source_id: hevner_storey_2021_externalities_dsr
+    short_citation: Hevner & Storey, 2021
+    title: 'Externalities of Design Science Research: Preparation for Project Success'
+    publication_year: 2021
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: Design Science Research. DESRIST 2021
+    doi: 10.1007/978-3-030-82405-1_14
+    extraction_record_id: dsr_extract__hevner_storey_2021_externalities__978-3-030-82405-1_14
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 26
+    source_id: vom_brocke_gau_maedche_2021_journaling_dsr_process
+    short_citation: vom Brocke, Gau, and Mädche 2021
+    title: Journaling the Design Science Research Process
+    publication_year: 2021
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: reporting_guidance
+    venue: Design Science Research in Information Systems and Technology, DESRIST
+      2021
+    doi: 10.1007/978-3-030-82405-1_15
+    extraction_record_id: dsr_extract__vom_brocke_gau_maedche_2021__journaling_dsr_process
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 27
+    source_id: siponen_klaavuniemi_2021_primary_scientific_contribution
+    short_citation: Siponen & Klaavuniemi (2021)
+    title: The Primary Scientific Contribution is Hardly a Theory in Design Science
+      Research
+    publication_year: 2021
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: information_systems_design_theory
+    source_role_in_systematic_review: critique_or_gap_analysis
+    venue: DESRIST 2021; Lecture Notes in Computer Science
+    doi: 10.1007/978-3-030-82405-1_16
+    extraction_record_id: dsr_extract__siponen_klaavuniemi_2021_primary_scientific_contribution__978-3-030-82405-1_16
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 28
+    source_id: schwartz_yahav_2021_kcd
+    short_citation: Schwartz & Yahav (2021)
+    title: Knowledge Contribution Diagrams for Design Science Research
+    publication_year: 2021
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: contribution_typology
+    venue: DESRIST 2021, Lecture Notes in Computer Science
+    doi: 10.1007/978-3-030-82405-1_19
+    extraction_record_id: dsr_extract__schwartz_yahav_2021_kcd__001
+    extraction_confidence_percent: 93
+    human_review_recommended: true
+  - inventory_index: 29
+    source_id: krasikov_legner_eurich_2021_open_data_sourcing
+    short_citation: Krasikov, Legner, and Eurich 2021
+    title: 'Sourcing the Right Open Data: A Design Science Research Approach for the
+      Enterprise Context'
+    publication_year: 2021
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: action_design_research
+    source_role_in_systematic_review: empirical_example
+    venue: Design Science Research. Cases
+    doi: 10.1007/978-3-030-82405-1_31
+    extraction_record_id: dsr_extract__krasikov_legner_eurich_2021__open_data_sourcing
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 30
+    source_id: storey_baskerville_2021_digital_science_field_dsr
+    short_citation: Storey & Baskerville, 2021
+    title: The Digital Science Field of Design Science Research
+    publication_year: 2021
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: transdisciplinary_design_science
+    source_role_in_systematic_review: critique_or_gap_analysis
+    venue: 'Design Science Research in Information Systems and Technology: DESRIST
+      2021'
+    doi: 10.1007/978-3-030-82405-1_33
+    extraction_record_id: dsr_extract__storey_baskerville_2021__digital_science_field_dsr
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 31
+    source_id: vom_brocke_weber_grisold_2021_dsr_practical_relevance
+    short_citation: vom Brocke, Weber, and Grisold (2021)
+    title: Design Science Research of High Practical Relevance
+    publication_year: 2021
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: reporting_guidance
+    venue: Engineering the Transformation of the Enterprise
+    doi: 10.1007/978-3-030-84655-8_8
+    extraction_record_id: dsr_extract__vom_brocke_weber_grisold_2021__dsr_practical_relevance
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 32
+    source_id: leimeister_dickhaut_janson_2021_design_pattern_bridge_problem_solution
+    short_citation: Leimeister, Dickhaut, and Janson (2021)
+    title: Design Pattern as a Bridge Between Problem-Space and Solution-Space
+    publication_year: 2021
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: operationalization_resource
+    venue: Engineering the Transformation of the Enterprise
+    doi: 10.1007/978-3-030-84655-8_9
+    extraction_record_id: dsr_extract__leimeister_dickhaut_janson_2021__design_pattern_bridge_problem_solution
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 33
+    source_id: src_5a002849d9b3
+    short_citation: Drechsler, Gerber, and Hevner 2022
+    title: The Transdisciplinary Reach of Design Science Research
+    publication_year: 2022
+    source_type: book
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: transdisciplinary_design_science
+    source_role_in_systematic_review: operationalization_resource
+    venue: Lecture Notes in Computer Science
+    doi: 10.1007/978-3-031-06516-3
+    extraction_record_id: dsr_extract__drechsler_gerber_hevner_2022_transdisciplinary_reach__src_5a002849d9b3
+    extraction_confidence_percent: 82
+    human_review_recommended: true
+  - inventory_index: 34
+    source_id: dickhaut_janson_leimeister_2022_design_knowledge_representation
+    short_citation: Dickhaut, Janson, and Leimeister (2022)
+    title: Analyzing Design Knowledge Representation in Design Science Research and
+      Deriving Recommendations to Support Design Knowledge Codification
+    publication_year: 2022
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: reporting_guidance
+    venue: 'Design Science Research: DESRIST 2022'
+    doi: 10.1007/978-3-031-06516-3_31
+    extraction_record_id: dsr_extract__dickhaut_janson_leimeister_2022__design_knowledge_representation
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 35
+    source_id: smuts_winter_gerber_vandermerwe_2022_designing_dsr_taxonomy
+    short_citation: Smuts et al. (2022)
+    title: "“Designing” Design Science Research – A Taxonomy for Supporting Study
+      Design Decisions"
+    publication_year: 2022
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: Design Science Research. DESRIST 2022
+    doi: 10.1007/978-3-031-06516-3_36
+    extraction_record_id: dsr_extract__smuts_winter_gerber_vandermerwe_2022__designing_dsr_taxonomy
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 36
+    source_id: moller_kruse_schoormann_otto_2022_boundary_spanning_design_principles
+    short_citation: Möller et al. (2022)
+    title: Design Principles for Boundary Spanning in Transdisciplinary Design Science
+      Research
+    publication_year: 2022
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: transdisciplinary_design_science
+    source_role_in_systematic_review: theory_grounding
+    venue: The Next Wave of Sociotechnical Design
+    doi: 10.1007/978-3-031-06516-3_4
+    extraction_record_id: dsr_extract__moller_kruse_schoormann_otto_2022__boundary_spanning_design_principles
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 37
+    source_id: akoka_comynwattiau_prat_storey_2017_dsr_knowledge_types
+    short_citation: Akoka et al. (2017)
+    title: Evaluating Knowledge Types in Design Science Research
+    publication_year: 2017
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: artifact_evaluation_study
+    source_role_in_systematic_review: evaluation_framework
+    venue: Design Science Research in Information Systems and Technology, DESRIST
+      2017
+    doi: 10.1007/978-3-319-59144-5_12
+    extraction_record_id: dsr_extract__akoka_comynwattiau_prat_storey_2017__knowledge_types_integrated_framework
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 38
+    source_id: alismail_zhang_chatterjee_2017_dsr_objectives_framework
+    short_citation: Alismail, Zhang, and Chatterjee (2017)
+    title: A Framework for Identifying Design Science Research Objectives for Building
+      and Evaluating IT Artifacts
+    publication_year: 2017
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: Design Science Research. DESRIST 2017. Lecture Notes in Computer Science
+    doi: 10.1007/978-3-319-59144-5_13
+    extraction_record_id: dsr_extract__alismail_zhang_chatterjee_2017__dsr_objectives_framework
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 39
+    source_id: nagle_sammon_doyle_2017_insights_pdsr
+    short_citation: Nagle, Sammon, and Doyle (2017)
+    title: Insights into Practitioner Design Science Research
+    publication_year: 2017
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: DESRIST 2017, Lecture Notes in Computer Science 10243
+    doi: 10.1007/978-3-319-59144-5_25
+    extraction_record_id: dsr_extract__nagle_sammon_doyle_2017__pdsr_canvas
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 40
+    source_id: contell_diaz_venable_2017_dscaffolding
+    short_citation: Contell, Díaz, and Venable 2017
+    title: 'DScaffolding: A Tool to Support Learning and Conducting Design Science
+      Research'
+    publication_year: 2017
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: 'Design Science Research in Information Systems and Technology: DESRIST
+      2017'
+    doi: 10.1007/978-3-319-59144-5_28
+    extraction_record_id: dsr_extract__contell_diaz_venable_2017__dscaffolding
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 41
+    source_id: da_silva_berkenbrock_berkenbrock_2017_collabtrack_dsr
+    short_citation: da Silva, Berkenbrock, and Berkenbrock 2017
+    title: An Approach Using the Design Science Research for the Development of a
+      Collaborative Assistive System
+    publication_year: 2017
+    source_type: conference_paper
+    dsr_relevance_level: domain_application_source
+    dsr_genre: canonical_design_science_research
+    source_role_in_systematic_review: empirical_example
+    venue: CRIWG 2017, Lecture Notes in Computer Science
+    doi: 10.1007/978-3-319-63874-4_14
+    extraction_record_id: dsr_extract__da_silva_berkenbrock_berkenbrock_2017__collabtrack_dsr
+    extraction_confidence_percent: 92
+    human_review_recommended: true
+  - inventory_index: 42
+    source_id: meijer_nijssen_bulles_2018_agile_enterprise_design
+    short_citation: Meijer, Nijssen, and Bulles (2018)
+    title: An Evaluation of a Design Science Research Artefact in the Field of Agile
+      Enterprise Design
+    publication_year: 2018
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: artifact_evaluation_study
+    source_role_in_systematic_review: empirical_example
+    venue: On the Move to Meaningful Internet Systems. OTM 2017 Workshops
+    doi: 10.1007/978-3-319-73805-5_22
+    extraction_record_id: dsr_extract__meijer_nijssen_bulles_2018_agile_enterprise_design__001
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 43
+    source_id: sjostrom_kruse_haj_bolouri_flensburg_2018_sees
+    short_citation: Sjöström et al. (2018)
+    title: Software-Embedded Evaluation Support in Design Science Research
+    publication_year: 2018
+    source_type: conference_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: artifact_evaluation_study
+    source_role_in_systematic_review: evaluation_framework
+    venue: Design Science Research in Information Systems and Technologies, DESRIST
+      2018, Lecture Notes in Computer Science
+    doi: 10.1007/978-3-319-91800-6_23
+    extraction_record_id: dsr_extract__sjostrom_kruse_haj_bolouri_flensburg_2018__sees
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 44
+    source_id: 978-3-658-26336-2_3
+    short_citation: Siedhoff 2019
+    title: Design science research
+    publication_year: 2019
+    source_type: book_chapter
+    dsr_relevance_level: domain_application_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: Seizing Business Model Patterns for Disruptive Innovations
+    doi: 10.1007/978-3-658-26336-2_3
+    extraction_record_id: dsr_extract__siedhoff_2019_design_science_research__978-3-658-26336-2_3
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 45
+    source_id: hunziker_blankenagel_2021_design_science_research_design
+    short_citation: Hunziker & Blankenagel (2021)
+    title: Design Science Research Design
+    publication_year: 2021
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: management_design_science
+    source_role_in_systematic_review: operationalization_resource
+    venue: Research Design in Business and Management
+    doi: 10.1007/978-3-658-34357-6_6
+    extraction_record_id: dsr_extract__hunziker_blankenagel_2021_design_science_research_design__978-3-658-34357-6_6
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 46
+    source_id: schmid_2022_ch3_design_science_research_methodology
+    short_citation: Schmid 2022
+    title: Design Science Research Methodology
+    publication_year: 2022
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: domain_application
+    venue: Gamification of Electronic Negotiation Training
+    doi: 10.1007/978-3-658-38261-2_3
+    extraction_record_id: dsr_extract__schmid_2022_design_science_research_methodology__978-3-658-38261-2_3
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 47
+    source_id: 978-3-658-40731-5_5
+    short_citation: Garayo Maiztegui 2023, ch. 5
+    title: Design Cycle and Operationalisation of Design Science Research
+    publication_year: 2023
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: canonical_design_science_research
+    source_role_in_systematic_review: empirical_example
+    venue: Design and Evaluation of an E-Learning Artefact for the Implementation
+      of SAP S/4 Hana
+    doi: 10.1007/978-3-658-40731-5_5
+    extraction_record_id: dsr_extract__garayo_maiztegui_2023_ch5__978-3-658-40731-5_5
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 48
+    source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+    short_citation: Baskerville, Kaul, and Storey (2018)
+    title: Aesthetics in design science research
+    publication_year: 2018
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: evaluation_framework
+    venue: European Journal of Information Systems
+    doi: 10.1080/0960085X.2017.1395545
+    extraction_record_id: dsr_extract__baskerville_kaul_storey_2018__aesthetics_dsr
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 49
+    source_id: brendel_et_al_2021_replication_study_types_dsr
+    short_citation: Brendel et al. (2021)
+    title: Toward replication study types for design science research
+    publication_year: 2021
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: contribution_typology
+    venue: Journal of Information Technology
+    doi: 10.1177/02683962211006429
+    extraction_record_id: dsr_extract__brendel_et_al_2021__replication_study_types
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 50
+    source_id: thuan_drechsler_antunes_2019_construction_dsr_questions
+    short_citation: Thuan, Drechsler, and Antunes (2019)
+    title: Construction of Design Science Research Questions
+    publication_year: 2019
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: Communications of the Association for Information Systems
+    doi: 10.17705/1CAIS.04420
+    extraction_record_id: dsr_extract__thuan_drechsler_antunes_2019__construction_dsr_questions
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 51
+    source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+    short_citation: Peffers, Tuunanen, and Niehaves 2018
+    title: Design science research genres
+    publication_year: 2018
+    source_type: editorial
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: contribution_typology
+    venue: European Journal of Information Systems
+    doi: 10.1080/0960085X.2018.1458066
+    extraction_record_id: dsr_extract__peffers_tuunanen_niehaves_2018__design_science_research_genres
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 52
+    source_id: bagni_godinho_filho_finne_thurer_2025_dsr_om_single_type
+    short_citation: Bagni et al. (2025)
+    title: 'Design science research in operations management: is there a single type?'
+    publication_year: 2025
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: operations_management_design_science
+    source_role_in_systematic_review: literature_review
+    venue: Production Planning & Control
+    doi: 10.1080/09537287.2024.2310230
+    extraction_record_id: dsr_extract__bagni_etal_2025_dsr_om_single_type
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 53
+    source_id: baskerville_baiyere_gregor_hevner_rossi_2018_design_science_research_contributions
+    short_citation: Baskerville et al. (2018)
+    title: Design Science Research Contributions
+    publication_year: 2018
+    source_type: editorial
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_knowledge_synthesis
+    source_role_in_systematic_review: contribution_typology
+    venue: Journal of the Association for Information Systems
+    doi: 10.17705/1jais.00495
+    extraction_record_id: dsr_extract__baskerville_baiyere_gregor_hevner_rossi_2018__jais_00495
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 54
+    source_id: tuunanen_winter_vombrocke_2024_edsr_design_echelons
+    short_citation: Tuunanen et al. (2024)
+    title: Dealing with Complexity in Design Science Research
+    publication_year: 2024
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: canonical_methodology
+    venue: MIS Quarterly
+    doi: 10.25300/MISQ/2023/16700
+    extraction_record_id: dsr_extract__tuunanen_winter_vombrocke_2024__edsr_design_echelons
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 55
+    source_id: mohammad_husamaldin_2025_sustainable_project_portfolio_management_dsr
+    short_citation: Mohammad & Husamaldin (2025)
+    title: Sustainable Project Portfolio Management – A Design Science Research Approach
+    publication_year: 2025
+    source_type: journal_article
+    dsr_relevance_level: domain_application_source
+    dsr_genre: management_design_science
+    source_role_in_systematic_review: domain_application
+    venue: International Journal of Business Science and Applied Management
+    doi: 'null'
+    extraction_record_id: dsr_extract__mohammad_husamaldin_2025_sppm__ebsco_fulltext_20260424_3
+    extraction_confidence_percent: 89
+    human_review_recommended: true
+  - inventory_index: 56
+    source_id: van_aken_chandrasekaran_halman_2016_jom_dsr
+    short_citation: van Aken et al. (2016)
+    title: Conducting and publishing design science research
+    publication_year: 2016
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: operations_management_design_science
+    source_role_in_systematic_review: canonical_methodology
+    venue: Journal of Operations Management
+    doi: 10.1016/j.jom.2016.06.004
+    extraction_record_id: dsr_extract__van_aken_chandrasekaran_halman_2016__conducting_publishing_dsr
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 57
+    source_id: iivari_2020_critical_look_theories_dsr
+    short_citation: Iivari (2020)
+    title: 'Editorial: A Critical Look at Theories in Design Science Research'
+    publication_year: 2020
+    source_type: editorial
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_theory_contribution
+    source_role_in_systematic_review: critique_or_gap_analysis
+    venue: Journal of the Association for Information Systems
+    doi: 10.17705/1jais.00610
+    extraction_record_id: dsr_extract__iivari_2020_critical_look_theories__jaais00610
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 58
+    source_id: ijmpb-01-2020-0015
+    short_citation: Henriques and O'Neill (2023)
+    title: Design science research with focus groups – a pragmatic meta-model
+    publication_year: 2023
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: International Journal of Managing Projects in Business
+    doi: 10.1108/IJMPB-01-2020-0015
+    extraction_record_id: dsr_extract__henriques_oneill_2023__ijmpb_01_2020_0015
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 59
+    source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+    short_citation: Storey et al. (2025)
+    title: Reliability in design science research
+    publication_year: 2025
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: reliability_framework
+    venue: Information Systems Journal
+    doi: 10.1111/isj.12564
+    extraction_record_id: dsr_extract__storey_baskerville_kaul_2025_reliability_dsr__isj12564
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 60
+    source_id: skalli_cherrafi_charkaoui_chiarini_shokri_antony_garza_reyes_foster_2025_lss40_framework
+    short_citation: Skalli et al. 2025
+    title: Integrating Lean Six Sigma and Industry 4.0
+    publication_year: 2025
+    source_type: journal_article
+    dsr_relevance_level: domain_application_source
+    dsr_genre: operations_management_design_science
+    source_role_in_systematic_review: empirical_example
+    venue: Production Planning & Control
+    doi: 10.1080/09537287.2024.2341698
+    extraction_record_id: dsr_extract__skalli_2025_lss40_framework__001
+    extraction_confidence_percent: 91
+    human_review_recommended: true
+  - inventory_index: 61
+    source_id: van_aken_chandrasekaran_halman_2016_jom_design_science_research
+    short_citation: van Aken et al. (2016)
+    title: Conducting and publishing design science research
+    publication_year: 2016
+    source_type: journal_article
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: operations_management_design_science
+    source_role_in_systematic_review: reporting_guidance
+    venue: Journal of Operations Management
+    doi: 10.1016/j.jom.2016.06.004
+    extraction_record_id: dsr_extract__van_aken_chandrasekaran_halman_2016__jom_dsr_om
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 62
+    source_id: trigo_2026_art_nlr
+    short_citation: Trigo (2026)
+    title: Artefact-driven narrative literature review (ART-NLR)
+    publication_year: 2026
+    source_type: methodological_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: operationalization_resource
+    venue: Journal of Documentation
+    doi: 10.1108/JD-01-2026-0013
+    extraction_record_id: dsr_extract__trigo_2026_art_nlr__jd_01_2026_0013
+    extraction_confidence_percent: 93
+    human_review_recommended: true
+  - inventory_index: 63
+    source_id: benfell_2021_modeling_functional_requirements_tacit_knowledge
+    short_citation: Benfell (2021)
+    title: 'Modeling functional requirements using tacit knowledge: a design science
+      research methodology informed approach'
+    publication_year: 2021
+    source_type: journal_article
+    dsr_relevance_level: domain_application_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: empirical_example
+    venue: Requirements Engineering
+    doi: 10.1007/s00766-020-00330-4
+    extraction_record_id: dsr_extract__benfell_2021__modeling_functional_requirements_tacit_knowledge
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 64
+    source_id: pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+    short_citation: Pekkola 2023
+    title: Reflections on Supervising the Postgraduate Students’ Design Science Research
+      Thesis
+    publication_year: 2023
+    source_type: journal_article
+    dsr_relevance_level: secondary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: critique_or_gap_analysis
+    venue: Journal of Information Systems Education
+    doi: 'null'
+    extraction_record_id: dsr_extract__pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  - inventory_index: 65
+    source_id: s11846-026-00996-0
+    short_citation: Gadola et al. (2026)
+    title: Enhancing collaboration and knowledge sharing through intra-organizational
+      platforms
+    publication_year: 2026
+    source_type: not_mapped
+    dsr_relevance_level: domain_application_source
+    dsr_genre: management_design_science
+    source_role_in_systematic_review: empirical_example
+    venue: Review of Managerial Science
+    doi: 10.1007/s11846-026-00996-0
+    extraction_record_id: dsr_extract__gadola_trabucchi_buganza_2026__s11846_026_00996_0
+    extraction_confidence_percent: 91
+    human_review_recommended: false
+  - inventory_index: 66
+    source_id: cauffman_weggeman_2024_sofap_p
+    short_citation: Cauffman & Weggeman, 2024
+    title: Solution-Focused Applied Psychology
+    publication_year: 2024
+    source_type: book
+    dsr_relevance_level: domain_application_source
+    dsr_genre: design_principle_development
+    source_role_in_systematic_review: domain_application
+    venue: Routledge
+    doi: 10.4324/9781003404477
+    extraction_record_id: dsr_extract__cauffman_weggeman_2024__sofap_p
+    extraction_confidence_percent: 88
+    human_review_recommended: true
+  - inventory_index: 67
+    source_id: proquest_ebookcentral_docid_5210703_chapter_c_page_119
+    short_citation: Applied Design Science Research, chapter C, p. 119
+    title: Applied Design Science Research in the Context of Smart and Sustainable
+      Mobility
+    publication_year: 2017
+    source_type: book_chapter
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: canonical_methodology
+    venue: 'null'
+    doi: 'null'
+    extraction_record_id: dsr_extract__synthesis_of_design_science_research_framework_methodology__p119
+    extraction_confidence_percent: 72
+    human_review_recommended: true
+  - inventory_index: 68
+    source_id: vom_brocke_maedche_2019_dsr_grid
+    short_citation: vom Brocke & Maedche, 2019
+    title: The DSR grid
+    publication_year: 2019
+    source_type: editorial
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: design_science_research_methodology
+    source_role_in_systematic_review: reporting_guidance
+    venue: Electronic Markets
+    doi: 10.1007/s12525-019-00358-7
+    extraction_record_id: dsr_extract__vom_brocke_maedche_2019__dsr_grid
+    extraction_confidence_percent: 94
+    human_review_recommended: false
+  - inventory_index: 69
+    source_id: beinke_fitte_teuteberg_2019_blockchain_ehr
+    short_citation: Beinke et al. (2019)
+    title: 'Towards a Stakeholder-Oriented Blockchain-Based Architecture for Electronic
+      Health Records: Design Science Research Study'
+    publication_year: 2019
+    source_type: journal_article
+    dsr_relevance_level: domain_application_source
+    dsr_genre: canonical_design_science_research
+    source_role_in_systematic_review: empirical_example
+    venue: Journal of Medical Internet Research
+    doi: 10.2196/13585
+    extraction_record_id: dsr_extract__beinke_fitte_teuteberg_2019__blockchain_ehr_dsr
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 70
+    source_id: tqm-01-2023-0017
+    short_citation: Antony et al. (2024)
+    title: Towards a design science research (DSR) methodology for operational excellence
+      (OPEX) initiatives
+    publication_year: 2024
+    source_type: conceptual_paper
+    dsr_relevance_level: primary_dsr_source
+    dsr_genre: operations_management_design_science
+    source_role_in_systematic_review: operationalization_resource
+    venue: The TQM Journal
+    doi: 10.1108/TQM-01-2023-0017
+    extraction_record_id: dsr_extract__antony_et_al_2024_dsr_opex_esg__tqm_01_2023_0017
+    extraction_confidence_percent: 93
+    human_review_recommended: false
+  - inventory_index: 71
+    source_id: agerfalk_2018_whither_design_science_research
+    short_citation: Ågerfalk (2018)
+    title: Whither design science research?
+    publication_year: 2018
+    source_type: editorial
+    dsr_relevance_level: secondary_dsr_source
+    dsr_genre: design_oriented_information_systems_research
+    source_role_in_systematic_review: critique_or_gap_analysis
+    venue: European Journal of Information Systems
+    doi: 10.1080/0960085X.2018.1458065
+    extraction_record_id: dsr_extract__agerfalk_2018__whither_design_science_research
+    extraction_confidence_percent: 92
+    human_review_recommended: false
+  traceability:
+  - trace_id: trace_record_source_basis_to_selection_table
+    from: record_source_basis
+    to: dsr-framework-selection-table.md
+    relationship: selected_row_defines_target_path_and_purpose
+  - trace_id: trace_record_source_basis_to_generation_spec
+    from: record_source_basis_0001_dsr_corpus
+    to: dsr_framework_generation_spec
+    relationship: conforms_to_record_rules_repository_architecture_and_quality_gates
+  - trace_id: trace_record_source_basis_to_generation_prompt
+    from: record_source_basis_0001_dsr_corpus
+    to: dsr_framework_generation_prompt
+    relationship: implements_governing_source_order_and_record_generation_procedure
+  - trace_id: trace_record_source_basis_to_corpus_manifest
+    from: record_source_basis_0001_dsr_corpus
+    to: chunked_folder_conversion_extractions_20260427030321_manifest_json_part001.json
+    relationship: records_corpus_conversion_identity_counts_and_file_provenance
+  - trace_id: trace_record_source_basis_to_combined_corpus
+    from: record_source_basis_0001_dsr_corpus
+    to: chunked_folder_conversion_extractions_20260427030321_part001.yaml
+    relationship: summarizes_source_extraction_records_and_source_inventory
+  outcome:
+    outcome_status: source_basis_registered
+    outcome_summary: The DSR Framework package has an explicit retained record identifying
+      its governing generation files, declared documentation-protocol source, and
+      DSR extraction corpus source inventory.
+    use_authorization: Use this record to support traceability, reviewability, package
+      inventory alignment, and future evidence selection for models, vocabularies,
+      checklists, templates, docs, and retained records.
+    not_authorized_for:
+    - Claiming that all corpus entries have been independently human-verified.
+    - Claiming that the external documentation-protocol repository was checked for
+      current state during this record generation.
+    - Treating this source-basis record as a substitute for source-specific citation
+      review in publication-ready outputs.
+  validation_rules:
+  - rule_id: vr_source_basis_record_required_fields
+    rule: The record must include record_id, record_class, event_or_action, date,
+      responsible_party, evidence, outcome, related_items, and retention_rule.
+    status: satisfied
+  - rule_id: vr_source_inventory_count_matches_manifest
+    rule: The source inventory count should equal the manifest record_count and converted_count
+      when failed_count is zero.
+    status: satisfied
+  - rule_id: vr_external_protocol_status_disclosed
+    rule: The record must disclose whether the documentation-protocol repository was
+      externally checked during generation.
+    status: satisfied
+  - rule_id: vr_no_unmapped_evidence_overclaim
+    rule: The record must not claim source-specific evidence beyond the extracted
+      corpus fields available in the uploaded corpus files.
+    status: satisfied
+  acceptance_criteria:
+  - criterion_id: ac_repository_path
+    criterion: The file is placeable at records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      without renaming.
+    status: met
+  - criterion_id: ac_l2_reviewable
+    criterion: A reviewer can identify the corpus, source files, source counts, evidence
+      status, and limitations without hidden assumptions.
+    status: met
+  - criterion_id: ac_traceability
+    criterion: The record links the selected file to the generation spec, generation
+      prompt, corpus manifest, and combined corpus YAML.
+    status: met
+  - criterion_id: ac_corpus_inventory
+    criterion: The record includes a per-source inventory sufficient for downstream
+      selection and review.
+    status: met
+  quality_gate_status:
+    consistency:
+      status: pass
+      rationale: Uses YAML, lower-kebab-case path, records/source-basis directory,
+        and stable lower_snake_case identifiers.
+    coherence:
+      status: pass
+      rationale: Aligns with the source-basis row, record-required fields, corpus
+        manifest counts, and generation prompt governing-source order.
+    cogency:
+      status: pass
+      rationale: Separates evidence items, source-basis hierarchy, corpus coverage,
+        inventory, validation rules, outcomes, and limitations.
+    correspondence:
+      status: pass
+      rationale: Supports the DSR Framework as a reviewable artifact package by documenting
+        evidence provenance and corpus boundaries.
+    dsr_transparency:
+      status: pass
+      rationale: Supports process transparency, solution-space transparency, contribution
+        transparency, and reviewability by recording how the corpus basis is identified
+        and bounded.
+    reviewability:
+      status: pass
+      rationale: Includes acceptance criteria, validation rules, traceability, and
+        explicit non-authorized uses.
+  related_items:
+  - item_id: manifest_yaml
+    path: manifest.yaml
+    relationship: should_reference_this_record_as_package_evidence_after_manifest_is_updated_or_regenerated
+    evidence_status: not_yet_mapped
+  - item_id: package_inventory
+    path: package-inventory.yaml
+    relationship: should_list_this_file_as_a_retained_source_basis_record
+    evidence_status: not_yet_mapped
+  - item_id: conformance_declaration
+    path: conformance-declaration.yaml
+    relationship: should use this record as evidence for source traceability at L2
+      reviewable conformance
+    evidence_status: not_yet_mapped
+  - item_id: product_dsr_lifecycle_and_contribution_model
+    path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+    relationship: major downstream consumer of DSR corpus evidence
+    evidence_status: not_yet_mapped
+  - item_id: product_dsr_information_item_architecture
+    path: specs/product-dsr-information-item-architecture.yaml
+    relationship: defines how retained records should be structured and reused
+    evidence_status: not_yet_mapped
+  - item_id: product_dsr_quality_conformance_and_review_model
+    path: specs/product-dsr-quality-conformance-and-review-model.yaml
+    relationship: uses source-basis records as reviewability and traceability evidence
+    evidence_status: not_yet_mapped
+  assumptions:
+  - The DSR extraction corpus supplied in the project registry is the authoritative
+    internal corpus for this source-basis record.
+  - The record is intended for L2 reviewable conformance, not L5 archival publication
+    readiness.
+  - The documentation-protocol repository is recorded as a declared governing source
+    from the generation prompt/spec but was not externally refetched during this task.
+  - The source inventory is derived from extracted corpus metadata and should be human-reviewed
+    before final bibliographic publication.
+  limitations:
+  - This record documents source basis and corpus inventory; it does not independently
+    validate every source extraction.
+  - This record does not resolve all citation-anchor adequacy questions in individual
+    source records.
+  - This record does not create a schema for source-basis records; a future schema
+    may tighten field requirements.
+  - Some corpus fields are normalized from extraction records and may require human
+    review where source_type, role, or bibliographic metadata are marked not_mapped.
+  open_questions:
+  - question_id: oq_source_basis_schema
+    question: Should a dedicated JSON Schema be added for source-basis records?
+    disposition: backlog
+  - question_id: oq_protocol_repository_current_state
+    question: Should the documentation-protocol repository be externally checked and
+      pinned to a commit hash before L4 or L5 release?
+    disposition: recommended_before_publication_ready_release
+  - question_id: oq_corpus_bibliographic_review
+    question: Which corpus entries require human bibliographic verification before
+      the framework package is published?
+    disposition: recommended_review_workflow_input
+  retention_rule:
+    retention_category: permanent_project_record
+    retention_rationale: The source-basis record provides provenance evidence for
+      the DSR Framework artifact package and should remain with the repository across
+      releases.
+    disposition: retain_and_supersede_by_new_record_when_corpus_or_protocol_basis_changes
+  change_history:
+  - version: 0.1.0
+    date: '2026-04-27'
+    change: Initial source-basis record generated from uploaded DSR Framework generation
+      files and extraction corpus.
+    responsible_party: GPT-5.5 Thinking

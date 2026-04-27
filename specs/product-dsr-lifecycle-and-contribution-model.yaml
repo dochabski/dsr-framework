@@ -1,0 +1,1318 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_lifecycle_and_contribution_model
+  title: DSR Lifecycle and Contribution Model Product Specification
+  purpose: Specify the controlled lifecycle, artifact taxonomy, contribution-positioning model, transparency obligations,
+    and evaluation-alignment rules used by the DSR Framework to plan, document, review, package, and publish Design
+    Science Research artifacts.
+  status: draft
+  version: 0.1.0
+  owner: framework_maintainer
+  target_path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+  selection_id: spec_dsr_lifecycle_contribution
+  portion_type: product_spec
+  output_format: yaml
+  conformance_target: l2_reviewable
+  license: CC0-1.0
+source_basis:
+- id: user_current_request
+  role: immediate_task_definition
+  evidence_status: mapped
+  notes: User selected spec_dsr_lifecycle_contribution and requested a file with the proper file name.
+- id: dsr_framework_generation_spec
+  role: generation_rules_and_quality_gates
+  evidence_status: mapped
+  notes: Requires controlled YAML product specifications, stable identifiers, traceability, quality gates, and reviewable
+    conformance material.
+- id: dsr_framework_generation_prompt
+  role: required_generation_procedure_and_product_spec_shape
+  evidence_status: mapped
+  notes: Requires product specs to include identity, conceptual model, normative requirements, information items,
+    workflow, quality, traceability, implementation guidance, template or schema implications, and backlog.
+- id: dsr_extraction_corpus
+  role: scholarly_and_methodological_evidence_base
+  evidence_status: partially_mapped
+  notes: Corpus evidence is mapped at source-family and citation-anchor level where available. Detailed bibliographic
+    crosswalks remain delegated to record_source_basis.
+dependencies:
+- id: spec_protocol_foundation
+  path: specs/product-protocol-foundation.yaml
+  relationship: upstream
+  dependency_role: governs conformance vocabulary, tailoring, and protocol-compatible controlled item structure
+- id: spec_dsr_framework_foundation
+  path: specs/product-dsr-framework-foundation.yaml
+  relationship: upstream
+  dependency_role: defines DSR Framework identity, scope, users, assumptions, and non-goals
+- id: record_source_basis
+  path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+  relationship: upstream
+  dependency_role: retains DSR corpus source basis and evidence mapping
+- id: model_lifecycle
+  path: models/dsr-lifecycle-model.yaml
+  relationship: downstream
+  dependency_role: operationalizes lifecycle stages defined by this product specification
+- id: model_artifact_ontology
+  path: models/dsr-artifact-ontology.yaml
+  relationship: downstream
+  dependency_role: expands artifact taxonomy, boundaries, make/use structure, and instance/type distinctions
+- id: model_contribution
+  path: models/dsr-contribution-model.yaml
+  relationship: downstream
+  dependency_role: expands contribution positioning, knowledge goals, and knowledge scopes
+- id: model_evaluation_alignment
+  path: models/dsr-evaluation-alignment-model.yaml
+  relationship: downstream
+  dependency_role: expands evaluation plan, criteria, evidence, and claim-alignment logic
+- id: model_transparency
+  path: models/dsr-transparency-model.yaml
+  relationship: downstream
+  dependency_role: expands the six transparency dimensions and crosswalk obligations
+related_items:
+  upstream_specs:
+  - specs/product-protocol-foundation.yaml
+  - specs/product-dsr-framework-foundation.yaml
+  - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+  downstream_models:
+  - models/dsr-lifecycle-model.yaml
+  - models/dsr-artifact-ontology.yaml
+  - models/dsr-contribution-model.yaml
+  - models/dsr-evaluation-alignment-model.yaml
+  - models/dsr-transparency-model.yaml
+  - models/dsr-decision-flow.yaml
+  downstream_vocabularies:
+  - vocabularies/artifact-types.yaml
+  - vocabularies/contribution-types.yaml
+  - vocabularies/knowledge-goals.yaml
+  - vocabularies/knowledge-scopes.yaml
+  - vocabularies/lifecycle-stages.yaml
+  - vocabularies/evaluation-method-families.yaml
+  - vocabularies/transparency-dimensions.yaml
+  downstream_templates_and_checklists:
+  - templates/dsr-project-charter-template.md
+  - templates/problem-and-objectives-template.md
+  - templates/solution-space-record-template.yaml
+  - templates/artifact-specification-template.md
+  - templates/build-transparency-record-template.yaml
+  - templates/demonstration-record-template.yaml
+  - templates/evaluation-plan-template.yaml
+  - templates/evaluation-report-template.yaml
+  - templates/contribution-claim-template.yaml
+  - templates/contribution-positioning-record-template.yaml
+  - templates/dsr-transparency-crosswalk-template.yaml
+  - checklists/dsr-minimum-viable-study-checklist.yaml
+  - checklists/evaluation-readiness-checklist.yaml
+  - checklists/contribution-positioning-checklist.yaml
+  - checklists/dsr-transparency-crosswalk-checklist.yaml
+  human_facing_docs:
+  - docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+  - docs/protocol/05-artifact-ontology.md
+  - docs/protocol/08-evaluation-framework.md
+  - docs/protocol/10-transparency-and-reporting.md
+sections:
+- id: identity_and_purpose
+  title: Identity and Purpose
+  purpose: Define the product boundary and its role inside the DSR Framework package.
+  content:
+    product_boundary:
+      in_scope:
+      - DSR lifecycle stages and required lifecycle evidence
+      - Artifact taxonomy and artifact boundary rules
+      - Contribution positioning by contribution type, knowledge goal, and knowledge scope
+      - Transparency alignment across process, problem space, solution space, build, evaluation, and contribution
+      - Evaluation alignment between claims, criteria, methods, evidence, and limitations
+      - Reviewable quality gates for lifecycle and contribution documentation
+      out_of_scope:
+      - Full JSON Schema definitions for project, artifact, evaluation, and contribution records
+      - Detailed human-facing prose guidance for researchers
+      - Exhaustive bibliographic evidence tables for every DSR source in the corpus
+      - Final publication-readiness or archival-release certification
+      non_goals:
+      - Do not collapse DSR into routine software development, consulting, or local implementation without knowledge
+        contribution.
+      - Do not treat demonstration as sufficient evidence of evaluation unless explicitly justified and bounded.
+      - Do not require every DSR project to use the same evaluation method or the same contribution type.
+      - Do not claim reproducibility, generalizability, or publication readiness beyond the evidence documented
+        in project records.
+    intended_users:
+    - role: researcher_or_designer
+      uses:
+      - plan a DSR project
+      - classify the intended artifact
+      - define contribution claims
+      - align evaluation to claims and criteria
+    - role: reviewer_or_editor
+      uses:
+      - assess whether a project has DSR identity
+      - evaluate artifact, evaluation, and contribution adequacy
+      - identify missing transparency evidence
+    - role: framework_maintainer
+      uses:
+      - derive controlled models, vocabularies, templates, checklists, and schemas
+      - maintain package consistency across releases
+    conformance_statement: At L2 reviewable conformance, this product specification must be structured, traceable,
+      internally coherent, and reviewable, but it is not yet a fully validated executable model or archival publication
+      package.
+- id: conceptual_model
+  title: Conceptual Model
+  purpose: Define the lifecycle, artifact, contribution, transparency, and evaluation concepts controlled by this
+    product.
+  content:
+    core_distinctions:
+    - id: artifact_utility_artifact_quality_knowledge_contribution
+      label: Artifact utility, artifact quality, and knowledge contribution are separate claims.
+      definition: A DSR artifact may be useful in a context, well-built as an artifact, and still require a separately
+        argued contribution to design knowledge.
+      review_implication: Evaluation reports must identify which claim type each item of evidence supports.
+    - id: demonstration_vs_evaluation
+      label: Demonstration and evaluation are distinct lifecycle functions.
+      definition: Demonstration shows that an artifact can be used in a scenario; evaluation assesses how well it
+        satisfies criteria, goals, requirements, or effects.
+      review_implication: A demonstration record cannot substitute for an evaluation report unless the project explicitly
+        states and justifies a reduced conformance profile.
+    - id: artifact_type_vs_artifact_instance
+      label: Artifact type and artifact instance are distinct.
+      definition: Reusable design knowledge usually concerns an artifact kind, specification, method, model, or
+        design principle; individual deployments or instantiations provide evidence and context but are not identical
+        to the reusable contribution.
+      review_implication: Artifact records must state whether they document a reusable artifact type, a project-specific
+        instance, or both.
+    - id: idiographic_nomothetic_projectable_scope
+      label: Contribution scope may be idiographic, nomothetic, or projectable/mixed.
+      definition: DSR knowledge may be local to a case, generalized across a class of problems, or projectable through
+        clearly documented boundary conditions and transfer logic.
+      review_implication: Contribution claims must avoid implying generality beyond documented scope and evaluation
+        evidence.
+    - id: prescriptive_and_descriptive_knowledge
+      label: DSR may produce prescriptive and descriptive knowledge.
+      definition: DSR normally emphasizes prescriptive design knowledge but may also produce definitional, descriptive,
+        explanatory, predictive, or explanatory-predictive knowledge that supports or evaluates design.
+    lifecycle_stages:
+    - id: problem_identification_and_relevance
+      label: Problem Identification and Relevance
+      purpose: Define the practical problem, stakeholders, context, problem class, severity, and relevance claim.
+      primary_inputs:
+      - initial_problem_statement
+      - stakeholder_context
+      - organizational_or_domain_need
+      primary_outputs:
+      - problem_space_record
+      - stakeholder_map
+      - initial_relevance_claim
+      minimum_evidence:
+      - problem class
+      - affected stakeholders
+      - context boundaries
+      - relevance rationale
+      transparency_dimensions:
+      - problem_space_transparency
+      - process_transparency
+    - id: objectives_and_requirements
+      label: Objectives and Requirements
+      purpose: Translate the problem into solution objectives, requirements, acceptance criteria, and intended effects.
+      primary_inputs:
+      - problem_space_record
+      - stakeholder_needs
+      - source_basis
+      primary_outputs:
+      - objectives_record
+      - requirements_list
+      - success_criteria
+      minimum_evidence:
+      - functional requirements
+      - quality requirements
+      - constraints
+      - success criteria
+      transparency_dimensions:
+      - problem_space_transparency
+      - contribution_transparency
+    - id: solution_space_grounding
+      label: Solution-Space Grounding
+      purpose: Document prior theories, artifacts, methods, design principles, technologies, and alternatives that
+        ground the project.
+      primary_inputs:
+      - literature_review
+      - prior_artifacts
+      - technical_alternatives
+      primary_outputs:
+      - solution_space_record
+      - design_knowledge_basis
+      - alternative_solution_rationale
+      minimum_evidence:
+      - searched source families
+      - included knowledge bases
+      - rejected alternatives
+      - grounding rationale
+      transparency_dimensions:
+      - solution_space_transparency
+    - id: artifact_design_and_rationale
+      label: Artifact Design and Rationale
+      purpose: Specify the artifact type, components, boundary, make/use logic, design decisions, and expected mechanisms.
+      primary_inputs:
+      - requirements_list
+      - solution_space_record
+      - design_constraints
+      primary_outputs:
+      - artifact_specification
+      - design_rationale_record
+      - traceable_design_decisions
+      minimum_evidence:
+      - artifact type
+      - artifact boundary
+      - components
+      - use logic
+      - design rationale
+      - decision traceability
+      transparency_dimensions:
+      - build_transparency
+      - solution_space_transparency
+    - id: build_or_instantiation
+      label: Build or Instantiation
+      purpose: Create, configure, instantiate, or materially represent the artifact sufficiently for demonstration
+        or evaluation.
+      primary_inputs:
+      - artifact_specification
+      - make_plan
+      - resources_and_constraints
+      primary_outputs:
+      - artifact_instance_or_release
+      - build_record
+      - implementation_notes
+      minimum_evidence:
+      - build steps
+      - version
+      - configuration
+      - known deviations
+      - implementation limits
+      transparency_dimensions:
+      - build_transparency
+      - process_transparency
+    - id: demonstration
+      label: Demonstration
+      purpose: Show how the artifact can be used, enacted, or interpreted in a relevant scenario.
+      primary_inputs:
+      - artifact_instance_or_specification
+      - use_case
+      - demonstration_context
+      primary_outputs:
+      - demonstration_record
+      - scenario_outputs
+      - observed_use_notes
+      minimum_evidence:
+      - use scenario
+      - actor or user role
+      - task
+      - artifact behavior
+      - demonstrated output
+      transparency_dimensions:
+      - process_transparency
+      - build_transparency
+    - id: evaluation
+      label: Evaluation
+      purpose: Assess artifact utility, artifact quality, requirements satisfaction, use effects, contribution plausibility,
+        or fitness for evolution.
+      primary_inputs:
+      - evaluation_plan
+      - artifact
+      - success_criteria
+      - demonstration_or_use_data
+      primary_outputs:
+      - evaluation_report
+      - evidence_table
+      - limitations_and_threats
+      minimum_evidence:
+      - evaluation criteria
+      - method family
+      - data or argument
+      - findings
+      - limitations
+      - claim alignment
+      transparency_dimensions:
+      - evaluation_transparency
+    - id: contribution_positioning
+      label: Contribution Positioning
+      purpose: State how the project contributes to design knowledge, method, theory, artifact practice, evaluation,
+        or reporting.
+      primary_inputs:
+      - artifact_specification
+      - evaluation_report
+      - source_basis
+      - knowledge_gap
+      primary_outputs:
+      - contribution_claim
+      - contribution_positioning_record
+      - knowledge_scope_statement
+      minimum_evidence:
+      - contribution type
+      - knowledge goal
+      - knowledge scope
+      - novelty rationale
+      - boundary conditions
+      transparency_dimensions:
+      - contribution_transparency
+    - id: transparency_packaging_and_review
+      label: Transparency Packaging and Review
+      purpose: Assemble the lifecycle evidence into a reviewable, reusable, and proportionately transparent artifact
+        package.
+      primary_inputs:
+      - all_lifecycle_records
+      - package_inventory
+      - quality_checklists
+      primary_outputs:
+      - transparency_crosswalk
+      - review_record
+      - package_readiness_status
+      minimum_evidence:
+      - crosswalk to six transparency dimensions
+      - open limitations
+      - review outcomes
+      - remediation decisions
+      transparency_dimensions:
+      - process_transparency
+      - problem_space_transparency
+      - solution_space_transparency
+      - build_transparency
+      - evaluation_transparency
+      - contribution_transparency
+    - id: communication_release_and_accumulation
+      label: Communication, Release, and Accumulation
+      purpose: Communicate the artifact and evidence to scholarly, practitioner, technical, or public audiences
+        and enable reuse or cumulative extension.
+      primary_inputs:
+      - artifact_package
+      - contribution_claim
+      - release_record
+      primary_outputs:
+      - documentation
+      - release_record
+      - reuse_guidance
+      - future_work_backlog
+      minimum_evidence:
+      - audience
+      - release scope
+      - reuse constraints
+      - citation or preservation metadata
+      - future work
+      transparency_dimensions:
+      - contribution_transparency
+      - process_transparency
+    artifact_taxonomy:
+    - id: construct
+      label: Construct
+      definition: A concept, vocabulary element, classification term, or representational primitive used to describe,
+        design, evaluate, or reason about a problem or artifact.
+    - id: model
+      label: Model
+      definition: A representation of relationships, entities, states, processes, constraints, or mechanisms relevant
+        to a DSR problem or artifact.
+    - id: method
+      label: Method
+      definition: A procedure, algorithm, technique, workflow, or prescriptive sequence intended to accomplish a
+        design or evaluation task.
+    - id: instantiation
+      label: Instantiation
+      definition: A realized artifact instance, implementation, prototype, configuration, or deployment used to
+        demonstrate or evaluate a design.
+    - id: design_theory
+      label: Design Theory
+      definition: A theory-like body of design knowledge that connects purpose, constructs, principles, mechanisms,
+        context, implementation, and evaluation.
+    - id: framework
+      label: Framework
+      definition: An organizing structure that relates concepts, dimensions, procedures, criteria, or decision points
+        for a problem class.
+    - id: ontology
+      label: Ontology
+      definition: A formal or semi-formal specification of entities, relations, boundaries, and meanings in a domain
+        or artifact class.
+    - id: taxonomy
+      label: Taxonomy
+      definition: A controlled classification scheme for sorting artifacts, contributions, methods, problems, or
+        evidence.
+    - id: guideline_or_design_principle
+      label: Guideline or Design Principle
+      definition: A prescriptive statement linking context, action, mechanism or rationale, intended outcome, and
+        boundary conditions.
+    - id: protocol_or_process
+      label: Protocol or Process Artifact
+      definition: A governed sequence of activities, records, quality gates, and responsibilities for producing
+        or evaluating DSR outputs.
+    - id: software_or_computational_artifact
+      label: Software or Computational Artifact
+      definition: A program, application, algorithmic system, data pipeline, interface, agent, or computational
+        component created or adapted to solve a problem.
+    - id: information_or_data_artifact
+      label: Information or Data Artifact
+      definition: A structured data model, dataset, record system, schema, knowledge graph, registry, or information
+        package used as a DSR artifact.
+    - id: socio_technical_artifact_package
+      label: Socio-Technical Artifact Package
+      definition: A combined technical, organizational, procedural, role-based, or institutional arrangement whose
+        utility depends on use context and stakeholder enactment.
+    contribution_model:
+      contribution_types:
+      - invention
+      - improvement
+      - adaptation
+      - exaptation
+      - method_extension
+      - theory_extension
+      - evaluation_extension
+      - synthesis
+      - replication_or_projectability_evidence
+      - routine_design_with_limited_dsr_claim
+      knowledge_goals:
+      - definitional
+      - descriptive
+      - explanatory
+      - predictive
+      - explanatory_predictive
+      - prescriptive
+      - methodological
+      - evaluative
+      - normative
+      knowledge_scopes:
+      - idiographic_specific
+      - projectable_to_problem_class
+      - analytical_generalization
+      - nomothetic_general
+      - mixed_or_multi_scope
+      positioning_questions:
+      - What is the artifact or design knowledge contribution?
+      - What problem class and stakeholder context does it address?
+      - What knowledge goal is advanced?
+      - What evidence supports the claimed scope?
+      - What prior knowledge does it extend, refine, combine, or challenge?
+      - What limits, boundary conditions, and unresolved tensions constrain reuse?
+    transparency_model:
+      dimensions:
+      - id: process_transparency
+        definition: Documentation of actual DSR activities, sequence, reasoning, emergent changes, and decision
+          context.
+      - id: problem_space_transparency
+        definition: Documentation of application context, stakeholders, scope, improvement goals, timeframe, constraints,
+          and boundary conditions.
+      - id: solution_space_transparency
+        definition: Documentation of grounding theories, prior artifacts, knowledge bases, alternatives, and relevant
+          technologies.
+      - id: build_transparency
+        definition: Documentation of artifact construction, design search, creative decisions, implementation configuration,
+          and deviations from plan.
+      - id: evaluation_transparency
+        definition: Documentation of formative and summative evaluation criteria, methods, data, results, stakeholder
+          confidence, and limitations.
+      - id: contribution_transparency
+        definition: Documentation of practice impact, scientific impact, design knowledge, novelty, scope, and communication
+          audience.
+      proportionality_rule: Transparency requirements must be sufficient for review, reuse, and accountability while
+        respecting burden, confidentiality, security, privacy, maintenance cost, and intellectual-property constraints.
+    evaluation_alignment_model:
+      claim_types:
+      - problem_relevance_claim
+      - requirements_satisfaction_claim
+      - artifact_quality_claim
+      - artifact_utility_claim
+      - use_effect_claim
+      - contribution_claim
+      - projectability_or_transfer_claim
+      - responsible_design_claim
+      evaluation_timing:
+      - ex_ante
+      - formative
+      - summative
+      - ex_post
+      - longitudinal_or_follow_up
+      evaluation_settings:
+      - analytical_argument
+      - laboratory_or_simulated_setting
+      - naturalistic_field_setting
+      - case_or_multi_case_setting
+      - literature_based_synthesis
+      - expert_or_stakeholder_review
+      alignment_rule: Each evaluation method must be mapped to at least one claim type, criterion, evidence source,
+        result, limitation, and decision implication.
+- id: normative_requirements
+  title: Normative Requirements
+  purpose: Specify mandatory, recommended, optional, and prohibited requirements for lifecycle and contribution
+    documentation.
+  content:
+    must:
+    - id: req_lifecycle_stage_traceability
+      requirement: A DSR project package must identify the lifecycle stages used and map each retained evidence
+        item to at least one lifecycle stage.
+      verification: Review lifecycle_stage_mapping in project records and package inventory.
+    - id: req_problem_to_objectives_traceability
+      requirement: A DSR project package must trace problem statements to solution objectives, requirements, success
+        criteria, and evaluation criteria.
+      verification: Review problem-and-objectives record and evaluation plan.
+    - id: req_artifact_type_boundary
+      requirement: Each artifact must declare artifact type, artifact boundary, artifact instance/type status, components,
+        intended use, and non-goals.
+      verification: Review artifact specification and artifact profile.
+    - id: req_contribution_positioning
+      requirement: Each contribution claim must state contribution type, knowledge goal, knowledge scope, novelty
+        or extension rationale, source basis, and boundary conditions.
+      verification: Review contribution claim and contribution positioning record.
+    - id: req_demonstration_evaluation_distinction
+      requirement: Demonstration records and evaluation reports must be documented separately or explicitly marked
+        as combined with rationale.
+      verification: Check demonstration and evaluation record classes.
+    - id: req_evaluation_claim_alignment
+      requirement: Evaluation evidence must be aligned to claims, criteria, methods, data, results, limitations,
+        and decisions.
+      verification: Review evaluation plan and evaluation report alignment table.
+    - id: req_transparency_crosswalk
+      requirement: A reviewable DSR package must include a crosswalk to process, problem-space, solution-space,
+        build, evaluation, and contribution transparency or justify non-applicability.
+      verification: Review transparency crosswalk.
+    - id: req_limitations_and_non_goals
+      requirement: The package must state limitations, non-goals, assumptions, and open questions without overclaiming
+        evaluation, generalization, or publication readiness.
+      verification: Review limitations in artifact profile, evaluation report, and contribution record.
+    should:
+    - id: req_should_use_controlled_vocabularies
+      requirement: Projects should use controlled vocabularies for artifact type, lifecycle stage, contribution
+        type, knowledge goal, knowledge scope, evaluation method family, validity type, reliability type, and transparency
+        dimension.
+    - id: req_should_include_design_rationale
+      requirement: Projects should document alternatives considered, tradeoffs, selected rationale, and known rejected
+        options.
+    - id: req_should_document_projectability
+      requirement: Projects should document transfer logic, boundary conditions, reuse assumptions, adaptation requirements,
+        and replication opportunities.
+    - id: req_should_include_responsible_design_review
+      requirement: Projects should document responsible design values, risks, affected stakeholders, and governance
+        mitigations when the artifact has social, organizational, ethical, privacy, or security implications.
+    - id: req_should_distinguish_source_basis_levels
+      requirement: Projects should distinguish direct evidence, literature-derived rationale, expert judgment, implementation
+        evidence, and conjectural future-work claims.
+    may:
+    - id: req_may_tailor_lifecycle
+      requirement: Projects may tailor lifecycle stages when the tailoring is documented in a tailoring record and
+        does not hide missing evidence.
+    - id: req_may_use_multiple_contribution_scopes
+      requirement: Projects may include mixed or staged knowledge scopes when separate claims and evidence are documented.
+    - id: req_may_combine_artifact_types
+      requirement: Projects may classify an artifact under multiple artifact types when one primary type and secondary
+        supporting types are declared.
+    must_not:
+    - id: req_must_not_overclaim_evaluation
+      requirement: A project must not claim evaluation success without documented criteria, evidence, and limitations.
+    - id: req_must_not_treat_routine_delivery_as_dsr_by_default
+      requirement: A project must not classify routine implementation, consulting, or local delivery as DSR unless
+        it documents artifact novelty, design knowledge, evaluation, and contribution positioning.
+    - id: req_must_not_hide_contextual_limits
+      requirement: A project must not imply generality or transferability while omitting boundary conditions, context,
+        stakeholder assumptions, or evaluation setting.
+    - id: req_must_not_force_full_openness_where_harmful
+      requirement: A package must not disclose sensitive, proprietary, private, or security-relevant details solely
+        to satisfy transparency; it must document proportional transparency instead.
+- id: information_items
+  title: Information Items and Records
+  purpose: Define information items governed or implied by the lifecycle and contribution model.
+  content:
+    required_or_expected_items:
+    - item_id: dsr_project_charter
+      item_type: description
+      path_or_template: templates/dsr-project-charter-template.md
+      lifecycle_stage: problem_identification_and_relevance
+      purpose: Human-readable project framing, scope, stakeholders, and expected contribution.
+    - item_id: problem_and_objectives_record
+      item_type: record
+      path_or_template: templates/problem-and-objectives-template.md
+      lifecycle_stage: objectives_and_requirements
+      purpose: Trace problem, objectives, requirements, constraints, and success criteria.
+    - item_id: solution_space_record
+      item_type: record
+      path_or_template: templates/solution-space-record-template.yaml
+      lifecycle_stage: solution_space_grounding
+      purpose: Document knowledge-base grounding, alternatives, and source basis.
+    - item_id: artifact_specification
+      item_type: specification
+      path_or_template: templates/artifact-specification-template.md
+      lifecycle_stage: artifact_design_and_rationale
+      purpose: Define artifact type, boundary, components, use logic, make/use plans, and version.
+    - item_id: design_rationale_record
+      item_type: record
+      path_or_template: templates/design-rationale-template.md
+      lifecycle_stage: artifact_design_and_rationale
+      purpose: Preserve design decisions, alternatives, tradeoffs, and rationale.
+    - item_id: build_transparency_record
+      item_type: record
+      path_or_template: templates/build-transparency-record-template.yaml
+      lifecycle_stage: build_or_instantiation
+      purpose: Document artifact construction, configuration, implementation, and deviations.
+    - item_id: demonstration_record
+      item_type: record
+      path_or_template: templates/demonstration-record-template.yaml
+      lifecycle_stage: demonstration
+      purpose: Document use scenario, actor roles, task, outputs, and demonstration limits.
+    - item_id: evaluation_plan
+      item_type: plan
+      path_or_template: templates/evaluation-plan-template.yaml
+      lifecycle_stage: evaluation
+      purpose: Specify evaluation criteria, methods, evidence sources, claims, timing, and analysis plan.
+    - item_id: evaluation_report
+      item_type: report
+      path_or_template: templates/evaluation-report-template.yaml
+      lifecycle_stage: evaluation
+      purpose: Report evaluation execution, findings, limitations, threats, and resulting decisions.
+    - item_id: contribution_claim
+      item_type: record
+      path_or_template: templates/contribution-claim-template.yaml
+      lifecycle_stage: contribution_positioning
+      purpose: State contribution type, knowledge goal, knowledge scope, novelty, evidence, and limits.
+    - item_id: contribution_positioning_record
+      item_type: record
+      path_or_template: templates/contribution-positioning-record-template.yaml
+      lifecycle_stage: contribution_positioning
+      purpose: Position the contribution relative to prior DSR knowledge and target audiences.
+    - item_id: transparency_crosswalk
+      item_type: record
+      path_or_template: templates/dsr-transparency-crosswalk-template.yaml
+      lifecycle_stage: transparency_packaging_and_review
+      purpose: Map evidence items to six transparency dimensions and proportionality limits.
+    - item_id: review_record
+      item_type: record
+      path_or_template: templates/review-record-template.yaml
+      lifecycle_stage: transparency_packaging_and_review
+      purpose: Preserve review outcomes, defects, decisions, and remediation status.
+    minimum_field_groups:
+      all_controlled_items:
+      - item_id
+      - item_type
+      - title
+      - purpose
+      - status
+      - version
+      - owner
+      - related_items
+      - source_basis
+      - change_history
+      all_records:
+      - record_id
+      - record_class
+      - event_or_action
+      - date
+      - responsible_party
+      - evidence
+      - outcome
+      - related_items
+      - retention_rule
+- id: workflow
+  title: Workflow and Operating Procedure
+  purpose: Define the operating procedure for applying the lifecycle and contribution model to a DSR artifact package.
+  content:
+    default_workflow:
+    - step_id: wf_01_select_conformance_and_tailoring
+      name: Select conformance and tailoring profile
+      action: Declare intended conformance level, lifecycle tailoring, required records, and evidence expectations.
+      outputs:
+      - conformance_declaration
+      - tailoring_record_if_needed
+      exit_criteria:
+      - Conformance target is explicit
+      - Tailoring does not obscure required evidence
+    - step_id: wf_02_frame_problem_and_objectives
+      name: Frame problem, stakeholders, objectives, and requirements
+      action: Document problem class, context, stakeholders, objectives, success criteria, constraints, and relevance
+        rationale.
+      outputs:
+      - project_charter
+      - problem_and_objectives_record
+      exit_criteria:
+      - Problem-to-objective traceability is present
+      - Requirements are evaluable or explicitly exploratory
+    - step_id: wf_03_ground_solution_space
+      name: Ground the solution space
+      action: Record prior theories, artifacts, methods, technologies, alternatives, and justificatory knowledge.
+      outputs:
+      - solution_space_record
+      exit_criteria:
+      - Source basis is documented
+      - Alternatives and constraints are visible
+    - step_id: wf_04_specify_artifact_and_design_rationale
+      name: Specify artifact and design rationale
+      action: Define artifact type, boundary, components, use logic, instance/type status, make/use plans, and decisions.
+      outputs:
+      - artifact_specification
+      - design_rationale_record
+      exit_criteria:
+      - Artifact boundary is explicit
+      - Design decisions are traceable to objectives and source basis
+    - step_id: wf_05_build_and_capture_transparency
+      name: Build or instantiate artifact and capture transparency
+      action: Create or configure the artifact while recording build process, version, implementation details, and
+        deviations.
+      outputs:
+      - artifact_instance_or_release
+      - build_transparency_record
+      exit_criteria:
+      - Build evidence is sufficient for review
+      - Known deviations are documented
+    - step_id: wf_06_demonstrate_use
+      name: Demonstrate use
+      action: Run or describe a use scenario showing how the artifact can be applied to the problem.
+      outputs:
+      - demonstration_record
+      exit_criteria:
+      - Scenario, role, task, and output are documented
+      - Demonstration limits are stated
+    - step_id: wf_07_evaluate_claims
+      name: Evaluate claims
+      action: Evaluate artifact utility, quality, requirements satisfaction, use effects, or contribution plausibility
+        using criteria and methods aligned to claims.
+      outputs:
+      - evaluation_plan
+      - evaluation_report
+      exit_criteria:
+      - Each claim has aligned evidence or is marked unevaluated
+      - Limitations and threats are recorded
+    - step_id: wf_08_position_contribution
+      name: Position contribution
+      action: Classify contribution type, knowledge goal, scope, novelty, source relationship, and boundary conditions.
+      outputs:
+      - contribution_claim
+      - contribution_positioning_record
+      exit_criteria:
+      - Contribution is not overclaimed
+      - Scope and evidence are aligned
+    - step_id: wf_09_crosswalk_transparency_and_review
+      name: Crosswalk transparency and review
+      action: Map evidence to six transparency dimensions and perform checklist-based review.
+      outputs:
+      - transparency_crosswalk
+      - review_record
+      exit_criteria:
+      - Transparency dimensions are satisfied or justified
+      - Defects have remediation status
+    - step_id: wf_10_prepare_release_or_iteration
+      name: Prepare release or iteration
+      action: Update package inventory, metadata, reuse constraints, and next-step backlog.
+      outputs:
+      - package_inventory_update
+      - release_or_iteration_record
+      exit_criteria:
+      - Package status is clear
+      - Next work and open questions are visible
+    iteration_rules:
+    - Evaluation findings may return the project to problem framing, requirements, design rationale, build, or solution-space
+      grounding.
+    - Contribution positioning may be updated when evaluation evidence narrows or expands plausible knowledge scope.
+    - Transparency crosswalk review may trigger additional documentation without implying a new artifact version
+      unless content materially changes.
+    - Tailoring decisions must be retained rather than silently changing lifecycle obligations.
+    decision_points:
+    - id: dp_contribution_threshold
+      question: Does the project make a DSR knowledge contribution beyond local delivery?
+      yes_action: Continue contribution positioning and evaluation alignment.
+      no_action: Classify as routine design or local implementation with limited DSR claim.
+    - id: dp_evaluation_readiness
+      question: Are the artifact, criteria, and evidence sources sufficiently specified for evaluation?
+      yes_action: Execute evaluation plan.
+      no_action: Return to objectives, artifact specification, or demonstration planning.
+    - id: dp_projectability_claim
+      question: Is the evidence sufficient for transfer, projectability, or generalization claims?
+      yes_action: Document scope and transfer logic.
+      no_action: Limit the claim to idiographic or exploratory evidence.
+    - id: dp_transparency_risk
+      question: Would full transparency create privacy, security, proprietary, intellectual-property, or maintenance
+        burden risks?
+      yes_action: Use proportionate transparency and document rationale.
+      no_action: Provide ordinary reviewable transparency materials.
+- id: quality_and_conformance
+  title: Quality and Conformance
+  purpose: Define acceptance criteria, validation rules, quality gates, and failure modes for this product specification.
+  content:
+    conformance_levels:
+    - level: l0_draft
+      meaning: Concepts are sketched but not yet reliably structured, traced, or reviewable.
+    - level: l1_documented
+      meaning: Lifecycle and contribution content is documented with basic metadata and source basis.
+    - level: l2_reviewable
+      meaning: Content has stable IDs, traceability, acceptance criteria, quality gates, and reviewable distinctions.
+    - level: l3_exercisable
+      meaning: Models, templates, and checklists can be applied to example projects and validation workflows.
+    - level: l4_reusable
+      meaning: Artifacts are stable enough for external reuse with schemas, examples, and tested guidance.
+    - level: l5_archival_publication_ready
+      meaning: Artifacts are release-ready with preservation metadata, DOI readiness, final review records, and
+        archival evidence.
+    acceptance_criteria:
+    - id: ac_product_shape
+      criterion: The file follows the required product specification structure for specs/.
+      evidence_required:
+      - sections.identity_and_purpose
+      - sections.conceptual_model
+      - sections.normative_requirements
+      - sections.workflow
+      - sections.quality_and_conformance
+      - traceability
+      pass_condition: All required sections are present with stable IDs and reviewable content.
+    - id: ac_dsr_distinctions
+      criterion: The specification preserves core DSR distinctions.
+      evidence_required:
+      - core_distinctions
+      - normative_requirements
+      - evaluation_alignment_model
+      pass_condition: Artifact utility, artifact quality, knowledge contribution, demonstration, evaluation, artifact
+        type, and artifact instance are not conflated.
+    - id: ac_traceable_lifecycle
+      criterion: Lifecycle stages are traceable to evidence items and transparency dimensions.
+      evidence_required:
+      - lifecycle_stages
+      - information_items
+      - traceability
+      pass_condition: Each lifecycle stage has purpose, input, output, minimum evidence, and transparency mapping.
+    - id: ac_evaluation_alignment
+      criterion: Evaluation logic aligns claims, criteria, methods, evidence, results, limitations, and decisions.
+      evidence_required:
+      - evaluation_alignment_model
+      - req_evaluation_claim_alignment
+      pass_condition: No evaluation claim is accepted without aligned evidence or an explicit unevaluated status.
+    - id: ac_contribution_scope_control
+      criterion: Contribution claims are scoped and bounded.
+      evidence_required:
+      - contribution_model
+      - req_contribution_positioning
+      pass_condition: Contribution type, knowledge goal, knowledge scope, novelty rationale, evidence, and limitations
+        are required.
+    - id: ac_transparency_proportionality
+      criterion: Transparency obligations are explicit but proportionate.
+      evidence_required:
+      - transparency_model
+      - req_transparency_crosswalk
+      - dp_transparency_risk
+      pass_condition: The specification requires six-dimension crosswalks and permits justified limits for harmful
+        or burdensome disclosure.
+    validation_rules:
+    - id: vr_required_sections
+      rule: A product specification is invalid if any required top-level section is missing or lacks a stable section
+        ID.
+    - id: vr_no_unbounded_claims
+      rule: A contribution, evaluation, projectability, or publication-readiness claim is invalid if the claim lacks
+        evidence status, scope, and limitations.
+    - id: vr_records_have_retention
+      rule: Record templates implied by this specification must include retention_rule and related_items fields.
+    - id: vr_claim_evidence_alignment
+      rule: Every evaluation report must map each claim to at least one criterion and either evidence or a declared
+        unevaluated status.
+    - id: vr_tailoring_visibility
+      rule: Any lifecycle stage removed, combined, deferred, or marked not applicable must be recorded in a tailoring
+        or review record.
+    failure_modes:
+    - id: fm_dsr_ification_after_the_fact
+      description: A local implementation is retrospectively framed as DSR without documented objectives, design
+        knowledge, evaluation, or contribution positioning.
+      mitigation: Require problem-to-objective traceability, source grounding, artifact specification, and contribution
+        claim review.
+    - id: fm_demonstration_substituted_for_evaluation
+      description: A demonstration scenario is treated as evidence of artifact utility or contribution without criteria
+        or assessment.
+      mitigation: Require separate evaluation plan/report or a documented tailoring rationale.
+    - id: fm_unbounded_generalization
+      description: A project claims generality from a single case or limited evaluation without boundary conditions.
+      mitigation: Require knowledge scope, projectability rationale, and limitation statements.
+    - id: fm_artifact_contribution_conflation
+      description: The existence of an artifact is treated as the scholarly contribution without explaining design
+        knowledge or novelty.
+      mitigation: Require contribution type, knowledge goal, source basis, and novelty rationale.
+    - id: fm_transparency_overload
+      description: The package requires excessive or risky transparency materials that impose maintenance burden
+        or reveal sensitive information.
+      mitigation: Apply proportionality rule and document non-disclosure rationale.
+    quality_gate_mapping:
+    - gate_id: qg_consistency
+      status: pass_ready
+      evidence:
+      - target_path
+      - product_file_pattern
+      - stable_identifier_style
+      - controlled_item_types
+    - gate_id: qg_coherence
+      status: pass_ready
+      evidence:
+      - dependencies
+      - related_items
+      - traceability
+    - gate_id: qg_cogency
+      status: pass_ready
+      evidence:
+      - workflow
+      - decision_points
+      - acceptance_criteria
+      - failure_modes
+    - gate_id: qg_correspondence
+      status: pass_ready
+      evidence:
+      - conformance_target
+      - source_basis
+      - artifact_package_support
+    - gate_id: qg_dsr_transparency
+      status: pass_ready
+      evidence:
+      - transparency_model
+      - transparency_crosswalk_requirement
+      - lifecycle_stage_transparency_mappings
+    - gate_id: qg_reviewability
+      status: pass_ready
+      evidence:
+      - acceptance_criteria
+      - validation_rules
+      - checklist_implications
+- id: traceability
+  title: Traceability
+  purpose: Map product requirements and model components to upstream sources, downstream files, and evidence status.
+  content:
+    trace_links:
+    - trace_id: tr_selection_to_product
+      source_id: dsr_framework_selection_table
+      source_element: spec_dsr_lifecycle_contribution
+      target_element: product.id
+      relationship: defines_requested_file
+      evidence_status: mapped
+    - trace_id: tr_generation_spec_to_shape
+      source_id: dsr_framework_generation_spec
+      source_element: coherence_rules.product_spec_required_sections
+      target_element: sections
+      relationship: governs_structure
+      evidence_status: mapped
+    - trace_id: tr_prompt_to_generation_procedure
+      source_id: dsr_framework_generation_prompt
+      source_element: general_generation_procedure
+      target_element: source_basis, dependencies, related_items, quality_and_conformance
+      relationship: governs_generation_steps
+      evidence_status: mapped
+    - trace_id: tr_hevner_2024_transparency
+      source_id: hevner_et_al_2024_transparency_in_design_science_research
+      source_element: citation_anchors_CA01_CA05_CA16
+      target_element: conceptual_model.transparency_model
+      relationship: supports_six_dimension_transparency_model
+      evidence_status: mapped_from_internal_corpus
+    - trace_id: tr_weigand_2021_artifact_ontology
+      source_id: weigand_johannesson_andersson_2021_101878
+      source_element: citation_anchors_A08_A09_A10_A17_A18
+      target_element: conceptual_model.artifact_taxonomy and artifact_type_vs_artifact_instance distinction
+      relationship: supports_artifact_ontology_and_boundary_rules
+      evidence_status: mapped_from_internal_corpus
+    - trace_id: tr_akoka_2023_contribution_paths
+      source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      source_element: citation_anchors_A07_A08_A10_A13
+      target_element: conceptual_model.contribution_model
+      relationship: supports_knowledge_goals_knowledge_scopes_and_contribution_paths
+      evidence_status: mapped_from_internal_corpus
+    - trace_id: tr_peffers_dsr_methodology_family
+      source_id: dsr_corpus_peffers_dsr_methodology_family
+      source_element: problem_objectives_design_develop_demonstrate_evaluate_communicate_sequence
+      target_element: conceptual_model.lifecycle_stages and workflow.default_workflow
+      relationship: supports_lifecycle_sequence
+      evidence_status: mapped_from_internal_corpus
+    - trace_id: tr_venable_feds_family
+      source_id: dsr_corpus_feds_evaluation_family
+      source_element: formative_summative_evaluation_and_strategy_alignment
+      target_element: conceptual_model.evaluation_alignment_model
+      relationship: supports_evaluation_timing_and_alignment
+      evidence_status: mapped_from_internal_corpus
+    downstream_trace_requirements:
+    - target_file: models/dsr-lifecycle-model.yaml
+      must_trace_to:
+      - lifecycle_stages
+      - workflow.default_workflow
+      - iteration_rules
+    - target_file: models/dsr-artifact-ontology.yaml
+      must_trace_to:
+      - artifact_taxonomy
+      - artifact_type_vs_artifact_instance
+      - artifact_utility_artifact_quality_knowledge_contribution
+    - target_file: models/dsr-contribution-model.yaml
+      must_trace_to:
+      - contribution_model
+      - contribution_positioning lifecycle stage
+      - req_contribution_positioning
+    - target_file: models/dsr-evaluation-alignment-model.yaml
+      must_trace_to:
+      - evaluation_alignment_model
+      - req_evaluation_claim_alignment
+      - ac_evaluation_alignment
+    - target_file: models/dsr-transparency-model.yaml
+      must_trace_to:
+      - transparency_model
+      - req_transparency_crosswalk
+      - ac_transparency_proportionality
+- id: implementation_guidance
+  title: Implementation Guidance
+  purpose: Guide authors and maintainers in implementing this product specification across the repository.
+  content:
+    authoring_guidelines:
+    - Use this product specification as the controlling source for lifecycle, contribution, artifact, transparency,
+      and evaluation alignment vocabulary until downstream vocabularies and models supersede details with traceable
+      refinements.
+    - Prefer stable lower_snake_case IDs for model elements, requirements, stages, checks, and trace links.
+    - Keep project-specific evidence in records, not in this product specification.
+    - Use source IDs and citation anchor IDs from the DSR corpus when mapping scholarly evidence; do not invent
+      bibliographic evidence.
+    - When a downstream model adds detail, preserve backward traceability to this product specification and record
+      deviations in change history.
+    - When a project cannot satisfy a requirement, record the tailoring or limitation rather than deleting the requirement.
+    minimum_review_procedure:
+    - Confirm file path and naming convention.
+    - Confirm required product-spec sections exist.
+    - Confirm all normative requirements have stable IDs and verification notes.
+    - Confirm lifecycle stages include inputs, outputs, evidence, and transparency mappings.
+    - Confirm contribution, evaluation, and transparency distinctions are not collapsed.
+    - Confirm open questions and backlog items are visible.
+    - Confirm this file does not assert final publication readiness.
+    tailoring_guidance:
+    - tailoring_case: early_conceptual_dsr_project
+      allowed_adjustment: May mark build, demonstration, and evaluation records as planned or not_yet_available.
+      required_safeguard: Contribution and evaluation claims must remain draft or unevaluated.
+    - tailoring_case: conceptual_framework_without_software_instantiation
+      allowed_adjustment: May use conceptual demonstration, analytical evaluation, expert review, or literature-based
+        argumentation rather than software deployment.
+      required_safeguard: Artifact type and evaluation method must reflect conceptual status.
+    - tailoring_case: confidential_or_security_sensitive_artifact
+      allowed_adjustment: May redact source code, implementation details, data, or proprietary context.
+      required_safeguard: Must document transparency limitation, rationale, and alternative evidence sufficient
+        for review.
+    repository_integration_notes:
+    - This file belongs under specs/ and should be listed in package-inventory.yaml.
+    - Downstream vocabularies should convert lists in this product specification into separately reviewable controlled
+      vocabulary entries.
+    - Downstream schemas should validate required fields for project, artifact, evaluation, contribution, and transparency
+      records.
+    - Docs should render this specification for human users without becoming the sole source of controlled data.
+- id: template_or_schema_implications
+  title: Template or Schema Implications
+  purpose: Identify required implications for downstream templates, schemas, checklists, and model files.
+  content:
+    template_implications:
+    - target: templates/dsr-project-charter-template.md
+      required_fields_or_sections:
+      - problem class
+      - stakeholders
+      - artifact intent
+      - contribution intent
+      - conformance target
+    - target: templates/problem-and-objectives-template.md
+      required_fields_or_sections:
+      - problem statement
+      - objectives
+      - requirements
+      - success criteria
+      - constraints
+      - stakeholder effects
+    - target: templates/artifact-specification-template.md
+      required_fields_or_sections:
+      - artifact type
+      - artifact boundary
+      - artifact instance/type status
+      - components
+      - make plan
+      - use plan
+      - non-goals
+    - target: templates/evaluation-plan-template.yaml
+      required_fields_or_sections:
+      - claims
+      - criteria
+      - method families
+      - evaluation timing
+      - setting
+      - evidence sources
+      - analysis plan
+      - limitations
+    - target: templates/evaluation-report-template.yaml
+      required_fields_or_sections:
+      - executed methods
+      - findings
+      - claim alignment
+      - limitations
+      - validity threats
+      - decisions
+    - target: templates/contribution-claim-template.yaml
+      required_fields_or_sections:
+      - contribution type
+      - knowledge goal
+      - knowledge scope
+      - novelty rationale
+      - source basis
+      - evaluation support
+      - boundary conditions
+    - target: templates/dsr-transparency-crosswalk-template.yaml
+      required_fields_or_sections:
+      - six transparency dimensions
+      - evidence links
+      - non-applicability rationale
+      - proportionality limits
+    schema_implications:
+    - target: schemas/dsr-project.schema.json
+      implication: Validate lifecycle stage mappings, project status, conformance target, related records, and source
+        basis.
+    - target: schemas/dsr-artifact.schema.json
+      implication: Validate artifact type, artifact boundary, instance/type status, components, version, intended
+        use, and source basis.
+    - target: schemas/dsr-evaluation-plan.schema.json
+      implication: Validate claim-to-criterion-to-method alignment and declared evaluation timing and setting.
+    - target: schemas/dsr-evaluation-report.schema.json
+      implication: Validate findings, evidence links, limitations, threat analysis, and decision implications.
+    - target: schemas/dsr-contribution-claim.schema.json
+      implication: Validate contribution type, knowledge goal, knowledge scope, evidence status, novelty rationale,
+        and boundary conditions.
+    - target: schemas/dsr-transparency-crosswalk.schema.json
+      implication: Validate six-dimension transparency evidence, non-applicability rationale, and proportionality
+        restrictions.
+    checklist_implications:
+    - target: checklists/dsr-minimum-viable-study-checklist.yaml
+      must_include_checks_for:
+      - DSR identity
+      - artifact presence
+      - problem relevance
+      - build/evaluate logic
+      - knowledge contribution
+    - target: checklists/evaluation-readiness-checklist.yaml
+      must_include_checks_for:
+      - criteria
+      - claims
+      - evidence sources
+      - method fit
+      - limitations
+    - target: checklists/contribution-positioning-checklist.yaml
+      must_include_checks_for:
+      - contribution type
+      - knowledge goal
+      - knowledge scope
+      - novelty
+      - prior knowledge relationship
+    - target: checklists/dsr-transparency-crosswalk-checklist.yaml
+      must_include_checks_for:
+      - process
+      - problem space
+      - solution space
+      - build
+      - evaluation
+      - contribution
+      - proportionality
+- id: open_questions_and_backlog
+  title: Open Questions and Backlog
+  purpose: Record unresolved decisions and recommended next work for this product area.
+  content:
+    assumptions:
+    - id: asm_l2_scope
+      statement: This draft targets L2 reviewable conformance rather than L3 exercisable validation against examples.
+    - id: asm_internal_corpus_sufficient_for_initial_spec
+      statement: The internal DSR extraction corpus is sufficient for this initial product specification; detailed
+        evidence tables remain delegated to source-basis records and downstream crosswalks.
+    - id: asm_downstream_vocabularies_refine_lists
+      statement: Controlled vocabulary files will refine, stabilize, and possibly deprecate entries listed in this
+        product specification.
+    open_questions:
+    - id: oq_lifecycle_stage_granularity
+      question: Should lifecycle stages remain broad for usability or be split into finer phases for schema validation
+        and project automation?
+      status: open
+      recommended_resolution_path: Test against at least two example DSR packages before L3 exercisable release.
+    - id: oq_artifact_type_scope
+      question: Should socio-technical artifact packages be a primary artifact type or a cross-cutting classification
+        modifier?
+      status: open
+      recommended_resolution_path: Resolve during artifact-types vocabulary and artifact ontology model generation.
+    - id: oq_evaluation_method_families
+      question: What level of granularity should the evaluation method family vocabulary use across analytical,
+        empirical, technical, and stakeholder methods?
+      status: open
+      recommended_resolution_path: Resolve during evaluation-method-families vocabulary and evaluation alignment
+        model generation.
+    - id: oq_aesthetics_and_responsible_design
+      question: Should aesthetic and responsible design dimensions be required for all DSR projects or conditionally
+        required by artifact risk and purpose?
+      status: open
+      recommended_resolution_path: Resolve through responsible-design-values and aesthetics-dimensions vocabularies
+        plus quality review model.
+    - id: oq_publication_genre_boundaries
+      question: How should the framework distinguish DSR papers, artifact packages, technical reports, reusable
+        software releases, and registry records?
+      status: open
+      recommended_resolution_path: Resolve during publication and registry model generation.
+    backlog:
+    - id: bl_generate_lifecycle_model
+      recommended_next_file: models/dsr-lifecycle-model.yaml
+      reason: Operationalize lifecycle stages from this product specification into a reusable model.
+    - id: bl_generate_artifact_types_vocabulary
+      recommended_next_file: vocabularies/artifact-types.yaml
+      reason: Convert artifact taxonomy entries into controlled vocabulary records.
+    - id: bl_generate_contribution_model
+      recommended_next_file: models/dsr-contribution-model.yaml
+      reason: Operationalize contribution positioning, knowledge goals, and knowledge scopes.
+    - id: bl_generate_evaluation_alignment_model
+      recommended_next_file: models/dsr-evaluation-alignment-model.yaml
+      reason: Define detailed claim-to-evidence evaluation alignment.
+    - id: bl_generate_transparency_model
+      recommended_next_file: models/dsr-transparency-model.yaml
+      reason: Expand six-dimension transparency crosswalk and proportionality rules.
+quality_gates:
+- id: qg_consistency
+  status: pass
+  rationale: Uses lower-kebab-case file path, YAML output, stable lower_snake_case identifiers, product spec structure,
+    and draft status.
+- id: qg_coherence
+  status: pass
+  rationale: Links upstream protocol and framework foundations to downstream lifecycle, artifact, contribution,
+    evaluation, transparency, template, checklist, and schema files.
+- id: qg_cogency
+  status: pass
+  rationale: Provides conceptual model, workflow, requirements, decision points, failure modes, and acceptance criteria.
+- id: qg_correspondence
+  status: pass
+  rationale: Corresponds to the selected product specification for DSR lifecycle, artifact taxonomy, contribution
+    model, transparency, and evaluation alignment.
+- id: qg_dsr_transparency
+  status: pass
+  rationale: Defines and requires mapping to all six DSR transparency dimensions with proportionality safeguards.
+- id: qg_reviewability
+  status: pass
+  rationale: Includes acceptance criteria, validation rules, evidence expectations, and review failure modes.
+traceability:
+- trace_id: tr_file_identity
+  from: selection_id.spec_dsr_lifecycle_contribution
+  to: specs/product-dsr-lifecycle-and-contribution-model.yaml
+  relationship: requested_target_file
+- trace_id: tr_l2_reviewable
+  from: default_conformance.L2
+  to: product.conformance_target.l2_reviewable
+  relationship: declares_conformance_target
+- trace_id: tr_quality_gates
+  from: dsr_framework_generation_spec.quality_gates
+  to: quality_gates
+  relationship: instantiates_required_quality_review
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change: Initial generated draft for selected portion spec_dsr_lifecycle_contribution.
+  responsible_party: GPT-5.5 Thinking
+  change_type: create_new
+completion_report:
+  generated_selection_id: spec_dsr_lifecycle_contribution
+  generated_path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+  item_type: specification
+  output_format: yaml
+  conformance_target: l2_reviewable
+  dependencies_used:
+  - DSR corpus
+  - protocol foundation
+  - DSR framework generation prompt
+  - DSR framework generation specification
+  - DSR framework selection table
+  assumptions:
+  - Generated as create_new because no existing target file was provided for revision.
+  - Generated as a reviewable product specification rather than a downstream model, vocabulary, schema, or checklist.
+  - Detailed bibliographic evidence remains delegated to record-source-basis and downstream crosswalk files.
+  open_questions:
+  - Whether lifecycle stage granularity should be expanded in the downstream lifecycle model.
+  - Whether socio-technical artifact package should be a primary artifact type or a modifier.
+  - How granular evaluation method families should be in the downstream vocabulary.
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: models/dsr-lifecycle-model.yaml

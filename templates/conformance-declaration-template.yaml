@@ -1,0 +1,450 @@
+# SPDX-License-Identifier: CC0-1.0
+template:
+  item_id: template_conformance_declaration
+  item_type: template
+  title: Conformance Declaration Template
+  purpose: >
+    Provide a reusable YAML template for declaring a DSR artifact package's
+    conformance level, tailoring decisions, evidence basis, validation status,
+    quality-gate results, and review responsibilities.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  target_path: templates/conformance-declaration-template.yaml
+  target_instance_path: conformance-declaration.yaml
+  template_for:
+    record_class: conformance_declaration
+    item_type: record
+    output_format: yaml
+    expected_schema: schemas/conformance-declaration.schema.json
+    default_conformance_target: l2_reviewable
+  source_basis:
+    - source_id: user_current_request
+      role: immediate_generation_instruction
+      evidence_status: mapped_to_current_request
+    - source_id: dsr_framework_generation_spec
+      role: governing_generation_specification
+      evidence_status: mapped_to_project_file
+    - source_id: dsr_framework_generation_prompt
+      role: generation_procedure_and_output_convention
+      evidence_status: mapped_to_project_file
+    - source_id: documentation_protocol_repository
+      role: governing_repository_model
+      evidence_status: not_yet_mapped
+    - source_id: dsr_extraction_corpus
+      role: scholarly_and_methodological_evidence_base
+      evidence_status: not_yet_mapped
+  related_items:
+    upstream_dependencies:
+      - item_id: schema_conformance_declaration
+        path: schemas/conformance-declaration.schema.json
+        relation: validates_instances_of_this_template
+      - item_id: spec_quality_review
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relation: defines_quality_gates_and_conformance_logic
+      - item_id: spec_artifact_package
+        path: specs/product-dsr-artifact-package-specification.yaml
+        relation: defines_package_contents_and_conformance_obligations
+      - item_id: root_package_inventory
+        path: package-inventory.yaml
+        relation: supplies_inventory_alignment_evidence
+      - item_id: root_artifact_profile
+        path: artifact-profile.yaml
+        relation: supplies_artifact_identity_and_scope
+    downstream_outputs:
+      - item_id: root_conformance_declaration
+        path: conformance-declaration.yaml
+        relation: filled_instance_created_from_this_template
+      - item_id: checklist_package_readiness
+        path: checklists/artifact-package-readiness-checklist.yaml
+        relation: provides_review_evidence
+      - item_id: record_self_review
+        path: records/reviews/record-review-0001-self-review.yaml
+        relation: may_record_review_of_completed_declaration
+  usage:
+    instructions:
+      - Copy the conformance_declaration object into conformance-declaration.yaml.
+      - Replace every TODO value with project-specific evidence before review.
+      - Keep evidence_status set to not_yet_mapped when evidence is not yet available.
+      - Do not claim a higher conformance level unless required files, evidence, and review results support it.
+      - Preserve stable IDs when revising an existing declaration; append to change_history rather than overwriting prior history.
+    placeholder_policy:
+      placeholder_marker: "TODO"
+      allowed_when: project_specific_information_is_required
+      must_be_resolved_before_release: true
+    identifier_policy:
+      stable_identifier_style: lower_snake_case
+      file_naming_style: lower-kebab-case
+    validation_policy:
+      primary_schema: schemas/conformance-declaration.schema.json
+      minimum_review_target: l2_reviewable
+      validation_status_values:
+        - not_started
+        - pending
+        - passed
+        - passed_with_warnings
+        - failed
+        - not_applicable
+
+conformance_declaration:
+  record_id: "TODO: record-conformance-declaration-0001"
+  record_class: conformance_declaration
+  event_or_action: declare_package_conformance
+  date: "TODO: YYYY-MM-DD"
+  responsible_party:
+    name: "TODO: responsible person or role"
+    role: "TODO: maintainer | author | reviewer | project_lead"
+    affiliation: "TODO: organization or independent"
+    contact: "TODO: email or repository handle"
+  artifact_identity:
+    artifact_id: "TODO: stable artifact identifier from artifact-profile.yaml"
+    artifact_title: "TODO: artifact package title"
+    artifact_version: "TODO: semantic version, for example 0.1.0"
+    repository_or_archive_url: "TODO: repository URL, archive DOI, or not_yet_assigned"
+    package_manifest: manifest.yaml
+    artifact_profile: artifact-profile.yaml
+    package_inventory: package-inventory.yaml
+  declaration_scope:
+    scope_id: package_current_version
+    applies_to:
+      - root_files
+      - specs
+      - models
+      - vocabularies
+      - schemas
+      - templates
+      - checklists
+      - records
+      - docs
+    excludes:
+      - examples_not_marked_as_release_evidence
+      - work_in_progress_files_not_listed_in_package_inventory
+    scope_notes: >
+      TODO: summarize whether this declaration covers the full package, a subset,
+      a release candidate, or a working draft.
+  conformance_level_scale:
+    - level_id: l0_draft
+      label: L0 Draft
+      definition: Draft material exists but required package structure, evidence, and reviewability are incomplete.
+      minimum_evidence: draft_files_identified
+    - level_id: l1_documented
+      label: L1 Documented
+      definition: Core package identity, metadata, and inventory are present and internally understandable.
+      minimum_evidence: root_package_control_files_present
+    - level_id: l2_reviewable
+      label: L2 Reviewable
+      definition: The package can be reviewed against explicit criteria, dependencies, evidence, and quality gates.
+      minimum_evidence: reviewable_files_and_acceptance_criteria_present
+    - level_id: l3_exercisable
+      label: L3 Exercisable
+      definition: Structured schemas, templates, checklists, examples, or workflows can be exercised by users or tools.
+      minimum_evidence: validation_or_exercise_results_present
+    - level_id: l4_reusable
+      label: L4 Reusable
+      definition: The package has evidence of reusable structure, guidance, constraints, and adaptation support beyond the originating case.
+      minimum_evidence: reuse_guidance_and_projectability_evidence_present
+    - level_id: l5_archival_publication_ready
+      label: L5 Archival Publication Ready
+      definition: The package is prepared for durable citation, registry deposit, release governance, and long-term preservation.
+      minimum_evidence: release_archive_and_publication_readiness_evidence_present
+  declared_conformance:
+    declared_level:
+      id: l2_reviewable
+      label: L2 Reviewable
+    declaration_type: self_declaration
+    declaration_status: draft
+    confidence: "TODO: low | moderate | high"
+    rationale: >
+      TODO: explain why the declared level is supported. Distinguish documented
+      structure, reviewability, exercisability, reusability, and archival readiness.
+    non_claims:
+      - "This declaration does not claim empirical evaluation unless evaluation records are present."
+      - "This declaration does not claim reproducibility unless validation and replication evidence are present."
+      - "This declaration does not claim publication readiness unless release and preservation records are present."
+  dependency_status:
+    required_dependencies:
+      - dependency_id: manifest
+        path: manifest.yaml
+        required_for_level: l1_documented
+        status: "TODO: present | missing | not_applicable"
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - dependency_id: metadata
+        path: metadata.yaml
+        required_for_level: l1_documented
+        status: "TODO: present | missing | not_applicable"
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - dependency_id: artifact_profile
+        path: artifact-profile.yaml
+        required_for_level: l1_documented
+        status: "TODO: present | missing | not_applicable"
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - dependency_id: package_inventory
+        path: package-inventory.yaml
+        required_for_level: l1_documented
+        status: "TODO: present | missing | not_applicable"
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - dependency_id: conformance_schema
+        path: schemas/conformance-declaration.schema.json
+        required_for_level: l2_reviewable
+        status: "TODO: present | missing | not_applicable"
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - dependency_id: quality_review_model
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        required_for_level: l2_reviewable
+        status: "TODO: present | missing | not_applicable"
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - dependency_id: package_readiness_checklist
+        path: checklists/artifact-package-readiness-checklist.yaml
+        required_for_level: l2_reviewable
+        status: "TODO: present | missing | not_applicable"
+        evidence_status: "TODO: mapped | not_yet_mapped"
+  tailoring:
+    tailoring_status: "TODO: none | present | pending"
+    tailoring_records:
+      - tailoring_id: "TODO: tailoring-0001 or not_applicable"
+        path: "TODO: records/tailoring/record-tailoring-0001.yaml or not_applicable"
+        rationale: "TODO: why tailoring is required or not applicable"
+        affected_requirements:
+          - "TODO: requirement or quality gate affected"
+        approval_status: "TODO: draft | in_review | approved | rejected | not_applicable"
+    tailoring_principles:
+      - Tailoring must preserve traceability from requirements to evidence.
+      - Tailoring must not remove evidence needed for the declared conformance level without explicit rationale.
+      - Tailoring must identify any downstream effect on review, validation, release, or reuse.
+  evidence:
+    evidence_summary: >
+      TODO: summarize the files, records, checklists, validations, and reviews
+      supporting the declared conformance level.
+    evidence_items:
+      - evidence_id: ev_inventory_alignment
+        evidence_type: package_inventory
+        path_or_reference: package-inventory.yaml
+        supports:
+          - qg_consistency
+          - declared_level_l1_or_higher
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - evidence_id: ev_schema_validation
+        evidence_type: schema_validation
+        path_or_reference: schemas/conformance-declaration.schema.json
+        supports:
+          - qg_reviewability
+          - declared_level_l2_or_higher
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - evidence_id: ev_quality_review
+        evidence_type: review_record
+        path_or_reference: "TODO: records/reviews/record-review-0001-self-review.yaml"
+        supports:
+          - qg_coherence
+          - qg_cogency
+          - qg_correspondence
+        evidence_status: "TODO: mapped | not_yet_mapped"
+      - evidence_id: ev_release_readiness
+        evidence_type: release_or_publication_record
+        path_or_reference: "TODO: records/releases/record-release-0001-v0-1-0.yaml or not_applicable"
+        supports:
+          - declared_level_l5_if_claimed
+        evidence_status: "TODO: mapped | not_yet_mapped | not_applicable"
+  quality_gate_summary:
+    gates:
+      - gate_id: qg_consistency
+        gate_label: Consistency
+        status: "TODO: pass | pass_with_warnings | fail | not_evaluated"
+        evidence_required:
+          - file_path
+          - item_type
+          - package_inventory_alignment
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        finding: "TODO: concise finding"
+        remediation_if_failed: "TODO: corrective action"
+      - gate_id: qg_coherence
+        gate_label: Coherence
+        status: "TODO: pass | pass_with_warnings | fail | not_evaluated"
+        evidence_required:
+          - related_items
+          - traceability
+          - dependencies
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        finding: "TODO: concise finding"
+        remediation_if_failed: "TODO: corrective action"
+      - gate_id: qg_cogency
+        gate_label: Cogency
+        status: "TODO: pass | pass_with_warnings | fail | not_evaluated"
+        evidence_required:
+          - purpose
+          - workflow
+          - acceptance_criteria
+          - limitations
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        finding: "TODO: concise finding"
+        remediation_if_failed: "TODO: corrective action"
+      - gate_id: qg_correspondence
+        gate_label: Correspondence
+        status: "TODO: pass | pass_with_warnings | fail | not_evaluated"
+        evidence_required:
+          - artifact_profile_alignment
+          - conformance_alignment
+          - source_basis
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        finding: "TODO: concise finding"
+        remediation_if_failed: "TODO: corrective action"
+      - gate_id: qg_dsr_transparency
+        gate_label: DSR Transparency
+        status: "TODO: pass | pass_with_warnings | fail | not_evaluated"
+        evidence_required:
+          - transparency_dimension_mapping
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        finding: "TODO: concise finding"
+        remediation_if_failed: "TODO: corrective action"
+      - gate_id: qg_reviewability
+        gate_label: Reviewability
+        status: "TODO: pass | pass_with_warnings | fail | not_evaluated"
+        evidence_required:
+          - acceptance_criteria
+          - validation_rules
+          - checklist_or_schema_mapping
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        finding: "TODO: concise finding"
+        remediation_if_failed: "TODO: corrective action"
+  validation:
+    schema_validation:
+      schema_path: schemas/conformance-declaration.schema.json
+      validation_status: "TODO: not_started | pending | passed | passed_with_warnings | failed | not_applicable"
+      validation_tool: "TODO: validator name or not_yet_selected"
+      validation_date: "TODO: YYYY-MM-DD or not_yet_run"
+      validation_output_reference: "TODO: path to validation log or not_yet_available"
+    inventory_validation:
+      inventory_path: package-inventory.yaml
+      validation_status: "TODO: not_started | pending | passed | passed_with_warnings | failed | not_applicable"
+      notes: "TODO: inventory alignment notes"
+    link_validation:
+      validation_status: "TODO: not_started | pending | passed | passed_with_warnings | failed | not_applicable"
+      notes: "TODO: link and cross-reference validation notes"
+  transparency_alignment:
+    dimensions:
+      - dimension_id: process_transparency
+        relevance: applicable
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        notes: "TODO: process evidence summary"
+      - dimension_id: problem_space_transparency
+        relevance: conditional
+        evidence_status: "TODO: mapped | not_yet_mapped | not_applicable"
+        notes: "TODO: problem-space evidence summary or non-applicability rationale"
+      - dimension_id: solution_space_transparency
+        relevance: conditional
+        evidence_status: "TODO: mapped | not_yet_mapped | not_applicable"
+        notes: "TODO: solution-space evidence summary or non-applicability rationale"
+      - dimension_id: build_transparency
+        relevance: applicable
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        notes: "TODO: build evidence summary"
+      - dimension_id: evaluation_transparency
+        relevance: applicable_if_evaluation_claimed
+        evidence_status: "TODO: mapped | not_yet_mapped | not_applicable"
+        notes: "TODO: evaluation evidence summary or non-applicability rationale"
+      - dimension_id: contribution_transparency
+        relevance: applicable
+        evidence_status: "TODO: mapped | not_yet_mapped"
+        notes: "TODO: contribution evidence summary"
+  limitations:
+    - limitation_id: lim_self_declaration
+      statement: >
+        TODO: state whether this is a self-declaration, internal review, or
+        external review, and describe limits on assurance.
+      effect_on_conformance_claim: "TODO: none | minor | material"
+    - limitation_id: lim_unmapped_evidence
+      statement: >
+        TODO: list any required evidence that has not yet been mapped.
+      effect_on_conformance_claim: "TODO: none | minor | material"
+  open_questions:
+    - question_id: oq_external_review
+      question: "TODO: Is external or independent review required before release?"
+      owner: "TODO: responsible role"
+      disposition: "TODO: open | deferred | resolved"
+    - question_id: oq_l3_or_higher_claim
+      question: "TODO: Is there sufficient validation evidence to claim L3 or higher?"
+      owner: "TODO: responsible role"
+      disposition: "TODO: open | deferred | resolved"
+  review:
+    review_status: "TODO: not_started | in_review | approved | changes_requested"
+    reviewers:
+      - name: "TODO: reviewer name or role"
+        role: "TODO: internal_reviewer | external_reviewer | maintainer"
+        review_date: "TODO: YYYY-MM-DD or not_yet_reviewed"
+        decision: "TODO: approved | changes_requested | deferred | not_yet_reviewed"
+        review_record: "TODO: records/reviews/record-review-0001-self-review.yaml"
+    acceptance_criteria:
+      - criterion_id: ac_required_fields_completed
+        criterion: All required TODO fields are completed or explicitly marked not_applicable with rationale.
+        status: "TODO: pass | fail | not_evaluated"
+      - criterion_id: ac_evidence_mapped
+        criterion: Evidence items supporting the declared conformance level are mapped to files, records, validations, or review outputs.
+        status: "TODO: pass | fail | not_evaluated"
+      - criterion_id: ac_quality_gates_completed
+        criterion: All applicable quality gates have status, evidence, findings, and remediation where needed.
+        status: "TODO: pass | fail | not_evaluated"
+      - criterion_id: ac_non_claims_preserved
+        criterion: The declaration does not claim evaluation, reproducibility, reuse, or publication readiness beyond available evidence.
+        status: "TODO: pass | fail | not_evaluated"
+  outcome:
+    conformance_decision: "TODO: accepted | accepted_with_warnings | rejected | deferred"
+    decision_summary: "TODO: concise summary of the final conformance decision"
+    required_follow_up_actions:
+      - action_id: follow_up_001
+        action: "TODO: action needed or not_applicable"
+        owner: "TODO: responsible role"
+        due_date: "TODO: YYYY-MM-DD or not_applicable"
+        status: "TODO: open | in_progress | complete | not_applicable"
+  retention_rule:
+    retain_until: superseded_by_new_conformance_declaration
+    retention_rationale: >
+      Preserve conformance declarations as governance evidence for package
+      review, release, reuse, archival deposit, and later audit.
+    archival_location: records/preservation
+  related_items:
+    - item_id: manifest
+      path: manifest.yaml
+      relation: declares_package_identity
+    - item_id: metadata
+      path: metadata.yaml
+      relation: declares_structured_project_metadata
+    - item_id: artifact_profile
+      path: artifact-profile.yaml
+      relation: supplies_artifact_scope_and_claims
+    - item_id: package_inventory
+      path: package-inventory.yaml
+      relation: supplies_file_inventory_and_validation_responsibilities
+    - item_id: conformance_declaration_schema
+      path: schemas/conformance-declaration.schema.json
+      relation: validates_this_record
+    - item_id: quality_review_model
+      path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relation: defines_quality_and_review_model
+  traceability:
+    - trace_id: tr_selection_to_template
+      source: dsr_framework_selection_table
+      target: templates/conformance-declaration-template.yaml
+      relation: selected_generation_target
+      evidence_status: mapped
+    - trace_id: tr_template_to_schema
+      source: templates/conformance-declaration-template.yaml
+      target: schemas/conformance-declaration.schema.json
+      relation: template_should_be_validated_by_schema
+      evidence_status: not_yet_mapped
+    - trace_id: tr_template_to_root_declaration
+      source: templates/conformance-declaration-template.yaml
+      target: conformance-declaration.yaml
+      relation: filled_template_instance
+      evidence_status: not_yet_mapped
+    - trace_id: tr_conformance_to_quality_gates
+      source: conformance-declaration.yaml
+      target: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relation: applies_quality_gate_model
+      evidence_status: not_yet_mapped
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial reusable conformance declaration template generated for the DSR Framework package.
+      changed_by: GPT-5.5 Thinking
+      rationale: >
+        Create a reviewable L2 YAML template aligned with the selected framework
+        portion and conformance schema dependency.

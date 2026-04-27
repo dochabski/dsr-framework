@@ -1,0 +1,1188 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: vocab_responsible_design_values
+  selection_id: vocab_responsible_design_values
+  title: Responsible Design Values Vocabulary
+  target_path: vocabularies/responsible-design-values.yaml
+  item_type: vocabulary
+  output_format: yaml
+  purpose: >
+    Provide a controlled vocabulary for identifying, documenting, reviewing, and
+    governing responsible-design values in Design Science Research artifacts,
+    studies, records, templates, and evaluation plans.
+  status: draft
+  version: "0.1.0"
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+  responsible_role: framework_author
+
+  scope:
+    includes:
+      - normative values that shape DSR problem framing, artifact design, build choices, evaluation, reporting, and reuse
+      - values that can be connected to risks, harms, mitigations, governance mechanisms, and evidence requirements
+      - values applicable across socio-technical, computational, organizational, educational, legal, scientific, and sustainability-oriented DSR
+    excludes:
+      - complete legal compliance frameworks
+      - domain-specific ethical codes that require local institutional authority
+      - unsupported claims that a project is responsible merely because a value is named
+    usage_note: >
+      Use these entries as controlled labels. For reviewable use, pair every selected value with
+      context, affected stakeholders, risk or harm analysis, mitigation or governance evidence,
+      and evaluation or monitoring evidence where applicable.
+
+  value_model:
+    value_record_minimum_fields:
+      - value_id
+      - affected_stakeholders
+      - design_decisions_or_requirements
+      - risks_or_harms
+      - mitigation_or_governance_mechanisms
+      - evidence_required
+      - boundary_conditions
+      - review_status
+    recommended_claim_pattern: >
+      The artifact supports <value_id> for <stakeholder/context> through <design decision or governance mechanism>,
+      with evidence from <demonstration, evaluation, audit, stakeholder review, or documentation record>.
+    review_warning: >
+      Do not treat values as self-validating. A value becomes reviewable only when it is linked to concrete design
+      choices, tradeoffs, evidence, and residual risks.
+
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      role: governing_generation_rules
+      evidence_status: mapped
+      notes: >
+        The generation specification requires vocabulary entries to include id, label, definition,
+        allowed_use, boundary_notes, and related_terms, and requires source_basis and traceability for controlled files.
+    - source_id: dsr_framework_generation_prompt
+      role: generation_prompt
+      evidence_status: mapped
+      notes: >
+        The generation prompt requires DSR-specific distinctions, including stakeholder, transparency,
+        responsible, transdisciplinary, validity, reliability, replication, and projectability distinctions where relevant.
+    - source_id: dsr_extraction_corpus
+      role: responsible_design_evidence_base
+      evidence_status: mapped_to_extracted_responsible_design_elements
+      notes: >
+        The corpus repeatedly represents responsible design through ethical_or_social_values,
+        risks_or_harms_discussed, and mitigation_or_governance_mechanisms.
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      role: transparency_and_governance_source
+      evidence_status: mapped_to_extraction_record
+      notes: >
+        Supports transparency, trust, privacy, security, equity, accessibility, stakeholder confidence,
+        practitioner usability, proportionality, and publication-governance tradeoffs.
+    - source_id: extracted_dsr_responsible_design_cases
+      role: cross_case_value_patterns
+      evidence_status: mapped_to_extraction_corpus
+      notes: >
+        Supports recurring values such as stakeholder participation, user agency, contextual appropriateness,
+        social inclusion, safety, fairness, sustainability, public interest, informed consent, data minimization,
+        accountability, interpretability, and responsible field data handling.
+
+  related_items:
+    upstream_dependencies:
+      - specs/product-dsr-framework-foundation.yaml
+      - specs/product-dsr-lifecycle-and-contribution-model.yaml
+      - models/dsr-transparency-model.yaml
+      - models/dsr-evaluation-alignment-model.yaml
+      - vocabularies/transparency-dimensions.yaml
+      - checklists/dsr-transparency-crosswalk-checklist.yaml
+    downstream_uses:
+      - templates/problem-and-objectives-template.md
+      - templates/design-rationale-template.md
+      - templates/evaluation-plan-template.yaml
+      - templates/dsr-transparency-crosswalk-template.yaml
+      - checklists/dsr-minimum-viable-study-checklist.yaml
+      - checklists/artifact-package-readiness-checklist.yaml
+      - records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+    sibling_vocabularies:
+      - vocabularies/artifact-types.yaml
+      - vocabularies/evaluation-method-families.yaml
+      - vocabularies/validity-types.yaml
+      - vocabularies/reliability-types.yaml
+      - vocabularies/projectability-types.yaml
+
+  entries:
+    - id: problem_relevance
+      label: Problem relevance
+      value_family: problem_and_purpose
+      definition: >
+        The value of grounding a DSR artifact in a real, consequential, and sufficiently specified problem rather
+        than in a technology-push solution, pseudo-problem, or merely convenient dataset.
+      allowed_use: >
+        Use when responsible design depends on showing that the artifact addresses a stakeholder-recognized,
+        organizational, scientific, social, educational, or public-interest problem.
+      boundary_notes: >
+        Do not use as a substitute for contribution significance. A project may address a relevant problem while
+        still making a weak scholarly contribution.
+      related_terms:
+        - stakeholder_relevance
+        - social_value
+        - contextual_appropriateness
+      typical_risks_or_harms:
+        - solving the wrong problem
+        - overfitting a design to available tools or datasets
+        - routine design being mislabeled as research
+      typical_mitigation_or_governance_mechanisms:
+        - explicit problem-space model
+        - stakeholder need statement
+        - problem-class justification
+        - significance and tractability assessment
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: stakeholder_relevance
+      label: Stakeholder relevance
+      value_family: stakeholder_and_context
+      definition: >
+        The value of aligning artifact purposes, requirements, evaluation criteria, and communication with the needs,
+        constraints, and success conditions of affected stakeholders.
+      allowed_use: >
+        Use when a design decision, requirement, or evaluation criterion is justified by stakeholder needs or practical
+        use conditions.
+      boundary_notes: >
+        Distinguish from stakeholder_participation. Stakeholders can be relevant even when they are not directly
+        involved, although non-involvement should be justified when consequences are material.
+      related_terms:
+        - stakeholder_participation
+        - practitioner_usability
+        - social_value
+      typical_risks_or_harms:
+        - artifact non-adoption
+        - weak practical relevance
+        - hidden stakeholder conflict
+      typical_mitigation_or_governance_mechanisms:
+        - stakeholder map
+        - requirements traceability
+        - practice-based evaluation
+        - stakeholder review of goals and criteria
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: stakeholder_participation
+      label: Stakeholder participation
+      value_family: stakeholder_and_context
+      definition: >
+        The value of involving affected or knowledgeable stakeholders in problem identification, requirements,
+        design, demonstration, evaluation, implementation, or dissemination.
+      allowed_use: >
+        Use for participatory design, co-creation, focus groups, domain-expert review, caregiver or practitioner
+        involvement, and other direct forms of stakeholder engagement.
+      boundary_notes: >
+        Do not imply democratic control unless the participation method actually gives stakeholders decision authority.
+      related_terms:
+        - stakeholder_relevance
+        - co_creation
+        - user_agency
+        - accountability
+      typical_risks_or_harms:
+        - asymmetric power privileging sponsor interests
+        - poor requirements validation
+        - participant fatigue
+      typical_mitigation_or_governance_mechanisms:
+        - documented involvement stages
+        - co-design protocol
+        - facilitation plan
+        - stakeholder sign-off
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: co_creation
+      label: Co-creation
+      value_family: stakeholder_and_context
+      definition: >
+        The value of developing artifact requirements, concepts, prototypes, or evaluation criteria collaboratively
+        with intended users, practitioners, domain experts, or community representatives.
+      allowed_use: >
+        Use when the artifact design is materially shaped by collaborative generation, critique, or revision rather
+        than only by one-way elicitation.
+      boundary_notes: >
+        Do not use for ordinary feedback collection unless stakeholders have a visible role in shaping design outputs.
+      related_terms:
+        - stakeholder_participation
+        - user_agency
+        - contextual_appropriateness
+      typical_risks_or_harms:
+        - tokenistic participation
+        - participant burden without benefit
+        - conflict among stakeholder priorities
+      typical_mitigation_or_governance_mechanisms:
+        - iterative co-design sessions
+        - visible design-decision traceability
+        - participant-facing feedback loops
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: user_agency
+      label: User agency
+      value_family: human_autonomy_and_capability
+      definition: >
+        The value of preserving or expanding users' meaningful ability to understand, configure, accept, reject,
+        adapt, or appropriately use an artifact.
+      allowed_use: >
+        Use when a design supports autonomy, ownership, configuration, interpretability, informed choice, or support
+        rather than control.
+      boundary_notes: >
+        Distinguish from usability. A usable system may still undermine agency if it manipulates, coerces, hides
+        meaningful options, or restricts legitimate user adaptation.
+      related_terms:
+        - autonomy
+        - informed_consent
+        - practitioner_usability
+        - interpretability
+      typical_risks_or_harms:
+        - designer over-control
+        - hidden coercion
+        - inability to configure sensitive functions
+      typical_mitigation_or_governance_mechanisms:
+        - user configuration controls
+        - plain-language explanation
+        - opt-in or opt-out mechanisms
+        - use-plan documentation
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: autonomy
+      label: Autonomy
+      value_family: human_autonomy_and_capability
+      definition: >
+        The value of enabling users or affected persons to act independently and safely within their own contexts,
+        capacities, goals, and support needs.
+      allowed_use: >
+        Use when an artifact is intended to reduce unnecessary dependency, overprotection, or external control while
+        preserving needed safeguards.
+      boundary_notes: >
+        Autonomy may trade off with safety. Document the balance, especially for vulnerable or dependent users.
+      related_terms:
+        - user_agency
+        - safety
+        - accessibility
+        - inclusion
+      typical_risks_or_harms:
+        - overprotection reducing independence
+        - unsafe independent use
+        - communication barriers
+      typical_mitigation_or_governance_mechanisms:
+        - context-aware support features
+        - caregiver or professional involvement
+        - emergency or escalation mechanisms
+        - graduated autonomy settings
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: accessibility
+      label: Accessibility
+      value_family: human_autonomy_and_capability
+      definition: >
+        The value of making artifacts, documentation, evidence, and design knowledge usable by people with relevant
+        differences in ability, literacy, language, expertise, device access, or context of use.
+      allowed_use: >
+        Use when the artifact or its documentation includes accommodations, alternative representations, plain-language
+        guidance, low-literacy support, assistive interfaces, or practitioner-oriented communication.
+      boundary_notes: >
+        Accessibility is not limited to disability accommodation. It also applies to expertise barriers and practitioner
+        comprehension, but should not be used without identifying the access barrier.
+      related_terms:
+        - inclusion
+        - practitioner_usability
+        - transparency
+        - user_agency
+      typical_risks_or_harms:
+        - exclusion through inadequate design
+        - overly abstract language blocking use
+        - inability to evaluate or reuse design knowledge
+      typical_mitigation_or_governance_mechanisms:
+        - plain-language communication
+        - accessible interface options
+        - readability checks
+        - practitioner-oriented examples
+      source_basis:
+        - dsr_extraction_corpus
+        - hevner_et_al_2024_transparency_in_design_science_research
+
+    - id: inclusion
+      label: Inclusion
+      value_family: equity_and_social_justice
+      definition: >
+        The value of ensuring that affected or intended populations are not excluded from artifact benefits,
+        participation, evaluation, or reuse because of social, economic, cultural, ability, organizational, or
+        technical barriers.
+      allowed_use: >
+        Use when a design explicitly addresses social inclusion, stakeholder inclusion, marginalized community access,
+        diversity, or barriers faced by less-resourced users.
+      boundary_notes: >
+        Distinguish from equity_fairness. Inclusion emphasizes access and participation; equity_fairness emphasizes
+        just distribution, bias reduction, and non-discrimination.
+      related_terms:
+        - equity_fairness
+        - accessibility
+        - social_value
+        - stakeholder_participation
+      typical_risks_or_harms:
+        - exclusion from artifact use
+        - exclusion from research benefits
+        - design for average users only
+      typical_mitigation_or_governance_mechanisms:
+        - inclusive stakeholder sampling
+        - barrier analysis
+        - affordability or access assessment
+        - community-mediated trust building
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: equity_fairness
+      label: Equity and fairness
+      value_family: equity_and_social_justice
+      definition: >
+        The value of avoiding unjust, biased, discriminatory, or systematically unequal artifact effects, decisions,
+        access conditions, or evaluation practices.
+      allowed_use: >
+        Use when a design must address fairness in decisions, bias reduction, non-discrimination, equitable access,
+        diversity, or social acceptability.
+      boundary_notes: >
+        Do not use as a generic synonym for inclusion. Identify the fairness object: outcome, process, data,
+        allocation, access, evaluation, or governance.
+      related_terms:
+        - inclusion
+        - bias_reduction
+        - accountability
+        - social_value
+      typical_risks_or_harms:
+        - discriminatory decisions
+        - biased system behavior
+        - unfair data ecosystem participation
+      typical_mitigation_or_governance_mechanisms:
+        - bias assessment
+        - stakeholder review
+        - audit trails
+        - fairness criteria in evaluation plan
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: bias_reduction
+      label: Bias reduction
+      value_family: equity_and_social_justice
+      definition: >
+        The value of reducing systematic distortion in problem framing, literature synthesis, data handling,
+        model behavior, evaluation, interpretation, or contribution claims.
+      allowed_use: >
+        Use for systematic-review protocols, evaluation designs, claim qualification, model audits, and governance
+        practices intended to reduce cherry-picking, author bias, data bias, or artifact bias.
+      boundary_notes: >
+        Bias reduction does not imply bias elimination. Residual biases and limits should be reported.
+      related_terms:
+        - equity_fairness
+        - methodological_rigor
+        - transparency
+        - accountability
+      typical_risks_or_harms:
+        - cherry-picking
+        - author bias
+        - overconfident synthesis
+        - biased artifact behavior
+      typical_mitigation_or_governance_mechanisms:
+        - systematic protocol
+        - independent review
+        - methodological rigor assessment
+        - claim qualification
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: privacy
+      label: Privacy
+      value_family: data_and_security_governance
+      definition: >
+        The value of protecting individuals, organizations, or communities from inappropriate collection, exposure,
+        inference, linkage, disclosure, or use of sensitive or identifying information.
+      allowed_use: >
+        Use when DSR artifacts, evaluations, logs, datasets, prototypes, repositories, or dissemination materials involve
+        personal, sensitive, proprietary, organizational, intimate, health, educational, or behavioral data.
+      boundary_notes: >
+        Distinguish from security. Privacy concerns appropriate information use and exposure; security concerns protection
+        from unauthorized access, compromise, or attack.
+      related_terms:
+        - data_minimization
+        - informed_consent
+        - security
+        - responsible_data_handling
+      typical_risks_or_harms:
+        - privacy harms
+        - complete user profiles
+        - sensitive data exposure
+        - reidentification
+      typical_mitigation_or_governance_mechanisms:
+        - data minimization
+        - anonymization or de-identification
+        - consent procedures
+        - privacy-impact review
+      source_basis:
+        - dsr_extraction_corpus
+        - hevner_et_al_2024_transparency_in_design_science_research
+
+    - id: data_minimization
+      label: Data minimization
+      value_family: data_and_security_governance
+      definition: >
+        The value of limiting data collection, processing, retention, and disclosure to what is necessary for the
+        artifact purpose, evaluation, governance, or legitimate reuse.
+      allowed_use: >
+        Use when a design or evaluation intentionally reduces data scope, sensitivity, retention, profiling, or
+        unnecessary transfer.
+      boundary_notes: >
+        Do not use to justify insufficient evidence. Data minimization should be balanced with evaluation validity,
+        auditability, and reuse requirements.
+      related_terms:
+        - privacy
+        - responsible_data_handling
+        - security
+        - informed_consent
+      typical_risks_or_harms:
+        - overcollection
+        - sensitive emotional or intimate data processing
+        - unnecessary profiling
+      typical_mitigation_or_governance_mechanisms:
+        - purpose limitation
+        - on-device processing
+        - retention limits
+        - no-profiling rules
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: informed_consent
+      label: Informed consent
+      value_family: data_and_security_governance
+      definition: >
+        The value of ensuring that participants or affected users understand material research, evaluation, data,
+        artifact-use, and risk conditions before agreeing to participate or share information.
+      allowed_use: >
+        Use for human-participant DSR demonstrations, evaluations, field tests, logging, prototype use, and cases
+        involving sensitive or personal information.
+      boundary_notes: >
+        Consent does not by itself make a design responsible. It must be paired with risk minimization, privacy protection,
+        and appropriate governance.
+      related_terms:
+        - privacy
+        - user_agency
+        - responsible_data_handling
+        - accountability
+      typical_risks_or_harms:
+        - uninformed participation
+        - hidden data reuse
+        - consent without practical comprehension
+      typical_mitigation_or_governance_mechanisms:
+        - consent record
+        - plain-language disclosure
+        - withdrawal procedure
+        - institutional review where applicable
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: security
+      label: Security
+      value_family: data_and_security_governance
+      definition: >
+        The value of protecting artifacts, data, users, organizations, and infrastructure from unauthorized access,
+        compromise, misuse, vulnerability exposure, or harmful operation.
+      allowed_use: >
+        Use when an artifact, evaluation, repository, code release, or deployment could introduce confidentiality,
+        integrity, availability, safety, or vulnerability risks.
+      boundary_notes: >
+        Distinguish from privacy and safety. Security may protect systems and information even when no direct physical
+        or psychological harm is at issue.
+      related_terms:
+        - privacy
+        - safety
+        - trustworthiness
+        - responsible_data_handling
+      typical_risks_or_harms:
+        - security vulnerabilities
+        - unauthorized disclosure
+        - unsafe code or infrastructure
+        - misuse of sensitive information
+      typical_mitigation_or_governance_mechanisms:
+        - access controls
+        - vulnerability review
+        - controlled code sharing
+        - logging and monitoring
+        - secure repository settings
+      source_basis:
+        - dsr_extraction_corpus
+        - hevner_et_al_2024_transparency_in_design_science_research
+
+    - id: responsible_data_handling
+      label: Responsible data handling
+      value_family: data_and_security_governance
+      definition: >
+        The value of managing data collection, quality, provenance, licensing, access, retention, sharing, and disposal
+        in ways that are lawful, ethical, transparent, and fit for DSR evidence needs.
+      allowed_use: >
+        Use when a project includes datasets, logs, field-test data, open data, research repositories, metadata,
+        data spaces, or data-driven artifacts.
+      boundary_notes: >
+        Responsible data handling is broader than privacy. It includes quality, provenance, licensing clarity,
+        sovereignty, and reuse conditions.
+      related_terms:
+        - privacy
+        - provenance
+        - data_quality
+        - data_sovereignty
+      typical_risks_or_harms:
+        - sensitive data exposure
+        - unclear licensing
+        - unknown data quality
+        - monopolistic or unfair data-space conditions
+      typical_mitigation_or_governance_mechanisms:
+        - metadata assessment
+        - provenance records
+        - licensing review
+        - anonymization or pseudonymization
+        - data governance policy
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: safety
+      label: Safety
+      value_family: harm_prevention
+      definition: >
+        The value of preventing or reducing physical, psychological, social, operational, clinical, scientific,
+        educational, or organizational harm caused by artifact design, use, misuse, evaluation, or deployment.
+      allowed_use: >
+        Use for assistive systems, healthcare artifacts, safety-critical software, scientific software, field tests,
+        educational interventions, and socio-technical deployments where harm is plausible.
+      boundary_notes: >
+        Safety may require tradeoffs with autonomy, openness, or experimentation. Document residual risks and who accepts them.
+      related_terms:
+        - autonomy
+        - security
+        - human_wellbeing
+        - evaluation_transparency
+      typical_risks_or_harms:
+        - safety-critical software errors
+        - participant distress
+        - unsafe independent use
+        - invalid scientific or clinical outputs
+      typical_mitigation_or_governance_mechanisms:
+        - risk analysis
+        - staged evaluation
+        - emergency procedures
+        - verification and validation
+        - domain-expert review
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: human_wellbeing
+      label: Human well-being
+      value_family: harm_prevention
+      definition: >
+        The value of considering how artifacts and DSR interventions affect human welfare, dignity, confidence,
+        learning, engagement, social participation, and lived experience.
+      allowed_use: >
+        Use when artifact impacts are evaluated in relation to user welfare, learner outcomes, caregiver confidence,
+        patient protection, motivation, engagement, or social participation.
+      boundary_notes: >
+        Avoid vague well-being claims. Specify the well-being dimension and the evidence used to assess it.
+      related_terms:
+        - safety
+        - social_value
+        - accessibility
+        - autonomy
+      typical_risks_or_harms:
+        - user distress
+        - reduced independence
+        - poor learning outcomes
+        - loss of stakeholder confidence
+      typical_mitigation_or_governance_mechanisms:
+        - user-centered evaluation
+        - stakeholder feedback
+        - naturalistic testing with safeguards
+        - human-risk evaluation strategy
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: transparency
+      label: Transparency
+      value_family: transparency_and_accountability
+      definition: >
+        The value of making the DSR process, problem space, solution space, build decisions, evaluation evidence,
+        contribution claims, limitations, and governance judgments understandable and inspectable to appropriate audiences.
+      allowed_use: >
+        Use when documentation, repositories, logs, trace links, plain-language explanations, decision records, or
+        publication materials are intended to support trust, review, reuse, accountability, or replication-oriented learning.
+      boundary_notes: >
+        Transparency must be proportionate. Full disclosure may be inappropriate where it creates privacy, security,
+        intellectual property, information-overload, or maintenance risks.
+      related_terms:
+        - accountability
+        - provenance
+        - practitioner_usability
+        - methodological_rigor
+      typical_risks_or_harms:
+        - opaque design knowledge production
+        - information overload
+        - proprietary information disclosure
+        - security vulnerability exposure
+      typical_mitigation_or_governance_mechanisms:
+        - proportionate transparency requirements
+        - decision records
+        - repository materials with appropriate access controls
+        - plain-language communication
+        - traceability crosswalk
+      source_basis:
+        - hevner_et_al_2024_transparency_in_design_science_research
+        - dsr_extraction_corpus
+
+    - id: accountability
+      label: Accountability
+      value_family: transparency_and_accountability
+      definition: >
+        The value of making responsible parties, design decisions, evidence, tradeoffs, risks, ownership, review status,
+        and remediation obligations identifiable and reviewable.
+      allowed_use: >
+        Use when a project needs governance records, audit trails, stakeholder sign-off, decision accountability,
+        ownership agreements, or release-readiness evidence.
+      boundary_notes: >
+        Accountability requires more than transparency. It includes responsibility assignment and a pathway for review,
+        correction, escalation, or remediation.
+      related_terms:
+        - transparency
+        - intellectual_property_respect
+        - responsible_data_handling
+        - trustworthiness
+      typical_risks_or_harms:
+        - governance failure
+        - unclear ownership
+        - unreviewed sensitive decisions
+        - lack of remediation pathway
+      typical_mitigation_or_governance_mechanisms:
+        - role assignment
+        - audit trails
+        - sign-off workflow
+        - review records
+        - issue or change-log linkage
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: provenance
+      label: Provenance
+      value_family: transparency_and_accountability
+      definition: >
+        The value of preserving the origin, transformation, authorship, evidence basis, licensing status, and change
+        history of artifact components, data, models, claims, and documentation.
+      allowed_use: >
+        Use when design knowledge, data, source code, generated content, evidence, or claims must be traced to sources
+        and changes for review, reuse, publication, or preservation.
+      boundary_notes: >
+        Provenance is not the same as methodological rigor. It records origin and transformation; rigor concerns the
+        adequacy of the method and evidence.
+      related_terms:
+        - transparency
+        - responsible_data_handling
+        - licensing_clarity
+        - methodological_rigor
+      typical_risks_or_harms:
+        - unknown data or artifact origin
+        - unverifiable claims
+        - unclear licensing and access conditions
+      typical_mitigation_or_governance_mechanisms:
+        - metadata records
+        - citation anchors
+        - change history
+        - source-basis records
+        - package inventory
+      source_basis:
+        - dsr_extraction_corpus
+        - dsr_framework_generation_spec
+
+    - id: methodological_rigor
+      label: Methodological rigor
+      value_family: evidence_and_research_quality
+      definition: >
+        The value of using suitable, explicit, and reviewable methods for problem framing, design, build, demonstration,
+        evaluation, synthesis, and contribution claiming.
+      allowed_use: >
+        Use when responsible design depends on systematic protocols, traceable evaluation, explicit criteria,
+        validity checks, reliability checks, or disciplined literature use.
+      boundary_notes: >
+        Rigor does not guarantee relevance or social value. Pair with problem_relevance and stakeholder_relevance
+        when making DSR adequacy claims.
+      related_terms:
+        - evidence_based_decision_making
+        - bias_reduction
+        - transparency
+        - trustworthiness
+      typical_risks_or_harms:
+        - weak requirements validation
+        - unsupported claims
+        - unreliable evaluation
+        - insufficient early evaluation
+      typical_mitigation_or_governance_mechanisms:
+        - explicit evaluation plan
+        - criteria traceability
+        - formative and summative evaluation
+        - independent review
+        - systematic synthesis where appropriate
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: evidence_based_decision_making
+      label: Evidence-based decision-making
+      value_family: evidence_and_research_quality
+      definition: >
+        The value of basing design choices, tradeoffs, acceptance criteria, contribution claims, and release decisions
+        on documented evidence rather than unsupported preference, convenience, or retrospective rationalization.
+      allowed_use: >
+        Use when design decisions are tied to evaluation evidence, stakeholder evidence, literature evidence,
+        quality gates, or risk analysis.
+      boundary_notes: >
+        Evidence-based does not mean evidence-complete. Record uncertainty, limitations, and residual risks.
+      related_terms:
+        - methodological_rigor
+        - transparency
+        - accountability
+        - trustworthiness
+      typical_risks_or_harms:
+        - ex-post rationalization
+        - overconfident synthesis
+        - unsubstantiated impact estimates
+      typical_mitigation_or_governance_mechanisms:
+        - evidence table
+        - decision log
+        - claim qualification
+        - review gate
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: trustworthiness
+      label: Trustworthiness
+      value_family: evidence_and_research_quality
+      definition: >
+        The value of making an artifact, process, evidence base, and contribution claim worthy of justified confidence
+        by relevant scholarly, practitioner, public, or regulatory audiences.
+      allowed_use: >
+        Use when a responsible-design claim integrates transparency, evaluation evidence, stakeholder confidence,
+        safety, security, validity, reliability, or governance.
+      boundary_notes: >
+        Do not use as a vague approval label. Specify the grounds for trust and the audience whose confidence is at issue.
+      related_terms:
+        - transparency
+        - accountability
+        - methodological_rigor
+        - safety
+      typical_risks_or_harms:
+        - unsupported trust in unevaluated artifacts
+        - low adoption in practice
+        - stakeholder confidence failure
+      typical_mitigation_or_governance_mechanisms:
+        - evaluation evidence
+        - transparent limitations
+        - stakeholder review
+        - audit and monitoring
+      source_basis:
+        - dsr_extraction_corpus
+        - hevner_et_al_2024_transparency_in_design_science_research
+
+    - id: contextual_appropriateness
+      label: Contextual appropriateness
+      value_family: context_and_projectability
+      definition: >
+        The value of fitting design choices, requirements, evaluation criteria, communication, and reuse claims to the
+        relevant social, organizational, technical, cultural, geographic, regulatory, and temporal context.
+      allowed_use: >
+        Use when artifact quality or responsibility depends on fit to local practices, stakeholder capabilities,
+        institutional constraints, infrastructure, culture, regulatory context, or lifecycle stage.
+      boundary_notes: >
+        Distinguish from projectability. Contextual appropriateness concerns fit in a setting; projectability concerns
+        transfer to other settings or problem classes.
+      related_terms:
+        - stakeholder_relevance
+        - boundary_aware_generalization
+        - practitioner_usability
+        - social_acceptance
+      typical_risks_or_harms:
+        - unfounded universalist claims
+        - poor social acceptance
+        - failure to accommodate local constraints
+      typical_mitigation_or_governance_mechanisms:
+        - context dimension reporting
+        - boundary-condition statement
+        - local stakeholder review
+        - use-context evaluation
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: boundary_aware_generalization
+      label: Boundary-aware generalization
+      value_family: context_and_projectability
+      definition: >
+        The value of making transfer, reuse, replication, and generalization claims only within specified problem classes,
+        contexts, assumptions, mechanisms, and limits.
+      allowed_use: >
+        Use when responsible design requires preventing overgeneralization from a local artifact, small population,
+        artificial evaluation, or context-specific implementation.
+      boundary_notes: >
+        Do not use to weaken all claims unnecessarily. Use to specify the valid scope of a claim and the evidence needed
+        for broader transfer.
+      related_terms:
+        - contextual_appropriateness
+        - transparency
+        - methodological_rigor
+        - projectability
+      typical_risks_or_harms:
+        - overgeneralization from sampled cases
+        - inappropriate reuse
+        - weak external validity
+      typical_mitigation_or_governance_mechanisms:
+        - problem-class mapping
+        - boundary-condition documentation
+        - replication or transfer evidence
+        - qualified contribution claims
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: practitioner_usability
+      label: Practitioner usability
+      value_family: communication_and_use
+      definition: >
+        The value of making artifacts, design knowledge, guidance, evidence, and implementation materials usable by
+        the practitioner audiences expected to apply, adapt, review, or maintain them.
+      allowed_use: >
+        Use when responsible design requires accessible application guidance, implementation instructions, examples,
+        patterns, templates, training, or practitioner-oriented dissemination.
+      boundary_notes: >
+        Practitioner usability is not identical to user interface usability. It includes the usability of design knowledge
+        and operational documentation.
+      related_terms:
+        - accessibility
+        - transparency
+        - stakeholder_relevance
+        - knowledge_reuse
+      typical_risks_or_harms:
+        - low adoption in practice
+        - design knowledge lost after publication
+        - overly abstract guidance
+      typical_mitigation_or_governance_mechanisms:
+        - implementation guidance
+        - examples and templates
+        - plain-language summaries
+        - training or practitioner-facing materials
+      source_basis:
+        - dsr_extraction_corpus
+        - hevner_et_al_2024_transparency_in_design_science_research
+
+    - id: knowledge_reuse
+      label: Knowledge reuse
+      value_family: communication_and_use
+      definition: >
+        The value of preserving, codifying, and communicating design knowledge so that future researchers or practitioners
+        can apply, adapt, replicate, benchmark, evaluate, or extend it.
+      allowed_use: >
+        Use when a DSR artifact package includes reusable patterns, principles, taxonomies, repositories, templates,
+        source-basis records, or other mechanisms for cumulative knowledge development.
+      boundary_notes: >
+        Reuse should be bounded by context and evidence. Do not imply plug-and-play transfer unless evaluated.
+      related_terms:
+        - boundary_aware_generalization
+        - provenance
+        - practitioner_usability
+        - transparency
+      typical_risks_or_harms:
+        - duplicate research
+        - repeated mistakes
+        - loss of design rationale
+        - limited research-to-practice transfer
+      typical_mitigation_or_governance_mechanisms:
+        - repositories
+        - package inventory
+        - codified design principles
+        - reusable templates
+        - documentation standards
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: sustainability
+      label: Sustainability
+      value_family: societal_and_environmental_value
+      definition: >
+        The value of accounting for environmental, social, economic, lifecycle, maintenance, and long-term stewardship
+        effects of an artifact or DSR intervention.
+      allowed_use: >
+        Use when a project addresses sustainability transformation, environmental protection, resource use,
+        long-term maintainability, social equity, or lifecycle consequences.
+      boundary_notes: >
+        Distinguish sustainability as a responsible-design value from mere artifact persistence or software maintenance.
+        Identify the sustainability dimension being claimed.
+      related_terms:
+        - social_value
+        - lifecycle_responsibility
+        - equity_fairness
+        - accountability
+      typical_risks_or_harms:
+        - dilution of sustainability impact
+        - hidden lifecycle costs
+        - resource-intensive artifact maintenance
+      typical_mitigation_or_governance_mechanisms:
+        - materiality assessment
+        - lifecycle review
+        - sustainability audit
+        - continuous improvement feedback loop
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: social_value
+      label: Social value
+      value_family: societal_and_environmental_value
+      definition: >
+        The value of contributing to public interest, societal welfare, community benefit, scientific progress,
+        education, social inclusion, organizational learning, or other benefits beyond narrow artifact performance.
+      allowed_use: >
+        Use when a DSR project justifies importance through societal, community, educational, scientific, welfare,
+        developmental, or public-interest outcomes.
+      boundary_notes: >
+        Do not overclaim broad social value from a narrow evaluation. Link the claim to scope, stakeholders, and evidence.
+      related_terms:
+        - problem_relevance
+        - sustainability
+        - human_wellbeing
+        - inclusion
+      typical_risks_or_harms:
+        - pursuing insignificant problems
+        - de-worlded research detached from practice
+        - weak practical or societal impact
+      typical_mitigation_or_governance_mechanisms:
+        - societal relevance argument
+        - stakeholder benefit analysis
+        - impact evidence
+        - public-interest review
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: lifecycle_responsibility
+      label: Lifecycle responsibility
+      value_family: societal_and_environmental_value
+      definition: >
+        The value of considering how artifacts are created, deployed, maintained, updated, reused, retired, or preserved
+        over time, including burdens placed on authors, users, maintainers, repositories, and affected organizations.
+      allowed_use: >
+        Use when artifact maintenance, versioning, preservation, update costs, technical debt, retirement, or long-term
+        governance is relevant to responsible design.
+      boundary_notes: >
+        Lifecycle responsibility is broader than sustainability and narrower than all governance. It focuses on temporal
+        stewardship of artifacts and evidence.
+      related_terms:
+        - sustainability
+        - accountability
+        - security
+        - knowledge_reuse
+      typical_risks_or_harms:
+        - artifact maintenance burden
+        - rapid aging of design knowledge
+        - unsafe or unsupported artifact reuse
+      typical_mitigation_or_governance_mechanisms:
+        - lifecycle plan
+        - release record
+        - maintenance boundary statement
+        - archival and deprecation policy
+      source_basis:
+        - dsr_extraction_corpus
+        - hevner_et_al_2024_transparency_in_design_science_research
+
+    - id: intellectual_property_respect
+      label: Intellectual property respect
+      value_family: legal_and_institutional_governance
+      definition: >
+        The value of respecting authorship, ownership, licensing, proprietary constraints, institutional obligations,
+        and rights associated with artifacts, data, code, documentation, and design knowledge.
+      allowed_use: >
+        Use when a DSR project involves proprietary artifacts, code sharing, open licensing, publication repositories,
+        co-created artifacts, third-party data, or ownership agreements.
+      boundary_notes: >
+        Do not use to block all transparency. Balance intellectual property constraints with appropriate documentation,
+        abstraction, pseudocode, partial sharing, or access-controlled evidence.
+      related_terms:
+        - accountability
+        - licensing_clarity
+        - transparency
+        - responsible_data_handling
+      typical_risks_or_harms:
+        - loss of intellectual property
+        - unclear ownership
+        - proprietary information disclosure
+        - unlicensed reuse
+      typical_mitigation_or_governance_mechanisms:
+        - licensing statement
+        - ownership agreement
+        - partial or obfuscated sharing
+        - access-controlled repository
+      source_basis:
+        - dsr_extraction_corpus
+        - hevner_et_al_2024_transparency_in_design_science_research
+
+    - id: licensing_clarity
+      label: Licensing clarity
+      value_family: legal_and_institutional_governance
+      definition: >
+        The value of making permitted uses, restrictions, reuse rights, citation expectations, and access conditions
+        explicit for artifacts, data, code, schemas, templates, documentation, and examples.
+      allowed_use: >
+        Use when repository materials, open data, reusable templates, code, documentation, or generated framework files
+        need clear reuse and attribution terms.
+      boundary_notes: >
+        Licensing clarity does not guarantee legal sufficiency for every jurisdiction. Escalate to appropriate institutional
+        or legal review when needed.
+      related_terms:
+        - intellectual_property_respect
+        - provenance
+        - knowledge_reuse
+        - accountability
+      typical_risks_or_harms:
+        - unknown access conditions
+        - unintentional misuse
+        - reuse blocked by ambiguity
+      typical_mitigation_or_governance_mechanisms:
+        - SPDX identifier
+        - license file
+        - metadata record
+        - citation guidance
+      source_basis:
+        - dsr_extraction_corpus
+        - dsr_framework_generation_spec
+
+    - id: social_acceptance
+      label: Social acceptance
+      value_family: stakeholder_and_context
+      definition: >
+        The value of designing artifacts so that relevant users, communities, practitioners, and institutions can regard
+        them as understandable, legitimate, acceptable, and appropriate within their context.
+      allowed_use: >
+        Use when adoption, trust, cultural fit, community support, organizational fit, or legitimacy affects responsible
+        artifact use.
+      boundary_notes: >
+        Social acceptance is not equivalent to ethical adequacy. A socially accepted artifact may still be unsafe,
+        unfair, or insufficiently transparent.
+      related_terms:
+        - contextual_appropriateness
+        - stakeholder_participation
+        - trustworthiness
+        - inclusion
+      typical_risks_or_harms:
+        - failure of adoption
+        - mistrust from prior research experiences
+        - poor cultural or organizational fit
+      typical_mitigation_or_governance_mechanisms:
+        - community-leader engagement
+        - iterative feedback
+        - social-context analysis
+        - adoption evidence
+      source_basis:
+        - dsr_extraction_corpus
+
+    - id: interpretability
+      label: Interpretability
+      value_family: communication_and_use
+      definition: >
+        The value of making artifact behavior, recommendations, classifications, outputs, rules, assumptions, and limits
+        understandable enough for relevant users, reviewers, maintainers, or decision-makers to act appropriately.
+      allowed_use: >
+        Use when responsible use depends on understanding an artifact's logic, outputs, recommendations, automation,
+        model behavior, or design implications.
+      boundary_notes: >
+        Interpretability is audience-relative. Specify who needs to understand what, and for what decision or use.
+      related_terms:
+        - transparency
+        - user_agency
+        - practitioner_usability
+        - trustworthiness
+      typical_risks_or_harms:
+        - black-box software risks
+        - inappropriate confidence in outputs
+        - failure to accommodate unanticipated use
+      typical_mitigation_or_governance_mechanisms:
+        - explanation artifacts
+        - rule or model documentation
+        - examples and counterexamples
+        - confidence or limitation indicators
+      source_basis:
+        - dsr_extraction_corpus
+
+  review_and_validation:
+    acceptance_criteria:
+      - id: ac_value_entry_shape
+        criterion: >
+          Every entry has id, label, definition, allowed_use, boundary_notes, related_terms,
+          typical_risks_or_harms, typical_mitigation_or_governance_mechanisms, and source_basis.
+      - id: ac_reviewable_value_claims
+        criterion: >
+          Each value can be converted into a reviewable claim by linking it to stakeholders, design decisions,
+          risks, mitigations, and evidence.
+      - id: ac_no_self_validating_ethics
+        criterion: >
+          The vocabulary does not treat naming a value as evidence that the artifact satisfies the value.
+      - id: ac_dsr_alignment
+        criterion: >
+          Entries support DSR-specific problem-space, solution-space, build, evaluation, contribution,
+          transparency, and projectability documentation.
+    validation_rules:
+      - id: vr_id_style
+        rule: entry ids must be lower_snake_case and stable across releases
+      - id: vr_no_empty_required_fields
+        rule: required entry fields must not be null or empty
+      - id: vr_source_basis_required
+        rule: every entry must include at least one source_basis item
+      - id: vr_tradeoff_documentation
+        rule: value claims that conflict with another value must be documented as tradeoffs in design-rationale records
+    quality_gate_status:
+      consistency: pass
+      coherence: pass
+      cogency: pass
+      correspondence: pass
+      dsr_transparency: pass
+      reviewability: pass
+
+  traceability:
+    - trace_id: tr_selection_table
+      source: dsr-framework-selection-table.md
+      target: vocabularies/responsible-design-values.yaml
+      relation: selected_target_path
+      evidence_status: mapped
+    - trace_id: tr_generation_spec_vocabulary_shape
+      source: dsr-framework-generation-spec.yaml
+      target: vocabulary.entries
+      relation: governs_entry_fields
+      evidence_status: mapped
+    - trace_id: tr_generation_prompt_dsr_distinctions
+      source: dsr-framework-generation-prompt.md
+      target: vocabulary.value_model
+      relation: governs_dsr_specific_distinctions
+      evidence_status: mapped
+    - trace_id: tr_corpus_responsible_design_elements
+      source: chunked_folder_conversion_extractions_20260427030321_part001.yaml
+      target: vocabulary.entries
+      relation: synthesizes_extracted_responsible_design_values_risks_and_governance_mechanisms
+      evidence_status: mapped_to_extraction_corpus
+
+  assumptions:
+    - id: as_responsible_design_scope
+      statement: >
+        Responsible design in this framework is treated as a reviewable DSR documentation and governance dimension,
+        not as a complete replacement for institutional ethics review, legal review, or domain-specific professional codes.
+    - id: as_controlled_vocabulary_level
+      statement: >
+        This L2 vocabulary is reviewable and operational but not yet a full ontology with formal axioms or automated
+        conformance scoring.
+
+  open_questions:
+    - id: oq_value_granularity
+      question: >
+        Should later releases split combined entries such as equity_fairness, stakeholder_relevance, and responsible_data_handling
+        into narrower jurisdiction-specific or domain-specific sub-vocabularies?
+    - id: oq_scoring_rubric
+      question: >
+        Should responsible-design values receive maturity scoring in a future checklist or remain controlled labels linked
+        to evidence and review gates?
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial L2 reviewable controlled vocabulary generated from the selected DSR Framework portion.
+      responsible_party: GPT-5.5 Thinking

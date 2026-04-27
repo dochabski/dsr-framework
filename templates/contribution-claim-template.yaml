@@ -1,0 +1,404 @@
+# SPDX-License-Identifier: CC0-1.0
+---
+template_metadata:
+  item_id: template_contribution_claim
+  item_type: specification
+  title: DSR Contribution Claim Template
+  purpose: >
+    Provide a reusable YAML template for declaring, bounding, evidencing, and
+    reviewing a Design Science Research contribution claim. The template is
+    intended to support contribution transparency, schema validation, and
+    reviewer assessment without overclaiming novelty, generality, utility, or
+    evaluation strength.
+  status: draft
+  version: "0.1.0"
+  conformance_target: l2_reviewable
+  target_path: templates/contribution-claim-template.yaml
+  target_schema: schemas/dsr-contribution-claim.schema.json
+  owner:
+    role: "TODO: name or role responsible for maintaining this contribution claim"
+    name: "TODO: responsible person, team, or project role"
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      source_type: internal_specification
+      evidence_status: mapped
+      relevance: Governs repository conventions, controlled metadata, traceability, and quality gates.
+    - source_id: dsr_framework_generation_prompt
+      source_type: internal_generation_prompt
+      evidence_status: mapped
+      relevance: Governs template-generation procedure and DSR-specific distinctions.
+    - source_id: dsr_extraction_corpus
+      source_type: internal_dsr_corpus
+      evidence_status: not_yet_mapped
+      relevance: Provides scholarly grounding for DSR contribution, evaluation, transparency, validity, and projectability concepts.
+    - source_id: documentation_protocol_repository
+      source_type: external_protocol_reference
+      evidence_status: not_yet_mapped
+      relevance: Provides repository and documentation-protocol alignment where mapped.
+  related_items:
+    upstream_dependencies:
+      - item_id: schema_contribution_claim
+        path: schemas/dsr-contribution-claim.schema.json
+        relationship: validates_this_template_instance
+      - item_id: model_contribution
+        path: models/dsr-contribution-model.yaml
+        relationship: defines_contribution_positioning_logic
+      - item_id: vocab_contribution_types
+        path: vocabularies/contribution-types.yaml
+        relationship: supplies_controlled_values
+      - item_id: vocab_knowledge_goals
+        path: vocabularies/knowledge-goals.yaml
+        relationship: supplies_controlled_values
+      - item_id: vocab_knowledge_scopes
+        path: vocabularies/knowledge-scopes.yaml
+        relationship: supplies_controlled_values
+      - item_id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relationship: aligns_claims_to_evaluation_evidence
+      - item_id: model_projectability
+        path: models/dsr-projectability-model.yaml
+        relationship: supports_scope_transfer_and_boundary_condition_fields
+      - item_id: model_transparency
+        path: models/dsr-transparency-model.yaml
+        relationship: supports_contribution_transparency_fields
+    downstream_uses:
+      - item_id: record_contribution_positioning
+        path: records/contributions/record-contribution-positioning-0001.yaml
+        relationship: may_use_or_reference_completed_claims
+      - item_id: docs_lifecycle_contribution
+        path: docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+        relationship: may_render_or_explain_contribution_claiming_guidance
+      - item_id: checklist_contribution_positioning
+        path: checklists/contribution-positioning-checklist.yaml
+        relationship: reviews_completed_contribution_claims
+  validation:
+    expected_format: yaml
+    expected_top_level_key: contribution_claim
+    schema_validation: "TODO: validate completed instances against schemas/dsr-contribution-claim.schema.json"
+    placeholder_policy: Replace all TODO values before release or formal review.
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial reusable contribution claim template generated for the DSR Framework package.
+      changed_by: GPT-5.5 Thinking
+
+contribution_claim:
+  claim_metadata:
+    claim_id: "TODO: stable lower_snake_case claim identifier"
+    claim_title: "TODO: concise title of the contribution claim"
+    claim_version: "0.1.0"
+    claim_status: draft
+    claim_date: "TODO: YYYY-MM-DD"
+    claim_owner:
+      role: "TODO: principal investigator, artifact owner, author, reviewer, or maintainer"
+      name: "TODO: responsible person or team"
+      contact: "TODO: contact or project role mailbox if applicable"
+    prepared_by:
+      - name: "TODO: contributor name"
+        role: "TODO: author, analyst, reviewer, maintainer, or other role"
+        contribution_to_claim: "TODO: describe claim-preparation responsibility"
+    intended_review_stage: "TODO: planning | pre_submission | peer_review | release_review | post_release_review"
+    confidentiality_or_release_status: "TODO: public | internal | restricted | embargoed | mixed"
+
+  project_context:
+    project_id: "TODO: related DSR project identifier"
+    project_title: "TODO: project title"
+    artifact_id: "TODO: related artifact identifier"
+    artifact_name: "TODO: related artifact name"
+    artifact_type: "TODO: construct | model | method | instantiation | framework | taxonomy | ontology | guideline | design_principle | other"
+    artifact_instance_or_type: "TODO: artifact_type_level | artifact_instance | both | unclear"
+    application_domain: "TODO: problem or practice domain"
+    problem_class: "TODO: class of problem addressed by the artifact or design knowledge"
+    lifecycle_stage: "TODO: problem_identification | objectives_requirements | design_development | demonstration | evaluation | communication | release | maintenance"
+    related_records:
+      problem_and_objectives: "TODO: path or null"
+      solution_space_record: "TODO: path or null"
+      design_rationale: "TODO: path or null"
+      artifact_specification: "TODO: path or null"
+      demonstration_record: "TODO: path or null"
+      evaluation_plan: "TODO: path or null"
+      evaluation_report: "TODO: path or null"
+
+  claim_statement:
+    concise_claim: >
+      TODO: State the contribution in one sentence. Identify what is contributed,
+      to whom or what body of knowledge it contributes, and why it is non-routine.
+    expanded_claim: >
+      TODO: Explain the contribution in enough detail for review. Distinguish the
+      artifact, the design knowledge, the evaluation evidence, and any practical impact.
+    claim_scope:
+      knowledge_scope: "TODO: idiographic | nomothetic | mixed | projectable_to_problem_class | analytical_generalization | other"
+      scope_statement: >
+        TODO: Describe whether the claim is local, problem-class projectable,
+        theoretically general, or otherwise bounded.
+      unit_of_contribution: "TODO: artifact | design_principle | method | model | theory | evidence | dataset | protocol | package | other"
+      intended_audiences:
+        - audience: scholarly
+          expected_use: "TODO: e.g., theory development, method reuse, review, replication, synthesis"
+        - audience: practitioner
+          expected_use: "TODO: e.g., artifact adaptation, implementation, policy, training"
+    non_claims:
+      - "TODO: Explicitly state what this contribution does not claim, such as full generalizability, causal proof, production readiness, or complete evaluation."
+
+  contribution_positioning:
+    primary_contribution_type: "TODO: invention | improvement | exaptation | routine_design | method_extension | synthesis | critique | replication | evaluation | other"
+    secondary_contribution_types:
+      - "TODO: optional secondary type or null"
+    knowledge_goals:
+      - "TODO: definitional | descriptive | explanatory | predictive | explanatory_predictive | prescriptive | methodological | evaluative | normative | other"
+    contribution_targets:
+      contribution_to_dsr_theory: "TODO: none | limited | moderate | strong"
+      contribution_to_dsr_methodology: "TODO: none | limited | moderate | strong"
+      contribution_to_dsr_evaluation: "TODO: none | limited | moderate | strong"
+      contribution_to_validity_or_reliability: "TODO: none | limited | moderate | strong"
+      contribution_to_reporting_or_publication: "TODO: none | limited | moderate | strong"
+      contribution_to_practice: "TODO: none | limited | moderate | strong"
+      contribution_to_specific_domain: "TODO: none | limited | moderate | strong"
+    relationship_to_existing_knowledge:
+      existing_knowledge_used:
+        - source_or_artifact: "TODO: prior model, artifact, theory, method, vocabulary, or empirical finding"
+          role_in_claim: "TODO: grounding | comparison | extension | critique | replication | exaptation | other"
+          citation_or_reference: "TODO: citation key, source ID, DOI, URL, or repository path"
+      claimed_delta: >
+        TODO: Describe the difference between the current contribution and the prior state
+        of knowledge or practice.
+      alternative_positionings_considered:
+        - alternative_positioning: "TODO: e.g., routine design, local implementation, method extension"
+          reason_not_selected: "TODO: explain why the final contribution type is more appropriate"
+
+  novelty_and_significance:
+    novelty_assessment:
+      novelty_level: "TODO: none | low | moderate | high | uncertain"
+      novelty_rationale: "TODO: concise rationale grounded in evidence, not assertion alone"
+      application_domain_maturity: "TODO: low | moderate | high | uncertain"
+      solution_maturity: "TODO: low | moderate | high | uncertain"
+      routine_design_risk: "TODO: low | moderate | high | uncertain"
+      originality_evidence:
+        - evidence_id: "TODO: evidence identifier"
+          evidence_type: "TODO: literature_gap | comparison | expert_review | corpus_mapping | prior_artifact_analysis | other"
+          evidence_summary: "TODO: summarize the evidence"
+          citation_or_record_reference: "TODO: citation anchor, file path, or record ID"
+          evidence_status: "TODO: not_yet_mapped | partial | sufficient | contested"
+    significance_assessment:
+      significance_level: "TODO: low | moderate | high | uncertain"
+      significance_rationale: "TODO: why the contribution matters for research, practice, or both"
+      expected_knowledge_value: "TODO: clarify insight, reusable design knowledge, method, model, evidence, or other value"
+      expected_practice_value: "TODO: clarify use, adaptation, implementation, decision support, or other value"
+      affected_stakeholders:
+        - stakeholder_role: "TODO: researcher | reviewer | practitioner | designer | manager | learner | policy_maker | other"
+          expected_benefit_or_risk: "TODO: describe benefit, risk, or affected interest"
+
+  artifact_utility_quality_and_knowledge_distinctions:
+    artifact_utility:
+      utility_claim: "TODO: what the artifact helps users or stakeholders do"
+      utility_evidence_status: "TODO: not_evaluated | planned | demonstrated | evaluated | mixed"
+      utility_evidence_reference: "TODO: demonstration or evaluation record path, citation anchor, or null"
+    artifact_quality:
+      quality_claim: "TODO: quality attributes such as usability, correctness, reliability, maintainability, explainability, accessibility, or fit for use"
+      quality_evidence_status: "TODO: not_evaluated | planned | demonstrated | evaluated | mixed"
+      quality_evidence_reference: "TODO: evaluation report, test result, review record, or null"
+    contribution_to_knowledge:
+      knowledge_claim: "TODO: what reusable or reviewable knowledge the project contributes"
+      knowledge_evidence_status: "TODO: not_yet_mapped | partial | sufficient | contested"
+      knowledge_evidence_reference: "TODO: citation anchor, source-basis record, or null"
+    distinction_notes: >
+      TODO: Explain how artifact utility, artifact quality, and contribution to knowledge
+      are related but not treated as identical.
+
+  demonstration_and_evaluation_basis:
+    demonstration:
+      demonstration_present: "TODO: true | false | planned"
+      demonstration_reference: "TODO: path to demonstration record or null"
+      demonstration_context: "TODO: artificial | naturalistic | illustrative | simulated | literature_based | other | null"
+      demonstration_summary: "TODO: what was shown, by whom, in what use scenario"
+      demonstration_limitations:
+        - "TODO: limitation of demonstration evidence or null"
+    evaluation:
+      evaluation_present: "TODO: true | false | planned"
+      evaluation_plan_reference: "TODO: path to evaluation plan or null"
+      evaluation_report_reference: "TODO: path to evaluation report or null"
+      evaluation_timing:
+        - "TODO: formative | summative | ex_ante | ex_post | continuous | not_evaluated"
+      evaluation_setting:
+        - "TODO: artificial | naturalistic | simulation | field | lab | literature_based | expert_review | other"
+      evaluation_methods:
+        - method_name: "TODO: method name"
+          method_family: "TODO: experiment | case_study | field_test | simulation | analytical_evaluation | expert_review | usability_test | benchmark | proof | literature_based_argument | other"
+          evaluated_object: "TODO: artifact | artifact_instance | design_principle | method | model | claim | package | other"
+          criteria:
+            - "TODO: criterion assessed"
+          data_or_evidence_collected: "TODO: evidence, data, observation, metric, or review input"
+          result_summary: "TODO: result or null if not yet evaluated"
+          limitations:
+            - "TODO: method limitation or null"
+      evaluation_claim_alignment: >
+        TODO: Explain which parts of the contribution claim are supported by evaluation
+        evidence and which remain unevaluated or only demonstrated.
+
+  evidence_basis:
+    evidence_summary: >
+      TODO: Summarize the total evidence base supporting the claim. Identify source basis,
+      design records, artifact documentation, demonstration records, evaluation evidence,
+      comparison evidence, and reviewer judgments as applicable.
+    evidence_items:
+      - evidence_id: "TODO: stable evidence identifier"
+        evidence_type: "TODO: citation_anchor | artifact_record | evaluation_result | comparison_table | stakeholder_feedback | repository_file | review_record | other"
+        evidence_source: "TODO: citation key, path, DOI, URL, record ID, or dataset ID"
+        evidence_status: "TODO: not_yet_mapped | partial | sufficient | contested | rejected"
+        supports_claim_component: "TODO: novelty | significance | utility | quality | knowledge_contribution | projectability | validity | reliability | other"
+        evidence_summary: "TODO: concise evidence summary"
+        limitations: "TODO: limitation or null"
+    missing_evidence:
+      - missing_item: "TODO: evidence not yet available, such as independent evaluation, replication, reviewer assessment, or comparative baseline"
+        consequence_for_claim: "TODO: how the missing evidence bounds or weakens the claim"
+        planned_resolution: "TODO: plan or null"
+
+  validity_reliability_and_projectability:
+    validity:
+      validity_claim_status: "TODO: not_addressed | partially_addressed | addressed | contested"
+      validity_types_addressed:
+        - "TODO: construct_validity | artifact_validity | evaluation_validity | context_validity | semantic_validity | outcome_validity | external_validity | other"
+      threats:
+        - threat_id: "TODO: stable threat identifier"
+          threat: "TODO: validity threat"
+          mitigation: "TODO: mitigation or null"
+          residual_risk: "TODO: low | moderate | high | uncertain"
+    reliability:
+      reliability_claim_status: "TODO: not_addressed | partially_addressed | addressed | contested"
+      reliability_targets_addressed:
+        - "TODO: method_reliability | evaluator_reliability | implementation_reliability | artifact_reliability | design_knowledge_reliability | process_reliability | other"
+      reliability_evidence:
+        - evidence_id: "TODO: evidence identifier"
+          evidence_summary: "TODO: repeatability, consistency, agreement, versioning, or implementation evidence"
+          limitation: "TODO: limitation or null"
+    replication_and_projectability:
+      replication_type: "TODO: no_replication_claim | exact_replication | conceptual_replication | artifact_replication | differentiated_replication | other"
+      projectability_claim: "TODO: what can be transferred, adapted, reused, or generalized"
+      boundary_conditions:
+        - condition_id: "TODO: stable boundary identifier"
+          condition: "TODO: condition that limits or enables transfer"
+          basis: "TODO: evidence, rationale, or source basis"
+      reuse_or_transfer_guidance: "TODO: guidance for applying the contribution beyond the original case"
+
+  transparency_alignment:
+    contribution_transparency:
+      transparency_role: primary
+      required_disclosures:
+        - claim statement and claim scope
+        - contribution type and knowledge goal
+        - evidence basis and evidence limitations
+        - boundaries, non-claims, and residual uncertainty
+    related_transparency_dimensions:
+      process_transparency: "TODO: not_applicable | referenced | partially_addressed | addressed"
+      problem_space_transparency: "TODO: not_applicable | referenced | partially_addressed | addressed"
+      solution_space_transparency: "TODO: not_applicable | referenced | partially_addressed | addressed"
+      build_transparency: "TODO: not_applicable | referenced | partially_addressed | addressed"
+      evaluation_transparency: "TODO: not_applicable | referenced | partially_addressed | addressed"
+      contribution_transparency: addressed
+    transparency_notes: >
+      TODO: Explain how this claim record makes the contribution reviewable without
+      disclosing inappropriate restricted, proprietary, confidential, or unsafe information.
+
+  limitations_and_open_questions:
+    limitations:
+      - limitation_id: "TODO: stable limitation identifier"
+        limitation: "TODO: limitation of claim, evidence, artifact, context, evaluation, or projectability"
+        effect_on_claim_strength: "TODO: low | moderate | high | uncertain"
+        mitigation_or_next_step: "TODO: mitigation, follow-up, or null"
+    open_questions:
+      - question_id: "TODO: stable open question identifier"
+        question: "TODO: unresolved issue for reviewer, maintainer, or future evaluation"
+        owner: "TODO: responsible person or role"
+        target_resolution_stage: "TODO: planning | evaluation | review | release | post_release | unknown"
+
+  review_and_acceptance:
+    review_status: "TODO: not_reviewed | self_reviewed | peer_reviewed | approved | rejected | needs_revision"
+    reviewers:
+      - reviewer_role: "TODO: self | internal_reviewer | peer_reviewer | domain_expert | practitioner | maintainer | other"
+        reviewer_name: "TODO: reviewer name or role"
+        review_date: "TODO: YYYY-MM-DD or null"
+        review_record_reference: "TODO: path or null"
+    acceptance_criteria:
+      - criterion_id: cc_ac_001
+        criterion: The claim identifies its artifact, contribution target, contribution type, knowledge goal, and knowledge scope.
+        status: "TODO: pass | fail | not_applicable | not_reviewed"
+        evidence_reference: "TODO: field path, record path, or null"
+      - criterion_id: cc_ac_002
+        criterion: The claim distinguishes artifact utility, artifact quality, and contribution to knowledge.
+        status: "TODO: pass | fail | not_applicable | not_reviewed"
+        evidence_reference: "TODO: field path, record path, or null"
+      - criterion_id: cc_ac_003
+        criterion: The claim distinguishes demonstration evidence from evaluation evidence.
+        status: "TODO: pass | fail | not_applicable | not_reviewed"
+        evidence_reference: "TODO: field path, record path, or null"
+      - criterion_id: cc_ac_004
+        criterion: The claim states boundaries, non-claims, limitations, and missing evidence.
+        status: "TODO: pass | fail | not_applicable | not_reviewed"
+        evidence_reference: "TODO: field path, record path, or null"
+      - criterion_id: cc_ac_005
+        criterion: The claim is traceable to source basis, records, evidence items, and related framework files.
+        status: "TODO: pass | fail | not_applicable | not_reviewed"
+        evidence_reference: "TODO: field path, record path, or null"
+    reviewer_notes: "TODO: review notes or null"
+    decision: "TODO: accept | accept_with_minor_revisions | revise_and_resubmit | reject | defer | not_decided"
+
+  traceability:
+    upstream_trace_links:
+      - trace_id: cc_trace_up_001
+        source_item: schemas/dsr-contribution-claim.schema.json
+        relationship: schema_dependency
+        evidence_status: not_yet_mapped
+      - trace_id: cc_trace_up_002
+        source_item: models/dsr-contribution-model.yaml
+        relationship: concept_model_dependency
+        evidence_status: not_yet_mapped
+      - trace_id: cc_trace_up_003
+        source_item: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+        relationship: scholarly_source_basis
+        evidence_status: not_yet_mapped
+    downstream_trace_links:
+      - trace_id: cc_trace_down_001
+        target_item: records/contributions/record-contribution-positioning-0001.yaml
+        relationship: can_be_instantiated_as_or_summarized_by
+        evidence_status: not_yet_mapped
+      - trace_id: cc_trace_down_002
+        target_item: docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+        relationship: can_be_explained_or_rendered_by
+        evidence_status: not_yet_mapped
+    citation_anchors:
+      - anchor_id: "TODO: citation anchor or source evidence ID"
+        source_id: "TODO: source ID or null"
+        claim_component_supported: "TODO: component supported by this citation"
+        evidence_status: "TODO: not_yet_mapped | partial | sufficient"
+
+  conformance_and_quality_gate_mapping:
+    conformance_level: l2_reviewable
+    schema_validation:
+      schema_path: schemas/dsr-contribution-claim.schema.json
+      validation_status: "TODO: not_validated | valid | invalid | not_applicable"
+      validation_notes: "TODO: notes or null"
+    quality_gates:
+      - gate_id: qg_consistency
+        status: "TODO: pass | fail | partial | not_reviewed"
+        evidence: "TODO: naming, path, status, and metadata evidence"
+      - gate_id: qg_coherence
+        status: "TODO: pass | fail | partial | not_reviewed"
+        evidence: "TODO: related_items, dependencies, and traceability evidence"
+      - gate_id: qg_cogency
+        status: "TODO: pass | fail | partial | not_reviewed"
+        evidence: "TODO: claim logic, evidence basis, and acceptance criteria evidence"
+      - gate_id: qg_correspondence
+        status: "TODO: pass | fail | partial | not_reviewed"
+        evidence: "TODO: alignment to DSR framework artifact package target"
+      - gate_id: qg_dsr_transparency
+        status: "TODO: pass | fail | partial | not_reviewed"
+        evidence: "TODO: contribution transparency and related dimensions"
+      - gate_id: qg_reviewability
+        status: "TODO: pass | fail | partial | not_reviewed"
+        evidence: "TODO: review criteria, evidence references, and validation status"
+
+  change_history:
+    - version: "0.1.0"
+      date: "TODO: YYYY-MM-DD"
+      change: "TODO: initial claim creation or later revision note"
+      changed_by: "TODO: name or role"

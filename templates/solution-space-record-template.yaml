@@ -1,0 +1,510 @@
+# SPDX-License-Identifier: CC0-1.0
+template:
+  id: template_solution_space
+  title: Solution Space Record Template
+  portion_type: template
+  item_type: specification
+  output_format: yaml
+  target_path: templates/solution-space-record-template.yaml
+  purpose: >
+    Provide a reusable YAML template for documenting the solution-space grounding
+    of a Design Science Research project, including knowledge bases consulted,
+    candidate solution approaches, existing artifacts, design theories, technical
+    options, constraints, risks, tradeoffs, and implications for artifact design,
+    evaluation, contribution, and projectability.
+  status: draft
+  version: "0.1.0"
+  owner_role: dsr_framework_maintainer
+  default_conformance_target: l2_reviewable
+  intended_users:
+    - dsr_researcher
+    - artifact_designer
+    - project_reviewer
+    - repository_maintainer
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      relationship: governing_generation_and_quality_rules
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_prompt
+      relationship: governing_generation_procedure
+      evidence_status: mapped
+    - source_id: dsr_framework_selection_table
+      relationship: selected_target_path_and_purpose
+      evidence_status: mapped
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      relationship: solution_space_transparency_source
+      evidence_status: mapped
+    - source_id: dsr_extraction_corpus
+      relationship: scholarly_and_methodological_evidence_base
+      evidence_status: partially_mapped
+  dependencies:
+    - id: solution_space_schema
+      path: schemas/solution-space-record.schema.json
+      relationship: expected_validation_schema
+      status: not_yet_available
+      note: >
+        The selection table identifies a solution-space schema dependency, but no
+        dedicated solution-space schema file is currently listed as a selected
+        generated portion. Treat this as an anticipated validation dependency.
+    - id: model_transparency
+      path: models/dsr-transparency-model.yaml
+      relationship: upstream_transparency_model
+      status: expected_or_previously_generated
+    - id: template_problem_objectives
+      path: templates/problem-and-objectives-template.md
+      relationship: upstream_problem_space_and_requirements_input
+      status: expected_or_previously_generated
+    - id: template_design_rationale
+      path: templates/design-rationale-template.md
+      relationship: downstream_design_decision_input
+      status: planned
+    - id: template_build_transparency
+      path: templates/build-transparency-record-template.yaml
+      relationship: downstream_build_record_input
+      status: planned
+    - id: template_transparency_crosswalk
+      path: templates/dsr-transparency-crosswalk-template.yaml
+      relationship: downstream_transparency_mapping
+      status: planned
+  related_items:
+    upstream:
+      - templates/problem-and-objectives-template.md
+      - models/dsr-transparency-model.yaml
+      - docs/protocol/10-transparency-and-reporting.md
+    downstream:
+      - templates/design-rationale-template.md
+      - templates/artifact-specification-template.md
+      - templates/build-transparency-record-template.yaml
+      - templates/evaluation-plan-template.yaml
+      - templates/contribution-claim-template.yaml
+      - templates/dsr-transparency-crosswalk-template.yaml
+    anticipated_validation:
+      - schemas/solution-space-record.schema.json
+  repository_alignment:
+    canonical_directory: templates
+    file_naming_rule: lower-kebab-case
+    stable_identifier_style: lower_snake_case
+    license_expression: CC0-1.0
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change_type: initial_creation
+      changed_by: GPT-5.5 Thinking
+      summary: Initial reusable solution-space grounding template generated for L2 reviewable conformance.
+
+usage_guidance:
+  when_to_use: >
+    Use this template after a DSR problem space and objectives have been framed
+    and before finalizing design rationale, artifact specification, build plan,
+    or evaluation plan. The record should show how the project was grounded in
+    existing knowledge and why the selected solution direction is justified.
+  minimum_completion_expectation_l2_reviewable:
+    - Identify the problem record or problem-space source that this solution-space record addresses.
+    - Document the knowledge bases, search logic, and evidence sources consulted.
+    - Compare candidate solution approaches or explain why only one plausible option exists.
+    - Record assumptions, constraints, boundary conditions, and known gaps.
+    - Trace the selected solution direction to design, evaluation, and contribution implications.
+    - Mark unsupported or not-yet-reviewed evidence as evidence_status: not_yet_mapped.
+  placeholder_policy: >
+    Replace TODO values with project-specific content. If information is unknown,
+    retain TODO and add a specific note explaining what input is needed.
+  evidence_policy: >
+    Do not invent scholarly, technical, practitioner, or repository evidence.
+    Use source identifiers, citation anchors, repository paths, URLs, or stable
+    evidence IDs where available. If source-level evidence has not yet been
+    mapped, use evidence_status: not_yet_mapped.
+
+solution_space_record:
+  record_id: TODO - record-solution-space-0001
+  record_class: solution_space_grounding
+  title: TODO - Solution Space Record for <project_or_artifact_name>
+  event_or_action: solution_space_grounding_documented
+  date: TODO - YYYY-MM-DD
+  responsible_party:
+    name: TODO
+    role: TODO - dsr_researcher_or_artifact_designer
+    affiliation: TODO
+  status: draft
+  version: "0.1.0"
+  project_context:
+    project_id: TODO
+    artifact_id: TODO
+    artifact_name: TODO
+    artifact_type: TODO - construct | model | method | instantiation | framework | taxonomy | ontology | guideline | software | process_model | other
+    lifecycle_stage: TODO - problem_framing | objective_definition | design_and_development | demonstration | evaluation | communication | release
+    conformance_target: l2_reviewable
+    linked_problem_record:
+      id: TODO
+      path_or_reference: TODO
+    linked_objectives_or_requirements:
+      - requirement_id: TODO
+        requirement_summary: TODO
+        source_reference: TODO
+    application_domain: TODO
+    problem_class: TODO
+    local_problem_instance: TODO
+    solution_space_boundary: >
+      TODO - State the boundary of solution-space inquiry, including what kinds
+      of theories, artifacts, technologies, methods, standards, or practitioner
+      solutions are in scope and what has intentionally been excluded.
+
+  grounding_questions:
+    primary_question: >
+      TODO - What existing knowledge, artifacts, theories, technologies, design
+      principles, standards, methods, or practitioner solutions can inform the
+      design of this artifact for this problem class?
+    secondary_questions:
+      - question_id: sq_001
+        question: TODO - Which prior DSR artifacts or design theories address comparable problem classes?
+      - question_id: sq_002
+        question: TODO - Which technical or organizational solution approaches are feasible in this context?
+      - question_id: sq_003
+        question: TODO - Which existing approaches are inadequate, risky, inaccessible, obsolete, or misaligned with project objectives?
+      - question_id: sq_004
+        question: TODO - What must be adapted, combined, simplified, or newly designed?
+
+  search_and_selection_protocol:
+    protocol_summary: >
+      TODO - Briefly describe how the solution space was searched, screened,
+      selected, and synthesized.
+    source_types_consulted:
+      scholarly_literature:
+        consulted: TODO - true | false
+        databases_or_indexes: []
+        search_terms: []
+        date_range: TODO
+        notes: TODO
+      dsr_knowledge_base:
+        consulted: TODO - true | false
+        sources_or_repositories: []
+        relevant_dsr_models_or_frameworks: []
+        notes: TODO
+      existing_artifacts_or_tools:
+        consulted: TODO - true | false
+        artifact_sources: []
+        notes: TODO
+      technical_standards_or_protocols:
+        consulted: TODO - true | false
+        standards_bodies_or_sources: []
+        notes: TODO
+      practitioner_or_policy_sources:
+        consulted: TODO - true | false
+        sources: []
+        notes: TODO
+      organizational_legacy_assets:
+        consulted: TODO - true | false
+        assets_or_systems: []
+        notes: TODO
+    inclusion_criteria:
+      - criterion_id: inc_001
+        criterion: TODO - Directly relevant to the problem class, artifact type, or design objective.
+      - criterion_id: inc_002
+        criterion: TODO - Provides usable design knowledge, implementation logic, evaluation evidence, or boundary conditions.
+    exclusion_criteria:
+      - criterion_id: exc_001
+        criterion: TODO - Excluded because the source is outside scope, insufficiently evidenced, incompatible, obsolete, inaccessible, or too context-specific.
+    screening_and_appraisal:
+      screening_method: TODO - narrative_review | structured_review | rapid_scan | expert_selection | repository_review | mixed
+      appraisal_criteria:
+        - relevance_to_problem_class
+        - solution_maturity
+        - evidence_strength
+        - context_fit
+        - adaptability
+        - transparency_of_assumptions
+        - risk_or_constraint_profile
+      selection_rationale: TODO
+      search_limitations:
+        - TODO - State limitations of the search and screening process.
+
+  knowledge_grounding:
+    descriptive_knowledge:
+      - knowledge_id: dk_001
+        claim_or_finding: TODO
+        source_reference: TODO
+        relevance_to_design: TODO
+        evidence_status: not_yet_mapped
+    prescriptive_knowledge:
+      - knowledge_id: pk_001
+        design_guidance_or_rule: TODO
+        source_reference: TODO
+        relevance_to_design: TODO
+        evidence_status: not_yet_mapped
+    design_theories_or_principles:
+      - theory_id: dt_001
+        name: TODO
+        source_reference: TODO
+        constructs_or_principles_used: []
+        applicability_rationale: TODO
+        limitations_or_boundary_conditions: TODO
+        evidence_status: not_yet_mapped
+    behavioral_or_social_theories:
+      - theory_id: bt_001
+        name: TODO
+        source_reference: TODO
+        design_relevance: TODO
+        evidence_status: not_yet_mapped
+    technical_knowledge:
+      - technical_item_id: tk_001
+        name_or_description: TODO
+        source_reference: TODO
+        technical_role: TODO - architecture | algorithm | data_model | interface | standard | platform | method | other
+        maturity_or_readiness: TODO
+        constraints_or_dependencies: []
+        evidence_status: not_yet_mapped
+    existing_artifacts_and_legacy_solutions:
+      - artifact_reference_id: ea_001
+        artifact_name: TODO
+        artifact_type: TODO
+        source_or_repository: TODO
+        use_context: TODO
+        relevant_features: []
+        limitations: []
+        reuse_or_license_constraints: TODO
+        evidence_status: not_yet_mapped
+    negative_cases_or_failed_solutions:
+      - negative_case_id: nc_001
+        source_reference: TODO
+        failure_or_limitation: TODO
+        lesson_for_current_design: TODO
+        evidence_status: not_yet_mapped
+
+  candidate_solution_analysis:
+    candidates:
+      - candidate_id: cand_001
+        name: TODO
+        candidate_type: TODO - theory | artifact | method | framework | technology | process | standard | hybrid | other
+        source_or_origin: TODO
+        solution_claim: TODO
+        intended_mechanism: TODO
+        problem_fit:
+          addressed_requirements: []
+          unmet_requirements: []
+          fit_summary: TODO
+        maturity_level: TODO - exploratory | emerging | established | mature | deprecated | unknown
+        evidence_strength: TODO - weak | moderate | strong | not_assessed
+        expected_utility: TODO
+        expected_quality_attributes:
+          - TODO - usability | reliability | validity | maintainability | interoperability | transparency | scalability | accessibility | security | other
+        context_fit:
+          suitable_contexts: []
+          unsuitable_contexts: []
+          boundary_conditions: []
+        assumptions:
+          - TODO
+        risks_or_harms:
+          - risk_id: risk_001
+            description: TODO
+            severity: TODO - low | medium | high | unknown
+            mitigation: TODO
+        constraints:
+          - TODO
+        reuse_constraints:
+          license_or_ip: TODO
+          privacy_or_security_limits: TODO
+          maintenance_burden: TODO
+        decision_status: TODO - considered | shortlisted | rejected | adopted | deferred
+        decision_rationale: TODO
+    comparison_summary:
+      preferred_candidate_ids: []
+      rejected_candidate_ids: []
+      comparison_basis:
+        - evidence_strength
+        - problem_fit
+        - implementation_feasibility
+        - risk_profile
+        - contribution_potential
+        - projectability
+      summary: TODO
+
+  solution_space_gap_analysis:
+    current_solution_limitations:
+      - limitation_id: gap_001
+        description: TODO
+        affected_requirement_or_objective: TODO
+        evidence_reference: TODO
+    unresolved_design_needs:
+      - need_id: need_001
+        description: TODO
+        rationale: TODO
+        priority: TODO - low | medium | high
+    opportunity_space:
+      - opportunity_id: opp_001
+        description: TODO
+        relation_to_problem_class: TODO
+        expected_contribution_type: TODO - improvement | extension | synthesis | translation | instantiation | new_design | other
+    novelty_or_extension_rationale: >
+      TODO - Explain how the proposed artifact or design direction differs from,
+      extends, integrates, or operationalizes existing solution knowledge.
+    non_goals:
+      - TODO - State solution directions intentionally not pursued.
+
+  constraints_and_tradeoffs:
+    constraints:
+      technical: []
+      organizational: []
+      data_or_information: []
+      ethical_or_responsible_design: []
+      legal_or_policy: []
+      interoperability: []
+      resource_or_schedule: []
+      maintenance_or_sustainability: []
+      publication_or_repository: []
+    tradeoffs:
+      - tradeoff_id: tr_001
+        option_a: TODO
+        option_b: TODO
+        decision_relevance: TODO
+        evidence_basis: TODO
+        unresolved_tension: TODO
+        provisional_resolution: TODO
+
+  stakeholder_and_context_fit:
+    stakeholders_considered:
+      - stakeholder_id: st_001
+        role: TODO - researcher | practitioner | reviewer | user | manager | policy_maker | maintainer | other
+        solution_space_concern: TODO
+        evidence_or_input_source: TODO
+    application_context_fit: TODO
+    practice_accessibility_considerations:
+      - TODO - Identify whether solution knowledge is understandable and usable by intended practitioner audiences.
+    transdisciplinary_fit:
+      disciplines_or_knowledge_traditions_integrated: []
+      integration_rationale: TODO
+      integration_risks: []
+
+  responsible_design_review:
+    values_implicated:
+      - TODO - transparency | privacy | security | fairness | accessibility | accountability | sustainability | autonomy | usability | other
+    risks_or_harms:
+      - risk_id: rd_risk_001
+        description: TODO
+        affected_stakeholders: []
+        mitigation_or_governance: TODO
+    transparency_restrictions:
+      proprietary_information: TODO - none | limited | substantial | unknown
+      privacy_or_security_limits: TODO
+      publication_or_repository_implications: TODO
+    residual_risks:
+      - TODO
+
+  synthesis_for_design:
+    selected_solution_direction: TODO
+    rationale_for_selected_direction: TODO
+    design_principles_to_reuse:
+      - principle_id: dp_001
+        statement: TODO
+        source_reference: TODO
+        adaptation_needed: TODO
+    features_to_adapt:
+      - feature_id: feat_001
+        source_feature: TODO
+        adaptation_rationale: TODO
+        target_design_implication: TODO
+    features_to_avoid:
+      - feature_id: avoid_001
+        source_feature_or_pattern: TODO
+        reason_to_avoid: TODO
+    build_implications:
+      - TODO - How this grounding should shape artifact design and development.
+    evaluation_implications:
+      - TODO - What evaluation criteria, baselines, comparison points, or test contexts follow from the solution-space analysis.
+    contribution_implications:
+      - TODO - What kind of knowledge contribution the selected solution direction can plausibly support.
+    projectability_implications:
+      - TODO - What context, boundary, adaptation, or reuse information should be preserved for later projects.
+
+  traceability:
+    upstream_problem_items:
+      - item_id: TODO
+        relationship: addresses_requirement | addresses_problem_class | constrains_solution | informs_boundary
+        trace_status: TODO - complete | partial | missing
+    solution_evidence_to_design_decisions:
+      - evidence_id: TODO
+        design_decision_id: TODO
+        relationship: supports | challenges | constrains | motivates
+        trace_status: TODO - complete | partial | missing
+    downstream_records_to_update:
+      - path: templates/design-rationale-template.md
+        update_needed: TODO - true | false
+        note: TODO
+      - path: templates/artifact-specification-template.md
+        update_needed: TODO - true | false
+        note: TODO
+      - path: templates/evaluation-plan-template.yaml
+        update_needed: TODO - true | false
+        note: TODO
+      - path: templates/contribution-claim-template.yaml
+        update_needed: TODO - true | false
+        note: TODO
+      - path: templates/dsr-transparency-crosswalk-template.yaml
+        update_needed: TODO - true | false
+        note: TODO
+
+  evidence:
+    evidence_items:
+      - evidence_id: ev_001
+        evidence_type: TODO - scholarly_source | design_theory | existing_artifact | technical_standard | practitioner_source | internal_document | evaluation_report | other
+        source_reference: TODO
+        citation_anchor_or_identifier: TODO
+        summary: TODO
+        relevance_to_solution_space: TODO
+        confidence: TODO - low | medium | high | not_assessed
+        evidence_status: not_yet_mapped
+    evidence_gaps:
+      - gap_id: eg_001
+        description: TODO
+        significance: TODO - low | medium | high
+        planned_resolution: TODO
+
+  limitations:
+    - limitation_id: lim_001
+      description: TODO
+      effect_on_design_claims: TODO
+      mitigation_or_follow_up: TODO
+  assumptions:
+    - assumption_id: asm_001
+      statement: TODO
+      basis: TODO
+      risk_if_false: TODO
+  open_questions:
+    - question_id: oq_001
+      question: TODO
+      owner_or_responsible_role: TODO
+      due_or_review_stage: TODO
+
+  review_and_validation:
+    acceptance_criteria:
+      - criterion_id: ac_001
+        criterion: Solution-space boundary is explicit.
+        pass_condition: In-scope and out-of-scope knowledge sources, technologies, artifacts, and solution approaches are stated.
+      - criterion_id: ac_002
+        criterion: Search and selection logic is reviewable.
+        pass_condition: Sources consulted, search terms or selection logic, inclusion criteria, and limitations are documented.
+      - criterion_id: ac_003
+        criterion: Candidate solutions are compared or the absence of alternatives is justified.
+        pass_condition: At least one candidate is documented with fit, assumptions, risks, constraints, and decision status.
+      - criterion_id: ac_004
+        criterion: Selected solution direction is traceable.
+        pass_condition: Evidence and candidate analysis are linked to design, evaluation, contribution, and projectability implications.
+      - criterion_id: ac_005
+        criterion: Evidence limits are not overclaimed.
+        pass_condition: >
+          Unmapped, uncertain, or unsupported evidence is marked with evidence_status
+          not_yet_mapped or an equivalent uncertainty statement.
+    quality_gate_status:
+      consistency: TODO - pass | partial | fail | not_reviewed
+      coherence: TODO - pass | partial | fail | not_reviewed
+      cogency: TODO - pass | partial | fail | not_reviewed
+      correspondence: TODO - pass | partial | fail | not_reviewed
+      dsr_transparency: TODO - pass | partial | fail | not_reviewed
+      reviewability: TODO - pass | partial | fail | not_reviewed
+    reviewer_notes: TODO
+
+  retention_rule:
+    retention_class: project_record
+    minimum_retention: life_of_project_plus_repository_release_lifecycle
+    rationale: >
+      Retain the solution-space record because it provides evidence of knowledge
+      grounding, candidate solution appraisal, design rationale inputs, and
+      transparency support for later review, reuse, evaluation, and publication.

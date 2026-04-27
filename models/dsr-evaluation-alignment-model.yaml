@@ -1,0 +1,1406 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  item_id: dsr_evaluation_alignment_model
+  selection_id: model_evaluation_alignment
+  item_type: specification
+  title: DSR Evaluation Alignment Model
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  purpose: 'Define the controlled model for aligning Design Science Research evaluation plans, evaluation reports, evidence,
+    and claims so that artifact utility, artifact quality, contribution-to-knowledge, validity, reliability, and projectability
+    claims are explicitly traceable to appropriate evaluation questions, criteria, methods, data, findings, limitations, and
+    acceptance decisions.
+
+    '
+  status: draft
+  version: 0.1.0
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  generated_at: '2026-04-27'
+  default_evidence_expectation: use_internal_corpus_and_protocol
+source_basis:
+- source_id: user_current_request
+  role: immediate_task_definition
+  evidence_status: mapped
+  notes: 'User selected model_evaluation_alignment with target path models/dsr-evaluation-alignment-model.yaml, output format
+    yaml, purpose Evaluation plan and claim-alignment model, default conformance L2, and key dependency evaluation vocabularies.
+
+    '
+- source_id: dsr_framework_generation_spec
+  role: governing_generation_specification
+  evidence_status: mapped
+  relevant_requirements:
+  - yaml_source_of_truth_for_models
+  - stable_ids_required
+  - source_basis_and_related_items_required
+  - traceability_required_for_models
+  - distinguish_demonstration_from_evaluation
+  - distinguish_artifact_utility_artifact_quality_and_knowledge_contribution
+  - avoid_overclaiming_evaluation_generalization_or_reproducibility
+  - include_reviewability_criteria
+- source_id: dsr_framework_selection_table
+  role: selection_registry
+  evidence_status: mapped
+  relevant_selection:
+    selection_id: model_evaluation_alignment
+    target_path: models/dsr-evaluation-alignment-model.yaml
+    portion_type: model
+    output_format: yaml
+    purpose: Evaluation plan and claim-alignment model.
+    default_conformance: L2
+    key_dependencies:
+    - evaluation_vocabularies
+- source_id: dsr_extraction_corpus
+  role: scholarly_and_methodological_evidence_base
+  evidence_status: partially_mapped
+  mapped_source_families:
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    supports:
+    - evaluation_transparency
+    - stakeholder_confidence
+    - formative_and_summative_evaluation_evidence
+    - fitness_for_use_and_fitness_for_evolution
+    - contribution_transparency
+    citation_anchor_ids:
+    - CA10
+    - CA11
+    - CA16
+  - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+    supports:
+    - knowledge_contribution_paths
+    - linking_strategy_and_evaluation_methods
+    - robustness_and_completeness_criteria
+    - contribution_traceability
+    citation_anchor_ids:
+    - A06
+    - A10
+    - A11
+    - A12
+    - A13
+  - source_id: weber_process_product_quality_framework
+    supports:
+    - process_quality_versus_outcome_quality
+    - problem_specification_evaluation
+    - contribution_to_knowledge_evaluation
+    - solution_derivation_evaluation
+    - artifact_type_specific_outcome_evaluation
+    citation_anchor_ids:
+    - A10
+    - A11
+    - A12
+    - A13
+    - A14
+  - source_id: feds_and_related_dsr_evaluation_sources
+    supports:
+    - formative_versus_summative_evaluation
+    - artificial_versus_naturalistic_evaluation
+    - evaluation_strategy_selection
+    citation_anchor_ids:
+    - evidence_status:not_yet_mapped
+  - source_id: dsr_methodology_and_naturalistic_evaluation_sources
+    supports:
+    - demonstration_evaluation_boundary
+    - naturalistic_evaluation_conditions
+    - utility_and_ecological_validity
+    - problem_class_projectability
+    citation_anchor_ids:
+    - A017
+    - A018
+    - A020
+    - A023
+- source_id: weber_2018_design_science_research
+  short_citation: Weber (2018)
+  evidence_anchor_id: A10
+  supports_construct: evaluation_alignment.methodological
+  evidence_role: evaluation
+  grounding_decision: adopted
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Weber (2018) grounds evaluation_alignment.methodological through extracted anchor A10: Refines DSR evaluation by
+    separating process-quality criteria from outcome-quality criteria.'
+- source_id: hansen_pries_heje_2020_situational_knowledge_network_nexus
+  short_citation: Hansen & Pries-Heje (2020)
+  evidence_anchor_id: A026
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Hansen & Pries-Heje (2020) grounds evaluation_alignment.prescriptive through extracted anchor A026: Shows how Design
+    Science Research can extend kernel theory while producing situational artifacts for a wicked socio-technical problem.'
+- source_id: desrist2020_tremblay_lucapp
+  short_citation: Tremblay et al. (2020)
+  evidence_anchor_id: A10
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Tremblay et al. (2020) grounds evaluation_alignment.prescriptive through extracted anchor A10: Field-grounded mHealth
+    design guidelines derived from a stakeholder-centered design-test-redesign process.'
+- source_id: krasikov_legner_eurich_2021_open_data_sourcing
+  short_citation: Krasikov, Legner, and Eurich 2021
+  evidence_anchor_id: CA-08
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Krasikov, Legner, and Eurich 2021 grounds evaluation_alignment.prescriptive through extracted anchor CA-08: A prescriptive,
+    ADR-developed enterprise method for open data sourcing with use case documentation, screening, multilevel assessment,
+    semantic documentation, and knowledge-graph-based....'
+- source_id: akoka_comynwattiau_prat_storey_2017_dsr_knowledge_types
+  short_citation: Akoka et al. (2017)
+  evidence_anchor_id: A11
+  supports_construct: evaluation_alignment.evaluative
+  evidence_role: evaluation
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Akoka et al. (2017) grounds evaluation_alignment.evaluative through extracted anchor A11: Knowledge-type-specific
+    integrated evaluation criteria for nomothetic DSR knowledge.'
+- source_id: da_silva_berkenbrock_berkenbrock_2017_collabtrack_dsr
+  short_citation: da Silva, Berkenbrock, and Berkenbrock 2017
+  evidence_anchor_id: A13
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'da Silva, Berkenbrock, and Berkenbrock 2017 grounds evaluation_alignment.prescriptive through extracted anchor A13:
+    Applied demonstration of using DSR with User-Centered Design and Participatory Design to build and evaluate image-based
+    smartphone communication artifacts for collaborative assistive....'
+- source_id: sjostrom_kruse_haj_bolouri_flensburg_2018_sees
+  short_citation: Sjöström et al. (2018)
+  evidence_anchor_id: A08
+  supports_construct: evaluation_alignment.methodological
+  evidence_role: evaluation
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Sjöström et al. (2018) grounds evaluation_alignment.methodological through extracted anchor A08: A six-category framework
+    for embedding evaluation data-collection support into DSR software artifacts.'
+- source_id: schmid_2022_ch3_design_science_research_methodology
+  short_citation: Schmid 2022
+  evidence_anchor_id: CA-020
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Schmid 2022 grounds evaluation_alignment.prescriptive through extracted anchor CA-020: Applied operationalization
+    of canonical DSR methodology for a gamified electronic negotiation training artifact, including contribution classification
+    and evaluation strategy.'
+- source_id: 978-3-658-40731-5_5
+  short_citation: Garayo Maiztegui 2023, ch. 5
+  evidence_anchor_id: CA-01
+  supports_construct: evaluation_alignment.evaluative
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Garayo Maiztegui 2023, ch. 5 grounds evaluation_alignment.evaluative through extracted anchor CA-01: Operationalized
+    DSR case linking company problem relevance, theory-informed e-learning artifact construction, and objective field-experiment
+    evaluation for customized ERP process training.'
+- source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+  short_citation: Baskerville, Kaul, and Storey (2018)
+  evidence_anchor_id: CA12
+  supports_construct: evaluation_alignment.evaluative
+  evidence_role: evaluation
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Baskerville, Kaul, and Storey (2018) grounds evaluation_alignment.evaluative through extracted anchor CA12: Extends
+    DSR evaluation and contribution logic by operationalizing aesthetic quality as a possible complement to rigor and utility.'
+- source_id: mohammad_husamaldin_2025_sustainable_project_portfolio_management_dsr
+  short_citation: Mohammad & Husamaldin (2025)
+  evidence_anchor_id: A09
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Mohammad & Husamaldin (2025) grounds evaluation_alignment.prescriptive through extracted anchor A09: Applies Design
+    Science Research artifact logic to create a sustainability-oriented Project Portfolio Management framework integrating
+    materiality assessment and fuzzy-logic analytics.'
+- source_id: skalli_cherrafi_charkaoui_chiarini_shokri_antony_garza_reyes_foster_2025_lss40_framework
+  short_citation: Skalli et al. 2025
+  evidence_anchor_id: A14
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Skalli et al. 2025 grounds evaluation_alignment.prescriptive through extracted anchor A14: A full operations-management
+    example of DSR artifact development, refinement, and field evaluation for a Lean Six Sigma 4.0 implementation framework.'
+- source_id: benfell_2021_modeling_functional_requirements_tacit_knowledge
+  short_citation: Benfell (2021)
+  evidence_anchor_id: A11
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Benfell (2021) grounds evaluation_alignment.prescriptive through extracted anchor A11: Worked DSRM case showing how
+    a theoretically grounded requirements-modeling artifact can capture tacit end-user knowledge and bridge requirements to
+    design.'
+- source_id: s11846-026-00996-0
+  short_citation: Gadola et al. (2026)
+  evidence_anchor_id: A23
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Gadola et al. (2026) grounds evaluation_alignment.prescriptive through extracted anchor A23: Demonstrates how Design
+    Science Research can create and evaluate an intangible, human-centered organizational process artifact in a management
+    context.'
+- source_id: cauffman_weggeman_2024_sofap_p
+  short_citation: Cauffman & Weggeman, 2024
+  evidence_anchor_id: A13
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Cauffman & Weggeman, 2024 grounds evaluation_alignment.prescriptive through extracted anchor A13: A detailed domain
+    application showing how Design Science Research can produce, document, and validate a context-sensitive psychological
+    intervention protocol using CIMO building blocks and....'
+- source_id: beinke_fitte_teuteberg_2019_blockchain_ehr
+  short_citation: Beinke et al. (2019)
+  evidence_anchor_id: A14
+  supports_construct: evaluation_alignment.prescriptive
+  evidence_role: evaluation
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-evaluation-alignment-model.yaml
+  note: 'Beinke et al. (2019) grounds evaluation_alignment.prescriptive through extracted anchor A14: A requirements-grounded
+    five-tier blockchain-based electronic health record architecture developed and evaluated using Design Science Research.'
+related_items:
+  upstream_dependencies:
+  - item_id: spec_dsr_lifecycle_contribution
+    path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+    relationship: supplies_lifecycle_and_contribution_context
+    status: expected
+  - item_id: spec_quality_review
+    path: specs/product-dsr-quality-conformance-and-review-model.yaml
+    relationship: supplies_quality_gate_and_review_context
+    status: expected
+  - item_id: model_lifecycle
+    path: models/dsr-lifecycle-model.yaml
+    relationship: supplies_evaluation_stage_context
+    status: expected
+  - item_id: model_contribution
+    path: models/dsr-contribution-model.yaml
+    relationship: supplies_contribution_claim_types_and_positioning_logic
+    status: expected
+  - item_id: vocab_evaluation_methods
+    path: vocabularies/evaluation-method-families.yaml
+    relationship: supplies_controlled_evaluation_method_families
+    status: expected
+  - item_id: vocab_validity_types
+    path: vocabularies/validity-types.yaml
+    relationship: supplies_validity_vocabulary
+    status: expected
+  - item_id: vocab_reliability_types
+    path: vocabularies/reliability-types.yaml
+    relationship: supplies_reliability_vocabulary
+    status: expected
+  - item_id: vocab_projectability_types
+    path: vocabularies/projectability-types.yaml
+    relationship: supplies_projectability_vocabulary
+    status: expected
+  downstream_dependents:
+  - item_id: schema_evaluation_plan
+    path: schemas/dsr-evaluation-plan.schema.json
+    relationship: should_validate_plan_structures_derived_from_this_model
+    status: expected
+  - item_id: schema_evaluation_report
+    path: schemas/dsr-evaluation-report.schema.json
+    relationship: should_validate_report_structures_derived_from_this_model
+    status: expected
+  - item_id: template_evaluation_plan
+    path: templates/evaluation-plan-template.yaml
+    relationship: should_instantiate_plan_fields_from_this_model
+    status: expected
+  - item_id: template_evaluation_report
+    path: templates/evaluation-report-template.yaml
+    relationship: should_instantiate_report_fields_from_this_model
+    status: expected
+  - item_id: checklist_evaluation_readiness
+    path: checklists/evaluation-readiness-checklist.yaml
+    relationship: should_operationalize_readiness_checks_from_this_model
+    status: expected
+  - item_id: docs_evaluation
+    path: docs/protocol/08-evaluation-framework.md
+    relationship: should_explain_this_model_for_human_users
+    status: expected
+  - item_id: record_evaluation_plan
+    path: records/evaluations/record-evaluation-plan-0001.yaml
+    relationship: should_apply_this_model_to_framework_package_evaluation
+    status: expected
+scope:
+  includes:
+  - alignment_between_claims_questions_criteria_methods_evidence_and_results
+  - evaluation_plan_structure
+  - evaluation_report_structure
+  - demonstration_evaluation_boundary_rules
+  - formative_summative_ex_ante_ex_post_and_longitudinal_evaluation_timing
+  - artificial_naturalistic_literature_based_and_mixed_evaluation_settings
+  - artifact_utility_artifact_quality_and_knowledge_contribution_claim_support
+  - validity_reliability_projectability_and_responsible_design_evaluation_hooks
+  - reviewability_and_acceptance_decision_logic
+  excludes:
+  - complete_controlled_vocabulary_definitions_for_all_evaluation_methods
+  - final_json_schema_implementation
+  - project_specific_metric_thresholds
+  - statistical_analysis_protocols_for_domain_specific_studies
+  - claims_of_publication_ready_empirical_validation_for_the_framework_itself
+  boundary_notes:
+  - 'This model defines how evaluation elements relate. It does not assert that every DSR project must perform every evaluation
+    method.
+
+    '
+  - 'Demonstration evidence can support feasibility or plausibility claims, but stronger utility, effectiveness, naturalistic,
+    or projectability claims require evaluation evidence appropriate to the claim scope.
+
+    '
+  - 'Evaluation adequacy is claim-relative: the same evidence may be sufficient for a prototype feasibility claim but insufficient
+    for a broad field-utility or reusable design-knowledge claim.
+
+    '
+controlled_entities:
+- id: evaluation_subject
+  label: Evaluation Subject
+  definition: 'The artifact, artifact component, method, model, framework, template, schema, process, design principle, or
+    contribution claim being evaluated.
+
+    '
+  required_fields:
+  - subject_id
+  - subject_type
+  - name
+  - version_or_state
+  - boundary
+  - lifecycle_stage
+  boundary_notes: 'The subject must be specific enough that evidence can be interpreted; avoid evaluating an undefined package,
+    artifact family, or broad idea as though it were an operational artifact instance.
+
+    '
+- id: claim
+  label: Claim
+  definition: 'A proposition that the evaluation is expected to support, qualify, reject, or leave unresolved.
+
+    '
+  required_fields:
+  - claim_id
+  - claim_type
+  - claim_text
+  - claim_scope
+  - expected_strength
+  - associated_evaluation_questions
+  - evidence_status
+  boundary_notes: 'Claims should be phrased so that a reviewer can determine what evidence would count for or against them.
+
+    '
+- id: evaluation_question
+  label: Evaluation Question
+  definition: 'A reviewable question that translates a claim into an evaluable inquiry.
+
+    '
+  required_fields:
+  - question_id
+  - question_text
+  - linked_claim_ids
+  - evaluation_focus
+  - answer_format
+  boundary_notes: 'Evaluation questions should be narrower than research questions when the evaluation concerns a specific
+    artifact property, use condition, or contribution claim.
+
+    '
+- id: evaluation_criterion
+  label: Evaluation Criterion
+  definition: 'A quality, utility, contribution, validity, reliability, projectability, or responsible-design standard against
+    which evidence will be judged.
+
+    '
+  required_fields:
+  - criterion_id
+  - label
+  - operational_definition
+  - linked_question_ids
+  - pass_condition
+  - failure_condition
+  boundary_notes: 'A criterion must be operationalized in terms of observable indicators, expert judgments, formal properties,
+    traceability evidence, or documented argumentation.
+
+    '
+- id: measure_or_indicator
+  label: Measure or Indicator
+  definition: 'A metric, observation, rating, trace artifact, benchmark, performance result, coded statement, or qualitative
+    marker used to assess a criterion.
+
+    '
+  required_fields:
+  - indicator_id
+  - linked_criterion_id
+  - indicator_type
+  - data_source
+  - interpretation_rule
+  boundary_notes: 'Indicators may be qualitative, quantitative, formal, documentary, or expert-judgment based, but their interpretation
+    rule must be explicit.
+
+    '
+- id: evaluation_method
+  label: Evaluation Method
+  definition: 'A family or specific procedure used to collect, generate, analyze, or interpret evidence for one or more criteria.
+
+    '
+  required_fields:
+  - method_id
+  - method_family
+  - method_description
+  - timing
+  - setting
+  - units_or_participants
+  - data_collected
+  - analysis_logic
+  boundary_notes: 'Evaluation methods should be selected to match claim type, artifact state, lifecycle stage, and available
+    evidence rather than selected only for convenience.
+
+    '
+- id: evidence_item
+  label: Evidence Item
+  definition: 'A retained artifact, dataset, log, document, analytic result, observation, expert judgment, benchmark, or review
+    output used to support an evaluation finding.
+
+    '
+  required_fields:
+  - evidence_id
+  - evidence_type
+  - source_or_location
+  - linked_method_id
+  - linked_claim_ids
+  - availability
+  - limitation_notes
+  boundary_notes: 'Evidence should be retained or cited wherever feasible. If evidence cannot be shared, the reason and substitute
+    transparency material should be stated.
+
+    '
+- id: baseline_or_comparator
+  label: Baseline or Comparator
+  definition: 'A prior state, existing artifact, alternative design, standard, benchmark, null condition, expert expectation,
+    or current practice used to interpret evaluation findings.
+
+    '
+  required_fields:
+  - comparator_id
+  - comparator_type
+  - rationale
+  - linked_criterion_ids
+  boundary_notes: 'Absence of a comparator does not automatically invalidate an evaluation, but the report must explain how
+    findings are interpreted without one.
+
+    '
+- id: evaluation_result
+  label: Evaluation Result
+  definition: 'A recorded answer to an evaluation question, including findings, evidence summary, limitations, and claim-support
+    judgment.
+
+    '
+  required_fields:
+  - result_id
+  - linked_question_id
+  - linked_claim_ids
+  - finding_summary
+  - evidence_summary
+  - support_status
+  - limitations
+  boundary_notes: 'Results should distinguish positive support, qualified support, inconclusive evidence, negative evidence,
+    and deferred evaluation.
+
+    '
+- id: limitation_or_threat
+  label: Limitation or Threat
+  definition: 'A factor that constrains the interpretation, validity, reliability, transferability, scope, or practical use
+    of evaluation evidence.
+
+    '
+  required_fields:
+  - limitation_id
+  - limitation_type
+  - linked_claim_ids
+  - effect_on_interpretation
+  - mitigation_or_next_step
+  boundary_notes: 'Limitations should modify claim strength rather than being listed only as generic caveats.
+
+    '
+- id: alignment_link
+  label: Alignment Link
+  definition: 'A traceable relation connecting a claim to evaluation questions, criteria, indicators, methods, evidence, results,
+    limitations, and decisions.
+
+    '
+  required_fields:
+  - trace_id
+  - source_element_id
+  - relationship_type
+  - target_element_id
+  - evidence_status
+  boundary_notes: 'Alignment links are the minimum reviewable mechanism for preventing unsupported evaluation or contribution
+    claims.
+
+    '
+- id: acceptance_decision
+  label: Acceptance Decision
+  definition: 'A recorded judgment about whether evidence is sufficient for a specific claim, gate, release, publication,
+    or next lifecycle transition.
+
+    '
+  required_fields:
+  - decision_id
+  - decision_scope
+  - linked_result_ids
+  - decision
+  - rationale
+  - required_follow_up
+  boundary_notes: 'Acceptance decisions should be bounded to a claim and conformance level; they should not imply universal
+    validation.
+
+    '
+controlled_value_sets:
+  claim_types:
+  - id: artifact_existence_claim
+    label: Artifact Existence Claim
+    definition: The artifact or artifact component exists and is identifiable.
+  - id: artifact_boundary_claim
+    label: Artifact Boundary Claim
+    definition: The artifact boundary, components, version, scope, and exclusions are sufficiently specified.
+  - id: problem_solution_fit_claim
+    label: Problem-Solution Fit Claim
+    definition: The artifact is plausibly or demonstrably aligned to the stated problem, objectives, requirements, and context.
+  - id: artifact_utility_claim
+    label: Artifact Utility Claim
+    definition: The artifact is useful for intended users, tasks, contexts, or problem instances.
+  - id: artifact_quality_claim
+    label: Artifact Quality Claim
+    definition: The artifact has internal or external quality attributes such as correctness, completeness, reliability, usability,
+      maintainability, security, or interoperability.
+  - id: contribution_to_knowledge_claim
+    label: Contribution-to-Knowledge Claim
+    definition: The work contributes reusable or projectable design knowledge beyond routine local artifact production.
+  - id: contribution_significance_claim
+    label: Contribution Significance Claim
+    definition: The contribution is non-trivial, novel, or valuable relative to prior DSR knowledge, artifacts, or methods.
+  - id: validity_claim
+    label: Validity Claim
+    definition: The evaluation and its interpretation are credible for the intended construct, context, procedure, inference,
+      or external scope.
+  - id: reliability_claim
+    label: Reliability Claim
+    definition: The method, artifact, measurement, evaluation, or design knowledge can produce sufficiently consistent results
+      under specified conditions.
+  - id: projectability_claim
+    label: Projectability Claim
+    definition: The design knowledge or artifact is plausibly transferable, adaptable, generalizable, or reusable across a
+      bounded problem class.
+  - id: responsible_design_claim
+    label: Responsible Design Claim
+    definition: The artifact or method addresses relevant ethical, social, accessibility, privacy, security, equity, or stakeholder-value
+      obligations.
+  evaluation_focuses:
+  - problem_relevance
+  - solution_objectives
+  - requirements_satisfaction
+  - artifact_behavior
+  - artifact_quality
+  - artifact_utility
+  - stakeholder_acceptance
+  - contribution_significance
+  - design_knowledge_grounding
+  - validity
+  - reliability
+  - projectability
+  - responsible_design
+  - publication_readiness
+  evaluation_timing:
+  - id: ex_ante
+    label: Ex Ante
+    definition: Evaluation before full construction or deployment, usually using argument, criteria, model checking, simulation,
+      expert review, or predicted effects.
+  - id: formative
+    label: Formative
+    definition: Evaluation during design or development for improvement, defect discovery, feasibility checking, or design
+      refinement.
+  - id: summative
+    label: Summative
+    definition: Evaluation after a sufficiently complete artifact is available, used to judge whether claims are supported.
+  - id: ex_post
+    label: Ex Post
+    definition: Evaluation after use, implementation, release, or publication.
+  - id: longitudinal
+    label: Longitudinal
+    definition: Evaluation across time to assess persistence, adaptation, maintenance, learning, evolution, or sustained utility.
+  - id: deferred
+    label: Deferred
+    definition: Evaluation is explicitly postponed with rationale, target evidence, and planned follow-up.
+  evaluation_settings:
+  - id: analytical_or_conceptual
+    label: Analytical or Conceptual
+    definition: Argument-based, model-based, or logic-based evaluation without primary empirical deployment.
+  - id: mathematical_or_formal_analysis
+    label: Mathematical or Formal Analysis
+    definition: Formal proof, consistency checking, model checking, optimization, or related formal analysis.
+  - id: laboratory_or_controlled
+    label: Laboratory or Controlled
+    definition: Evaluation under controlled conditions, often with restricted tasks, users, inputs, or comparators.
+  - id: simulation
+    label: Simulation
+    definition: Evaluation using simulated conditions, synthetic data, models, scenarios, or computational experiments.
+  - id: prototype_demonstration
+    label: Prototype Demonstration
+    definition: Controlled or illustrative showing that the artifact can operate or solve an example problem instance.
+  - id: expert_review
+    label: Expert Review
+    definition: Evaluation by qualified experts using explicit criteria, rubrics, Delphi logic, panels, or structured review.
+  - id: literature_based_argument
+    label: Literature-Based Argument
+    definition: Evaluation by alignment with prior studies, standards, design theories, or codified knowledge.
+  - id: field_case
+    label: Field Case
+    definition: Evaluation within one or more real organizational, social, technical, educational, or professional contexts.
+  - id: naturalistic_field_setting
+    label: Naturalistic Field Setting
+    definition: Evaluation using typical or intended users, real or representative environments, and appropriate inputs.
+  - id: mixed_setting
+    label: Mixed Setting
+    definition: Evaluation combining artificial, analytical, controlled, field, or naturalistic evidence.
+  evidence_status_values:
+  - not_planned
+  - planned
+  - collected
+  - analyzed
+  - reported
+  - retained
+  - not_shareable
+  - not_yet_mapped
+  claim_support_status_values:
+  - supported
+  - partially_supported
+  - unsupported
+  - contradicted
+  - inconclusive
+  - not_evaluated
+  - deferred
+  acceptance_decision_values:
+  - accept_claim
+  - accept_with_qualification
+  - revise_claim
+  - reject_claim
+  - defer_claim
+  - require_additional_evidence
+relationship_model:
+  core_relationships:
+  - relationship_type: translates_into
+    source_entity: claim
+    target_entity: evaluation_question
+    cardinality: one_or_more_questions_per_claim
+    rule: Every substantive claim must translate into at least one evaluation question or be explicitly marked not_evaluated
+      with rationale.
+  - relationship_type: operationalized_by
+    source_entity: evaluation_question
+    target_entity: evaluation_criterion
+    cardinality: one_or_more_criteria_per_question
+    rule: Every evaluation question must have at least one criterion or an explicit qualitative judgment basis.
+  - relationship_type: indicated_by
+    source_entity: evaluation_criterion
+    target_entity: measure_or_indicator
+    cardinality: zero_or_more_indicators_per_criterion
+    rule: Criteria based on direct observation, performance, or stakeholder judgment should define indicators; argument-based
+      criteria may use reasoning rules instead.
+  - relationship_type: evaluated_using
+    source_entity: evaluation_question
+    target_entity: evaluation_method
+    cardinality: one_or_more_methods_per_question
+    rule: Each method must state timing, setting, data, units or participants, and analysis logic.
+  - relationship_type: supported_by
+    source_entity: claim
+    target_entity: evidence_item
+    cardinality: zero_or_more_evidence_items_per_claim
+    rule: A claim with no evidence items must be labeled planned, deferred, not_evaluated, or not_yet_mapped.
+  - relationship_type: interpreted_against
+    source_entity: evaluation_result
+    target_entity: baseline_or_comparator
+    cardinality: optional
+    rule: If no baseline exists, the result must explain its interpretation logic.
+  - relationship_type: qualified_by
+    source_entity: evaluation_result
+    target_entity: limitation_or_threat
+    cardinality: zero_or_more_limitations_per_result
+    rule: Limitations that materially change claim strength must be linked to the affected claim.
+  - relationship_type: resolves_or_updates
+    source_entity: evaluation_result
+    target_entity: acceptance_decision
+    cardinality: zero_or_more_decisions_per_result
+    rule: Release, review, or publication decisions should cite evaluation results and unresolved limitations.
+  alignment_chain_template:
+    trace_pattern: claim_to_question_to_criterion_to_indicator_to_method_to_evidence_to_result_to_decision
+    required_for_l2_reviewable:
+    - claim
+    - evaluation_question
+    - evaluation_criterion
+    - evaluation_method
+    - evidence_status
+    - result_or_planned_result
+    - limitation_or_threat
+    - acceptance_decision_or_review_status
+claim_alignment_model:
+  claim_alignment_requirements:
+  - claim_type: artifact_existence_claim
+    minimum_l2_evidence:
+    - artifact_name_and_identifier
+    - artifact_type
+    - version_or_state
+    - location_or_reference
+    - boundary_statement
+    typical_methods:
+    - document_inspection
+    - repository_inventory_review
+    insufficient_evidence_patterns:
+    - artifact_is_named_but_not_located
+    - artifact_type_is_ambiguous
+  - claim_type: artifact_boundary_claim
+    minimum_l2_evidence:
+    - component_list
+    - included_and_excluded_scope
+    - artifact_instance_or_universal_distinction
+    - dependencies
+    - assumptions
+    typical_methods:
+    - artifact_specification_review
+    - ontology_alignment_review
+    insufficient_evidence_patterns:
+    - implementation_instance_treated_as_universal_without_abstraction
+    - theory_or_model_treated_as_artifact_without_boundary
+  - claim_type: problem_solution_fit_claim
+    minimum_l2_evidence:
+    - problem_statement
+    - stakeholder_or_context_statement
+    - solution_objectives
+    - requirements_or_success_criteria
+    - trace_from_problem_to_artifact_features
+    typical_methods:
+    - requirements_traceability_review
+    - expert_review
+    - case_walkthrough
+    - problem_space_analysis
+    insufficient_evidence_patterns:
+    - artifact_features_not_mapped_to_problem
+    - objectives_not_operationalized
+  - claim_type: artifact_utility_claim
+    minimum_l2_evidence:
+    - intended_use_case
+    - intended_user_or_stakeholder
+    - evaluation_criterion
+    - method_and_setting
+    - evidence_or_planned_evidence
+    - limitation_statement
+    stronger_evidence_for_l3_or_above:
+    - real_or_representative_use_data
+    - baseline_or_comparator
+    - stakeholder_feedback_or_performance_data
+    - naturalistic_or_mixed_setting_where_claim_scope_requires_it
+    typical_methods:
+    - prototype_demonstration
+    - controlled_user_evaluation
+    - field_case
+    - naturalistic_artifact_evaluation
+    - before_after_comparison
+    - mixed_methods_evaluation
+    insufficient_evidence_patterns:
+    - declaring_usefulness_without_use_case
+    - relying_only_on_author_assertion_for_field_utility
+    - treating_demo_output_as_summative_evaluation_without_criteria
+  - claim_type: artifact_quality_claim
+    minimum_l2_evidence:
+    - quality_attribute_definition
+    - artifact_part_or_behavior_under_review
+    - inspection_test_or_analysis_method
+    - result_or_evidence_status
+    typical_methods:
+    - technical_test
+    - formal_analysis
+    - schema_validation
+    - usability_inspection
+    - security_review
+    - maintainability_review
+    - interoperability_check
+    insufficient_evidence_patterns:
+    - quality_attribute_named_but_not_operationalized
+    - test_scope_not_reported
+  - claim_type: contribution_to_knowledge_claim
+    minimum_l2_evidence:
+    - contribution_claim_text
+    - knowledge_goal
+    - knowledge_scope
+    - contribution_type
+    - prior_knowledge_or_alternative_baseline
+    - evidence_that_claim_exceeds_routine_design
+    typical_methods:
+    - literature_positioning
+    - contribution_typology_mapping
+    - expert_review
+    - design_principle_extraction
+    - cross_case_or_repository_analysis
+    insufficient_evidence_patterns:
+    - local_artifact_delivery_claimed_as_general_knowledge_without_abstraction
+    - novelty_claim_without_prior_work_comparison
+  - claim_type: contribution_significance_claim
+    minimum_l2_evidence:
+    - novelty_or_value_rationale
+    - problem_class_or_audience
+    - comparison_to_prior_artifacts_or_methods
+    - limitation_or_boundary_conditions
+    typical_methods:
+    - contribution_matrix
+    - reviewer_assessment
+    - prior_artifact_comparison
+    - publication_positioning_analysis
+    insufficient_evidence_patterns:
+    - significant_claim_not_tied_to_problem_class_or_prior_work
+    - invention_exaptation_or_improvement_not_justified
+  - claim_type: validity_claim
+    minimum_l2_evidence:
+    - validity_type
+    - threat_or_risk
+    - mitigation_or_design_response
+    - residual_limitation
+    typical_methods:
+    - validity_threat_analysis
+    - construct_mapping
+    - context_boundary_review
+    - external_validity_or_projectability_analysis
+    insufficient_evidence_patterns:
+    - generic_validity_language_without_specific_threats
+    - validity_claim_not_linked_to_evaluation_result
+  - claim_type: reliability_claim
+    minimum_l2_evidence:
+    - reliability_target
+    - consistency_condition
+    - repeatability_or_agreement_basis
+    - evidence_status
+    typical_methods:
+    - inter_rater_agreement
+    - repeated_execution
+    - audit_trail_review
+    - procedural_replay
+    - measurement_reliability_assessment
+    insufficient_evidence_patterns:
+    - repeatable_claim_without_procedure
+    - consistent_claim_without_scope_or_conditions
+  - claim_type: projectability_claim
+    minimum_l2_evidence:
+    - problem_class
+    - transfer_target_or_scope
+    - boundary_conditions
+    - mechanism_or_design_principle
+    - evidence_basis_or_future_validation_need
+    typical_methods:
+    - analytical_generalization
+    - replication_logic
+    - boundary_condition_analysis
+    - cross_context_comparison
+    - repository_or_reuse_analysis
+    insufficient_evidence_patterns:
+    - broad_generalization_without_problem_class
+    - transferability_claim_without_context_conditions
+  - claim_type: responsible_design_claim
+    minimum_l2_evidence:
+    - relevant_value_or_risk
+    - affected_stakeholder_or_public
+    - design_or_governance_response
+    - residual_risk_or_limitation
+    typical_methods:
+    - stakeholder_review
+    - privacy_security_review
+    - accessibility_check
+    - ethical_risk_assessment
+    - governance_review
+    insufficient_evidence_patterns:
+    - responsibility_claim_without_identified_stakeholder_or_risk
+    - ethical_language_not_linked_to_artifact_decision
+process_model:
+  stages:
+  - stage_id: evaluation_scoping
+    label: Evaluation Scoping
+    purpose: Identify evaluation subjects, claims, lifecycle stage, conformance target, and available evidence.
+    required_outputs:
+    - evaluation_subjects
+    - claim_inventory
+    - evaluation_scope_statement
+    - assumptions_and_constraints
+    exit_criteria:
+    - every_claim_has_type_and_scope
+    - every_subject_has_boundary_and_version_or_state
+  - stage_id: claim_translation
+    label: Claim Translation
+    purpose: Translate artifact, quality, utility, and contribution claims into evaluation questions.
+    required_outputs:
+    - evaluation_questions
+    - claim_question_trace_links
+    exit_criteria:
+    - every_substantive_claim_has_one_or_more_questions_or_deferred_rationale
+  - stage_id: criteria_operationalization
+    label: Criteria Operationalization
+    purpose: Define criteria, indicators, pass conditions, fail conditions, and interpretation logic.
+    required_outputs:
+    - evaluation_criteria
+    - indicators_or_reasoning_rules
+    - baseline_or_comparator_statement
+    exit_criteria:
+    - each_question_has_reviewable_criterion
+    - criteria_have_operational_definitions
+  - stage_id: method_selection
+    label: Method Selection
+    purpose: Select evaluation methods appropriate to claim strength, artifact state, timing, and setting.
+    required_outputs:
+    - evaluation_methods
+    - method_rationale
+    - data_collection_or_analysis_plan
+    exit_criteria:
+    - method_limitations_are_documented
+    - timing_and_setting_are_declared
+  - stage_id: evidence_collection_or_mapping
+    label: Evidence Collection or Mapping
+    purpose: Collect, retain, cite, or map evidence to claims and questions.
+    required_outputs:
+    - evidence_inventory
+    - evidence_availability_status
+    - traceability_links
+    exit_criteria:
+    - each_method_has_expected_or_actual_evidence_items
+    - unshareable_or_missing_evidence_is_explained
+  - stage_id: analysis_and_interpretation
+    label: Analysis and Interpretation
+    purpose: Analyze evidence, answer evaluation questions, and assign claim-support status.
+    required_outputs:
+    - evaluation_results
+    - evidence_summary
+    - claim_support_status
+    - limitation_or_threat_assessment
+    exit_criteria:
+    - every_result_links_to_claims_questions_and_evidence
+    - findings_are_qualified_by_limitations
+  - stage_id: decision_and_reporting
+    label: Decision and Reporting
+    purpose: Decide whether claims, lifecycle transitions, release readiness, or publication-readiness assertions are supported.
+    required_outputs:
+    - acceptance_decisions
+    - evaluation_report
+    - required_follow_up
+    - transparency_materials
+    exit_criteria:
+    - decisions_are_bound_to_specific_claims
+    - overclaiming_checks_are_complete
+    - follow_up_actions_are_recorded
+method_family_crosswalk:
+- method_family_id: analytical_conceptual_evaluation
+  allowed_uses:
+  - assess_internal_coherence
+  - assess_design_rationale
+  - assess_literature_or_standards_alignment
+  - support_plausibility_or_ex_ante_claims
+  claim_fit:
+    strong_for:
+    - artifact_boundary_claim
+    - problem_solution_fit_claim
+    - artifact_quality_claim
+    - contribution_to_knowledge_claim
+    weak_for:
+    - broad_artifact_utility_claim
+    - naturalistic_effectiveness_claim
+  required_qualifier: empirical_or_field_utility_claims_must_be_marked_tentative_if_only_conceptual_evidence_exists
+- method_family_id: formal_or_mathematical_evaluation
+  allowed_uses:
+  - prove_or_check_formal_properties
+  - test_algorithmic_correctness_or_consistency
+  - analyze_optimization_or_rule_logic
+  claim_fit:
+    strong_for:
+    - artifact_quality_claim
+    - validity_claim
+    weak_for:
+    - stakeholder_acceptability_claim
+    - naturalistic_utility_claim
+  required_qualifier: formal_results_apply_only_to_specified_model_assumptions_and_inputs
+- method_family_id: prototype_demonstration
+  allowed_uses:
+  - show_operability
+  - show_feasibility
+  - illustrate_use_case
+  - generate_formative_feedback
+  claim_fit:
+    strong_for:
+    - artifact_existence_claim
+    - problem_solution_fit_claim
+    weak_for:
+    - summative_utility_claim
+    - projectability_claim
+  required_qualifier: demonstration_must_not_be_reported_as_full_evaluation_unless_criteria_method_and_results_are_present
+- method_family_id: expert_review
+  allowed_uses:
+  - assess_plausibility
+  - assess_completeness
+  - assess_utility_potential
+  - assess_contribution_significance
+  claim_fit:
+    strong_for:
+    - artifact_quality_claim
+    - contribution_significance_claim
+    - validity_claim
+    weak_for:
+    - actual_field_effectiveness_claim
+  required_qualifier: reviewer_qualification_and_review_criteria_must_be_declared
+- method_family_id: controlled_user_or_task_evaluation
+  allowed_uses:
+  - compare_performance
+  - assess_usability
+  - assess_task_success
+  - assess_comprehension_or_acceptance_under_controlled_conditions
+  claim_fit:
+    strong_for:
+    - artifact_utility_claim
+    - artifact_quality_claim
+    weak_for:
+    - naturalistic_projectability_claim
+  required_qualifier: artificial_conditions_and_participant_limitations_must_be_reported
+- method_family_id: naturalistic_field_evaluation
+  allowed_uses:
+  - assess_real_or_typical_use
+  - assess organizational_or_social_impact
+  - assess_practitioner_value
+  - assess_fitness_for_use
+  claim_fit:
+    strong_for:
+    - artifact_utility_claim
+    - problem_solution_fit_claim
+    - stakeholder_acceptability_claim
+    - projectability_claim
+    weak_for:
+    - claims_requiring_precise_causal_attribution_without_comparison
+  required_qualifier: context_inputs_users_and_boundary_conditions_must_be_reported
+- method_family_id: longitudinal_evaluation
+  allowed_uses:
+  - assess_sustained_utility
+  - assess_maintenance
+  - assess_evolution
+  - assess_reuse_or_adaptation
+  claim_fit:
+    strong_for:
+    - reliability_claim
+    - projectability_claim
+    - fitness_for_evolution_claim
+    weak_for:
+    - claims_about_initial_feasibility_only
+  required_qualifier: time_period_version_changes_and_environmental_changes_must_be_reported
+- method_family_id: literature_based_or_repository_evaluation
+  allowed_uses:
+  - evaluate_coverage
+  - evaluate_contribution_positioning
+  - evaluate_accumulated_design_knowledge
+  - evaluate_traceability_to_prior_sources
+  claim_fit:
+    strong_for:
+    - contribution_to_knowledge_claim
+    - contribution_significance_claim
+    - projectability_claim
+    weak_for:
+    - direct_artifact_usefulness_claim_without_use_evidence
+  required_qualifier: search_scope_selection_basis_and_limitations_must_be_documented
+- method_family_id: mixed_methods_evaluation
+  allowed_uses:
+  - combine_performance_evidence_with_stakeholder_meaning
+  - combine_artificial_and_naturalistic_evidence
+  - triangulate_claim_support
+  claim_fit:
+    strong_for:
+    - artifact_utility_claim
+    - validity_claim
+    - projectability_claim
+    - responsible_design_claim
+    weak_for: []
+  required_qualifier: integration_logic_must_explain_how_evidence_streams_jointly_support_claims
+demonstration_evaluation_boundary_rules:
+- rule_id: der_001
+  rule: 'A demonstration shows that an artifact can be used, instantiated, applied, or walked through in a scenario; it becomes
+    evaluation only when criteria, evidence, interpretation, and a claim-support judgment are recorded.
+
+    '
+  severity: error_for_l2_if_violated
+- rule_id: der_002
+  rule: 'Prototype demonstration may support feasibility, operability, or plausibility claims, but it must not be used alone
+    to support broad field utility or naturalistic effectiveness claims.
+
+    '
+  severity: error_for_l2_if_overclaimed
+- rule_id: der_003
+  rule: 'If demonstration evidence is the only available evidence, the evaluation report must state claim_support_status as
+    partially_supported, deferred, or inconclusive for claims requiring stronger evaluation.
+
+    '
+  severity: warning_or_error_depending_on_claim_strength
+- rule_id: der_004
+  rule: 'Evaluation may include demonstration as one evidence stream when it is accompanied by explicit criteria, stakeholder
+    or technical evidence, analytic interpretation, and limitations.
+
+    '
+  severity: guidance
+validation_implications:
+  schema_implications:
+    evaluation_plan_required_fields:
+    - evaluation_plan_id
+    - title
+    - purpose
+    - status
+    - version
+    - evaluation_subjects
+    - claims
+    - evaluation_questions
+    - evaluation_criteria
+    - methods
+    - evidence_plan
+    - analysis_plan
+    - traceability
+    - limitations
+    - acceptance_criteria
+    - source_basis
+    - related_items
+    - change_history
+    evaluation_report_required_fields:
+    - evaluation_report_id
+    - title
+    - status
+    - version
+    - evaluated_subjects
+    - claims_evaluated
+    - methods_used
+    - evidence_inventory
+    - results
+    - claim_support_summary
+    - limitations_and_threats
+    - acceptance_decisions
+    - traceability
+    - retained_evidence
+    - source_basis
+    - change_history
+  lint_rules:
+  - lint_id: eval_lint_001
+    rule: Every claim must have at least one linked evaluation question or a documented deferral rationale.
+    severity: error
+  - lint_id: eval_lint_002
+    rule: Every evaluation question must have at least one criterion or explicit reasoning rule.
+    severity: error
+  - lint_id: eval_lint_003
+    rule: Evaluation methods must declare timing and setting.
+    severity: error
+  - lint_id: eval_lint_004
+    rule: Utility claims must identify intended user, task, context, and criterion.
+    severity: error
+  - lint_id: eval_lint_005
+    rule: Naturalistic or field-effectiveness claims require field, case, operational, or clearly justified representative
+      evidence.
+    severity: error
+  - lint_id: eval_lint_006
+    rule: Conceptual or analytical evaluation must not be overstated as empirical validation.
+    severity: error
+  - lint_id: eval_lint_007
+    rule: Contribution-to-knowledge claims must specify knowledge goal, knowledge scope, contribution type, and prior-knowledge
+      comparison.
+    severity: error
+  - lint_id: eval_lint_008
+    rule: Results must include limitation or threat assessment when evidence is partial, artificial, proxy-based, or non-naturalistic.
+    severity: warning
+  - lint_id: eval_lint_009
+    rule: Acceptance decisions must cite results and must not exceed the supported claim scope.
+    severity: error
+  - lint_id: eval_lint_010
+    rule: Evidence items must be retained, cited, or marked not_shareable with rationale.
+    severity: warning
+conformance_model:
+  levels:
+  - level: l0_draft
+    expectation: Claims, evaluation subjects, and possible methods are drafted but may not yet be fully linked.
+  - level: l1_documented
+    expectation: Claims, questions, criteria, methods, and planned evidence are documented with stable identifiers.
+  - level: l2_reviewable
+    expectation: Claim-question-criterion-method-evidence traceability is present; limitations and acceptance criteria are
+      reviewable.
+  - level: l3_exercisable
+    expectation: Evaluation plan can be executed using templates or schemas; evidence collection and reporting workflow are
+      operational.
+  - level: l4_reusable
+    expectation: Evaluation model, templates, and reports can be reused across DSR projects with controlled vocabularies and
+      example instances.
+  - level: l5_archival_publication_ready
+    expectation: Evaluation evidence, identifiers, metadata, limitations, and release records are sufficient for archival
+      review and citation.
+  selected_level: l2_reviewable
+  l2_acceptance_criteria:
+  - criterion_id: l2_eval_001
+    criterion: The file defines controlled entities and relationships for evaluation alignment.
+    pass_condition: controlled_entities and relationship_model are present.
+  - criterion_id: l2_eval_002
+    criterion: Claim types are mapped to minimum evidence and typical methods.
+    pass_condition: claim_alignment_model includes claim_alignment_requirements for major DSR claim types.
+  - criterion_id: l2_eval_003
+    criterion: Demonstration and evaluation are explicitly distinguished.
+    pass_condition: demonstration_evaluation_boundary_rules are present.
+  - criterion_id: l2_eval_004
+    criterion: Utility, quality, and knowledge-contribution claims are separately modeled.
+    pass_condition: claim_types and alignment requirements distinguish artifact_utility_claim, artifact_quality_claim, and
+      contribution_to_knowledge_claim.
+  - criterion_id: l2_eval_005
+    criterion: Validation and schema implications are explicit.
+    pass_condition: validation_implications contains required fields and lint rules.
+  - criterion_id: l2_eval_006
+    criterion: Traceability to source basis and dependent files is explicit.
+    pass_condition: source_basis, related_items, and traceability sections are populated.
+quality_gates:
+- gate_id: qg_consistency
+  status: pass
+  evidence:
+  - target_path_uses_models_directory
+  - yaml_extension_used
+  - stable_identifier_style_uses_lower_snake_case
+  - item_type_specification_declared
+  review_note: File can be placed in repository without violating canonical structure.
+- gate_id: qg_coherence
+  status: pass
+  evidence:
+  - upstream_and_downstream_related_items_declared
+  - evaluation_model_crosswalks_to_templates_schemas_checklists_and_docs
+  - no_conflicting_definitions_introduced
+  review_note: The model is coherent with expected evaluation vocabularies and quality review dependencies.
+- gate_id: qg_cogency
+  status: pass
+  evidence:
+  - entities_relationships_process_model_and_rules_are_operational
+  - acceptance_criteria_are_reviewable
+  - overclaiming_rules_are_explicit
+  review_note: The model is usable for planning and reviewing evaluation alignment without hidden assumptions.
+- gate_id: qg_correspondence
+  status: pass
+  evidence:
+  - selected_purpose_directly_addressed
+  - claim_alignment_model_present
+  - evaluation_plan_and_report_implications_present
+  review_note: The file corresponds to the selected model_evaluation_alignment portion.
+- gate_id: qg_dsr_transparency
+  status: pass
+  evidence:
+  - evaluation_transparency_supported
+  - contribution_transparency_supported
+  - limitations_and_evidence_availability_modeled
+  review_note: The model supports evaluation and contribution transparency and connects to process/build/problem-space transparency
+    as needed.
+- gate_id: qg_reviewability
+  status: pass
+  evidence:
+  - l2_acceptance_criteria_present
+  - lint_rules_present
+  - claim_support_status_values_present
+  - acceptance_decision_values_present
+  review_note: Reviewers can evaluate evaluation plans and reports against explicit model criteria.
+traceability:
+- trace_id: trace_eval_001
+  source: user_current_request.model_evaluation_alignment
+  relationship: selects
+  target: model.item_id
+  evidence_status: mapped
+- trace_id: trace_eval_002
+  source: dsr_framework_generation_spec.content_generation_rules
+  relationship: constrains
+  target: model_structure_and_quality_gates
+  evidence_status: mapped
+- trace_id: trace_eval_003
+  source: dsr_framework_selection_table.model_evaluation_alignment
+  relationship: defines_target_path_and_purpose
+  target: model.target_path
+  evidence_status: mapped
+- trace_id: trace_eval_004
+  source: hevner_et_al_2024_transparency_in_design_science_research
+  relationship: supports
+  target: evaluation_transparency_and_stakeholder_confidence_elements
+  evidence_status: partially_mapped
+- trace_id: trace_eval_005
+  source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  relationship: supports
+  target: contribution_claim_alignment_and_strategy_evaluation_elements
+  evidence_status: partially_mapped
+- trace_id: trace_eval_006
+  source: weber_process_product_quality_framework
+  relationship: supports
+  target: process_product_quality_and_problem_solution_contribution_evaluation_elements
+  evidence_status: partially_mapped
+- trace_id: trace_eval_007
+  source: feds_and_related_dsr_evaluation_sources
+  relationship: supports
+  target: formative_summative_artificial_naturalistic_evaluation_dimensions
+  evidence_status: not_yet_fully_mapped
+- trace_id: trace_eval_008
+  source: dsr_methodology_and_naturalistic_evaluation_sources
+  relationship: supports
+  target: demonstration_evaluation_boundary_and_naturalistic_evaluation_rules
+  evidence_status: partially_mapped
+limitations:
+- limitation_id: lim_eval_001
+  limitation: 'This model does not yet include a fully generated controlled vocabulary file for evaluation method families;
+    it references the expected vocabulary file.
+
+    '
+  implication: Vocabulary IDs may require harmonization after vocab_evaluation_methods is generated.
+  mitigation: Generate vocabularies/evaluation-method-families.yaml and reconcile IDs.
+- limitation_id: lim_eval_002
+  limitation: 'Some source-basis entries are mapped at the extraction-corpus source-family level rather than to final line-level
+    bibliographic citations.
+
+    '
+  implication: Downstream publication-ready docs should add exact citation anchors or bibliographic references.
+  mitigation: Use records/source-basis and docs/evaluation to refine scholarly traceability.
+- limitation_id: lim_eval_003
+  limitation: 'The model defines validation logic but does not itself implement JSON Schema.
+
+    '
+  implication: Automated validation requires a separate schema generation step.
+  mitigation: Generate schemas/dsr-evaluation-plan.schema.json and schemas/dsr-evaluation-report.schema.json.
+assumptions:
+- assumption_id: asm_eval_001
+  statement: The DSR Framework package will use YAML source-of-truth records and JSON Schema validation for evaluation plans
+    and reports.
+- assumption_id: asm_eval_002
+  statement: Evaluation vocabularies will be generated as separate controlled vocabulary files and then linked to this model.
+- assumption_id: asm_eval_003
+  statement: The model must remain method-neutral enough to cover conceptual, formal, artificial, naturalistic, qualitative,
+    quantitative, and mixed DSR evaluation.
+- assumption_id: asm_eval_004
+  statement: L2 reviewability requires explicit traceability and limitation handling, not completed empirical evaluation of
+    every framework component.
+open_questions:
+- question_id: oq_eval_001
+  question: Should the evaluation method vocabulary distinguish method families from specific instruments and analytic techniques
+    in separate files?
+  disposition: defer_to_vocab_evaluation_methods_generation
+- question_id: oq_eval_002
+  question: Should claim-support statuses be harmonized with review-record decision statuses or remain evaluation-specific?
+  disposition: resolve_during_schema_and_review_checklist_generation
+- question_id: oq_eval_003
+  question: Should contribution significance scoring be ordinal, categorical, or narrative-only for early framework releases?
+  disposition: resolve_during_model_contribution_and_checklist_generation
+- question_id: oq_eval_004
+  question: How much line-level citation detail is required for L4 and L5 publication-ready versions?
+  disposition: resolve_during_source_basis_and_publication_readiness_generation
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: initial_creation
+  responsible_party: GPT-5.5 Thinking
+  summary: Created initial L2 reviewable DSR evaluation alignment model.

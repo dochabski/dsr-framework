@@ -1,0 +1,503 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: dsr_knowledge_goals
+  title: DSR Knowledge Goals Vocabulary
+  status: draft
+  version: "0.1.0"
+  item_type: vocabulary
+  target_path: vocabularies/knowledge-goals.yaml
+  conformance_target: l2_reviewable
+  purpose: >
+    Provide a controlled vocabulary for classifying the primary epistemic aim of a
+    Design Science Research contribution, especially when positioning claims about
+    artifact definitions, descriptions, explanations, predictions, explanatory-predictive
+    accounts, and prescriptions.
+  owner: dsr_framework_maintainers
+
+  scope:
+    applies_to:
+      - contribution_claims
+      - contribution_positioning_records
+      - design_knowledge_records
+      - evaluation_alignment_records
+      - publication_readiness_reviews
+    does_not_apply_to:
+      - artifact_type_classification
+      - knowledge_scope_classification
+      - evaluation_method_classification
+    classification_axis: knowledge_goal
+    use_rule: >
+      Select the entry that best describes what the knowledge contribution is trying
+      to establish. When a contribution has multiple goals, record one primary goal
+      and any secondary goals rather than collapsing goals into an ambiguous label.
+
+  source_basis:
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      short_citation: Akoka et al. (2023)
+      relevance: >
+        Provides the knowledge-goal axis used to differentiate definitional,
+        descriptive, explanatory, predictive, explanatory-predictive, and prescriptive
+        DSR knowledge types.
+      citation_anchor_ids:
+        - A05
+        - A08
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_spec
+      relevance: >
+        Requires controlled vocabulary entries to include stable identifiers,
+        definitions, allowed use, boundary notes, source basis, related items, and
+        reviewable validation logic.
+      evidence_status: mapped
+
+  related_items:
+    upstream_dependencies:
+      - path: models/dsr-contribution-model.yaml
+        relationship: uses_knowledge_goal_axis
+      - path: vocabularies/contribution-types.yaml
+        relationship: complementary_classification_axis
+    downstream_dependents:
+      - path: schemas/dsr-contribution-claim.schema.json
+        relationship: should_enumerate_primary_and_secondary_knowledge_goals
+      - path: templates/contribution-claim-template.yaml
+        relationship: should_prompt_for_primary_and_secondary_knowledge_goals
+      - path: templates/contribution-positioning-record-template.yaml
+        relationship: should_use_this_vocabulary_for_claim_positioning
+      - path: checklists/contribution-positioning-checklist.yaml
+        relationship: should_check_correct_goal_classification
+      - path: models/dsr-decision-flow.yaml
+        relationship: should_route_goal_selection_during contribution positioning
+
+  entries:
+    - id: definitional
+      label: Definitional
+      definition: >
+        Knowledge whose primary goal is to introduce, clarify, formalize, delimit,
+        or differentiate a term, construct, category, relation, boundary, or
+        representational unit used in DSR or in a DSR problem domain.
+      allowed_use: >
+        Use when the contribution establishes what something is, what it means,
+        what counts as an instance, or how a concept should be distinguished from
+        adjacent concepts.
+      boundary_notes: >
+        Do not use merely because a paper includes definitions. Use only when the
+        definition, construct, taxonomy element, or boundary distinction is itself
+        a substantive knowledge contribution. If the contribution primarily tells
+        designers what to do, use prescriptive instead.
+      contribution_claim_examples:
+        - Defines a reusable artifact boundary for a class of DSR artifacts.
+        - Distinguishes artifact instance, artifact type, and reusable design knowledge.
+        - Introduces a controlled category needed for later evaluation or reporting.
+      related_terms:
+        narrower:
+          - construct_definition
+          - boundary_definition
+          - taxonomy_definition
+        adjacent:
+          - descriptive
+          - prescriptive
+      source_basis:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A05, A08]
+          evidence_status: mapped
+
+    - id: descriptive
+      label: Descriptive
+      definition: >
+        Knowledge whose primary goal is to characterize, observe, summarize, or
+        report properties, structures, patterns, states, distributions, contexts,
+        or relationships without primarily explaining causes, predicting outcomes,
+        or prescribing action.
+      allowed_use: >
+        Use when the contribution answers what is present, what happened, how an
+        artifact or context is configured, or what patterns are observable in a
+        project, corpus, domain, use setting, or evaluation record.
+      boundary_notes: >
+        Do not use when the contribution's main claim is why the pattern occurs;
+        use explanatory. Do not use when the claim forecasts future outcomes; use
+        predictive. Do not use for mere project narration unless the description is
+        positioned as reusable or reviewable knowledge.
+      contribution_claim_examples:
+        - Describes recurring DSR contribution paths found in a reviewed corpus.
+        - Reports observed stakeholder needs or problem-space characteristics.
+        - Summarizes artifact-use patterns across demonstrations or evaluations.
+      related_terms:
+        broader:
+          - empirical_characterization
+        adjacent:
+          - definitional
+          - explanatory
+          - predictive
+      source_basis:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A05, A08]
+          evidence_status: mapped
+
+    - id: explanatory
+      label: Explanatory
+      definition: >
+        Knowledge whose primary goal is to account for why or how an observed
+        phenomenon, artifact behavior, implementation outcome, or socio-technical
+        effect occurs by identifying mechanisms, causes, rationales, or generative
+        conditions.
+      allowed_use: >
+        Use when the contribution explains relationships among context, artifact
+        features, design choices, mechanisms, user behavior, organizational
+        conditions, or outcomes.
+      boundary_notes: >
+        Do not use for descriptions that only report that a relationship exists.
+        Do not use for forecasts that are not tied to a causal or mechanistic
+        account. If the same claim both explains and forecasts, use
+        explanatory_predictive.
+      contribution_claim_examples:
+        - Explains why a design principle improves artifact adoption in a class of contexts.
+        - Identifies mechanisms linking artifact affordances to stakeholder behavior.
+        - Accounts for why an evaluation result occurred under specific boundary conditions.
+      related_terms:
+        narrower:
+          - mechanism_explanation
+          - causal_explanation
+          - rationale_explanation
+        adjacent:
+          - descriptive
+          - predictive
+          - explanatory_predictive
+      source_basis:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A05, A08]
+          evidence_status: mapped
+
+    - id: predictive
+      label: Predictive
+      definition: >
+        Knowledge whose primary goal is to estimate, anticipate, forecast, or infer
+        likely future states, outcomes, performance, risks, or behavior under
+        specified conditions, without necessarily explaining the underlying
+        mechanism.
+      allowed_use: >
+        Use when the contribution supports claims about what is likely to happen if
+        an artifact, method, design principle, or intervention is used in a defined
+        setting or class of settings.
+      boundary_notes: >
+        Do not use for claims that merely state past or present observations; use
+        descriptive. Do not use for mechanism-centered accounts unless the forecast
+        and explanation are both central; use explanatory_predictive in that case.
+      contribution_claim_examples:
+        - Predicts artifact performance under specified operating constraints.
+        - Estimates likely adoption or failure risk for a design pattern.
+        - Forecasts expected evaluation outcomes before implementation.
+      related_terms:
+        narrower:
+          - forecast
+          - risk_prediction
+          - performance_prediction
+        adjacent:
+          - descriptive
+          - explanatory
+          - explanatory_predictive
+      source_basis:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A05, A08]
+          evidence_status: mapped
+
+    - id: explanatory_predictive
+      label: Explanatory-Predictive
+      definition: >
+        Knowledge whose primary goal is to combine explanation and prediction by
+        identifying why an outcome is expected and using that account to anticipate
+        what will occur under specified conditions.
+      allowed_use: >
+        Use when the contribution advances a mechanism-informed forecast, a
+        design-relevant explanatory/predictive theory, or a claim that links causal
+        explanation to expected future artifact or system behavior.
+      boundary_notes: >
+        Do not use as a compromise label for uncertainty between explanatory and
+        predictive. Use only when both explanation and prediction are substantively
+        present and mutually dependent in the contribution claim.
+      contribution_claim_examples:
+        - Explains why a design configuration should produce a measurable outcome and predicts that outcome under stated conditions.
+        - Develops a design-relevant explanatory/predictive theory for a class of artifact-use contexts.
+        - Links causal mechanisms to expected performance thresholds or adoption behavior.
+      related_terms:
+        broader:
+          - theory_oriented_knowledge
+        adjacent:
+          - explanatory
+          - predictive
+          - prescriptive
+      source_basis:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A05, A08]
+          evidence_status: mapped
+
+    - id: prescriptive
+      label: Prescriptive
+      definition: >
+        Knowledge whose primary goal is to specify what should be designed, done,
+        selected, configured, evaluated, governed, or adapted in order to achieve
+        an intended purpose, improvement, effect, or quality criterion.
+      allowed_use: >
+        Use when the contribution offers design principles, methods, guidelines,
+        requirements, rules, procedures, heuristics, checklists, or action-oriented
+        claims for producing or using artifacts.
+      boundary_notes: >
+        Do not use merely because the work recommends future research. Use when
+        the recommendation is an actionable design or methodological prescription.
+        If a method is being classified as an artifact type, use the artifact-types
+        vocabulary separately; use prescriptive here only for the method's knowledge
+        goal.
+      contribution_claim_examples:
+        - States design principles for a class of artifacts.
+        - Specifies a method for evaluating artifact utility and contribution claims.
+        - Provides a checklist, procedure, or governance rule for DSR artifact packaging.
+      related_terms:
+        narrower:
+          - design_principle
+          - method_guidance
+          - procedural_rule
+          - requirement
+        adjacent:
+          - explanatory_predictive
+          - definitional
+      source_basis:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A05, A08]
+          evidence_status: mapped
+
+    - id: evaluative
+      label: Evaluative
+      definition: >
+        Knowledge whose primary goal is to assess worth, quality, utility,
+        effectiveness, adequacy, readiness, or fitness for purpose.
+      allowed_use: >
+        Use when the contribution primarily provides an assessment, evaluation
+        framework, review result, measurement approach, or warranted judgment
+        about an artifact, method, process, or contribution claim.
+      boundary_notes: >
+        Do not use merely because a study contains an evaluation section. Use
+        when evaluative knowledge is itself the contribution being claimed.
+      contribution_claim_examples:
+        - Establishes criteria for evaluating artifact utility or quality.
+        - Provides a reusable review rubric for DSR artifact packages.
+      related_terms:
+        adjacent:
+          - prescriptive
+          - descriptive
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+
+    - id: methodological
+      label: Methodological
+      definition: >
+        Knowledge whose primary goal is to improve how DSR work is planned,
+        conducted, documented, evaluated, reviewed, or accumulated.
+      allowed_use: >
+        Use when the contribution is a method, process, protocol, checklist,
+        template, reporting regime, or other research-practice guidance.
+      boundary_notes: >
+        Methodological knowledge is often prescriptive, but this term should be
+        used when the target of prescription is the research or design process
+        itself rather than the focal domain artifact.
+      contribution_claim_examples:
+        - Provides a documentation protocol for DSR artifact packages.
+        - Refines evaluation planning for DSR projects.
+      related_terms:
+        adjacent:
+          - prescriptive
+          - evaluative
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+
+    - id: normative
+      label: Normative
+      definition: >
+        Knowledge whose primary goal is to state values, obligations, standards,
+        responsibilities, or justified expectations for design or research action.
+      allowed_use: >
+        Use when the contribution asserts what ought to be considered, protected,
+        governed, disclosed, or prioritized in DSR.
+      boundary_notes: >
+        Do not use for ordinary procedural prescriptions unless the core claim is
+        value-laden, ethical, governance-oriented, or standard-setting.
+      contribution_claim_examples:
+        - States responsible-design obligations for DSR artifact evaluation.
+        - Defines transparency duties for publication-ready artifact packages.
+      related_terms:
+        adjacent:
+          - prescriptive
+          - evaluative
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+
+    - id: mixed
+      label: Mixed
+      definition: >
+        Knowledge whose primary contribution intentionally combines multiple
+        knowledge goals and cannot be represented faithfully by selecting only
+        one primary goal.
+      allowed_use: >
+        Use sparingly when a source or artifact package makes integrated
+        definitional, descriptive, explanatory, evaluative, methodological,
+        normative, or prescriptive claims that are inseparable.
+      boundary_notes: >
+        Prefer recording one primary goal and secondary goals when possible.
+        Use mixed only when forcing a single non-mixed value would misrepresent
+        the contribution.
+      contribution_claim_examples:
+        - A framework package that simultaneously defines terms, prescribes
+          procedures, and supplies evaluation criteria as one integrated artifact.
+      related_terms:
+        adjacent:
+          - prescriptive
+          - methodological
+          - evaluative
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+
+  non_canonical_mapping_guidance:
+    methodological: >
+      Retained as a canonical value for extraction-corpus alignment. If older
+      records mapped methodological to prescriptive, preserve the original value
+      and add methodological as the normalized goal when the claim targets DSR
+      method, process, protocol, or documentation practice.
+    normative: >
+      Retained as a canonical value for extraction-corpus alignment. Record
+      responsible-design values separately when the normative claim is
+      value-bearing or ethics/governance-oriented.
+    evaluative: >
+      Retained as a canonical value for extraction-corpus alignment. Use
+      descriptive, explanatory, predictive, or prescriptive instead only when the
+      evaluation content is secondary to one of those knowledge goals.
+    analytical: >
+      Do not use as a primary knowledge goal. Classify the resulting claim by what
+      the analysis establishes: definitional, descriptive, explanatory, predictive,
+      explanatory_predictive, or prescriptive.
+
+  selection_rules:
+    - rule_id: kg_rule_001_primary_secondary
+      rule: >
+        A contribution claim SHOULD identify one primary knowledge goal and MAY
+        identify secondary knowledge goals when the contribution is multi-part.
+    - rule_id: kg_rule_002_no_unclear_hybrids
+      rule: >
+        Hyphenated or hybrid labels MUST NOT be created unless explicitly included
+        in this vocabulary. Use explanatory_predictive only for integrated
+        explanatory and predictive contributions.
+    - rule_id: kg_rule_003_goal_scope_separation
+      rule: >
+        Knowledge goal MUST NOT be used to encode knowledge scope. Classify scope
+        separately as idiographic, nomothetic, mixed, or projectable using the
+        knowledge-scopes vocabulary.
+    - rule_id: kg_rule_004_goal_artifact_separation
+      rule: >
+        Knowledge goal MUST NOT be used to encode artifact type. Classify artifact
+        type separately using the artifact-types vocabulary.
+
+  validation_rules:
+    - validation_id: kg_val_001_entry_id_enum
+      severity: error
+      rule: >
+        primary_knowledge_goal values MUST match one of: definitional,
+        descriptive, explanatory, predictive, explanatory_predictive,
+        prescriptive, evaluative, methodological, normative, or mixed.
+    - validation_id: kg_val_002_secondary_goal_enum
+      severity: error
+      rule: >
+        secondary_knowledge_goals values MUST match the same controlled identifiers
+        as primary_knowledge_goal.
+    - validation_id: kg_val_003_no_duplicate_primary_secondary
+      severity: warning
+      rule: >
+        A secondary_knowledge_goals list SHOULD NOT repeat the selected primary
+        knowledge goal.
+    - validation_id: kg_val_004_claim_alignment
+      severity: warning
+      rule: >
+        Reviewers SHOULD check that the selected knowledge goal corresponds to the
+        actual contribution claim and not merely to the paper's genre, method, or
+        artifact type.
+
+  acceptance_criteria:
+    - criterion_id: kg_ac_001_complete_entry_shape
+      criterion: >
+        Every entry includes id, label, definition, allowed_use, boundary_notes,
+        related_terms, and source_basis.
+    - criterion_id: kg_ac_002_controlled_six_goal_set
+      criterion: >
+        The vocabulary exposes the six selected goal categories without adding
+        unsupported canonical categories.
+    - criterion_id: kg_ac_003_reviewable_boundaries
+      criterion: >
+        Each entry includes enough boundary guidance for a reviewer to distinguish
+        it from adjacent knowledge goals.
+    - criterion_id: kg_ac_004_schema_ready
+      criterion: >
+        Entries are expressed with stable lower_snake_case identifiers suitable for
+        later JSON Schema enumeration.
+
+  traceability:
+    - trace_id: trace_kg_001_selection
+      from: dsr_framework_selection_table.vocab_knowledge_goals
+      to: vocabularies/knowledge-goals.yaml
+      relationship: implements_selected_portion
+      evidence_status: mapped
+    - trace_id: trace_kg_002_contribution_model
+      from: models/dsr-contribution-model.yaml
+      to: vocabulary.dsr_knowledge_goals
+      relationship: supplies_controlled_values_for_contribution_goal_axis
+      evidence_status: not_yet_mapped
+    - trace_id: trace_kg_003_akoka_table_2
+      from: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr.A08
+      to: vocabulary.dsr_knowledge_goals.entries
+      relationship: grounds_goal_set
+      evidence_status: mapped
+
+  quality_gate_status:
+    consistency:
+      status: pass
+      rationale: Uses lower-kebab-case target path and lower_snake_case controlled identifiers.
+    coherence:
+      status: pass
+      rationale: Aligns with contribution-model dependency and keeps scope and artifact type separate.
+    cogency:
+      status: pass
+      rationale: Provides operational definitions, use rules, boundary notes, examples, and validation rules.
+    correspondence:
+      status: pass
+      rationale: Supports DSR Framework contribution-positioning and reviewable vocabulary use.
+    dsr_transparency:
+      status: pass
+      rationale: Makes contribution-goal classification explicit and traceable.
+    reviewability:
+      status: pass
+      rationale: Includes acceptance criteria and validation rules for reviewer assessment.
+
+  assumptions:
+    - assumption_id: kg_assumption_001_six_goal_set
+      statement: >
+        The initial controlled vocabulary is limited to the six knowledge goals
+        named in the selected row rather than expanding the canonical set with
+        methodological, normative, or evaluative labels.
+    - assumption_id: kg_assumption_002_future_schema
+      statement: >
+        Future schemas will reference these entry identifiers as enumerated values
+        for contribution-claim fields.
+
+  open_questions:
+    - question_id: kg_oq_001_secondary_goal_limits
+      question: >
+        Should future schemas limit the number of secondary knowledge goals, or
+        allow an unrestricted list when a contribution has multiple claims?
+    - question_id: kg_oq_002_evidence_granularity
+      question: >
+        Should each contribution claim require citation-anchor-level evidence for
+        both primary and secondary knowledge goals?
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial controlled vocabulary generated from selected framework portion.
+      responsible_party: GPT-5.5 Thinking

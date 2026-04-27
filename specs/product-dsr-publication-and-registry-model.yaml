@@ -1,0 +1,1209 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: dsr_publication_and_registry_model
+  item_id: product_dsr_publication_and_registry_model
+  item_type: specification
+  title: DSR Publication and Registry Model
+  purpose: Specify the release, DOI, registry, archival, preservation, and publication-readiness controls required for making the DSR Framework package citable, reusable, reviewable, and archivable.
+  status: draft
+  owner: DSR Framework maintainer
+  selection_id: spec_publication_registry
+  target_path: specs/product-dsr-publication-and-registry-model.yaml
+  default_conformance_target: l5_archival_publication_ready
+  package_role: controlled_product_specification
+  scope_statement: This product governs how the framework package moves from reviewable repository content to a versioned, cited, archived, and registry-listed release artifact.
+version: 0.1.0
+source_basis:
+- source_id: user_current_request
+  role: selected_generation_target
+  evidence_status: provided_in_current_request
+- source_id: dsr_framework_generation_spec
+  role: repository_structure_quality_gates_and_product_spec_shape
+  evidence_status: mapped_to_generation_spec
+- source_id: dsr_framework_generation_prompt
+  role: generation_procedure_and_required_product_spec_sections
+  evidence_status: mapped_to_generation_prompt
+- source_id: dsr_framework_selection_table
+  role: selected_path_purpose_default_conformance_and_dependencies
+  evidence_status: mapped_to_selection_row
+- source_id: hevner_et_al_2024_transparency_in_design_science_research
+  role: dsr_transparency_repository_publication_and_review_guidance
+  citation_anchor_ids:
+  - CA14
+  - CA15
+  - CA16
+  - CA17
+  - CA18
+  evidence_status: mapped_to_internal_corpus
+- source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  role: knowledge_contribution_and_cumulative_repository_implications
+  citation_anchor_ids:
+  - A13
+  - A14
+  - A15
+  - A16
+  evidence_status: mapped_to_internal_corpus
+- source_id: documentation_protocol_repository
+  role: governing_repository_protocol_alignment
+  evidence_status: not_yet_mapped
+dependencies:
+- id: product_dsr_metadata_and_identifier_profile
+  path: specs/product-dsr-metadata-and-identifier-profile.yaml
+  relationship: upstream
+  dependency_reason: Defines metadata, citation, authorship, DOI, provenance, and identifier profile required for release and archival records.
+- id: product_dsr_quality_conformance_and_review_model
+  path: specs/product-dsr-quality-conformance-and-review-model.yaml
+  relationship: upstream
+  dependency_reason: Defines quality dimensions, maturity gates, review workflow, and acceptance criteria used before publication release.
+- id: product_dsr_artifact_package_specification
+  path: specs/product-dsr-artifact-package-specification.yaml
+  relationship: upstream
+  dependency_reason: Defines required package contents, evidence, examples, records, and conformance obligations that must be frozen for release.
+- id: product_dsr_repository_architecture
+  path: specs/product-dsr-repository-architecture.yaml
+  relationship: upstream
+  dependency_reason: Defines repository tree, naming rules, and file responsibilities needed for registry indexing and archive validation.
+- id: product_dsr_automation_and_validation_model
+  path: specs/product-dsr-automation-and-validation-model.yaml
+  relationship: peer_or_downstream
+  dependency_reason: Provides schema, metadata, inventory, link, and release validation procedures for automated readiness checks.
+- id: dsr_publication_readiness_model
+  path: models/dsr-publication-readiness-model.yaml
+  relationship: downstream
+  dependency_reason: Operationalizes this specification as a reusable model of readiness states and release criteria.
+- id: publication_readiness_checklist
+  path: checklists/publication-readiness-checklist.yaml
+  relationship: downstream
+  dependency_reason: Turns the normative requirements in this file into reviewer-facing checks.
+- id: record_release_v0_1_0
+  path: records/releases/record-release-0001-v0-1-0.yaml
+  relationship: downstream
+  dependency_reason: Retains release evidence for the first versioned publication package.
+related_items:
+  upstream:
+  - metadata.yaml
+  - artifact-profile.yaml
+  - package-inventory.yaml
+  - conformance-declaration.yaml
+  - CHANGELOG.md
+  - CITATION.cff
+  - .zenodo.json
+  - LICENSE
+  peer:
+  - specs/product-dsr-quality-conformance-and-review-model.yaml
+  - specs/product-dsr-metadata-and-identifier-profile.yaml
+  - specs/product-dsr-artifact-package-specification.yaml
+  downstream:
+  - models/dsr-publication-readiness-model.yaml
+  - checklists/publication-readiness-checklist.yaml
+  - docs/protocol/14-publication-and-review-guidance.md
+  - records/releases/record-release-0001-v0-1-0.yaml
+  - records/preservation/record-preservation-0001.yaml
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: created
+  description: Initial draft generated from selected DSR Framework portion spec_publication_registry.
+  responsible_party: GPT-5.5 Thinking
+sections:
+- id: identity_and_purpose
+  title: Identity and Purpose
+  purpose: Define the publication and registry model as a controlled product specification for release governance.
+  content:
+    problem_addressed: A reusable DSR Framework package needs a controlled path from repository content to a citable release with stable metadata, release evidence, archival deposit, DOI or persistent identifier, and registry listings.
+    primary_users:
+    - framework_maintainer
+    - release_manager
+    - reviewer
+    - archivist_or_repository_curator
+    - scholarly_user
+    - practitioner_reuser
+    intended_outcomes:
+    - Release artifacts are stable enough to cite and reuse.
+    - Publication metadata are internally consistent across repository, citation, archive, and registry surfaces.
+    - Each public release has retained evidence of review, conformance, preservation, and identifier assignment.
+    - Readers can distinguish draft work, reviewable releases, archival releases, and superseded releases.
+    - The package can support scholarly communication without overclaiming empirical evaluation or generalizability.
+    scope_includes:
+    - release readiness states
+    - versioning and release freeze controls
+    - DOI and persistent identifier metadata obligations
+    - registry entry requirements
+    - archival deposit package requirements
+    - publication-readiness review gates
+    - preservation and fixity records
+    - post-release verification and correction workflow
+    scope_excludes:
+    - publisher-specific journal submission formatting
+    - legal advice on copyright transfer or publication agreements
+    - repository platform API implementation details
+    - claims that the framework itself has completed naturalistic evaluation unless separately evidenced
+    - automatic DOI minting without human maintainer approval
+    conformance_target:
+      level: l5_archival_publication_ready
+      meaning: The product specifies the controls needed for archival/publication readiness; it does not by itself certify that any release has passed those controls.
+      minimum_entry_condition: All L1-L4 package, review, reusable, and publication-readiness evidence must be present or explicitly waived with rationale before L5 release.
+- id: conceptual_model
+  title: Conceptual Model
+  purpose: Define the controlled entities, states, relationships, and boundaries for publication and registry governance.
+  content:
+    core_entities:
+    - id: release_candidate
+      label: Release candidate
+      definition: A frozen repository state proposed for publication review before tag creation, archival deposit, or registry listing.
+      key_fields:
+      - candidate_id
+      - source_commit
+      - candidate_version
+      - freeze_date
+      - included_files
+      - blocking_issues
+    - id: release_record
+      label: Release record
+      definition: A retained record documenting the release event, review evidence, conformance level, artifacts released, identifiers assigned, and post-release obligations.
+      key_fields:
+      - record_id
+      - version
+      - release_date
+      - source_commit
+      - tag
+      - archive_url
+      - doi
+      - checksums
+      - review_outcome
+    - id: publication_metadata_bundle
+      label: Publication metadata bundle
+      definition: The synchronized set of citation, authorship, license, abstract, keywords, funder, related-identifier, version, and repository metadata used across CITATION.cff, .zenodo.json, metadata.yaml, README, and registry entries.
+      key_fields:
+      - title
+      - creators
+      - contributors
+      - license
+      - version
+      - description
+      - keywords
+      - related_identifiers
+      - preferred_citation
+    - id: persistent_identifier
+      label: Persistent identifier
+      definition: A DOI, concept DOI, release DOI, archival handle, or equivalent durable identifier assigned to the package, a release, or a related publication object.
+      key_fields:
+      - identifier
+      - identifier_type
+      - assigned_to
+      - resolver_url
+      - assignment_date
+      - status
+    - id: registry_entry
+      label: Registry entry
+      definition: A public listing or index record that points users to the released package, documentation, archive, citation metadata, and conformance evidence.
+      key_fields:
+      - registry_name
+      - entry_url
+      - entry_status
+      - indexed_version
+      - linked_identifiers
+      - last_verified_date
+    - id: archival_deposit
+      label: Archival deposit
+      definition: A durable deposit of the release package or metadata in an archive or preservation repository with retained evidence of deposit success.
+      key_fields:
+      - archive_provider
+      - deposit_id
+      - deposit_url
+      - deposit_date
+      - deposited_files
+      - embargo_or_access_status
+    - id: preservation_record
+      label: Preservation record
+      definition: A retained record documenting fixity, location, retention period, access status, file format risks, and future migration or maintenance obligations.
+      key_fields:
+      - record_id
+      - release_version
+      - checksums
+      - storage_locations
+      - retention_rule
+      - migration_notes
+    - id: publication_readiness_assessment
+      label: Publication-readiness assessment
+      definition: A gate-based review outcome showing whether a release candidate satisfies metadata, quality, conformance, transparency, reuse, archival, and registry criteria.
+      key_fields:
+      - assessment_id
+      - assessed_version
+      - criteria_results
+      - waivers
+      - blocking_findings
+      - decision
+    release_state_model:
+    - state: working_draft
+      definition: Repository content is editable and not ready for release review.
+      exit_condition: Maintainer nominates a release candidate and opens release-readiness review.
+    - state: release_candidate
+      definition: Content is frozen for publication-readiness assessment.
+      exit_condition: All blocking checks pass, are remediated, or are formally waived.
+    - state: review_approved
+      definition: The candidate has passed publication-readiness review but has not yet been tagged or archived.
+      exit_condition: Maintainer creates a version tag and release record.
+    - state: released
+      definition: A versioned release is publicly available in the source repository.
+      exit_condition: Release package is archived and persistent identifiers are assigned or linked.
+    - state: archived_and_registered
+      definition: Release files, metadata, identifiers, and registry entries have been deposited and verified.
+      exit_condition: Post-release verification is complete and no blocking metadata discrepancies remain.
+    - state: superseded
+      definition: A later release is recommended while the earlier release remains citable and preserved.
+      exit_condition: Supersession relationship is recorded in metadata and registry entries.
+    - state: withdrawn_or_deprecated
+      definition: A release remains historically preserved but is no longer recommended because of error, safety, legal, or quality concerns.
+      exit_condition: Withdrawal rationale and replacement guidance are recorded.
+    relationship_rules:
+    - A release_record must reference exactly one released version and one source repository state.
+    - A persistent_identifier must reference either the whole package concept, a specific release, a related publication, or a component explicitly allowed by the metadata profile.
+    - A registry_entry must not point only to a mutable branch when a stable archived release exists.
+    - An archival_deposit must be linked to package_inventory and preservation_record evidence.
+    - A publication_readiness_assessment must trace to quality gates and review evidence before L5 release is declared.
+    - A superseded release must remain citable unless withdrawal is required.
+    boundary_conditions:
+    - Repository hosting is not equivalent to archival preservation unless a durable archival deposit and fixity evidence are recorded.
+    - A DOI is a citation mechanism, not proof of artifact quality, evaluation success, or scholarly acceptance.
+    - A registry listing is a discovery mechanism, not evidence that all conformance obligations were satisfied.
+    - Publication readiness requires sufficient transparency and review evidence but does not require disclosure of restricted materials when privacy, security, or IP constraints are documented.
+- id: normative_requirements
+  title: Normative Requirements
+  purpose: State the mandatory, recommended, optional, and prohibited controls for releases, DOI metadata, registry entries, and archival deposits.
+  content:
+    must:
+    - requirement_id: pub_must_001
+      statement: Each public release must have a release_record with version, date, source commit or equivalent immutable source state, released files, conformance target, review outcome, and responsible party.
+      verification: Inspect records/releases/ for a release record matching the version tag.
+    - requirement_id: pub_must_002
+      statement: Each release candidate must pass or formally waive all publication-readiness gates before being represented as L5 archival/publication ready.
+      verification: Review publication_readiness_assessment and waiver log.
+    - requirement_id: pub_must_003
+      statement: Publication metadata must be synchronized across metadata.yaml, CITATION.cff, .zenodo.json or equivalent archive metadata, README citation guidance, and the release record.
+      verification: Compare metadata fields and related identifiers across source files.
+    - requirement_id: pub_must_004
+      statement: The release package must include license, citation, version, changelog, package inventory, conformance declaration, artifact profile, and repository manifest files before archival deposit.
+      verification: Use package-inventory.yaml and archival deposit manifest.
+    - requirement_id: pub_must_005
+      statement: Each archived release must retain fixity evidence for deposited files, using checksums or archive-provided integrity evidence.
+      verification: Inspect preservation_record checksums or archive fixity metadata.
+    - requirement_id: pub_must_006
+      statement: A DOI or other persistent identifier must identify its object precisely as package concept, specific release, publication, or component.
+      verification: Inspect identifier assignment metadata and related identifier relationships.
+    - requirement_id: pub_must_007
+      statement: Registry entries must link to stable release or archive locations and must record the indexed version, access date, and verification status.
+      verification: Inspect registry entry record and verify links resolve.
+    - requirement_id: pub_must_008
+      statement: Publication-readiness claims must distinguish artifact availability, artifact quality, artifact utility, evaluation evidence, and contribution-to-knowledge claims.
+      verification: Inspect release record, contribution claim records, evaluation records, and README wording.
+    - requirement_id: pub_must_009
+      statement: Restricted or omitted materials must have a documented rationale and must not silently break package integrity or reproduction claims.
+      verification: Inspect limitation, access, security, and preservation notes.
+    - requirement_id: pub_must_010
+      statement: Post-release corrections must be documented through a new patch release, erratum record, or deprecation record rather than silently rewriting archival history.
+      verification: Inspect changelog, release records, and archive version history.
+    should:
+    - requirement_id: pub_should_001
+      statement: The package should use semantic versioning or a documented versioning scheme appropriate for repository artifacts.
+      verification: Inspect versioning policy in release record and changelog.
+    - requirement_id: pub_should_002
+      statement: The package should maintain both concept-level and version-level citation guidance when the archive supports both.
+      verification: Inspect CITATION.cff, README, and archive metadata.
+    - requirement_id: pub_should_003
+      statement: The release should include machine-readable metadata for creators, contributors, ORCID identifiers when available, license, keywords, language, related identifiers, and funder information when applicable.
+      verification: Inspect metadata bundle and schema validation output.
+    - requirement_id: pub_should_004
+      statement: The archive deposit should be independent enough that the release remains accessible if the source repository is reorganized.
+      verification: Test archive download and preservation metadata.
+    - requirement_id: pub_should_005
+      statement: The registry should classify the artifact with controlled keywords for Design Science Research, documentation protocol, research methodology, artifact package, and open scholarly infrastructure.
+      verification: Inspect registry metadata and keyword mapping.
+    - requirement_id: pub_should_006
+      statement: A pre-release review should include at least one self-review and, for L5 claims, an independent or role-separated review when feasible.
+      verification: Inspect records/reviews and release approval evidence.
+    may:
+    - requirement_id: pub_may_001
+      statement: The package may include multiple registry entries, such as a source repository, archival repository, project website, package index, or scholarly preprint record.
+      verification: Inspect registry records and link crosswalk.
+    - requirement_id: pub_may_002
+      statement: The package may include a human-readable publication guide in docs/protocol/ when repository users need release interpretation guidance.
+      verification: Inspect docs/protocol/14-publication-and-review-guidance.md.
+    - requirement_id: pub_may_003
+      statement: The maintainer may defer DOI assignment for pre-1.0 releases if the deferral is recorded and citation guidance remains available.
+      verification: Inspect release record and open questions.
+    - requirement_id: pub_may_004
+      statement: The archive deposit may exclude nonessential generated files if the source files, schemas, templates, and build instructions are sufficient for package use and the exclusion is documented.
+      verification: Inspect archival manifest and package-inventory rationale.
+    must_not:
+    - requirement_id: pub_must_not_001
+      statement: The package must not claim archival/publication readiness solely because it has been pushed to a public repository.
+      verification: Inspect README, release notes, and conformance declaration.
+    - requirement_id: pub_must_not_002
+      statement: The package must not reuse a DOI or identifier in a way that confuses concept-level and release-level citation.
+      verification: Inspect identifier relations and citation guidance.
+    - requirement_id: pub_must_not_003
+      statement: The package must not overwrite, delete, or silently alter released records that are part of an archived release.
+      verification: Inspect changelog, tag history, release record, and archive versions.
+    - requirement_id: pub_must_not_004
+      statement: The package must not publish private, proprietary, security-sensitive, or third-party restricted materials as transparency evidence without a documented access and risk review.
+      verification: Inspect security, license, and restricted-material review records.
+    - requirement_id: pub_must_not_005
+      statement: The package must not imply peer review, empirical validation, or external adoption unless such evidence is retained and traceable.
+      verification: Inspect contribution, evaluation, and review records.
+- id: information_items
+  title: Information Items and Records
+  purpose: Identify the controlled files and retained records needed to operate the publication and registry model.
+  content:
+    required_controlled_files:
+    - path: metadata.yaml
+      item_type: metadata_record
+      publication_role: canonical package metadata source
+      minimum_fields:
+      - title
+      - version
+      - creators
+      - license
+      - keywords
+      - description
+      - identifiers
+      - related_items
+    - path: CITATION.cff
+      item_type: citation_metadata
+      publication_role: repository-native citation instruction file
+      minimum_fields:
+      - cff-version
+      - title
+      - authors
+      - version
+      - date-released
+      - license
+      - preferred-citation
+    - path: .zenodo.json
+      item_type: archive_metadata
+      publication_role: archive deposit metadata source when Zenodo or compatible archive is used
+      minimum_fields:
+      - title
+      - creators
+      - description
+      - license
+      - keywords
+      - related_identifiers
+    - path: manifest.yaml
+      item_type: root_specification
+      publication_role: canonical package identity and content boundary
+      minimum_fields:
+      - package_id
+      - version
+      - canonical_directories
+      - required_files
+    - path: package-inventory.yaml
+      item_type: record
+      publication_role: release package file inventory and validation responsibility map
+      minimum_fields:
+      - inventory_scope
+      - files
+      - validation_responsibility
+      - release_inclusion_status
+    - path: conformance-declaration.yaml
+      item_type: record
+      publication_role: declared conformance level and tailoring statement
+      minimum_fields:
+      - declared_level
+      - tailoring
+      - evidence
+      - limitations
+    - path: artifact-profile.yaml
+      item_type: description
+      publication_role: artifact identity, type, scope, claims, and reuse constraints
+      minimum_fields:
+      - artifact_id
+      - artifact_type
+      - claims
+      - scope
+      - reuse_constraints
+    - path: CHANGELOG.md
+      item_type: record
+      publication_role: human-readable release history and change summary
+      minimum_fields:
+      - version
+      - date
+      - added_changed_deprecated_removed_fixed_security
+    - path: LICENSE
+      item_type: policy
+      publication_role: reuse and distribution permission statement
+      minimum_fields:
+      - license_text
+    required_records:
+    - path_pattern: records/releases/record-release-<sequence>-<version>.yaml
+      record_class: release_record
+      purpose: Retain evidence of release event, review outcome, source state, identifiers, archive deposit, and conformance claim.
+      retention_rule: permanent_for_public_releases
+    - path_pattern: records/preservation/record-preservation-<sequence>.yaml
+      record_class: preservation_record
+      purpose: Retain fixity, archival locations, format risk, and preservation obligations.
+      retention_rule: permanent_for_archival_releases
+    - path_pattern: records/reviews/record-review-<sequence>-publication-readiness.yaml
+      record_class: review_record
+      purpose: Retain gate results, reviewer findings, waivers, and final readiness decision.
+      retention_rule: retain_while_release_is_supported_then_archive
+    - path_pattern: records/decisions/record-decision-<sequence>-identifier-policy.yaml
+      record_class: decision_record
+      purpose: Record DOI, concept DOI, release DOI, archive, registry, or publication venue decisions.
+      retention_rule: retain_while_policy_is_active_then_archive
+    - path_pattern: records/preservation/record-registry-entry-<sequence>.yaml
+      record_class: registry_record
+      purpose: Retain registry entry URL, indexed version, verification date, and correction obligations.
+      retention_rule: retain_until_entry_is_removed_then_archive
+    record_required_fields:
+      release_record:
+      - record_id
+      - record_class
+      - event_or_action
+      - date
+      - responsible_party
+      - version
+      - source_commit
+      - tag
+      - released_files
+      - evidence
+      - outcome
+      - related_items
+      - retention_rule
+      preservation_record:
+      - record_id
+      - record_class
+      - release_version
+      - storage_locations
+      - fixity_evidence
+      - format_risk
+      - access_status
+      - retention_rule
+      registry_record:
+      - record_id
+      - record_class
+      - registry_name
+      - entry_url
+      - indexed_version
+      - linked_identifiers
+      - verification_status
+      - last_verified_date
+      - retention_rule
+- id: workflow
+  title: Workflow and Operating Procedure
+  purpose: Define the release-to-registry operating sequence for moving a DSR Framework package into a publishable archival state.
+  content:
+    workflow_id: publication_registry_release_workflow_v0_1
+    entry_conditions:
+    - Selected release scope is defined.
+    - Package inventory exists and identifies all required files.
+    - Metadata profile and quality review model are available or stubbed with traceable open questions.
+    - No known blocking license, security, privacy, or provenance issue remains unresolved.
+    steps:
+    - step_id: pub_step_001
+      name: Nominate release candidate
+      responsible_role: framework_maintainer
+      inputs:
+      - working_repository_state
+      - package_inventory
+      - changelog_draft
+      actions:
+      - select_candidate_version
+      - identify_source_commit
+      - freeze_release_scope
+      - open_release_readiness_review
+      outputs:
+      - release_candidate_id
+      - candidate_source_commit
+      - candidate_file_scope
+    - step_id: pub_step_002
+      name: Validate package and metadata
+      responsible_role: release_manager
+      inputs:
+      - metadata.yaml
+      - CITATION.cff
+      - .zenodo.json
+      - manifest.yaml
+      - package-inventory.yaml
+      actions:
+      - check_required_files
+      - check_metadata_consistency
+      - check_license_presence
+      - check_identifier_placeholders
+      - check_internal_links
+      outputs:
+      - metadata_validation_result
+      - package_validation_result
+    - step_id: pub_step_003
+      name: Run publication-readiness review
+      responsible_role: reviewer
+      inputs:
+      - quality_model
+      - publication_readiness_checklist
+      - release_candidate_files
+      actions:
+      - evaluate_quality_gates
+      - record_findings
+      - classify_blockers
+      - record_waivers_or_required_remediation
+      outputs:
+      - publication_readiness_assessment
+      - review_record
+    - step_id: pub_step_004
+      name: Approve or remediate candidate
+      responsible_role: framework_maintainer
+      inputs:
+      - publication_readiness_assessment
+      - blocking_findings
+      actions:
+      - remediate_blockers
+      - update_records
+      - approve_candidate_or_return_to_draft
+      outputs:
+      - review_approved_candidate_or_returned_candidate
+    - step_id: pub_step_005
+      name: Create versioned release
+      responsible_role: release_manager
+      inputs:
+      - approved_candidate
+      - versioning_policy
+      - changelog
+      actions:
+      - create_release_tag
+      - publish_repository_release
+      - attach_release_assets_if_used
+      - record_source_state
+      outputs:
+      - repository_release_url
+      - release_tag
+      - release_record_draft
+    - step_id: pub_step_006
+      name: Deposit archival package
+      responsible_role: archivist_or_repository_curator
+      inputs:
+      - release_package
+      - publication_metadata_bundle
+      - archive_metadata
+      actions:
+      - deposit_release_files
+      - submit_metadata
+      - capture_archive_response
+      - record_deposit_url
+      outputs:
+      - archival_deposit
+      - archive_url
+      - archive_identifier
+    - step_id: pub_step_007
+      name: Assign or link persistent identifiers
+      responsible_role: release_manager
+      inputs:
+      - archive_identifier
+      - doi_policy
+      - metadata_bundle
+      actions:
+      - record_identifier_type
+      - link_concept_and_release_identifiers
+      - update_citation_guidance
+      - update_related_identifiers
+      outputs:
+      - persistent_identifier_record
+      - updated_citation_files
+    - step_id: pub_step_008
+      name: Create registry entries
+      responsible_role: framework_maintainer
+      inputs:
+      - released_repository_url
+      - archive_url
+      - doi
+      - metadata_bundle
+      actions:
+      - submit_or_update_registry_entry
+      - record_indexed_version
+      - record_entry_url
+      - verify_links
+      outputs:
+      - registry_record
+    - step_id: pub_step_009
+      name: Finalize release and preservation records
+      responsible_role: release_manager
+      inputs:
+      - release_record_draft
+      - archival_deposit
+      - persistent_identifier_record
+      - registry_record
+      actions:
+      - record_checksums
+      - record_retention_rule
+      - record_post_release_obligations
+      - close_readiness_review
+      outputs:
+      - final_release_record
+      - preservation_record
+    - step_id: pub_step_010
+      name: Post-release verification
+      responsible_role: framework_maintainer
+      inputs:
+      - release_url
+      - archive_url
+      - doi_url
+      - registry_entry_url
+      actions:
+      - verify_resolving_links
+      - verify_downloadable_archive
+      - verify_metadata_display
+      - log_corrections
+      outputs:
+      - post_release_verification_result
+      - correction_or_erratum_record_if_needed
+    exit_conditions:
+    - Final release record is present.
+    - Archived package or documented archival deferral is present.
+    - Persistent identifier assignment or documented deferral is present.
+    - Registry entry or documented registry deferral is present.
+    - Post-release verification has no unresolved blocking findings.
+    rollback_and_correction_rules:
+    - Before archival deposit, a candidate with blocking issues returns to working_draft or release_candidate state.
+    - After public release but before DOI assignment, corrected files require a new tag or explicit replacement release note.
+    - After archival deposit or DOI assignment, substantive corrections require a patch release, erratum, or deprecation record.
+    - Security-sensitive release defects may require withdrawal or restricted access while preserving a public explanation where safe.
+- id: quality_and_conformance
+  title: Quality and Conformance
+  purpose: Define review gates, acceptance criteria, evidence requirements, and failure modes for publication and registry readiness.
+  content:
+    conformance_levels:
+    - level: l1_documented
+      publication_meaning: Release-relevant metadata and package boundaries are documented but not fully reviewed or archived.
+      minimum_evidence:
+      - manifest.yaml
+      - metadata.yaml
+      - package-inventory.yaml
+    - level: l2_reviewable
+      publication_meaning: A reviewer can assess package contents, claims, metadata, and conformance using explicit criteria.
+      minimum_evidence:
+      - quality criteria
+      - traceability
+      - reviewable records
+      - open questions
+    - level: l3_exercisable
+      publication_meaning: Validation checks and package-use procedures can be executed against the release candidate.
+      minimum_evidence:
+      - schema validation results
+      - link checks
+      - package inventory validation
+    - level: l4_reusable
+      publication_meaning: The package has sufficient license, documentation, examples or templates, and citation guidance for third-party reuse.
+      minimum_evidence:
+      - LICENSE
+      - CITATION.cff
+      - reuse constraints
+      - documentation
+    - level: l5_archival_publication_ready
+      publication_meaning: The release has or is ready for stable public release, archival deposit, persistent identifier assignment, registry listing, preservation record, and post-release verification.
+      minimum_evidence:
+      - release record
+      - archival deposit or documented deferral
+      - persistent identifier record or documented deferral
+      - registry record or documented deferral
+      - preservation record
+    publication_readiness_gates:
+    - gate_id: pub_qg_001_release_identity
+      question: Does the release candidate have a stable version, source state, scope, and release rationale?
+      evidence_required:
+      - version
+      - source_commit_or_snapshot
+      - release_scope
+      - change_summary
+      acceptance_criteria:
+      - Version is unique.
+      - Source state is immutable or reproducibly identifiable.
+      - Release scope matches package inventory.
+      failure_modes:
+      - missing_tag
+      - ambiguous_version
+      - inventory_mismatch
+      remediation_guidance: Define candidate version, freeze file scope, and update package inventory before review.
+    - gate_id: pub_qg_002_metadata_consistency
+      question: Are citation, archive, repository, and package metadata synchronized?
+      evidence_required:
+      - metadata.yaml
+      - CITATION.cff
+      - .zenodo.json
+      - README citation section
+      - release record
+      acceptance_criteria:
+      - Title, authors, license, version, date, identifiers, and related items are consistent or intentionally varied with rationale.
+      failure_modes:
+      - creator_mismatch
+      - license_mismatch
+      - version_mismatch
+      - identifier_ambiguity
+      remediation_guidance: Designate metadata.yaml as canonical, then regenerate or manually align derivative metadata files.
+    - gate_id: pub_qg_003_license_and_reuse
+      question: Are reuse rights and restrictions explicit for all release contents?
+      evidence_required:
+      - LICENSE
+      - artifact-profile.yaml reuse constraints
+      - third_party_materials_review
+      acceptance_criteria:
+      - License exists.
+      - Restricted materials are excluded or separately governed.
+      - Reuse constraints do not contradict license text.
+      failure_modes:
+      - missing_license
+      - unreviewed_third_party_material
+      - reuse_conflict
+      remediation_guidance: Resolve license gaps before release; document any excluded or restricted material.
+    - gate_id: pub_qg_004_quality_conformance
+      question: Has the release candidate passed the relevant quality and conformance gates?
+      evidence_required:
+      - quality review record
+      - conformance declaration
+      - checklist results
+      acceptance_criteria:
+      - No unresolved blockers remain.
+      - Waivers have rationale, approver, and impact statement.
+      failure_modes:
+      - unresolved_quality_blocker
+      - unsupported_conformance_claim
+      - missing_waiver_rationale
+      remediation_guidance: Complete quality review or lower the conformance claim before release.
+    - gate_id: pub_qg_005_transparency_and_claims
+      question: Are process, problem-space, solution-space, build, evaluation, and contribution transparency sufficiently represented for the release claims?
+      evidence_required:
+      - transparency crosswalk
+      - evaluation records
+      - contribution claims
+      - limitations
+      acceptance_criteria:
+      - Transparency dimensions are mapped or marked not applicable.
+      - Claims do not exceed available evidence.
+      failure_modes:
+      - overclaimed_evaluation
+      - missing_limitations
+      - unmapped_transparency_dimension
+      remediation_guidance: Add traceability records, reduce claim strength, or document non-applicability.
+    - gate_id: pub_qg_006_archive_completeness
+      question: Does the archival deposit contain the required source-of-truth files and enough context for future interpretation?
+      evidence_required:
+      - archive manifest
+      - package inventory
+      - README
+      - metadata bundle
+      acceptance_criteria:
+      - Archive includes controlled files, documentation, records, and metadata needed to interpret the release.
+      failure_modes:
+      - incomplete_archive
+      - missing_records
+      - archive_cannot_be_interpreted
+      remediation_guidance: Revise archival manifest and redeposit or release a corrected archive version.
+    - gate_id: pub_qg_007_fixity_and_preservation
+      question: Is fixity or integrity evidence retained for archived files?
+      evidence_required:
+      - checksums
+      - archive fixity metadata
+      - preservation record
+      acceptance_criteria:
+      - Each deposited release package or manifest has fixity evidence and storage location.
+      failure_modes:
+      - missing_checksum
+      - ambiguous_archive_location
+      - unrecorded_preservation_rule
+      remediation_guidance: Generate checksums or retain archive-provided integrity evidence and update preservation record.
+    - gate_id: pub_qg_008_identifier_registry
+      question: Do persistent identifiers and registry entries resolve to the intended objects?
+      evidence_required:
+      - DOI or identifier record
+      - registry record
+      - post-release verification result
+      acceptance_criteria:
+      - Identifiers resolve.
+      - Registry entry points to stable release or archive.
+      - Version and title display correctly.
+      failure_modes:
+      - broken_identifier
+      - wrong_object_linked
+      - registry_version_mismatch
+      remediation_guidance: Correct identifier metadata, update registry entry, and record verification.
+    - gate_id: pub_qg_009_security_privacy_ip
+      question: Does the release avoid unsafe or unauthorized disclosure while preserving necessary transparency?
+      evidence_required:
+      - security review
+      - privacy review if applicable
+      - restricted materials log
+      - license review
+      acceptance_criteria:
+      - No known restricted material is published without authorization.
+      - Omissions have rationale and do not create false reproducibility claims.
+      failure_modes:
+      - sensitive_material_disclosed
+      - silent_omission
+      - unresolved_ip_risk
+      remediation_guidance: Remove or restrict materials, add rationale, and update transparency and limitation records.
+    - gate_id: pub_qg_010_post_release_verification
+      question: Has the maintainer verified the release after publication and archival deposit?
+      evidence_required:
+      - link check result
+      - archive download check
+      - metadata display check
+      - registry verification
+      acceptance_criteria:
+      - Critical release links resolve.
+      - Archive downloads.
+      - Citation metadata displays as expected.
+      - Defects are recorded.
+      failure_modes:
+      - broken_release_link
+      - missing_archive_file
+      - metadata_rendering_error
+      remediation_guidance: Create correction record, update registry or metadata, or issue a patch release as appropriate.
+    quality_gate_status_values:
+    - pass
+    - pass_with_waiver
+    - fail
+    - not_applicable
+    - not_yet_reviewed
+    review_decisions:
+    - approve_release
+    - approve_with_nonblocking_findings
+    - return_for_remediation
+    - reject_or_withdraw_candidate
+    waiver_rules:
+    - A waiver must identify the waived requirement, rationale, approver, risk, user impact, and follow-up obligation.
+    - A waiver cannot be used to support a stronger conformance claim than the evidence permits.
+    - Identifier, license, and security blockers require maintainer approval and explicit release notes if they affect users.
+- id: traceability
+  title: Traceability
+  purpose: Map release and registry controls to upstream dependencies, downstream outputs, evidence sources, and DSR transparency dimensions.
+  content:
+    trace_links:
+    - trace_id: pub_trace_001_metadata_to_publication
+      from: specs/product-dsr-metadata-and-identifier-profile.yaml
+      to: publication_metadata_bundle
+      relationship: defines_required_metadata_fields
+      evidence_status: not_yet_mapped
+    - trace_id: pub_trace_002_quality_to_release_gate
+      from: specs/product-dsr-quality-conformance-and-review-model.yaml
+      to: publication_readiness_assessment
+      relationship: supplies_quality_gate_logic
+      evidence_status: not_yet_mapped
+    - trace_id: pub_trace_003_package_to_archive
+      from: specs/product-dsr-artifact-package-specification.yaml
+      to: archival_deposit
+      relationship: defines_files_and_evidence_to_deposit
+      evidence_status: not_yet_mapped
+    - trace_id: pub_trace_004_repository_to_registry
+      from: specs/product-dsr-repository-architecture.yaml
+      to: registry_entry
+      relationship: defines_stable_paths_and_repository_surfaces
+      evidence_status: not_yet_mapped
+    - trace_id: pub_trace_005_automation_to_verification
+      from: specs/product-dsr-automation-and-validation-model.yaml
+      to: post_release_verification_result
+      relationship: defines_machine_checks_for_release_validation
+      evidence_status: not_yet_mapped
+    - trace_id: pub_trace_006_transparency_to_registry
+      from: Hevner et al. 2024 CA14-CA16
+      to: publication_readiness_gates
+      relationship: supports_repository_publication_and_review_transparency_guidance
+      evidence_status: mapped_to_internal_corpus
+    - trace_id: pub_trace_007_cumulative_knowledge_to_archive
+      from: Akoka et al. 2023 A14-A16
+      to: archival_deposit_and_registry_entry
+      relationship: supports_cumulative_design_knowledge_and_repository_implications
+      evidence_status: mapped_to_internal_corpus
+    transparency_dimension_mapping:
+    - dimension: process_transparency
+      publication_registry_expression: Release workflow, release record, post-release verification, changelog, and decision records document how the published object was produced.
+    - dimension: problem_space_transparency
+      publication_registry_expression: Metadata, README, artifact profile, and scope statements explain the problem addressed, users, constraints, and release boundaries.
+    - dimension: solution_space_transparency
+      publication_registry_expression: Source basis, references, related identifiers, and registry links show the knowledge base and prior artifacts used to ground the framework.
+    - dimension: build_transparency
+      publication_registry_expression: Package inventory, source commit, release assets, and build or generation records show what was built and what files constitute the artifact package.
+    - dimension: evaluation_transparency
+      publication_registry_expression: Quality review, readiness assessment, validation results, and evaluation records show what has and has not been evaluated.
+    - dimension: contribution_transparency
+      publication_registry_expression: Contribution claims, citation guidance, registry descriptions, and release notes state the intended scholarly and practitioner contribution without overclaiming evidence.
+    claim_traceability_rules:
+    - Every publication-readiness claim must trace to a release record and readiness assessment.
+    - Every DOI or identifier claim must trace to identifier metadata and post-release verification.
+    - Every reuse claim must trace to license and artifact-profile constraints.
+    - Every evaluation claim must trace to evaluation plan/report records and not merely to publication status.
+    - Every archival claim must trace to deposit evidence or a documented deferral.
+- id: implementation_guidance
+  title: Implementation Guidance
+  purpose: Provide repository-ready guidance for maintainers implementing publication, DOI, registry, and archival controls.
+  content:
+    recommended_file_locations:
+    - artifact: release records
+      path: records/releases/
+    - artifact: preservation records
+      path: records/preservation/
+    - artifact: publication readiness checklist
+      path: checklists/publication-readiness-checklist.yaml
+    - artifact: publication readiness model
+      path: models/dsr-publication-readiness-model.yaml
+    - artifact: publication guidance docs
+      path: docs/protocol/14-publication-and-review-guidance.md
+    - artifact: registry crosswalks if created
+      path: crosswalks/
+    versioning_guidance:
+    - Use a single canonical version string per release across metadata.yaml, CITATION.cff, archive metadata, changelog, release record, and tag.
+    - Use pre-release markers only for candidates not intended as archival/publication-ready releases.
+    - Record whether a release is a concept-level milestone, major version, minor version, patch, erratum, or deprecated release.
+    - Do not change versioned release files after archival deposit; issue a patch or correction record instead.
+    metadata_guidance:
+    - Treat metadata.yaml as the canonical structured metadata source for the repository package.
+    - Derive CITATION.cff and archive metadata from canonical metadata when automation is available.
+    - Record both human-readable citation text and machine-readable identifiers.
+    - Use related identifiers to link source repository, archive deposit, DOI, documentation, related papers, and prior framework versions.
+    doi_guidance:
+    - Distinguish package concept DOI from release DOI where the archive provider supports both.
+    - Prefer release-specific citation for reproducible reference to a fixed package state.
+    - Prefer concept-level citation when citing the evolving framework generally.
+    - Record DOI deferral when a draft or experimental release is not intended to be permanently cited.
+    registry_guidance:
+    - A registry entry should include stable title, short description, version, license, DOI or archive link, source repository link, documentation link, keywords, and conformance status.
+    - Registry entries should be verified after each release and after any archive metadata correction.
+    - A registry record should document whether the entry is manually maintained, automatically indexed, or externally curated.
+    archival_guidance:
+    - Archive source-of-truth controlled files rather than only rendered documentation.
+    - Include enough README and metadata content for future users to interpret the archive without browsing the mutable repository.
+    - Retain checksums or archive fixity metadata for deposited release assets.
+    - Record format risks for YAML, JSON Schema, Markdown, and generated artifacts if any format migration is anticipated.
+    risk_controls:
+    - risk: metadata drift
+      control: canonical metadata source and cross-file validation
+    - risk: identifier ambiguity
+      control: identifier object type field and related_identifier mapping
+    - risk: false publication-readiness claim
+      control: explicit readiness gates and release review record
+    - risk: archive incompleteness
+      control: package inventory to archive manifest cross-check
+    - risk: restricted material disclosure
+      control: security/privacy/IP review before release
+    - risk: broken registry links
+      control: post-release verification and scheduled link checks
+    - risk: silent historical revision
+      control: patch release or erratum policy
+- id: template_or_schema_implications
+  title: Template or Schema Implications
+  purpose: Specify downstream templates, schemas, and checklists implied by this product specification.
+  content:
+    templates_to_create_or_update:
+    - id: template_release_record
+      path: templates/release-record-template.yaml
+      purpose: Reusable template for release event records.
+      required_sections:
+      - identity
+      - release_scope
+      - metadata_snapshot
+      - review_evidence
+      - archive_and_identifier_evidence
+      - registry_evidence
+      - outcome
+      - retention_rule
+    - id: template_preservation_record
+      path: templates/preservation-record-template.yaml
+      purpose: Reusable template for preservation and fixity evidence.
+      required_sections:
+      - release_reference
+      - storage_locations
+      - fixity
+      - format_risk
+      - retention_rule
+      - migration_plan
+    - id: template_registry_record
+      path: templates/registry-entry-record-template.yaml
+      purpose: Reusable template for registry listing evidence.
+      required_sections:
+      - registry_identity
+      - entry_url
+      - indexed_version
+      - linked_identifiers
+      - verification
+      - maintenance_rule
+    schemas_to_create_or_update:
+    - id: schema_release_record
+      path: schemas/release-record.schema.json
+      purpose: Validate release records.
+    - id: schema_preservation_record
+      path: schemas/preservation-record.schema.json
+      purpose: Validate preservation records.
+    - id: schema_registry_record
+      path: schemas/registry-entry-record.schema.json
+      purpose: Validate registry records.
+    - id: schema_publication_readiness_assessment
+      path: schemas/publication-readiness-assessment.schema.json
+      purpose: Validate gate-level publication-readiness review results.
+    checklists_to_create_or_update:
+    - id: checklist_publication_readiness
+      path: checklists/publication-readiness-checklist.yaml
+      source_requirements:
+      - pub_qg_001_release_identity
+      - pub_qg_002_metadata_consistency
+      - pub_qg_003_license_and_reuse
+      - pub_qg_004_quality_conformance
+      - pub_qg_005_transparency_and_claims
+      - pub_qg_006_archive_completeness
+      - pub_qg_007_fixity_and_preservation
+      - pub_qg_008_identifier_registry
+      - pub_qg_009_security_privacy_ip
+      - pub_qg_010_post_release_verification
+    automation_implications:
+    - Cross-check version strings across metadata.yaml, CITATION.cff, .zenodo.json, CHANGELOG.md, and release records.
+    - Validate required repository files before release.
+    - Generate a file manifest and checksums for archived assets.
+    - Run link checks for DOI, archive, repository release, and registry entries.
+    - Check that release record fields match package inventory and conformance declaration.
+    schema_enums_to_stabilize:
+    - release_state
+    - identifier_type
+    - registry_status
+    - archive_access_status
+    - publication_readiness_gate_status
+    - review_decision
+    - release_correction_type
+- id: open_questions_and_backlog
+  title: Open Questions and Backlog
+  purpose: Record unsettled decisions and future work needed before the publication and registry model can be fully exercised.
+  content:
+    assumptions:
+    - The repository will be published on GitHub or a Git-compatible public platform.
+    - A DOI-capable archive such as Zenodo may be used, but the specific archive provider has not been finalized in this specification.
+    - The package license is expected to permit public reuse, but the final license text must be checked in the root LICENSE file.
+    - L5 indicates target readiness controls, not automatic certification of the current repository state.
+    open_questions:
+    - question_id: pub_oq_001
+      question: Which archive provider will be the canonical preservation location for the first public release?
+      impact_if_unresolved: Archive metadata fields and DOI workflow may require provider-specific tailoring.
+    - question_id: pub_oq_002
+      question: Will the project maintain both concept-level and version-level DOI citation guidance?
+      impact_if_unresolved: Citation guidance may be ambiguous for users citing a moving framework versus a fixed release.
+    - question_id: pub_oq_003
+      question: Which registry or registries should be treated as authoritative discovery locations beyond the source repository and archive?
+      impact_if_unresolved: Registry entry records may remain placeholders.
+    - question_id: pub_oq_004
+      question: What independent review threshold is required before declaring L5 archival/publication readiness?
+      impact_if_unresolved: The quality model may need a conservative self-review-only limitation.
+    - question_id: pub_oq_005
+      question: 'Which release assets should be archived: repository source only, generated files, examples, validation reports, or all of these?'
+      impact_if_unresolved: Archive manifest rules may be under-specified.
+    backlog:
+    - backlog_id: pub_backlog_001
+      task: Create release-record template and schema.
+      priority: high
+      depends_on:
+      - template_release_record
+      - schema_release_record
+    - backlog_id: pub_backlog_002
+      task: Create publication-readiness checklist from the quality gates in this specification.
+      priority: high
+      depends_on:
+      - checklist_publication_readiness
+    - backlog_id: pub_backlog_003
+      task: Create docs/protocol/14-publication-and-review-guidance.md as a human-facing guide to this product spec.
+      priority: medium
+      depends_on:
+      - docs_publication_review
+    - backlog_id: pub_backlog_004
+      task: Add automation checks for metadata drift, link resolution, release file inventory, and checksum generation.
+      priority: medium
+      depends_on:
+      - spec_automation_validation
+    - backlog_id: pub_backlog_005
+      task: Map documentation-protocol repository rules to final DOI and release governance requirements.
+      priority: medium
+      depends_on:
+      - documentation_protocol_repository
+    limitations:
+    - This specification does not itself mint a DOI, create a GitHub release, publish an archive, or submit registry entries.
+    - Provider-specific metadata fields may need tailoring once the archive and registry targets are selected.
+    - Internal corpus evidence supports DSR transparency and publication guidance, but source-specific archival standards remain to be finalized.
+    - The current file is a product specification, not the downstream publication readiness model, checklist, schema, or release record.
+quality_gates:
+- gate_id: qg_consistency
+  status: pass
+  evidence:
+  - target_path matches selected lower-kebab-case YAML path
+  - item_type is specification
+  - required product spec sections are present
+- gate_id: qg_coherence
+  status: pass
+  evidence:
+  - dependencies identify metadata profile and quality model
+  - downstream publication readiness model and checklist are linked
+- gate_id: qg_cogency
+  status: pass
+  evidence:
+  - release state model and workflow are ordered from candidate nomination to post-release verification
+- gate_id: qg_correspondence
+  status: pass
+  evidence:
+  - content directly addresses release, DOI, registry, archival, and publication-readiness model
+- gate_id: qg_dsr_transparency
+  status: pass
+  evidence:
+  - traceability section maps publication controls to six DSR transparency dimensions
+- gate_id: qg_reviewability
+  status: pass
+  evidence:
+  - publication readiness gates include questions, evidence, acceptance criteria, failure modes, and remediation guidance
+traceability:
+- trace_id: file_trace_selection
+  source: dsr-framework-selection-table.md#spec_publication_registry
+  target: specs/product-dsr-publication-and-registry-model.yaml
+  relationship: generated_from_selected_row
+- trace_id: file_trace_generation_spec
+  source: dsr-framework-generation-spec.yaml
+  target: product_spec_structure_and_quality_gates
+  relationship: conforms_to_generation_rules
+- trace_id: file_trace_generation_prompt
+  source: dsr-framework-generation-prompt.md
+  target: product_spec_sections_and_completion_report
+  relationship: follows_generation_prompt
+- trace_id: file_trace_hevner_2024
+  source: hevner_et_al_2024_transparency_in_design_science_research
+  target: transparency_publication_repository_guidance
+  relationship: uses_internal_corpus_publication_transparency_basis
+- trace_id: file_trace_akoka_2023
+  source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  target: cumulative_design_knowledge_repository_implications
+  relationship: uses_internal_corpus_knowledge_accumulation_basis
+open_questions:
+- Which archive provider will be authoritative for the first release?
+- Will concept-level and version-level DOI citation guidance both be used?
+- Which registry entries beyond source repository and archive should be maintained?
+- What review independence threshold is required for L5 readiness?
+- Which generated files should be included in archival deposits?
+completion_report:
+  generated_selection_id: spec_publication_registry
+  generated_path: specs/product-dsr-publication-and-registry-model.yaml
+  item_type: specification
+  output_format: yaml
+  conformance_target: l5_archival_publication_ready
+  dependencies_used:
+  - metadata profile
+  - quality model
+  - artifact package specification
+  - repository architecture
+  - automation validation model
+  - internal DSR corpus publication and transparency evidence
+  assumptions:
+  - The file is a controlled product specification, not a release event record.
+  - L5 is treated as the target readiness model, not as a certification that the current repository has already been archived or assigned a DOI.
+  - Archive provider and registry targets remain open decisions.
+  open_questions:
+  - archive_provider_selection
+  - doi_policy
+  - registry_targets
+  - review_independence_threshold
+  - archival_asset_scope
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: models/dsr-publication-readiness-model.yaml

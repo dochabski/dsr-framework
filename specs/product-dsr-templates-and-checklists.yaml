@@ -1,0 +1,1596 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_templates_and_checklists
+  title: DSR Templates and Checklists Product Specification
+  purpose: >
+    Specify the operating materials used by the DSR Framework, including reusable
+    templates, review checklists, checklist item rules, template/checklist
+    lifecycle controls, and traceability expectations for researcher-facing and
+    reviewer-facing materials.
+  status: draft
+  version: "0.1.0"
+  item_type: specification
+  target_path: specs/product-dsr-templates-and-checklists.yaml
+  selection_id: spec_templates_checklists
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+  license: CC0-1.0
+  created_date: "2026-04-27"
+  last_updated: "2026-04-27"
+
+source_basis:
+  - id: user_selected_portion
+    type: user_instruction
+    role: immediate_task_definition
+    evidence_status: mapped
+    notes: >
+      The selected row identifies spec_templates_checklists as a product_spec in
+      YAML at specs/product-dsr-templates-and-checklists.yaml, with L2 default
+      conformance and information item architecture as its key dependency.
+  - id: dsr_framework_generation_spec
+    type: governing_specification
+    role: structure_and_quality_rules
+    evidence_status: mapped
+    notes: >
+      Governs repository architecture, naming rules, controlled information item
+      fields, product-spec sections, quality gates, traceability, and output
+      conventions.
+  - id: dsr_framework_generation_prompt
+    type: generation_prompt
+    role: product_spec_shape_and_completion_rules
+    evidence_status: mapped
+    notes: >
+      Requires product specifications to include identity and purpose,
+      conceptual model, normative requirements, information items, workflow,
+      quality and conformance, traceability, implementation guidance, template
+      or schema implications, and open questions.
+  - id: hevner_et_al_2024_transparency_in_design_science_research
+    type: dsr_corpus_source
+    role: transparency_and_reporting_guidance
+    evidence_status: mapped_to_citation_anchors
+    citation_anchor_ids:
+      - CA01
+      - CA06
+      - CA07
+      - CA08
+      - CA09
+      - CA10
+      - CA11
+      - CA14
+      - CA15
+      - CA16
+      - CA17
+    notes: >
+      Supports six-part DSR transparency coverage, documentation materials,
+      repository use, and the caution that detailed prescriptive checklists
+      should remain proportionate and reviewable rather than burdensome.
+  - id: akoka_et_al_2023_knowledge_contributions_in_dsr
+    type: dsr_corpus_source
+    role: contribution_development_and_guideline_support
+    evidence_status: mapped_to_citation_anchors
+    citation_anchor_ids:
+      - A07
+      - A08
+      - A10
+      - A13
+      - A14
+    notes: >
+      Supports templates and checklists that help researchers articulate DSR
+      knowledge moments, contribution types, strategy fit, and contribution
+      development.
+
+dependencies:
+  upstream:
+    - id: product_dsr_information_item_architecture
+      path: specs/product-dsr-information-item-architecture.yaml
+      relationship: required_upstream_spec
+      usage: >
+        Defines controlled information item expectations for templates,
+        checklists, records, and review evidence.
+    - id: product_dsr_lifecycle_and_contribution_model
+      path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+      relationship: conceptual_dependency
+      usage: >
+        Provides DSR lifecycle and contribution structure referenced by project,
+        artifact, demonstration, evaluation, and contribution templates.
+    - id: product_dsr_quality_conformance_and_review_model
+      path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relationship: quality_dependency
+      usage: >
+        Provides review gates, maturity levels, and acceptance criteria that
+        checklist items must operationalize.
+    - id: product_dsr_artifact_package_specification
+      path: specs/product-dsr-artifact-package-specification.yaml
+      relationship: package_dependency
+      usage: >
+        Provides package-readiness expectations that templates and checklists
+        convert into operational user materials.
+    - id: product_dsr_metadata_and_identifier_profile
+      path: specs/product-dsr-metadata-and-identifier-profile.yaml
+      relationship: metadata_dependency
+      usage: >
+        Provides metadata, identifier, authorship, provenance, and citation
+        fields that templates must preserve.
+  downstream:
+    - id: template_artifact_profile
+      path: templates/artifact-profile-template.yaml
+      relationship: governed_template
+    - id: template_package_inventory
+      path: templates/package-inventory-template.yaml
+      relationship: governed_template
+    - id: template_conformance_declaration
+      path: templates/conformance-declaration-template.yaml
+      relationship: governed_template
+    - id: template_project_charter
+      path: templates/dsr-project-charter-template.md
+      relationship: governed_template
+    - id: template_problem_objectives
+      path: templates/problem-and-objectives-template.md
+      relationship: governed_template
+    - id: template_solution_space
+      path: templates/solution-space-record-template.yaml
+      relationship: governed_template
+    - id: template_design_rationale
+      path: templates/design-rationale-template.md
+      relationship: governed_template
+    - id: template_artifact_specification
+      path: templates/artifact-specification-template.md
+      relationship: governed_template
+    - id: template_build_transparency
+      path: templates/build-transparency-record-template.yaml
+      relationship: governed_template
+    - id: template_demonstration_record
+      path: templates/demonstration-record-template.yaml
+      relationship: governed_template
+    - id: template_evaluation_plan
+      path: templates/evaluation-plan-template.yaml
+      relationship: governed_template
+    - id: template_evaluation_report
+      path: templates/evaluation-report-template.yaml
+      relationship: governed_template
+    - id: template_contribution_claim
+      path: templates/contribution-claim-template.yaml
+      relationship: governed_template
+    - id: template_contribution_positioning
+      path: templates/contribution-positioning-record-template.yaml
+      relationship: governed_template
+    - id: template_transparency_crosswalk
+      path: templates/dsr-transparency-crosswalk-template.yaml
+      relationship: governed_template
+    - id: template_review_record
+      path: templates/review-record-template.yaml
+      relationship: governed_template
+    - id: checklist_minimum_dsr
+      path: checklists/dsr-minimum-viable-study-checklist.yaml
+      relationship: governed_checklist
+    - id: checklist_package_readiness
+      path: checklists/artifact-package-readiness-checklist.yaml
+      relationship: governed_checklist
+    - id: checklist_transparency
+      path: checklists/dsr-transparency-crosswalk-checklist.yaml
+      relationship: governed_checklist
+    - id: checklist_evaluation_readiness
+      path: checklists/evaluation-readiness-checklist.yaml
+      relationship: governed_checklist
+    - id: checklist_contribution_positioning
+      path: checklists/contribution-positioning-checklist.yaml
+      relationship: governed_checklist
+    - id: checklist_reliability
+      path: checklists/reliability-checklist.yaml
+      relationship: governed_checklist
+    - id: checklist_projectability
+      path: checklists/replication-projectability-checklist.yaml
+      relationship: governed_checklist
+    - id: checklist_publication_readiness
+      path: checklists/publication-readiness-checklist.yaml
+      relationship: governed_checklist
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: Define the scope, users, and boundaries of DSR Framework templates and checklists.
+    content:
+      product_scope:
+        included:
+          - reusable_yaml_templates
+          - reusable_markdown_templates
+          - review_and_readiness_checklists
+          - checklist_item_structure
+          - template_placeholder_policy
+          - template_schema_alignment
+          - evidence_and_traceability_rules
+          - lifecycle_and_change_control_for_operating_materials
+        excluded:
+          - full_json_schema_definitions
+          - executable_validation_scripts
+          - project_specific_completed_records
+          - external_publication_platform_setup
+          - empirical_validation_of_template_usability
+      intended_users:
+        - role: researcher_or_artifact_author
+          use: Complete templates while planning, documenting, evaluating, and packaging a DSR artifact.
+        - role: reviewer
+          use: Apply checklists to assess minimum identity, package readiness, transparency, evaluation readiness, contribution positioning, reliability, projectability, and publication readiness.
+        - role: maintainer
+          use: Govern template and checklist versions, dependencies, acceptance criteria, and release readiness.
+        - role: adopter_or_reuser
+          use: Adapt templates and checklists to a local DSR project while preserving source attribution and conformance claims.
+      operating_principle: >
+        Templates make expected information explicit before, during, and after a
+        DSR project. Checklists make review questions explicit so that claims of
+        DSR identity, transparency, evaluation, contribution, reliability,
+        projectability, package readiness, and publication readiness can be
+        inspected without relying on hidden reviewer assumptions.
+      non_goals:
+        - Do not make every template mandatory for every DSR project.
+        - Do not treat checklist passage as proof of empirical artifact utility.
+        - Do not replace disciplinary peer review or domain expert judgment.
+        - Do not force disclosure of proprietary, private, unsafe, or security-sensitive artifact details.
+        - Do not overclaim reproducibility or publication readiness where only draft documentation exists.
+      conformance_position: >
+        This product is L2 reviewable. It specifies operating materials at a
+        level sufficient for human review, but does not claim executable
+        validation or archival publication readiness.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: Define the entities, relationships, and lifecycle states for operating materials.
+    content:
+      entities:
+        - id: operating_material
+          label: Operating Material
+          definition: >
+            A reusable document, structured file, or review instrument that helps
+            a DSR project author produce or assess framework-conformant package
+            content.
+          subtypes:
+            - template
+            - checklist
+            - example
+            - instruction_block
+        - id: template
+          label: Template
+          definition: >
+            A reusable information-item scaffold that contains required fields,
+            recommended fields, controlled values, TODO placeholders where
+            project-specific information is required, and traceability fields.
+          required_properties:
+            - template_id
+            - title
+            - target_information_item
+            - output_format
+            - status
+            - version
+            - owner
+            - source_basis
+            - related_items
+            - placeholder_policy
+            - validation_expectations
+            - change_history
+        - id: checklist
+          label: Checklist
+          definition: >
+            A structured set of review questions with explicit evidence,
+            pass/fail conditions, and remediation guidance.
+          required_properties:
+            - checklist_id
+            - title
+            - status
+            - version
+            - owner
+            - scope
+            - items
+            - scoring_or_decision_rule
+            - related_items
+            - source_basis
+            - change_history
+        - id: checklist_item
+          label: Checklist Item
+          definition: >
+            A reviewable unit in a checklist that asks one precise question and
+            identifies evidence required to pass, fail, or remediate the item.
+          required_properties:
+            - check_id
+            - question
+            - evidence_required
+            - pass_condition
+            - fail_condition
+            - remediation_guidance
+            - related_requirements
+            - severity
+        - id: placeholder
+          label: Template Placeholder
+          definition: >
+            A marked location where project-specific content must be supplied by
+            the user of a template.
+          allowed_forms:
+            - "TODO: <specific required input>"
+            - "TBD: <decision not yet made>"
+            - "not_applicable: <rationale>"
+          boundary_notes: >
+            Placeholders are allowed only where project-specific facts are not
+            knowable at template publication time. They must not conceal an
+            unsupported framework-level decision.
+        - id: evidence_trace
+          label: Evidence Trace
+          definition: >
+            A link from a template field or checklist item to its governing
+            requirement, source family, citation anchor, related schema, or
+            quality gate.
+        - id: review_outcome
+          label: Review Outcome
+          definition: >
+            The result of applying a checklist to a project artifact or package.
+          allowed_values:
+            - pass
+            - pass_with_notes
+            - fail
+            - not_applicable
+            - not_reviewed
+      relationships:
+        - id: template_instantiates_information_item
+          subject: template
+          predicate: instantiates
+          object: controlled_information_item
+          requirement: >
+            Every template must identify the information item, record class, or
+            package file it is intended to instantiate.
+        - id: checklist_operationalizes_requirement
+          subject: checklist_item
+          predicate: operationalizes
+          object: normative_requirement
+          requirement: >
+            Every checklist item should trace to at least one requirement,
+            quality gate, transparency dimension, or review concern.
+        - id: template_is_validated_by_schema
+          subject: template
+          predicate: should_be_validated_by
+          object: schema
+          requirement: >
+            YAML templates intended for machine validation should identify a
+            corresponding JSON Schema when one exists or is planned.
+        - id: checklist_reviews_template_output
+          subject: checklist
+          predicate: reviews_outputs_from
+          object: template
+          requirement: >
+            Checklists should identify which templates or records produce the
+            evidence they expect reviewers to inspect.
+        - id: operating_material_has_lifecycle_state
+          subject: operating_material
+          predicate: has_lifecycle_state
+          object: lifecycle_state
+          requirement: >
+            Draft, in-review, approved, released, superseded, deprecated, and
+            archived states must be used consistently across templates and
+            checklists.
+      lifecycle_states:
+        - id: draft
+          label: Draft
+          entry_condition: Material has been created but not yet reviewed.
+          exit_condition: Maintainer submits it for review.
+        - id: in_review
+          label: In Review
+          entry_condition: Material is under self-review or peer review.
+          exit_condition: Review outcome is recorded.
+        - id: approved
+          label: Approved
+          entry_condition: Material passed applicable review criteria.
+          exit_condition: Material is released or superseded.
+        - id: released
+          label: Released
+          entry_condition: Material is included in a tagged package release.
+          exit_condition: Material is superseded, deprecated, or archived.
+        - id: superseded
+          label: Superseded
+          entry_condition: A newer version replaces this material.
+          exit_condition: Material is archived if no longer needed.
+        - id: deprecated
+          label: Deprecated
+          entry_condition: Material remains available but should not be used for new work.
+          exit_condition: Material is archived or removed through governance.
+        - id: archived
+          label: Archived
+          entry_condition: Material is retained for provenance, reproducibility, or release history.
+          exit_condition: None by default.
+      transparency_mapping:
+        process_transparency:
+          supported_by:
+            - template_project_charter
+            - template_design_rationale
+            - template_build_transparency
+            - template_review_record
+          checklist_support:
+            - checklist_minimum_dsr
+            - checklist_package_readiness
+        problem_space_transparency:
+          supported_by:
+            - template_problem_objectives
+            - template_project_charter
+          checklist_support:
+            - checklist_minimum_dsr
+            - checklist_evaluation_readiness
+        solution_space_transparency:
+          supported_by:
+            - template_solution_space
+            - template_design_rationale
+          checklist_support:
+            - checklist_minimum_dsr
+            - checklist_package_readiness
+        build_transparency:
+          supported_by:
+            - template_build_transparency
+            - template_artifact_specification
+            - template_design_rationale
+          checklist_support:
+            - checklist_transparency
+            - checklist_package_readiness
+        evaluation_transparency:
+          supported_by:
+            - template_demonstration_record
+            - template_evaluation_plan
+            - template_evaluation_report
+          checklist_support:
+            - checklist_evaluation_readiness
+            - checklist_package_readiness
+        contribution_transparency:
+          supported_by:
+            - template_contribution_claim
+            - template_contribution_positioning
+            - template_transparency_crosswalk
+          checklist_support:
+            - checklist_contribution_positioning
+            - checklist_transparency
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: State required, recommended, optional, and prohibited behavior for templates and checklists.
+    content:
+      must:
+        - id: ntc_must_001
+          statement: Every template and checklist MUST include stable lower_snake_case identifiers.
+          rationale: Stable identifiers support traceability, schema alignment, and package inventory control.
+        - id: ntc_must_002
+          statement: Every template and checklist MUST include status, version, owner, source_basis, related_items, and change_history.
+          rationale: Operating materials are controlled information items and must remain reviewable over time.
+        - id: ntc_must_003
+          statement: Every checklist item MUST include check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
+          rationale: Reviewers need explicit evidence and decision logic rather than implicit judgment alone.
+        - id: ntc_must_004
+          statement: Every template MUST identify its target information item, expected output format, and target repository location or location pattern.
+          rationale: Users must know where completed outputs belong in the package.
+        - id: ntc_must_005
+          statement: Templates MUST distinguish required fields from recommended, optional, not-applicable, and project-specific fields.
+          rationale: This prevents accidental overclaiming and makes tailoring visible.
+        - id: ntc_must_006
+          statement: Checklists MUST preserve the distinction between demonstration evidence and evaluation evidence.
+          rationale: A demonstrated artifact use scenario is not equivalent to rigorous evaluation evidence.
+        - id: ntc_must_007
+          statement: Checklists MUST preserve the distinction between artifact utility, artifact quality, and contribution to knowledge.
+          rationale: DSR review requires separate inspection of usefulness, quality, and knowledge contribution.
+        - id: ntc_must_008
+          statement: Templates and checklists MUST include evidence_status or not_applicable rationale where source evidence is absent or not yet mapped.
+          rationale: The framework must not invent scholarly evidence or imply unsupported validation.
+        - id: ntc_must_009
+          statement: Templates and checklists MUST avoid requiring disclosure of proprietary, private, unsafe, or security-sensitive implementation details.
+          rationale: Transparency requirements must be balanced against confidentiality and risk constraints.
+        - id: ntc_must_010
+          statement: Checklist outputs MUST be capable of being retained as review records.
+          rationale: Review evidence supports package conformance, release readiness, and future auditability.
+      should:
+        - id: ntc_should_001
+          statement: Templates SHOULD include examples of acceptable field content when examples do not create project-specific assumptions.
+          rationale: Examples reduce ambiguity and support adoption.
+        - id: ntc_should_002
+          statement: Templates SHOULD include links to related schemas where machine validation is planned or available.
+          rationale: Structured validation improves consistency and lowers review burden.
+        - id: ntc_should_003
+          statement: Checklist items SHOULD be atomic, inspectable, and limited to one review question each.
+          rationale: Multi-part checklist questions are hard to pass, fail, or remediate consistently.
+        - id: ntc_should_004
+          statement: Checklists SHOULD identify severity or review impact for each failed item.
+          rationale: Not all failed items have the same consequence for conformance or publication readiness.
+        - id: ntc_should_005
+          statement: Templates SHOULD make tailoring explicit through tailoring_notes or not_applicable rationale fields.
+          rationale: Tailoring is legitimate when recorded and reviewable.
+        - id: ntc_should_006
+          statement: Operating materials SHOULD minimize duplicate fields by referencing canonical metadata, vocabulary, and schema files.
+          rationale: Single-source control reduces drift across package files.
+        - id: ntc_should_007
+          statement: Checklists SHOULD map each item to one or more quality gates, lifecycle stages, or transparency dimensions.
+          rationale: Traceability makes checklist coverage reviewable.
+        - id: ntc_should_008
+          statement: Templates SHOULD be usable in plain text editors and version-control workflows.
+          rationale: GitHub publication and reuse require low-friction file editing.
+      may:
+        - id: ntc_may_001
+          statement: Templates MAY include optional advanced sections for L3, L4, or L5 conformance.
+          rationale: Higher maturity users may need exercisable, reusable, or archival-publication-ready extensions.
+        - id: ntc_may_002
+          statement: Checklists MAY include scoring, weighting, or maturity-level summaries when the scoring rule is explicit.
+          rationale: Summary scoring can help reviewers if it does not obscure individual evidence decisions.
+        - id: ntc_may_003
+          statement: Templates MAY include human-facing explanatory comments when those comments do not break YAML or JSON validation.
+          rationale: Researcher usability may require concise embedded guidance.
+        - id: ntc_may_004
+          statement: Completed checklist records MAY be stored under records/reviews or another governed records path.
+          rationale: Different project packages may organize retained review evidence differently.
+      must_not:
+        - id: ntc_must_not_001
+          statement: Templates MUST NOT require fictional evidence, invented citations, or false completion claims.
+          rationale: Evidence integrity is required for DSR transparency and reviewability.
+        - id: ntc_must_not_002
+          statement: Checklists MUST NOT imply that passing a documentation review proves artifact effectiveness.
+          rationale: Documentation conformance and empirical effectiveness are different claims.
+        - id: ntc_must_not_003
+          statement: Templates MUST NOT collapse artifact instance, artifact type, and reusable design knowledge into one unmarked field.
+          rationale: DSR contribution claims require clear abstraction-level distinctions.
+        - id: ntc_must_not_004
+          statement: Checklists MUST NOT impose publication-readiness requirements on L1 or L2 materials unless explicitly scoped as readiness checks.
+          rationale: Conformance levels must remain proportionate.
+        - id: ntc_must_not_005
+          statement: Operating materials MUST NOT duplicate controlled vocabularies as uncontrolled local lists when a vocabulary file exists.
+          rationale: Vocabulary drift undermines package coherence.
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: Specify governed template and checklist outputs.
+    content:
+      template_classes:
+        - id: root_control_templates
+          label: Root Control Templates
+          purpose: Scaffold package-level metadata, inventory, and conformance files.
+          templates:
+            - id: artifact_profile_template
+              path: templates/artifact-profile-template.yaml
+              target_output: artifact-profile.yaml
+              required_status: draft
+              schema_alignment: schemas/artifact-profile.schema.json
+              primary_review_checklists:
+                - checklists/artifact-package-readiness-checklist.yaml
+            - id: package_inventory_template
+              path: templates/package-inventory-template.yaml
+              target_output: package-inventory.yaml
+              required_status: draft
+              schema_alignment: schemas/package-inventory.schema.json
+              primary_review_checklists:
+                - checklists/artifact-package-readiness-checklist.yaml
+            - id: conformance_declaration_template
+              path: templates/conformance-declaration-template.yaml
+              target_output: conformance-declaration.yaml
+              required_status: draft
+              schema_alignment: schemas/conformance-declaration.schema.json
+              primary_review_checklists:
+                - checklists/artifact-package-readiness-checklist.yaml
+        - id: lifecycle_and_planning_templates
+          label: Lifecycle and Planning Templates
+          purpose: Support problem framing, objectives, solution grounding, design rationale, and artifact specification.
+          templates:
+            - id: dsr_project_charter_template
+              path: templates/dsr-project-charter-template.md
+              target_output_pattern: records/design-decisions or docs/project-charter
+              required_status: draft
+              schema_alignment: not_yet_mapped
+              primary_review_checklists:
+                - checklists/dsr-minimum-viable-study-checklist.yaml
+            - id: problem_and_objectives_template
+              path: templates/problem-and-objectives-template.md
+              target_output_pattern: records/design-decisions or docs/problem-and-objectives
+              required_status: draft
+              schema_alignment: not_yet_mapped
+              primary_review_checklists:
+                - checklists/dsr-minimum-viable-study-checklist.yaml
+                - checklists/evaluation-readiness-checklist.yaml
+            - id: solution_space_record_template
+              path: templates/solution-space-record-template.yaml
+              target_output_pattern: records/source-basis/record-solution-space-*.yaml
+              required_status: draft
+              schema_alignment: not_yet_mapped
+              primary_review_checklists:
+                - checklists/dsr-minimum-viable-study-checklist.yaml
+            - id: design_rationale_template
+              path: templates/design-rationale-template.md
+              target_output_pattern: records/design-decisions/record-design-rationale-*.md
+              required_status: draft
+              schema_alignment: not_applicable_markdown
+              primary_review_checklists:
+                - checklists/dsr-transparency-crosswalk-checklist.yaml
+            - id: artifact_specification_template
+              path: templates/artifact-specification-template.md
+              target_output_pattern: docs/artifact-specification or records/design-decisions
+              required_status: draft
+              schema_alignment: schemas/dsr-artifact.schema.json
+              primary_review_checklists:
+                - checklists/artifact-package-readiness-checklist.yaml
+        - id: transparency_and_build_templates
+          label: Transparency and Build Templates
+          purpose: Capture build-process, demonstration, transparency, and contribution evidence.
+          templates:
+            - id: build_transparency_record_template
+              path: templates/build-transparency-record-template.yaml
+              target_output_pattern: records/dsr-transparency/record-build-transparency-*.yaml
+              required_status: draft
+              schema_alignment: not_yet_mapped
+              primary_review_checklists:
+                - checklists/dsr-transparency-crosswalk-checklist.yaml
+            - id: demonstration_record_template
+              path: templates/demonstration-record-template.yaml
+              target_output_pattern: records/evaluations/record-demonstration-*.yaml
+              required_status: draft
+              schema_alignment: not_yet_mapped
+              primary_review_checklists:
+                - checklists/evaluation-readiness-checklist.yaml
+            - id: transparency_crosswalk_template
+              path: templates/dsr-transparency-crosswalk-template.yaml
+              target_output_pattern: records/dsr-transparency/record-dsr-transparency-crosswalk-*.yaml
+              required_status: draft
+              schema_alignment: schemas/dsr-transparency-crosswalk.schema.json
+              primary_review_checklists:
+                - checklists/dsr-transparency-crosswalk-checklist.yaml
+        - id: evaluation_and_contribution_templates
+          label: Evaluation and Contribution Templates
+          purpose: Support planning, reporting, and positioning of evaluation and knowledge-contribution claims.
+          templates:
+            - id: evaluation_plan_template
+              path: templates/evaluation-plan-template.yaml
+              target_output_pattern: records/evaluations/record-evaluation-plan-*.yaml
+              required_status: draft
+              schema_alignment: schemas/dsr-evaluation-plan.schema.json
+              primary_review_checklists:
+                - checklists/evaluation-readiness-checklist.yaml
+            - id: evaluation_report_template
+              path: templates/evaluation-report-template.yaml
+              target_output_pattern: records/evaluations/record-evaluation-report-*.yaml
+              required_status: draft
+              schema_alignment: schemas/dsr-evaluation-report.schema.json
+              primary_review_checklists:
+                - checklists/evaluation-readiness-checklist.yaml
+                - checklists/artifact-package-readiness-checklist.yaml
+            - id: contribution_claim_template
+              path: templates/contribution-claim-template.yaml
+              target_output_pattern: records/contributions/record-contribution-claim-*.yaml
+              required_status: draft
+              schema_alignment: schemas/dsr-contribution-claim.schema.json
+              primary_review_checklists:
+                - checklists/contribution-positioning-checklist.yaml
+            - id: contribution_positioning_record_template
+              path: templates/contribution-positioning-record-template.yaml
+              target_output_pattern: records/contributions/record-contribution-positioning-*.yaml
+              required_status: draft
+              schema_alignment: not_yet_mapped
+              primary_review_checklists:
+                - checklists/contribution-positioning-checklist.yaml
+        - id: review_templates
+          label: Review Templates
+          purpose: Preserve review actions, evidence, outcomes, and remediation notes.
+          templates:
+            - id: review_record_template
+              path: templates/review-record-template.yaml
+              target_output_pattern: records/reviews/record-review-*.yaml
+              required_status: draft
+              schema_alignment: not_yet_mapped
+              primary_review_checklists:
+                - checklists/artifact-package-readiness-checklist.yaml
+                - checklists/publication-readiness-checklist.yaml
+      checklist_classes:
+        - id: identity_checklists
+          label: DSR Identity Checklists
+          purpose: Determine whether a project minimally qualifies as a DSR study or DSR artifact package.
+          checklists:
+            - id: dsr_minimum_viable_study_checklist
+              path: checklists/dsr-minimum-viable-study-checklist.yaml
+              decision_focus:
+                - problem_relevance
+                - artifact_presence
+                - build_evaluate_logic
+                - contribution_intent
+                - transparency_minimum
+        - id: package_checklists
+          label: Package Readiness Checklists
+          purpose: Determine whether the repository package contains required files, records, evidence, and review traces.
+          checklists:
+            - id: artifact_package_readiness_checklist
+              path: checklists/artifact-package-readiness-checklist.yaml
+              decision_focus:
+                - required_file_presence
+                - metadata_completeness
+                - evidence_records
+                - schema_alignment
+                - release_blockers
+        - id: transparency_checklists
+          label: Transparency Checklists
+          purpose: Review six-dimension DSR transparency coverage.
+          checklists:
+            - id: dsr_transparency_crosswalk_checklist
+              path: checklists/dsr-transparency-crosswalk-checklist.yaml
+              decision_focus:
+                - process_transparency
+                - problem_space_transparency
+                - solution_space_transparency
+                - build_transparency
+                - evaluation_transparency
+                - contribution_transparency
+        - id: evaluation_checklists
+          label: Evaluation Readiness Checklists
+          purpose: Determine whether evaluation claims, methods, data, criteria, and limitations are sufficiently specified.
+          checklists:
+            - id: evaluation_readiness_checklist
+              path: checklists/evaluation-readiness-checklist.yaml
+              decision_focus:
+                - evaluation_question_alignment
+                - method_selection
+                - acceptance_criteria
+                - demonstration_evaluation_distinction
+                - evidence_limitations
+        - id: contribution_checklists
+          label: Contribution Positioning Checklists
+          purpose: Review contribution type, knowledge goal, knowledge scope, and boundary conditions.
+          checklists:
+            - id: contribution_positioning_checklist
+              path: checklists/contribution-positioning-checklist.yaml
+              decision_focus:
+                - artifact_type
+                - contribution_type
+                - knowledge_goal
+                - knowledge_scope
+                - practice_and_science_balance
+        - id: quality_and_transfer_checklists
+          label: Quality and Transfer Checklists
+          purpose: Review reliability, replication, projectability, and publication readiness.
+          checklists:
+            - id: reliability_checklist
+              path: checklists/reliability-checklist.yaml
+              decision_focus:
+                - method_reliability
+                - artifact_reliability
+                - evaluator_reliability
+                - implementation_reliability
+            - id: replication_projectability_checklist
+              path: checklists/replication-projectability-checklist.yaml
+              decision_focus:
+                - context_description
+                - boundary_conditions
+                - adaptation_requirements
+                - reuse_constraints
+            - id: publication_readiness_checklist
+              path: checklists/publication-readiness-checklist.yaml
+              decision_focus:
+                - citation_metadata
+                - release_records
+                - archival_readiness
+                - limitations_and_non_goals
+                - package_review_status
+      minimum_field_profiles:
+        template_profile:
+          required:
+            - template_id
+            - title
+            - purpose
+            - target_information_item
+            - output_format
+            - status
+            - version
+            - owner
+            - source_basis
+            - related_items
+            - placeholder_policy
+            - validation_expectations
+            - change_history
+          recommended:
+            - examples
+            - tailoring_notes
+            - quality_gate_mapping
+            - schema_alignment
+            - downstream_checklists
+        checklist_profile:
+          required:
+            - checklist_id
+            - title
+            - purpose
+            - status
+            - version
+            - owner
+            - scope
+            - items
+            - decision_rule
+            - source_basis
+            - related_items
+            - change_history
+          recommended:
+            - severity_scale
+            - scoring_summary
+            - failure_modes
+            - remediation_workflow
+            - retained_record_guidance
+        checklist_item_profile:
+          required:
+            - check_id
+            - question
+            - evidence_required
+            - pass_condition
+            - fail_condition
+            - remediation_guidance
+          recommended:
+            - severity
+            - related_requirements
+            - related_templates
+            - quality_gate_mapping
+            - transparency_dimension
+            - evidence_status
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: Define how templates and checklists are created, reviewed, used, and maintained.
+    content:
+      operating_workflow:
+        - step_id: wf_001_identify_need
+          name: Identify operating-material need
+          actor: maintainer
+          inputs:
+            - upstream_specification
+            - model_or_vocabulary
+            - user_workflow_gap
+            - review_or_release_need
+          outputs:
+            - operating_material_request
+          acceptance_criteria:
+            - Need is tied to a framework product, model, schema, record, or checklist gap.
+            - Scope states whether the output is a template, checklist, example, or supporting instruction.
+        - step_id: wf_002_classify_material
+          name: Classify material type and target output
+          actor: maintainer
+          inputs:
+            - operating_material_request
+            - information_item_architecture
+          outputs:
+            - material_classification
+          acceptance_criteria:
+            - Target repository path follows naming and directory rules.
+            - Target information item and output format are explicit.
+        - step_id: wf_003_author_draft
+          name: Author draft material
+          actor: author
+          inputs:
+            - product_spec
+            - source_basis
+            - related_schemas
+            - related_vocabularies
+          outputs:
+            - draft_template_or_checklist
+          acceptance_criteria:
+            - Required metadata is present.
+            - Required fields or checklist item structures are present.
+            - TODO placeholders are specific and justified.
+        - step_id: wf_004_map_traceability
+          name: Map traceability and evidence
+          actor: author
+          inputs:
+            - draft_template_or_checklist
+            - governing_requirements
+            - source_basis
+            - quality_gates
+          outputs:
+            - traceability_map
+          acceptance_criteria:
+            - Each major section or checklist item maps to at least one requirement, source family, schema, or quality gate.
+            - Unmapped evidence is marked not_yet_mapped.
+        - step_id: wf_005_review_material
+          name: Review material
+          actor: reviewer
+          inputs:
+            - draft_template_or_checklist
+            - relevant_checklist
+            - quality_gates
+          outputs:
+            - review_record
+          acceptance_criteria:
+            - Review outcome is pass, pass_with_notes, fail, not_applicable, or not_reviewed.
+            - Review findings include remediation guidance for failed or partial items.
+        - step_id: wf_006_publish_or_hold
+          name: Publish, revise, or hold
+          actor: maintainer
+          inputs:
+            - review_record
+            - draft_template_or_checklist
+          outputs:
+            - approved_or_revised_material
+          acceptance_criteria:
+            - Approved material is included in package inventory.
+            - Failed material is revised or explicitly held out of release scope.
+        - step_id: wf_007_use_material
+          name: Use template or checklist in a DSR project
+          actor: researcher_or_reviewer
+          inputs:
+            - approved_template_or_checklist
+            - project_information
+            - package_context
+          outputs:
+            - completed_information_item
+            - completed_review_record
+          acceptance_criteria:
+            - Completed output preserves identifiers, version references, source basis, and tailoring notes.
+            - Checklist outputs retain evidence and remediation notes.
+        - step_id: wf_008_maintain_material
+          name: Maintain and version material
+          actor: maintainer
+          inputs:
+            - user_feedback
+            - review_findings
+            - changed_upstream_specification
+            - changed_schema_or_vocabulary
+          outputs:
+            - updated_version
+            - change_history_entry
+          acceptance_criteria:
+            - Version changes are recorded.
+            - Breaking changes are noted.
+            - Superseded materials remain traceable.
+      review_workflow:
+        required_review_modes:
+          - self_review
+          - maintainer_review
+        optional_review_modes:
+          - domain_expert_review
+          - usability_walkthrough
+          - schema_validation
+          - pilot_project_use
+        retained_records:
+          - records/reviews/record-review-*.yaml
+          - records/decisions/record-decision-*.yaml
+          - records/tailoring/record-tailoring-*.yaml
+      versioning_policy:
+        version_format: semantic_versioning_like
+        patch_change: Typographic fixes, wording clarification, or nonbreaking metadata correction.
+        minor_change: New optional fields, new checklist items, or nonbreaking template extensions.
+        major_change: Required field changes, decision-rule changes, removed fields, renamed identifiers, or incompatible schema changes.
+      deprecation_policy:
+        requirement: >
+          Deprecated operating materials must remain discoverable until all
+          released package versions that reference them are either archived or
+          updated with replacement paths.
+        required_fields:
+          - deprecated_date
+          - replacement_material
+          - reason
+          - migration_guidance
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: Define review gates, acceptance criteria, validation rules, and failure modes.
+    content:
+      conformance_level:
+        level: l2_reviewable
+        meaning: >
+          The product specification is sufficiently structured for human review,
+          repository placement, and downstream template/checklist generation, but
+          does not assert executable validation or empirical usability evidence.
+      acceptance_criteria:
+        - id: ac_001_repository_fit
+          criterion: Repository fit
+          pass_condition: All governed outputs map to canonical templates/ or checklists/ paths.
+          evidence_required:
+            - target_path
+            - naming_rule_match
+            - package_inventory_entry
+        - id: ac_002_information_item_control
+          criterion: Information item control
+          pass_condition: Templates and checklists include identifiers, status, version, owner, source_basis, related_items, and change_history.
+          evidence_required:
+            - metadata_block
+            - source_basis_block
+            - change_history_entry
+        - id: ac_003_checklist_reviewability
+          criterion: Checklist reviewability
+          pass_condition: Checklist items include explicit evidence, pass/fail conditions, and remediation guidance.
+          evidence_required:
+            - checklist_items
+            - review_decision_rule
+        - id: ac_004_template_usability
+          criterion: Template usability
+          pass_condition: A researcher can complete the template without hidden framework assumptions.
+          evidence_required:
+            - required_fields
+            - guidance_comments
+            - TODO_placeholder_explanations
+        - id: ac_005_traceability
+          criterion: Traceability
+          pass_condition: Major fields and checklist items map to source basis, upstream products, quality gates, transparency dimensions, schemas, or vocabularies.
+          evidence_required:
+            - traceability_block
+            - related_items
+        - id: ac_006_dsr_distinctions
+          criterion: DSR distinction preservation
+          pass_condition: Materials distinguish demonstration from evaluation, artifact utility from quality, and contribution to knowledge from local implementation success.
+          evidence_required:
+            - field_labels
+            - checklist_questions
+            - contribution_claim_controls
+        - id: ac_007_proportionate_transparency
+          criterion: Proportionate transparency
+          pass_condition: Materials support DSR transparency without imposing excessive or unsafe disclosure requirements.
+          evidence_required:
+            - transparency_mapping
+            - confidentiality_or_risk_exceptions
+            - not_applicable_rationale
+      validation_rules:
+        - id: vr_001_yaml_parseable
+          rule: YAML operating materials must parse as valid YAML unless intentionally Markdown.
+          validation_method: yaml_parser
+          applies_to:
+            - templates/*.yaml
+            - checklists/*.yaml
+            - specs/product-dsr-templates-and-checklists.yaml
+        - id: vr_002_identifier_style
+          rule: IDs must use lower_snake_case.
+          validation_method: regex
+          pattern: "^[a-z][a-z0-9_]*$"
+        - id: vr_003_file_naming
+          rule: File names must use lower-kebab-case and the declared extension.
+          validation_method: regex
+          pattern: "^[a-z0-9]+(-[a-z0-9]+)*\\.(yaml|md|schema\\.json)$"
+        - id: vr_004_required_metadata
+          rule: Required metadata fields must be present.
+          validation_method: structural_review
+          fields:
+            - status
+            - version
+            - owner
+            - source_basis
+            - related_items
+            - change_history
+        - id: vr_005_checklist_item_shape
+          rule: Every checklist item must have minimum checklist item fields.
+          validation_method: structural_review
+          fields:
+            - check_id
+            - question
+            - evidence_required
+            - pass_condition
+            - fail_condition
+            - remediation_guidance
+        - id: vr_006_no_unexplained_placeholders
+          rule: TODO placeholders must identify the specific input needed.
+          validation_method: text_review
+          forbidden_patterns:
+            - "TODO"
+            - "TBD"
+          allowed_when: placeholder_policy explains required project-specific input.
+      failure_modes:
+        - id: fm_001_template_becomes_form_without_traceability
+          description: Template fields exist but do not trace to requirements, schemas, or quality gates.
+          consequence: Reviewers cannot determine why fields are required.
+          remediation: Add traceability references and source_basis entries.
+        - id: fm_002_checklist_becomes_vague_advice
+          description: Checklist items ask broad questions without explicit evidence or pass/fail rules.
+          consequence: Review outcomes become inconsistent and non-repeatable.
+          remediation: Split broad questions into atomic review items and add evidence requirements.
+        - id: fm_003_transparency_overreach
+          description: Checklist demands disclosure beyond what is safe, ethical, or proportionate.
+          consequence: Users may expose proprietary, private, or security-sensitive information.
+          remediation: Add exception handling, redaction rules, and not_applicable rationale fields.
+        - id: fm_004_conformance_overclaim
+          description: Passing a checklist is interpreted as empirical validation, publication acceptance, or reproducibility proof.
+          consequence: Framework users overstate evidence and maturity.
+          remediation: Add claim limitation text and separate documentation conformance from empirical evidence.
+        - id: fm_005_template_schema_drift
+          description: Template fields diverge from schemas or controlled vocabularies.
+          consequence: Completed records fail validation or become semantically inconsistent.
+          remediation: Update schemas, templates, and vocabularies together through change control.
+      quality_gate_mapping:
+        - quality_gate_id: qg_consistency
+          supported_by:
+            - file_naming_rules
+            - controlled_metadata_fields
+            - package_inventory_alignment
+          status: pass_expected
+        - quality_gate_id: qg_coherence
+          supported_by:
+            - dependencies
+            - related_items
+            - traceability
+          status: pass_expected
+        - quality_gate_id: qg_cogency
+          supported_by:
+            - operating_workflow
+            - acceptance_criteria
+            - validation_rules
+            - failure_modes
+          status: pass_expected
+        - quality_gate_id: qg_correspondence
+          supported_by:
+            - identity_and_purpose
+            - information_items
+            - conformance_level
+          status: pass_expected
+        - quality_gate_id: qg_dsr_transparency
+          supported_by:
+            - transparency_mapping
+            - hevner_et_al_2024_source_basis
+          status: pass_expected
+        - quality_gate_id: qg_reviewability
+          supported_by:
+            - checklist_item_profile
+            - acceptance_criteria
+            - review_workflow
+          status: pass_expected
+
+  - id: traceability
+    title: Traceability
+    purpose: Link this specification to upstream requirements, DSR evidence, and downstream operating materials.
+    content:
+      trace_links:
+        - trace_id: tr_templates_checklists_selection
+          source: user_selected_portion
+          target: product_dsr_templates_and_checklists
+          relationship: defines_generation_target
+          evidence_status: mapped
+        - trace_id: tr_templates_checklists_product_spec_shape
+          source: dsr_framework_generation_prompt
+          target: sections
+          relationship: requires_product_spec_sections
+          evidence_status: mapped
+        - trace_id: tr_templates_checklists_repository_rules
+          source: dsr_framework_generation_spec
+          target: dependencies.downstream
+          relationship: governs_paths_and_file_types
+          evidence_status: mapped
+        - trace_id: tr_templates_checklists_information_item_rules
+          source: product_dsr_information_item_architecture
+          target: sections.information_items
+          relationship: governs_template_and_checklist_item_fields
+          evidence_status: not_yet_mapped
+        - trace_id: tr_templates_checklists_transparency
+          source: hevner_et_al_2024_transparency_in_design_science_research
+          target: sections.conceptual_model.content.transparency_mapping
+          relationship: informs_transparency_dimensions_and_documentation_guidance
+          evidence_status: mapped_to_citation_anchors
+          citation_anchor_ids:
+            - CA01
+            - CA06
+            - CA14
+            - CA16
+            - CA17
+        - trace_id: tr_templates_checklists_contribution_guidance
+          source: akoka_et_al_2023_knowledge_contributions_in_dsr
+          target: checklist_contribution_positioning
+          relationship: informs_contribution_path_and_guideline_review
+          evidence_status: mapped_to_citation_anchors
+          citation_anchor_ids:
+            - A07
+            - A10
+            - A13
+        - trace_id: tr_templates_checklists_quality_review
+          source: product_dsr_quality_conformance_and_review_model
+          target: sections.quality_and_conformance
+          relationship: informs_reviewability_and_quality_gate_controls
+          evidence_status: not_yet_mapped
+        - trace_id: tr_templates_checklists_package_readiness
+          source: product_dsr_artifact_package_specification
+          target: checklist_package_readiness
+          relationship: informs_package_readiness_evidence
+          evidence_status: not_yet_mapped
+      coverage_matrix:
+        - concern: DSR minimum identity
+          primary_templates:
+            - template_project_charter
+            - template_problem_objectives
+            - template_artifact_specification
+          primary_checklists:
+            - checklist_minimum_dsr
+          upstream_dependencies:
+            - product_dsr_lifecycle_and_contribution_model
+        - concern: Artifact package readiness
+          primary_templates:
+            - template_artifact_profile
+            - template_package_inventory
+            - template_conformance_declaration
+            - template_review_record
+          primary_checklists:
+            - checklist_package_readiness
+          upstream_dependencies:
+            - product_dsr_artifact_package_specification
+            - product_dsr_repository_architecture
+        - concern: Transparency
+          primary_templates:
+            - template_build_transparency
+            - template_transparency_crosswalk
+            - template_design_rationale
+          primary_checklists:
+            - checklist_transparency
+          upstream_dependencies:
+            - model_transparency
+            - vocab_transparency_dimensions
+        - concern: Evaluation readiness
+          primary_templates:
+            - template_evaluation_plan
+            - template_demonstration_record
+            - template_evaluation_report
+          primary_checklists:
+            - checklist_evaluation_readiness
+          upstream_dependencies:
+            - model_evaluation_alignment
+            - vocab_evaluation_methods
+        - concern: Contribution positioning
+          primary_templates:
+            - template_contribution_claim
+            - template_contribution_positioning
+          primary_checklists:
+            - checklist_contribution_positioning
+          upstream_dependencies:
+            - model_contribution
+            - vocab_contribution_types
+            - vocab_knowledge_goals
+            - vocab_knowledge_scopes
+        - concern: Reliability and projectability
+          primary_templates:
+            - template_evaluation_plan
+            - template_evaluation_report
+            - template_artifact_specification
+          primary_checklists:
+            - checklist_reliability
+            - checklist_projectability
+          upstream_dependencies:
+            - model_reliability
+            - model_projectability
+        - concern: Publication readiness
+          primary_templates:
+            - template_review_record
+            - template_package_inventory
+            - template_conformance_declaration
+          primary_checklists:
+            - checklist_publication_readiness
+          upstream_dependencies:
+            - model_publication_readiness
+            - product_dsr_publication_and_registry_model
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: Provide operational guidance for authors, maintainers, reviewers, and adopters.
+    content:
+      authoring_guidance:
+        - id: ig_001_start_from_information_item
+          guidance: >
+            Start every template from the information item or record it is meant
+            to produce, not from a generic document outline.
+        - id: ig_002_use_controlled_fields
+          guidance: >
+            Use controlled field names and values wherever validation, comparison,
+            or package inventory alignment matters.
+        - id: ig_003_keep_questions_atomic
+          guidance: >
+            Write checklist items so that a reviewer can answer each one with a
+            single pass, fail, not_applicable, or not_reviewed outcome.
+        - id: ig_004_embed_traceability
+          guidance: >
+            Include related_requirements, source_basis, or quality_gate_mapping
+            close to the field or checklist item it supports.
+        - id: ig_005_mark_unknowns_explicitly
+          guidance: >
+            Use evidence_status: not_yet_mapped, not_applicable with rationale,
+            or TODO with a specific requested input instead of vague blanks.
+        - id: ig_006_preserve_proportionate_transparency
+          guidance: >
+            Include redaction, summarization, or restricted-disclosure options
+            where full transparency would create confidentiality, privacy,
+            security, intellectual-property, or maintenance risks.
+      reviewer_guidance:
+        - id: rg_001_review_against_declared_conformance
+          guidance: >
+            Evaluate templates and checklists against their declared conformance
+            target. Do not apply L4 or L5 expectations to L2 material unless the
+            checklist is explicitly scoped for publication readiness.
+        - id: rg_002_check_evidence_before_claims
+          guidance: >
+            Confirm that evidence fields support the claims they are attached to,
+            especially evaluation, reliability, projectability, and publication
+            readiness claims.
+        - id: rg_003_record_remediation
+          guidance: >
+            Failed checklist items should produce actionable remediation guidance,
+            not only a negative judgment.
+        - id: rg_004_separate_documentation_quality_from_artifact_success
+          guidance: >
+            Passing a template or checklist review means the documentation is
+            reviewable; it does not by itself establish artifact effectiveness.
+      maintainer_guidance:
+        - id: mg_001_coordinate_updates
+          guidance: >
+            Update templates, checklists, schemas, vocabularies, and package
+            inventory together when field names, identifiers, or required
+            evidence change.
+        - id: mg_002_preserve_backwards_traceability
+          guidance: >
+            When a material is superseded, keep its identifier and version history
+            available for prior package releases.
+        - id: mg_003_flag_breaking_changes
+          guidance: >
+            Treat required field changes, checklist decision-rule changes, and
+            identifier renames as breaking changes.
+        - id: mg_004_pilot_before_higher_conformance
+          guidance: >
+            Before claiming L3 or higher for operating materials, pilot them on at
+            least one example package or completed DSR project record.
+      adopter_guidance:
+        - id: ag_001_retain_source_attribution
+          guidance: >
+            When adapting templates or checklists locally, preserve original
+            source_basis, version, license, and change_history fields.
+        - id: ag_002_record_tailoring
+          guidance: >
+            Tailor fields only with explicit tailoring_notes or not_applicable
+            rationale so that reviewers can distinguish local adaptation from
+            omission.
+        - id: ag_003_do_not_upgrade_claims_without_evidence
+          guidance: >
+            Do not re-label L2 templates as L4 reusable or L5 archival ready
+            without supplying validation, release, preservation, and publication
+            evidence.
+      recommended_authoring_order:
+        - template_artifact_profile
+        - template_package_inventory
+        - template_conformance_declaration
+        - template_project_charter
+        - template_problem_objectives
+        - template_solution_space
+        - template_artifact_specification
+        - template_design_rationale
+        - template_build_transparency
+        - template_demonstration_record
+        - template_evaluation_plan
+        - template_evaluation_report
+        - template_contribution_claim
+        - template_contribution_positioning
+        - template_transparency_crosswalk
+        - template_review_record
+        - checklist_minimum_dsr
+        - checklist_evaluation_readiness
+        - checklist_contribution_positioning
+        - checklist_transparency
+        - checklist_reliability
+        - checklist_projectability
+        - checklist_package_readiness
+        - checklist_publication_readiness
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: Identify downstream effects for templates, checklists, schemas, and validation tooling.
+    content:
+      template_implications:
+        - id: tsi_001_template_metadata_block
+          implication: >
+            Every YAML template should begin with a metadata block containing
+            template_id, title, status, version, owner, source_basis,
+            related_items, and change_history.
+          affected_outputs:
+            - templates/*.yaml
+        - id: tsi_002_markdown_front_matter
+          implication: >
+            Markdown templates should include YAML front matter where practical
+            so that metadata remains machine-readable.
+          affected_outputs:
+            - templates/*.md
+        - id: tsi_003_placeholder_policy
+          implication: >
+            Templates should include a short placeholder_policy section that
+            explains TODO, TBD, and not_applicable conventions.
+          affected_outputs:
+            - templates/*.yaml
+            - templates/*.md
+        - id: tsi_004_traceability_fields
+          implication: >
+            Templates that produce records should include related_items,
+            source_basis, evidence, and retention_rule fields when applicable.
+          affected_outputs:
+            - templates/*record-template.yaml
+            - templates/*template.yaml
+      checklist_implications:
+        - id: csi_001_item_shape
+          implication: >
+            Every checklist item should use the same minimum shape so checklist
+            outputs can be compared and transformed into review records.
+          affected_outputs:
+            - checklists/*.yaml
+        - id: csi_002_decision_rule
+          implication: >
+            Each checklist should state how individual check outcomes roll up
+            into an overall review outcome.
+          affected_outputs:
+            - checklists/*.yaml
+        - id: csi_003_evidence_to_template_mapping
+          implication: >
+            Checklist evidence_required values should reference the templates or
+            records that normally produce the evidence.
+          affected_outputs:
+            - checklists/*.yaml
+      schema_implications:
+        - id: ssi_001_schema_generation_needed
+          implication: >
+            YAML templates that are intended for validation should have a
+            corresponding JSON Schema or an explicit not_yet_mapped schema status.
+          affected_outputs:
+            - schemas/*.schema.json
+            - templates/*.yaml
+        - id: ssi_002_schema_enums_from_vocabularies
+          implication: >
+            Schemas should use controlled vocabularies for artifact types,
+            contribution types, lifecycle stages, transparency dimensions,
+            validity types, reliability types, replication types, and
+            projectability types where stable.
+          affected_outputs:
+            - schemas/*.schema.json
+            - vocabularies/*.yaml
+        - id: ssi_003_review_record_schema
+          implication: >
+            A future review-record schema should validate retained checklist
+            outcomes, remediation notes, evidence links, reviewer identity or
+            role, date, and retention rule.
+          affected_outputs:
+            - schemas/review-record.schema.json
+            - templates/review-record-template.yaml
+      automation_implications:
+        - id: asi_001_linting
+          implication: >
+            Automation can lint identifiers, file names, required metadata,
+            checklist item shape, YAML parseability, and unresolved TODO counts.
+          affected_outputs:
+            - specs/product-dsr-automation-and-validation-model.yaml
+        - id: asi_002_traceability_validation
+          implication: >
+            Automation can check whether checklist items have related_requirements
+            and whether templates reference at least one governing product spec.
+          affected_outputs:
+            - specs/product-dsr-automation-and-validation-model.yaml
+        - id: asi_003_inventory_alignment
+          implication: >
+            Automation can compare generated template and checklist paths with
+            package-inventory.yaml.
+          affected_outputs:
+            - package-inventory.yaml
+            - specs/product-dsr-automation-and-validation-model.yaml
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: Preserve unresolved design questions and next actions.
+    content:
+      assumptions:
+        - id: asm_001_l2_scope
+          statement: >
+            This specification is scoped to L2 reviewable operating materials;
+            it does not require executable validators or empirical usability
+            studies for every template and checklist.
+        - id: asm_002_information_item_architecture_pending
+          statement: >
+            The upstream information item architecture is treated as the
+            governing dependency, but exact field profiles may need adjustment
+            after that specification is finalized.
+        - id: asm_003_markdown_templates_allowed
+          statement: >
+            Markdown templates are permitted for human-facing planning and
+            rationale documents when they identify related controlled YAML files.
+      open_questions:
+        - id: oq_001_required_vs_optional_templates
+          question: Which templates are required for minimum package readiness, and which are optional by DSR project type?
+          disposition: defer_to_artifact_package_spec_and_quality_model
+        - id: oq_002_schema_coverage_sequence
+          question: Which templates should receive JSON Schema coverage first?
+          disposition: prioritize_root_control_evaluation_contribution_and_transparency_records
+        - id: oq_003_checklist_scoring
+          question: Should checklists use binary pass/fail only, or support severity-weighted scoring?
+          disposition: defer_until_quality_review_model_is_stabilized
+        - id: oq_004_publication_readiness_threshold
+          question: What threshold differentiates package readiness from publication readiness?
+          disposition: defer_to_publication_registry_and_quality_review_specs
+        - id: oq_005_template_examples
+          question: Should each template include a minimal example, a full example, or no embedded examples?
+          disposition: defer_until_examples_directory_policy_is_finalized
+      backlog:
+        - id: bl_001_generate_root_templates
+          task: Generate root control templates for artifact profile, package inventory, and conformance declaration.
+          priority: high
+          status: open
+        - id: bl_002_generate_core_dsr_templates
+          task: Generate project charter, problem/objectives, solution-space, design-rationale, artifact-specification, and build-transparency templates.
+          priority: high
+          status: open
+        - id: bl_003_generate_evaluation_and_contribution_templates
+          task: Generate evaluation plan, evaluation report, demonstration record, contribution claim, and contribution positioning templates.
+          priority: high
+          status: open
+        - id: bl_004_generate_transparency_and_review_templates
+          task: Generate transparency crosswalk and review record templates.
+          priority: medium
+          status: open
+        - id: bl_005_generate_checklists
+          task: Generate minimum DSR, package readiness, transparency, evaluation readiness, contribution positioning, reliability, projectability, and publication readiness checklists.
+          priority: high
+          status: open
+        - id: bl_006_create_schema_alignment_map
+          task: Create or update schema mappings for all YAML templates and review records.
+          priority: medium
+          status: open
+        - id: bl_007_pilot_on_example_package
+          task: Apply templates and checklists to one example DSR artifact package and record usability findings.
+          priority: medium
+          status: open
+
+quality_gates:
+  - id: qg_consistency
+    status: pass_expected
+    evidence:
+      - target_path follows specs/product-<product-id>.yaml pattern.
+      - downstream templates and checklists use canonical directories.
+      - stable identifiers use lower_snake_case.
+  - id: qg_coherence
+    status: pass_expected
+    evidence:
+      - dependencies identify information item architecture and related quality, package, metadata, lifecycle, and publication products.
+      - downstream templates and checklists map to related upstream models and schemas.
+  - id: qg_cogency
+    status: pass_expected
+    evidence:
+      - workflow, acceptance criteria, validation rules, and failure modes are explicit.
+      - reviewer and maintainer procedures are defined.
+  - id: qg_correspondence
+    status: pass_expected
+    evidence:
+      - scope corresponds to operating material specification for templates and checklists.
+      - conformance level is L2 reviewable and does not overclaim higher maturity.
+  - id: qg_dsr_transparency
+    status: pass_expected
+    evidence:
+      - transparency mapping covers process, problem-space, solution-space, build, evaluation, and contribution transparency.
+      - source basis includes DSR transparency guidance.
+  - id: qg_reviewability
+    status: pass_expected
+    evidence:
+      - checklist item profile, decision logic, evidence requirements, and remediation guidance are specified.
+
+traceability:
+  - trace_id: product_trace_001
+    from: spec_templates_checklists
+    to: specs/product-dsr-templates-and-checklists.yaml
+    relationship: generated_selected_file
+    evidence_status: mapped
+  - trace_id: product_trace_002
+    from: product_dsr_information_item_architecture
+    to: product_dsr_templates_and_checklists
+    relationship: upstream_dependency
+    evidence_status: not_yet_mapped
+  - trace_id: product_trace_003
+    from: hevner_et_al_2024_transparency_in_design_science_research
+    to: transparency_mapping
+    relationship: scholarly_basis
+    evidence_status: mapped_to_citation_anchors
+  - trace_id: product_trace_004
+    from: akoka_et_al_2023_knowledge_contributions_in_dsr
+    to: contribution_positioning_and_guideline_materials
+    relationship: scholarly_basis
+    evidence_status: mapped_to_citation_anchors
+  - trace_id: product_trace_005
+    from: dsr_framework_generation_spec
+    to: product_spec_structure_and_quality_gates
+    relationship: governing_specification
+    evidence_status: mapped
+
+open_questions:
+  - id: oq_templates_checklists_001
+    question: Which checklist outcomes should be treated as release blockers versus advisory findings?
+    proposed_resolution_path: Resolve in product-dsr-quality-conformance-and-review-model.yaml and artifact-package-readiness-checklist.yaml.
+  - id: oq_templates_checklists_002
+    question: Should Markdown templates be paired with YAML metadata sidecars or embedded YAML front matter?
+    proposed_resolution_path: Resolve in repository architecture and schema validation model.
+  - id: oq_templates_checklists_003
+    question: Which operating materials must be included in the first public GitHub release?
+    proposed_resolution_path: Resolve through package inventory, implementation roadmap, and release record.
+  - id: oq_templates_checklists_004
+    question: Which checklist fields should support machine validation at L3?
+    proposed_resolution_path: Resolve in product-dsr-automation-and-validation-model.yaml.
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    responsible_party: GPT-5.5 Thinking
+    summary: >
+      Initial L2 reviewable product specification for DSR Framework templates
+      and checklists, generated from the selected spec_templates_checklists row.

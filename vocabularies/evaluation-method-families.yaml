@@ -1,0 +1,1052 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: evaluation_method_families
+  item_id: vocab_evaluation_methods
+  item_type: vocabulary
+  title: Evaluation Method Families
+  purpose: Provide controlled terms for classifying Design Science Research evaluation method families across evaluation plans, reports, checklists, schemas, and contribution claims.
+  status: draft
+  version: "0.1.0"
+  target_path: vocabularies/evaluation-method-families.yaml
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  selection:
+    selection_id: vocab_evaluation_methods
+    portion_type: vocabulary
+    output_format: yaml
+    default_conformance: L2
+    key_dependencies:
+    - evaluation model
+  source_basis:
+  - id: dsr_framework_generation_spec
+    role: governing_generation_and_repository_conventions
+    evidence_status: mapped
+  - id: dsr_framework_generation_prompt
+    role: portion_generation_procedure_and_vocabulary_shape
+    evidence_status: mapped
+  - id: dsr_extraction_corpus
+    role: internal_corpus_of_dsr_evaluation_examples_and_extraction_fields
+    evidence_status: mapped
+  - id: feds_evaluation_framework_family
+    role: source_family_for_ex_ante_ex_post_formative_summative_artificial_naturalistic_evaluation_distinctions
+    evidence_status: source_family_mapped_from_corpus
+  - id: vom_brocke_hevner_maedche_2020_intro_dsr
+    role: canonical_dsr_summary_for_analytical_case_experiment_field_simulation_and_concurrent_evaluation_terms
+    evidence_status: mapped_from_corpus
+  - id: johannesson_perjons_2021_systems_development_method_framework
+    role: method_framework_support_for_artificial_naturalistic_and_ex_ante_ex_post_evaluation_guidance
+    evidence_status: mapped_from_corpus
+  - id: hevner_et_al_2024_transparency_in_design_science_research
+    role: evaluation_transparency_and_stakeholder_confidence_source_basis
+    evidence_status: mapped_from_corpus
+  related_items:
+    upstream:
+    - models/dsr-evaluation-alignment-model.yaml
+    - specs/product-dsr-lifecycle-and-contribution-model.yaml
+    - specs/product-dsr-quality-conformance-and-review-model.yaml
+    downstream:
+    - templates/evaluation-plan-template.yaml
+    - templates/evaluation-report-template.yaml
+    - schemas/dsr-evaluation-plan.schema.json
+    - schemas/dsr-evaluation-report.schema.json
+    - checklists/evaluation-readiness-checklist.yaml
+    - docs/protocol/08-evaluation-framework.md
+    adjacent_vocabularies:
+    - vocabularies/validity-types.yaml
+    - vocabularies/reliability-types.yaml
+    - vocabularies/replication-types.yaml
+    - vocabularies/projectability-types.yaml
+    - vocabularies/transparency-dimensions.yaml
+  scope:
+    in_scope:
+    - Families of methods used to evaluate DSR artifacts, methods, models, theories, design principles, and documentation protocols.
+    - Evaluation families that support planning, reporting, evidence classification, and review of DSR studies.
+    - Boundary distinctions among demonstration, formative evaluation, summative evaluation, artificial evaluation, and naturalistic evaluation.
+    out_of_scope:
+    - A complete statistical methods taxonomy.
+    - Domain-specific measurement instruments not reusable across DSR projects.
+    - Validity, reliability, replication, or projectability vocabularies except where needed to clarify evaluation-method boundaries.
+  classification_facets:
+    timing:
+    - id: ex_ante
+      label: Ex ante
+      definition: Evaluation conducted before full artifact deployment or use, often through review, analysis, simulation, or prototype assessment.
+    - id: ex_post
+      label: Ex post
+      definition: Evaluation conducted after artifact construction, use, deployment, or attempted application.
+    - id: formative
+      label: Formative
+      definition: Evaluation used to improve artifact design, requirements, implementation, or evaluation strategy during development.
+    - id: summative
+      label: Summative
+      definition: Evaluation used to support final or release-level judgment about artifact utility, quality, performance, or contribution.
+    - id: concurrent
+      label: Concurrent
+      definition: Evaluation that occurs alongside design, build, demonstration, or stakeholder engagement rather than only at a terminal stage.
+    - id: longitudinal
+      label: Longitudinal
+      definition: Evaluation repeated across time to assess stability, adoption, learning, maintenance, durability, or evolving context effects.
+    - id: not_evaluated
+      label: Not evaluated
+      definition: Use only when no evaluation of the artifact, method, model, or claim is reported; conceptual discussion or demonstration alone may still be documented separately.
+    setting:
+    - id: artificial
+      label: Artificial
+      definition: Evaluation in a controlled, contrived, simulated, laboratory, or otherwise non-natural setting designed to isolate selected artifact properties.
+    - id: naturalistic
+      label: Naturalistic
+      definition: Evaluation in the real or intended use context with actual or representative stakeholders, work practices, constraints, and consequences.
+    - id: literature_based
+      label: Literature based
+      definition: Evaluation using existing literature, published cases, extracted corpora, conceptual comparison, or evidence synthesis rather than new deployment data.
+    - id: hybrid_or_mixed
+      label: Hybrid or mixed
+      definition: Evaluation that combines artificial and naturalistic settings or combines multiple evidence streams and data collection modes.
+    primary_claim_supported:
+    - artifact_utility
+    - artifact_quality
+    - artifact_efficacy
+    - artifact_effectiveness
+    - artifact_usability
+    - design_knowledge_contribution
+    - methodological_plausibility
+    - stakeholder_acceptability
+    - implementation_feasibility
+    - projectability_or_transferability
+  entries:
+  - id: conceptual_argumentation
+    label: Conceptual argumentation
+    definition: Reasoned evaluation of conceptual coherence, explanatory adequacy, theoretical alignment, or methodological plausibility without new empirical artifact-use evidence.
+    allowed_use: Use for conceptual papers, framework papers, ontology papers, vocabulary papers, or model papers that justify their artifact through structured argument, comparison, or theory grounding.
+    boundary_notes: Do not code as empirical evaluation unless the source reports new observations, participants, measurements, or artifact-use data. Distinguish from literature-based evaluation when the main evidence is a corpus or systematic source set.
+    related_terms:
+    - literature_based_evidence_synthesis
+    - analytical_or_formal_evaluation
+    - prototype_demonstration
+    source_basis:
+    - dsr_extraction_corpus
+    - hevner_et_al_2024_transparency_in_design_science_research
+    typical_timing:
+    - ex_ante
+    - formative
+    - not_evaluated
+    typical_settings:
+    - literature_based
+    common_criteria:
+    - conceptual_coherence
+    - theoretical_alignment
+    - scope_clarity
+    - boundary_clarity
+    minimum_evidence_required:
+    - explicit argument structure
+    - source concepts used
+    - claims supported
+    - limitations
+    not_sufficient_for:
+    - summative effectiveness claim
+    - naturalistic utility claim
+    - statistical generalization claim
+  - id: literature_based_evidence_synthesis
+    label: Literature-based evidence synthesis
+    definition: Evaluation or justification using published studies, extracted corpora, review evidence, narrative synthesis, systematic review, mapping review, or structured article coding.
+    allowed_use: Use when the artifact, model, taxonomy, or method is assessed through prior literature, article coding, source comparison, or evidence synthesis.
+    boundary_notes: Do not treat literature synthesis as field evaluation unless the synthesized studies themselves are explicitly used as secondary evidence for context-level claims. Record synthesis protocol transparency separately where available.
+    related_terms:
+    - conceptual_argumentation
+    - case_study_evaluation
+    - traceability_audit
+    source_basis:
+    - akoka_et_al_2023
+    - dickhaut_janson_leimeister_2022_design_knowledge_representation
+    - dsr_extraction_corpus
+    typical_timing:
+    - ex_ante
+    - ex_post
+    - formative
+    - summative
+    typical_settings:
+    - literature_based
+    common_criteria:
+    - coverage
+    - classification_robustness
+    - theoretical_saturation
+    - traceability
+    - relevance
+    minimum_evidence_required:
+    - search or source-selection rationale
+    - inclusion basis
+    - coding or synthesis procedure
+    - corpus description
+    - limitations
+    not_sufficient_for:
+    - standalone proof of artifact effectiveness
+    - stakeholder acceptability claim without stakeholder data
+  - id: analytical_or_formal_evaluation
+    label: Analytical or formal evaluation
+    definition: Evaluation through logical analysis, formal proof, mathematical analysis, static analysis, requirements consistency checking, or formal model inspection.
+    allowed_use: Use when claims concern correctness, consistency, completeness, internal validity, formal soundness, or conformance of artifact structure to specified rules.
+    boundary_notes: Do not code ordinary narrative explanation as formal evaluation. Separate formal correctness from utility, usability, adoption, or field effectiveness.
+    related_terms:
+    - technical_testing_and_quality_assurance
+    - traceability_audit
+    - simulation_evaluation
+    source_basis:
+    - vom_brocke_hevner_maedche_2020_intro_dsr
+    - dsr_extraction_corpus
+    typical_timing:
+    - ex_ante
+    - formative
+    - summative
+    typical_settings:
+    - artificial
+    common_criteria:
+    - correctness
+    - consistency
+    - completeness
+    - constraint_satisfaction
+    - internal_validity
+    minimum_evidence_required:
+    - formal object or rule set
+    - analysis procedure
+    - pass/fail criteria
+    - identified exceptions
+    not_sufficient_for:
+    - use-context effectiveness
+    - stakeholder acceptance
+    - organizational impact
+  - id: technical_testing_and_quality_assurance
+    label: Technical testing and quality assurance
+    definition: Evaluation through technical tests such as unit tests, integration tests, performance tests, security tests, reliability tests, data quality checks, compatibility checks, or benchmark scripts.
+    allowed_use: Use when the artifact has executable, technical, data, software, or infrastructure components whose quality can be tested against explicit technical criteria.
+    boundary_notes: Do not treat passing technical tests as evidence of organizational effectiveness unless the test context models the real use environment and outcome criteria.
+    related_terms:
+    - analytical_or_formal_evaluation
+    - comparative_benchmarking
+    - simulation_evaluation
+    source_basis:
+    - dsr_extraction_corpus
+    - weber_et_al_evaluation_criteria_family
+    typical_timing:
+    - formative
+    - summative
+    - ex_ante
+    - ex_post
+    typical_settings:
+    - artificial
+    - hybrid_or_mixed
+    common_criteria:
+    - performance
+    - reliability
+    - security
+    - robustness
+    - interoperability
+    - data_quality
+    minimum_evidence_required:
+    - test environment
+    - test cases
+    - expected results
+    - actual results
+    - defect or risk log
+    not_sufficient_for:
+    - human usability claim
+    - business value claim
+    - naturalistic effectiveness claim
+  - id: simulation_evaluation
+    label: Simulation evaluation
+    definition: Evaluation using simulated users, simulated environments, synthetic data, computational models, or controlled scenario runs.
+    allowed_use: Use when the artifact is evaluated in a modeled or simulated setting to estimate efficacy, feasibility, robustness, scalability, or scenario response.
+    boundary_notes: Simulation supports controlled evidence but depends on model fidelity. Do not overclaim real-world effectiveness without naturalistic corroboration.
+    related_terms:
+    - technical_testing_and_quality_assurance
+    - controlled_experiment
+    - analytical_or_formal_evaluation
+    source_basis:
+    - vom_brocke_hevner_maedche_2020_intro_dsr
+    - johannesson_perjons_2021_systems_development_method_framework
+    typical_timing:
+    - ex_ante
+    - formative
+    - summative
+    typical_settings:
+    - artificial
+    common_criteria:
+    - efficacy
+    - robustness
+    - scalability
+    - scenario_coverage
+    - model_fidelity
+    minimum_evidence_required:
+    - simulation model
+    - input assumptions
+    - scenario definitions
+    - outputs
+    - sensitivity or limitation notes
+    not_sufficient_for:
+    - direct evidence of field adoption
+    - stakeholder acceptability
+    - unmodeled side-effect claim
+  - id: prototype_demonstration
+    label: Prototype demonstration
+    definition: Evaluation-adjacent use of a prototype, mock-up, scenario, walkthrough, example, or proof of concept to show artifact feasibility, operation, or illustrative utility.
+    allowed_use: Use when the source demonstrates that an artifact can be instantiated, operated, illustrated, or applied to an example problem.
+    boundary_notes: A demonstration is not automatically an evaluation. Code as evaluation only when explicit criteria, evidence, and judgment are reported; otherwise also mark demonstration_present separately.
+    related_terms:
+    - conceptual_argumentation
+    - usability_or_user_experience_evaluation
+    - expert_review
+    source_basis:
+    - dsr_extraction_corpus
+    - hevner_et_al_2024_transparency_in_design_science_research
+    typical_timing:
+    - formative
+    - ex_ante
+    - ex_post
+    typical_settings:
+    - artificial
+    - hybrid_or_mixed
+    - literature_based
+    common_criteria:
+    - feasibility
+    - operability
+    - illustrative_utility
+    - requirements_fit
+    minimum_evidence_required:
+    - prototype description
+    - demonstration scenario
+    - observed operation
+    - criteria if evaluative
+    - limitations
+    not_sufficient_for:
+    - summative utility claim without criteria
+    - naturalistic effectiveness claim
+    - generalization claim
+  - id: expert_review
+    label: Expert review
+    definition: Evaluation through structured judgment by subject-matter experts, design researchers, technical reviewers, domain experts, or review panels.
+    allowed_use: Use when expert judgment is used to assess relevance, completeness, feasibility, quality, plausibility, novelty, ethical acceptability, or readiness.
+    boundary_notes: Distinguish expert review from peer review when experts evaluate the artifact itself rather than a manuscript or submission. Report expert qualifications and criteria when available.
+    related_terms:
+    - peer_review_or_publication_review
+    - stakeholder_review
+    - traceability_audit
+    source_basis:
+    - johannesson_perjons_2021_systems_development_method_framework
+    - dsr_extraction_corpus
+    typical_timing:
+    - ex_ante
+    - formative
+    - summative
+    typical_settings:
+    - artificial
+    - hybrid_or_mixed
+    common_criteria:
+    - relevance
+    - feasibility
+    - completeness
+    - face_validity
+    - content_validity
+    minimum_evidence_required:
+    - expert role and qualification
+    - review criteria
+    - review instrument or protocol
+    - findings
+    - revision actions
+    not_sufficient_for:
+    - end-user acceptance without end-user data
+    - field effectiveness without field data
+  - id: stakeholder_review
+    label: Stakeholder review
+    definition: Evaluation through feedback from stakeholders affected by, using, governing, maintaining, sponsoring, or receiving consequences from the artifact.
+    allowed_use: Use when sponsors, practitioners, users, managers, policy actors, community members, or other stakeholders judge artifact fit, acceptability, feasibility, or value.
+    boundary_notes: Stakeholder review may be formative and subjective. Do not treat it as objective outcome evidence unless linked to observable performance or implementation outcomes.
+    related_terms:
+    - expert_review
+    - focus_group_or_group_discussion
+    - interview_or_think_aloud_evaluation
+    source_basis:
+    - hevner_et_al_2024_transparency_in_design_science_research
+    - dsr_extraction_corpus
+    typical_timing:
+    - formative
+    - summative
+    - ex_ante
+    - ex_post
+    typical_settings:
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - acceptability
+    - feasibility
+    - usefulness
+    - fit_to_context
+    - responsible_design
+    minimum_evidence_required:
+    - stakeholder roles
+    - feedback method
+    - criteria or prompts
+    - analysis method
+    - design response
+    not_sufficient_for:
+    - technical correctness alone
+    - causal effectiveness claim without outcome design
+  - id: focus_group_or_group_discussion
+    label: Focus group or group discussion
+    definition: Evaluation using facilitated group discussion to elicit perceptions, requirements, critiques, interpretations, acceptability judgments, or design implications.
+    allowed_use: Use for exploratory, confirmatory, formative, or summative group-based evaluation with users, practitioners, experts, or other stakeholders.
+    boundary_notes: Focus groups are strong for sensemaking and acceptability evidence but weak for isolated causal claims unless paired with other methods.
+    related_terms:
+    - stakeholder_review
+    - interview_or_think_aloud_evaluation
+    - mixed_methods_evaluation
+    source_basis:
+    - dsr_extraction_corpus
+    typical_timing:
+    - formative
+    - summative
+    - ex_post
+    - ex_ante
+    typical_settings:
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - acceptability
+    - perceived_utility
+    - requirements_fit
+    - interpretability
+    - contextual_fit
+    minimum_evidence_required:
+    - participant roles
+    - discussion guide
+    - recording or notes
+    - coding or synthesis method
+    - findings
+    not_sufficient_for:
+    - statistical effectiveness claim
+    - technical reliability claim
+  - id: interview_or_think_aloud_evaluation
+    label: Interview or think-aloud evaluation
+    definition: Evaluation using interviews, think-aloud sessions, walkthrough narratives, or structured verbal protocols to assess artifact use, understanding, reasoning, or experience.
+    allowed_use: Use when verbal accounts are collected from users, experts, facilitators, sponsors, or practitioners to evaluate artifact interaction or interpretation.
+    boundary_notes: Separate self-reported perception from observed behavior. If think-aloud data are collected during actual artifact use, also consider usability evaluation.
+    related_terms:
+    - usability_or_user_experience_evaluation
+    - stakeholder_review
+    - focus_group_or_group_discussion
+    source_basis:
+    - dsr_extraction_corpus
+    typical_timing:
+    - formative
+    - summative
+    - ex_post
+    typical_settings:
+    - artificial
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - understandability
+    - usability
+    - interpretability
+    - workflow_fit
+    - perceived_value
+    minimum_evidence_required:
+    - interview protocol
+    - participant roles
+    - artifact task
+    - analysis method
+    - evidence excerpts or summaries
+    not_sufficient_for:
+    - objective performance claim without measures
+    - broad generalization without sampling rationale
+  - id: usability_or_user_experience_evaluation
+    label: Usability or user-experience evaluation
+    definition: Evaluation of whether intended users can understand, operate, learn, navigate, trust, or productively experience the artifact.
+    allowed_use: Use for usability testing, heuristic evaluation, task walkthroughs, UX surveys, accessibility checks, cognitive walkthroughs, or observed user sessions.
+    boundary_notes: Usability is not identical to utility or effectiveness. An artifact can be usable but not solve the target problem; record problem-outcome evidence separately.
+    related_terms:
+    - prototype_demonstration
+    - interview_or_think_aloud_evaluation
+    - survey_or_questionnaire_evaluation
+    - observational_or_log_analysis
+    source_basis:
+    - dsr_extraction_corpus
+    - contell_diaz_venable_2017_dscaffolding
+    typical_timing:
+    - formative
+    - summative
+    - ex_ante
+    - ex_post
+    typical_settings:
+    - artificial
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - usability
+    - learnability
+    - accessibility
+    - satisfaction
+    - task_success
+    - cognitive_load
+    minimum_evidence_required:
+    - user group
+    - tasks
+    - usability criteria
+    - observations or ratings
+    - identified issues
+    - severity or remediation
+    not_sufficient_for:
+    - problem-resolution claim without outcome data
+    - scientific contribution claim without design-knowledge argument
+  - id: survey_or_questionnaire_evaluation
+    label: Survey or questionnaire evaluation
+    definition: Evaluation through structured self-report, rating scales, questionnaires, or free-text responses from users, stakeholders, experts, or evaluators.
+    allowed_use: Use when survey instruments provide evidence about perceptions, usability, usefulness, satisfaction, acceptance, learning, quality, or outcomes.
+    boundary_notes: Survey evidence depends on sampling, instrument quality, and response context. Do not equate perceived usefulness with demonstrated effectiveness unless outcome measures are included.
+    related_terms:
+    - usability_or_user_experience_evaluation
+    - stakeholder_review
+    - controlled_experiment
+    source_basis:
+    - dsr_extraction_corpus
+    typical_timing:
+    - formative
+    - summative
+    - ex_post
+    - longitudinal
+    typical_settings:
+    - artificial
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - perceived_utility
+    - satisfaction
+    - acceptance
+    - learning
+    - self_reported_impact
+    minimum_evidence_required:
+    - survey instrument
+    - sample or participant roles
+    - administration context
+    - analysis method
+    - results
+    not_sufficient_for:
+    - objective performance claim without performance data
+    - causal claim without comparison design
+  - id: observational_or_log_analysis
+    label: Observational or log analysis
+    definition: Evaluation through observation, field notes, screen recordings, usage traces, analytics, system logs, audit logs, or behavioral event data.
+    allowed_use: Use when artifact use or context interaction is evaluated through observed behavior rather than only self-report or expert judgment.
+    boundary_notes: Usage evidence shows what happened, not necessarily why. Pair with interviews, surveys, or theory when mechanism explanation is required.
+    related_terms:
+    - naturalistic_field_study
+    - usability_or_user_experience_evaluation
+    - longitudinal_evaluation
+    source_basis:
+    - dsr_extraction_corpus
+    - hevner_et_al_2024_transparency_in_design_science_research
+    typical_timing:
+    - formative
+    - summative
+    - ex_post
+    - longitudinal
+    typical_settings:
+    - naturalistic
+    - hybrid_or_mixed
+    - artificial
+    common_criteria:
+    - use_frequency
+    - task_success
+    - adoption
+    - process_conformance
+    - behavioral_change
+    minimum_evidence_required:
+    - observation protocol or log source
+    - time period
+    - unit of analysis
+    - privacy treatment
+    - analysis method
+    not_sufficient_for:
+    - mechanism explanation without supporting interpretation
+    - stakeholder satisfaction without perception data
+  - id: controlled_experiment
+    label: Controlled experiment
+    definition: Evaluation using controlled conditions, manipulation, comparison groups, random assignment when feasible, and predefined outcome measures.
+    allowed_use: Use when the study tests artifact efficacy, causal effects, comparative performance, or learning outcomes in a controlled or laboratory-like design.
+    boundary_notes: Controlled experiments support internal validity but may have limited ecological validity. Record setting and transfer limits explicitly.
+    related_terms:
+    - quasi_experiment_or_field_experiment
+    - simulation_evaluation
+    - survey_or_questionnaire_evaluation
+    source_basis:
+    - vom_brocke_hevner_maedche_2020_intro_dsr
+    - johannesson_perjons_2021_systems_development_method_framework
+    - dsr_extraction_corpus
+    typical_timing:
+    - summative
+    - formative
+    - ex_post
+    - ex_ante
+    typical_settings:
+    - artificial
+    - hybrid_or_mixed
+    common_criteria:
+    - efficacy
+    - causal_effect
+    - comparative_performance
+    - internal_validity
+    minimum_evidence_required:
+    - research design
+    - conditions
+    - assignment method
+    - outcome measures
+    - analysis
+    - validity threats
+    not_sufficient_for:
+    - naturalistic effectiveness without field context
+    - long-term adoption without follow-up
+  - id: quasi_experiment_or_field_experiment
+    label: Quasi-experiment or field experiment
+    definition: Evaluation using comparison or manipulation in a real or semi-real setting where randomization, control, or isolation may be partial.
+    allowed_use: Use when artifact effects are assessed in practical contexts through pre/post, matched comparison, natural field experiment, or nonrandomized treatment-control designs.
+    boundary_notes: Field experiments improve contextual realism but may contain confounding factors; document assignment constraints and contextual threats.
+    related_terms:
+    - controlled_experiment
+    - naturalistic_field_study
+    - case_study_evaluation
+    source_basis:
+    - dsr_extraction_corpus
+    - johannesson_perjons_2021_systems_development_method_framework
+    typical_timing:
+    - summative
+    - ex_post
+    - longitudinal
+    - formative
+    typical_settings:
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - effectiveness
+    - impact
+    - ecological_validity
+    - comparative_performance
+    minimum_evidence_required:
+    - field context
+    - comparison logic
+    - participants or sites
+    - outcome measures
+    - confounds
+    - limitations
+    not_sufficient_for:
+    - pure technical correctness
+    - generalizability without boundary conditions
+  - id: case_study_evaluation
+    label: Case study evaluation
+    definition: Evaluation through intensive analysis of one or more cases where the artifact is developed, demonstrated, interpreted, applied, or assessed in context.
+    allowed_use: Use for rich contextual evidence about artifact utility, process, stakeholder fit, implementation, organizational outcomes, or design knowledge emergence.
+    boundary_notes: A case study may be illustrative, formative, or summative. Do not imply statistical generalization; specify analytic or projectable scope.
+    related_terms:
+    - naturalistic_field_study
+    - literature_based_evidence_synthesis
+    - action_research_or_adr_evaluation
+    source_basis:
+    - vom_brocke_hevner_maedche_2020_intro_dsr
+    - dsr_extraction_corpus
+    typical_timing:
+    - formative
+    - summative
+    - ex_post
+    - longitudinal
+    typical_settings:
+    - naturalistic
+    - hybrid_or_mixed
+    - literature_based
+    common_criteria:
+    - utility
+    - context_fit
+    - implementation_feasibility
+    - mechanism_plausibility
+    - projectability
+    minimum_evidence_required:
+    - case context
+    - artifact role
+    - data sources
+    - analysis logic
+    - boundary conditions
+    - findings
+    not_sufficient_for:
+    - statistical population generalization
+    - isolated causal proof without design
+  - id: naturalistic_field_study
+    label: Naturalistic field study
+    definition: Evaluation in the intended or actual field setting with realistic work practices, stakeholders, constraints, and consequences.
+    allowed_use: Use when artifact effectiveness, adoption, side effects, implementation feasibility, or stakeholder outcomes are evaluated in practical use contexts.
+    boundary_notes: Naturalistic field evidence is stronger for external validity and effectiveness but weaker for isolation of causal mechanisms unless paired with comparison or mixed methods.
+    related_terms:
+    - case_study_evaluation
+    - quasi_experiment_or_field_experiment
+    - observational_or_log_analysis
+    source_basis:
+    - feds_evaluation_framework_family
+    - johannesson_perjons_2021_systems_development_method_framework
+    - dsr_extraction_corpus
+    typical_timing:
+    - summative
+    - formative
+    - ex_post
+    - longitudinal
+    typical_settings:
+    - naturalistic
+    common_criteria:
+    - effectiveness
+    - implementation_feasibility
+    - stakeholder_acceptability
+    - side_effects
+    - external_validity
+    minimum_evidence_required:
+    - field context
+    - real users or stakeholders
+    - use conditions
+    - outcome evidence
+    - contextual limitations
+    not_sufficient_for:
+    - internal causal validity without controls
+    - formal correctness without technical analysis
+  - id: action_research_or_adr_evaluation
+    label: Action research or Action Design Research evaluation
+    definition: Evaluation embedded in intervention, reflection, stakeholder collaboration, and iterative redesign within an organizational or community setting.
+    allowed_use: Use when researchers and practitioners jointly build, use, evaluate, and revise the artifact in a live setting, often through Action Design Research or related interventionist approaches.
+    boundary_notes: Keep design participation, demonstration, reflection, and evaluation analytically distinct. Document researcher role and possible intervention bias.
+    related_terms:
+    - naturalistic_field_study
+    - case_study_evaluation
+    - stakeholder_review
+    source_basis:
+    - dsr_extraction_corpus
+    - hevner_et_al_2024_transparency_in_design_science_research
+    typical_timing:
+    - formative
+    - summative
+    - concurrent
+    - longitudinal
+    - ex_post
+    typical_settings:
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - utility
+    - organizational_fit
+    - learning
+    - stakeholder_value
+    - design_knowledge_generation
+    minimum_evidence_required:
+    - intervention context
+    - participant roles
+    - iteration history
+    - reflection records
+    - evidence of change
+    not_sufficient_for:
+    - neutral observation claim without role disclosure
+    - context-free generalization
+  - id: comparative_benchmarking
+    label: Comparative benchmarking
+    definition: Evaluation comparing artifact performance, quality, cost, accuracy, speed, robustness, or usability against baselines, alternatives, prior versions, or accepted standards.
+    allowed_use: Use when the evaluation asks whether the artifact improves over existing approaches, competing artifacts, control conditions, or previous iterations.
+    boundary_notes: Benchmarking requires appropriate baselines. Do not treat a benchmark as sufficient for utility if benchmark criteria do not match stakeholder goals or real use conditions.
+    related_terms:
+    - technical_testing_and_quality_assurance
+    - controlled_experiment
+    - traceability_audit
+    source_basis:
+    - dsr_extraction_corpus
+    typical_timing:
+    - formative
+    - summative
+    - ex_ante
+    - ex_post
+    typical_settings:
+    - artificial
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - performance
+    - quality
+    - efficiency
+    - accuracy
+    - improvement
+    - cost
+    minimum_evidence_required:
+    - baseline definition
+    - comparison criteria
+    - measurement method
+    - results
+    - interpretation limits
+    not_sufficient_for:
+    - holistic effectiveness claim if benchmark is narrow
+    - stakeholder acceptance without stakeholder evidence
+  - id: longitudinal_evaluation
+    label: Longitudinal evaluation
+    definition: Evaluation over multiple time points to assess persistence, adoption, learning, maintenance, drift, durability, evolution, or accumulating effects.
+    allowed_use: Use when evidence is collected across cohorts, phases, releases, repeated uses, repeated measurements, or extended deployment periods.
+    boundary_notes: Longitudinal evaluation supports claims about stability and evolution but still requires explicit measures and context-change documentation.
+    related_terms:
+    - observational_or_log_analysis
+    - naturalistic_field_study
+    - survey_or_questionnaire_evaluation
+    source_basis:
+    - dsr_extraction_corpus
+    typical_timing:
+    - longitudinal
+    - formative
+    - summative
+    - ex_post
+    typical_settings:
+    - naturalistic
+    - hybrid_or_mixed
+    common_criteria:
+    - adoption
+    - durability
+    - learning
+    - maintenance
+    - diachronic_reliability
+    - sustained_effectiveness
+    minimum_evidence_required:
+    - timeframe
+    - measurement intervals
+    - version history
+    - context changes
+    - attrition or missing data
+    not_sufficient_for:
+    - single-point effect claim
+    - causal attribution without design controls
+  - id: mixed_methods_evaluation
+    label: Mixed-methods evaluation
+    definition: Evaluation combining qualitative and quantitative data, multiple methods, or multiple evidence streams to support triangulated judgment.
+    allowed_use: Use when evaluation deliberately integrates methods such as surveys, interviews, logs, experiments, observations, document analysis, or field outcomes.
+    boundary_notes: Do not code as mixed methods merely because multiple data points are mentioned. Integration logic must be explicit or inferable from the report structure.
+    related_terms:
+    - survey_or_questionnaire_evaluation
+    - interview_or_think_aloud_evaluation
+    - controlled_experiment
+    - case_study_evaluation
+    source_basis:
+    - dsr_extraction_corpus
+    typical_timing:
+    - formative
+    - summative
+    - ex_post
+    - longitudinal
+    typical_settings:
+    - hybrid_or_mixed
+    - naturalistic
+    - artificial
+    common_criteria:
+    - triangulation
+    - utility
+    - effectiveness
+    - acceptability
+    - mechanism_plausibility
+    minimum_evidence_required:
+    - method components
+    - integration design
+    - data sources
+    - analysis procedures
+    - convergence or divergence findings
+    not_sufficient_for:
+    - unified causal claim if methods are not aligned
+    - generalization without sampling logic
+  - id: traceability_audit
+    label: Traceability audit
+    definition: Evaluation of whether problems, objectives, requirements, design decisions, artifact features, evaluation criteria, evidence, and claims are explicitly connected.
+    allowed_use: Use when the artifact or documentation package is assessed for auditable alignment across requirements, design rationale, implementation, evaluation, and contribution claims.
+    boundary_notes: Traceability audit supports reviewability and procedural validity; it does not by itself establish that the artifact works in use.
+    related_terms:
+    - analytical_or_formal_evaluation
+    - literature_based_evidence_synthesis
+    - expert_review
+    source_basis:
+    - dsr_framework_generation_spec
+    - dsr_extraction_corpus
+    typical_timing:
+    - ex_ante
+    - formative
+    - summative
+    typical_settings:
+    - artificial
+    - literature_based
+    - hybrid_or_mixed
+    common_criteria:
+    - traceability
+    - reviewability
+    - completeness
+    - claim_alignment
+    - procedural_validity
+    minimum_evidence_required:
+    - trace matrix
+    - linked IDs
+    - evidence records
+    - gap list
+    - review outcome
+    not_sufficient_for:
+    - artifact effectiveness
+    - user acceptance
+    - field impact
+  - id: peer_review_or_publication_review
+    label: Peer review or publication review
+    definition: Evaluation through scholarly, editorial, conference, journal, or repository review processes that assess contribution, rigor, relevance, reporting quality, or release readiness.
+    allowed_use: Use when the evidence concerns peer review, editorial review, artifact review, release review, or publication-readiness assessment.
+    boundary_notes: Peer review supports scholarly credibility but is not the same as artifact evaluation unless reviewers directly evaluate the artifact, data, code, or evidence package.
+    related_terms:
+    - expert_review
+    - traceability_audit
+    - publication_readiness_review
+    source_basis:
+    - dsr_extraction_corpus
+    - model_publication_readiness
+    typical_timing:
+    - summative
+    - ex_post
+    - not_evaluated
+    typical_settings:
+    - literature_based
+    - hybrid_or_mixed
+    common_criteria:
+    - rigor
+    - relevance
+    - contribution
+    - reporting_quality
+    - release_readiness
+    minimum_evidence_required:
+    - review criteria
+    - reviewer role
+    - decision or finding
+    - required revisions
+    - scope of review
+    not_sufficient_for:
+    - direct proof of artifact utility
+    - field effectiveness claim
+  - id: replication_or_reanalysis
+    label: Replication or reanalysis
+    definition: Evaluation through repeated application, independent reproduction, reanalysis of data, re-execution of code, or comparison of results across settings or implementations.
+    allowed_use: Use when evaluation assesses whether findings, artifact behavior, measures, analyses, or design knowledge hold under repeated or independently checked conditions.
+    boundary_notes: 'Distinguish replication from projectability: replication checks recurrence or reproducibility; projectability addresses transfer, adaptation, or reuse boundaries.'
+    related_terms:
+    - longitudinal_evaluation
+    - traceability_audit
+    - comparative_benchmarking
+    source_basis:
+    - dsr_extraction_corpus
+    - vocabularies/replication-types.yaml
+    - vocabularies/projectability-types.yaml
+    typical_timing:
+    - ex_post
+    - summative
+    - longitudinal
+    typical_settings:
+    - artificial
+    - naturalistic
+    - hybrid_or_mixed
+    - literature_based
+    common_criteria:
+    - reproducibility
+    - repeatability
+    - robustness
+    - projectability
+    - design_knowledge_stability
+    minimum_evidence_required:
+    - original evidence package
+    - replication protocol
+    - environment or context differences
+    - result comparison
+    - deviation explanation
+    not_sufficient_for:
+    - first-use utility claim
+    - novelty claim without contribution analysis
+  controlled_use_rules:
+  - rule_id: eval_methods_rule_001
+    rule: Each DSR evaluation plan should identify at least one evaluation_method_family_id unless the artifact is explicitly not yet evaluated.
+    severity: should
+  - rule_id: eval_methods_rule_002
+    rule: Demonstration and evaluation must be recorded separately; prototype_demonstration supports evaluation only when criteria, evidence, and judgment are reported.
+    severity: must
+  - rule_id: eval_methods_rule_003
+    rule: Naturalistic effectiveness claims should use naturalistic_field_study, quasi_experiment_or_field_experiment, case_study_evaluation, action_research_or_adr_evaluation, longitudinal_evaluation, or mixed_methods_evaluation evidence, with boundary conditions.
+    severity: should
+  - rule_id: eval_methods_rule_004
+    rule: Artificial, ex ante, simulation, analytical, or technical tests may support efficacy, correctness, quality, or feasibility claims but should not be overclaimed as field effectiveness without corroborating field evidence.
+    severity: must
+  - rule_id: eval_methods_rule_005
+    rule: Evaluation reports should link method families to evaluated claims, criteria, data collected, participants or units, comparison or baseline, results, limitations, and source/evidence records.
+    severity: must
+  validation_implications:
+    schema_enum_path: vocabulary.entries[*].id
+    recommended_schema_fields:
+    - evaluation_method_family_id
+    - evaluation_timing
+    - evaluation_setting
+    - claim_supported
+    - criteria
+    - evidence_required
+    - limitations
+    review_checks:
+    - Selected method family matches the evidence actually reported.
+    - Summative claims are not based solely on demonstration or conceptual argumentation.
+    - Naturalistic claims include real context, real or representative stakeholders, and boundary conditions.
+    - Artificial evaluations state internal-validity strengths and external-validity limits.
+    - Mixed-method evaluations state how evidence streams are integrated.
+  quality_gate_mapping:
+  - gate_id: qg_consistency
+    status: pass
+    evidence: Target path, item type, status, version, owner, and lower-kebab-case filename are declared.
+  - gate_id: qg_coherence
+    status: pass
+    evidence: Entries align with evaluation alignment, evaluation plan/report templates, schemas, quality review, and transparency vocabulary dependencies.
+  - gate_id: qg_cogency
+    status: pass
+    evidence: Each entry provides allowed use, boundaries, criteria, evidence, and insufficiency conditions.
+  - gate_id: qg_correspondence
+    status: pass
+    evidence: Vocabulary supports the DSR Framework package as a reviewable evaluation-planning and reporting artifact.
+  - gate_id: qg_dsr_transparency
+    status: pass
+    evidence: The vocabulary explicitly supports evaluation transparency by requiring method, criteria, evidence, limitations, and claim alignment.
+  - gate_id: qg_reviewability
+    status: pass
+    evidence: Controlled use rules and validation implications make reviewer assessment possible.
+  assumptions:
+  - The vocabulary classifies method families rather than every possible named method, instrument, metric, or domain-specific evaluation technique.
+  - Evaluation timing and setting are modeled as facets because the same method family can be used formatively or summatively, ex ante or ex post, and artificially or naturalistically.
+  - Where exact corpus citation anchors are not yet mapped for a term, the vocabulary uses source-family traceability rather than inventing bibliographic evidence.
+  limitations:
+  - This draft does not yet include a JSON Schema enumeration file that enforces the method-family IDs.
+  - Some families overlap in practice; evaluation plans should select the primary family and add secondary families where needed.
+  - This vocabulary does not define statistical tests, psychometric measures, or domain-specific instruments.
+  open_questions:
+  - question_id: eval_methods_oq_001
+    question: Should the framework separate evaluation methods from data-collection techniques in two vocabularies, or retain both as facets of evaluation planning?
+    status: open
+  - question_id: eval_methods_oq_002
+    question: Should FEDS strategy labels be represented as a separate vocabulary linked to this method-family vocabulary?
+    status: open
+  - question_id: eval_methods_oq_003
+    question: Which method families require minimum reporting templates in the evaluation-report schema?
+    status: open
+  traceability:
+  - trace_id: trace_eval_methods_selection
+    from: dsr-framework-selection-table.md#vocab_evaluation_methods
+    to: vocabularies/evaluation-method-families.yaml
+    relationship: selected_generation_target
+    evidence_status: mapped
+  - trace_id: trace_eval_methods_generation_spec
+    from: dsr-framework-generation-spec.yaml#content_generation_rules
+    to: vocabularies/evaluation-method-families.yaml
+    relationship: governs_structure_and_quality_gates
+    evidence_status: mapped
+  - trace_id: trace_eval_methods_corpus
+    from: chunked_folder_conversion_extractions_20260427030321_part001.yaml#evaluation
+    to: vocabulary.entries
+    relationship: provides_examples_and_source_family_evidence
+    evidence_status: partially_mapped
+  change_history:
+  - version: "0.1.0"
+    date: '2026-04-27'
+    change: Created initial L2 reviewable controlled vocabulary for DSR evaluation method families.
+    responsible_party: GPT-5.5 Thinking

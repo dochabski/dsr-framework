@@ -1,0 +1,757 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: vocab_genre_types
+  title: DSR Genre Types Vocabulary
+  purpose: >
+    Provide a controlled vocabulary for classifying Design Science Research
+    (DSR) sources, artifacts, studies, and framework products by genre. The
+    vocabulary supports genre-sensitive review, reporting, evidence mapping,
+    and publication guidance across the DSR Framework package.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  target_path: vocabularies/genre-types.yaml
+  item_type: vocabulary
+  generated_from_selection_id: vocab_genre_types
+  default_use_rule: >
+    Use the most specific genre supported by the source evidence. Use
+    canonical_design_science_research only when a source is clearly DSR but no
+    more specific genre is justified. Use unclear_or_not_specified when the
+    source does not provide enough evidence to classify genre responsibly.
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      role: generation_governance
+      evidence_status: mapped
+      note: >
+        Requires controlled YAML vocabulary entries with stable identifiers,
+        definitions, allowed use, boundary notes, related terms, source basis,
+        traceability, and reviewable quality material.
+    - source_id: dsr_framework_selection_table
+      role: selected_portion
+      evidence_status: mapped
+      note: >
+        Identifies vocab_genre_types as vocabularies/genre-types.yaml, a YAML
+        vocabulary with L2 conformance and genre standards crosswalk dependency.
+    - source_id: dsr_source_extraction_specification
+      role: controlled_value_seed
+      evidence_status: mapped
+      note: >
+        Supplies the normalized dsr_genre controlled values used in the DSR
+        extraction corpus.
+    - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+      role: genre_standards_crosswalk
+      evidence_status: mapped
+      note: >
+        Supplies the five prototype Information Systems DSR genres and the
+        rationale for genre-sensitive standards for artifacts, theory, process,
+        evaluation, and publication.
+    - source_id: dsr_extraction_corpus
+      role: corpus_usage_evidence
+      evidence_status: partially_mapped
+      note: >
+        Supplies examples of the vocabulary in normalized master table fields;
+        not every genre value has equal corpus density.
+  related_items:
+    upstream_dependencies:
+      - id: model_canonical
+        path: models/dsr-framework-canonical-model.yaml
+        relationship: uses_genre_as_source_and_project_classification_attribute
+      - id: model_contribution
+        path: models/dsr-contribution-model.yaml
+        relationship: uses_genre_to_contextualize_contribution_claims
+      - id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relationship: uses_genre_to_select_evaluation_expectations
+      - id: docs_publication_review
+        path: docs/protocol/14-publication-and-review-guidance.md
+        relationship: should_explain_genre_sensitive_review
+    downstream_dependents:
+      - id: schema_dsr_project
+        path: schemas/dsr-project.schema.json
+        relationship: should_reference_genre_enum
+      - id: schema_contribution_claim
+        path: schemas/dsr-contribution-claim.schema.json
+        relationship: may_reference_genre_positioning
+      - id: checklist_contribution_positioning
+        path: checklists/contribution-positioning-checklist.yaml
+        relationship: should_check_genre_appropriate_claims
+  entries:
+    - id: canonical_design_science_research
+      label: Canonical Design Science Research
+      definition: >
+        A DSR study or source that substantially follows the mainstream DSR
+        identity of problem relevance, artifact creation or improvement,
+        build-and-evaluate logic, rigor-grounded design knowledge, and
+        scholarly communication.
+      allowed_use: >
+        Use when the source explicitly frames itself as DSR or strongly matches
+        canonical DSR criteria, but the evidence does not justify a narrower
+        genre such as Action Design Research, DSR methodology, design theory,
+        or design knowledge synthesis.
+      boundary_notes: >
+        Do not use merely because a practical artifact is built. The work must
+        present a research contribution beyond routine design, consulting, or
+        local implementation. Prefer a more specific genre when available.
+      related_terms:
+        broader: []
+        narrower:
+          - design_science_research_methodology
+          - information_systems_design_theory
+          - action_design_research
+          - design_oriented_information_systems_research
+          - explanatory_design_theory
+        adjacent:
+          - design_theory_contribution
+          - artifact_evaluation_study
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+      review_notes: >
+        Treat this as a generic classification value, not as evidence that the
+        study satisfies all publication-quality expectations.
+
+    - id: design_science_research_methodology
+      label: Design Science Research Methodology
+      definition: >
+        A genre centered on defining, extending, applying, or operationalizing
+        DSR methods, process models, evaluation regimes, documentation
+        procedures, or methodological guidance for conducting DSR.
+      allowed_use: >
+        Use for methodology papers, framework papers, procedural guides, and
+        applied studies whose primary scholarly contribution is methodological
+        rather than a domain artifact alone.
+      boundary_notes: >
+        Do not use for every study that follows a DSR method. Use this genre
+        when the method itself, or its operationalization, is a central object
+        of contribution or classification.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - design_knowledge_synthesis
+          - artifact_evaluation_study
+          - design_principle_development
+      source_basis:
+        - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+          evidence_status: mapped
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+      review_notes: >
+        Confirm whether the source contributes methodological knowledge rather
+        than merely naming a methodology used in an empirical study.
+
+    - id: information_systems_design_theory
+      label: Information Systems Design Theory
+      definition: >
+        A DSR genre in which the principal knowledge artifact is an Information
+        Systems design theory specifying design purpose, constructs, principles,
+        artifact form and function, implementation logic, and justificatory
+        knowledge.
+      allowed_use: >
+        Use when a source explicitly develops, refines, evaluates, or applies an
+        Information Systems design theory as its central DSR contribution.
+      boundary_notes: >
+        Distinguish from design_theory_contribution, which is a broader coding
+        value for any design-theory contribution. Use this value when the source
+        fits the IS design theory genre or directly invokes that tradition.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - explanatory_design_theory
+          - design_theory_contribution
+          - design_principle_development
+      source_basis:
+        - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+          evidence_status: mapped
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+      review_notes: >
+        Look for explicit theory structure, not only a set of design guidelines
+        or artifact requirements.
+
+    - id: action_design_research
+      label: Action Design Research
+      definition: >
+        A DSR genre that integrates artifact building, organizational
+        intervention, stakeholder participation, and concurrent evaluation in a
+        real-world setting, typically with reciprocal shaping between artifact
+        and context.
+      allowed_use: >
+        Use when the source explicitly follows Action Design Research or when
+        its research design combines intervention, co-creation, building, and
+        evaluation in an organizational context in a way that matches ADR.
+      boundary_notes: >
+        Do not use for all participatory or field-based DSR. Evidence should
+        support action-oriented intervention and simultaneous artifact/context
+        learning rather than ordinary user involvement alone.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - transdisciplinary_design_science
+          - responsible_design_science
+          - design_oriented_information_systems_research
+      source_basis:
+        - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+          evidence_status: mapped
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+      review_notes: >
+        Check whether evaluation is embedded in action and intervention rather
+        than only performed after artifact construction.
+
+    - id: design_oriented_information_systems_research
+      label: Design-Oriented Information Systems Research
+      definition: >
+        A DSR-related Information Systems genre emphasizing practically
+        applicable design knowledge, means-end reasoning, stakeholder benefit,
+        and useful artifacts without requiring a single canonical DSR method or
+        theory form.
+      allowed_use: >
+        Use for design-oriented IS work that is research-oriented and produces
+        applicable design knowledge, especially when the source positions itself
+        against overly narrow DSR classifications.
+      boundary_notes: >
+        Do not use for ordinary systems development, consulting, or local design
+        practice without research contribution. Use canonical_design_science_research
+        when the source clearly follows mainstream DSR rather than a broader
+        design-oriented IS framing.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - action_design_research
+          - management_design_science
+          - artifact_evaluation_study
+      source_basis:
+        - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+          evidence_status: mapped
+        - source_id: agerfalk_2018_whither_design_science_research
+          evidence_status: mapped
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+      review_notes: >
+        Use carefully because this category can overlap with general DSR and
+        with broader design research in IS.
+
+    - id: explanatory_design_theory
+      label: Explanatory Design Theory
+      definition: >
+        A DSR genre focused on explaining how design variables, artifact
+        features, mechanisms, or environmental conditions influence outcomes,
+        often through hypotheses, causal reasoning, or theory-informed
+        evaluation.
+      allowed_use: >
+        Use when the central contribution is explanatory theory about why a
+        design works, under what conditions it works, and how design variables
+        influence observed effects.
+      boundary_notes: >
+        Distinguish from behavioral or purely explanatory IS research. The
+        explanation must remain anchored in design, artifact features,
+        prescriptive design knowledge, or design-relevant theory.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - information_systems_design_theory
+          - design_theory_contribution
+          - artifact_evaluation_study
+      source_basis:
+        - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+          evidence_status: mapped
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+      review_notes: >
+        Confirm that explanatory claims are design-relevant and not detached
+        from artifact construction or design knowledge.
+
+    - id: design_theory_contribution
+      label: Design Theory Contribution
+      definition: >
+        A DSR source or artifact package whose primary contribution is to
+        design theory, including constructs, principles, explanatory or
+        prescriptive propositions, design theory components, or theory-level
+        synthesis.
+      allowed_use: >
+        Use when the source contributes to design theory even if it does not fit
+        the narrower Information Systems Design Theory genre or explicitly name
+        an ISDT structure.
+      boundary_notes: >
+        Do not use for isolated design principles unless they are positioned as
+        theory-level knowledge. Prefer design_principle_development when the
+        contribution is a principle set rather than a theory.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower:
+          - information_systems_design_theory
+          - explanatory_design_theory
+        adjacent:
+          - design_principle_development
+          - design_knowledge_synthesis
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+      review_notes: >
+        Record whether the design theory is nascent, mid-range, explanatory,
+        prescriptive, or mature when that information is available.
+
+    - id: artifact_evaluation_study
+      label: Artifact Evaluation Study
+      definition: >
+        A DSR genre or source role in which the primary contribution is the
+        evaluation of an artifact, artifact class, design principle, method,
+        metric, or intervention against explicit criteria such as utility,
+        quality, effectiveness, usability, reliability, validity, or impact.
+      allowed_use: >
+        Use when evaluation design, evaluation evidence, or evaluation findings
+        are the central research contribution, not merely a required section of
+        a larger DSR study.
+      boundary_notes: >
+        Do not use for routine demonstration or basic proof-of-concept unless
+        evaluation is explicit, criteria-based, and contributes to knowledge.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - design_science_research_methodology
+          - explanatory_design_theory
+          - responsible_design_science
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+      review_notes: >
+        Preserve the distinction between demonstration and evaluation when
+        applying this genre.
+
+    - id: design_principle_development
+      label: Design Principle Development
+      definition: >
+        A DSR genre or contribution mode centered on deriving, refining,
+        justifying, testing, or synthesizing prescriptive design principles,
+        design guidelines, or reusable means-end statements for a problem class.
+      allowed_use: >
+        Use when design principles are the primary knowledge output and are
+        connected to a context, intervention, mechanism or rationale, intended
+        outcome, and boundary conditions.
+      boundary_notes: >
+        Do not use for vague recommendations or implementation tips without
+        reusable prescriptive structure. Use design_knowledge_synthesis if the
+        source primarily synthesizes literature rather than developing principles.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - design_theory_contribution
+          - design_knowledge_synthesis
+          - management_design_science
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+      review_notes: >
+        Prefer this genre when the output can be represented as reusable
+        prescriptive design knowledge rather than as a one-off artifact.
+
+    - id: design_knowledge_synthesis
+      label: Design Knowledge Synthesis
+      definition: >
+        A DSR genre centered on aggregating, organizing, comparing, or
+        translating existing DSR knowledge into taxonomies, frameworks,
+        typologies, crosswalks, review findings, or cumulative design knowledge.
+      allowed_use: >
+        Use for systematic reviews, conceptual syntheses, corpus studies,
+        taxonomy papers, contribution typologies, reporting frameworks, and
+        DSR meta-artifacts whose main output is organized design knowledge.
+      boundary_notes: >
+        Do not use simply because a paper cites prior literature. The synthesis
+        activity must be a central contribution or artifact.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - design_theory_contribution
+          - design_principle_development
+          - design_science_research_methodology
+      source_basis:
+        - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+          evidence_status: mapped
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          evidence_status: mapped
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+      review_notes: >
+        This is often the best genre for framework-building, crosswalk-building,
+        and corpus-normalization sources.
+
+    - id: operations_management_design_science
+      label: Operations Management Design Science
+      definition: >
+        A field-specific DSR genre applying design science to operations
+        management problems, such as process improvement, production systems,
+        supply chains, service operations, logistics, operational decision
+        support, or process analytics.
+      allowed_use: >
+        Use when the primary disciplinary setting is operations management and
+        the source explicitly treats design science as a methodological or
+        contribution frame.
+      boundary_notes: >
+        Do not use for general Information Systems DSR involving business
+        processes unless the operations management disciplinary framing is
+        explicit or strongly supported.
+      related_terms:
+        broader:
+          - management_design_science
+        narrower: []
+        adjacent:
+          - design_oriented_information_systems_research
+          - artifact_evaluation_study
+          - transdisciplinary_design_science
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: bagni_etal_2025_dsr_om_single_type
+          evidence_status: mapped
+      review_notes: >
+        Record the operations problem class separately when known, because the
+        genre alone does not specify the artifact type.
+
+    - id: management_design_science
+      label: Management Design Science
+      definition: >
+        A field-specific DSR genre applying design science to managerial,
+        organizational, project, process, governance, strategy, or decision
+        problems where the artifact may be a method, framework, process,
+        governance regime, decision model, or socio-technical intervention.
+      allowed_use: >
+        Use when the source explicitly operates in management, project
+        management, organizational design, or managerial decision-making and
+        treats design science as the research approach.
+      boundary_notes: >
+        Do not use for all organizationally situated DSR. Prefer a narrower
+        field-specific genre, such as operations_management_design_science, when
+        the disciplinary frame is explicit.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower:
+          - operations_management_design_science
+        adjacent:
+          - design_oriented_information_systems_research
+          - action_design_research
+          - design_principle_development
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: gregor_zwikael_2024_ijpm_102584
+          evidence_status: mapped
+      review_notes: >
+        Use contribution_type and artifact_type fields to distinguish method,
+        model, framework, governance, and intervention contributions.
+
+    - id: transdisciplinary_design_science
+      label: Transdisciplinary Design Science
+      definition: >
+        A DSR genre addressing complex or wicked problems through collaboration
+        across disciplinary, professional, stakeholder, or societal boundaries,
+        with explicit integration of multiple knowledge sources.
+      allowed_use: >
+        Use when the source frames DSR as transdisciplinary or when the project
+        integrates several disciplines and stakeholder groups to create and
+        evaluate design knowledge for a shared problem class.
+      boundary_notes: >
+        Do not use merely because the source cites multiple disciplines.
+        Evidence should show integration, boundary-spanning collaboration, or
+        problem-driven transdisciplinary design logic.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - action_design_research
+          - responsible_design_science
+          - management_design_science
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: desrist_2022_transdisciplinary_reach_of_design_science_research
+          evidence_status: mapped
+      review_notes: >
+        Pair this genre with stakeholder and context fields to avoid reducing
+        transdisciplinarity to a label.
+
+    - id: responsible_design_science
+      label: Responsible Design Science
+      definition: >
+        A DSR genre or cross-cutting classification for research that makes
+        responsible design values central to the problem framing, artifact
+        requirements, design process, evaluation criteria, governance, or
+        contribution claims.
+      allowed_use: >
+        Use when values such as transparency, privacy, security, equity,
+        accessibility, accountability, safety, sustainability, or societal
+        impact materially shape the DSR artifact or its evaluation.
+      boundary_notes: >
+        Do not use for generic ethics statements or boilerplate limitations.
+        Responsible design concerns must be operationally connected to artifact
+        design, evaluation, governance, or contribution.
+      related_terms:
+        broader:
+          - canonical_design_science_research
+        narrower: []
+        adjacent:
+          - transdisciplinary_design_science
+          - artifact_evaluation_study
+          - action_design_research
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_status: mapped
+      review_notes: >
+        For this genre, verify whether values appear in requirements,
+        evaluation criteria, or governance mechanisms rather than only in the
+        discussion section.
+
+    - id: unclear_or_not_specified
+      label: Unclear or Not Specified
+      definition: >
+        A placeholder classification for sources where DSR relevance may exist
+        but genre evidence is insufficient, ambiguous, contradictory, or absent.
+      allowed_use: >
+        Use when the available text does not support a defensible genre label,
+        when the source uses DSR language inconsistently, or when a human
+        reviewer must inspect additional evidence before classification.
+      boundary_notes: >
+        Do not use as a convenience value when a more specific classification
+        can be justified. Record evidence gaps and recommended review actions.
+      related_terms:
+        broader: []
+        narrower: []
+        adjacent:
+          - canonical_design_science_research
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped
+      review_notes: >
+        Use with human_review_recommended: true in records that require genre
+        resolution.
+  genre_standards_crosswalk:
+    id: genre_standards_crosswalk_v0_1_0
+    purpose: >
+      Map the DSR Framework vocabulary to the five prototype genres identified
+      in the genre-specific source basis while preserving broader corpus-derived
+      genre values.
+    mappings:
+      - source_genre_label: Information Systems Design Theory
+        normalized_genre_id: information_systems_design_theory
+        mapping_status: direct
+        source_basis:
+          - peffers_tuunanen_niehaves_2018_design_science_research_genres
+      - source_genre_label: Design Science Research Methodology
+        normalized_genre_id: design_science_research_methodology
+        mapping_status: direct
+        source_basis:
+          - peffers_tuunanen_niehaves_2018_design_science_research_genres
+      - source_genre_label: Design-Oriented Information Systems Research
+        normalized_genre_id: design_oriented_information_systems_research
+        mapping_status: direct
+        source_basis:
+          - peffers_tuunanen_niehaves_2018_design_science_research_genres
+      - source_genre_label: Explanatory Design Theory
+        normalized_genre_id: explanatory_design_theory
+        mapping_status: direct
+        source_basis:
+          - peffers_tuunanen_niehaves_2018_design_science_research_genres
+      - source_genre_label: Action Design Research
+        normalized_genre_id: action_design_research
+        mapping_status: direct
+        source_basis:
+          - peffers_tuunanen_niehaves_2018_design_science_research_genres
+      - source_genre_label: DSR genre family or undifferentiated DSR
+        normalized_genre_id: canonical_design_science_research
+        mapping_status: framework_generalization
+        source_basis:
+          - dsr_source_extraction_specification
+      - source_genre_label: DSR knowledge synthesis or DSR meta-artifact
+        normalized_genre_id: design_knowledge_synthesis
+        mapping_status: corpus_extension
+        source_basis:
+          - dsr_source_extraction_specification
+          - dsr_extraction_corpus
+  classification_decision_rules:
+    - rule_id: genre_rule_001_specificity
+      rule: >
+        Select the most specific genre supported by evidence before using a
+        generic genre value.
+    - rule_id: genre_rule_002_primary_contribution
+      rule: >
+        Classify by the source's primary knowledge contribution, not by every
+        method, theory, artifact, or domain it mentions.
+    - rule_id: genre_rule_003_genre_sensitive_review
+      rule: >
+        Apply evaluation and publication criteria appropriate to the selected
+        genre rather than all DSR criteria indiscriminately.
+    - rule_id: genre_rule_004_multiple_genres
+      rule: >
+        If a source plausibly fits multiple genres, record one primary genre and
+        list secondary_genres in the consuming record or schema instance.
+    - rule_id: genre_rule_005_uncertainty
+      rule: >
+        Use unclear_or_not_specified only with an explicit evidence gap or review
+        rationale.
+  validation_rules:
+    - rule_id: vr_genre_id_style
+      severity: error
+      requirement: Genre ids must be lower_snake_case stable identifiers.
+    - rule_id: vr_entry_shape
+      severity: error
+      requirement: >
+        Every entry must include id, label, definition, allowed_use,
+        boundary_notes, related_terms, source_basis, and review_notes.
+    - rule_id: vr_source_basis
+      severity: warning
+      requirement: >
+        Every active genre should map to at least one source basis or carry
+        evidence_status: not_yet_mapped.
+    - rule_id: vr_no_overclaiming
+      severity: warning
+      requirement: >
+        Do not treat genre classification as evidence of quality, validity,
+        evaluation rigor, or publication readiness.
+  acceptance_criteria:
+    - id: ac_genre_vocabulary_complete
+      statement: >
+        The file enumerates all dsr_genre values currently used by the DSR
+        source extraction specification.
+      evidence_required:
+        - dsr_source_extraction_specification.dsr_genre
+        - vocabulary.entries[*].id
+    - id: ac_genre_crosswalk_present
+      statement: >
+        The file includes a standards crosswalk for the five prototype DSR
+        genres from the genre-specific source basis.
+      evidence_required:
+        - genre_standards_crosswalk.mappings
+    - id: ac_reviewable_boundaries
+      statement: >
+        Each genre includes boundary notes sufficient to support reviewer
+        judgment and reduce misclassification.
+      evidence_required:
+        - vocabulary.entries[*].boundary_notes
+    - id: ac_downstream_schema_ready
+      statement: >
+        The vocabulary can be referenced by project, source, contribution, and
+        publication-review schemas as a controlled enum.
+      evidence_required:
+        - vocabulary.entries[*].id
+        - validation_rules
+  traceability:
+    - trace_id: trace_genre_001_selection
+      source: dsr_framework_selection_table.vocab_genre_types
+      target: vocabularies/genre-types.yaml
+      relationship: authorizes_generation_target
+      evidence_status: mapped
+    - trace_id: trace_genre_002_prompt
+      source: dsr_framework_generation_prompt.vocabulary_shape
+      target: vocabulary.entries
+      relationship: governs_entry_structure
+      evidence_status: mapped
+    - trace_id: trace_genre_003_spec
+      source: dsr_framework_generation_spec.coherence_rules.vocabulary_entry_shape
+      target: vocabulary.entries
+      relationship: governs_required_fields
+      evidence_status: mapped
+    - trace_id: trace_genre_004_controlled_values
+      source: dsr_source_extraction_specification.controlled_vocabularies.dsr_genre
+      target: vocabulary.entries[*].id
+      relationship: seeds_controlled_values
+      evidence_status: mapped
+    - trace_id: trace_genre_005_genre_standards
+      source: peffers_tuunanen_niehaves_2018_design_science_research_genres
+      target: genre_standards_crosswalk
+      relationship: supplies_prototype_genre_crosswalk
+      evidence_status: mapped
+  quality_gate_status:
+    consistency:
+      status: pass
+      rationale: >
+        Uses lower-kebab-case path, lower_snake_case identifiers, YAML format,
+        and vocabulary structure expected for controlled DSR Framework files.
+    coherence:
+      status: pass
+      rationale: >
+        Aligns with the extraction specification enum, genre standards
+        crosswalk, and downstream model/schema use.
+    cogency:
+      status: pass
+      rationale: >
+        Provides definitions, use rules, boundaries, decision rules, and
+        validation rules for operational application.
+    correspondence:
+      status: pass
+      rationale: >
+        Corresponds to the selected L2 DSR genre vocabulary target.
+    dsr_transparency:
+      status: pass
+      rationale: >
+        Supports contribution transparency, evaluation transparency, and
+        publication-review transparency by making genre expectations explicit.
+    reviewability:
+      status: pass
+      rationale: >
+        Includes acceptance criteria, validation rules, source basis, and
+        traceability.
+  assumptions:
+    - id: asm_genre_001
+      statement: >
+        The vocabulary should preserve all dsr_genre values already present in
+        the extraction specification rather than limiting the file to the five
+        Peffers et al. prototype genres.
+    - id: asm_genre_002
+      statement: >
+        Some genre values are broader corpus-normalization categories rather
+        than formal genres with equally mature standards communities.
+  limitations:
+    - id: lim_genre_001
+      statement: >
+        The vocabulary does not empirically validate genre classification
+        reliability; downstream schemas or records should add reviewer evidence
+        where genre coding is material.
+    - id: lim_genre_002
+      statement: >
+        The crosswalk is intentionally reviewable and extensible; it should not
+        become a rigid compliance layer for authors.
+  open_questions:
+    - id: oq_genre_001
+      question: >
+        Should aesthetics-centered DSR and social-impact-centered DSR become
+        formal genre values or remain adjacent vocabularies and dimensions?
+      evidence_status: not_yet_resolved
+    - id: oq_genre_002
+      question: >
+        Should domain-specific genre values be split into separate disciplinary
+        vocabularies as the corpus grows?
+      evidence_status: not_yet_resolved
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial L2 reviewable vocabulary generated from selection_id vocab_genre_types.
+      responsible_party: GPT-5.5 Thinking

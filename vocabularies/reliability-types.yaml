@@ -1,0 +1,573 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: dsr_reliability_types
+  item_id: vocab_reliability_types
+  item_type: vocabulary
+  title: DSR Reliability Types Vocabulary
+  purpose: >
+    Provide controlled terms for classifying reliability concerns, evidence, and
+    review findings in Design Science Research artifact packages, especially for
+    artifact behavior, implementation fidelity, methods, measures, evaluators,
+    processes, and reusable design knowledge.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  target_path: vocabularies/reliability-types.yaml
+  selection_id: vocab_reliability_types
+  source_basis:
+    - id: dsr_framework_generation_spec
+      role: governing_generation_specification
+      evidence_status: mapped
+    - id: dsr_framework_generation_prompt
+      role: vocabulary_structure_and_generation_rules
+      evidence_status: mapped
+    - id: dsr_extraction_corpus
+      role: scholarly_and_methodological_evidence_base
+      evidence_status: source_family_mapped
+      notes: >
+        Corpus extraction records include repeated reliability targets such as
+        evaluator_reliability, method_reliability, process_reliability,
+        implementation_reliability, artifact_reliability, measure_reliability,
+        and design_knowledge_reliability, plus synchronic and diachronic
+        reliability notes.
+    - id: documentation_protocol_repository
+      role: repository_conventions_and_controlled_item_alignment
+      evidence_status: not_checked_in_this_generation
+  related_items:
+    upstream_dependencies:
+      - id: model_reliability
+        path: models/dsr-reliability-model.yaml
+        relationship: supplies_reliability_model_context
+      - id: spec_quality_review
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relationship: uses_reliability_terms_for_quality_review
+      - id: checklist_reliability
+        path: checklists/reliability-checklist.yaml
+        relationship: operationalizes_reliability_terms_as_review_questions
+    downstream_dependents:
+      - id: docs_validity_reliability
+        path: docs/protocol/09-validity-reliability-replication-projectability.md
+        relationship: explains_reliability_terms_for_human_readers
+      - id: schema_dsr_project
+        path: schemas/dsr-project.schema.json
+        relationship: may_reference_reliability_term_enumerations
+      - id: template_evaluation_report
+        path: templates/evaluation-report-template.yaml
+        relationship: may_use_terms_to classify_reliability_evidence
+  governance:
+    stable_identifier_style: lower_snake_case
+    entry_id_prefix: rel_
+    controlled_value_rule: >
+      Use the entry id as the controlled value in YAML records, schemas,
+      checklists, and review findings. Use the label only for display.
+    extension_rule: >
+      Add a new reliability type only when a review concern cannot be classified
+      under an existing target, temporal dimension, or absence category.
+  entries:
+    - id: artifact_reliability
+      label: Artifact Reliability
+      definition: >
+        The degree to which a DSR artifact instance or artifact class behaves,
+        performs, or produces outputs consistently under specified operating
+        conditions, inputs, users, contexts, and timeframes.
+      allowed_use: >
+        Use when assessing dependable artifact behavior, stable technical
+        functioning, output consistency, robustness of artifact performance, or
+        recurring failure patterns in an instantiated or reusable artifact.
+      boundary_notes: >
+        Do not use merely because an artifact is useful or valid. Use utility
+        terms for goal attainment and validity terms for claim support. Use
+        implementation_reliability when the issue is faithful deployment of a
+        specification rather than the artifact's own behavioral consistency.
+      related_terms:
+        broader:
+          - reliability
+        narrower:
+          - synchronic_reliability
+          - diachronic_reliability
+        related:
+          - implementation_reliability
+          - evaluation_validity
+          - artifact_quality
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: artifact_reliability appears as a normalized reliability target in multiple extraction records.
+      review_implications:
+        evidence_examples:
+          - repeated artifact tests under defined conditions
+          - regression or acceptance test records
+          - failure-mode logs and defect recurrence analysis
+          - robustness checks across relevant input classes
+        common_failure_modes:
+          - unspecified operating conditions
+          - inconsistent outputs without explanation
+          - single demonstration treated as reliability evidence
+          - performance claims lacking repeat observations
+
+    - id: implementation_reliability
+      label: Implementation Reliability
+      definition: >
+        The degree to which an artifact implementation, configuration,
+        deployment, or operational enactment faithfully and consistently realizes
+        the artifact specification, make plan, use plan, or procedural design.
+      allowed_use: >
+        Use when assessing whether different deployments, sites, versions,
+        facilitators, configurations, or technical environments implement the
+        intended design consistently enough for evaluation or reuse.
+      boundary_notes: >
+        Distinguish from artifact_reliability: an artifact can be conceptually
+        reliable while a particular deployment is unreliable. Distinguish from
+        process_reliability: implementation reliability concerns realized
+        artifact enactment, not the whole research process.
+      related_terms:
+        broader:
+          - reliability
+        related:
+          - artifact_reliability
+          - process_reliability
+          - build_transparency
+          - implementation_fidelity
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: implementation_reliability appears as a normalized reliability target in DSR transparency and artifact-use records.
+      review_implications:
+        evidence_examples:
+          - implementation checklists
+          - configuration records
+          - deployment logs
+          - fidelity checks against the artifact specification
+          - version and environment documentation
+        common_failure_modes:
+          - undocumented local adaptations
+          - inconsistent installation or configuration
+          - missing version traceability
+          - conflating prototype existence with reliable implementation
+
+    - id: method_reliability
+      label: Method Reliability
+      definition: >
+        The degree to which a DSR method, procedure, coding protocol,
+        classification rule, evaluation method, or analysis procedure can be
+        applied consistently across researchers, cases, artifacts, or repeated
+        uses when the relevant conditions are sufficiently similar.
+      allowed_use: >
+        Use when assessing repeatable application of design methods, evaluation
+        protocols, classification procedures, coding schemes, review rubrics,
+        or other structured research methods.
+      boundary_notes: >
+        Distinguish from process_reliability: method reliability concerns a
+        particular method or protocol, while process reliability concerns the
+        enacted project sequence and decision trail. Use evaluator_reliability
+        when the main issue is agreement among human judges using the method.
+      related_terms:
+        broader:
+          - reliability
+        narrower:
+          - evaluator_reliability
+        related:
+          - process_reliability
+          - evaluation_method_family
+          - procedural_validity
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: method_reliability appears in corpus records for repeated coding, classification, evaluation, and protocol application.
+      review_implications:
+        evidence_examples:
+          - coding manuals or procedure descriptions
+          - method training records
+          - repeated application across cases
+          - protocol pilots or calibration exercises
+          - documented decision rules
+        common_failure_modes:
+          - method steps not specified
+          - ambiguous classification criteria
+          - non-repeatable expert judgment
+          - missing calibration or procedural examples
+
+    - id: measure_reliability
+      label: Measure Reliability
+      definition: >
+        The degree to which a measure, metric, instrument, scale, benchmark,
+        indicator, or observational procedure yields consistent readings or
+        scores when applied to the same phenomenon under relevantly similar
+        conditions.
+      allowed_use: >
+        Use when assessing consistency of evaluation metrics, surveys,
+        benchmarks, scoring rubrics, telemetry, observation forms, or other
+        measurement instruments used in a DSR project.
+      boundary_notes: >
+        Do not use as a substitute for validity. A measure can be reliable yet
+        fail to capture the intended construct. Use evaluation_validity or
+        construct_validity terms when the issue is whether the measure supports
+        the claim it is used to support.
+      related_terms:
+        broader:
+          - reliability
+        related:
+          - construct_validity
+          - evaluation_validity
+          - metric_definition
+          - benchmark_reproducibility
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: measure_reliability appears in corpus records concerning metrics, benchmarking, and evaluation comparability.
+      review_implications:
+        evidence_examples:
+          - instrument reliability statistics
+          - repeated measurements
+          - benchmark stability checks
+          - scoring rubric calibration
+          - measurement procedure documentation
+        common_failure_modes:
+          - single uncalibrated measure
+          - changing metric definitions
+          - inconsistent scoring procedures
+          - treating face plausibility as measurement reliability
+
+    - id: evaluator_reliability
+      label: Evaluator Reliability
+      definition: >
+        The degree to which human evaluators, reviewers, coders, raters,
+        experts, or judges reach consistent judgments when applying the same
+        criteria, rubric, coding scheme, or evaluation protocol.
+      allowed_use: >
+        Use when assessing inter-rater agreement, coder agreement, reviewer
+        calibration, adjudication procedures, expert panel consistency, or
+        independent classification convergence.
+      boundary_notes: >
+        Use method_reliability when the procedure itself is the target. Use
+        evaluator_reliability when variation is primarily attributable to human
+        judgment or interpretation. Do not overclaim evaluator reliability from
+        informal consensus without describing the agreement process.
+      related_terms:
+        broader:
+          - method_reliability
+        related:
+          - inter_rater_agreement
+          - reviewer_calibration
+          - coding_reliability
+          - evaluation_transparency
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: mapped
+          source_note: Akoka et al. 2023 reports independent classification with 92 percent identical classifications, supporting evaluator reliability for its classification procedure.
+      review_implications:
+        evidence_examples:
+          - inter-rater agreement statistics
+          - percent agreement with adjudication notes
+          - coder calibration records
+          - independent classification comparison
+          - reviewer rubric training examples
+        common_failure_modes:
+          - one evaluator only
+          - no description of adjudication
+          - unclear rating criteria
+          - agreement reported without denominator or method
+
+    - id: process_reliability
+      label: Process Reliability
+      definition: >
+        The degree to which the DSR project process is enacted, recorded, and
+        reviewable in a consistent sequence of activities, decisions, evidence
+        captures, design changes, evaluation steps, and governance actions.
+      allowed_use: >
+        Use when assessing consistency and traceability of the research process,
+        process logs, design decision records, workflow execution, activity
+        ordering, or adherence to a declared DSR lifecycle.
+      boundary_notes: >
+        Distinguish from method_reliability, which concerns a particular method.
+        Process reliability concerns the whole or relevant part of the project
+        process and its documentation. It supports but does not guarantee
+        validity, transparency, or reproducibility.
+      related_terms:
+        broader:
+          - reliability
+        related:
+          - process_transparency
+          - design_decision_record
+          - lifecycle_stage
+          - procedural_validity
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: Hevner et al. 2024 and related DSR transparency records connect logs, activity records, and ordered project documentation to process reliability.
+      review_implications:
+        evidence_examples:
+          - project activity logs
+          - design decision records
+          - lifecycle stage records
+          - protocol adherence evidence
+          - deviations and rationale records
+        common_failure_modes:
+          - ex-post reconstruction without evidence
+          - missing decision trail
+          - undocumented process deviations
+          - conflating final report order with actual process order
+
+    - id: design_knowledge_reliability
+      label: Design Knowledge Reliability
+      definition: >
+        The degree to which produced design knowledge, such as design principles,
+        design theory, artifact specifications, patterns, or guidelines, remains
+        stable, interpretable, and dependably usable within its stated boundary
+        conditions and contribution scope.
+      allowed_use: >
+        Use when assessing whether reusable DSR knowledge can be interpreted and
+        applied consistently by later researchers or practitioners, especially
+        when moving from local artifact evidence to projectable design knowledge.
+      boundary_notes: >
+        Do not use as a synonym for generalizability. Reliability concerns
+        stable interpretation and dependable use; projectability concerns where
+        and how the knowledge may transfer or adapt. Use contribution validity
+        when the issue is whether the evidence supports the knowledge claim.
+      related_terms:
+        broader:
+          - reliability
+        related:
+          - contribution_claim
+          - projectability
+          - replication_type
+          - boundary_condition
+          - design_principle
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: design_knowledge_reliability appears as a corpus target in records addressing reusable methods, design principles, transparency, and cumulative knowledge.
+      review_implications:
+        evidence_examples:
+          - explicit boundary conditions
+          - stable definitions of design principles or guidelines
+          - reuse examples or differentiated replication evidence
+          - traceability from evidence to design knowledge claims
+          - limitations and scope notes
+        common_failure_modes:
+          - vague design principles
+          - unsupported transfer claims
+          - omitted boundary conditions
+          - local lesson overgeneralized as stable design knowledge
+
+    - id: synchronic_reliability
+      label: Synchronic Reliability
+      definition: >
+        Reliability assessed for consistency at a particular point in time or
+        within a bounded evaluation window, such as same-period ratings,
+        same-version artifact tests, or same-protocol classifications.
+      allowed_use: >
+        Use as a temporal qualifier when the reliability concern is cross-sectional,
+        same-time, or same-version consistency rather than stability across time.
+      boundary_notes: >
+        Synchronic reliability is not a target by itself; pair it with a target
+        such as artifact_reliability, evaluator_reliability, method_reliability,
+        measure_reliability, or process_reliability.
+      related_terms:
+        broader:
+          - temporal_reliability_dimension
+        related:
+          - diachronic_reliability
+          - evaluator_reliability
+          - artifact_reliability
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: corpus records repeatedly include synchronic_reliability_notes for same-time reliability assessments.
+      review_implications:
+        evidence_examples:
+          - same-version repeated tests
+          - same-period coder agreement
+          - same-context metric stability
+          - contemporaneous process records
+        common_failure_modes:
+          - treating synchronic evidence as longitudinal stability
+          - ignoring version or timing boundaries
+
+    - id: diachronic_reliability
+      label: Diachronic Reliability
+      definition: >
+        Reliability assessed for stability, consistency, maintainability, or
+        dependable interpretation across time, versions, lifecycle stages,
+        cohorts, settings, or repeated future applications.
+      allowed_use: >
+        Use as a temporal qualifier when the reliability concern involves
+        longitudinal stability, artifact evolution, maintenance, repeated
+        application over time, or preservation of design knowledge across versions.
+      boundary_notes: >
+        Diachronic reliability is not a target by itself; pair it with a target
+        such as artifact_reliability, implementation_reliability,
+        process_reliability, measure_reliability, or design_knowledge_reliability.
+        Do not infer diachronic reliability from one-time evaluation evidence.
+      related_terms:
+        broader:
+          - temporal_reliability_dimension
+        related:
+          - synchronic_reliability
+          - lifecycle_stage
+          - maintenance
+          - projectability
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: source_family_mapped
+          source_note: corpus records repeatedly include diachronic_reliability_notes for stability-over-time and lifecycle concerns.
+      review_implications:
+        evidence_examples:
+          - longitudinal evaluation
+          - version-to-version regression evidence
+          - maintenance and update records
+          - repeated use across cohorts or releases
+          - preservation of design rationale over time
+        common_failure_modes:
+          - no repeated observations
+          - unstable metric or artifact versions
+          - undocumented maintenance changes
+          - assuming future stability from current utility
+
+    - id: no_reliability_discussion
+      label: No Reliability Discussion
+      definition: >
+        A controlled absence value indicating that a source, artifact package,
+        evaluation report, or review record does not explicitly address
+        reliability for the relevant target, or that available evidence is
+        insufficient to classify a reliability type.
+      allowed_use: >
+        Use when documenting gaps, review findings, or source extraction records
+        where reliability is absent, not applicable, or not sufficiently specified.
+      boundary_notes: >
+        Do not use as a negative quality judgment by itself. Use it to preserve
+        transparency about missing evidence. When reliability is not applicable,
+        include rationale; when evidence is missing, include remediation guidance.
+      related_terms:
+        broader:
+          - evidence_absence_value
+        related:
+          - evidence_status_not_yet_mapped
+          - open_question
+          - review_finding
+      source_basis:
+        - id: dsr_extraction_corpus
+          evidence_status: mapped
+          source_note: no_reliability_discussion appears as a normalized corpus value in sources with no explicit reliability treatment.
+      review_implications:
+        evidence_examples:
+          - explicit review note stating reliability evidence is absent
+          - not_applicable rationale
+          - request for additional reliability evidence
+        common_failure_modes:
+          - silently omitting reliability concerns
+          - using absence of discussion as proof of unreliability
+          - failing to distinguish not_applicable from not_reported
+  usage_rules:
+    - id: use_target_plus_temporal_qualifier_when_needed
+      rule: >
+        Classify the reliability target first, then add synchronic_reliability
+        or diachronic_reliability as a temporal qualifier when timing matters.
+      examples:
+        - evaluator_reliability + synchronic_reliability
+        - artifact_reliability + diachronic_reliability
+    - id: distinguish_reliability_from_validity
+      rule: >
+        Use reliability terms for consistency, dependability, stability, or
+        repeatable application. Use validity terms when the issue is whether
+        evidence supports the intended claim or construct.
+    - id: distinguish_reliability_from_projectability
+      rule: >
+        Use reliability terms for stable interpretation and consistent behavior.
+        Use projectability or replication terms for transfer, adaptation, reuse,
+        generalization, and repeated study logic.
+    - id: preserve_absence_values
+      rule: >
+        Use no_reliability_discussion where reliability is missing rather than
+        silently omitting the field, especially in extraction, review, and
+        checklist records.
+  validation_rules:
+    - id: vr_reliability_entry_shape
+      rule: >
+        Each vocabulary entry must include id, label, definition, allowed_use,
+        boundary_notes, related_terms, source_basis, and review_implications.
+      severity: error
+    - id: vr_reliability_id_style
+      rule: Entry ids must be lower_snake_case and stable across releases.
+      severity: error
+    - id: vr_no_overclaiming
+      rule: >
+        A reliability type must not be interpreted as evidence that reliability
+        was achieved; it classifies the kind of reliability concern or evidence.
+      severity: warning
+    - id: vr_temporal_qualifiers
+      rule: >
+        synchronic_reliability and diachronic_reliability should qualify another
+        reliability target unless the field specifically expects a temporal
+        dimension value.
+      severity: warning
+  acceptance_criteria:
+    - id: ac_repository_fit
+      criterion: File path, extension, item type, and stable identifiers follow DSR Framework repository conventions.
+    - id: ac_vocabulary_completeness
+      criterion: >
+        Entries cover artifact, implementation, method, measure, evaluator,
+        process, design-knowledge, synchronic, diachronic, and absence values.
+    - id: ac_reviewability
+      criterion: Each entry includes allowed use, boundary notes, related terms, source basis, and review implications.
+    - id: ac_non_overclaiming
+      criterion: The vocabulary distinguishes classifying reliability concerns from proving reliability evidence.
+  traceability:
+    - trace_id: tr_vocab_reliability_types_to_selection_table
+      source: dsr-framework-selection-table.md#vocab_reliability_types
+      relationship: implements_selected_portion
+      target: vocabularies/reliability-types.yaml
+      evidence_status: mapped
+    - trace_id: tr_vocab_reliability_types_to_generation_spec
+      source: dsr-framework-generation-spec.yaml#content_generation_rules
+      relationship: follows_generation_rules
+      target: vocabularies/reliability-types.yaml
+      evidence_status: mapped
+    - trace_id: tr_vocab_reliability_types_to_prompt
+      source: dsr-framework-generation-prompt.md#vocabulary-files-in-vocabularies
+      relationship: follows_vocabulary_shape
+      target: vocabularies/reliability-types.yaml
+      evidence_status: mapped
+    - trace_id: tr_vocab_reliability_types_to_reliability_model
+      source: models/dsr-reliability-model.yaml
+      relationship: supports_controlled_values_for_model
+      target: vocabularies/reliability-types.yaml
+      evidence_status: not_yet_mapped
+  quality_gate_status:
+    qg_consistency: pass
+    qg_coherence: pass
+    qg_cogency: pass
+    qg_correspondence: pass
+    qg_dsr_transparency: pass
+    qg_reviewability: pass
+  limitations:
+    - id: lim_reliability_model_dependency_not_loaded
+      statement: >
+        The vocabulary is designed to support the selected reliability model
+        dependency, but the final reliability model file was not provided in
+        this request; model-to-vocabulary alignment should be rechecked when
+        models/dsr-reliability-model.yaml is finalized.
+    - id: lim_source_anchor_granularity
+      statement: >
+        Source basis is mapped primarily at the corpus and normalized-target
+        level; a later release may add per-entry citation anchors from retained
+        source-basis records.
+  open_questions:
+    - id: oq_reliability_type_cardinality
+      question: >
+        Should future schemas allow multiple reliability targets plus temporal
+        qualifiers, or enforce a primary reliability target with optional
+        secondary dimensions?
+      resolution_status: open
+    - id: oq_statistical_reliability_subtypes
+      question: >
+        Should psychometric subtypes such as test_retest_reliability,
+        internal_consistency, and inter_rater_reliability be added as narrower
+        terms under measure_reliability and evaluator_reliability?
+      resolution_status: open
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial draft generated from selected DSR Framework vocabulary target.
+      responsible_party: GPT-5.5 Thinking

@@ -1,0 +1,1000 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_framework_foundation
+  title: DSR Framework Foundation Specification
+  short_title: DSR Framework Foundation
+  item_id: product_dsr_framework_foundation
+  item_type: specification
+  selection_id: spec_dsr_framework_foundation
+  target_path: specs/product-dsr-framework-foundation.yaml
+  purpose: >
+    Define the identity, scope, intended users, operating assumptions, boundaries,
+    non-goals, and minimum reviewable obligations for the Design Science Research
+    Framework artifact package.
+  status: draft
+  version: "0.1.0"
+  owner: framework_maintainer
+  responsible_role: framework_editor
+  conformance_target: l2_reviewable
+  created_date: "2026-04-27"
+  license: CC0-1.0
+
+source_basis:
+  - source_id: user_current_request
+    role: immediate_task_definition
+    evidence_status: provided
+    notes: >
+      User selected spec_dsr_framework_foundation with target path
+      specs/product-dsr-framework-foundation.yaml and requested a YAML file.
+  - source_id: dsr_framework_generation_spec
+    role: generation_and_repository_rules
+    evidence_status: mapped
+    notes: >
+      Provides repository conventions, product specification structure,
+      quality gates, conformance levels, naming rules, and traceability rules.
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure
+    evidence_status: mapped
+    notes: >
+      Provides product-spec structure and required distinctions for DSR artifact
+      utility, artifact quality, contribution, transparency, evaluation, and reviewability.
+  - source_id: dsr_extraction_corpus
+    role: scholarly_and_methodological_evidence_base
+    evidence_status: partially_mapped
+    notes: >
+      Internal corpus supports the DSR consensus basis for artifact creation,
+      build-evaluate logic, transparency, contribution positioning, artifact ontology,
+      projectability, and reviewable documentation.
+
+related_items:
+  upstream_dependencies:
+    - item_id: product_protocol_foundation
+      path: specs/product-protocol-foundation.yaml
+      relation: depends_on
+      evidence_status: generated_in_prior_sequence
+    - item_id: product_catalog
+      path: specs/product-catalog.yaml
+      relation: registered_by
+      evidence_status: generated_in_prior_sequence
+    - item_id: artifact_profile
+      path: artifact-profile.yaml
+      relation: describes_package_identity
+      evidence_status: generated_in_prior_sequence
+    - item_id: conformance_declaration
+      path: conformance-declaration.yaml
+      relation: declares_conformance
+      evidence_status: generated_in_prior_sequence
+  downstream_dependents:
+    - item_id: product_dsr_lifecycle_and_contribution_model
+      path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+      relation: constrains_scope
+    - item_id: product_dsr_information_item_architecture
+      path: specs/product-dsr-information-item-architecture.yaml
+      relation: constrains_information_scope
+    - item_id: product_dsr_artifact_package_specification
+      path: specs/product-dsr-artifact-package-specification.yaml
+      relation: constrains_package_scope
+    - item_id: dsr_framework_canonical_model
+      path: models/dsr-framework-canonical-model.yaml
+      relation: supplies_foundational_entities
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    responsible_party: GPT-5.5 Thinking
+    summary: >
+      Created the DSR Framework foundation product specification for identity,
+      scope, users, assumptions, non-goals, and reviewability constraints.
+
+assumptions:
+  - id: asm_dsr_foundation_001
+    statement: >
+      The DSR Framework is a reusable documentation and quality framework for
+      Design Science Research artifacts, not a single empirical DSR study.
+    status: active
+  - id: asm_dsr_foundation_002
+    statement: >
+      The framework is intended for GitHub-publication and later archival release,
+      but this file only claims L2 reviewable conformance.
+    status: active
+  - id: asm_dsr_foundation_003
+    statement: >
+      Internal DSR corpus evidence is sufficient for the draft scope and identity
+      claims, while detailed source-to-construct mapping remains a downstream task.
+    status: active
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: >
+      Establish the DSR Framework as a protocol-governed artifact package with a
+      defined object, audience, scope, and contribution boundary.
+    content:
+      artifact_identity:
+        canonical_name: Design Science Research Framework
+        short_name: DSR Framework
+        artifact_class:
+          primary: compound_dsr_artifact
+          secondary:
+            - method_or_protocol_artifact
+            - model_or_taxonomy_artifact
+            - documentation_only
+            - data_or_information_artifact
+        artifact_form: github_repository_package
+        intended_repository_visibility: public
+        intended_release_pattern: versioned_open_artifact
+        default_license: CC0-1.0
+      purpose_statement: >
+        The DSR Framework provides a structured, reviewable, and reusable artifact
+        package for planning, documenting, evaluating, reviewing, publishing, and
+        preserving Design Science Research artifacts and associated design knowledge.
+      problem_addressed: >
+        DSR projects often produce artifacts, evaluation evidence, design
+        knowledge, contribution claims, and transparency materials in fragmented or
+        inconsistent forms. This framework defines reusable controlled files,
+        models, vocabularies, templates, records, and checklists so that DSR work
+        can be made more reviewable, traceable, reusable, and publication-ready.
+      primary_claims:
+        - claim_id: claim_foundation_scope_001
+          claim: >
+            A DSR artifact package should distinguish artifact identity, artifact
+            utility, artifact quality, contribution to knowledge, evaluation
+            evidence, transparency evidence, and reuse constraints.
+          claim_type: methodological
+          evidence_status: partially_mapped
+        - claim_id: claim_foundation_scope_002
+          claim: >
+            A reviewable DSR framework requires controlled specifications, models,
+            vocabularies, templates, records, and checklists, not only narrative
+            documentation.
+          claim_type: protocol_design
+          evidence_status: mapped_to_generation_spec
+        - claim_id: claim_foundation_scope_003
+          claim: >
+            DSR documentation should explicitly represent process, problem-space,
+            solution-space, build, evaluation, and contribution transparency.
+          claim_type: transparency_requirement
+          evidence_status: partially_mapped
+      intended_outcomes:
+        - outcome_id: outcome_foundation_001
+          description: >
+            Researchers can instantiate a consistent DSR artifact package for a
+            project, model, method, framework, software artifact, or design theory.
+        - outcome_id: outcome_foundation_002
+          description: >
+            Reviewers can inspect claims, evidence, quality gates, and conformance
+            declarations without relying on hidden assumptions.
+        - outcome_id: outcome_foundation_003
+          description: >
+            Maintainers can version, validate, publish, and preserve the framework
+            using repository-native files.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: >
+      Define the foundational entities, relationships, users, contexts, and
+      boundaries that downstream DSR Framework specifications must preserve.
+    content:
+      core_entities:
+        - entity_id: dsr_framework
+          label: DSR Framework
+          definition: >
+            The complete controlled artifact package that defines how to document,
+            evaluate, review, and publish DSR artifacts and related design knowledge.
+          entity_type: compound_artifact
+        - entity_id: dsr_artifact_package
+          label: DSR Artifact Package
+          definition: >
+            A structured repository or package containing the files required to
+            describe, justify, evaluate, review, and preserve a DSR artifact.
+          entity_type: package
+        - entity_id: dsr_project
+          label: DSR Project
+          definition: >
+            A research activity or sequence of activities that creates, adapts,
+            evaluates, and communicates an artifact or design knowledge contribution.
+          entity_type: research_process
+        - entity_id: dsr_artifact
+          label: DSR Artifact
+          definition: >
+            A designed artifact type, model, method, construct, framework,
+            instantiation, software object, protocol, or socio-technical design
+            output that is claimed as part of a DSR contribution.
+          entity_type: design_object
+        - entity_id: design_knowledge
+          label: Design Knowledge
+          definition: >
+            Reusable or projectable knowledge about problem framing, design
+            requirements, artifact form and function, build logic, use logic,
+            evaluation evidence, boundary conditions, or contribution implications.
+          entity_type: knowledge_object
+        - entity_id: evidence_record
+          label: Evidence Record
+          definition: >
+            A retained record that documents source basis, decisions, evaluation,
+            review, release, transparency, or preservation evidence.
+          entity_type: record
+        - entity_id: conformance_claim
+          label: Conformance Claim
+          definition: >
+            A declared claim about the degree to which a package satisfies the
+            applicable DSR Framework requirements.
+          entity_type: quality_claim
+      principal_relationships:
+        - relationship_id: rel_framework_defines_package
+          subject: dsr_framework
+          predicate: defines_required_structure_for
+          object: dsr_artifact_package
+        - relationship_id: rel_project_produces_artifact
+          subject: dsr_project
+          predicate: produces_or_refines
+          object: dsr_artifact
+        - relationship_id: rel_artifact_embodies_knowledge
+          subject: dsr_artifact
+          predicate: embodies_or_generates
+          object: design_knowledge
+        - relationship_id: rel_evidence_supports_claim
+          subject: evidence_record
+          predicate: supports_or_limits
+          object: conformance_claim
+        - relationship_id: rel_framework_controls_vocabularies
+          subject: dsr_framework
+          predicate: controls
+          object: controlled_vocabularies
+      intended_users:
+        - user_id: researcher_author
+          label: Researcher or Author
+          needs:
+            - plan and document a DSR project
+            - state artifact scope and contribution claims
+            - assemble evaluation and transparency evidence
+            - prepare a repository for review or publication
+        - user_id: reviewer_editor
+          label: Reviewer or Editor
+          needs:
+            - inspect evidence against explicit quality gates
+            - identify overclaims, missing evaluation, or unsupported contribution claims
+            - assess reviewability and conformance level
+        - user_id: practitioner_adopter
+          label: Practitioner or Adopter
+          needs:
+            - understand artifact use conditions and boundary conditions
+            - evaluate reuse or adaptation fit
+            - locate implementation, demonstration, or evaluation materials
+        - user_id: maintainer_curator
+          label: Framework Maintainer or Curator
+          needs:
+            - maintain controlled vocabularies and schemas
+            - manage releases, records, and preservation metadata
+            - track issues, changes, and conformance evolution
+        - user_id: educator_supervisor
+          label: Educator, Supervisor, or Method Coach
+          needs:
+            - teach DSR documentation and evaluation practices
+            - scaffold student or team projects
+            - compare DSR work against minimum identity criteria
+      scope_boundaries:
+        in_scope:
+          - DSR artifact package structure
+          - DSR identity and minimum viability rules
+          - artifact, contribution, evaluation, transparency, reliability, and projectability models
+          - controlled vocabularies for DSR documentation and review
+          - reusable templates, checklists, schemas, and records
+          - repository publication and archival-readiness scaffolding
+        out_of_scope:
+          - replacing peer review or expert judgment
+          - certifying truth, effectiveness, or publication acceptance of a particular DSR study
+          - providing domain-specific evaluation metrics for every possible artifact domain
+          - serving as a complete research-methods textbook
+          - guaranteeing replicability where the DSR context materially changes
+          - hosting full source datasets or executable artifacts for every adopting project
+      operating_contexts:
+        - context_id: scholarly_repository
+          description: >
+            A public or private GitHub repository used to develop, review, release,
+            and cite a DSR artifact package.
+        - context_id: project_documentation_workspace
+          description: >
+            A working repository or folder used during artifact design, evaluation,
+            review, and revision.
+        - context_id: publication_supplement
+          description: >
+            A repository-linked supplement for journal, conference, thesis,
+            dissertation, or institutional review use.
+        - context_id: educational_scaffold
+          description: >
+            A teaching or mentoring package used to introduce DSR documentation,
+            evaluation alignment, and contribution positioning.
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: >
+      State the minimum obligations, recommended practices, optional extensions,
+      and prohibited overclaims for this foundation specification.
+    content:
+      must:
+        - requirement_id: must_foundation_001
+          statement: >
+            The DSR Framework must identify itself as a reusable artifact package
+            for DSR documentation, evaluation, review, and publication support.
+          rationale: Prevents ambiguity between the framework artifact and any single DSR study.
+          verification: Inspect product identity, README, manifest, artifact profile, and package inventory.
+        - requirement_id: must_foundation_002
+          statement: >
+            The framework must distinguish artifact utility, artifact quality, and
+            contribution to knowledge as separate but related review targets.
+          rationale: Prevents conflation of local usefulness with scholarly contribution.
+          verification: Inspect lifecycle, contribution, evaluation, and checklist files.
+        - requirement_id: must_foundation_003
+          statement: >
+            The framework must distinguish demonstration from evaluation.
+          rationale: Demonstrating use is not equivalent to evidence of effectiveness, validity, or quality.
+          verification: Inspect evaluation templates, evaluation plan, evaluation report, and lifecycle model.
+        - requirement_id: must_foundation_004
+          statement: >
+            The framework must document assumptions, non-goals, limitations, and
+            open questions wherever claims are not fully settled.
+          rationale: Supports transparent review and avoids overclaiming.
+          verification: Inspect controlled product specifications and retained records.
+        - requirement_id: must_foundation_005
+          statement: >
+            The framework must provide controlled source-of-truth files in YAML or
+            JSON-compatible formats for specifications, models, vocabularies,
+            checklists, templates, and records.
+          rationale: Supports validation, versioning, reuse, and repository-native governance.
+          verification: Inspect repository tree, package inventory, and schemas.
+        - requirement_id: must_foundation_006
+          statement: >
+            The framework must map applicable content to DSR transparency
+            dimensions: process, problem space, solution space, build, evaluation,
+            and contribution.
+          rationale: Makes review-relevant transparency obligations explicit.
+          verification: Inspect transparency model, crosswalks, records, and product specs.
+      should:
+        - requirement_id: should_foundation_001
+          statement: >
+            The framework should use controlled vocabularies for artifact types,
+            contribution types, knowledge goals, knowledge scopes, lifecycle stages,
+            evaluation methods, validity, reliability, replication, projectability,
+            transparency, genres, and responsible design values.
+          rationale: Improves semantic consistency across files and reviews.
+        - requirement_id: should_foundation_002
+          statement: >
+            The framework should preserve traceability from claims to source basis,
+            decision records, evaluation records, and review evidence.
+          rationale: Supports auditability and scholarly review.
+        - requirement_id: should_foundation_003
+          statement: >
+            The framework should be usable both by DSR specialists and by adjacent
+            research, design, engineering, educational, policy, or software teams.
+          rationale: Supports transdisciplinary adoption without abandoning DSR rigor.
+      may:
+        - requirement_id: may_foundation_001
+          statement: >
+            The framework may provide examples, crosswalks, and rendered Markdown
+            guides to improve accessibility and adoption.
+          rationale: Examples and docs support use but should not replace controlled sources.
+        - requirement_id: may_foundation_002
+          statement: >
+            The framework may include automation for schema validation, inventory
+            checks, link checks, and release-readiness checks.
+          rationale: Automation supports higher conformance levels after reviewable content exists.
+      must_not:
+        - requirement_id: must_not_foundation_001
+          statement: >
+            The framework must not claim that a DSR artifact is valid, effective,
+            generalizable, reusable, or publication-ready without corresponding evidence.
+          rationale: Prevents unsupported claims and review failure.
+        - requirement_id: must_not_foundation_002
+          statement: >
+            The framework must not require full openness of proprietary, private,
+            security-sensitive, or ethically restricted materials.
+          rationale: Transparency must be proportionate and compatible with responsible governance.
+        - requirement_id: must_not_foundation_003
+          statement: >
+            The framework must not collapse all artifact forms into software or all
+            DSR outcomes into instantiations.
+          rationale: DSR artifacts and design knowledge include multiple forms and abstraction levels.
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: >
+      Identify the controlled information items needed to instantiate the DSR
+      Framework foundation and to support downstream package review.
+    content:
+      required_foundation_items:
+        - item_id: manifest
+          path: manifest.yaml
+          item_type: specification
+          role: Defines canonical repository and package identity.
+        - item_id: metadata
+          path: metadata.yaml
+          item_type: metadata_record
+          role: Provides structured project metadata, authorship, license, and citation fields.
+        - item_id: artifact_profile
+          path: artifact-profile.yaml
+          item_type: artifact_profile
+          role: Describes artifact identity, scope, claims, conformance, and reuse constraints.
+        - item_id: package_inventory
+          path: package-inventory.yaml
+          item_type: record
+          role: Lists package files, responsibility, validation, and readiness status.
+        - item_id: conformance_declaration
+          path: conformance-declaration.yaml
+          item_type: record
+          role: Declares conformance level, tailoring, and evidence status.
+      foundation_specific_items:
+        - item_id: product_dsr_framework_foundation
+          path: specs/product-dsr-framework-foundation.yaml
+          item_type: specification
+          role: Defines identity, scope, users, assumptions, boundaries, and non-goals.
+        - item_id: product_protocol_foundation
+          path: specs/product-protocol-foundation.yaml
+          item_type: specification
+          role: Supplies protocol-level conformance and tailoring basis.
+        - item_id: record_source_basis_dsr_corpus
+          path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+          item_type: record
+          role: Records corpus and evidence-basis decisions for DSR concepts.
+      minimum_metadata_fields:
+        - item_id
+        - item_type
+        - title
+        - purpose
+        - status
+        - version
+        - owner
+        - related_items
+        - source_basis
+        - change_history
+      record_fields_needed_for_reviewability:
+        - record_id
+        - record_class
+        - event_or_action
+        - date
+        - responsible_party
+        - evidence
+        - outcome
+        - related_items
+        - retention_rule
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: >
+      Define how the DSR Framework foundation is used to initiate, review, and
+      maintain a DSR artifact package.
+    content:
+      workflow_summary: >
+        Use this foundation specification before developing detailed lifecycle,
+        artifact, evaluation, transparency, quality, publication, or automation
+        products. It determines what the framework is, whom it serves, what it
+        covers, and what it deliberately does not claim.
+      stages:
+        - stage_id: foundation_01_identify_package
+          label: Identify artifact package
+          actor: framework_maintainer
+          inputs:
+            - user_current_request
+            - manifest.yaml
+            - artifact-profile.yaml
+          actions:
+            - Confirm canonical name, artifact class, license, and intended repository role.
+            - Confirm selected conformance target and scope boundaries.
+          outputs:
+            - updated_foundation_identity
+        - stage_id: foundation_02_bound_scope
+          label: Bound framework scope
+          actor: framework_editor
+          inputs:
+            - product-protocol-foundation.yaml
+            - product-catalog.yaml
+            - DSR corpus source basis
+          actions:
+            - State in-scope and out-of-scope concerns.
+            - Identify intended users and operating contexts.
+            - Record assumptions and non-goals.
+          outputs:
+            - scope_and_boundary_model
+        - stage_id: foundation_03_align_requirements
+          label: Align foundation requirements
+          actor: framework_editor
+          inputs:
+            - generation specification
+            - documentation protocol architecture
+            - DSR corpus evidence
+          actions:
+            - Translate scope into must, should, may, and must-not requirements.
+            - Identify verification paths and acceptance criteria.
+          outputs:
+            - normative_requirement_set
+        - stage_id: foundation_04_review_foundation
+          label: Review foundation specification
+          actor: reviewer_editor
+          inputs:
+            - product-dsr-framework-foundation.yaml
+            - package-inventory.yaml
+            - conformance-declaration.yaml
+          actions:
+            - Check consistency, coherence, cogency, correspondence, transparency, and reviewability.
+            - Record defects, open questions, and remediation actions.
+          outputs:
+            - review_findings
+        - stage_id: foundation_05_maintain_and_version
+          label: Maintain and version foundation
+          actor: framework_maintainer
+          inputs:
+            - review_findings
+            - issues_or_change_requests
+            - downstream implementation feedback
+          actions:
+            - Revise scope and assumptions when downstream specs expose conflicts.
+            - Update change history and traceability.
+          outputs:
+            - next_version_candidate
+      demonstration_vs_evaluation_rule: >
+        A demonstration shows that a user can apply the framework or a template in
+        a scenario. Evaluation assesses whether the framework satisfies explicit
+        criteria such as correctness, completeness, usability, transparency,
+        quality, or contribution support.
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: >
+      Define review criteria, quality gates, conformance expectations, and failure
+      modes for the foundation specification.
+    content:
+      declared_conformance_level: l2_reviewable
+      conformance_meaning: >
+        The file is structured, traceable, reviewable against explicit criteria,
+        and aligned with the repository architecture, but it does not yet claim
+        automated validation, full reuse maturity, or archival publication readiness.
+      acceptance_criteria:
+        - criterion_id: ac_foundation_001
+          statement: The file exists at specs/product-dsr-framework-foundation.yaml.
+          evidence_required:
+            - package_inventory_entry
+            - repository_path
+        - criterion_id: ac_foundation_002
+          statement: The file contains all required product-spec sections or tailored equivalents.
+          evidence_required:
+            - section_list
+            - generation_spec_alignment
+        - criterion_id: ac_foundation_003
+          statement: Identity, scope, users, assumptions, boundaries, and non-goals are explicit.
+          evidence_required:
+            - identity_and_purpose_section
+            - conceptual_model_section
+            - open_questions_and_backlog_section
+        - criterion_id: ac_foundation_004
+          statement: Requirements distinguish must, should, may, and must-not obligations.
+          evidence_required:
+            - normative_requirements_section
+        - criterion_id: ac_foundation_005
+          statement: DSR transparency dimensions are mapped or explicitly marked not applicable.
+          evidence_required:
+            - transparency_dimension_mapping
+        - criterion_id: ac_foundation_006
+          statement: The file avoids unsupported claims of effectiveness, generalizability, publication readiness, or evaluation completion.
+          evidence_required:
+            - limitations
+            - non_goals
+            - evidence_status_fields
+      quality_gates:
+        - gate_id: qg_consistency
+          status: pass
+          rationale: >
+            Uses lower-kebab-case target path, YAML format, draft status,
+            product-spec structure, stable identifiers, and controlled sections.
+        - gate_id: qg_coherence
+          status: pass
+          rationale: >
+            Aligns with protocol foundation, product catalog, artifact profile,
+            package inventory, and conformance declaration as upstream or related items.
+        - gate_id: qg_cogency
+          status: pass
+          rationale: >
+            Provides operational identity, scope, requirements, workflow, validation,
+            limitations, and review criteria.
+        - gate_id: qg_correspondence
+          status: pass
+          rationale: >
+            Supports the DSR Framework as a reviewable and reusable artifact package.
+        - gate_id: qg_dsr_transparency
+          status: pass
+          rationale: >
+            Maps the file to process, problem-space, solution-space, build,
+            evaluation, and contribution transparency roles.
+        - gate_id: qg_reviewability
+          status: pass
+          rationale: >
+            Provides acceptance criteria, failure modes, validation rules, and traceability.
+      failure_modes:
+        - failure_id: fail_foundation_001
+          description: >
+            Framework identity is ambiguous or confused with a single DSR project.
+          remediation: Clarify artifact class, purpose, and scope boundaries.
+        - failure_id: fail_foundation_002
+          description: >
+            The file claims publication readiness or evaluation evidence not yet supported.
+          remediation: Reduce claim to draft or reviewable status and add evidence_status fields.
+        - failure_id: fail_foundation_003
+          description: >
+            Requirements are narrative only and not reviewable.
+          remediation: Rewrite as must, should, may, and must-not requirements with verification paths.
+        - failure_id: fail_foundation_004
+          description: >
+            Non-goals or limitations are missing.
+          remediation: Add explicit non-goals, boundaries, assumptions, and open questions.
+
+  - id: traceability
+    title: Traceability
+    purpose: >
+      Preserve links among the selected portion, upstream rules, downstream files,
+      DSR source basis, and review obligations.
+    content:
+      trace_links:
+        - trace_id: tr_foundation_user_selection
+          from: user_current_request
+          to: product_dsr_framework_foundation
+          relation: selects_generation_target
+          evidence_status: provided
+        - trace_id: tr_foundation_generation_spec
+          from: dsr_framework_generation_spec
+          to: product_dsr_framework_foundation
+          relation: constrains_structure_and_quality
+          evidence_status: mapped
+        - trace_id: tr_foundation_generation_prompt
+          from: dsr_framework_generation_prompt
+          to: product_dsr_framework_foundation
+          relation: constrains_generation_procedure
+          evidence_status: mapped
+        - trace_id: tr_foundation_protocol_foundation
+          from: product_protocol_foundation
+          to: product_dsr_framework_foundation
+          relation: supplies_protocol_basis
+          evidence_status: generated_in_prior_sequence
+        - trace_id: tr_foundation_dsr_corpus
+          from: dsr_extraction_corpus
+          to: product_dsr_framework_foundation
+          relation: supplies_dsr_conceptual_basis
+          evidence_status: partially_mapped
+      source_family_mapping:
+        - source_family_id: canonical_dsr_methodology
+          relevance: >
+            Supports artifact creation, build-evaluate logic, relevance, rigor,
+            contribution, and communication assumptions.
+          evidence_status: partially_mapped
+        - source_family_id: dsr_transparency
+          relevance: >
+            Supports process, problem-space, solution-space, build, evaluation,
+            and contribution transparency dimensions.
+          evidence_status: partially_mapped
+        - source_family_id: artifact_ontology
+          relevance: >
+            Supports artifact boundary, artifact type, artifact instance, design
+            specification, make/use plan, and use-context distinctions.
+          evidence_status: partially_mapped
+        - source_family_id: contribution_and_knowledge_types
+          relevance: >
+            Supports contribution type, knowledge goal, knowledge scope, and
+            projectability distinctions.
+          evidence_status: partially_mapped
+      downstream_traceability_obligations:
+        - obligation_id: dto_foundation_001
+          statement: >
+            Downstream lifecycle and contribution specs must preserve the distinction
+            between artifact utility, artifact quality, and knowledge contribution.
+        - obligation_id: dto_foundation_002
+          statement: >
+            Downstream templates and checklists must preserve the demonstration-versus-evaluation distinction.
+        - obligation_id: dto_foundation_003
+          statement: >
+            Downstream package and publication specs must not imply archival or
+            publication readiness unless the declared conformance level supports it.
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: >
+      Explain how maintainers and users should apply this foundation specification
+      in the repository and in downstream DSR artifact packages.
+    content:
+      repository_use:
+        - guidance_id: impl_foundation_001
+          instruction: >
+            Store this file at specs/product-dsr-framework-foundation.yaml and
+            list it in package-inventory.yaml as a controlled product specification.
+        - guidance_id: impl_foundation_002
+          instruction: >
+            Reference this file from product-catalog.yaml and from downstream DSR
+            lifecycle, information architecture, repository architecture, quality,
+            and artifact package specifications.
+        - guidance_id: impl_foundation_003
+          instruction: >
+            Update traceability and change_history whenever scope, intended users,
+            assumptions, or non-goals materially change.
+      user_application:
+        - guidance_id: impl_foundation_004
+          instruction: >
+            Begin any new DSR artifact package by checking whether the intended work
+            fits this foundation scope and by recording tailored assumptions.
+        - guidance_id: impl_foundation_005
+          instruction: >
+            Use the non-goals to prevent unsupported claims, especially claims about
+            effectiveness, generalizability, reproducibility, or publication readiness.
+        - guidance_id: impl_foundation_006
+          instruction: >
+            Use intended-user definitions to decide which templates, records,
+            checklists, and documentation pages are necessary for the package.
+      tailoring_rules:
+        - tailoring_id: tailor_foundation_001
+          condition: >
+            A project uses restricted data, proprietary artifacts, security-sensitive
+            infrastructure, or human-subjects evidence.
+          permitted_tailoring: >
+            Replace full artifact disclosure with proportionate transparency,
+            redaction, synthetic examples, pseudocode, summaries, or access-controlled evidence.
+          required_record: records/tailoring/record-tailoring-*.yaml
+        - tailoring_id: tailor_foundation_002
+          condition: >
+            A project is educational, exploratory, or pre-evaluation.
+          permitted_tailoring: >
+            Declare L0 or L1 conformance and mark evaluation claims as planned or
+            not_yet_evaluated rather than complete.
+          required_record: conformance-declaration.yaml
+        - tailoring_id: tailor_foundation_003
+          condition: >
+            A project is a conceptual framework, protocol, taxonomy, or ontology
+            rather than executable software.
+          permitted_tailoring: >
+            Treat conceptual coherence, source grounding, reviewability, and
+            expert-use demonstration as appropriate early evaluation targets.
+          required_record: records/evaluations/record-evaluation-plan-*.yaml
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: >
+      Identify downstream schema, template, checklist, and documentation effects
+      of this foundation specification.
+    content:
+      schema_implications:
+        - schema_id: schema_artifact_profile
+          path: schemas/artifact-profile.schema.json
+          implication: >
+            Must validate artifact identity, scope, claims, conformance, source basis,
+            reuse constraints, assumptions, limitations, and related items.
+        - schema_id: schema_package_inventory
+          path: schemas/package-inventory.schema.json
+          implication: >
+            Must allow this product specification to be listed as a controlled item
+            with validation responsibility and status.
+        - schema_id: schema_conformance_declaration
+          path: schemas/conformance-declaration.schema.json
+          implication: >
+            Must represent L2 reviewable conformance and tailoring decisions.
+      template_implications:
+        - template_id: template_artifact_profile
+          path: templates/artifact-profile-template.yaml
+          implication: >
+            Should include foundation-derived fields for artifact class, users,
+            scope boundaries, assumptions, non-goals, and evidence status.
+        - template_id: template_project_charter
+          path: templates/dsr-project-charter-template.md
+          implication: >
+            Should prompt users to identify DSR fit, intended users, problem scope,
+            contribution expectation, and transparency needs.
+        - template_id: template_transparency_crosswalk
+          path: templates/dsr-transparency-crosswalk-template.yaml
+          implication: >
+            Should map process, problem-space, solution-space, build, evaluation,
+            and contribution transparency to concrete evidence.
+      checklist_implications:
+        - checklist_id: checklist_minimum_dsr
+          path: checklists/dsr-minimum-viable-study-checklist.yaml
+          implication: >
+            Should test whether a package has an artifact, problem context,
+            build/evaluate logic, contribution claim, and transparency evidence.
+        - checklist_id: checklist_package_readiness
+          path: checklists/artifact-package-readiness-checklist.yaml
+          implication: >
+            Should test whether foundation scope, package inventory, metadata,
+            conformance, and evidence records are present.
+      documentation_implications:
+        - doc_id: docs_overview
+          path: docs/protocol/00-framework-overview.md
+          implication: >
+            Should render this foundation specification in human-facing language
+            while linking back to the YAML as source of truth.
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: >
+      Preserve unsettled decisions and future work without blocking L2 reviewable
+      use of the foundation specification.
+    content:
+      limitations:
+        - limitation_id: lim_foundation_001
+          statement: >
+            Detailed DSR source-to-construct evidence mapping is only partially
+            complete in this foundation file and must be expanded in source-basis
+            records and crosswalks.
+        - limitation_id: lim_foundation_002
+          statement: >
+            The foundation defines reviewable structure and scope; it does not
+            empirically validate the framework's usability, adoption, or outcomes.
+        - limitation_id: lim_foundation_003
+          statement: >
+            Domain-specific artifact evaluation metrics are intentionally delegated
+            to downstream project-specific evaluation plans.
+      non_goals:
+        - non_goal_id: ng_foundation_001
+          statement: >
+            This specification does not replace expert DSR methodological judgment,
+            peer review, ethics review, security review, legal review, or domain review.
+        - non_goal_id: ng_foundation_002
+          statement: >
+            This specification does not require all DSR artifacts to be executable
+            software or all evidence to be fully public.
+        - non_goal_id: ng_foundation_003
+          statement: >
+            This specification does not certify that a project has achieved L3, L4,
+            or L5 conformance.
+      open_questions:
+        - question_id: oq_foundation_001
+          question: >
+            Which DSR source families should be treated as canonical versus adjacent
+            in the first public release?
+          owner: framework_editor
+          status: open
+          downstream_resolution_target: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+        - question_id: oq_foundation_002
+          question: >
+            What minimum evidence package should be required before a framework
+            release can move from L2 reviewable to L3 exercisable?
+          owner: framework_maintainer
+          status: open
+          downstream_resolution_target: specs/product-dsr-quality-conformance-and-review-model.yaml
+        - question_id: oq_foundation_003
+          question: >
+            How should the framework represent aesthetic and responsible-design
+            dimensions without overburdening minimum DSR package conformance?
+          owner: framework_editor
+          status: open
+          downstream_resolution_target: vocabularies/responsible-design-values.yaml
+      backlog:
+        - backlog_id: bl_foundation_001
+          action: >
+            Create a source-basis record that maps the DSR corpus to foundation
+            claims and transparency dimensions.
+          priority: high
+        - backlog_id: bl_foundation_002
+          action: >
+            Create a canonical model file that formalizes entities and relationships
+            introduced in this foundation specification.
+          priority: high
+        - backlog_id: bl_foundation_003
+          action: >
+            Create a minimum viable DSR checklist that operationalizes this scope
+            for reviewer use.
+          priority: medium
+
+transparency_dimension_mapping:
+  process:
+    applicability: applicable
+    role: >
+      Requires explicit workflow stages, change history, assumptions, tailoring,
+      and maintenance records.
+  problem_space:
+    applicability: applicable
+    role: >
+      Defines the documentation problem addressed by the framework and the
+      intended problem classes for DSR artifact packages.
+  solution_space:
+    applicability: applicable
+    role: >
+      Connects the framework to the documentation protocol, repository model,
+      DSR corpus, and downstream controlled products.
+  build:
+    applicability: applicable
+    role: >
+      Defines how controlled files, models, templates, schemas, records, and
+      checklists are constructed and governed.
+  evaluation:
+    applicability: applicable
+    role: >
+      Requires reviewability criteria and distinguishes demonstration from
+      evaluation evidence.
+  contribution:
+    applicability: applicable
+    role: >
+      Frames the DSR Framework as a methodological and package-architecture
+      contribution rather than as a claim about a single domain artifact.
+
+validation_rules:
+  - rule_id: val_foundation_yaml_parse
+    description: The file must parse as YAML.
+    severity: error
+  - rule_id: val_foundation_required_sections
+    description: >
+      The file must include identity_and_purpose, conceptual_model,
+      normative_requirements, information_items, workflow, quality_and_conformance,
+      traceability, implementation_guidance, template_or_schema_implications,
+      and open_questions_and_backlog sections.
+    severity: error
+  - rule_id: val_foundation_requirements_shape
+    description: Normative requirements must include must, should, may, and must_not lists.
+    severity: error
+  - rule_id: val_foundation_evidence_status
+    description: Source-basis claims must include evidence_status values.
+    severity: warning
+  - rule_id: val_foundation_no_overclaiming
+    description: >
+      Claims about evaluation, publication readiness, reuse, reproducibility, or
+      generalization must be supported by evidence or explicitly limited.
+    severity: error
+
+quality_gates:
+  - id: qg_consistency
+    status: pass
+    evidence:
+      - target_path: specs/product-dsr-framework-foundation.yaml
+      - item_type: specification
+      - naming_rule: lower-kebab-case
+  - id: qg_coherence
+    status: pass
+    evidence:
+      - upstream_dependency: specs/product-protocol-foundation.yaml
+      - related_item: specs/product-catalog.yaml
+      - related_item: conformance-declaration.yaml
+  - id: qg_cogency
+    status: pass
+    evidence:
+      - sections.identity_and_purpose
+      - sections.workflow
+      - sections.quality_and_conformance
+  - id: qg_correspondence
+    status: pass
+    evidence:
+      - artifact_class: compound_dsr_artifact
+      - conformance_target: l2_reviewable
+  - id: qg_dsr_transparency
+    status: pass
+    evidence:
+      - transparency_dimension_mapping
+  - id: qg_reviewability
+    status: pass
+    evidence:
+      - acceptance_criteria
+      - validation_rules
+      - failure_modes
+
+completion_report:
+  generated_selection_id: spec_dsr_framework_foundation
+  generated_path: specs/product-dsr-framework-foundation.yaml
+  item_type: specification
+  output_format: yaml
+  conformance_target: l2_reviewable
+  dependencies_used:
+    - specs/product-protocol-foundation.yaml
+    - dsr_framework_generation_spec
+    - dsr_framework_generation_prompt
+    - dsr_extraction_corpus
+  assumptions:
+    - >
+      Prior root and protocol foundation files exist or will be present in the
+      target repository package.
+    - >
+      Detailed citation-anchor mapping will be finalized in source-basis records
+      and crosswalks.
+  open_questions:
+    - oq_foundation_001
+    - oq_foundation_002
+    - oq_foundation_003
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: specs/product-dsr-lifecycle-and-contribution-model.yaml

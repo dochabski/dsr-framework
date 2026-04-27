@@ -1,0 +1,1426 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_artifact_package_specification
+  selection_id: spec_artifact_package
+  target_path: specs/product-dsr-artifact-package-specification.yaml
+  item_type: specification
+  output_format: yaml
+  title: DSR Artifact Package Specification
+  short_title: Artifact Package Specification
+  purpose: >
+    Define the required package contents, retained evidence, example materials,
+    review records, validation bindings, and conformance obligations for a
+    reviewable and reusable Design Science Research Framework artifact package.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainer
+  responsible_roles:
+    - role_id: package_author
+      responsibility: Assemble, update, and justify package contents.
+    - role_id: package_reviewer
+      responsibility: Review package completeness, traceability, and conformance.
+    - role_id: package_maintainer
+      responsibility: Maintain release, archival, and preservation records.
+  conformance_target: l2_reviewable
+  license_expression: CC0-1.0
+
+source_basis:
+  - source_id: user_current_request
+    source_type: immediate_task_definition
+    relevance: >
+      Selects spec_artifact_package and requires generation as
+      specs/product-dsr-artifact-package-specification.yaml.
+  - source_id: dsr_framework_generation_spec
+    source_type: project_generation_specification
+    relevance: >
+      Establishes the product specification structure, repository architecture,
+      quality gates, naming conventions, traceability expectations, and L2
+      reviewability target.
+  - source_id: dsr_framework_generation_prompt
+    source_type: project_generation_prompt
+    relevance: >
+      Requires product specifications to include controlled metadata,
+      dependencies, traceability, quality and conformance material, and a short
+      completion report.
+  - source_id: dsr_framework_selection_table
+    source_type: project_selection_registry
+    relevance: >
+      Provides the selected row, target path, purpose, default conformance, and
+      key dependencies for this product.
+  - source_id: dsr_extraction_corpus
+    source_type: scholarly_and_methodological_evidence_base
+    relevance: >
+      Provides DSR-specific evidence for artifact ontology, transparency,
+      contribution, evaluation, reuse, and reviewability.
+    evidence_status: partially_mapped
+    mapped_evidence:
+      - source_key: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids:
+          - CA01
+          - CA05
+          - CA14
+          - CA16
+          - CA17
+          - CA18
+        supports:
+          - transparency_dimensions
+          - repository_materials
+          - reviewer_audiences
+          - privacy_security_and_proprietary_risk_controls
+      - source_key: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        citation_anchor_ids:
+          - A09
+          - A15
+          - A17
+          - A18
+          - A19
+        supports:
+          - artifact_universal_boundary
+          - design_specification
+          - make_plan_and_use_plan
+          - artifact_outcome_typology
+      - source_key: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+        citation_anchor_ids:
+          - A07
+          - A10
+          - A13
+          - A14
+        supports:
+          - knowledge_contribution_paths
+          - contribution_strategy_traceability
+          - guidance_for_developing_dsr_projects
+
+dependencies:
+  upstream:
+    - item_id: product_dsr_repository_architecture
+      path: specs/product-dsr-repository-architecture.yaml
+      dependency_type: structural
+      required: true
+      expected_use: >
+        Defines canonical repository tree, naming rules, and file
+        responsibilities that this package specification must enforce.
+    - item_id: product_dsr_quality_conformance_and_review_model
+      path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      dependency_type: quality_model
+      required: true
+      expected_use: >
+        Defines quality dimensions, maturity gates, review workflow, acceptance
+        criteria, and escalation rules used by the package readiness model.
+    - item_id: package_inventory
+      path: package-inventory.yaml
+      dependency_type: inventory_record
+      required: true
+      expected_use: >
+        Enumerates package files, status, validation method, owner, and review
+        responsibility.
+    - item_id: conformance_declaration
+      path: conformance-declaration.yaml
+      dependency_type: conformance_record
+      required: true
+      expected_use: >
+        Declares the package conformance level, tailoring decisions, exclusions,
+        and unmet obligations.
+    - item_id: artifact_profile
+      path: artifact-profile.yaml
+      dependency_type: package_identity
+      required: true
+      expected_use: >
+        Identifies the artifact, scope, contribution claims, intended users,
+        reuse constraints, and review boundary.
+  downstream:
+    - item_id: template_package_inventory
+      path: templates/package-inventory-template.yaml
+      dependency_type: template_implication
+      required: false
+    - item_id: checklist_package_readiness
+      path: checklists/artifact-package-readiness-checklist.yaml
+      dependency_type: checklist_implication
+      required: false
+    - item_id: schema_package_inventory
+      path: schemas/package-inventory.schema.json
+      dependency_type: schema_implication
+      required: false
+    - item_id: record_release_v0_1_0
+      path: records/releases/record-release-0001-v0-1-0.yaml
+      dependency_type: release_record_implication
+      required: false
+
+related_items:
+  required_root_controls:
+    - README.md
+    - LICENSE
+    - CITATION.cff
+    - CHANGELOG.md
+    - CONTRIBUTING.md
+    - GOVERNANCE.md
+    - SECURITY.md
+    - CODE_OF_CONDUCT.md
+    - .zenodo.json
+    - manifest.yaml
+    - metadata.yaml
+    - artifact-profile.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+  canonical_directories:
+    - specs
+    - models
+    - vocabularies
+    - schemas
+    - templates
+    - checklists
+    - docs/protocol
+    - records/decisions
+    - records/design-decisions
+    - records/tailoring
+    - records/source-basis
+    - records/dsr-transparency
+    - records/contributions
+    - records/evaluations
+    - records/reviews
+    - records/releases
+    - records/preservation
+    - crosswalks
+    - examples
+    - .github/ISSUE_TEMPLATE
+    - .github/workflows
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    summary: >
+      Initial L2 reviewable product specification for DSR artifact package
+      contents, evidence, examples, records, and conformance obligations.
+    responsible_party: GPT-5.5 Thinking
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: Define the role, boundary, users, and non-goals of the artifact package specification.
+    content:
+      product_boundary: >
+        This specification governs the contents and review obligations of a DSR
+        Framework artifact package. It does not by itself define every model,
+        vocabulary, schema, template, checklist, or record; it defines how those
+        items must be assembled, evidenced, reviewed, and declared as a coherent
+        package.
+      package_definition: >
+        A DSR artifact package is a versioned collection of controlled files,
+        retained records, evidence links, examples, and validation assets that
+        lets reviewers and later users inspect the artifact identity, design
+        logic, evaluation basis, contribution claims, transparency evidence, and
+        reuse conditions.
+      intended_users:
+        - user_group: dsr_researcher
+          use_case: Plan and document a DSR artifact as a reusable package.
+        - user_group: framework_maintainer
+          use_case: Maintain repository completeness, consistency, versioning, and release readiness.
+        - user_group: reviewer_or_editor
+          use_case: Assess whether a package is reviewable, coherent, transparent, and conformance-declared.
+        - user_group: adopter_or_reuser
+          use_case: Inspect scope, evidence, examples, obligations, and reuse limits before adapting the framework.
+      primary_outputs:
+        - package_content_obligations
+        - retained_evidence_requirements
+        - example_and_demonstration_rules
+        - review_and_release_record_requirements
+        - conformance_obligation_matrix
+        - validation_and_inventory_bindings
+      non_goals:
+        - id: no_full_quality_model_replacement
+          statement: >
+            This specification does not replace the quality, conformance, and
+            review model; it references that model for quality dimensions and
+            detailed review workflow.
+        - id: no_external_publication_claim
+          statement: >
+            This specification does not assert that the framework is publication
+            ready or archival ready unless corresponding release and preservation
+            records pass higher conformance obligations.
+        - id: no_required_private_data_disclosure
+          statement: >
+            This specification does not require disclosure of proprietary,
+            private, security-sensitive, or restricted information. Such
+            materials must be summarized, redacted, substituted, or marked as
+            unavailable with rationale.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: Define the package entities, relationships, lifecycle states, and boundary distinctions.
+    content:
+      entities:
+        - entity_id: artifact_package
+          label: Artifact Package
+          definition: >
+            The versioned repository state that contains the DSR Framework
+            artifact, its controlled documentation, evidence records, examples,
+            validation assets, and conformance declarations.
+          required_attributes:
+            - package_id
+            - version
+            - status
+            - conformance_level
+            - release_state
+            - inventory_reference
+        - entity_id: package_item
+          label: Package Item
+          definition: >
+            Any file or directory included in the package inventory, including
+            specifications, models, vocabularies, schemas, templates,
+            checklists, records, docs, examples, and workflows.
+          required_attributes:
+            - item_id
+            - path
+            - item_type
+            - requiredness
+            - owner
+            - validation_method
+            - review_status
+        - entity_id: evidence_item
+          label: Evidence Item
+          definition: >
+            A retained or linked item used to support a design choice,
+            contribution claim, evaluation result, review finding, release
+            decision, or source-basis assertion.
+          required_attributes:
+            - evidence_id
+            - evidence_type
+            - source_or_path
+            - supports_claims
+            - access_status
+            - retention_rule
+        - entity_id: example_package
+          label: Example Package
+          definition: >
+            A non-required demonstration package or sample repository subset
+            that illustrates correct application of the framework without being
+            treated as direct evaluation evidence unless separately evaluated.
+          required_attributes:
+            - example_id
+            - path
+            - demonstration_purpose
+            - evaluation_status
+            - limitations
+        - entity_id: conformance_obligation
+          label: Conformance Obligation
+          definition: >
+            A requirement attached to a conformance level that must be satisfied,
+            explicitly tailored, or declared unmet in the conformance declaration.
+          required_attributes:
+            - obligation_id
+            - conformance_level
+            - requirement_text
+            - evidence_required
+            - status
+        - entity_id: retained_record
+          label: Retained Record
+          definition: >
+            A controlled record preserving evidence of decisions, tailoring,
+            source basis, build transparency, evaluation, review, release, or
+            preservation.
+          required_attributes:
+            - record_id
+            - record_class
+            - event_or_action
+            - date
+            - responsible_party
+            - evidence
+            - outcome
+            - retention_rule
+        - entity_id: validation_binding
+          label: Validation Binding
+          definition: >
+            A declared relation between a package item and a schema, checklist,
+            quality gate, script, or manual review procedure used to assess it.
+          required_attributes:
+            - binding_id
+            - target_item
+            - validation_asset
+            - validation_method
+            - pass_condition
+      relationships:
+        - relationship_id: package_contains_items
+          subject: artifact_package
+          predicate: contains
+          object: package_item
+          cardinality: one_to_many
+        - relationship_id: item_has_evidence
+          subject: package_item
+          predicate: is_supported_by
+          object: evidence_item
+          cardinality: many_to_many
+        - relationship_id: obligation_requires_evidence
+          subject: conformance_obligation
+          predicate: requires
+          object: evidence_item
+          cardinality: one_to_many
+        - relationship_id: example_demonstrates_requirement
+          subject: example_package
+          predicate: demonstrates
+          object: conformance_obligation
+          cardinality: many_to_many
+        - relationship_id: record_preserves_decision
+          subject: retained_record
+          predicate: preserves
+          object: evidence_item
+          cardinality: many_to_many
+        - relationship_id: validation_binding_checks_item
+          subject: validation_binding
+          predicate: checks
+          object: package_item
+          cardinality: many_to_one
+      boundary_distinctions:
+        - distinction_id: required_vs_optional_content
+          rule: >
+            Required package items must be listed in the inventory and reviewed;
+            optional items may be included only if their role, validation method,
+            and maintenance expectations are declared.
+        - distinction_id: demonstration_vs_evaluation
+          rule: >
+            Demonstrations and examples show how an artifact may be used;
+            evaluation evidence assesses artifact utility, quality, fitness, or
+            contribution claims against stated criteria.
+        - distinction_id: artifact_quality_vs_contribution
+          rule: >
+            Artifact quality concerns correctness, completeness, usability,
+            maintainability, and transparency of the package; contribution
+            concerns what the artifact adds to DSR knowledge, method, practice,
+            or publication infrastructure.
+        - distinction_id: artifact_instance_vs_reusable_knowledge
+          rule: >
+            Repository files are artifact instances; reusable DSR knowledge is
+            expressed through specifications, models, vocabularies, templates,
+            checklists, design rationales, and contribution claims.
+      package_states:
+        - state_id: draft
+          definition: Content exists but is not yet reviewed against package obligations.
+        - state_id: in_review
+          definition: Content is undergoing checklist, schema, or reviewer assessment.
+        - state_id: accepted_for_l2_reviewable
+          definition: Package satisfies documented L2 reviewability obligations or records approved tailoring.
+        - state_id: exercisable
+          definition: Package can be used with templates, schemas, and validation procedures to produce project records.
+        - state_id: reusable
+          definition: Package has examples, validated templates, and documented reuse pathway.
+        - state_id: archival_publication_ready
+          definition: Package has release, DOI, citation, license, preservation, and publication-readiness records.
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: Specify mandatory, recommended, permitted, and prohibited package rules.
+    content:
+      must:
+        - requirement_id: apkg_must_001_inventory
+          statement: >
+            The package must include a package-inventory.yaml file that lists
+            every controlled package item, its path, requiredness, owner,
+            validation method, review status, and related dependencies.
+          evidence_required:
+            - package-inventory.yaml
+        - requirement_id: apkg_must_002_manifest_metadata_profile
+          statement: >
+            The package must include manifest.yaml, metadata.yaml, and
+            artifact-profile.yaml to establish package identity, descriptive
+            metadata, artifact scope, contribution claims, and reuse constraints.
+          evidence_required:
+            - manifest.yaml
+            - metadata.yaml
+            - artifact-profile.yaml
+        - requirement_id: apkg_must_003_conformance_declaration
+          statement: >
+            The package must include conformance-declaration.yaml stating the
+            target conformance level, satisfied obligations, tailored
+            obligations, deferred obligations, and unmet obligations.
+          evidence_required:
+            - conformance-declaration.yaml
+        - requirement_id: apkg_must_004_repository_architecture_alignment
+          statement: >
+            The package must follow the canonical repository directory model and
+            lower-kebab-case file naming rules unless a tailoring record
+            authorizes an exception.
+          evidence_required:
+            - specs/product-dsr-repository-architecture.yaml
+            - records/tailoring
+        - requirement_id: apkg_must_005_controlled_source_files
+          statement: >
+            Controlled specifications, models, vocabularies, schemas, templates,
+            checklists, and records must be authored in YAML or JSON-compatible
+            structured formats unless the target is explicitly Markdown or JSON
+            Schema.
+          evidence_required:
+            - package_inventory_entries
+            - file_extensions
+        - requirement_id: apkg_must_006_traceability
+          statement: >
+            Controlled package items must declare source_basis, dependencies,
+            related_items, and traceability sufficient for a reviewer to inspect
+            why the item exists and what it supports.
+          evidence_required:
+            - traceability_sections
+            - related_items_sections
+        - requirement_id: apkg_must_007_records
+          statement: >
+            The package must preserve records for source basis, contribution
+            positioning, transparency, evaluation planning or results, review,
+            release, and preservation when those activities are claimed.
+          evidence_required:
+            - records/source-basis
+            - records/contributions
+            - records/dsr-transparency
+            - records/evaluations
+            - records/reviews
+            - records/releases
+            - records/preservation
+        - requirement_id: apkg_must_008_separate_examples_from_required_package
+          statement: >
+            Example and demonstration materials must be stored under examples/
+            or otherwise marked as examples, and must not be confused with
+            required package controls or evaluation results.
+          evidence_required:
+            - examples_directory
+            - inventory_requiredness_values
+        - requirement_id: apkg_must_009_transparency_mapping
+          statement: >
+            The package must map relevant files or records to process,
+            problem-space, solution-space, build, evaluation, and contribution
+            transparency dimensions, or mark a dimension not applicable with
+            rationale.
+          evidence_required:
+            - records/dsr-transparency
+            - transparency_crosswalk
+        - requirement_id: apkg_must_010_quality_gate_reviewability
+          statement: >
+            The package must expose acceptance criteria, validation rules,
+            failure modes, and remediation guidance sufficient for review.
+          evidence_required:
+            - checklists
+            - quality_gate_status
+            - validation_bindings
+        - requirement_id: apkg_must_011_no_overclaiming
+          statement: >
+            The package must not claim reproducibility, generalizability,
+            publication readiness, archival readiness, or empirical evaluation
+            unless corresponding evidence records support the claim.
+          evidence_required:
+            - conformance_declaration
+            - evaluation_records
+            - release_records
+        - requirement_id: apkg_must_012_sensitive_content_control
+          statement: >
+            Proprietary, private, security-sensitive, or restricted material
+            must be excluded, redacted, summarized, or access-controlled with a
+            rationale recorded in the inventory or relevant evidence record.
+          evidence_required:
+            - SECURITY.md
+            - records/tailoring
+            - evidence_access_status
+      should:
+        - requirement_id: apkg_should_001_machine_validation
+          statement: >
+            The package should provide JSON Schemas and automated validation
+            workflows for root records, artifact profiles, package inventories,
+            conformance declarations, DSR project records, evaluation records,
+            and transparency crosswalks.
+        - requirement_id: apkg_should_002_minimum_demonstration
+          statement: >
+            The package should include at least one minimal example showing how
+            the framework is applied to a bounded DSR artifact or project record.
+        - requirement_id: apkg_should_003_review_checklists
+          statement: >
+            The package should include checklists for minimum DSR identity,
+            package readiness, evaluation readiness, transparency, contribution
+            positioning, reliability, projectability, and publication readiness.
+        - requirement_id: apkg_should_004_release_evidence
+          statement: >
+            When a release is created, the package should include a release
+            record, changelog entry, citation metadata, and preservation plan.
+        - requirement_id: apkg_should_005_plain_language_guidance
+          statement: >
+            Human-facing docs should explain the controlled YAML sources in
+            accessible language without becoming the only source of controlled
+            data.
+      may:
+        - requirement_id: apkg_may_001_experimental_assets
+          statement: >
+            The package may include experimental workflows, scripts, examples,
+            or issue templates if they are clearly marked as draft or
+            experimental and do not block L2 reviewability.
+        - requirement_id: apkg_may_002_tailored_profile
+          statement: >
+            The package may tailor obligations by package type, scope,
+            confidentiality constraints, conformance level, or maturity stage,
+            provided tailoring is recorded and justified.
+        - requirement_id: apkg_may_003_crosswalks
+          statement: >
+            The package may include crosswalks from DSR source traditions,
+            documentation protocol constructs, or external publication
+            standards when evidence is available.
+      must_not:
+        - requirement_id: apkg_must_not_001_untracked_required_files
+          statement: Required package files must not be omitted from package-inventory.yaml.
+        - requirement_id: apkg_must_not_002_hidden_evidence
+          statement: >
+            The package must not rely on hidden, undocumented, or inaccessible
+            evidence for conformance, quality, or contribution claims.
+        - requirement_id: apkg_must_not_003_examples_as_evaluation
+          statement: >
+            The package must not treat examples or demonstrations as evaluation
+            findings unless an evaluation record states criteria, method,
+            evidence, and result.
+        - requirement_id: apkg_must_not_004_unbounded_scope
+          statement: >
+            The package must not imply that the DSR Framework covers all design,
+            research, or publication contexts without stated boundary conditions.
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: Define package item classes, requiredness, validation, and retention expectations.
+    content:
+      requiredness_values:
+        - value: required
+          definition: Must be present for the declared conformance level unless explicitly tailored.
+        - value: conditionally_required
+          definition: Required when the package makes the corresponding claim or includes the corresponding artifact type.
+        - value: optional
+          definition: Useful but not required; must still be inventoried if included.
+        - value: example_only
+          definition: Demonstrative material that is not part of the normative package core.
+        - value: deferred
+          definition: Planned but not yet included; must have rationale and target milestone.
+      item_classes:
+        - class_id: root_package_controls
+          description: Root files that establish package identity, governance, inventory, metadata, and conformance.
+          default_requiredness: required
+          expected_paths:
+            - manifest.yaml
+            - metadata.yaml
+            - artifact-profile.yaml
+            - package-inventory.yaml
+            - conformance-declaration.yaml
+            - README.md
+            - LICENSE
+            - CITATION.cff
+            - CHANGELOG.md
+            - CONTRIBUTING.md
+            - GOVERNANCE.md
+            - SECURITY.md
+            - CODE_OF_CONDUCT.md
+            - .zenodo.json
+          validation_methods:
+            - schema_validation
+            - checklist_review
+            - manual_consistency_review
+        - class_id: product_specifications
+          description: Controlled product specifications that define repository components and operating models.
+          default_requiredness: required_for_l2_core
+          expected_directory: specs
+          validation_methods:
+            - yaml_parse
+            - product_spec_structure_review
+            - traceability_review
+        - class_id: models
+          description: Controlled conceptual, operational, and relationship models used by the framework.
+          default_requiredness: required_when_referenced
+          expected_directory: models
+          validation_methods:
+            - yaml_parse
+            - entity_relationship_review
+            - boundary_condition_review
+        - class_id: vocabularies
+          description: Controlled value sets and term definitions used by schemas, templates, and checklists.
+          default_requiredness: required_when_referenced
+          expected_directory: vocabularies
+          validation_methods:
+            - yaml_parse
+            - vocabulary_entry_review
+            - schema_enum_alignment
+        - class_id: schemas
+          description: JSON Schema files used to validate structured records and templates.
+          default_requiredness: conditionally_required
+          expected_directory: schemas
+          validation_methods:
+            - json_schema_parse
+            - sample_instance_validation
+            - schema_template_alignment
+        - class_id: templates
+          description: Reusable files researchers can copy to produce records, plans, claims, and reports.
+          default_requiredness: conditionally_required
+          expected_directory: templates
+          validation_methods:
+            - template_completeness_review
+            - placeholder_review
+            - schema_alignment
+        - class_id: checklists
+          description: Review procedures with explicit questions, evidence, pass/fail conditions, and remediation.
+          default_requiredness: conditionally_required
+          expected_directory: checklists
+          validation_methods:
+            - checklist_item_structure_review
+            - acceptance_criteria_review
+        - class_id: human_facing_docs
+          description: Markdown protocol pages that explain controlled YAML sources and operating procedures.
+          default_requiredness: conditionally_required
+          expected_directory: docs/protocol
+          validation_methods:
+            - source_yaml_reference_review
+            - readability_review
+            - non_contradiction_review
+        - class_id: retained_records
+          description: Records preserving source basis, decisions, tailoring, transparency, contribution, evaluation, review, release, and preservation evidence.
+          default_requiredness: required_when_activity_claimed
+          expected_directories:
+            - records/decisions
+            - records/design-decisions
+            - records/tailoring
+            - records/source-basis
+            - records/dsr-transparency
+            - records/contributions
+            - records/evaluations
+            - records/reviews
+            - records/releases
+            - records/preservation
+          validation_methods:
+            - record_required_field_review
+            - evidence_link_review
+            - retention_rule_review
+        - class_id: examples
+          description: Demonstrative packages or sample records illustrating application.
+          default_requiredness: optional_at_l2_recommended_at_l3
+          expected_directory: examples
+          validation_methods:
+            - example_boundary_review
+            - demonstration_vs_evaluation_review
+            - runnable_or_readable_review
+        - class_id: crosswalks
+          description: Mappings among DSR source traditions, documentation protocol products, controlled vocabularies, and framework constructs.
+          default_requiredness: optional
+          expected_directory: crosswalks
+          validation_methods:
+            - source_mapping_review
+            - unmapped_item_review
+      retention_rules:
+        - record_class: source_basis
+          retention_rule: retain_for_life_of_package_plus_archive
+        - record_class: design_decision
+          retention_rule: retain_for_life_of_package_plus_archive
+        - record_class: tailoring
+          retention_rule: retain_until_superseded_plus_archive
+        - record_class: review
+          retention_rule: retain_for_each_release_cycle
+        - record_class: release
+          retention_rule: retain_permanently
+        - record_class: preservation
+          retention_rule: retain_permanently
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: Define the operating sequence for assembling, reviewing, and releasing the artifact package.
+    content:
+      workflow_id: dsr_artifact_package_assembly_workflow
+      entry_conditions:
+        - A package scope and artifact identity have been declared.
+        - A repository architecture has been selected or generated.
+        - A conformance target has been selected.
+      steps:
+        - step_id: apkg_step_001_define_scope
+          title: Define package scope and conformance target
+          actor: package_author
+          inputs:
+            - user_selection
+            - artifact_profile
+            - conformance_level_definitions
+          actions:
+            - Identify package boundary and included artifact classes.
+            - Select target conformance level.
+            - Record assumptions, exclusions, and tailoring candidates.
+          outputs:
+            - artifact-profile.yaml
+            - conformance-declaration.yaml
+        - step_id: apkg_step_002_initialize_inventory
+          title: Initialize package inventory
+          actor: package_author
+          inputs:
+            - repository_architecture_spec
+            - selected_package_scope
+          actions:
+            - List expected root files and canonical directories.
+            - Assign item IDs, item classes, requiredness, owners, and validation methods.
+            - Mark deferred or tailored items explicitly.
+          outputs:
+            - package-inventory.yaml
+        - step_id: apkg_step_003_add_controlled_sources
+          title: Add controlled source files
+          actor: package_author
+          inputs:
+            - product_specs
+            - models
+            - vocabularies
+            - schemas
+            - templates
+            - checklists
+          actions:
+            - Create or revise controlled files using repository naming rules.
+            - Include source_basis, related_items, dependencies, and traceability.
+            - Parse structured files to detect syntax failures.
+          outputs:
+            - controlled_package_items
+        - step_id: apkg_step_004_add_records
+          title: Add retained records
+          actor: package_author
+          inputs:
+            - source_basis
+            - design_decisions
+            - evaluation_plans_or_reports
+            - review_results
+            - release_decisions
+          actions:
+            - Create record files for actions and evidence that must be retained.
+            - Ensure each record has event/action, date, responsible party, evidence, outcome, related items, and retention rule.
+          outputs:
+            - records_directory_entries
+        - step_id: apkg_step_005_add_examples
+          title: Add examples and demonstrations
+          actor: package_author
+          inputs:
+            - templates
+            - example_scope
+          actions:
+            - Place examples under examples/ or mark them example_only.
+            - State what each example demonstrates.
+            - State whether the example has been evaluated.
+          outputs:
+            - example_package_entries
+        - step_id: apkg_step_006_validate_package
+          title: Validate package structure and contents
+          actor: package_reviewer
+          inputs:
+            - package_inventory
+            - schemas
+            - checklists
+            - controlled_files
+          actions:
+            - Confirm required files are present or tailored.
+            - Run syntax and schema checks where available.
+            - Apply package readiness and quality review checklists.
+            - Record failures and remediation steps.
+          outputs:
+            - review_record
+            - validation_results
+        - step_id: apkg_step_007_resolve_findings
+          title: Resolve review findings
+          actor: package_author
+          inputs:
+            - review_record
+            - validation_results
+          actions:
+            - Correct content, links, naming, schema, or traceability failures.
+            - Record any accepted deviations as tailoring decisions.
+            - Update inventory and conformance declaration.
+          outputs:
+            - updated_package
+            - updated_records
+        - step_id: apkg_step_008_prepare_release
+          title: Prepare release or review snapshot
+          actor: package_maintainer
+          inputs:
+            - accepted_package
+            - changelog
+            - citation_metadata
+            - release_record_template
+          actions:
+            - Assign release version or review snapshot identifier.
+            - Confirm license, citation, changelog, and preservation metadata.
+            - Create release record when claiming release status.
+          outputs:
+            - release_record
+            - reviewable_or_released_package_snapshot
+      exit_conditions:
+        - package_inventory_is_current
+        - conformance_declaration_is_current
+        - quality_gate_status_is_recorded
+        - unresolved_failures_are_recorded_or_remediated
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: Define conformance obligations, acceptance criteria, failure modes, and validation rules.
+    content:
+      conformance_levels:
+        - level_id: l0_draft
+          label: Draft
+          package_obligations:
+            - Root identity files may be incomplete.
+            - Package inventory may be partial.
+            - Open questions and placeholders must be explicit.
+          minimum_evidence:
+            - selected_scope
+            - draft_inventory_or_file_list
+        - level_id: l1_documented
+          label: Documented
+          package_obligations:
+            - Root package controls exist.
+            - Required package items are named and located.
+            - Conformance declaration states known tailoring and gaps.
+          minimum_evidence:
+            - manifest.yaml
+            - metadata.yaml
+            - artifact-profile.yaml
+            - package-inventory.yaml
+            - conformance-declaration.yaml
+        - level_id: l2_reviewable
+          label: Reviewable
+          package_obligations:
+            - Product specifications use required controlled structure.
+            - Package inventory aligns with repository architecture.
+            - Traceability and source_basis are present for controlled items.
+            - Quality gates and review criteria are explicit.
+            - Open questions, assumptions, and limitations are recorded.
+          minimum_evidence:
+            - structured_specs
+            - traceability_objects
+            - reviewable_checklists
+            - conformance_declaration
+        - level_id: l3_exercisable
+          label: Exercisable
+          package_obligations:
+            - Templates and schemas support creation of project records.
+            - Validation procedures can be executed or manually followed.
+            - At least one minimal demonstration is present.
+          minimum_evidence:
+            - templates
+            - schemas
+            - validation_workflow
+            - examples
+        - level_id: l4_reusable
+          label: Reusable
+          package_obligations:
+            - Reuse guidance, examples, boundary conditions, and adaptation rules are mature.
+            - Package has been applied or reviewed outside the initial authoring context.
+          minimum_evidence:
+            - reuse_guidance
+            - external_or_independent_review_record
+            - adaptation_examples
+        - level_id: l5_archival_publication_ready
+          label: Archival Publication Ready
+          package_obligations:
+            - DOI, citation, release, license, preservation, and archival metadata are complete.
+            - Publication-readiness review passes or records exceptions.
+          minimum_evidence:
+            - CITATION.cff
+            - .zenodo.json
+            - release_record
+            - preservation_record
+            - publication_readiness_checklist
+      acceptance_criteria:
+        - criterion_id: apkg_ac_001_complete_required_items
+          statement: >
+            All required items for the declared conformance level are present or
+            explicitly tailored in conformance-declaration.yaml.
+          validation_method: inventory_review
+        - criterion_id: apkg_ac_002_current_inventory
+          statement: >
+            package-inventory.yaml accurately reflects the current repository
+            files, item classes, requiredness, validation methods, and review
+            statuses.
+          validation_method: inventory_to_filesystem_comparison
+        - criterion_id: apkg_ac_003_traceable_claims
+          statement: >
+            Package identity, DSR contribution, evaluation, transparency,
+            review, and release claims are supported by traceability objects or
+            marked evidence_status: not_yet_mapped.
+          validation_method: traceability_review
+        - criterion_id: apkg_ac_004_reviewable_quality
+          statement: >
+            A reviewer can evaluate consistency, coherence, cogency,
+            correspondence, DSR transparency, and reviewability using explicit
+            evidence and criteria.
+          validation_method: quality_gate_review
+        - criterion_id: apkg_ac_005_no_misclassified_examples
+          statement: >
+            Example-only materials are identified as examples and are not used
+            as evaluation evidence without an evaluation record.
+          validation_method: example_boundary_review
+        - criterion_id: apkg_ac_006_proportionate_transparency
+          statement: >
+            Transparency materials are sufficient for stakeholder confidence
+            while protecting restricted, proprietary, private, or security-sensitive information.
+          validation_method: transparency_and_security_review
+      validation_rules:
+        - rule_id: apkg_val_001_yaml_parse
+          applies_to:
+            - "*.yaml"
+            - "*.yml"
+          method: parse_as_yaml
+          fail_condition: YAML parser reports syntax error.
+          remediation: Correct indentation, quoting, scalar formatting, or invalid characters.
+        - rule_id: apkg_val_002_json_parse
+          applies_to:
+            - "*.json"
+            - "*.schema.json"
+          method: parse_as_json
+          fail_condition: JSON parser reports syntax error.
+          remediation: Correct JSON syntax and schema keywords.
+        - rule_id: apkg_val_003_required_root_files
+          applies_to:
+            - root_package_controls
+          method: file_presence_check
+          fail_condition: Required root file is missing and no tailoring record exists.
+          remediation: Add the missing file or record a justified tailoring decision.
+        - rule_id: apkg_val_004_inventory_alignment
+          applies_to:
+            - package-inventory.yaml
+          method: compare_inventory_to_repository
+          fail_condition: Inventory omits a controlled item or lists a non-existing item without deferred status.
+          remediation: Update package inventory.
+        - rule_id: apkg_val_005_traceability_presence
+          applies_to:
+            - controlled_package_items
+          method: inspect_required_metadata
+          fail_condition: source_basis, related_items, dependencies, or traceability is absent where required.
+          remediation: "Add traceability object or mark evidence_status: not_yet_mapped."
+      quality_gate_mapping:
+        - gate_id: qg_consistency
+          package_evidence:
+            - file_path
+            - item_type
+            - requiredness
+            - naming_rule_alignment
+            - inventory_entry
+          pass_condition: Package can be placed in canonical repository structure without naming or type conflicts.
+        - gate_id: qg_coherence
+          package_evidence:
+            - related_items
+            - dependencies
+            - traceability
+            - cross_references
+          pass_condition: Package items do not introduce conflicting definitions or unsupported cross-references.
+        - gate_id: qg_cogency
+          package_evidence:
+            - purpose
+            - workflow
+            - acceptance_criteria
+            - limitations
+          pass_condition: Package operation can be understood without hidden assumptions.
+        - gate_id: qg_correspondence
+          package_evidence:
+            - artifact_profile_alignment
+            - conformance_alignment
+            - source_basis
+          pass_condition: Package supports the intended reviewable/reusable DSR Framework artifact.
+        - gate_id: qg_dsr_transparency
+          package_evidence:
+            - transparency_dimension_mapping
+            - evidence_access_status
+          pass_condition: Relevant transparency dimensions are explicit or marked not applicable with rationale.
+        - gate_id: qg_reviewability
+          package_evidence:
+            - acceptance_criteria
+            - validation_rules
+            - checklist_or_schema_mapping
+          pass_condition: Reviewer can evaluate package against explicit criteria.
+      common_failure_modes:
+        - failure_id: apkg_fail_001_missing_inventory_item
+          description: File exists in repository but is absent from package-inventory.yaml.
+          severity: major
+          remediation: Add inventory entry with requiredness, owner, validation method, and review status.
+        - failure_id: apkg_fail_002_untraceable_claim
+          description: Package claims evaluation, contribution, or publication readiness without evidence.
+          severity: major
+          remediation: "Add supporting record or revise claim to evidence_status: not_yet_mapped."
+        - failure_id: apkg_fail_003_examples_confused_with_evaluation
+          description: Example is used as proof of artifact utility without evaluation criteria.
+          severity: major
+          remediation: Reclassify as demonstration or create an evaluation record.
+        - failure_id: apkg_fail_004_conformance_gap_hidden
+          description: Missing, deferred, or tailored obligation is not declared.
+          severity: critical
+          remediation: Update conformance declaration and tailoring records.
+        - failure_id: apkg_fail_005_sensitive_material_exposed
+          description: Package exposes restricted, proprietary, private, or security-sensitive information.
+          severity: critical
+          remediation: Remove, redact, summarize, access-control, or replace with safe evidence.
+
+  - id: traceability
+    title: Traceability
+    purpose: Map this specification to upstream sources, downstream package assets, and DSR transparency dimensions.
+    content:
+      trace_links:
+        - trace_id: tr_apkg_001_selection
+          source: dsr_framework_selection_table.spec_artifact_package
+          target: product_dsr_artifact_package_specification
+          relation: defines_target_path_and_purpose
+          evidence_status: mapped
+        - trace_id: tr_apkg_002_product_spec_structure
+          source: dsr_framework_generation_spec.coherence_rules.product_spec
+          target: sections
+          relation: defines_required_sections
+          evidence_status: mapped
+        - trace_id: tr_apkg_003_repository_architecture
+          source: specs/product-dsr-repository-architecture.yaml
+          target: related_items.canonical_directories
+          relation: constrains_package_locations
+          evidence_status: not_yet_mapped
+        - trace_id: tr_apkg_004_quality_model
+          source: specs/product-dsr-quality-conformance-and-review-model.yaml
+          target: sections.quality_and_conformance
+          relation: supplies_review_model_dependency
+          evidence_status: not_yet_mapped
+        - trace_id: tr_apkg_005_transparency_framework
+          source: hevner_et_al_2024_transparency_in_design_science_research
+          target: transparency_dimension_mapping
+          relation: supports_transparency_dimensions
+          evidence_status: mapped_to_corpus_anchor
+          citation_anchor_ids:
+            - CA01
+            - CA16
+        - trace_id: tr_apkg_006_artifact_ontology
+          source: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          target: conceptual_model.boundary_distinctions.artifact_instance_vs_reusable_knowledge
+          relation: supports_artifact_boundary_logic
+          evidence_status: mapped_to_corpus_anchor
+          citation_anchor_ids:
+            - A17
+            - A18
+        - trace_id: tr_apkg_007_contribution_paths
+          source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+          target: information_items.retained_records
+          relation: supports_contribution_traceability_and_knowledge_path_records
+          evidence_status: mapped_to_corpus_anchor
+          citation_anchor_ids:
+            - A07
+            - A13
+      transparency_dimension_mapping:
+        - dimension_id: process_transparency
+          package_support:
+            - package_inventory
+            - change_history
+            - records/design-decisions
+            - records/reviews
+          rationale: Shows package assembly, decision, review, and remediation history.
+        - dimension_id: problem_space_transparency
+          package_support:
+            - artifact-profile.yaml
+            - docs/protocol/00-framework-overview.md
+            - records/source-basis
+          rationale: Shows artifact scope, users, problem class, assumptions, and boundary conditions.
+        - dimension_id: solution_space_transparency
+          package_support:
+            - records/source-basis
+            - crosswalks
+            - specs
+            - models
+            - vocabularies
+          rationale: Shows source traditions, conceptual grounding, and dependency structure.
+        - dimension_id: build_transparency
+          package_support:
+            - records/design-decisions
+            - templates
+            - schemas
+            - .github/workflows
+          rationale: Shows how package components are created, constrained, and validated.
+        - dimension_id: evaluation_transparency
+          package_support:
+            - records/evaluations
+            - checklists/evaluation-readiness-checklist.yaml
+            - schemas/dsr-evaluation-plan.schema.json
+            - schemas/dsr-evaluation-report.schema.json
+          rationale: Separates planned evaluation, performed evaluation, and demonstration.
+        - dimension_id: contribution_transparency
+          package_support:
+            - records/contributions
+            - templates/contribution-claim-template.yaml
+            - models/dsr-contribution-model.yaml
+          rationale: Shows contribution type, scope, knowledge goals, evidence, and boundary conditions.
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: Provide concrete package assembly guidance for repository maintainers.
+    content:
+      minimal_l2_package_profile:
+        required_files:
+          - README.md
+          - LICENSE
+          - CITATION.cff
+          - CHANGELOG.md
+          - CONTRIBUTING.md
+          - GOVERNANCE.md
+          - SECURITY.md
+          - CODE_OF_CONDUCT.md
+          - .zenodo.json
+          - manifest.yaml
+          - metadata.yaml
+          - artifact-profile.yaml
+          - package-inventory.yaml
+          - conformance-declaration.yaml
+          - specs/product-catalog.yaml
+          - specs/product-protocol-foundation.yaml
+          - specs/product-dsr-framework-foundation.yaml
+          - specs/product-dsr-lifecycle-and-contribution-model.yaml
+          - specs/product-dsr-information-item-architecture.yaml
+          - specs/product-dsr-repository-architecture.yaml
+          - specs/product-dsr-artifact-package-specification.yaml
+        required_directories:
+          - specs
+          - models
+          - vocabularies
+          - schemas
+          - templates
+          - checklists
+          - docs/protocol
+          - records/source-basis
+          - records/contributions
+          - records/dsr-transparency
+          - records/evaluations
+          - records/reviews
+        recommended_l2_support_files:
+          - specs/product-dsr-quality-conformance-and-review-model.yaml
+          - checklists/artifact-package-readiness-checklist.yaml
+          - templates/package-inventory-template.yaml
+          - schemas/package-inventory.schema.json
+          - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+          - records/reviews/record-review-0001-self-review.yaml
+      recommended_tree_fragment: |-
+        .
+        ├── README.md
+        ├── LICENSE
+        ├── CITATION.cff
+        ├── CHANGELOG.md
+        ├── manifest.yaml
+        ├── metadata.yaml
+        ├── artifact-profile.yaml
+        ├── package-inventory.yaml
+        ├── conformance-declaration.yaml
+        ├── specs/
+        │   ├── product-catalog.yaml
+        │   ├── product-dsr-repository-architecture.yaml
+        │   ├── product-dsr-artifact-package-specification.yaml
+        │   └── product-dsr-quality-conformance-and-review-model.yaml
+        ├── models/
+        ├── vocabularies/
+        ├── schemas/
+        ├── templates/
+        ├── checklists/
+        ├── docs/protocol/
+        ├── records/
+        │   ├── source-basis/
+        │   ├── dsr-transparency/
+        │   ├── contributions/
+        │   ├── evaluations/
+        │   ├── reviews/
+        │   ├── releases/
+        │   └── preservation/
+        ├── crosswalks/
+        └── examples/
+      sequencing_guidance:
+        - sequence_id: seq_001_before_package_spec
+          instruction: >
+            Generate repository architecture and quality/conformance model early,
+            because this package specification depends on their directory,
+            validation, and review rules.
+        - sequence_id: seq_002_after_package_spec
+          instruction: >
+            Generate the package inventory template, package inventory schema,
+            and artifact package readiness checklist immediately after this
+            specification to operationalize package review.
+        - sequence_id: seq_003_before_release
+          instruction: >
+            Before claiming release readiness, generate release, preservation,
+            citation, publication-readiness, and review records.
+      maintenance_guidance:
+        - maintenance_id: maint_001_inventory_first
+          instruction: Update package-inventory.yaml whenever adding, moving, renaming, or deleting controlled files.
+        - maintenance_id: maint_002_conformance_after_change
+          instruction: Update conformance-declaration.yaml after any change that affects obligations, tailoring, or maturity level.
+        - maintenance_id: maint_003_records_for_decisions
+          instruction: Create retained records for significant design, tailoring, review, evaluation, release, or preservation decisions.
+        - maintenance_id: maint_004_sensitive_content
+          instruction: Review evidence assets for privacy, security, intellectual property, or proprietary risks before publication.
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: Identify downstream templates, schemas, and checklists implied by this specification.
+    content:
+      templates_to_generate:
+        - template_id: template_package_inventory
+          path: templates/package-inventory-template.yaml
+          purpose: Reusable structure for package inventory files.
+          priority: high
+        - template_id: template_conformance_declaration
+          path: templates/conformance-declaration-template.yaml
+          purpose: Reusable structure for declaring conformance level, tailoring, and exceptions.
+          priority: high
+        - template_id: template_review_record
+          path: templates/review-record-template.yaml
+          purpose: Reusable review record for package readiness and quality gates.
+          priority: medium
+      schemas_to_generate:
+        - schema_id: schema_package_inventory
+          path: schemas/package-inventory.schema.json
+          validates: package-inventory.yaml
+          priority: high
+        - schema_id: schema_conformance_declaration
+          path: schemas/conformance-declaration.schema.json
+          validates: conformance-declaration.yaml
+          priority: high
+        - schema_id: schema_artifact_profile
+          path: schemas/artifact-profile.schema.json
+          validates: artifact-profile.yaml
+          priority: high
+      checklists_to_generate:
+        - checklist_id: checklist_package_readiness
+          path: checklists/artifact-package-readiness-checklist.yaml
+          purpose: Review package completeness, evidence, records, examples, conformance, and release readiness.
+          priority: high
+        - checklist_id: checklist_transparency
+          path: checklists/dsr-transparency-crosswalk-checklist.yaml
+          purpose: Review package support for six transparency dimensions.
+          priority: medium
+        - checklist_id: checklist_publication_readiness
+          path: checklists/publication-readiness-checklist.yaml
+          purpose: Review release, DOI, citation, license, archival, and publication obligations.
+          priority: later_l4_l5
+      inventory_field_implications:
+        required_fields:
+          - item_id
+          - path
+          - item_type
+          - item_class
+          - requiredness
+          - conformance_level_required
+          - owner
+          - status
+          - validation_method
+          - review_status
+          - source_basis
+          - related_items
+          - retention_rule
+          - notes
+        recommended_fields:
+          - checksum
+          - last_reviewed_date
+          - reviewer
+          - evidence_status
+          - tailoring_reference
+          - release_inclusion_status
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: Preserve unresolved questions and future enhancements without blocking L2 reviewability.
+    content:
+      assumptions:
+        - assumption_id: apkg_assumption_001_quality_model_pending
+          statement: >
+            The detailed quality, conformance, and review model may not yet be
+            fully generated; this specification therefore defines package-level
+            bindings and marks deeper evidence mapping as pending.
+        - assumption_id: apkg_assumption_002_examples_not_yet_required
+          statement: >
+            Examples are recommended for L2 and expected for L3 exercisability,
+            but a package can remain L2 reviewable if examples are deferred and
+            the deferral is declared.
+        - assumption_id: apkg_assumption_003_internal_corpus_mapping_partial
+          statement: >
+            DSR corpus evidence is partially mapped through source IDs and
+            citation anchors; additional source-basis records should complete
+            fine-grained evidence mapping.
+      open_questions:
+        - question_id: apkg_oq_001_minimum_examples
+          question: >
+            What is the minimum example set needed to move from L2 reviewable to
+            L3 exercisable without overburdening maintainers?
+          disposition: backlog
+        - question_id: apkg_oq_002_release_automation
+          question: >
+            Which validation checks should be enforced automatically in GitHub
+            workflows versus retained as manual review checklist items?
+          disposition: backlog
+        - question_id: apkg_oq_003_publication_bundle_boundary
+          question: >
+            Which package elements should be included in the publication bundle,
+            and which should remain repository-maintenance assets only?
+          disposition: backlog
+        - question_id: apkg_oq_004_evidence_redaction
+          question: >
+            What standard redaction or summarization patterns should be used for
+            proprietary or security-sensitive DSR evidence?
+          disposition: backlog
+      backlog:
+        - backlog_id: apkg_backlog_001_generate_package_inventory_schema
+          item: Generate schemas/package-inventory.schema.json.
+          priority: high
+        - backlog_id: apkg_backlog_002_generate_package_readiness_checklist
+          item: Generate checklists/artifact-package-readiness-checklist.yaml.
+          priority: high
+        - backlog_id: apkg_backlog_003_generate_release_record_template
+          item: Generate a release record template aligned to publication and preservation obligations.
+          priority: medium
+        - backlog_id: apkg_backlog_004_add_automation_mapping
+          item: Map each validation rule to an executable or manual validation procedure.
+          priority: medium
+
+quality_gates:
+  - id: qg_consistency
+    status: pass
+    rationale: >
+      File path, item type, output format, naming, and product specification
+      structure align with the selected registry row and generation specification.
+  - id: qg_coherence
+    status: pass_with_dependency_placeholders
+    rationale: >
+      Dependencies on repository architecture and quality model are explicit;
+      some evidence mappings are marked not_yet_mapped until dependent files are finalized.
+  - id: qg_cogency
+    status: pass
+    rationale: >
+      The specification provides package entities, requirements, workflow,
+      validation rules, acceptance criteria, failure modes, and remediation guidance.
+  - id: qg_correspondence
+    status: pass
+    rationale: >
+      The specification corresponds to the intended DSR Framework artifact
+      package by defining required contents, evidence, examples, records, and conformance obligations.
+  - id: qg_dsr_transparency
+    status: pass
+    rationale: >
+      The traceability section maps package support to process, problem-space,
+      solution-space, build, evaluation, and contribution transparency.
+  - id: qg_reviewability
+    status: pass
+    rationale: >
+      Reviewer-facing acceptance criteria, validation methods, failure modes,
+      and evidence requirements are explicit.
+
+traceability:
+  - trace_id: tr_product_spec_required_structure
+    source: dsr_framework_generation_prompt.product_spec_structure
+    target: sections
+    relation: implemented_by
+    evidence_status: mapped
+  - trace_id: tr_selected_target_path
+    source: dsr_framework_selection_table.spec_artifact_package
+    target: product.target_path
+    relation: implements_selection
+    evidence_status: mapped
+  - trace_id: tr_quality_gate_alignment
+    source: dsr_framework_generation_spec.quality_gates
+    target: quality_gates
+    relation: implements_quality_gate_review
+    evidence_status: mapped
+  - trace_id: tr_dsr_transparency_alignment
+    source: hevner_et_al_2024_transparency_in_design_science_research
+    target: sections.traceability.content.transparency_dimension_mapping
+    relation: applies_transparency_framework
+    evidence_status: mapped_to_corpus_anchor
+
+open_questions:
+  - question_id: apkg_top_oq_001
+    question: >
+      Should the L2 profile require a minimal examples/ directory, or should
+      example materials remain a recommended but deferrable L3 exercisability obligation?
+    owner: dsr_framework_maintainer
+    status: open
+  - question_id: apkg_top_oq_002
+    question: >
+      What exact automated validation workflow should be required before an L4
+      reusable or L5 archival release?
+    owner: dsr_framework_maintainer
+    status: open

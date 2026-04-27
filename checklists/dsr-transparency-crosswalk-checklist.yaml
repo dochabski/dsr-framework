@@ -1,0 +1,822 @@
+# SPDX-License-Identifier: CC0-1.0
+metadata:
+  item_id: dsr_transparency_crosswalk_checklist
+  item_type: procedure
+  title: DSR Transparency Crosswalk Checklist
+  purpose: >
+    Provide a reviewable checklist for assessing whether a Design Science
+    Research transparency crosswalk adequately documents process, problem-space,
+    solution-space, build, evaluation, and contribution transparency.
+  status: draft
+  version: "0.1.0"
+  target_path: checklists/dsr-transparency-crosswalk-checklist.yaml
+  owner: dsr_framework_maintainers
+  default_conformance: l2_reviewable
+  created_date: "2026-04-27"
+  license: CC0-1.0
+
+source_basis:
+  - source_id: dsr_framework_generation_spec
+    role: governing_generation_and_quality_rules
+    evidence_status: mapped
+    notes: >
+      Requires checklists to include stable check IDs, questions, evidence
+      required, pass and fail conditions, and remediation guidance.
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure_and_output_conventions
+    evidence_status: mapped
+    notes: >
+      Requires generated framework portions to preserve DSR distinctions,
+      traceability, quality gates, and conformance information.
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    role: primary_transparency_model_source
+    evidence_status: mapped
+    notes: >
+      Defines the six transparency dimensions used by this checklist:
+      process, problem space, solution space, build, evaluation, and
+      contribution transparency.
+  - source_id: dsr_framework_selection_table
+    role: selected_target_registry
+    evidence_status: mapped
+    notes: >
+      Identifies checklist_transparency as checklists/dsr-transparency-crosswalk-checklist.yaml.
+
+related_items:
+  upstream:
+    - item_id: model_transparency
+      path: models/dsr-transparency-model.yaml
+      relationship: operationalizes
+    - item_id: vocab_transparency_dimensions
+      path: vocabularies/transparency-dimensions.yaml
+      relationship: uses_controlled_values_from
+    - item_id: template_transparency_crosswalk
+      path: templates/dsr-transparency-crosswalk-template.yaml
+      relationship: reviews_instances_of
+    - item_id: schema_transparency_crosswalk
+      path: schemas/dsr-transparency-crosswalk.schema.json
+      relationship: complements_schema_validation_for
+  downstream:
+    - item_id: record_transparency_crosswalk
+      path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+      relationship: supplies_review_criteria_for
+    - item_id: docs_transparency
+      path: docs/protocol/10-transparency-and-reporting.md
+      relationship: informs_human_facing_guidance
+    - item_id: checklist_package_readiness
+      path: checklists/artifact-package-readiness-checklist.yaml
+      relationship: contributes_evidence_to_package_readiness
+
+traceability:
+  - trace_id: tr_transparency_checklist_to_model
+    source_item: models/dsr-transparency-model.yaml
+    target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
+    relationship: checklist_items_follow_six_dimension_model
+    evidence_status: not_yet_mapped
+  - trace_id: tr_transparency_checklist_to_template
+    source_item: templates/dsr-transparency-crosswalk-template.yaml
+    target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
+    relationship: checklist_reviews_template_instances
+    evidence_status: not_yet_mapped
+  - trace_id: tr_transparency_checklist_to_schema
+    source_item: schemas/dsr-transparency-crosswalk.schema.json
+    target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
+    relationship: checklist_adds_substantive_review_beyond_schema_validation
+    evidence_status: not_yet_mapped
+  - trace_id: tr_transparency_checklist_to_quality_gates
+    source_item: specs/product-dsr-quality-conformance-and-review-model.yaml
+    target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
+    relationship: checklist_supports_reviewability_and_conformance_assessment
+    evidence_status: not_yet_mapped
+
+checklist:
+  id: dsr_transparency_crosswalk_checklist
+  title: DSR Transparency Crosswalk Checklist
+  status: draft
+  version: "0.1.0"
+  checklist_type: substantive_review
+  target_information_item: dsr_transparency_crosswalk
+  target_path_pattern: records/dsr-transparency/record-dsr-transparency-crosswalk-*.yaml
+  default_conformance_target: l2_reviewable
+  intended_users:
+    - dsr_researcher
+    - framework_author
+    - reviewer
+    - editor_or_maintainer
+  use_when:
+    - preparing_a_dsr_transparency_crosswalk
+    - reviewing_transparency_evidence_for_a_dsr_artifact_package
+    - checking_whether_transparency_evidence_is_sufficient_for_l2_review
+    - identifying_gaps_before_package_release
+  not_for:
+    - replacing_schema_validation
+    - proving_empirical_evaluation_quality_by_itself
+    - requiring_full_open_release_of_sensitive_or_proprietary_materials
+  review_scale:
+    values:
+      - pass
+      - partial
+      - fail
+      - not_applicable
+    rule: >
+      Mark pass only when the stated evidence is present, specific, and usable
+      by a reviewer. Mark partial when evidence exists but is underspecified,
+      indirect, or not yet traceable. Mark not_applicable only with a rationale.
+  minimum_l2_reviewable_threshold:
+    required:
+      - all_critical_items_pass_or_have_approved_not_applicable_rationale
+      - no_dimension_missing_without_remediation_plan
+      - evidence_locations_are_explicit_enough_for_review
+      - privacy_security_or_proprietary_constraints_are_recorded_when_relevant
+    recommended:
+      - at_least_one_evidence_source_for_each_applicable_transparency_dimension
+      - crosswalk_links_to_related_templates_records_and_quality_gates
+      - remediation_actions_are_assigned_before_release
+
+  sections:
+    - section_id: identity_and_scope
+      title: Crosswalk Identity and Scope
+      purpose: Confirm that the transparency crosswalk is identifiable, bounded, and reviewable.
+      items:
+        - check_id: trn_id_001
+          criticality: critical
+          transparency_dimension: all
+          question: Does the crosswalk identify the reviewed DSR artifact, artifact package, or study?
+          evidence_required:
+            - artifact_or_package_id
+            - artifact_title_or_name
+            - artifact_type_or_package_class
+            - reviewed_version_or_release
+          pass_condition: >
+            The reviewer can determine exactly which artifact, package, study,
+            or release the crosswalk assesses.
+          fail_condition: >
+            The crosswalk is generic, unnamed, or cannot be tied to a specific
+            artifact, package, study, or release.
+          remediation_guidance: >
+            Add stable identifiers, title, version, package path, and reviewed
+            release or draft status before conducting the substantive review.
+        - check_id: trn_id_002
+          criticality: critical
+          transparency_dimension: all
+          question: Does the crosswalk state its review purpose and conformance target?
+          evidence_required:
+            - purpose_statement
+            - conformance_target
+            - review_scope
+            - reviewer_or_responsible_role
+          pass_condition: >
+            The crosswalk states whether it supports planning, self-review,
+            formal review, release readiness, or publication readiness, and
+            identifies the target conformance level.
+          fail_condition: >
+            The crosswalk gives no review purpose or conformance target.
+          remediation_guidance: >
+            Add a purpose field, conformance target, reviewer role, and scope
+            statement distinguishing draft review from release or archival review.
+        - check_id: trn_id_003
+          criticality: major
+          transparency_dimension: all
+          question: Does the crosswalk use the six controlled transparency dimensions consistently?
+          evidence_required:
+            - process_transparency_section
+            - problem_space_transparency_section
+            - solution_space_transparency_section
+            - build_transparency_section
+            - evaluation_transparency_section
+            - contribution_transparency_section
+          pass_condition: >
+            The crosswalk includes all six dimensions or explicitly marks a
+            dimension not_applicable with a defensible rationale.
+          fail_condition: >
+            One or more dimensions are omitted without explanation, renamed in
+            a way that breaks alignment, or merged so that evidence cannot be
+            reviewed dimension by dimension.
+          remediation_guidance: >
+            Restore the six-dimension structure and add not_applicable rationales
+            only where the artifact or study genuinely does not require that dimension.
+
+    - section_id: process_transparency
+      title: Process Transparency
+      purpose: Assess whether the crosswalk documents how the DSR work actually proceeded.
+      items:
+        - check_id: trn_process_001
+          criticality: critical
+          transparency_dimension: process
+          question: Does the crosswalk document the actual DSR process rather than only the intended plan?
+          evidence_required:
+            - lifecycle_stages_completed
+            - dated_activity_log_or_process_summary
+            - major_iteration_points
+            - deviations_from_initial_plan
+          pass_condition: >
+            The evidence shows the actual sequence of DSR activities, including
+            iterations, decision points, and major deviations from the plan.
+          fail_condition: >
+            The crosswalk only provides a generic lifecycle model or proposed
+            workflow without evidence of the actual process used.
+          remediation_guidance: >
+            Add a process narrative, timeline, activity log, design diary,
+            meeting record summary, or decision sequence showing what occurred.
+        - check_id: trn_process_002
+          criticality: major
+          transparency_dimension: process
+          question: Are process decisions and rationales traceable to records or evidence?
+          evidence_required:
+            - design_decision_records
+            - rationale_notes
+            - issue_or_change_records
+            - links_to_related_records
+          pass_condition: >
+            Important decisions include a rationale, date or sequence marker,
+            responsible role, and link to supporting records or evidence.
+          fail_condition: >
+            Decisions are asserted without rationale, responsible role, or traceable evidence.
+          remediation_guidance: >
+            Create or link design decision records and summarize the decision,
+            alternatives, rationale, consequences, and affected artifacts.
+        - check_id: trn_process_003
+          criticality: major
+          transparency_dimension: process
+          question: Does the crosswalk distinguish planned, emergent, and retrospective process elements?
+          evidence_required:
+            - planned_process_elements
+            - emergent_process_elements
+            - retrospective_interpretations
+            - safeguards_against_ex_post_dsr_ification
+          pass_condition: >
+            The crosswalk makes clear which activities were planned in advance,
+            which emerged during design, and which are retrospective explanations.
+          fail_condition: >
+            The crosswalk retrofits a clean DSR sequence without acknowledging
+            emergence, iteration, or retrospective reconstruction.
+          remediation_guidance: >
+            Add explicit fields for planned activities, emergent activities,
+            retrospective interpretation, and evidence preventing ex-post DSR framing.
+
+    - section_id: problem_space_transparency
+      title: Problem-Space Transparency
+      purpose: Assess whether the crosswalk documents the practical problem, context, stakeholders, and boundaries.
+      items:
+        - check_id: trn_problem_001
+          criticality: critical
+          transparency_dimension: problem_space
+          question: Is the problem space described with context, stakeholders, scope, and improvement goals?
+          evidence_required:
+            - application_context
+            - stakeholder_roles
+            - problem_class
+            - local_problem_instance
+            - improvement_goals
+            - scope_boundaries
+          pass_condition: >
+            The problem space is specific enough for a reviewer to understand
+            where the artifact is intended to intervene and what improvement it seeks.
+          fail_condition: >
+            The problem is stated only as a broad topic, research interest, or
+            artifact idea without contextual grounding.
+          remediation_guidance: >
+            Add a bounded problem statement, affected stakeholders, local context,
+            improvement goals, assumptions, constraints, and boundary conditions.
+        - check_id: trn_problem_002
+          criticality: major
+          transparency_dimension: problem_space
+          question: Are problem requirements, constraints, and success criteria recorded?
+          evidence_required:
+            - functional_requirements
+            - nonfunctional_requirements
+            - design_constraints
+            - success_criteria
+            - acceptance_criteria
+          pass_condition: >
+            Requirements and success criteria are reviewable and connect the
+            problem framing to later artifact design and evaluation decisions.
+          fail_condition: >
+            Requirements are absent, vague, or disconnected from design and evaluation evidence.
+          remediation_guidance: >
+            Add structured requirements and success criteria, then map them to
+            artifact components, evaluation criteria, or contribution claims.
+        - check_id: trn_problem_003
+          criticality: major
+          transparency_dimension: problem_space
+          question: Does the crosswalk document temporal, organizational, or contextual change in the problem space?
+          evidence_required:
+            - timeframe
+            - context_change_notes
+            - stakeholder_change_notes
+            - boundary_condition_updates
+          pass_condition: >
+            The crosswalk records how the problem context may have changed during
+            the project and how that change affects interpretation or reuse.
+          fail_condition: >
+            The crosswalk treats the problem space as static when timing,
+            organizational change, or stakeholder change materially affects the DSR work.
+          remediation_guidance: >
+            Add timeframe, change notes, boundary updates, and implications for
+            evaluation, projectability, or artifact maintenance.
+
+    - section_id: solution_space_transparency
+      title: Solution-Space Transparency
+      purpose: Assess whether the crosswalk documents grounding in prior knowledge, technologies, artifacts, and alternatives.
+      items:
+        - check_id: trn_solution_001
+          criticality: critical
+          transparency_dimension: solution_space
+          question: Does the crosswalk identify the knowledge bases used to ground the artifact or design approach?
+          evidence_required:
+            - scholarly_sources
+            - design_theories_or_principles
+            - descriptive_or_explanatory_knowledge
+            - prescriptive_or_design_knowledge
+            - technical_or_domain_sources
+          pass_condition: >
+            The grounding evidence identifies the knowledge base used and explains
+            how it informed the artifact, design choices, or evaluation plan.
+          fail_condition: >
+            The crosswalk lists sources without explaining their design relevance,
+            or provides design choices without grounding evidence.
+          remediation_guidance: >
+            Add source-to-design trace links showing how prior knowledge informed
+            requirements, artifact components, design rationale, or evaluation criteria.
+        - check_id: trn_solution_002
+          criticality: major
+          transparency_dimension: solution_space
+          question: Are alternative solutions, existing artifacts, and design precedents identified?
+          evidence_required:
+            - existing_artifacts_or_methods
+            - alternative_solution_options
+            - comparison_basis
+            - reuse_or_nonreuse_rationale
+          pass_condition: >
+            The crosswalk shows what alternatives were considered and why the
+            selected design path was justified.
+          fail_condition: >
+            The crosswalk presents the artifact as if no alternatives, prior
+            artifacts, or design precedents existed.
+          remediation_guidance: >
+            Add a solution-space comparison table or rationale record linking
+            alternatives to constraints, requirements, and design tradeoffs.
+        - check_id: trn_solution_003
+          criticality: major
+          transparency_dimension: solution_space
+          question: Are literature search, source-selection, or knowledge-grounding methods transparent enough for review?
+          evidence_required:
+            - search_strategy_or_source_selection_method
+            - source_inclusion_rationale
+            - evidence_limitations
+            - unmapped_evidence_notes
+          pass_condition: >
+            A reviewer can understand how solution-space sources were found,
+            selected, excluded, or prioritized.
+          fail_condition: >
+            The crosswalk relies on unstated source selection or unexplained authority claims.
+          remediation_guidance: >
+            Add search strings, databases, source families, selection criteria,
+            limitations, or a note that evidence_status is not_yet_mapped.
+
+    - section_id: build_transparency
+      title: Build Transparency
+      purpose: Assess whether the crosswalk documents artifact construction, design reasoning, and implementation choices.
+      items:
+        - check_id: trn_build_001
+          criticality: critical
+          transparency_dimension: build
+          question: Does the crosswalk document how the artifact was constructed or specified?
+          evidence_required:
+            - artifact_components
+            - build_steps_or_specification_steps
+            - design_inputs
+            - design_outputs
+            - implementation_or_specification_records
+          pass_condition: >
+            The build evidence shows how the artifact moved from requirements
+            and solution-space grounding into components, specifications, or implementation.
+          fail_condition: >
+            The artifact appears as a finished object without explanation of
+            how it was specified, constructed, configured, or assembled.
+          remediation_guidance: >
+            Add artifact component records, build logs, specification history,
+            diagrams, examples, code references, or structured construction notes.
+        - check_id: trn_build_002
+          criticality: major
+          transparency_dimension: build
+          question: Are creative, collaborative, or judgment-based design choices documented proportionately?
+          evidence_required:
+            - design_rationale_records
+            - collaborator_or_stakeholder_inputs
+            - tradeoff_notes
+            - assumptions
+            - rejected_options
+          pass_condition: >
+            Major design judgments are visible and proportionately documented
+            without requiring exhaustive disclosure of every minor thought process.
+          fail_condition: >
+            The crosswalk omits major design judgments, stakeholder inputs, or tradeoffs.
+          remediation_guidance: >
+            Add design rationale entries for high-impact choices, including
+            alternatives, tradeoffs, rationale, assumptions, and affected components.
+        - check_id: trn_build_003
+          criticality: major
+          transparency_dimension: build
+          question: Does the crosswalk distinguish artifact type, artifact instance, and reusable design knowledge?
+          evidence_required:
+            - artifact_type
+            - artifact_instance_or_release
+            - reusable_design_knowledge
+            - make_or_use_plan_if_applicable
+          pass_condition: >
+            The crosswalk clarifies whether the reviewed object is an artifact
+            type, implementation instance, template, model, method, framework,
+            or reusable design knowledge claim.
+          fail_condition: >
+            The crosswalk conflates a local implementation with a generalizable
+            artifact or contribution claim.
+          remediation_guidance: >
+            Add artifact ontology fields and map artifact instance evidence
+            separately from reusable design knowledge or contribution claims.
+
+    - section_id: evaluation_transparency
+      title: Evaluation Transparency
+      purpose: Assess whether the crosswalk documents evaluation design, evidence, findings, and limitations.
+      items:
+        - check_id: trn_eval_001
+          criticality: critical
+          transparency_dimension: evaluation
+          question: Does the crosswalk identify evaluation methods, criteria, timing, and evidence sources?
+          evidence_required:
+            - evaluation_methods
+            - evaluation_criteria
+            - formative_or_summative_timing
+            - data_or_evidence_sources
+            - evaluation_results_or_status
+          pass_condition: >
+            The reviewer can determine what was evaluated, how it was evaluated,
+            against which criteria, with what evidence, and with what result or status.
+          fail_condition: >
+            Evaluation is asserted as completed or adequate without method,
+            criteria, evidence, or result detail.
+          remediation_guidance: >
+            Add or link an evaluation plan, evaluation report, criteria table,
+            evidence summary, and evaluation limitations.
+        - check_id: trn_eval_002
+          criticality: critical
+          transparency_dimension: evaluation
+          question: Does the crosswalk distinguish demonstration from evaluation?
+          evidence_required:
+            - demonstration_records
+            - evaluation_records
+            - distinction_rationale
+            - claims_supported_by_each
+          pass_condition: >
+            Demonstration evidence is not used as a substitute for evaluation
+            unless the limited claim is explicitly bounded.
+          fail_condition: >
+            A demonstration, example, or use scenario is presented as if it proves
+            utility, quality, effectiveness, or contribution without evaluation logic.
+          remediation_guidance: >
+            Separate demonstration records from evaluation records and reduce
+            unsupported claims or add appropriate evaluation evidence.
+        - check_id: trn_eval_003
+          criticality: major
+          transparency_dimension: evaluation
+          question: Are evaluation limitations, validity threats, reliability issues, and confidence levels reported?
+          evidence_required:
+            - evaluation_limitations
+            - validity_threats
+            - reliability_considerations
+            - confidence_assessment
+            - mitigation_actions
+          pass_condition: >
+            The crosswalk identifies major threats or limitations and states how
+            they affect the strength of evaluation claims.
+          fail_condition: >
+            Evaluation results are reported without limitations, confidence, or
+            threat analysis.
+          remediation_guidance: >
+            Add validity, reliability, and confidence notes, including mitigation
+            status and claim boundaries.
+
+    - section_id: contribution_transparency
+      title: Contribution Transparency
+      purpose: Assess whether the crosswalk documents practical and knowledge contributions without overclaiming.
+      items:
+        - check_id: trn_contrib_001
+          criticality: critical
+          transparency_dimension: contribution
+          question: Does the crosswalk state the artifact utility, artifact quality, and knowledge contribution separately?
+          evidence_required:
+            - artifact_utility_claims
+            - artifact_quality_claims
+            - knowledge_contribution_claims
+            - evidence_for_each_claim_type
+          pass_condition: >
+            The crosswalk distinguishes usefulness in context, quality of the
+            artifact, and contribution to design knowledge or DSR methodology.
+          fail_condition: >
+            The crosswalk treats artifact existence, local usefulness, quality,
+            and scholarly contribution as the same claim.
+          remediation_guidance: >
+            Split claims into utility, quality, and contribution categories and
+            map each category to supporting evidence.
+        - check_id: trn_contrib_002
+          criticality: major
+          transparency_dimension: contribution
+          question: Are practical and scientific contribution audiences identified?
+          evidence_required:
+            - scholarly_audience
+            - practitioner_audience
+            - reviewer_or_editor_audience
+            - use_or_reuse_guidance
+            - communication_format
+          pass_condition: >
+            The crosswalk identifies who can use the contribution and what form
+            of communication or evidence each audience needs.
+          fail_condition: >
+            The contribution is described without audience, reuse, or communication implications.
+          remediation_guidance: >
+            Add audience-specific contribution notes for scholarly reviewers,
+            researchers, practitioners, managers, or policy stakeholders as applicable.
+        - check_id: trn_contrib_003
+          criticality: major
+          transparency_dimension: contribution
+          question: Are contribution scope, novelty, and boundary conditions stated?
+          evidence_required:
+            - contribution_type
+            - knowledge_goal
+            - knowledge_scope
+            - novelty_rationale
+            - boundary_conditions
+          pass_condition: >
+            The contribution is positioned with controlled contribution type,
+            knowledge goal, knowledge scope, novelty rationale, and boundaries.
+          fail_condition: >
+            The crosswalk makes broad contribution claims without scope,
+            novelty, or boundary conditions.
+          remediation_guidance: >
+            Link the crosswalk to a contribution claim or contribution positioning
+            record and revise claims to match the evidence.
+
+    - section_id: responsible_transparency_and_risk
+      title: Responsible Transparency and Risk Control
+      purpose: Assess whether the crosswalk balances openness with confidentiality, security, cost, and usability.
+      items:
+        - check_id: trn_risk_001
+          criticality: critical
+          transparency_dimension: all
+          question: Does the crosswalk identify privacy, security, proprietary, or intellectual-property constraints on transparency?
+          evidence_required:
+            - sensitive_materials_inventory
+            - disclosure_constraints
+            - redaction_or_obfuscation_plan
+            - sharing_license_or_access_rule
+          pass_condition: >
+            Constraints on openness are explicitly documented, justified, and
+            paired with proportionate alternatives such as summaries, pseudocode,
+            screenshots, redacted records, or controlled access.
+          fail_condition: >
+            Sensitive or proprietary materials are either exposed without control
+            or withheld without rationale.
+          remediation_guidance: >
+            Add a transparency risk assessment and specify what can be shared,
+            redacted, summarized, restricted, or replaced with equivalent review evidence.
+        - check_id: trn_risk_002
+          criticality: major
+          transparency_dimension: all
+          question: Does the crosswalk avoid excessive transparency burden while preserving reviewability?
+          evidence_required:
+            - proportionality_rationale
+            - omitted_materials_rationale
+            - reviewer_accessible_summary
+            - maintenance_cost_notes
+          pass_condition: >
+            The crosswalk gives enough information for review without demanding
+            unnecessary, infeasible, or high-maintenance disclosure.
+          fail_condition: >
+            The crosswalk either demands exhaustive disclosure without value or
+            omits necessary evidence in the name of burden reduction.
+          remediation_guidance: >
+            Apply proportionality: retain evidence necessary for review, summarize
+            low-value details, and document maintenance or disclosure constraints.
+        - check_id: trn_risk_003
+          criticality: major
+          transparency_dimension: all
+          question: Are accessibility and practitioner comprehension considered where relevant?
+          evidence_required:
+            - plain_language_summary
+            - terminology_notes
+            - audience_guidance
+            - accessibility_or_format_notes
+          pass_condition: >
+            The crosswalk supports understanding by relevant audiences and does
+            not rely only on opaque technical language where practical use is claimed.
+          fail_condition: >
+            The transparency record is so abstract, technical, or inaccessible
+            that intended practitioner or reviewer audiences cannot interpret it.
+          remediation_guidance: >
+            Add plain-language summaries, controlled terminology, examples,
+            diagrams, or practitioner-facing guidance.
+
+    - section_id: evidence_and_traceability
+      title: Evidence, Traceability, and Review Closure
+      purpose: Confirm that transparency evidence is located, reviewable, and ready for downstream package checks.
+      items:
+        - check_id: trn_trace_001
+          criticality: critical
+          transparency_dimension: all
+          question: Are evidence locations explicit and durable enough for review?
+          evidence_required:
+            - file_paths_or_urls
+            - record_ids
+            - section_or_anchor_references
+            - evidence_status_values
+          pass_condition: >
+            A reviewer can locate each evidence item without relying on hidden
+            context, private memory, or undocumented file locations.
+          fail_condition: >
+            Evidence is described but not locatable, or file paths and anchors
+            are missing, ambiguous, or obsolete.
+          remediation_guidance: >
+            Add file paths, record IDs, section anchors, repository locations,
+            or evidence_status fields for each transparency claim.
+        - check_id: trn_trace_002
+          criticality: major
+          transparency_dimension: all
+          question: Does the crosswalk connect transparency evidence to related templates, records, schemas, and checklists?
+          evidence_required:
+            - related_items
+            - traceability_links
+            - schema_validation_status
+            - checklist_review_status
+          pass_condition: >
+            The crosswalk is integrated with the repository's templates, records,
+            schemas, checklists, and quality gates.
+          fail_condition: >
+            The crosswalk is an isolated document with no repository traceability.
+          remediation_guidance: >
+            Add related_items and traceability entries linking the crosswalk to
+            templates, schemas, quality models, review records, and package inventory.
+        - check_id: trn_trace_003
+          criticality: major
+          transparency_dimension: all
+          question: Are open questions, unresolved gaps, and remediation actions recorded?
+          evidence_required:
+            - open_questions
+            - transparency_gaps
+            - remediation_actions
+            - responsible_party
+            - due_or_review_trigger
+          pass_condition: >
+            Remaining issues are visible, assigned, and bounded so they do not
+            masquerade as completed transparency evidence.
+          fail_condition: >
+            Known gaps are omitted or unresolved issues are hidden in narrative text.
+          remediation_guidance: >
+            Add a closure section listing unresolved gaps, remediation actions,
+            responsible roles, and review triggers.
+        - check_id: trn_trace_004
+          criticality: critical
+          transparency_dimension: all
+          question: Does the crosswalk support an explicit pass, partial, fail, or not_applicable review outcome?
+          evidence_required:
+            - item_level_results
+            - dimension_level_results
+            - overall_review_outcome
+            - reviewer_notes
+          pass_condition: >
+            The reviewer can record results at item, dimension, and overall
+            checklist levels with rationale for partial, fail, or not_applicable results.
+          fail_condition: >
+            The checklist cannot support a review outcome or closure decision.
+          remediation_guidance: >
+            Add result fields, rationale fields, review notes, and an overall
+            outcome section before using the checklist for package review.
+
+acceptance_criteria:
+  - criterion_id: ac_trn_001
+    statement: The checklist includes all required checklist item fields.
+    validation_method: manual_review_or_yaml_query
+  - criterion_id: ac_trn_002
+    statement: The checklist covers all six DSR transparency dimensions.
+    validation_method: manual_review
+  - criterion_id: ac_trn_003
+    statement: The checklist distinguishes evidence for utility, quality, contribution, demonstration, and evaluation.
+    validation_method: manual_review
+  - criterion_id: ac_trn_004
+    statement: The checklist includes risk controls for privacy, security, proprietary information, intellectual property, and review burden.
+    validation_method: manual_review
+  - criterion_id: ac_trn_005
+    statement: The checklist is usable for L2 reviewable conformance without requiring hidden project knowledge.
+    validation_method: self_review_or_peer_review
+
+quality_gate_mapping:
+  - quality_gate_id: qg_consistency
+    checklist_support: >
+      Confirms stable identifiers, target path, six controlled dimensions,
+      related items, and repository traceability.
+    status: supported
+  - quality_gate_id: qg_coherence
+    checklist_support: >
+      Requires connections to transparency model, crosswalk template, schema,
+      review records, and package readiness checks.
+    status: supported
+  - quality_gate_id: qg_cogency
+    checklist_support: >
+      Organizes review questions by scope, six dimensions, risks, and evidence closure.
+    status: supported
+  - quality_gate_id: qg_correspondence
+    checklist_support: >
+      Aligns review evidence with DSR artifact package transparency requirements.
+    status: supported
+  - quality_gate_id: qg_dsr_transparency
+    checklist_support: >
+      Directly operationalizes process, problem-space, solution-space, build,
+      evaluation, and contribution transparency.
+    status: supported
+  - quality_gate_id: qg_reviewability
+    checklist_support: >
+      Provides explicit evidence requirements, pass conditions, fail conditions,
+      remediation guidance, and review outcomes.
+    status: supported
+
+validation_rules:
+  - rule_id: val_trn_001
+    description: Each checklist item must have check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
+    severity: error
+  - rule_id: val_trn_002
+    description: Each critical item must be pass or not_applicable with rationale before claiming L2 reviewable status.
+    severity: error
+  - rule_id: val_trn_003
+    description: Every applicable transparency dimension must include at least one evidence source or explicit remediation action.
+    severity: warning
+  - rule_id: val_trn_004
+    description: Not_applicable results must include a rationale and reviewer note.
+    severity: warning
+  - rule_id: val_trn_005
+    description: Sensitive or proprietary evidence must not be required for public release if an adequate reviewable substitute is documented.
+    severity: warning
+
+review_output_template:
+  reviewer: "TODO: reviewer name or role"
+  review_date: "TODO: YYYY-MM-DD"
+  reviewed_item_id: "TODO: transparency crosswalk or package ID"
+  reviewed_version: "TODO: version or commit"
+  item_results:
+    - check_id: "TODO: check ID"
+      result: "TODO: pass | partial | fail | not_applicable"
+      rationale: "TODO: brief rationale"
+      evidence_locations: []
+      remediation_required: false
+      remediation_action: null
+  dimension_results:
+    process: "TODO: pass | partial | fail | not_applicable"
+    problem_space: "TODO: pass | partial | fail | not_applicable"
+    solution_space: "TODO: pass | partial | fail | not_applicable"
+    build: "TODO: pass | partial | fail | not_applicable"
+    evaluation: "TODO: pass | partial | fail | not_applicable"
+    contribution: "TODO: pass | partial | fail | not_applicable"
+  overall_result: "TODO: pass | partial | fail"
+  release_blocking_findings: []
+  reviewer_notes: "TODO: review notes"
+
+assumptions:
+  - assumption_id: asm_trn_001
+    statement: >
+      The checklist is designed for L2 reviewable conformance and can be
+      strengthened later for L3 through L5 by adding executable validation,
+      repository release checks, and archival evidence requirements.
+  - assumption_id: asm_trn_002
+    statement: >
+      The transparency crosswalk template and schema exist or will exist as
+      related repository items, but this checklist remains usable for manual
+      substantive review even before full automation.
+
+limitations:
+  - limitation_id: lim_trn_001
+    statement: >
+      This checklist does not itself validate YAML syntax or schema conformance;
+      it complements schema validation with substantive DSR review criteria.
+  - limitation_id: lim_trn_002
+    statement: >
+      This checklist does not require public release of sensitive, proprietary,
+      private, or security-relevant materials when reviewable alternatives are documented.
+  - limitation_id: lim_trn_003
+    statement: >
+      This checklist supports transparency review but does not by itself prove
+      artifact effectiveness, evaluation adequacy, or scholarly contribution.
+
+open_questions:
+  - question_id: oq_trn_001
+    question: Should later conformance levels require a numeric transparency maturity score by dimension?
+    status: deferred
+  - question_id: oq_trn_002
+    question: Which evidence fields should become machine-validated once the transparency crosswalk schema stabilizes?
+    status: deferred
+  - question_id: oq_trn_003
+    question: Should practitioner-facing transparency be mandatory for all DSR artifact packages or only those claiming direct practice reuse?
+    status: deferred
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    description: Initial L2 reviewable DSR transparency crosswalk checklist.
+    responsible_party: GPT-5.5 Thinking

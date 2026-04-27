@@ -1,0 +1,628 @@
+# SPDX-License-Identifier: CC0-1.0
+template:
+  id: contribution_positioning_record_template
+  title: Contribution Positioning Record Template
+  item_type: specification
+  portion_type: template
+  selection_id: template_contribution_positioning
+  target_path: templates/contribution-positioning-record-template.yaml
+  purpose: >
+    Provide a reusable YAML template for recording how a Design Science Research
+    artifact package positions its contribution claims against the DSR contribution
+    model, including contribution type, knowledge goal, knowledge scope, contribution
+    level, evidence basis, audience, boundaries, limitations, and review outcome.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  output_format: yaml
+  intended_users:
+    - dsr_researcher
+    - artifact_package_author
+    - reviewer_or_editor
+    - repository_maintainer
+  template_scope:
+    includes:
+      - contribution_claim_positioning
+      - contribution_type_classification
+      - knowledge_goal_and_scope_classification
+      - artifact_utility_quality_and_knowledge_distinction
+      - practice_and_research_contribution_separation
+      - evidence_and_traceability_mapping
+      - boundary_condition_and_limitation_statement
+      - overclaiming_review
+      - contribution_transparency_recordkeeping
+    excludes:
+      - full_artifact_specification
+      - full_evaluation_plan
+      - full_evaluation_report
+      - publication_readiness_scoring
+      - repository_release_record
+    boundary_statement: >
+      This template records contribution positioning. It does not itself validate
+      artifact utility, prove generalizability, or establish publication readiness.
+      Those judgments must be supported by linked artifact, demonstration,
+      evaluation, review, and release records.
+
+source_basis:
+  - source_id: dsr_framework_generation_prompt
+    role: governing_generation_prompt
+    evidence_status: mapped
+  - source_id: dsr_framework_generation_spec
+    role: governing_generation_specification
+    evidence_status: mapped
+  - source_id: dsr_framework_selection_table
+    role: selected_target_registry
+    evidence_status: mapped
+  - source_id: dsr_contribution_model
+    role: immediate_model_dependency
+    path: models/dsr-contribution-model.yaml
+    evidence_status: mapped
+  - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+    short_citation: Akoka et al. 2023
+    role: knowledge_goal_scope_and_dynamic_contribution_basis
+    evidence_status: mapped
+    mapped_anchors:
+      - A03
+      - A05
+      - A07
+      - A08
+      - A10
+      - A13
+      - A14
+      - A16
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    short_citation: Hevner et al. 2024
+    role: contribution_transparency_basis
+    evidence_status: mapped
+    mapped_anchors:
+      - CA01
+      - CA05
+      - CA11
+      - CA15
+      - CA16
+      - CA17
+  - source_id: weigand_johannesson_andersson_2021_101878
+    short_citation: Weigand et al. 2021
+    role: artifact_boundary_and_artifact_theory_distinction_basis
+    evidence_status: mapped
+    mapped_anchors:
+      - A04
+      - A17
+      - A18
+      - A19
+      - A20
+
+related_items:
+  upstream_dependencies:
+    - id: model_contribution
+      path: models/dsr-contribution-model.yaml
+      relationship: defines_controlled_entities_axes_values_workflow_and_validation_rules
+      status: mapped_dependency
+    - id: vocab_contribution_types
+      path: vocabularies/contribution-types.yaml
+      relationship: expected_controlled_values_for_contribution_type
+      status: expected_dependency
+    - id: vocab_knowledge_goals
+      path: vocabularies/knowledge-goals.yaml
+      relationship: expected_controlled_values_for_knowledge_goal
+      status: expected_dependency
+    - id: vocab_knowledge_scopes
+      path: vocabularies/knowledge-scopes.yaml
+      relationship: expected_controlled_values_for_knowledge_scope
+      status: expected_dependency
+    - id: model_artifact_ontology
+      path: models/dsr-artifact-ontology.yaml
+      relationship: contribution_claims_reference_artifact_boundaries
+      status: expected_dependency
+    - id: model_evaluation_alignment
+      path: models/dsr-evaluation-alignment-model.yaml
+      relationship: evidence_basis_and_claim_strength_alignment
+      status: expected_dependency
+  downstream_dependents:
+    - id: record_contribution_positioning
+      path: records/contributions/record-contribution-positioning-0001.yaml
+      relationship: can_be_instantiated_from_this_template
+    - id: checklist_contribution_positioning
+      path: checklists/contribution-positioning-checklist.yaml
+      relationship: reviews_completed_positioning_records
+    - id: schema_contribution_claim
+      path: schemas/dsr-contribution-claim.schema.json
+      relationship: validates_related_contribution_claim_structures
+    - id: template_contribution_claim
+      path: templates/contribution-claim-template.yaml
+      relationship: supplies_claim_inputs_for_positioning_records
+    - id: docs_lifecycle_contribution
+      path: docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+      relationship: human_facing_guidance_for_using_the_record
+
+controlled_value_hints:
+  contribution_types:
+    - artifact_innovation
+    - artifact_adaptation
+    - design_principle
+    - nascent_design_theory
+    - full_design_theory
+    - theory_building
+    - method_extension
+    - evaluation_contribution
+    - transparency_reporting_contribution
+    - synthesis
+    - domain_translation
+    - responsible_design_contribution
+  knowledge_goals:
+    - definitional
+    - descriptive
+    - explanatory
+    - predictive
+    - explanatory_predictive
+    - prescriptive
+    - methodological
+    - evaluative
+    - normative
+  knowledge_scopes:
+    - idiographic_specific
+    - projectable_to_problem_class
+    - analytical_generalization
+    - nomothetic_general
+    - mixed_multi_level
+  contribution_levels:
+    - level_1_artifact
+    - level_2_nascent_design_theory
+    - level_3_full_design_theory
+    - meta_methodological
+  evidence_basis_types:
+    - artifact_demonstration
+    - formative_evaluation
+    - summative_evaluation
+    - literature_synthesis
+    - conceptual_argument
+    - stakeholder_evidence
+    - traceability_evidence
+  claim_patterns:
+    - artifact_utility_claim
+    - artifact_quality_claim
+    - design_knowledge_claim
+    - methodological_claim
+    - responsible_design_claim
+  audiences:
+    - scholarly_researcher
+    - reviewer_or_editor
+    - practitioner
+    - policymaker_or_governance_actor
+    - technical_implementer
+    - public_or_affected_stakeholder
+  impact_targets:
+    - artifact_utility
+    - artifact_quality
+    - design_knowledge
+    - dsr_method
+    - reporting_transparency
+    - evaluation_quality
+    - stakeholder_practice
+  consensus_positioning_values:
+    - applies_consensus_to_domain
+    - extends_consensus
+    - refines_consensus
+    - challenges_consensus
+    - not_yet_positioned
+  review_outcomes:
+    - accepted_as_positioned
+    - accepted_with_limitations
+    - revise_positioning
+    - insufficient_evidence
+    - not_yet_reviewed
+
+usage_guidance:
+  instruction: >
+    Copy the record_template object into a new file under records/contributions/,
+    rename the record_id and target file path, replace TODO placeholders, and preserve
+    source_basis, evidence, outcome, related_items, retention_rule, and change_history.
+  minimum_viable_record:
+    - record_id
+    - record_class
+    - event_or_action
+    - date
+    - responsible_party
+    - artifact_or_project_reference
+    - positioning_summary
+    - related_claims
+    - evidence
+    - outcome
+    - related_items
+    - retention_rule
+  placeholder_policy:
+    - "TODO placeholders identify project-specific facts that must be completed by the record author."
+    - "Do not leave TODO placeholders in records intended for review or release."
+    - "Use evidence_status: not_yet_mapped only when the evidence item is known to exist but has not yet been linked."
+  overclaiming_warning: >
+    A contribution positioning record should make the claim reviewable, not stronger.
+    If evidence only demonstrates plausible use, do not classify the claim as summatively
+    evaluated. If evidence is local, do not classify the claim as nomothetic unless an
+    abstraction and boundary rationale is supplied.
+
+record_template:
+  record_id: "TODO: record-contribution-positioning-000X"
+  record_class: contribution_positioning
+  item_type: record
+  title: "TODO: Contribution positioning record for <artifact-or-project-name>"
+  event_or_action: contribution_positioning
+  date: "TODO: YYYY-MM-DD"
+  responsible_party: "TODO: person, role, or maintainer group responsible for the positioning decision"
+  status: draft
+  version: "0.1.0"
+
+  artifact_or_project_reference:
+    artifact_id: "TODO: artifact or project identifier"
+    artifact_name: "TODO: artifact or project name"
+    artifact_type: "TODO: controlled artifact type or artifact package type"
+    artifact_version: "TODO: version or release identifier"
+    artifact_profile_path: "TODO: artifact-profile.yaml or related artifact profile path"
+    problem_class_reference: "TODO: problem class, DSR methodological problem, or local context"
+    lifecycle_stage: "TODO: lifecycle stage at which the contribution is being positioned"
+
+  positioning_summary:
+    summary_statement: "TODO: one-paragraph summary of the contribution positioning"
+    primary_positioning_decision: "TODO: concise statement of the main contribution type, goal, scope, and level"
+    contribution_to_practice: "TODO: practical or stakeholder-facing contribution; use not_applicable with rationale if none claimed"
+    contribution_to_knowledge: "TODO: scholarly, methodological, theoretical, or design-knowledge contribution"
+    contribution_to_dsr_framework_or_method: "TODO: contribution to DSR conduct, documentation, evaluation, review, or publication, if applicable"
+    non_goals:
+      - non_goal_id: ng_001
+        statement: "TODO: claim explicitly not made by this project"
+        rationale: "TODO: reason this claim is excluded"
+
+  related_claims:
+    - claim_id: claim_001
+      claim_title: "TODO: short claim title"
+      claim_statement: "TODO: one reviewable sentence stating what is contributed, to whom, for what purpose, and at what scope"
+      claim_pattern: "TODO: artifact_utility_claim | artifact_quality_claim | design_knowledge_claim | methodological_claim | responsible_design_claim"
+      claim_status: draft
+      claim_owner: "TODO: claim author or responsible role"
+      contribution_type:
+        selected_values:
+          - "TODO: choose from controlled_value_hints.contribution_types"
+        primary_value: "TODO: primary contribution type"
+        rationale: "TODO: why this contribution type is appropriate"
+        rejected_alternatives:
+          - value: "TODO: rejected contribution type"
+            reason_rejected: "TODO: reason the rejected type does not fit"
+      contribution_level:
+        selected_values:
+          - "TODO: choose from controlled_value_hints.contribution_levels"
+        primary_value: "TODO: primary contribution level"
+        rationale: "TODO: why this level fits the abstraction and maturity of the claim"
+      knowledge_goals:
+        selected_values:
+          - "TODO: choose one or more from controlled_value_hints.knowledge_goals"
+        primary_value: "TODO: primary knowledge goal"
+        rationale: "TODO: why these knowledge goals fit the claim"
+      knowledge_scope:
+        selected_value: "TODO: choose from controlled_value_hints.knowledge_scopes"
+        problem_class: "TODO: required for projectable, analytical, nomothetic, or mixed claims"
+        local_context: "TODO: organization, domain, case, or setting if idiographic or mixed"
+        projectability_rationale: "TODO: why the claim can or cannot transfer beyond the local context"
+        boundary_conditions:
+          - boundary_id: bc_001
+            statement: "TODO: condition under which the claim is expected to hold"
+            consequence_if_absent: "TODO: what changes if the condition is absent"
+      artifact_references:
+        - artifact_id: "TODO: artifact identifier"
+          artifact_name: "TODO: artifact, component, method, model, or documentation object"
+          artifact_role_in_claim: "TODO: object of utility, object of quality, source of design knowledge, or method output"
+          artifact_boundary_note: "TODO: distinguish artifact instance, artifact type, artifact package, or design knowledge"
+      audience_and_impact:
+        intended_audiences:
+          - "TODO: choose from controlled_value_hints.audiences"
+        impact_targets:
+          - "TODO: choose from controlled_value_hints.impact_targets"
+        user_or_stakeholder_beneficiaries:
+          - stakeholder_role: "TODO: stakeholder role"
+            expected_benefit: "TODO: expected benefit or use"
+            evidence_status: not_yet_mapped
+      novelty_and_prior_work_positioning:
+        prior_work_or_baseline: "TODO: prior artifact, method, theory, corpus, practice, or reporting norm"
+        contribution_delta: "TODO: what is new, improved, adapted, synthesized, or clarified"
+        consensus_positioning: "TODO: choose from controlled_value_hints.consensus_positioning_values"
+        routine_design_risk:
+          value: "TODO: low | moderate | high | unknown"
+          rationale: "TODO: why the claim is or is not merely routine design"
+      evidence_basis:
+        evidence_status: not_yet_mapped
+        evidence_items:
+          - evidence_id: ev_001
+            evidence_type: "TODO: choose from controlled_value_hints.evidence_basis_types"
+            evidence_source_type: "TODO: artifact_specification | design_rationale | demonstration_record | evaluation_plan | evaluation_report | source_basis | review_record | external_source"
+            source_path_or_citation: "TODO: path, record id, citation anchor, or evidence link"
+            evidence_summary: "TODO: concise evidence summary"
+            claim_support_role: "TODO: grounds novelty, utility, quality, scope, method, or boundary condition"
+            evidence_strength: "TODO: low | moderate | high | not_yet_assessed"
+            limitations: "TODO: evidence limitation or not_applicable"
+        evidence_adequacy_assessment:
+          adequacy_for_claim_strength: "TODO: adequate | partially_adequate | inadequate | not_yet_assessed"
+          rationale: "TODO: why the mapped evidence supports or does not support the claim strength"
+      transparency_mapping:
+        contribution_transparency_role: "Documents what contribution is claimed, for whom, at what scope, and with what evidence."
+        related_transparency_dimensions:
+          - contribution_transparency
+          - evaluation_transparency
+          - problem_space_transparency
+          - solution_space_transparency
+        documentation_sufficiency: "TODO: sufficient | partial | insufficient | not_yet_assessed"
+      assumptions:
+        - assumption_id: asm_001
+          statement: "TODO: assumption supporting the positioning decision"
+          risk_if_false: "TODO: implication if assumption is false"
+      limitations:
+        - limitation_id: lim_001
+          statement: "TODO: limitation of the contribution claim"
+          mitigation_or_followup: "TODO: mitigation, caveat, or future evidence needed"
+
+  evidence:
+    evidence_status: not_yet_mapped
+    source_basis_records:
+      - source_id: "TODO: source, corpus record, or citation anchor"
+        role: "TODO: theory grounding, prior work, model dependency, evaluation evidence, or review evidence"
+        mapped_claim_ids:
+          - claim_001
+        evidence_summary: "TODO: concise summary of relevance"
+    linked_framework_files:
+      - item_id: "TODO: linked framework item id"
+        path: "TODO: repository path"
+        relationship: "TODO: supports, constrains, validates, reviews, or supersedes"
+        mapped_claim_ids:
+          - claim_001
+    traceability_matrix:
+      - trace_id: tr_claim_001_to_evidence_001
+        source: claim_001
+        target: ev_001
+        relationship: supported_by
+        evidence_status: not_yet_mapped
+
+  positioning_review:
+    review_status: not_yet_reviewed
+    reviewer: "TODO: reviewer name, role, or not_yet_assigned"
+    review_date: "TODO: YYYY-MM-DD or not_yet_reviewed"
+    review_questions:
+      - question_id: rq_clarity
+        question: Is the claim stated in a single reviewable sentence before elaboration?
+        finding: "TODO: pass | concern | fail | not_reviewed"
+      - question_id: rq_novelty
+        question: Does the claim explain how it differs from prior artifacts, methods, theories, or reporting practices?
+        finding: "TODO: pass | concern | fail | not_reviewed"
+      - question_id: rq_relevance
+        question: Does the claim connect to a practical problem, DSR methodological problem, or knowledge gap?
+        finding: "TODO: pass | concern | fail | not_reviewed"
+      - question_id: rq_rigor
+        question: Is the claim grounded in literature, design rationale, evaluation, traceability, stakeholder evidence, or conceptual argument?
+        finding: "TODO: pass | concern | fail | not_reviewed"
+      - question_id: rq_projectability
+        question: Are transfer conditions, context limits, and problem-class boundaries identified?
+        finding: "TODO: pass | concern | fail | not_reviewed"
+      - question_id: rq_transparency
+        question: Are evidence, assumptions, non-goals, and limitations transparent enough for review?
+        finding: "TODO: pass | concern | fail | not_reviewed"
+    overclaiming_checks:
+      - check_id: oc_demonstration_not_evaluation
+        risk_statement: Demonstration is being treated as evaluation without explicit criteria, method, and findings.
+        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "TODO: mitigation or not_applicable"
+      - check_id: oc_instance_not_general_contribution
+        risk_statement: Local artifact evidence is being treated as general design knowledge without abstraction or projectability rationale.
+        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "TODO: mitigation or not_applicable"
+      - check_id: oc_novelty_not_utility
+        risk_statement: Novelty is being treated as proof of utility, quality, validity, reliability, or significance.
+        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "TODO: mitigation or not_applicable"
+      - check_id: oc_transparency_not_reproducibility
+        risk_statement: Transparent documentation is being treated as proof of exact reproducibility.
+        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "TODO: mitigation or not_applicable"
+      - check_id: oc_method_claim_requires_method_delta
+        risk_statement: A methodological claim does not specify what prior method or documentation practice is improved.
+        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "TODO: mitigation or not_applicable"
+      - check_id: oc_responsible_design_requires_operational_value
+        risk_statement: A responsible-design claim names values without operational mechanisms, affected stakeholders, or criteria.
+        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "TODO: mitigation or not_applicable"
+
+  validation_results:
+    validation_status: not_yet_validated
+    validation_date: "TODO: YYYY-MM-DD or not_yet_validated"
+    validation_rules:
+      - rule_id: vr_claim_has_controlled_type
+        severity: error
+        result: "TODO: pass | fail | not_checked"
+        evidence: "TODO: contribution_type uses controlled value"
+      - rule_id: vr_claim_has_goal_and_scope
+        severity: error
+        result: "TODO: pass | fail | not_checked"
+        evidence: "TODO: knowledge_goals and knowledge_scope are present"
+      - rule_id: vr_projectable_claim_has_problem_class
+        severity: error
+        result: "TODO: pass | fail | not_checked | not_applicable"
+        evidence: "TODO: projectable or general claims identify problem class"
+      - rule_id: vr_evidence_strength_not_overclaimed
+        severity: warning
+        result: "TODO: pass | concern | fail | not_checked"
+        evidence: "TODO: claim strength aligns with evidence basis"
+      - rule_id: vr_practice_and_knowledge_separated
+        severity: warning
+        result: "TODO: pass | concern | fail | not_checked"
+        evidence: "TODO: practice and knowledge contributions are separately described"
+      - rule_id: vr_boundaries_present
+        severity: warning
+        result: "TODO: pass | concern | fail | not_checked"
+        evidence: "TODO: boundary conditions and limitations are present"
+
+  outcome:
+    outcome_status: not_yet_reviewed
+    outcome_statement: "TODO: accepted_as_positioned | accepted_with_limitations | revise_positioning | insufficient_evidence | not_yet_reviewed"
+    accepted_claims:
+      - claim_id: claim_001
+        accepted_positioning: "TODO: accepted positioning summary or not_yet_reviewed"
+    required_revisions:
+      - revision_id: rev_001
+        revision_statement: "TODO: needed revision or not_applicable"
+        responsible_party: "TODO: owner or not_assigned"
+        due_date: "TODO: YYYY-MM-DD or not_applicable"
+    residual_risks:
+      - risk_id: risk_001
+        risk_statement: "TODO: remaining risk or not_applicable"
+        severity: "TODO: low | moderate | high | not_applicable"
+        mitigation: "TODO: mitigation or not_applicable"
+
+  related_items:
+    upstream_inputs:
+      - id: "TODO: artifact_profile_or_claim_template_id"
+        path: "TODO: path to source artifact profile, contribution claim, or design rationale"
+        relationship: input_to_positioning_record
+    downstream_outputs:
+      - id: "TODO: checklist_or_review_record_id"
+        path: "TODO: path to review, checklist, publication, or release item"
+        relationship: uses_positioning_record
+    cross_references:
+      - id: model_contribution
+        path: models/dsr-contribution-model.yaml
+        relationship: governing_contribution_model
+      - id: template_contribution_claim
+        path: templates/contribution-claim-template.yaml
+        relationship: source_template_for_claim_level_inputs
+      - id: checklist_contribution_positioning
+        path: checklists/contribution-positioning-checklist.yaml
+        relationship: review_checklist_for_this_record
+
+  retention_rule:
+    retention_class: framework_evidence_record
+    minimum_retention: retain_for_life_of_artifact_package
+    disposition: archive_with_releases
+    rationale: >
+      Contribution positioning records preserve the rationale and evidence basis
+      for claims made about the DSR artifact package and should remain available
+      for review, reuse, and publication audit.
+
+  source_basis:
+    - source_id: dsr_contribution_model
+      role: governing_model
+      evidence_status: mapped
+    - source_id: "TODO: project_source_or_corpus_source"
+      role: "TODO: local evidence, corpus evidence, prior work, or review evidence"
+      evidence_status: not_yet_mapped
+
+  change_history:
+    - version: "0.1.0"
+      date: "TODO: YYYY-MM-DD"
+      change: Initial contribution positioning record drafted from template.
+      responsible_party: "TODO: author or maintainer"
+
+acceptance_criteria:
+  - id: ac_required_record_fields_present
+    statement: >
+      The instantiated record includes record_id, record_class, event_or_action,
+      date, responsible_party, evidence, outcome, related_items, and retention_rule.
+    verification_method: inspect_record_required_fields
+  - id: ac_claim_axes_complete
+    statement: >
+      Each contribution claim has contribution type, contribution level, knowledge
+      goals, knowledge scope, evidence basis, audience, impact target, boundaries,
+      and limitations.
+    verification_method: inspect_related_claims
+  - id: ac_practice_and_knowledge_separated
+    statement: >
+      Contribution to practice and contribution to knowledge are separately stated
+      or explicitly marked not_applicable with rationale.
+    verification_method: inspect_positioning_summary
+  - id: ac_evidence_traceability_present
+    statement: >
+      Each claim maps to at least one evidence item or explicitly marks evidence_status
+      as not_yet_mapped.
+    verification_method: inspect_evidence_traceability_matrix
+  - id: ac_overclaiming_review_completed
+    statement: >
+      The record includes explicit checks for demonstration-as-evaluation,
+      instance-as-general-contribution, novelty-as-utility, transparency-as-reproducibility,
+      method-delta, and responsible-design operationalization risks.
+    verification_method: inspect_positioning_review
+
+validation_rules:
+  - rule_id: vr_template_yaml_valid
+    severity: error
+    applies_to: contribution_positioning_record_template
+    test: File parses as YAML and preserves the record_template object.
+    failure_message: Template is not parseable YAML or lacks record_template.
+  - rule_id: vr_record_required_fields
+    severity: error
+    applies_to: instantiated_contribution_positioning_record
+    test: Instantiated record includes all record_required_fields from the generation specification.
+    failure_message: Instantiated contribution positioning record is missing a required record field.
+  - rule_id: vr_no_unresolved_todo_for_release
+    severity: error
+    applies_to: release_candidate_record
+    test: No TODO placeholders remain in records marked approved or released.
+    failure_message: Released contribution positioning records must not contain unresolved TODO placeholders.
+  - rule_id: vr_controlled_values_used
+    severity: warning
+    applies_to: related_claims
+    test: Contribution types, knowledge goals, knowledge scopes, contribution levels, evidence basis types, audiences, and impact targets use controlled value hints or linked vocabularies.
+    failure_message: Claim positioning uses an uncontrolled or ambiguous value.
+
+quality_gate_status:
+  consistency:
+    status: pass
+    rationale: Target path, file naming, YAML format, stable IDs, status, owner, source_basis, related_items, and change_history follow the generation specification.
+  coherence:
+    status: pass
+    rationale: Template operationalizes the contribution model and links to expected vocabularies, schemas, checklists, and contribution records.
+  cogency:
+    status: pass
+    rationale: Template proceeds from metadata and controlled values to the usable record structure, evidence mapping, review checks, validation rules, and retention.
+  correspondence:
+    status: pass
+    rationale: Content corresponds to the selected purpose of a contribution positioning record template for the DSR Framework package.
+  dsr_transparency:
+    status: pass
+    rationale: Template explicitly supports contribution transparency and links claim strength to evidence, scope, assumptions, boundaries, and limitations.
+  reviewability:
+    status: pass
+    rationale: Acceptance criteria, validation rules, overclaiming checks, review questions, and outcomes are explicit.
+
+traceability:
+  - trace_id: tr_selection_to_template
+    source: dsr_framework_selection_table.template_contribution_positioning
+    target: template.contribution_positioning_record_template
+    relationship: implements_selected_template
+    evidence_status: mapped
+  - trace_id: tr_spec_to_template_rules
+    source: dsr_framework_generation_spec.content_generation_rules
+    target: template.contribution_positioning_record_template
+    relationship: follows_generation_and_record_rules
+    evidence_status: mapped
+  - trace_id: tr_model_to_template
+    source: models/dsr-contribution-model.yaml
+    target: record_template.related_claims
+    relationship: operationalizes_contribution_claim_axes_and_validation_rules
+    evidence_status: mapped
+  - trace_id: tr_template_to_record
+    source: template.contribution_positioning_record_template
+    target: records/contributions/record-contribution-positioning-0001.yaml
+    relationship: can_generate_instantiated_record
+    evidence_status: not_yet_mapped
+
+open_questions:
+  - question_id: oq_schema_alignment
+    question: Should a dedicated schema validate contribution positioning records separately from contribution claim records?
+    disposition: defer_until_schema_contribution_positioning_exists_or_schema_contribution_claim_is_extended
+  - question_id: oq_scoring
+    question: Should contribution positioning records eventually include numeric maturity or evidence-strength scoring?
+    disposition: defer_to_quality_review_and_publication_readiness_models
+  - question_id: oq_diagram_mapping
+    question: Should future versions include a machine-readable Knowledge Contribution Diagram coordinate mapping?
+    disposition: defer_to_visualization_or_crosswalk_extension
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change: Initial draft generated from selected framework portion template_contribution_positioning.
+    responsible_party: GPT-5.5 Thinking

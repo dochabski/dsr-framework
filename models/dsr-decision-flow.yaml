@@ -1,0 +1,1415 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_decision_flow_model
+  item_id: dsr_decision_flow_model
+  item_type: specification
+  title: DSR Decision Flow Model
+  purpose: >
+    Provide an operational decision tree for selecting artifact type,
+    contribution type, evaluation path, and conformance level for a Design
+    Science Research artifact package or project record.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  target_path: models/dsr-decision-flow.yaml
+  selection_id: model_decision_flow
+  conformance_target: l2_reviewable
+  default_conformance: L2
+
+source_basis:
+  - source_id: user_current_request
+    role: immediate_task_definition
+    evidence_status: provided
+    notes: >
+      User selected model_decision_flow for models/dsr-decision-flow.yaml.
+  - source_id: dsr_framework_generation_spec
+    role: generation_and_repository_rules
+    evidence_status: mapped
+    notes: >
+      Supplies repository conventions, controlled information-item fields,
+      traceability expectations, quality gates, and L2 reviewability expectations.
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure
+    evidence_status: mapped
+    notes: >
+      Requires model files to define controlled entities, relationships,
+      boundary conditions, validation implications, and traceability.
+  - source_id: dsr_extraction_corpus
+    role: scholarly_and_methodological_evidence_base
+    evidence_status: partially_mapped
+    mapped_source_families:
+      - canonical_dsr_guidelines_and_lifecycle_models
+      - artifact_ontology_and_artifact_boundary_sources
+      - contribution_typology_and_knowledge_path_sources
+      - evaluation_alignment_and_feds_sources
+      - transparency_validity_reliability_projectability_sources
+    notes: >
+      This file uses corpus-grounded DSR distinctions at the model level.
+      Exact citation anchors should be finalized in the source-basis record.
+
+related_items:
+  upstream_dependencies:
+    - item_id: dsr_framework_canonical_model
+      path: models/dsr-framework-canonical-model.yaml
+      relation: canonical_entity_dependency
+      required: true
+    - item_id: dsr_lifecycle_model
+      path: models/dsr-lifecycle-model.yaml
+      relation: lifecycle_decision_dependency
+      required: false
+    - item_id: dsr_artifact_ontology
+      path: models/dsr-artifact-ontology.yaml
+      relation: artifact_type_dependency
+      required: false
+    - item_id: dsr_contribution_model
+      path: models/dsr-contribution-model.yaml
+      relation: contribution_type_dependency
+      required: false
+    - item_id: dsr_evaluation_alignment_model
+      path: models/dsr-evaluation-alignment-model.yaml
+      relation: evaluation_path_dependency
+      required: false
+    - item_id: dsr_transparency_model
+      path: models/dsr-transparency-model.yaml
+      relation: transparency_decision_dependency
+      required: false
+    - item_id: dsr_reliability_model
+      path: models/dsr-reliability-model.yaml
+      relation: reliability_decision_dependency
+      required: false
+    - item_id: dsr_projectability_model
+      path: models/dsr-projectability-model.yaml
+      relation: projectability_decision_dependency
+      required: false
+    - item_id: dsr_publication_readiness_model
+      path: models/dsr-publication-readiness-model.yaml
+      relation: release_conformance_dependency
+      required: false
+  downstream_consumers:
+    - item_id: dsr_project_schema
+      path: schemas/dsr-project.schema.json
+      relation: should_validate_decision_flow_outputs
+    - item_id: dsr_artifact_schema
+      path: schemas/dsr-artifact.schema.json
+      relation: should_validate_artifact_type_outputs
+    - item_id: dsr_evaluation_plan_schema
+      path: schemas/dsr-evaluation-plan.schema.json
+      relation: should_validate_evaluation_path_outputs
+    - item_id: artifact_profile_template
+      path: templates/artifact-profile-template.yaml
+      relation: should_collect_decision_flow_inputs
+    - item_id: contribution_claim_template
+      path: templates/contribution-claim-template.yaml
+      relation: should_collect_contribution_decision_outputs
+    - item_id: minimum_dsr_checklist
+      path: checklists/dsr-minimum-viable-study-checklist.yaml
+      relation: should_use_identity_gate_rules
+    - item_id: evaluation_readiness_checklist
+      path: checklists/evaluation-readiness-checklist.yaml
+      relation: should_use_evaluation_path_rules
+    - item_id: contribution_positioning_checklist
+      path: checklists/contribution-positioning-checklist.yaml
+      relation: should_use_contribution_type_rules
+
+scope:
+  applies_to:
+    - dsr_project_charter
+    - artifact_profile
+    - artifact_specification
+    - contribution_claim
+    - evaluation_plan
+    - conformance_declaration
+    - publication_readiness_review
+  primary_decisions:
+    - artifact_type_selection
+    - contribution_type_selection
+    - evaluation_path_selection
+    - conformance_level_selection
+  excluded_decisions:
+    - journal_or_venue_selection
+    - statistical_test_selection
+    - domain_specific_engineering_architecture_selection
+    - legal_or_ethics_approval_determination
+  non_goals:
+    - Replace expert methodological judgment.
+    - Certify that a DSR project is publishable.
+    - Prove artifact utility without evaluation evidence.
+    - Treat demonstration evidence as equivalent to evaluation evidence.
+    - Treat a local implementation as automatically projectable design knowledge.
+
+controlled_entities:
+  - id: decision_case
+    label: Decision Case
+    definition: >
+      The unit being routed through the decision flow, usually a DSR project,
+      artifact package, artifact profile, or contribution claim.
+    required_fields:
+      - case_id
+      - case_title
+      - lifecycle_stage
+      - problem_context
+      - artifact_description
+      - intended_outputs
+      - decision_inputs
+  - id: decision_node
+    label: Decision Node
+    definition: >
+      A structured question that consumes evidence and routes the decision case
+      to one or more branches.
+    required_fields:
+      - node_id
+      - question
+      - input_fields
+      - branches
+      - output_effect
+  - id: decision_branch
+    label: Decision Branch
+    definition: >
+      A conditionally selected path out of a decision node.
+    required_fields:
+      - branch_id
+      - condition
+      - result
+      - required_evidence
+  - id: recommendation
+    label: Recommendation
+    definition: >
+      A generated advisory output that proposes an artifact type, contribution
+      type, evaluation path, conformance level, or next action.
+    required_fields:
+      - recommendation_id
+      - recommendation_type
+      - recommended_value
+      - rationale
+      - confidence
+      - evidence_required
+  - id: stop_condition
+    label: Stop Condition
+    definition: >
+      A condition under which the case should not proceed as DSR until missing
+      identity, artifact, problem, evidence, or contribution information is supplied.
+    required_fields:
+      - condition_id
+      - reason
+      - remediation
+  - id: review_flag
+    label: Review Flag
+    definition: >
+      A warning that indicates methodological ambiguity, evidence weakness,
+      overclaiming risk, or unresolved conformance risk.
+    required_fields:
+      - flag_id
+      - severity
+      - issue
+      - remediation
+
+input_model:
+  required_inputs:
+    - input_id: problem_context
+      label: Problem context
+      description: >
+        Practical or theoretical situation being improved, explained, modeled,
+        structured, automated, evaluated, or documented.
+      expected_source_items:
+        - problem_and_objectives_record
+        - project_charter
+    - input_id: stakeholder_context
+      label: Stakeholder context
+      description: >
+        Roles, users, evaluators, maintainers, reviewers, practitioners, and
+        affected communities relevant to artifact use or evaluation.
+      expected_source_items:
+        - problem_and_objectives_record
+        - transparency_crosswalk
+    - input_id: artifact_candidate
+      label: Artifact candidate
+      description: >
+        The intended designed object, artifact universal, method, model,
+        framework, tool, package, or artifact instance.
+      expected_source_items:
+        - artifact_profile
+        - artifact_specification
+    - input_id: intended_use
+      label: Intended use
+      description: >
+        What the artifact is supposed to help a user, researcher, reviewer, or
+        practitioner do.
+      expected_source_items:
+        - artifact_profile
+        - use_plan
+    - input_id: knowledge_goal
+      label: Knowledge goal
+      description: >
+        Primary knowledge purpose, such as definitional, descriptive,
+        explanatory, predictive, explanatory-predictive, prescriptive,
+        methodological, evaluative, or normative.
+      expected_source_items:
+        - contribution_claim
+    - input_id: knowledge_scope
+      label: Knowledge scope
+      description: >
+        Intended scope of knowledge, such as idiographic, projectable to a
+        problem class, nomothetic, mixed, or not yet specified.
+      expected_source_items:
+        - contribution_claim
+    - input_id: novelty_basis
+      label: Novelty basis
+      description: >
+        What is new relative to existing artifacts, methods, theories,
+        practices, evaluations, or documentation regimes.
+      expected_source_items:
+        - solution_space_record
+        - contribution_positioning_record
+    - input_id: demonstration_status
+      label: Demonstration status
+      description: >
+        Whether the artifact has been shown to operate in a use scenario,
+        example package, walkthrough, prototype, or illustrative case.
+      expected_source_items:
+        - demonstration_record
+    - input_id: evaluation_evidence
+      label: Evaluation evidence
+      description: >
+        Evidence that artifact utility, artifact quality, evaluation validity,
+        reliability, or contribution claims have been assessed.
+      expected_source_items:
+        - evaluation_plan
+        - evaluation_report
+    - input_id: transparency_evidence
+      label: Transparency evidence
+      description: >
+        Evidence that process, problem-space, solution-space, build,
+        evaluation, and contribution transparency have been addressed.
+      expected_source_items:
+        - transparency_crosswalk
+    - input_id: conformance_evidence
+      label: Conformance evidence
+      description: >
+        Evidence that package metadata, inventory, templates, schemas,
+        checklists, records, and review gates are in place.
+      expected_source_items:
+        - package_inventory
+        - conformance_declaration
+        - review_record
+
+output_model:
+  outputs:
+    - output_id: artifact_type_recommendation
+      label: Artifact type recommendation
+      possible_values:
+        - construct
+        - vocabulary
+        - taxonomy
+        - model
+        - method
+        - process_model
+        - framework
+        - ontology
+        - checklist
+        - template
+        - schema
+        - instantiation
+        - software_tool
+        - design_theory
+        - compound_artifact_package
+        - hybrid_or_multi_artifact
+        - not_yet_dsr_artifact
+    - output_id: contribution_type_recommendation
+      label: Contribution type recommendation
+      possible_values:
+        - no_research_contribution_yet
+        - routine_design_or_local_consulting
+        - situated_artifact_contribution
+        - artifact_type_contribution
+        - method_extension
+        - ontology_or_taxonomy_contribution
+        - design_theory_contribution
+        - evaluation_knowledge_contribution
+        - transparency_reporting_contribution
+        - replication_or_projectability_contribution
+        - compound_framework_contribution
+    - output_id: evaluation_path_recommendation
+      label: Evaluation path recommendation
+      possible_values:
+        - not_ready_for_evaluation
+        - demonstration_only_not_evaluation
+        - descriptive_or_expert_evaluation
+        - analytical_or_argumentative_evaluation
+        - artificial_evaluation
+        - naturalistic_evaluation
+        - mixed_sequential_evaluation
+        - comparative_or_competing_artifact_evaluation
+        - reliability_focused_evaluation
+        - projectability_or_replication_evaluation
+        - publication_readiness_review
+    - output_id: conformance_level_recommendation
+      label: Conformance level recommendation
+      possible_values:
+        - l0_draft
+        - l1_documented
+        - l2_reviewable
+        - l3_exercisable
+        - l4_reusable
+        - l5_archival_publication_ready
+    - output_id: required_next_records
+      label: Required next records
+      possible_values:
+        - artifact_profile
+        - problem_and_objectives_record
+        - solution_space_record
+        - design_rationale_record
+        - artifact_specification
+        - build_transparency_record
+        - demonstration_record
+        - evaluation_plan
+        - evaluation_report
+        - contribution_claim
+        - transparency_crosswalk
+        - review_record
+        - release_record
+        - preservation_record
+    - output_id: review_flags
+      label: Review flags
+      possible_values:
+        - missing_artifact_boundary
+        - missing_problem_relevance
+        - missing_solution_grounding
+        - demonstration_evaluation_confusion
+        - evidence_overclaim
+        - contribution_underpositioned
+        - insufficient_evaluation_alignment
+        - insufficient_transparency
+        - insufficient_reliability_attention
+        - insufficient_projectability_boundary
+        - conformance_gap
+
+relationship_model:
+  relationships:
+    - id: decision_case_has_artifact_candidate
+      domain: decision_case
+      range: artifact_candidate
+      cardinality: one_or_more
+      description: A DSR decision case must identify at least one artifact candidate.
+    - id: artifact_type_constrains_evaluation_path
+      domain: artifact_type_recommendation
+      range: evaluation_path_recommendation
+      cardinality: one_to_many
+      description: >
+        The selected artifact type constrains suitable evaluation evidence.
+        For example, a schema may require validation and trial use, while a
+        socio-technical instantiation may require naturalistic or mixed evaluation.
+    - id: contribution_type_requires_evidence
+      domain: contribution_type_recommendation
+      range: evaluation_evidence
+      cardinality: one_to_many
+      description: >
+        Contribution claims require evidence proportionate to their scope and
+        novelty. Broader claims require stronger grounding, evaluation, and
+        boundary conditions.
+    - id: conformance_level_requires_records
+      domain: conformance_level_recommendation
+      range: required_next_records
+      cardinality: one_to_many
+      description: >
+        Higher conformance levels require more complete metadata, traceability,
+        review, evaluation, reuse, release, and archival records.
+    - id: transparency_crosscuts_all_decisions
+      domain: transparency_evidence
+      range: decision_node
+      cardinality: many_to_many
+      description: >
+        Transparency evidence affects artifact boundary, solution grounding,
+        build rationale, evaluation path, contribution positioning, and reviewability.
+    - id: canonical_model_controls_decision_terms
+      domain: dsr_framework_canonical_model
+      range: controlled_entities
+      cardinality: one_to_many
+      description: >
+        The canonical model is the upstream reference for entity naming,
+        identity fields, relationship semantics, and controlled decision outputs.
+
+stage_sequence:
+  - stage_id: df_stage_01_dsr_identity_gate
+    label: DSR identity gate
+    purpose: >
+      Determine whether the case has the minimum identity of Design Science
+      Research rather than ordinary documentation, consulting, software delivery,
+      or purely explanatory research.
+    depends_on:
+      - problem_context
+      - artifact_candidate
+      - intended_use
+      - knowledge_goal
+    exit_outputs:
+      - not_yet_dsr_artifact
+      - required_next_records
+      - review_flags
+  - stage_id: df_stage_02_artifact_type_selection
+    label: Artifact type selection
+    purpose: >
+      Classify the artifact candidate according to the primary artifact type,
+      secondary artifact types, and artifact boundary.
+    depends_on:
+      - artifact_candidate
+      - intended_use
+      - artifact_materiality
+      - artifact_boundary
+    exit_outputs:
+      - artifact_type_recommendation
+      - review_flags
+  - stage_id: df_stage_03_contribution_type_selection
+    label: Contribution type selection
+    purpose: >
+      Position the claim as a local artifact, artifact type, method extension,
+      ontology or taxonomy contribution, design theory, evaluation knowledge,
+      transparency/reporting contribution, projectability contribution, or
+      compound framework contribution.
+    depends_on:
+      - knowledge_goal
+      - knowledge_scope
+      - novelty_basis
+      - solution_space_record
+    exit_outputs:
+      - contribution_type_recommendation
+      - required_next_records
+      - review_flags
+  - stage_id: df_stage_04_evaluation_path_selection
+    label: Evaluation path selection
+    purpose: >
+      Select evidence and evaluation logic appropriate to the artifact type,
+      claim type, lifecycle stage, stakeholder context, and intended contribution.
+    depends_on:
+      - artifact_type_recommendation
+      - contribution_type_recommendation
+      - demonstration_status
+      - evaluation_evidence
+      - stakeholder_context
+    exit_outputs:
+      - evaluation_path_recommendation
+      - required_next_records
+      - review_flags
+  - stage_id: df_stage_05_conformance_level_selection
+    label: Conformance level selection
+    purpose: >
+      Recommend the current and target conformance level based on completeness,
+      traceability, validation readiness, reuse readiness, and release readiness.
+    depends_on:
+      - source_basis
+      - related_items
+      - conformance_evidence
+      - evaluation_evidence
+      - review_record
+    exit_outputs:
+      - conformance_level_recommendation
+      - required_next_records
+      - review_flags
+
+identity_gate:
+  decision_nodes:
+    - node_id: dn_01_practical_or_methodological_problem
+      question: >
+        Does the case identify a practical, methodological, socio-technical,
+        theoretical, or documentation problem that the artifact is intended to
+        improve, organize, evaluate, or resolve?
+      input_fields:
+        - problem_context
+        - stakeholder_context
+      branches:
+        - branch_id: dn_01_yes_problem_identified
+          condition: problem_context is present and bounded
+          result:
+            route_to: dn_02_artifact_presence
+          required_evidence:
+            - problem_statement
+            - affected_stakeholders_or_research_context
+        - branch_id: dn_01_no_problem_identified
+          condition: problem_context is absent, vague, or purely topical
+          result:
+            stop_condition: missing_problem_relevance
+            recommended_value: l0_draft
+            remediation:
+              - Create or revise the problem-and-objectives record.
+              - Define the improvement goal and boundary of the problem class.
+          required_evidence:
+            - problem_statement
+    - node_id: dn_02_artifact_presence
+      question: >
+        Is there an intentionally designed artifact, artifact type, artifact
+        specification, method, model, framework, ontology, schema, template,
+        tool, or compound package?
+      input_fields:
+        - artifact_candidate
+        - intended_use
+      branches:
+        - branch_id: dn_02_yes_artifact_present
+          condition: artifact_candidate is present and intentionally designed
+          result:
+            route_to: dn_03_artifact_use_claim
+          required_evidence:
+            - artifact_name
+            - artifact_boundary
+            - intended_use
+        - branch_id: dn_02_no_artifact_present
+          condition: no designed artifact or artifact type is identifiable
+          result:
+            recommended_value: not_yet_dsr_artifact
+            stop_condition: missing_artifact_boundary
+            remediation:
+              - Define the artifact candidate or reclassify the work as non-DSR.
+              - If the work is explanatory only, route to a non-DSR research protocol.
+          required_evidence:
+            - artifact_profile
+    - node_id: dn_03_artifact_use_claim
+      question: >
+        Does the artifact have an explicit use claim, function, capacity,
+        design objective, or intended effect?
+      input_fields:
+        - intended_use
+        - artifact_specification
+      branches:
+        - branch_id: dn_03_yes_use_claim
+          condition: intended_use and objective are explicit
+          result:
+            route_to: dn_04_knowledge_contribution_intent
+          required_evidence:
+            - intended_use
+            - success_criteria
+        - branch_id: dn_03_no_use_claim
+          condition: artifact exists but its intended use or effect is not stated
+          result:
+            review_flag: missing_artifact_boundary
+            recommended_value: l0_draft
+            remediation:
+              - Add use logic, intended effect, and success criteria.
+              - Distinguish artifact utility from artifact quality.
+          required_evidence:
+            - use_plan
+            - success_criteria
+    - node_id: dn_04_knowledge_contribution_intent
+      question: >
+        Does the case intend to contribute knowledge beyond local delivery or
+        routine implementation?
+      input_fields:
+        - knowledge_goal
+        - knowledge_scope
+        - novelty_basis
+      branches:
+        - branch_id: dn_04_yes_knowledge_contribution
+          condition: contribution intent is stated and linked to artifact or method
+          result:
+            route_to: df_stage_02_artifact_type_selection
+          required_evidence:
+            - contribution_claim
+            - solution_space_grounding
+        - branch_id: dn_04_unclear_contribution
+          condition: contribution intent is implied but not positioned
+          result:
+            review_flag: contribution_underpositioned
+            route_to: df_stage_02_artifact_type_selection
+            remediation:
+              - Draft a contribution claim.
+              - Identify knowledge goal and knowledge scope.
+        - branch_id: dn_04_no_research_contribution
+          condition: only local deployment, routine implementation, or consulting output is claimed
+          result:
+            recommended_value: routine_design_or_local_consulting
+            remediation:
+              - Either narrow the output as a local artifact package or add evidence of design knowledge contribution.
+          required_evidence:
+            - contribution_positioning_record
+
+artifact_type_decision_table:
+  decision_basis: >
+    Use the artifact's primary function, abstraction level, materiality, and
+    reusable design specification to select the primary artifact type. Use
+    secondary types when the artifact is compound.
+  rules:
+    - rule_id: at_01_construct
+      recommended_artifact_type: construct
+      use_when:
+        - The artifact defines a conceptual primitive, variable, category, or relation.
+        - The primary contribution is definitional clarity.
+      evidence_required:
+        - term_definition
+        - boundary_notes
+        - related_terms
+      boundary_notes: >
+        If the construct is organized with other terms and governance rules,
+        classify the larger artifact as vocabulary or ontology.
+    - rule_id: at_02_vocabulary_or_taxonomy
+      recommended_artifact_type: vocabulary
+      alternate_artifact_type: taxonomy
+      use_when:
+        - The artifact controls terms, labels, definitions, allowed uses, or classification categories.
+        - The main use is consistent naming, indexing, review, or selection.
+      evidence_required:
+        - vocabulary_entries
+        - allowed_use
+        - boundary_notes
+      boundary_notes: >
+        Use taxonomy when hierarchical or classificatory placement is central.
+        Use vocabulary when controlled usage is central.
+    - rule_id: at_03_model
+      recommended_artifact_type: model
+      use_when:
+        - The artifact represents entities, relationships, states, dimensions, or causal/operational structure.
+        - The primary use is explanation, selection, alignment, planning, or review.
+      evidence_required:
+        - controlled_entities
+        - relationship_model
+        - boundary_conditions
+      boundary_notes: >
+        Use framework if the model primarily organizes multiple dimensions for
+        practice. Use ontology if entity semantics and existence conditions are central.
+    - rule_id: at_04_method
+      recommended_artifact_type: method
+      use_when:
+        - The artifact specifies a repeatable procedure, protocol, algorithm, or operating sequence.
+        - The primary use is doing or guiding an action.
+      evidence_required:
+        - steps
+        - inputs_outputs
+        - decision_rules
+        - success_criteria
+      boundary_notes: >
+        Use process_model if the emphasis is staged flow rather than prescribed action.
+    - rule_id: at_05_process_model
+      recommended_artifact_type: process_model
+      use_when:
+        - The artifact structures activities across lifecycle stages or transitions.
+        - The primary use is sequencing, routing, or lifecycle governance.
+      evidence_required:
+        - stages
+        - transitions
+        - entry_exit_criteria
+      boundary_notes: >
+        If the process model also prescribes exact actions and evidence, record method as a secondary type.
+    - rule_id: at_06_framework
+      recommended_artifact_type: framework
+      use_when:
+        - The artifact organizes multiple dimensions, constructs, decisions, or practices into a coherent system.
+        - The primary use is planning, documenting, evaluating, reviewing, or publishing DSR work.
+      evidence_required:
+        - dimensions
+        - relationships
+        - use_cases
+        - scope_and_non_goals
+      boundary_notes: >
+        A framework may contain models, vocabularies, checklists, and templates as subordinate artifacts.
+    - rule_id: at_07_ontology
+      recommended_artifact_type: ontology
+      use_when:
+        - The artifact specifies entities, relations, constraints, identity conditions, or semantic commitments.
+        - The primary use is semantic interoperability, classification, or formal reasoning.
+      evidence_required:
+        - entities
+        - relationships
+        - axioms_or_constraints
+        - competency_questions
+      boundary_notes: >
+        Use model if semantic commitments are light and operational representation is sufficient.
+    - rule_id: at_08_checklist_or_template
+      recommended_artifact_type: checklist
+      alternate_artifact_type: template
+      use_when:
+        - The artifact guides consistent completion or review of information items.
+        - The output is a reusable form, evidence checklist, or review procedure.
+      evidence_required:
+        - checklist_items_or_fields
+        - pass_fail_conditions
+        - remediation_guidance
+      boundary_notes: >
+        Use template when the primary function is producing a filled record. Use checklist when pass/fail review is central.
+    - rule_id: at_09_schema
+      recommended_artifact_type: schema
+      use_when:
+        - The artifact validates structure, required fields, enumerations, or data types.
+        - The primary use is automated or semi-automated conformance checking.
+      evidence_required:
+        - schema_uri_or_path
+        - required_fields
+        - validation_rules
+      boundary_notes: >
+        A schema is often a validation companion to a template or record, not a replacement for its human-readable guidance.
+    - rule_id: at_10_instantiation_or_software_tool
+      recommended_artifact_type: instantiation
+      alternate_artifact_type: software_tool
+      use_when:
+        - The artifact is implemented as a running prototype, application, script, database, repository, or executable tool.
+        - The primary use requires operation in a technical environment.
+      evidence_required:
+        - implementation_description
+        - environment_requirements
+        - demonstration_record
+        - evaluation_plan
+      boundary_notes: >
+        Do not treat a one-off implementation as reusable design knowledge unless its design specification, use plan, and boundary conditions are documented.
+    - rule_id: at_11_design_theory
+      recommended_artifact_type: design_theory
+      use_when:
+        - The artifact states prescriptive design principles, mechanisms, scope conditions, and expected effects.
+        - The primary contribution is design knowledge rather than a local artifact instance.
+      evidence_required:
+        - constructs
+        - principles_of_form_and_function
+        - justificatory_knowledge
+        - testable_or_reviewable_claims
+      boundary_notes: >
+        If only preliminary principles are present, classify as nascent design theory or method extension rather than mature design theory.
+    - rule_id: at_12_compound_artifact_package
+      recommended_artifact_type: compound_artifact_package
+      use_when:
+        - The artifact consists of coordinated specifications, models, vocabularies, schemas, templates, checklists, records, and documentation.
+        - The primary use is repository-level publication, reuse, and review.
+      evidence_required:
+        - manifest
+        - package_inventory
+        - conformance_declaration
+        - related_items
+      boundary_notes: >
+        The package can include several primary artifacts. Record a primary type only when one artifact clearly anchors the package.
+
+contribution_type_decision_table:
+  decision_basis: >
+    Select contribution type by comparing novelty basis, knowledge goal, knowledge
+    scope, evaluation evidence, and claim breadth. Avoid treating usefulness alone
+    as a research contribution.
+  rules:
+    - rule_id: ct_01_no_contribution_yet
+      recommended_contribution_type: no_research_contribution_yet
+      use_when:
+        - Artifact exists but contribution claim is absent.
+        - Novelty basis and knowledge scope are not documented.
+      required_next_records:
+        - contribution_claim
+        - solution_space_record
+    - rule_id: ct_02_routine_design_or_local_consulting
+      recommended_contribution_type: routine_design_or_local_consulting
+      use_when:
+        - The output solves a local problem using known approaches without design knowledge extraction.
+        - The output is useful locally but not positioned for research contribution.
+      required_next_records:
+        - contribution_positioning_record
+      review_flags:
+        - contribution_underpositioned
+    - rule_id: ct_03_situated_artifact_contribution
+      recommended_contribution_type: situated_artifact_contribution
+      use_when:
+        - The artifact solves a bounded problem and documents context-specific utility.
+        - Knowledge scope is primarily idiographic or local but transparent.
+      evaluation_implication: naturalistic_or_descriptive_evaluation_preferred
+    - rule_id: ct_04_artifact_type_contribution
+      recommended_contribution_type: artifact_type_contribution
+      use_when:
+        - The design specification, artifact type, or artifact architecture is reusable beyond the original instance.
+        - The contribution includes make/use logic, boundary conditions, and adaptation guidance.
+      evaluation_implication: demonstration_plus_artifact_quality_evaluation
+    - rule_id: ct_05_method_extension
+      recommended_contribution_type: method_extension
+      use_when:
+        - The primary contribution is a new or adapted DSR method, process, protocol, decision rule, or operating procedure.
+        - The artifact helps researchers conduct, document, evaluate, or review DSR work.
+      evaluation_implication: expert_review_artificial_trial_or_use_case_walkthrough
+    - rule_id: ct_06_ontology_or_taxonomy_contribution
+      recommended_contribution_type: ontology_or_taxonomy_contribution
+      use_when:
+        - The primary contribution is a controlled vocabulary, classification, semantic model, or artifact ontology.
+        - The contribution improves boundary clarity, interoperability, or analytic precision.
+      evaluation_implication: competency_question_review_consistency_check_or_corpus_application
+    - rule_id: ct_07_design_theory_contribution
+      recommended_contribution_type: design_theory_contribution
+      use_when:
+        - The output articulates prescriptive principles, mechanisms, scope, and expected outcomes.
+        - Claims exceed a single local artifact and require knowledge-grounded justification.
+      evaluation_implication: multi_context_evidence_or_strong_theoretical_grounding_expected
+    - rule_id: ct_08_evaluation_knowledge_contribution
+      recommended_contribution_type: evaluation_knowledge_contribution
+      use_when:
+        - The primary contribution is evidence about artifact utility, quality, validity, reliability, or performance.
+        - The study advances how artifacts or methods should be evaluated.
+      evaluation_implication: evaluation_design_must_be_explicit_and_aligned_to_claims
+    - rule_id: ct_09_transparency_reporting_contribution
+      recommended_contribution_type: transparency_reporting_contribution
+      use_when:
+        - The primary contribution improves how DSR work is documented, reviewed, reproduced, reused, or published.
+        - Process, problem-space, solution-space, build, evaluation, and contribution transparency are central.
+      evaluation_implication: checklist_review_repository_trial_or_reviewer_feedback_preferred
+    - rule_id: ct_10_replication_or_projectability_contribution
+      recommended_contribution_type: replication_or_projectability_contribution
+      use_when:
+        - The contribution tests, adapts, transfers, extends, or bounds an artifact or design principle across contexts.
+        - Boundary conditions and adaptation logic are explicit.
+      evaluation_implication: differentiated_replication_or_cross_context_comparison_expected
+    - rule_id: ct_11_compound_framework_contribution
+      recommended_contribution_type: compound_framework_contribution
+      use_when:
+        - The artifact package integrates models, vocabularies, schemas, templates, checklists, and records into a reusable DSR framework.
+        - The contribution is both methodological and infrastructural.
+      evaluation_implication: staged_review_and_package_readiness_assessment_expected
+
+artifact_to_evaluation_path_matrix:
+  matrix:
+    construct:
+      default_paths:
+        - descriptive_or_expert_evaluation
+        - analytical_or_argumentative_evaluation
+      evidence_focus:
+        - definitional_clarity
+        - boundary_coherence
+        - interpretive_consistency
+    vocabulary:
+      default_paths:
+        - descriptive_or_expert_evaluation
+        - artificial_evaluation
+      evidence_focus:
+        - entry_completeness
+        - allowed_use_consistency
+        - corpus_or_case_application
+    taxonomy:
+      default_paths:
+        - analytical_or_argumentative_evaluation
+        - comparative_or_competing_artifact_evaluation
+      evidence_focus:
+        - category_exhaustiveness
+        - mutual_distinguishability
+        - classification_reliability
+    model:
+      default_paths:
+        - analytical_or_argumentative_evaluation
+        - artificial_evaluation
+        - descriptive_or_expert_evaluation
+      evidence_focus:
+        - entity_relationship_coherence
+        - scenario_fit
+        - traceability_to_source_basis
+    method:
+      default_paths:
+        - demonstration_only_not_evaluation
+        - artificial_evaluation
+        - naturalistic_evaluation
+      evidence_focus:
+        - procedural_completeness
+        - usability
+        - outcome_alignment
+    process_model:
+      default_paths:
+        - descriptive_or_expert_evaluation
+        - artificial_evaluation
+        - naturalistic_evaluation
+      evidence_focus:
+        - entry_exit_criteria
+        - routing_accuracy
+        - lifecycle_alignment
+    framework:
+      default_paths:
+        - analytical_or_argumentative_evaluation
+        - descriptive_or_expert_evaluation
+        - mixed_sequential_evaluation
+      evidence_focus:
+        - construct_coverage
+        - operational_fit
+        - reviewability
+    ontology:
+      default_paths:
+        - analytical_or_argumentative_evaluation
+        - artificial_evaluation
+      evidence_focus:
+        - competency_question_coverage
+        - semantic_consistency
+        - boundary_conditions
+    checklist:
+      default_paths:
+        - descriptive_or_expert_evaluation
+        - artificial_evaluation
+        - publication_readiness_review
+      evidence_focus:
+        - evidence_required
+        - pass_fail_conditions
+        - reviewer_agreement
+    template:
+      default_paths:
+        - demonstration_only_not_evaluation
+        - artificial_evaluation
+      evidence_focus:
+        - field_completeness
+        - usability
+        - alignment_to_schema
+    schema:
+      default_paths:
+        - artificial_evaluation
+        - publication_readiness_review
+      evidence_focus:
+        - validation_pass_fail
+        - required_field_coverage
+        - example_conformance
+    instantiation:
+      default_paths:
+        - demonstration_only_not_evaluation
+        - artificial_evaluation
+        - naturalistic_evaluation
+      evidence_focus:
+        - operation_in_context
+        - utility
+        - quality_attributes
+    software_tool:
+      default_paths:
+        - demonstration_only_not_evaluation
+        - artificial_evaluation
+        - naturalistic_evaluation
+      evidence_focus:
+        - functional_correctness
+        - usability
+        - reliability
+        - maintainability
+    design_theory:
+      default_paths:
+        - analytical_or_argumentative_evaluation
+        - mixed_sequential_evaluation
+        - projectability_or_replication_evaluation
+      evidence_focus:
+        - principle_grounding
+        - mechanism_plausibility
+        - scope_conditions
+        - evidence_across_contexts
+    compound_artifact_package:
+      default_paths:
+        - publication_readiness_review
+        - mixed_sequential_evaluation
+        - projectability_or_replication_evaluation
+      evidence_focus:
+        - package_completeness
+        - conformance_alignment
+        - reuse_guidance
+        - archival_readiness
+
+conformance_decision_model:
+  level_definitions:
+    - level_id: l0_draft
+      label: L0 Draft
+      use_when:
+        - Artifact identity, problem boundary, or intended use is incomplete.
+        - Evidence is exploratory, unstructured, or not yet traceable.
+      minimum_required_evidence:
+        - draft_title
+        - draft_problem_statement
+        - draft_artifact_candidate
+      prohibited_claims:
+        - publication_ready
+        - reusable
+        - validated
+        - projectable
+    - level_id: l1_documented
+      label: L1 Documented
+      use_when:
+        - Core identity files exist and the artifact is documentable.
+        - The case can be understood but not yet fully reviewed.
+      minimum_required_evidence:
+        - metadata
+        - artifact_profile
+        - conformance_declaration
+        - package_inventory_entry
+      prohibited_claims:
+        - evaluation_complete
+        - reusable_without_adaptation_guidance
+    - level_id: l2_reviewable
+      label: L2 Reviewable
+      use_when:
+        - The artifact has stable IDs, source basis, related items, traceability, acceptance criteria, limitations, and review gates.
+        - A reviewer can assess whether the file is coherent and appropriately bounded.
+      minimum_required_evidence:
+        - source_basis
+        - related_items
+        - traceability
+        - acceptance_criteria
+        - quality_gate_status
+        - open_questions
+      expected_outputs:
+        - review_record
+    - level_id: l3_exercisable
+      label: L3 Exercisable
+      use_when:
+        - Templates, schemas, examples, checks, or operating procedures can be tried against a case.
+        - Validation can detect at least some conformance failures.
+      minimum_required_evidence:
+        - schema_or_checklist_mapping
+        - worked_example_or_test_case
+        - validation_rules
+        - failure_modes
+      expected_outputs:
+        - example_package
+        - validation_report
+    - level_id: l4_reusable
+      label: L4 Reusable
+      use_when:
+        - The artifact package has enough documentation, examples, licensing, boundary conditions, and adaptation guidance for external reuse.
+        - Projectability and maintenance expectations are explicit.
+      minimum_required_evidence:
+        - reuse_guidance
+        - projectability_boundary_conditions
+        - examples
+        - license
+        - maintenance_notes
+      expected_outputs:
+        - reuse_readiness_review
+    - level_id: l5_archival_publication_ready
+      label: L5 Archival and Publication Ready
+      use_when:
+        - The package is prepared for citable release, archival preservation, DOI/identifier registration, and public publication review.
+        - Release, preservation, and citation metadata are complete.
+      minimum_required_evidence:
+        - citation_metadata
+        - release_record
+        - preservation_record
+        - publication_readiness_checklist
+        - archival_identifier_or_planned_identifier
+      expected_outputs:
+        - release_record
+        - preservation_record
+      prohibited_claims:
+        - archival_ready_without_review
+
+conformance_routing_rules:
+  - rule_id: cr_01_missing_artifact_identity_routes_l0
+    condition: artifact_candidate is absent or artifact_boundary is absent
+    recommended_level: l0_draft
+    review_flags:
+      - missing_artifact_boundary
+  - rule_id: cr_02_core_metadata_only_routes_l1
+    condition: artifact identity exists but traceability and acceptance criteria are incomplete
+    recommended_level: l1_documented
+    required_next_records:
+      - artifact_profile
+      - package_inventory
+      - conformance_declaration
+  - rule_id: cr_03_reviewable_model_routes_l2
+    condition: source_basis, related_items, traceability, quality gates, and limitations are present
+    recommended_level: l2_reviewable
+    required_next_records:
+      - review_record
+  - rule_id: cr_04_validatable_operating_material_routes_l3
+    condition: schemas, templates, examples, or checklists can be exercised against a test case
+    recommended_level: l3_exercisable
+    required_next_records:
+      - validation_report
+      - example_package
+  - rule_id: cr_05_reuse_guidance_routes_l4
+    condition: adaptation guidance, examples, boundary conditions, maintenance expectations, and license are present
+    recommended_level: l4_reusable
+    required_next_records:
+      - reuse_readiness_review
+  - rule_id: cr_06_release_and_preservation_routes_l5
+    condition: release record, preservation record, citation metadata, publication readiness checklist, and archival plan are complete
+    recommended_level: l5_archival_publication_ready
+    required_next_records:
+      - release_record
+      - preservation_record
+
+review_flags:
+  - flag_id: missing_artifact_boundary
+    severity: high
+    issue: The artifact type, boundary, intended use, or design specification is underspecified.
+    remediation: Add artifact profile, artifact specification, use plan, and success criteria.
+  - flag_id: missing_problem_relevance
+    severity: high
+    issue: The problem context or improvement goal is absent or too broad.
+    remediation: Add problem statement, stakeholders, scope, constraints, and objectives.
+  - flag_id: missing_solution_grounding
+    severity: medium
+    issue: The artifact is not grounded in a documented solution space or prior knowledge base.
+    remediation: Add solution-space record with sources, alternatives, and design rationale.
+  - flag_id: demonstration_evaluation_confusion
+    severity: high
+    issue: The case treats a walkthrough, example, or prototype demonstration as if it were evaluation.
+    remediation: Record demonstration separately and add an evaluation plan aligned to claims.
+  - flag_id: evidence_overclaim
+    severity: high
+    issue: Claim breadth exceeds available demonstration, evaluation, reliability, or projectability evidence.
+    remediation: Narrow the claim or add stronger evaluation and boundary evidence.
+  - flag_id: contribution_underpositioned
+    severity: medium
+    issue: The artifact is useful but its knowledge contribution type and scope are not explicit.
+    remediation: Add contribution claim, contribution positioning record, and knowledge goal/scope values.
+  - flag_id: insufficient_evaluation_alignment
+    severity: high
+    issue: Evaluation method does not test the stated artifact utility, artifact quality, or contribution claim.
+    remediation: Revise evaluation plan to map claims to criteria, measures, evidence, and limitations.
+  - flag_id: insufficient_transparency
+    severity: medium
+    issue: One or more relevant transparency dimensions are undocumented.
+    remediation: Add process, problem-space, solution-space, build, evaluation, or contribution transparency evidence.
+  - flag_id: insufficient_reliability_attention
+    severity: medium
+    issue: Artifact, method, measure, or design-knowledge reliability has not been considered where relevant.
+    remediation: Add reliability target, reliability evidence, or limitation statement.
+  - flag_id: insufficient_projectability_boundary
+    severity: medium
+    issue: Transfer, adaptation, or reuse claims lack boundary conditions.
+    remediation: Add context conditions, adaptation logic, limits, and projectability evidence.
+  - flag_id: conformance_gap
+    severity: medium
+    issue: Claimed conformance level lacks required records, metadata, validation, review, or release evidence.
+    remediation: Complete missing package items or lower the conformance claim.
+
+workflow:
+  - step_id: wf_01_collect_inputs
+    title: Collect decision inputs
+    action: >
+      Gather the problem context, artifact candidate, use claim, knowledge goal,
+      knowledge scope, novelty basis, demonstration status, evaluation evidence,
+      transparency evidence, and conformance evidence.
+    output: decision_case
+  - step_id: wf_02_apply_identity_gate
+    title: Apply DSR identity gate
+    action: >
+      Confirm problem relevance, artifact presence, use logic, and contribution
+      intent before routing to artifact classification.
+    output: identity_gate_result
+  - step_id: wf_03_select_artifact_type
+    title: Select artifact type
+    action: >
+      Apply artifact type rules and record primary plus secondary artifact types.
+    output: artifact_type_recommendation
+  - step_id: wf_04_select_contribution_type
+    title: Select contribution type
+    action: >
+      Use knowledge goal, knowledge scope, novelty, grounding, and evidence to
+      classify the contribution claim.
+    output: contribution_type_recommendation
+  - step_id: wf_05_select_evaluation_path
+    title: Select evaluation path
+    action: >
+      Match artifact and contribution claims to evaluation path, evidence type,
+      stakeholder setting, and current lifecycle stage.
+    output: evaluation_path_recommendation
+  - step_id: wf_06_select_conformance_level
+    title: Select conformance level
+    action: >
+      Compare existing package evidence to L0-L5 conformance criteria and assign
+      current and target conformance recommendations.
+    output: conformance_level_recommendation
+  - step_id: wf_07_record_decision
+    title: Record decision result
+    action: >
+      Record selected recommendations, confidence, review flags, required next
+      records, assumptions, and open questions in the appropriate record or profile.
+    output: decision_record_entry
+
+boundary_conditions:
+  - condition_id: bc_01_advisory_not_dispositive
+    statement: >
+      The decision flow is advisory. Reviewers may override a recommendation
+      when domain evidence or project constraints justify a different route.
+  - condition_id: bc_02_multi_artifact_cases
+    statement: >
+      Compound packages may require multiple artifact type recommendations.
+      The model should preserve primary and secondary artifact types rather than
+      forcing a single category.
+  - condition_id: bc_03_context_sensitive_evaluation
+    statement: >
+      Evaluation path recommendations must be adapted to artifact maturity,
+      ethical constraints, access to users, available data, risk, and domain norms.
+  - condition_id: bc_04_claim_strength_controls_evidence
+    statement: >
+      Broader contribution, transfer, reliability, or publication-readiness claims
+      require stronger evidence and clearer limitations.
+  - condition_id: bc_05_not_all_dsr_requires_l5
+    statement: >
+      L5 is only required for archival publication-ready releases. A reviewable
+      internal or developmental model may legitimately target L2 or L3.
+
+validation_implications:
+  schema_implications:
+    - schema_id: dsr_project_schema
+      implication: >
+        Add fields for decision_flow_result, artifact_type_recommendation,
+        contribution_type_recommendation, evaluation_path_recommendation,
+        conformance_level_recommendation, review_flags, and required_next_records.
+    - schema_id: dsr_artifact_schema
+      implication: >
+        Validate artifact_type against controlled values and require boundary,
+        intended_use, and evidence for primary artifact type.
+    - schema_id: dsr_evaluation_plan_schema
+      implication: >
+        Require claim-to-evaluation mapping, demonstration/evaluation separation,
+        criteria, measures, evidence sources, and limitations.
+    - schema_id: dsr_contribution_claim_schema
+      implication: >
+        Require knowledge_goal, knowledge_scope, novelty_basis, contribution_type,
+        evidence_status, and boundary conditions.
+  checklist_implications:
+    - checklist_id: dsr_minimum_viable_study_checklist
+      implication: Use identity gate nodes as minimum DSR identity checks.
+    - checklist_id: contribution_positioning_checklist
+      implication: Use contribution type decision table as the contribution review structure.
+    - checklist_id: evaluation_readiness_checklist
+      implication: Use artifact-to-evaluation matrix as readiness routing.
+    - checklist_id: publication_readiness_checklist
+      implication: Use conformance routing rules for L4 and L5 evidence review.
+  validation_rules:
+    - rule_id: vr_01_no_l2_without_traceability
+      assertion: >
+        conformance_level_recommendation must not be l2_reviewable unless source_basis,
+        related_items, traceability, acceptance_criteria, and limitations are present.
+      severity: error
+    - rule_id: vr_02_no_evaluation_complete_from_demonstration_only
+      assertion: >
+        evaluation_path_recommendation must not be treated as evaluation_complete when
+        demonstration_status is demonstration_only and no evaluation_evidence is present.
+      severity: error
+    - rule_id: vr_03_no_projectability_claim_without_boundary_conditions
+      assertion: >
+        contribution_type_recommendation must not be replication_or_projectability_contribution
+        unless knowledge_scope, boundary_conditions, and adaptation_or_transfer evidence are present.
+      severity: warning
+    - rule_id: vr_04_artifact_type_requires_evidence
+      assertion: >
+        artifact_type_recommendation must include artifact boundary, intended use,
+        and evidence required by the selected artifact type rule.
+      severity: error
+    - rule_id: vr_05_contribution_claim_requires_solution_grounding
+      assertion: >
+        contribution_type_recommendation must not exceed situated_artifact_contribution
+        unless novelty_basis and solution_space_grounding are present.
+      severity: warning
+
+traceability:
+  - trace_id: tr_model_decision_flow_selection
+    source_item: dsr-framework-selection-table.md#model_decision_flow
+    target_item: models/dsr-decision-flow.yaml
+    relation: selected_generation_target
+    evidence_status: mapped
+  - trace_id: tr_model_decision_flow_spec_rules
+    source_item: dsr-framework-generation-spec.yaml#content_generation_rules
+    target_item: model.source_basis
+    relation: governed_by_generation_rules
+    evidence_status: mapped
+  - trace_id: tr_model_decision_flow_prompt_rules
+    source_item: dsr-framework-generation-prompt.md#model-files
+    target_item: controlled_entities
+    relation: implements_model_file_requirements
+    evidence_status: mapped
+  - trace_id: tr_decision_flow_to_canonical_model
+    source_item: models/dsr-framework-canonical-model.yaml
+    target_item: relationship_model.canonical_model_controls_decision_terms
+    relation: depends_on_canonical_entities
+    evidence_status: dependency_declared
+  - trace_id: tr_decision_flow_to_schemas
+    source_item: validation_implications.schema_implications
+    target_item: schemas
+    relation: suggests_downstream_validation
+    evidence_status: not_yet_implemented
+
+quality_and_conformance:
+  quality_gates:
+    - gate_id: qg_consistency
+      status: pass
+      rationale: >
+        File uses YAML, lower-kebab-case target path, stable lower_snake_case IDs,
+        item metadata, related items, source basis, and change history.
+    - gate_id: qg_coherence
+      status: pass
+      rationale: >
+        Decision outputs align with canonical model dependency and downstream
+        artifacts, contribution, evaluation, transparency, reliability,
+        projectability, schema, template, and checklist items.
+    - gate_id: qg_cogency
+      status: pass
+      rationale: >
+        The flow is ordered from DSR identity to artifact classification,
+        contribution positioning, evaluation path, conformance level, and record output.
+    - gate_id: qg_correspondence
+      status: pass
+      rationale: >
+        The model directly corresponds to the requested decision tree for selecting
+        artifact type, contribution type, evaluation path, and conformance level.
+    - gate_id: qg_dsr_transparency
+      status: pass
+      rationale: >
+        Transparency evidence is a required input and cross-cutting relationship;
+        review flags identify transparency gaps.
+    - gate_id: qg_reviewability
+      status: pass
+      rationale: >
+        The file includes explicit decision rules, required evidence, review flags,
+        validation implications, and quality-gate statuses.
+  acceptance_criteria:
+    - criterion_id: ac_01_selected_path_correct
+      statement: The file path is models/dsr-decision-flow.yaml.
+      evidence_required:
+        - target_path
+    - criterion_id: ac_02_four_primary_decisions_present
+      statement: >
+        The model includes decision logic for artifact type, contribution type,
+        evaluation path, and conformance level.
+      evidence_required:
+        - artifact_type_decision_table
+        - contribution_type_decision_table
+        - artifact_to_evaluation_path_matrix
+        - conformance_decision_model
+    - criterion_id: ac_03_model_requirements_present
+      statement: >
+        The model defines controlled entities, relationships, boundary conditions,
+        validation implications, and traceability.
+      evidence_required:
+        - controlled_entities
+        - relationship_model
+        - boundary_conditions
+        - validation_implications
+        - traceability
+    - criterion_id: ac_04_l2_reviewable
+      statement: >
+        The model is reviewable without hidden assumptions and includes source
+        basis, related items, limitations, acceptance criteria, and quality gates.
+      evidence_required:
+        - source_basis
+        - related_items
+        - non_goals
+        - boundary_conditions
+        - quality_and_conformance
+
+assumptions:
+  - assumption_id: as_01_canonical_model_dependency_available
+    statement: >
+      The canonical model exists or will exist as the upstream authority for
+      entity names and relationship semantics.
+    impact: >
+      Some term IDs may need minor harmonization after the canonical model is finalized.
+  - assumption_id: as_02_l2_target
+    statement: >
+      The requested default conformance level is L2, so this file prioritizes
+      reviewability over full executable validation.
+    impact: >
+      L3 schema tests and examples are identified as downstream implications rather than completed deliverables.
+  - assumption_id: as_03_controlled_vocabularies_pending
+    statement: >
+      Artifact type, contribution type, evaluation method, reliability, replication,
+      and projectability vocabularies may be generated or refined later.
+    impact: >
+      Controlled values may need synchronization with future vocabulary files.
+
+open_questions:
+  - question_id: oq_01_secondary_artifact_type_cardinality
+    question: >
+      Should compound DSR packages allow unlimited secondary artifact types, or
+      should the schema limit them to a primary type plus a small number of declared secondary types?
+    disposition: defer_to_schema_design
+  - question_id: oq_02_evaluation_path_granularity
+    question: >
+      Should evaluation path values remain broad families, or should they be
+      split into method-family vocabularies such as simulation, experiment,
+      field study, technical proof, expert review, and competing artifact analysis?
+    disposition: defer_to_evaluation_vocabulary
+  - question_id: oq_03_conformance_threshold_automation
+    question: >
+      Which L2, L3, L4, and L5 conformance checks should be automatable in CI
+      workflows, and which should remain human review judgments?
+    disposition: defer_to_automation_validation_spec
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    description: >
+      Created initial L2 reviewable decision-flow model for selecting artifact
+      type, contribution type, evaluation path, and conformance level.
+    responsible_party: GPT-5.5 Thinking

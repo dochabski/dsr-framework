@@ -1,0 +1,450 @@
+# SPDX-License-Identifier: CC0-1.0
+metadata_record:
+  item_id: root_metadata
+  item_type: metadata_record
+  title: DSR Framework Metadata
+  purpose: 'Provide structured project metadata for the Design Science Research (DSR) Framework artifact package, including
+    identity, authorship, citation, licensing, versioning, repository, conformance, provenance, and preservation fields needed
+    for reviewable reuse and future publication.
+
+    '
+  status: public_draft_release
+  version: 0.1.0
+  owner:
+    role: project_steward
+    name: David Ochabski
+    contact: https://github.com/dochabski
+  target_path: metadata.yaml
+  default_conformance: l1_documented
+  generated_for_selection:
+    selection_id: root_metadata
+    portion_type: metadata_record
+    output_format: yaml
+    declared_purpose: Structured project metadata.
+    key_dependencies:
+    - metadata_profile
+project_identity:
+  project_id: dsr_framework
+  canonical_name: DSR Framework
+  short_name: DSR Framework
+  slug: dsr-framework
+  project_type: compound_dsr_artifact_package
+  artifact_classes:
+    primary: compound_dsr_artifact
+    secondary:
+    - method_or_protocol_artifact
+    - model_or_taxonomy_artifact
+    - documentation_only
+    - data_or_information_artifact
+  project_summary: 'A protocol-governed, GitHub-publishable framework for planning, documenting, evaluating, reviewing, and
+    publishing Design Science Research artifacts and artifact packages.
+
+    '
+  intended_users:
+  - dsr_researchers
+  - artifact_designers
+  - reviewers
+  - editors
+  - research_methods_instructors
+  - repository_maintainers
+  intended_use_cases:
+  - plan_dsr_artifact_packages
+  - document_artifact_identity_scope_and_claims
+  - align_artifact_utility_quality_and_knowledge_contribution
+  - record_dsr_transparency_evidence
+  - prepare_reviewable_and_reusable_repository_packages
+  - support_publication_and_registry_readiness
+  non_goals:
+  - replace_discipline_specific_methodological_judgment
+  - certify_publication_readiness_without_review
+  - guarantee_artifact_reproducibility_or_generalization
+  - provide_a_single_required_dsr_process_model_for_all_projects
+repository_metadata:
+  repository_url: https://github.com/dochabski/dsr-framework
+  documentation_protocol_reference:
+    repository: https://github.com/dochabski/documentation-protocol
+    relationship: governing_documentation_protocol
+  canonical_root_files:
+  - README.md
+  - LICENSE
+  - CITATION.cff
+  - CHANGELOG.md
+  - CONTRIBUTING.md
+  - GOVERNANCE.md
+  - SECURITY.md
+  - CODE_OF_CONDUCT.md
+  - .zenodo.json
+  - manifest.yaml
+  - metadata.yaml
+  - artifact-profile.yaml
+  - package-inventory.yaml
+  - conformance-declaration.yaml
+  - REUSE.toml
+  - codemeta.json
+  canonical_directories:
+  - specs
+  - models
+  - vocabularies
+  - schemas
+  - templates
+  - checklists
+  - docs/protocol
+  - records
+  - crosswalks
+  - examples
+  - .github
+  - LICENSES
+  file_naming_conventions:
+    files: lower-kebab-case
+    yaml_extension: .yaml
+    markdown_extension: .md
+    json_schema_extension: .schema.json
+    stable_identifier_style: lower_snake_case
+  release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+  default_branch: main
+  github:
+    owner: dochabski
+    repository: dsr-framework
+    maintainer_handle: '@dochabski'
+    issues: https://github.com/dochabski/dsr-framework/issues
+authorship_and_contribution:
+  creators:
+  - name: Ochabski, David
+    role: project_author
+    affiliation: null
+    orcid: null
+    github: dochabski
+    contribution_roles:
+    - conceptualization
+    - methodology
+    - documentation
+    - curation
+  contributors:
+  - name: GPT-5.5 Thinking
+    role: assistant_generated_draft
+    contribution_roles:
+    - draft_generation
+    - publication_metadata_preparation
+    - source_traceability_remediation
+    - structural_normalization
+    contribution_note: Assisted with draft generation, organization, validation, traceability remediation, and publication
+      metadata preparation under maintainer direction.
+  contributor_taxonomy_basis: CRediT-compatible role labels where practical.
+  maintainer:
+    name: David Ochabski
+    contact: https://github.com/dochabski
+    github: dochabski
+    role: repository_maintainer
+citation_metadata:
+  preferred_citation_status: reserved_zenodo_doi_pending_final_deposition_publish
+  title: DSR Framework
+  version: 0.1.0
+  release_date: '2026-04-27'
+  publication_year: '2026'
+  authors:
+  - Ochabski, David
+  citation_file: CITATION.cff
+  doi:
+    status: reserved_pending_publish
+    value: 10.5281/zenodo.19835424
+    provider: Zenodo
+    draft_deposition_id: 19835424
+  concept_doi:
+    status: not_yet_assigned_until_publish
+    value: null
+  url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+  abstract: 'The DSR Framework is a structured artifact package for Design Science Research documentation, review, evaluation,
+    transparency, contribution positioning, and publication preparation.
+
+    '
+  keywords:
+  - design-science-research
+  - DSR
+  - artifact-package
+  - research-methodology
+  - transparency
+  - evaluation
+  - contribution
+  - projectability
+  - repository-documentation
+  related_identifiers:
+  - relation: isSupplementTo
+    identifier: https://github.com/dochabski/documentation-protocol
+    identifier_type: URL
+    status: governing_protocol_reference
+  - relation: isDerivedFrom
+    identifier: dsr_extraction_corpus
+    identifier_type: internal_corpus
+    status: evidence_base_reference
+  repository_url: https://github.com/dochabski/dsr-framework
+license_and_reuse:
+  default_license:
+    spdx_id: CC0-1.0
+    name: Creative Commons Zero v1.0 Universal
+    applies_to:
+    - structured_yaml_files
+    - markdown_documentation
+    - checklists
+    - templates
+    - metadata_records
+    rationale: The framework is intended for broad reuse, indexing, adaptation, translation, redistribution, and public benefit;
+      citation is appreciated but not legally required.
+  third_party_material_policy:
+    statement: 'Do not include copyrighted source text beyond permitted citation, paraphrase, or bibliographic metadata. Preserve
+      source IDs and evidence anchors rather than copying source material into framework files.
+
+      '
+    evidence_status: mapped_policy
+  reuse_constraints:
+  - Preserve citation metadata for scholarly traceability where practical.
+  - Do not represent the public draft as peer reviewed, independently evaluated, or stable 1.0.
+  - Do not include source PDFs, copyrighted source text, local audit artifacts, or unmapped generated archives in the public
+    package.
+  code_license:
+    spdx_id: Apache-2.0
+    name: Apache License 2.0
+    applies_to:
+    - executable_code
+    - scripts
+    - ci_workflows
+    - software_tooling
+    status: declared_for_future_or_added_code
+  license_files:
+  - LICENSE
+  - LICENSES/CC0-1.0.txt
+  - LICENSES/Apache-2.0.txt
+  - REUSE.toml
+versioning_and_release:
+  current_version: 0.1.0
+  semantic_versioning_policy:
+    major: incompatible structural changes to the framework package or schemas
+    minor: backward-compatible additions to models, vocabularies, templates, or records
+    patch: corrections, clarifications, typo fixes, or nonbreaking metadata edits
+  status_lifecycle:
+  - draft
+  - in_review
+  - approved
+  - released
+  - superseded
+  - deprecated
+  - archived
+  release_readiness:
+    current_state: public_draft_release
+    release_candidate: true
+    archival_publication_ready: pending_zenodo_publish_confirmation
+    required_before_release:
+    - publish_github_repository
+    - publish_github_release
+    - publish_zenodo_deposition_after_explicit_confirmation
+    completed_for_public_draft:
+    - root_metadata_updated
+    - citation_metadata_updated
+    - license_files_added
+    - package_inventory_updated
+    - source_traceability_remediated
+    - validation_passed
+conformance_metadata:
+  declared_conformance_level: l2_reviewable_public_draft
+  conformance_rationale: 'The package has root metadata, inventory, crosswalk traceability, validation evidence, and source
+    grounding sufficient for public draft review. It does not claim L3 exercisability, L4 external reuse validation, or L5
+    archival completion until Zenodo publication is complete.
+
+    '
+  conformance_dependencies:
+  - artifact-profile.yaml
+  - package-inventory.yaml
+  - conformance-declaration.yaml
+  - specs/product-dsr-metadata-and-identifier-profile.yaml
+  - schemas/metadata.schema.json
+  tailoring:
+    applied: true
+    rationale: 'The selected root_metadata row depends on a metadata profile that is not yet implemented as a dedicated metadata
+      schema. This file therefore provides reviewable public-draft metadata while reserving stronger archival and stability
+      claims until final Zenodo publication and later independent review.
+
+      '
+source_basis:
+- source_id: user_current_request
+  role: immediate_task_definition
+  evidence_status: mapped
+  notes: Selected root_metadata row targeting metadata.yaml.
+- source_id: dsr_framework_generation_prompt
+  role: generation_procedure_and_output_conventions
+  evidence_status: mapped
+  notes: Requires interpretation by selection_id, correct output convention, metadata, traceability, and completion reporting.
+- source_id: dsr_framework_generation_spec
+  role: repository_architecture_and_quality_rules
+  evidence_status: mapped
+  notes: Defines root required files, common required fields, content generation rules, quality gates, and portion registry.
+- source_id: dsr_framework_selection_table
+  role: selected_target_registry
+  evidence_status: mapped
+  notes: Identifies root_metadata as metadata.yaml with metadata_record portion type and YAML output.
+- source_id: documentation_protocol_repository
+  role: governing_documentation_protocol
+  evidence_status: checked_current_2026-04-27
+  notes: Checked against the public documentation-protocol repository metadata, license, citation, Zenodo, REUSE, and README
+    patterns.
+- source_id: dsr_extraction_corpus
+  role: scholarly_and_methodological_evidence_base
+  evidence_status: mapped_through_source_to_framework_crosswalk
+  notes: All 71 repaired corpus sources are grounded through crosswalks/source-to-framework-alignment.yaml and substantive
+    trace objects in framework files.
+dsr_positioning_metadata:
+  dsr_artifact_role:
+    artifact_kind: framework_package
+    artifact_materiality: structured_documentation_and_metadata_artifact
+    abstraction_level: reusable_protocol_and_model_package
+  contribution_scope:
+    knowledge_scope: projectable_to_problem_class
+    knowledge_goals:
+    - methodological
+    - prescriptive
+    - evaluative
+    - normative
+  contribution_claim_status:
+    status: draft_claims_only
+    limitation: 'This metadata record does not itself evaluate the framework or establish publication-ready contribution significance.
+
+      '
+  transparency_alignment:
+    process_transparency:
+      role: identifies provenance, generation event, versioning, and change history
+      status: supported
+    problem_space_transparency:
+      role: identifies project purpose, intended users, use cases, and non-goals
+      status: supported
+    solution_space_transparency:
+      role: identifies governing protocol and DSR extraction corpus as source bases
+      status: supported
+    build_transparency:
+      role: records assistant-supported draft generation, normalization, validation, traceability remediation, and publication
+        metadata preparation
+      status: supported
+    evaluation_transparency:
+      role: identifies validation and release-readiness obligations
+      status: partial
+    contribution_transparency:
+      role: identifies artifact classes, knowledge goals, and contribution-claim status
+      status: supported
+provenance:
+  creation_event:
+    date: '2026-04-27'
+    created_by: GPT-5.5 Thinking
+    generation_mode: create_new
+    input_selection_id: root_metadata
+    input_files:
+    - dsr-framework-generation-prompt.md
+    - dsr-framework-generation-spec.yaml
+    - dsr-framework-selection-table.md
+    processing_notes: 'Root metadata updated for public GitHub draft release, open licensing, reserved Zenodo DOI, and source-traceability
+      remediation.
+
+      '
+  derivation:
+    method: controlled_generation_from_project_prompt_and_specification
+    manual_review_required: true
+    review_focus:
+    - confirm_final_zenodo_publication
+    - verify_github_release_assets
+    - complete_independent_review
+    - evaluate_external_reuse
+validation:
+  schema_status: dedicated_metadata_schema_not_yet_available_package_parse_validation_passes
+  yaml_parse_status: generated_as_valid_yaml
+  validation_rules:
+  - rule_id: metadata_required_fields_present
+    description: 'Confirm item_id, item_type, title, purpose, status, version, owner, related_items, source_basis, and change_history
+      are present.
+
+      '
+    current_status: pass
+  - rule_id: repository_identity_fields_present
+    description: Confirm project identity, repository metadata, citation, license, and provenance fields are present.
+    current_status: pass
+  - rule_id: no_unreviewed_publication_claims
+    description: Confirm public draft release metadata distinguishes reserved DOI and GitHub release from completed independent
+      evaluation or stable 1.0 status.
+    current_status: pass
+  - rule_id: todo_values_marked
+    description: Confirm previously unresolved creator, repository, license, release date, and DOI fields have been resolved
+      or scoped.
+    current_status: pass
+  - rule_id: source_basis_evidence_status_present
+    description: Confirm evidence basis is marked with current mapped, checked, reserved, or scoped status.
+    current_status: pass
+  quality_gate_status:
+    qg_consistency: pass
+    qg_coherence: pass
+    qg_cogency: pass
+    qg_correspondence: pass
+    qg_dsr_transparency: pass_source_traceability_remediated
+    qg_reviewability: pass
+related_items:
+  upstream_dependencies:
+  - path: dsr-framework-generation-prompt.md
+    relation: governed_by
+  - path: dsr-framework-generation-spec.yaml
+    relation: governed_by
+  - path: dsr-framework-selection-table.md
+    relation: selected_from
+  required_peer_root_files:
+  - path: manifest.yaml
+    relation: package_identity_peer
+  - path: artifact-profile.yaml
+    relation: artifact_identity_peer
+  - path: package-inventory.yaml
+    relation: inventory_peer
+  - path: conformance-declaration.yaml
+    relation: conformance_peer
+  downstream_items:
+  - path: CITATION.cff
+    relation: should_align
+  - path: .zenodo.json
+    relation: should_align
+  - path: specs/product-dsr-metadata-and-identifier-profile.yaml
+    relation: should_control
+  - path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    relation: should_trace_to
+  - path: records/releases/record-release-0001-v0-1-0.yaml
+    relation: should_inform
+open_questions:
+- question_id: oq_metadata_005
+  question: What exact metadata schema should validate this file after the metadata profile is generated?
+  resolution_needed_for: l2_reviewable_or_higher_conformance
+limitations:
+- This is a public draft release and remains under active validation.
+- The Zenodo DOI is reserved but not published until explicit final confirmation is given.
+- External utility evaluation, independent review, and reuse evidence remain future work.
+- The repaired extraction corpus and original source PDFs are not included in the public package.
+acceptance_criteria:
+- criterion_id: ac_metadata_001
+  criterion: The file parses as YAML.
+  status: pass
+- criterion_id: ac_metadata_002
+  criterion: The file identifies the public draft DSR Framework package and repository URL.
+  status: pass
+- criterion_id: ac_metadata_003
+  criterion: The file includes authorship, citation, license, provenance, conformance, source basis, related items, and release
+    metadata.
+  status: pass
+- criterion_id: ac_metadata_004
+  criterion: The file records the reserved Zenodo DOI without claiming final deposition publication before confirmation.
+  status: pass
+- criterion_id: ac_metadata_005
+  criterion: The metadata aligns with CITATION.cff, .zenodo.json, package inventory, and manifest.
+  status: pass
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: initial_draft
+  description: Created root metadata record for the DSR Framework artifact package.
+  responsible_party: GPT-5.5 Thinking
+  related_request: root_metadata
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: publication_metadata_update
+  description: Updated root metadata for public GitHub draft release, open licensing, reserved Zenodo DOI, and remediated
+    source traceability.
+  responsible_party: GPT-5.5 Thinking
+  related_request: publish_to_github_and_prepare_zenodo_doi

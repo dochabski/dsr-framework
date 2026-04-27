@@ -1,0 +1,1506 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_repository_architecture
+  item_id: product_dsr_repository_architecture
+  item_type: specification
+  title: DSR Repository Architecture Specification
+  purpose: >
+    Define the repository tree, naming rules, file responsibilities, dependency
+    relationships, and validation expectations for the DSR Framework artifact
+    package.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  target_path: specs/product-dsr-repository-architecture.yaml
+  selection_id: spec_repository_architecture
+  conformance_target: l2_reviewable
+  default_conformance: L2
+  package_role: product_specification
+  license: CC0-1.0
+
+version: "0.1.0"
+
+source_basis:
+  - source_id: user_current_request
+    role: immediate_task_definition
+    evidence_status: mapped
+    notes: >
+      User selected spec_repository_architecture with target path
+      specs/product-dsr-repository-architecture.yaml.
+  - source_id: dsr_framework_generation_spec
+    role: governing_generation_specification
+    evidence_status: mapped
+    notes: >
+      Provides required repository logic, canonical directories, naming rules,
+      controlled item rules, and product specification structure.
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure
+    evidence_status: mapped
+    notes: >
+      Provides the required product specification structure, metadata,
+      traceability, quality, and completion-report expectations.
+  - source_id: documentation_protocol_repository
+    role: governing_documentation_protocol
+    evidence_status: not_yet_mapped
+    notes: >
+      This file is aligned to the protocol model described in the project
+      generation specification. Direct repository verification is deferred.
+  - source_id: dsr_extraction_corpus
+    role: scholarly_and_methodological_evidence_base
+    evidence_status: indirectly_mapped
+    notes: >
+      Corpus support is used for DSR transparency and reviewability principles,
+      not for repository-tree facts.
+
+dependencies:
+  upstream:
+    - id: product_protocol_foundation
+      path: specs/product-protocol-foundation.yaml
+      dependency_type: governing_specification
+      required: true
+      evidence_status: not_yet_mapped
+    - id: documentation_protocol_repository_architecture
+      path: external:documentation-protocol
+      dependency_type: protocol_source
+      required: true
+      evidence_status: not_yet_mapped
+    - id: product_dsr_framework_foundation
+      path: specs/product-dsr-framework-foundation.yaml
+      dependency_type: scope_context
+      required: false
+      evidence_status: not_yet_mapped
+    - id: product_dsr_information_item_architecture
+      path: specs/product-dsr-information-item-architecture.yaml
+      dependency_type: information_item_model
+      required: true
+      evidence_status: not_yet_mapped
+  downstream:
+    - id: root_manifest
+      path: manifest.yaml
+      dependency_type: repository_identity_consumer
+      required: true
+    - id: root_package_inventory
+      path: package-inventory.yaml
+      dependency_type: inventory_consumer
+      required: true
+    - id: product_dsr_artifact_package_specification
+      path: specs/product-dsr-artifact-package-specification.yaml
+      dependency_type: package_structure_consumer
+      required: true
+    - id: product_dsr_automation_and_validation_model
+      path: specs/product-dsr-automation-and-validation-model.yaml
+      dependency_type: validation_consumer
+      required: true
+    - id: product_dsr_publication_and_registry_model
+      path: specs/product-dsr-publication-and-registry-model.yaml
+      dependency_type: release_consumer
+      required: false
+
+related_items:
+  - id: README
+    path: README.md
+    relationship: human_entry_point
+  - id: root_manifest
+    path: manifest.yaml
+    relationship: declares_canonical_package_identity
+  - id: metadata
+    path: metadata.yaml
+    relationship: records_repository_metadata
+  - id: artifact_profile
+    path: artifact-profile.yaml
+    relationship: describes_artifact_scope_and_claims
+  - id: package_inventory
+    path: package-inventory.yaml
+    relationship: inventories_files_governed_by_this_spec
+  - id: conformance_declaration
+    path: conformance-declaration.yaml
+    relationship: declares_repository_conformance_and_tailoring
+  - id: product_catalog
+    path: specs/product-catalog.yaml
+    relationship: indexes_product_specifications
+  - id: artifact_package_specification
+    path: specs/product-dsr-artifact-package-specification.yaml
+    relationship: consumes_repository_architecture_for_package_obligations
+  - id: automation_validation_model
+    path: specs/product-dsr-automation-and-validation-model.yaml
+    relationship: validates_paths_naming_and_inventory_alignment
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    description: >
+      Initial L2 reviewable repository architecture product specification.
+    responsible_party: GPT-5.5 Thinking
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: >
+      Establish the specification boundary, governed objects, intended users,
+      and non-goals for repository architecture.
+    content:
+      specification_scope:
+        governs:
+          - repository_tree
+          - root_file_set
+          - canonical_directory_set
+          - file_naming_rules
+          - information_item_file_responsibilities
+          - package_inventory_alignment
+          - repository_validation_expectations
+          - release_and_preservation_path_expectations
+        does_not_govern:
+          - substantive_content_inside_each_model_or_vocabulary_except_by_location
+          - scholarly_evidence_selection_or_appraisal
+          - final_publication_readiness_claims
+          - platform_specific_ci_implementation_details
+          - private_working_files_outside_the_release_package
+      intended_users:
+        - role_id: framework_author
+          responsibilities:
+            - place_new_framework_files_in_canonical_locations
+            - use controlled naming and identifiers
+            - update inventory and traceability records
+        - role_id: framework_reviewer
+          responsibilities:
+            - verify package structure against this specification
+            - identify orphaned, misplaced, or ambiguously named files
+            - check correspondence between file responsibility and file content
+        - role_id: repository_maintainer
+          responsibilities:
+            - enforce tree, naming, versioning, and release conventions
+            - maintain package inventory and release records
+            - configure validation automation where feasible
+        - role_id: adopting_researcher
+          responsibilities:
+            - copy or tailor repository structure for DSR artifact packages
+            - retain provenance and conformance records
+      architecture_principles:
+        - id: source_of_truth_first
+          statement: >
+            Controlled data and reusable protocol objects should live in structured
+            YAML or JSON-compatible files; Markdown should render or explain rather
+            than replace controlled source files.
+        - id: evidence_retention
+          statement: >
+            Decisions, reviews, evaluations, releases, and preservation events should
+            be retained as records rather than embedded only in narrative text.
+        - id: package_reviewability
+          statement: >
+            A reviewer should be able to inspect the repository tree and infer the
+            expected purpose, conformance burden, and validation route of each file.
+        - id: stable_names_before_automation
+          statement: >
+            Names and paths should be stable enough to support inventory checks,
+            schema validation, release tagging, and persistent references.
+        - id: minimal_root_maximal_traceability
+          statement: >
+            The root should contain only package identity, governance, citation,
+            conformance, and inventory files; detailed artifacts should be organized
+            under canonical directories.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: >
+      Define repository layers, package zones, file classes, and responsibility
+      relationships.
+    content:
+      repository_layers:
+        - layer_id: root_control_layer
+          path_pattern: /
+          responsibility: >
+            Identifies the artifact package, declares metadata and conformance,
+            supports citation, governs contribution practices, and indexes package
+            contents.
+          file_classes:
+            - root_description
+            - package_metadata
+            - governance_policy
+            - citation_metadata
+            - conformance_record
+            - inventory_record
+        - layer_id: controlled_specification_layer
+          path_pattern: specs/
+          responsibility: >
+            Defines product specifications that govern models, vocabularies,
+            templates, records, validation, release readiness, and package structure.
+          file_classes:
+            - product_specification
+        - layer_id: model_layer
+          path_pattern: models/
+          responsibility: >
+            Contains conceptual and operational models of the DSR Framework, including
+            lifecycle, artifact ontology, contribution, transparency, evaluation,
+            reliability, and projectability.
+          file_classes:
+            - model
+        - layer_id: vocabulary_layer
+          path_pattern: vocabularies/
+          responsibility: >
+            Defines controlled terms and enumerations used by models, schemas,
+            templates, checklists, records, and documentation.
+          file_classes:
+            - vocabulary
+        - layer_id: schema_layer
+          path_pattern: schemas/
+          responsibility: >
+            Contains JSON Schema files for validating controlled YAML or JSON
+            information items.
+          file_classes:
+            - json_schema
+        - layer_id: operating_material_layer
+          path_pattern: templates/|checklists/
+          responsibility: >
+            Contains reusable templates and checklists used to create, review, and
+            validate DSR project materials.
+          file_classes:
+            - template
+            - checklist
+        - layer_id: human_protocol_layer
+          path_pattern: docs/protocol/
+          responsibility: >
+            Provides human-facing guidance that explains controlled source files and
+            helps users apply the framework.
+          file_classes:
+            - documentation_page
+        - layer_id: evidence_record_layer
+          path_pattern: records/
+          responsibility: >
+            Preserves decisions, reviews, source-basis records, transparency evidence,
+            contribution positioning, evaluation records, release records, and
+            preservation records.
+          file_classes:
+            - retained_record
+        - layer_id: mapping_layer
+          path_pattern: crosswalks/
+          responsibility: >
+            Stores mappings among source traditions, DSR constructs, documentation
+            protocol constructs, and framework products.
+          file_classes:
+            - crosswalk
+        - layer_id: demonstration_layer
+          path_pattern: examples/
+          responsibility: >
+            Contains demonstration packages, sample projects, and worked examples.
+            These are not required package-control files unless explicitly promoted.
+          file_classes:
+            - demonstration
+        - layer_id: automation_layer
+          path_pattern: .github/
+          responsibility: >
+            Contains issue templates, workflow definitions, and automation support
+            for validation, release checks, and maintenance.
+          file_classes:
+            - issue_template
+            - workflow
+      canonical_repository_tree:
+        root_files:
+          - README.md
+          - LICENSE
+          - CITATION.cff
+          - CHANGELOG.md
+          - CONTRIBUTING.md
+          - GOVERNANCE.md
+          - SECURITY.md
+          - CODE_OF_CONDUCT.md
+          - .zenodo.json
+          - manifest.yaml
+          - metadata.yaml
+          - artifact-profile.yaml
+          - package-inventory.yaml
+          - conformance-declaration.yaml
+        directories:
+          - path: specs
+            required: true
+            primary_responsibility: controlled_product_specifications
+          - path: models
+            required: true
+            primary_responsibility: conceptual_and_operational_models
+          - path: vocabularies
+            required: true
+            primary_responsibility: controlled_terms
+          - path: schemas
+            required: true
+            primary_responsibility: machine_validation
+          - path: templates
+            required: true
+            primary_responsibility: reusable_information_item_forms
+          - path: checklists
+            required: true
+            primary_responsibility: review_and_readiness_procedures
+          - path: docs/protocol
+            required: true
+            primary_responsibility: human_facing_protocol_guidance
+          - path: records/decisions
+            required: true
+            primary_responsibility: general_decision_records
+          - path: records/design-decisions
+            required: true
+            primary_responsibility: design_decision_records
+          - path: records/tailoring
+            required: true
+            primary_responsibility: conformance_tailoring_records
+          - path: records/source-basis
+            required: true
+            primary_responsibility: source_basis_and_evidence_base_records
+          - path: records/dsr-transparency
+            required: true
+            primary_responsibility: transparency_crosswalk_records
+          - path: records/contributions
+            required: true
+            primary_responsibility: contribution_positioning_records
+          - path: records/evaluations
+            required: true
+            primary_responsibility: evaluation_plans_and_reports
+          - path: records/reviews
+            required: true
+            primary_responsibility: self_review_peer_review_and_quality_records
+          - path: records/releases
+            required: true
+            primary_responsibility: release_records_and_changelogs
+          - path: records/preservation
+            required: true
+            primary_responsibility: archival_and_preservation_records
+          - path: crosswalks
+            required: true
+            primary_responsibility: mappings_between_framework_and_source_traditions
+          - path: examples
+            required: true
+            primary_responsibility: demonstration_packages
+          - path: .github/ISSUE_TEMPLATE
+            required: recommended
+            primary_responsibility: contribution_and_issue_intake
+          - path: .github/workflows
+            required: recommended
+            primary_responsibility: validation_and_release_automation
+      file_responsibility_model:
+        responsibility_types:
+          - id: identify
+            definition: Name, describe, cite, or classify the package or product.
+          - id: specify
+            definition: Define controlled requirements, models, and acceptance criteria.
+          - id: validate
+            definition: Enable structural, semantic, or process checking.
+          - id: guide
+            definition: Explain how to apply controlled source files.
+          - id: record
+            definition: Preserve evidence of action, decision, review, evaluation, or release.
+          - id: demonstrate
+            definition: Show a worked example without creating a normative requirement.
+        responsibility_constraints:
+          - id: no_hidden_control_in_docs
+            rule: >
+              Human-facing Markdown may explain requirements, but controlled values
+              should be maintained in YAML, JSON Schema, or vocabulary files.
+          - id: records_are_evidence_not_templates
+            rule: >
+              Files under records/ should retain evidence of completed or dated actions;
+              reusable blanks belong under templates/.
+          - id: examples_are_not_evaluations
+            rule: >
+              Examples demonstrate possible use. They do not count as evaluation evidence
+              unless an evaluation record explicitly says so.
+          - id: schemas_validate_instances
+            rule: >
+              Schemas should validate corresponding templates, records, or controlled
+              YAML/JSON files and should not replace explanatory specifications.
+      dependency_rules:
+        - id: upstream_before_downstream
+          statement: >
+            Specs, models, vocabularies, and schemas should be created before templates,
+            checklists, records, and documentation pages that depend on them, unless
+            an explicit stub is recorded.
+        - id: every_required_file_inventory
+          statement: >
+            Every required package file should have a package-inventory entry identifying
+            path, role, owner, validation expectations, and conformance responsibility.
+        - id: every_controlled_file_traceability
+          statement: >
+            Controlled files should include source_basis, related_items, traceability,
+            version, status, owner, and change history.
+        - id: release_records_match_tree
+          statement: >
+            Release records should refer only to files present in the repository tree or
+            explicitly marked as omitted, deferred, superseded, or external.
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: >
+      State enforceable requirements and prohibitions for repository structure,
+      naming, file placement, and inventory alignment.
+    content:
+      must:
+        - requirement_id: repo_arch_must_001
+          statement: >
+            The repository MUST include root files for public entry, licensing,
+            citation, governance, security, conduct, Zenodo metadata, manifest,
+            project metadata, artifact profile, package inventory, and conformance
+            declaration unless formally tailored.
+          verification: compare_root_tree_to_required_root_files
+        - requirement_id: repo_arch_must_002
+          statement: >
+            Product specifications MUST be stored under specs/ and named
+            product-<product-id>.yaml using lower-kebab-case.
+          verification: path_pattern_check
+        - requirement_id: repo_arch_must_003
+          statement: >
+            Models MUST be stored under models/ and named according to the
+            modeled construct using lower-kebab-case and .yaml.
+          verification: path_pattern_check
+        - requirement_id: repo_arch_must_004
+          statement: >
+            Controlled vocabularies MUST be stored under vocabularies/ and named
+            according to the controlled concept family using lower-kebab-case and
+            .yaml.
+          verification: path_pattern_check
+        - requirement_id: repo_arch_must_005
+          statement: >
+            JSON Schema files MUST be stored under schemas/ and use the
+            .schema.json suffix.
+          verification: path_pattern_check
+        - requirement_id: repo_arch_must_006
+          statement: >
+            Templates MUST be stored under templates/ and named
+            <target-name>-template.<extension>.
+          verification: path_pattern_check
+        - requirement_id: repo_arch_must_007
+          statement: >
+            Checklists MUST be stored under checklists/ and named
+            <target-name>-checklist.yaml.
+          verification: path_pattern_check
+        - requirement_id: repo_arch_must_008
+          statement: >
+            Human-facing protocol documentation MUST be stored under docs/protocol/
+            and SHOULD identify the controlled YAML, schema, checklist, or model it
+            explains.
+          verification: documentation_source_link_check
+        - requirement_id: repo_arch_must_009
+          statement: >
+            Retained records MUST be stored under records/<record-family>/ and
+            named record-<record-class>-<sequence-or-date>.yaml unless a more
+            specific record naming convention is defined.
+          verification: path_pattern_check
+        - requirement_id: repo_arch_must_010
+          statement: >
+            Stable identifiers inside controlled files MUST use lower_snake_case.
+          verification: identifier_pattern_check
+        - requirement_id: repo_arch_must_011
+          statement: >
+            Each controlled file MUST include a status, version, owner or responsible
+            role, source_basis, related_items, and change_history unless formally
+            tailored by conformance declaration.
+          verification: controlled_file_metadata_check
+        - requirement_id: repo_arch_must_012
+          statement: >
+            The package inventory MUST contain an entry for every required root file
+            and every controlled file in canonical directories.
+          verification: inventory_coverage_check
+        - requirement_id: repo_arch_must_013
+          statement: >
+            Directory-specific responsibilities MUST be preserved: specs specify,
+            models model, vocabularies control terms, schemas validate, templates
+            scaffold, checklists review, docs guide, records retain evidence,
+            examples demonstrate, and crosswalks map.
+          verification: content_responsibility_review
+      should:
+        - requirement_id: repo_arch_should_001
+          statement: >
+            Directory names SHOULD remain stable after first public release to avoid
+            breaking persistent references, citations, and validation automation.
+          verification: release_diff_review
+        - requirement_id: repo_arch_should_002
+          statement: >
+            Files SHOULD avoid duplicate responsibility across directories; when
+            duplication is needed, designate one source of truth and one rendering or
+            derivative.
+          verification: responsibility_collision_review
+        - requirement_id: repo_arch_should_003
+          statement: >
+            Documentation pages SHOULD render or summarize controlled source files
+            rather than introduce untracked requirements.
+          verification: docs_to_source_trace_check
+        - requirement_id: repo_arch_should_004
+          statement: >
+            Crosswalks SHOULD be used when concepts are mapped between DSR literature,
+            documentation-protocol constructs, schema fields, and repository products.
+          verification: crosswalk_presence_review
+        - requirement_id: repo_arch_should_005
+          statement: >
+            The repository SHOULD include automation scripts or workflows for checking
+            path names, inventory coverage, schema validity, and broken internal links.
+          verification: automation_presence_review
+      may:
+        - requirement_id: repo_arch_may_001
+          statement: >
+            The repository MAY include additional subdirectories inside examples/ for
+            worked artifacts, pilot packages, and demonstration datasets.
+          verification: examples_boundary_review
+        - requirement_id: repo_arch_may_002
+          statement: >
+            The repository MAY include generated documentation outputs if they are
+            marked as generated and trace back to controlled source files.
+          verification: generated_file_trace_check
+        - requirement_id: repo_arch_may_003
+          statement: >
+            The repository MAY include external-source stubs where evidence or protocol
+            details have not yet been mapped, provided evidence_status is explicit.
+          verification: evidence_status_check
+      must_not:
+        - requirement_id: repo_arch_must_not_001
+          statement: >
+            The repository MUST NOT treat examples or demonstrations as evaluation
+            evidence unless an evaluation record explicitly documents evaluation
+            design, criteria, evidence, and outcomes.
+          verification: demonstration_evaluation_boundary_check
+        - requirement_id: repo_arch_must_not_002
+          statement: >
+            The repository MUST NOT bury required conformance declarations, release
+            decisions, or review outcomes solely inside narrative Markdown.
+          verification: retained_record_presence_check
+        - requirement_id: repo_arch_must_not_003
+          statement: >
+            The repository MUST NOT use spaces, camelCase, PascalCase, or mixed
+            naming for controlled file names unless required by an external standard.
+          verification: file_name_pattern_check
+        - requirement_id: repo_arch_must_not_004
+          statement: >
+            The repository MUST NOT claim L4 reusable or L5 archival-publication-ready
+            status based solely on tree completeness; validation and review evidence
+            are required.
+          verification: conformance_evidence_review
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: >
+      Map directories and file classes to their information-item roles, required
+      metadata, and retention expectations.
+    content:
+      file_class_registry:
+        - file_class_id: root_description
+          canonical_location: README.md
+          item_type: description
+          responsibility: identify_and_explain_package
+          required_metadata:
+            - title
+            - purpose
+            - package_scope
+            - citation_or_linkage
+          inventory_required: true
+          retention_rule: retain_current_and_release_snapshots
+        - file_class_id: root_specification
+          canonical_location: manifest.yaml
+          item_type: specification
+          responsibility: declare_canonical_package_identity_and_tree
+          required_metadata:
+            - item_id
+            - title
+            - package_id
+            - version
+            - source_basis
+            - change_history
+          inventory_required: true
+          retention_rule: retain_all_released_versions
+        - file_class_id: metadata_record
+          canonical_location: metadata.yaml
+          item_type: record
+          responsibility: record_project_metadata_and_provenance
+          required_metadata:
+            - record_id
+            - title
+            - version
+            - contributors
+            - provenance
+            - change_history
+          inventory_required: true
+          retention_rule: retain_all_released_versions
+        - file_class_id: artifact_profile
+          canonical_location: artifact-profile.yaml
+          item_type: description
+          responsibility: describe_artifact_identity_scope_claims_and_reuse
+          required_metadata:
+            - item_id
+            - artifact_type
+            - scope
+            - claims
+            - limitations
+            - source_basis
+          inventory_required: true
+          retention_rule: retain_all_released_versions
+        - file_class_id: package_inventory
+          canonical_location: package-inventory.yaml
+          item_type: record
+          responsibility: inventory_package_files_and_validation_responsibilities
+          required_metadata:
+            - record_id
+            - file_entries
+            - validation_responsibilities
+            - change_history
+          inventory_required: true
+          retention_rule: retain_all_released_versions
+        - file_class_id: conformance_record
+          canonical_location: conformance-declaration.yaml
+          item_type: record
+          responsibility: declare_conformance_level_tailoring_and_evidence
+          required_metadata:
+            - record_id
+            - conformance_target
+            - tailoring
+            - evidence
+            - outcome
+          inventory_required: true
+          retention_rule: retain_all_released_versions
+        - file_class_id: product_specification
+          canonical_location: specs/*.yaml
+          item_type: specification
+          responsibility: define_normative_product_requirements
+          required_metadata:
+            - item_id
+            - title
+            - purpose
+            - status
+            - version
+            - owner
+            - source_basis
+            - related_items
+            - change_history
+          inventory_required: true
+          retention_rule: retain_current_and_prior_released_versions
+        - file_class_id: model
+          canonical_location: models/*.yaml
+          item_type: specification
+          responsibility: define_entities_relationships_boundaries_and_validation_implications
+          required_metadata:
+            - item_id
+            - title
+            - purpose
+            - status
+            - version
+            - source_basis
+            - traceability
+          inventory_required: true
+          retention_rule: retain_current_and_prior_released_versions
+        - file_class_id: vocabulary
+          canonical_location: vocabularies/*.yaml
+          item_type: specification
+          responsibility: define_controlled_terms
+          required_metadata:
+            - vocabulary_id
+            - title
+            - status
+            - version
+            - entries
+            - source_basis
+          inventory_required: true
+          retention_rule: retain_current_and_prior_released_versions
+        - file_class_id: json_schema
+          canonical_location: schemas/*.schema.json
+          item_type: specification
+          responsibility: validate_controlled_information_items
+          required_metadata:
+            - $schema
+            - $id
+            - title
+            - type
+            - required
+            - properties
+          inventory_required: true
+          retention_rule: retain_current_and_prior_released_versions
+        - file_class_id: template
+          canonical_location: templates/*-template.*
+          item_type: specification
+          responsibility: scaffold_reusable_information_items
+          required_metadata:
+            - template_id
+            - target_item_type
+            - status
+            - version
+            - instructions
+          inventory_required: true
+          retention_rule: retain_current_and_prior_released_versions
+        - file_class_id: checklist
+          canonical_location: checklists/*-checklist.yaml
+          item_type: procedure
+          responsibility: support_review_readiness_and_acceptance_decisions
+          required_metadata:
+            - checklist_id
+            - title
+            - status
+            - version
+            - items
+          inventory_required: true
+          retention_rule: retain_current_and_prior_released_versions
+        - file_class_id: retained_record
+          canonical_location: records/**/*.yaml
+          item_type: record
+          responsibility: preserve_evidence_of_action_or_decision
+          required_metadata:
+            - record_id
+            - record_class
+            - event_or_action
+            - date
+            - responsible_party
+            - evidence
+            - outcome
+            - retention_rule
+          inventory_required: true
+          retention_rule: retain_per_record_policy
+        - file_class_id: documentation_page
+          canonical_location: docs/protocol/*.md
+          item_type: description
+          responsibility: provide_human_facing_explanation_of_controlled_files
+          required_metadata:
+            - title
+            - source_yaml_or_related_file
+            - purpose
+          inventory_required: true
+          retention_rule: retain_current_and_released_versions
+        - file_class_id: crosswalk
+          canonical_location: crosswalks/*.yaml
+          item_type: specification
+          responsibility: map_source_traditions_protocol_constructs_and_framework_terms
+          required_metadata:
+            - crosswalk_id
+            - source_family
+            - target_family
+            - mappings
+            - evidence_status
+          inventory_required: true
+          retention_rule: retain_current_and_released_versions
+        - file_class_id: demonstration
+          canonical_location: examples/**
+          item_type: description
+          responsibility: provide_non_normative_worked_examples
+          required_metadata:
+            - example_id
+            - purpose
+            - source_basis
+            - limitations
+          inventory_required: conditional
+          retention_rule: retain_if_included_in_release_package
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: >
+      Provide operational procedures for creating, reviewing, validating, and
+      releasing repository files.
+    content:
+      file_creation_workflow:
+        - step_id: repo_workflow_001
+          step_name: identify_selected_portion
+          action: >
+            Identify selection_id, target path, portion type, output format,
+            dependencies, and conformance target before creating content.
+          output: generation_context
+        - step_id: repo_workflow_002
+          step_name: select_canonical_location
+          action: >
+            Place the file in the canonical directory determined by its file class
+            and target path.
+          output: repository_path
+        - step_id: repo_workflow_003
+          step_name: apply_naming_rules
+          action: >
+            Check lower-kebab-case file name, correct extension, correct suffix,
+            and lower_snake_case internal identifiers.
+          output: naming_conformance_result
+        - step_id: repo_workflow_004
+          step_name: include_required_metadata
+          action: >
+            Add stable ID, title, purpose, status, version, owner, related_items,
+            source_basis, traceability, and change_history where applicable.
+          output: metadata_complete_file
+        - step_id: repo_workflow_005
+          step_name: update_inventory
+          action: >
+            Add or update package-inventory.yaml entry with path, file class,
+            validation responsibility, owner, and conformance role.
+          output: inventory_update
+        - step_id: repo_workflow_006
+          step_name: link_traceability
+          action: >
+            Link upstream dependencies, downstream consumers, evidence status,
+            and source family references.
+          output: traceability_update
+        - step_id: repo_workflow_007
+          step_name: validate_syntax_and_structure
+          action: >
+            Parse YAML or JSON, apply schemas when available, check path patterns,
+            and review responsibility alignment.
+          output: validation_result
+        - step_id: repo_workflow_008
+          step_name: record_review_or_release
+          action: >
+            Preserve review, conformance, or release evidence in records/ when the
+            file crosses a review or release gate.
+          output: retained_record
+      review_workflow:
+        - step_id: repo_review_001
+          review_focus: tree_completeness
+          evidence_required:
+            - root_file_listing
+            - canonical_directory_listing
+            - package_inventory
+          pass_condition: >
+            Required files and directories are present, inventoried, or formally
+            tailored as omitted or deferred.
+        - step_id: repo_review_002
+          review_focus: naming_conformance
+          evidence_required:
+            - file_listing
+            - naming_rule_check
+          pass_condition: >
+            Controlled files comply with lower-kebab-case and suffix conventions;
+            internal identifiers use lower_snake_case.
+        - step_id: repo_review_003
+          review_focus: responsibility_alignment
+          evidence_required:
+            - file_class_registry
+            - sample_file_content
+            - package_inventory
+          pass_condition: >
+            File content corresponds to the responsibility of its directory and
+            declared file class.
+        - step_id: repo_review_004
+          review_focus: traceability_and_evidence
+          evidence_required:
+            - source_basis
+            - related_items
+            - traceability
+            - evidence_status_fields
+          pass_condition: >
+            Controlled files can be traced to source basis and dependencies, and
+            unmapped evidence is explicitly marked.
+        - step_id: repo_review_005
+          review_focus: release_readiness
+          evidence_required:
+            - conformance_declaration
+            - package_inventory
+            - release_record
+            - validation_results
+          pass_condition: >
+            Release claims are supported by documented validation and review evidence.
+      change_control_workflow:
+        - step_id: repo_change_001
+          trigger: add_new_controlled_file
+          required_actions:
+            - place_in_canonical_directory
+            - add_inventory_entry
+            - add_related_items_and_traceability
+            - add_change_history
+        - step_id: repo_change_002
+          trigger: rename_or_move_controlled_file
+          required_actions:
+            - create_design_decision_record_if_released_path_changes
+            - update_package_inventory
+            - update_internal_links_and_traceability
+            - note_deprecation_or_supersession_if_applicable
+        - step_id: repo_change_003
+          trigger: remove_controlled_file
+          required_actions:
+            - mark_removed_or_superseded_in_inventory
+            - create_decision_or_release_record
+            - update_downstream_dependencies
+            - preserve_prior_release_snapshot
+        - step_id: repo_change_004
+          trigger: alter_directory_structure
+          required_actions:
+            - revise_this_specification
+            - update_conformance_declaration_if_tailored
+            - update_manifest_and_inventory
+            - record_architecture_decision
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: >
+      Define conformance expectations, quality gates, acceptance criteria, and
+      failure modes for repository architecture.
+    content:
+      conformance_levels:
+        - level: l0_draft
+          repository_expectation: >
+            Draft files may exist without full tree completeness, but target paths,
+            file classes, and open questions must be explicit.
+        - level: l1_documented
+          repository_expectation: >
+            Required root files and canonical directories are identified; omissions
+            are listed as TODO or tailoring candidates.
+        - level: l2_reviewable
+          repository_expectation: >
+            Repository architecture is sufficiently specified for reviewer inspection;
+            controlled files have metadata, source_basis, related_items, and quality
+            gates.
+        - level: l3_exercisable
+          repository_expectation: >
+            Path checks, schema validation, inventory coverage checks, and link checks
+            can be executed with documented outcomes.
+        - level: l4_reusable
+          repository_expectation: >
+            External adopters can copy the architecture, templates, schemas, and
+            checklists and apply them to another DSR package with limited tailoring.
+        - level: l5_archival_publication_ready
+          repository_expectation: >
+            Release, DOI, preservation, citation, and package completeness evidence
+            are retained and suitable for archival publication.
+      acceptance_criteria:
+        - criterion_id: repo_accept_001
+          statement: Required root files are present or formally tailored.
+          evidence_required:
+            - repository_listing
+            - conformance_declaration
+          failure_mode: missing_unjustified_root_files
+          remediation: Add missing files or document tailoring rationale.
+        - criterion_id: repo_accept_002
+          statement: Canonical directories are present or formally tailored.
+          evidence_required:
+            - repository_listing
+            - conformance_declaration
+          failure_mode: missing_canonical_directories
+          remediation: Add missing directories or document rationale.
+        - criterion_id: repo_accept_003
+          statement: Controlled file names comply with naming rules.
+          evidence_required:
+            - path_pattern_report
+          failure_mode: inconsistent_file_names
+          remediation: Rename files and update references.
+        - criterion_id: repo_accept_004
+          statement: Every controlled file has a package inventory entry.
+          evidence_required:
+            - package_inventory
+            - repository_listing
+          failure_mode: orphaned_or_uninventoried_file
+          remediation: Add inventory entry or remove unmanaged file from release.
+        - criterion_id: repo_accept_005
+          statement: File content matches directory responsibility.
+          evidence_required:
+            - file_class_registry
+            - reviewer_sample
+          failure_mode: responsibility_mismatch
+          remediation: Move file, rename file, or revise content.
+        - criterion_id: repo_accept_006
+          statement: Controlled files include traceability and evidence status.
+          evidence_required:
+            - source_basis_fields
+            - traceability_fields
+          failure_mode: untraceable_controlled_content
+          remediation: Add source_basis, traceability, or evidence_status.
+        - criterion_id: repo_accept_007
+          statement: Demonstrations, templates, records, and evaluations are distinguished.
+          evidence_required:
+            - file_locations
+            - record_classes
+            - evaluation_records
+          failure_mode: demonstration_evaluation_conflation
+          remediation: Reclassify files and add evaluation records when needed.
+      quality_gate_mapping:
+        - gate_id: qg_consistency
+          local_check: >
+            Verify file path, item type, naming, extension, status, and inventory
+            alignment.
+          expected_status_for_this_file: pass
+        - gate_id: qg_coherence
+          local_check: >
+            Verify alignment with protocol foundation, information item architecture,
+            artifact package specification, and automation model.
+          expected_status_for_this_file: pass
+        - gate_id: qg_cogency
+          local_check: >
+            Verify that tree responsibilities, workflows, acceptance criteria, and
+            failure modes are operationally usable.
+          expected_status_for_this_file: pass
+        - gate_id: qg_correspondence
+          local_check: >
+            Verify that repository architecture supports a reviewable and reusable
+            DSR artifact package.
+          expected_status_for_this_file: pass
+        - gate_id: qg_dsr_transparency
+          local_check: >
+            Verify that the architecture enables process, build, evaluation,
+            contribution, and release transparency through canonical file families.
+          expected_status_for_this_file: pass
+        - gate_id: qg_reviewability
+          local_check: >
+            Verify that reviewers can test the tree, inventory, naming, and
+            responsibility rules.
+          expected_status_for_this_file: pass
+      validation_rules:
+        - rule_id: repo_val_001
+          rule_type: path_pattern
+          description: Product specs must match ^specs/product-[a-z0-9]+(-[a-z0-9]+)*\.yaml$.
+          severity: error
+        - rule_id: repo_val_002
+          rule_type: path_pattern
+          description: Schema files must match ^schemas/[a-z0-9]+(-[a-z0-9]+)*\.schema\.json$.
+          severity: error
+        - rule_id: repo_val_003
+          rule_type: path_pattern
+          description: Checklist files must match ^checklists/[a-z0-9]+(-[a-z0-9]+)*-checklist\.yaml$.
+          severity: error
+        - rule_id: repo_val_004
+          rule_type: path_pattern
+          description: Template files must include -template before the extension.
+          severity: error
+        - rule_id: repo_val_005
+          rule_type: metadata
+          description: Controlled YAML files must include source_basis and related_items.
+          severity: error
+        - rule_id: repo_val_006
+          rule_type: inventory_coverage
+          description: Every controlled file under canonical directories must appear in package-inventory.yaml.
+          severity: error
+        - rule_id: repo_val_007
+          rule_type: responsibility
+          description: Records must describe completed or dated retained evidence, not generic reusable blanks.
+          severity: warning
+        - rule_id: repo_val_008
+          rule_type: evidence_status
+          description: "Unmapped evidence must use evidence_status: not_yet_mapped."
+          severity: warning
+
+  - id: traceability
+    title: Traceability
+    purpose: >
+      Connect repository architecture requirements to upstream sources, downstream
+      products, validation rules, and transparency dimensions.
+    content:
+      trace_links:
+        - trace_id: trace_repo_arch_001
+          source: dsr_framework_generation_spec.repository_architecture
+          target: sections.conceptual_model.content.canonical_repository_tree
+          relation: operationalizes
+          evidence_status: mapped
+        - trace_id: trace_repo_arch_002
+          source: dsr_framework_generation_spec.naming_rules
+          target: sections.normative_requirements.content.must
+          relation: operationalizes
+          evidence_status: mapped
+        - trace_id: trace_repo_arch_003
+          source: dsr_framework_generation_spec.information_item_rules
+          target: sections.information_items
+          relation: operationalizes
+          evidence_status: mapped
+        - trace_id: trace_repo_arch_004
+          source: dsr_framework_generation_prompt.product_specification_structure
+          target: sections
+          relation: conforms_to
+          evidence_status: mapped
+        - trace_id: trace_repo_arch_005
+          source: documentation_protocol_repository
+          target: source_basis.documentation_protocol_repository
+          relation: planned_alignment
+          evidence_status: not_yet_mapped
+        - trace_id: trace_repo_arch_006
+          source: dsr_transparency_principles
+          target: sections.quality_and_conformance.content.quality_gate_mapping
+          relation: supports
+          evidence_status: indirectly_mapped
+      downstream_trace_requirements:
+        - target_item: manifest.yaml
+          required_linkage:
+            - canonical_repository_tree
+            - package_identity
+            - required_root_files
+        - target_item: package-inventory.yaml
+          required_linkage:
+            - file_class_registry
+            - canonical_repository_tree
+            - validation_rules
+        - target_item: conformance-declaration.yaml
+          required_linkage:
+            - conformance_levels
+            - tailored_omissions
+            - quality_gate_mapping
+        - target_item: specs/product-dsr-artifact-package-specification.yaml
+          required_linkage:
+            - required_root_files
+            - canonical_directories
+            - file_responsibility_model
+        - target_item: specs/product-dsr-automation-and-validation-model.yaml
+          required_linkage:
+            - path_pattern_validation
+            - inventory_coverage_check
+            - link_check
+      transparency_dimension_mapping:
+        - dimension: process_transparency
+          repository_support:
+            - records/design-decisions
+            - records/decisions
+            - CHANGELOG.md
+            - package-inventory.yaml
+        - dimension: problem_space_transparency
+          repository_support:
+            - templates/problem-and-objectives-template.md
+            - records/source-basis
+            - docs/protocol
+        - dimension: solution_space_transparency
+          repository_support:
+            - records/source-basis
+            - crosswalks
+            - specs
+        - dimension: build_transparency
+          repository_support:
+            - records/design-decisions
+            - templates/build-transparency-record-template.yaml
+            - examples
+        - dimension: evaluation_transparency
+          repository_support:
+            - records/evaluations
+            - checklists/evaluation-readiness-checklist.yaml
+            - schemas/dsr-evaluation-report.schema.json
+        - dimension: contribution_transparency
+          repository_support:
+            - records/contributions
+            - templates/contribution-claim-template.yaml
+            - docs/protocol/14-publication-and-review-guidance.md
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: >
+      Provide concrete guidance for applying the architecture in a GitHub
+      repository and maintaining it over time.
+    content:
+      recommended_minimum_tree: |-
+        .
+        ├── README.md
+        ├── LICENSE
+        ├── CITATION.cff
+        ├── CHANGELOG.md
+        ├── CONTRIBUTING.md
+        ├── GOVERNANCE.md
+        ├── SECURITY.md
+        ├── CODE_OF_CONDUCT.md
+        ├── .zenodo.json
+        ├── manifest.yaml
+        ├── metadata.yaml
+        ├── artifact-profile.yaml
+        ├── package-inventory.yaml
+        ├── conformance-declaration.yaml
+        ├── specs/
+        ├── models/
+        ├── vocabularies/
+        ├── schemas/
+        ├── templates/
+        ├── checklists/
+        ├── docs/protocol/
+        ├── records/
+        │   ├── decisions/
+        │   ├── design-decisions/
+        │   ├── tailoring/
+        │   ├── source-basis/
+        │   ├── dsr-transparency/
+        │   ├── contributions/
+        │   ├── evaluations/
+        │   ├── reviews/
+        │   ├── releases/
+        │   └── preservation/
+        ├── crosswalks/
+        ├── examples/
+        └── .github/
+            ├── ISSUE_TEMPLATE/
+            └── workflows/
+      path_examples:
+        valid:
+          - specs/product-dsr-repository-architecture.yaml
+          - models/dsr-artifact-ontology.yaml
+          - vocabularies/transparency-dimensions.yaml
+          - schemas/dsr-evaluation-plan.schema.json
+          - templates/evaluation-plan-template.yaml
+          - checklists/evaluation-readiness-checklist.yaml
+          - records/reviews/record-review-0001-self-review.yaml
+          - docs/protocol/10-transparency-and-reporting.md
+        invalid:
+          - path: Specs/ProductDSRRepositoryArchitecture.yml
+            reason: wrong_directory_case_wrong_file_case_wrong_extension
+          - path: records/review-template.yaml
+            reason: reusable_template_should_be_under_templates_not_records
+          - path: docs/protocol/controlled-vocabulary.md
+            reason: controlled_values_should_be_in_vocabularies_with_docs_as_explanation
+          - path: examples/evaluation-report.yaml
+            reason: evaluation_evidence_should_be_under_records/evaluations_unless_this_is_only_a_demo
+      adoption_guidance:
+        - guidance_id: repo_impl_001
+          guidance: >
+            Create the tree before generating large content batches; this reduces
+            accidental mixing of templates, records, examples, and controlled specs.
+        - guidance_id: repo_impl_002
+          guidance: >
+            Add a package-inventory entry at the same time each controlled file is
+            added. Treat inventory coverage as part of file creation, not release cleanup.
+        - guidance_id: repo_impl_003
+          guidance: >
+            Use records/tailoring/ to document any deviations from this architecture
+            rather than silently changing or omitting required files.
+        - guidance_id: repo_impl_004
+          guidance: >
+            Use crosswalks/ for mappings to DSR literature, documentation protocol,
+            schema terms, and external publication requirements.
+        - guidance_id: repo_impl_005
+          guidance: >
+            For GitHub publication, keep generated files reviewable in plain text
+            formats and avoid binary source-of-truth files.
+      migration_guidance:
+        - migration_case: existing_flat_repository
+          action: >
+            Move controlled specs, models, vocabularies, schemas, templates,
+            checklists, records, docs, and examples into canonical directories.
+          required_record: records/design-decisions/record-design-decision-repository-normalization.yaml
+        - migration_case: existing_markdown_only_protocol
+          action: >
+            Extract controlled requirements and vocabularies from Markdown into
+            YAML, then retain Markdown as docs/protocol explanatory pages.
+          required_record: records/design-decisions/record-design-decision-source-of-truth-split.yaml
+        - migration_case: existing_examples_mixed_with_records
+          action: >
+            Reclassify files as demonstration or evidence; move evidence to
+            records/ and keep examples/ non-normative.
+          required_record: records/decisions/record-decision-example-record-boundary.yaml
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: >
+      Identify downstream templates, schemas, checklists, and automation implied
+      by this repository architecture specification.
+    content:
+      schema_implications:
+        - schema_id: package_inventory_schema
+          target_path: schemas/package-inventory.schema.json
+          implication: >
+            Must validate inventory entries for path, file_class, owner,
+            validation_method, conformance_role, and release_status.
+        - schema_id: conformance_declaration_schema
+          target_path: schemas/conformance-declaration.schema.json
+          implication: >
+            Must allow tailoring declarations for omitted root files, deferred
+            directories, and conformance-level evidence.
+        - schema_id: manifest_schema
+          target_path: schemas/manifest.schema.json
+          implication: >
+            Should validate required root metadata and canonical package identity if
+            a manifest schema is added.
+      template_implications:
+        - template_id: package_inventory_template
+          target_path: templates/package-inventory-template.yaml
+          implication: >
+            Should include a file entry structure aligned to the file_class_registry
+            in this specification.
+        - template_id: design_decision_record_template
+          target_path: templates/design-decision-record-template.yaml
+          implication: >
+            Should include fields for architecture changes, path changes, and
+            responsibility changes.
+        - template_id: review_record_template
+          target_path: templates/review-record-template.yaml
+          implication: >
+            Should support repository architecture review findings and remediation
+            tracking.
+      checklist_implications:
+        - checklist_id: artifact_package_readiness_checklist
+          target_path: checklists/artifact-package-readiness-checklist.yaml
+          implication: >
+            Should include checks for required root files, canonical directories,
+            inventory coverage, and release evidence.
+        - checklist_id: publication_readiness_checklist
+          target_path: checklists/publication-readiness-checklist.yaml
+          implication: >
+            Should check citation metadata, Zenodo metadata, release records, and
+            preservation records against repository architecture.
+      automation_implications:
+        - automation_id: path_name_check
+          required_capability: >
+            Scan repository paths for naming and suffix conformance.
+        - automation_id: inventory_coverage_check
+          required_capability: >
+            Compare package-inventory.yaml against the repository file tree.
+        - automation_id: controlled_metadata_check
+          required_capability: >
+            Confirm required metadata fields in controlled YAML files.
+        - automation_id: schema_validation_check
+          required_capability: >
+            Validate YAML/JSON instances against JSON schemas where available.
+        - automation_id: internal_link_check
+          required_capability: >
+            Validate that related_items, traceability targets, and documentation
+            links resolve or are marked deferred.
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: >
+      Preserve unresolved repository architecture questions and implementation
+      backlog items without blocking L2 reviewability.
+    content:
+      open_questions:
+        - question_id: repo_open_001
+          question: >
+            Which documentation-protocol repository conventions should be treated as
+            strict requirements after direct repository verification?
+          status: open
+          evidence_status: not_yet_mapped
+          proposed_resolution_path: >
+            Review documentation-protocol repository and create a crosswalk record.
+        - question_id: repo_open_002
+          question: >
+            Should generated docs or rendered schema documentation be committed to
+            the repository or created only during release builds?
+          status: open
+          evidence_status: not_yet_mapped
+          proposed_resolution_path: >
+            Decide in automation and publication registry specifications.
+        - question_id: repo_open_003
+          question: >
+            Should examples/ be included in every release package, or only in
+            teaching-oriented releases?
+          status: open
+          evidence_status: not_yet_mapped
+          proposed_resolution_path: >
+            Resolve in artifact package specification and release policy.
+        - question_id: repo_open_004
+          question: >
+            Should the framework maintain a separate src/ or tools/ directory for
+            validation scripts?
+          status: open
+          evidence_status: not_yet_mapped
+          proposed_resolution_path: >
+            Resolve in automation and validation model.
+      backlog:
+        - backlog_id: repo_backlog_001
+          item: Create package-inventory schema aligned to this file_class_registry.
+          priority: high
+          target_item: schemas/package-inventory.schema.json
+        - backlog_id: repo_backlog_002
+          item: Create repository architecture review checklist.
+          priority: high
+          target_item: checklists/artifact-package-readiness-checklist.yaml
+        - backlog_id: repo_backlog_003
+          item: Create documentation-protocol crosswalk for repository architecture.
+          priority: medium
+          target_item: crosswalks/documentation-protocol-repository-architecture-crosswalk.yaml
+        - backlog_id: repo_backlog_004
+          item: Add path, inventory, metadata, schema, and link validation workflows.
+          priority: medium
+          target_item: .github/workflows/validate-package.yaml
+
+quality_gates:
+  - id: qg_consistency
+    status: pass
+    evidence:
+      - target_path_matches_selection_table
+      - item_type_is_specification
+      - yaml_extension
+      - product_file_pattern
+    notes: >
+      File path, product type, status, and naming are consistent with the selected
+      repository architecture product specification.
+  - id: qg_coherence
+    status: pass
+    evidence:
+      - dependencies_identified
+      - downstream_consumers_identified
+      - required_sections_present
+    notes: >
+      The specification aligns with protocol foundation, package inventory,
+      artifact package, and automation-validation dependencies.
+  - id: qg_cogency
+    status: pass
+    evidence:
+      - conceptual_model_present
+      - normative_requirements_present
+      - workflow_present
+      - acceptance_criteria_present
+      - failure_modes_present
+    notes: >
+      Operational rules are stated as checkable requirements and workflows.
+  - id: qg_correspondence
+    status: pass
+    evidence:
+      - repository_architecture_scope_defined
+      - package_role_defined
+      - conformance_target_l2_reviewable
+    notes: >
+      The file supports the DSR Framework artifact package as a reviewable,
+      reusable, citable repository structure.
+  - id: qg_dsr_transparency
+    status: pass
+    evidence:
+      - transparency_dimension_mapping_present
+      - records_directories_defined
+      - demonstration_evaluation_boundary_defined
+    notes: >
+      The architecture explicitly supports process, build, evaluation, and
+      contribution transparency through canonical directories and record types.
+  - id: qg_reviewability
+    status: pass
+    evidence:
+      - validation_rules_present
+      - acceptance_criteria_present
+      - review_workflow_present
+      - quality_gate_mapping_present
+    notes: >
+      A reviewer can test tree completeness, naming, inventory coverage, metadata,
+      traceability, and file responsibility alignment.
+
+traceability:
+  - trace_id: trace_product_identity_to_selection
+    source: dsr-framework-selection-table.spec_repository_architecture
+    target: product
+    relation: defines_target
+    evidence_status: mapped
+  - trace_id: trace_product_structure_to_prompt
+    source: dsr-framework-generation-prompt.product_specification_structure
+    target: sections
+    relation: conforms_to
+    evidence_status: mapped
+  - trace_id: trace_repository_logic_to_generation_spec
+    source: dsr-framework-generation-spec.repository_architecture
+    target: sections.conceptual_model
+    relation: operationalizes
+    evidence_status: mapped
+  - trace_id: trace_quality_gates_to_generation_spec
+    source: dsr-framework-generation-spec.quality_gates
+    target: quality_gates
+    relation: operationalizes
+    evidence_status: mapped
+
+assumptions:
+  - assumption_id: repo_assumption_001
+    statement: >
+      The repository architecture is generated at L2 reviewable conformance and
+      does not claim L3 automation execution, L4 external reuse validation, or L5
+      archival-publication readiness.
+    consequence: >
+      Automation workflows and release evidence are specified as downstream
+      implications rather than completed evidence.
+  - assumption_id: repo_assumption_002
+    statement: >
+      Direct verification of the documentation-protocol repository is deferred
+      because the user requested use of the project registry files rather than a
+      current external-source update.
+    consequence: >
+      Documentation-protocol alignment is represented with evidence_status:
+      not_yet_mapped where direct verification would be required.
+  - assumption_id: repo_assumption_003
+    statement: >
+      Required root files and canonical directories may be tailored in future
+      conformance declarations, but this specification treats them as the default
+      target architecture.
+    consequence: >
+      Tailoring must be explicit in conformance-declaration.yaml or records/tailoring/.
+
+limitations:
+  - limitation_id: repo_limitation_001
+    statement: >
+      This specification defines architecture and validation expectations; it does
+      not create every referenced downstream file.
+  - limitation_id: repo_limitation_002
+    statement: >
+      This specification does not prove publication readiness; release and
+      preservation evidence must be created separately.
+  - limitation_id: repo_limitation_003
+    statement: >
+      This specification does not validate external documentation-protocol details
+      beyond the project generation specification's stated repository model.
+
+open_questions:
+  - repo_open_001
+  - repo_open_002
+  - repo_open_003
+  - repo_open_004

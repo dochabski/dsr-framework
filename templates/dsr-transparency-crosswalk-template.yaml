@@ -1,0 +1,753 @@
+# SPDX-License-Identifier: CC0-1.0
+$schema: ../schemas/dsr-transparency-crosswalk.schema.json
+transparency_crosswalk:
+  item_id: template_transparency_crosswalk
+  item_type: specification
+  title: DSR Transparency Crosswalk Template
+  purpose: 'Provide a reusable YAML template for mapping a Design Science Research artifact package, study, framework portion,
+    or repository component to the six DSR transparency dimensions: process, problem space, solution space, build, evaluation,
+    and contribution transparency. Complete this template once per artifact package or bounded framework portion to show what
+    transparency evidence exists, what is still planned, what is not applicable, and where reviewable evidence is retained.
+
+    '
+  status: draft
+  version: 0.1.0
+  owner:
+    role: dsr_framework_maintainers
+    name: null
+    contact: null
+  conformance_target: l2_reviewable
+  crosswalk_scope:
+    subject_id: todo_subject_id
+    subject_type: artifact_package
+    subject_path: null
+    intended_use: 'TODO: Replace this text with a short statement identifying the artifact package, DSR project, framework
+      portion, template, record, example package, or other object being assessed for transparency coverage.
+
+      '
+    applies_to_paths:
+    - todo-target-path.yaml
+    excluded_paths: []
+    assumptions:
+    - 'TODO: State any assumptions used when judging transparency coverage, such as project phase, artifact maturity, disclosure
+      limits, or whether evidence is retained privately rather than published in the repository.
+
+      '
+    limitations:
+    - 'TODO: State known limits of this crosswalk, such as incomplete evaluation evidence, pending repository materials, unresolved
+      confidentiality constraints, or source-basis mapping that still requires review.
+
+      '
+  dimensions:
+  - dimension_id: process_transparency
+    label: Process transparency
+    definition: 'Transparency about the actual DSR process by which the artifact and associated design knowledge were produced,
+      including activities, sequencing, decisions, reasoning, changes, deviations, and contextual factors that shaped the
+      project.
+
+      '
+    coverage_status: not_yet_mapped
+    rationale_for_non_applicability: null
+    documentation_targets:
+    - target_id: process_primary_record
+      path: records/design-decisions/record-design-decision-0001.yaml
+      target_role: supporting_record
+      notes: 'Use a process log, design decision record, project charter, or retained review record to show what was actually
+        done and how the research process evolved.
+
+        '
+    evidence_items:
+    - evidence_id: process_evidence_todo
+      evidence_type: process_log
+      evidence_status: not_yet_mapped
+      description: 'TODO: Identify the process evidence, such as activity logs, design decision records, version history,
+        meeting notes, or process diagrams.
+
+        '
+      source_or_file_path: null
+      citation_anchor_id: null
+      supports_claims: []
+      adequacy_rating: null
+      review_notes: null
+    quality_criteria:
+    - The enacted DSR process is distinguishable from an idealized or retrospective method narrative.
+    - Major pivots, tailoring decisions, iterations, and deviations are explained.
+    - Process evidence is traceable to artifact and design-knowledge outcomes.
+    adequacy_assessment:
+      rating: partial
+      rationale: 'TODO: Assess whether process evidence is sufficient for the selected conformance target. Use strong, adequate,
+        partial, weak, or not_applicable.
+
+        '
+      limitations:
+      - 'TODO: Identify any missing process records or process-opacity risks.'
+      remediation_actions:
+      - 'TODO: Add or link process records sufficient for reviewer confidence.'
+    risks_or_constraints:
+    - risk_id: risk_process_retrofit
+      description: 'The project may be described as DSR only after the fact without adequate evidence of enacted DSR reasoning,
+        iteration, or decision-making.
+
+        '
+      mitigation: 'Link contemporaneous activity records, decision records, version history, or a candid process narrative
+        that distinguishes planned from enacted activities.
+
+        '
+    responsible_roles:
+    - project_lead
+    - artifact_author
+    - reviewer
+    review_questions:
+    - check_id: check_process_sequence
+      question: Does the crosswalk identify evidence showing the actual research-process sequence and major decisions?
+      evidence_required:
+      - activity_log_or_process_summary
+      - design_decision_records
+      - iteration_or_deviation_notes
+      pass_condition: 'Process evidence is specific enough for a reviewer to understand what was done, why, and how it affected
+        the artifact or knowledge contribution.
+
+        '
+      fail_condition: 'The process account is only a generic method description or lacks evidence of actual decisions, activities,
+        iterations, or deviations.
+
+        '
+      remediation_guidance: 'Add dated process evidence, design-decision records, or a structured process summary before claiming
+        L2 reviewable transparency.
+
+        '
+  - dimension_id: problem_space_transparency
+    label: Problem-space transparency
+    definition: 'Transparency about the situated application problem addressed by the DSR project, including research scope,
+      stakeholders, application context, improvement goals, constraints, resources, requirements, timeframe, assumptions,
+      and boundary conditions.
+
+      '
+    coverage_status: not_yet_mapped
+    rationale_for_non_applicability: null
+    documentation_targets:
+    - target_id: problem_primary_record
+      path: templates/problem-and-objectives-template.md
+      target_role: template
+      notes: 'Use the problem-and-objectives record, project charter, requirements record, or stakeholder context record to
+        document the problem space.
+
+        '
+    evidence_items:
+    - evidence_id: problem_evidence_todo
+      evidence_type: record
+      evidence_status: not_yet_mapped
+      description: 'TODO: Identify the problem-space evidence, such as problem statements, stakeholder maps, improvement goals,
+        requirements, constraints, or boundary conditions.
+
+        '
+      source_or_file_path: null
+      citation_anchor_id: null
+      supports_claims: []
+      adequacy_rating: null
+      review_notes: null
+    quality_criteria:
+    - The local problem instance is linked to a broader problem class or research gap.
+    - Stakeholders, setting, resources, constraints, and improvement goals are explicit.
+    - Boundary conditions are sufficient for evaluation, reuse, or transfer assessment.
+    adequacy_assessment:
+      rating: partial
+      rationale: 'TODO: Assess whether the problem-space evidence sufficiently bounds relevance, requirements, stakeholders,
+        and intended improvement.
+
+        '
+      limitations:
+      - 'TODO: Identify any missing stakeholder, scope, requirement, or context evidence.'
+      remediation_actions:
+      - 'TODO: Add a bounded problem statement, stakeholder map, and improvement-goal record.'
+    risks_or_constraints:
+    - risk_id: risk_problem_unbounded_scope
+      description: 'The problem statement may be too broad, context-free, or unstable to support coherent artifact requirements
+        or evaluation criteria.
+
+        '
+      mitigation: 'State the problem class, local problem instance, stakeholders, constraints, timeframe, boundary conditions,
+        and requirements traceability.
+
+        '
+    responsible_roles:
+    - project_lead
+    - domain_stakeholder
+    - reviewer
+    review_questions:
+    - check_id: check_problem_boundary
+      question: Does the crosswalk identify evidence that bounds the problem space, affected stakeholders, and improvement
+        goals?
+      evidence_required:
+      - problem_statement
+      - stakeholder_or_context_description
+      - improvement_goals_or_requirements
+      - boundary_conditions
+      pass_condition: 'The problem-space evidence is specific enough to judge relevance and to trace evaluation criteria back
+        to improvement goals.
+
+        '
+      fail_condition: 'The problem is stated generically or without stakeholders, context, constraints, improvement goals,
+        or boundary conditions.
+
+        '
+      remediation_guidance: 'Add or revise the problem-and-objectives record before treating the artifact as reviewable.
+
+        '
+  - dimension_id: solution_space_transparency
+    label: Solution-space transparency
+    definition: 'Transparency about the knowledge base and candidate solution resources used to ground the DSR project, including
+      relevant theories, prior DSR artifacts, descriptive and prescriptive knowledge, existing technologies, methods, design
+      principles, design theories, and competing solution approaches.
+
+      '
+    coverage_status: not_yet_mapped
+    rationale_for_non_applicability: null
+    documentation_targets:
+    - target_id: solution_primary_record
+      path: templates/solution-space-record-template.yaml
+      target_role: template
+      notes: 'Use the solution-space record or source-basis record to document knowledge grounding, prior artifacts, alternative
+        solution approaches, and novelty basis.
+
+        '
+    evidence_items:
+    - evidence_id: solution_evidence_todo
+      evidence_type: record
+      evidence_status: not_yet_mapped
+      description: 'TODO: Identify solution-space evidence, such as literature search records, prior-artifact reviews, source-basis
+        records, theory maps, comparison matrices, or alternative-solution analyses.
+
+        '
+      source_or_file_path: null
+      citation_anchor_id: null
+      supports_claims: []
+      adequacy_rating: null
+      review_notes: null
+    quality_criteria:
+    - Prior knowledge and prior artifacts used to ground design choices are visible.
+    - Alternatives and rejected options are stated with rationale when relevant.
+    - Novelty or contribution positioning is not asserted without solution-space comparison.
+    adequacy_assessment:
+      rating: partial
+      rationale: 'TODO: Assess whether the solution-space evidence makes design grounding and novelty claims reviewable.
+
+        '
+      limitations:
+      - 'TODO: Identify unmapped sources, alternatives, search boundaries, or prior-artifact gaps.'
+      remediation_actions:
+      - 'TODO: Add a source-basis record, prior-artifact comparison, or alternative-analysis record.'
+    risks_or_constraints:
+    - risk_id: risk_solution_black_box_grounding
+      description: 'Artifact design may appear as an unsupported creative leap if prior knowledge, theories, technologies,
+        or alternatives are not documented.
+
+        '
+      mitigation: 'Link design choices to source-basis records, solution alternatives, prior artifacts, and explicitly bounded
+        novelty claims.
+
+        '
+    responsible_roles:
+    - artifact_author
+    - literature_reviewer
+    - reviewer
+    review_questions:
+    - check_id: check_solution_grounding
+      question: Does the crosswalk identify evidence showing how prior knowledge, artifacts, or technologies grounded the
+        design?
+      evidence_required:
+      - source_basis_or_literature_record
+      - prior_artifact_or_theory_review
+      - alternatives_or_novelty_rationale
+      pass_condition: 'The solution-space evidence lets a reviewer understand what knowledge informed the design and how novelty
+        or reuse claims are bounded.
+
+        '
+      fail_condition: 'The design is presented without source-basis, prior-artifact comparison, alternative analysis, or novelty
+        rationale.
+
+        '
+      remediation_guidance: 'Add a solution-space record that maps grounding sources to design choices and contribution claims.
+
+        '
+  - dimension_id: build_transparency
+    label: Build transparency
+    definition: 'Transparency about the artifact-building work of a DSR project, including design search, creative reasoning,
+      construction choices, prototypes, implementation logic, collaboration, component decisions, design rationale, and make/use
+      logic where relevant.
+
+      '
+    coverage_status: not_yet_mapped
+    rationale_for_non_applicability: null
+    documentation_targets:
+    - target_id: build_primary_record
+      path: templates/build-transparency-record-template.yaml
+      target_role: template
+      notes: 'Use the build-transparency record, artifact specification, design rationale, implementation notes, or retained
+        artifact materials to document build evidence.
+
+        '
+    evidence_items:
+    - evidence_id: build_evidence_todo
+      evidence_type: record
+      evidence_status: not_yet_mapped
+      description: 'TODO: Identify build evidence, such as artifact specifications, design rationales, component inventories,
+        prototypes, diagrams, implementation notes, code, pseudocode, screenshots, or version histories.
+
+        '
+      source_or_file_path: null
+      citation_anchor_id: null
+      supports_claims: []
+      adequacy_rating: null
+      review_notes: null
+    quality_criteria:
+    - Artifact boundary, components, dependencies, and design rationale are explicit.
+    - Reuse or adaptation is possible at an appropriate level of disclosure.
+    - Withheld build details are justified by confidentiality, security, IP, or maintenance constraints.
+    adequacy_assessment:
+      rating: partial
+      rationale: 'TODO: Assess whether build evidence is sufficient for artifact quality review, reuse assessment, and design-rationale
+        inspection.
+
+        '
+      limitations:
+      - 'TODO: Identify missing component, rationale, implementation, dependency, or version evidence.'
+      remediation_actions:
+      - 'TODO: Add artifact specification, build record, design rationale, or justified withholding notes.'
+    risks_or_constraints:
+    - risk_id: risk_build_hidden_dependencies
+      description: 'Important artifact components, configuration choices, assumptions, dependencies, or make/use decisions
+        may be hidden or underdescribed.
+
+        '
+      mitigation: 'Provide a component inventory, artifact boundary statement, dependency list, design rationale, version
+        summary, and withholding rationale where full disclosure is inappropriate.
+
+        '
+    responsible_roles:
+    - artifact_author
+    - technical_contributor
+    - reviewer
+    review_questions:
+    - check_id: check_build_artifact_boundary
+      question: Does the crosswalk identify evidence that explains what was built, how it was built, and where the artifact
+        boundary lies?
+      evidence_required:
+      - artifact_specification
+      - component_or_dependency_inventory
+      - design_rationale_or_build_record
+      - version_or_change_summary
+      pass_condition: 'Build evidence makes artifact form, function, boundary, and design rationale reviewable without requiring
+        inappropriate disclosure.
+
+        '
+      fail_condition: 'The artifact is under-specified, conflated with its environment, or missing component, dependency,
+        rationale, or withholding information.
+
+        '
+      remediation_guidance: 'Add or revise artifact specification and build-transparency records before claiming reusable
+        or reviewable artifact status.
+
+        '
+  - dimension_id: evaluation_transparency
+    label: Evaluation transparency
+    definition: 'Transparency about how a DSR artifact, method, model, or design claim was evaluated, including evaluation
+      purpose, timing, criteria, methods, setting, data, measures, participants or units, evidence, limitations, and interpretation
+      of formative or summative findings.
+
+      '
+    coverage_status: not_yet_mapped
+    rationale_for_non_applicability: null
+    documentation_targets:
+    - target_id: evaluation_primary_record
+      path: templates/evaluation-report-template.yaml
+      target_role: template
+      notes: 'Use an evaluation plan, evaluation report, evaluation-readiness checklist, or claim-evidence matrix to document
+        evaluation transparency.
+
+        '
+    evidence_items:
+    - evidence_id: evaluation_evidence_todo
+      evidence_type: evaluation_report
+      evidence_status: not_yet_mapped
+      description: 'TODO: Identify evaluation evidence, such as evaluation plans, protocols, criteria, instruments, data summaries,
+        formative findings, summative findings, validity notes, limitations, or claim-evidence matrices.
+
+        '
+      source_or_file_path: null
+      citation_anchor_id: null
+      supports_claims: []
+      adequacy_rating: null
+      review_notes: null
+    quality_criteria:
+    - Demonstration is distinguished from evaluation.
+    - Evaluation criteria, methods, data, findings, and limitations are visible.
+    - Artifact utility, artifact quality, and contribution claims are bounded by evidence.
+    adequacy_assessment:
+      rating: partial
+      rationale: 'TODO: Assess whether evaluation evidence is sufficient to support the stated artifact and contribution claims
+        at the selected conformance level.
+
+        '
+      limitations:
+      - 'TODO: Identify non-evaluated claims, missing criteria, missing data, or validity limitations.'
+      remediation_actions:
+      - 'TODO: Add or revise the evaluation plan, evaluation report, or claim-evidence matrix.'
+    risks_or_constraints:
+    - risk_id: risk_evaluation_demonstration_overclaim
+      description: 'Demonstration, illustration, or conceptual plausibility may be overstated as if it were empirical evaluation
+        evidence.
+
+        '
+      mitigation: 'Label evaluation status clearly, separate demonstration from evaluation, and align claims only to available
+        evidence.
+
+        '
+    responsible_roles:
+    - evaluator
+    - artifact_author
+    - reviewer
+    review_questions:
+    - check_id: check_evaluation_claim_alignment
+      question: Does the crosswalk identify evidence aligning evaluation criteria, methods, and findings with artifact and
+        contribution claims?
+      evidence_required:
+      - evaluation_plan_or_report
+      - evaluation_criteria
+      - findings_or_evidence_summary
+      - limitations_or_validity_notes
+      pass_condition: 'Evaluation evidence is clear enough to judge which claims are supported, unsupported, planned, or limited.
+
+        '
+      fail_condition: 'Evaluation is absent, confused with demonstration, or not aligned to stated artifact utility, artifact
+        quality, or contribution claims.
+
+        '
+      remediation_guidance: 'Add an evaluation plan or report and revise unsupported claims before review.
+
+        '
+  - dimension_id: contribution_transparency
+    label: Contribution transparency
+    definition: 'Transparency about what the DSR project contributes to practice, scientific knowledge, design knowledge,
+      methods, theories, artifacts, or stakeholder use, including the contribution type, scope, evidence basis, audience,
+      limitations, and relationship between descriptive and prescriptive knowledge.
+
+      '
+    coverage_status: not_yet_mapped
+    rationale_for_non_applicability: null
+    documentation_targets:
+    - target_id: contribution_primary_record
+      path: templates/contribution-claim-template.yaml
+      target_role: template
+      notes: 'Use contribution claims, contribution-positioning records, evaluation reports, and communication plans to document
+        the contribution basis and scope.
+
+        '
+    evidence_items:
+    - evidence_id: contribution_evidence_todo
+      evidence_type: contribution_claim
+      evidence_status: not_yet_mapped
+      description: 'TODO: Identify contribution evidence, such as contribution claims, contribution positioning records, novelty
+        assessments, practice-impact statements, design knowledge statements, scope statements, or claim-evidence matrices.
+
+        '
+      source_or_file_path: null
+      citation_anchor_id: null
+      supports_claims: []
+      adequacy_rating: null
+      review_notes: null
+    quality_criteria:
+    - Contribution type, knowledge goal, knowledge scope, and audience are explicit.
+    - Artifact utility, artifact quality, and knowledge contribution are distinguished.
+    - Contribution claims are bounded by solution-space grounding and evaluation evidence.
+    adequacy_assessment:
+      rating: partial
+      rationale: 'TODO: Assess whether the contribution evidence makes the claimed practice, scientific, methodological, or
+        design-knowledge contribution reviewable.
+
+        '
+      limitations:
+      - 'TODO: Identify unbounded, overgeneralized, or unsupported contribution claims.'
+      remediation_actions:
+      - 'TODO: Add contribution-positioning records and claim-evidence alignment before publication review.'
+    risks_or_constraints:
+    - risk_id: risk_contribution_overgeneralization
+      description: 'Context-specific artifact utility may be overgeneralized into broad design knowledge without sufficient
+        evaluation, projectability, or boundary evidence.
+
+        '
+      mitigation: 'State contribution type, knowledge goal, knowledge scope, evidence basis, limitations, and audience-specific
+        communication requirements.
+
+        '
+    responsible_roles:
+    - artifact_author
+    - contribution_reviewer
+    - practitioner_reviewer
+    review_questions:
+    - check_id: check_contribution_scope
+      question: Does the crosswalk identify evidence supporting the contribution type, knowledge scope, and claim boundaries?
+      evidence_required:
+      - contribution_claim
+      - contribution_positioning_record
+      - novelty_or_prior_knowledge_comparison
+      - claim_evidence_matrix
+      pass_condition: 'Contribution claims are explicit, scoped, evidence-linked, and distinguished from artifact description,
+        demonstration, and local utility.
+
+        '
+      fail_condition: 'The file claims contribution without sufficient novelty, scope, evidence, or audience distinction.
+
+        '
+      remediation_guidance: 'Add or revise the contribution claim, contribution-positioning record, and claim-evidence mapping.
+
+        '
+  acceptance_criteria:
+  - criterion_id: ac_all_dimensions_addressed
+    criterion: 'The completed crosswalk addresses all six canonical DSR transparency dimensions.
+
+      '
+    evidence_required:
+    - dimensions
+    pass_condition: 'Each dimension is present exactly once and marked covered, partially_covered, planned, not_applicable,
+      or not_yet_mapped with adequate rationale and evidence.
+
+      '
+  - criterion_id: ac_evidence_reviewable
+    criterion: 'Every covered or partially covered dimension links to reviewer-visible evidence.
+
+      '
+    evidence_required:
+    - evidence_items
+    - documentation_targets
+    pass_condition: 'Covered and partially covered dimensions include at least one evidence item and a path or citation anchor
+      sufficient for review.
+
+      '
+  - criterion_id: ac_non_applicability_justified
+    criterion: 'Any dimension marked not_applicable includes a clear rationale and boundary note.
+
+      '
+    evidence_required:
+    - rationale_for_non_applicability
+    pass_condition: 'The rationale explains why the dimension does not apply to the subject and does not merely indicate missing
+      evidence.
+
+      '
+  - criterion_id: ac_claims_bounded
+    criterion: 'Transparency evidence bounds claims about artifact utility, artifact quality, evaluation, and contribution
+      to knowledge.
+
+      '
+    evidence_required:
+    - evaluation_evidence
+    - contribution_claim_evidence
+    - limitations
+    pass_condition: 'The crosswalk identifies unsupported, planned, withheld, or limited claims rather than overclaiming reviewability,
+      reusability, evaluation, or projectability.
+
+      '
+  quality_gate_status:
+  - gate_id: qg_consistency
+    status: pass
+    evidence:
+    - templates/dsr-transparency-crosswalk-template.yaml
+    - schemas/dsr-transparency-crosswalk.schema.json
+    notes: 'Uses the requested lower-kebab-case target path, YAML format, stable lower_snake_case identifiers, and schema-compatible
+      fields.
+
+      '
+  - gate_id: qg_coherence
+    status: pass
+    evidence:
+    - models/dsr-transparency-model.yaml
+    - vocabularies/transparency-dimensions.yaml
+    - schemas/dsr-transparency-crosswalk.schema.json
+    notes: 'Aligns with the six-dimension transparency model, controlled vocabulary, and saved transparency-crosswalk schema.
+
+      '
+  - gate_id: qg_cogency
+    status: pass
+    evidence:
+    - dimension_definitions
+    - review_questions
+    - adequacy_assessments
+    notes: 'Organizes each dimension around definition, evidence, quality criteria, risks, review questions, and remediation.
+
+      '
+  - gate_id: qg_correspondence
+    status: pass
+    evidence:
+    - selection_id_template_transparency_crosswalk
+    - conformance_target_l2_reviewable
+    notes: 'Corresponds to the selected template_transparency_crosswalk target and supports a reviewable DSR artifact package.
+
+      '
+  - gate_id: qg_dsr_transparency
+    status: pass
+    evidence:
+    - process_transparency
+    - problem_space_transparency
+    - solution_space_transparency
+    - build_transparency
+    - evaluation_transparency
+    - contribution_transparency
+    notes: 'The file directly operationalizes all six DSR transparency dimensions.
+
+      '
+  - gate_id: qg_reviewability
+    status: pass
+    evidence:
+    - acceptance_criteria
+    - review_questions
+    - evidence_items
+    - quality_gate_status
+    notes: 'Includes evidence requirements, pass/fail conditions, adequacy ratings, and remediation guidance.
+
+      '
+  source_basis:
+  - source_id: user_current_request
+    source_type: user_instruction
+    citation_key: null
+    citation_anchor_id: null
+    path_or_url: null
+    evidence_status: mapped
+    notes: 'User selected template_transparency_crosswalk and requested creation of templates/dsr-transparency-crosswalk-template.yaml
+      as a new file.
+
+      '
+  - source_id: dsr_framework_generation_spec
+    source_type: framework_specification
+    citation_key: null
+    citation_anchor_id: null
+    path_or_url: dsr-framework-generation-spec.yaml
+    evidence_status: mapped
+    notes: 'Governs repository structure, naming, controlled fields, traceability, quality gates, and L2 reviewable conformance
+      expectations.
+
+      '
+  - source_id: dsr_framework_selection_table
+    source_type: framework_specification
+    citation_key: null
+    citation_anchor_id: null
+    path_or_url: dsr-framework-selection-table.md
+    evidence_status: mapped
+    notes: 'Identifies the selected target path, portion type, output format, purpose, default conformance, and dependency
+      on the transparency model.
+
+      '
+  - source_id: dsr_transparency_model
+    source_type: framework_model
+    citation_key: null
+    citation_anchor_id: null
+    path_or_url: models/dsr-transparency-model.yaml
+    evidence_status: mapped
+    notes: 'Supplies the operational model for the six transparency dimensions, evidence model, validation implications, and
+      dimension relationships.
+
+      '
+  - source_id: dsr_transparency_dimensions
+    source_type: framework_vocabulary
+    citation_key: null
+    citation_anchor_id: null
+    path_or_url: vocabularies/transparency-dimensions.yaml
+    evidence_status: mapped
+    notes: 'Supplies the controlled dimension identifiers, labels, definitions, evidence types, and review prompts used in
+      this template.
+
+      '
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    source_type: dsr_corpus
+    citation_key: hevner_et_al_2024
+    citation_anchor_id: CA01
+    path_or_url: null
+    evidence_status: mapped
+    notes: 'Provides the primary DSR corpus basis for process, problem-space, solution-space, build, evaluation, and contribution
+      transparency.
+
+      '
+  related_items:
+  - item_id: schema_transparency_crosswalk
+    path: schemas/dsr-transparency-crosswalk.schema.json
+    relationship: is_validated_by
+    notes: Validates completed transparency crosswalk files and this template shape.
+  - item_id: model_transparency
+    path: models/dsr-transparency-model.yaml
+    relationship: depends_on
+    notes: Supplies the six-dimension transparency model.
+  - item_id: vocab_transparency_dimensions
+    path: vocabularies/transparency-dimensions.yaml
+    relationship: depends_on
+    notes: Supplies controlled dimension identifiers and definitions.
+  - item_id: checklist_transparency
+    path: checklists/dsr-transparency-crosswalk-checklist.yaml
+    relationship: related_to
+    notes: Expected downstream reviewer checklist using this template.
+  - item_id: record_transparency_crosswalk
+    path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+    relationship: related_to
+    notes: Expected first retained crosswalk record instantiated from this template.
+  - item_id: docs_transparency
+    path: docs/protocol/10-transparency-and-reporting.md
+    relationship: related_to
+    notes: Expected human-facing explanation of transparency and reporting requirements.
+  traceability:
+  - trace_id: trace_template_selection
+    source: dsr_framework_selection_table.template_transparency_crosswalk
+    target: templates/dsr-transparency-crosswalk-template.yaml
+    relationship: derived_from
+    evidence_status: mapped
+    notes: Selected row defines target path, type, format, purpose, conformance, and dependency.
+  - trace_id: trace_template_schema
+    source: schemas/dsr-transparency-crosswalk.schema.json
+    target: templates/dsr-transparency-crosswalk-template.yaml
+    relationship: constrains
+    evidence_status: mapped
+    notes: Template uses schema-compatible required fields and controlled enum values.
+  - trace_id: trace_template_model
+    source: models/dsr-transparency-model.yaml
+    target: templates/dsr-transparency-crosswalk-template.yaml
+    relationship: implements
+    evidence_status: mapped
+    notes: Template instantiates the model dimensions, evidence logic, risks, and review questions.
+  - trace_id: trace_template_vocabulary
+    source: vocabularies/transparency-dimensions.yaml
+    target: templates/dsr-transparency-crosswalk-template.yaml
+    relationship: maps_to
+    evidence_status: mapped
+    notes: Template uses the six controlled transparency dimension IDs.
+  - trace_id: trace_template_hevner_2024
+    source: hevner_et_al_2024_transparency_in_design_science_research
+    target: templates/dsr-transparency-crosswalk-template.yaml
+    relationship: derived_from
+    evidence_status: mapped
+    notes: Template operationalizes the six-part DSR transparency framework for reusable project documentation.
+  open_questions:
+  - question_id: oq_template_transparency_disclosure_levels
+    question: 'Should a future revision add an explicit disclosure_level field for each evidence item, aligned with the transparency
+      model''s proportionate-disclosure logic?
+
+      '
+    owner_or_resolution_role: dsr_framework_maintainers
+    status: open
+    notes: 'The saved schema currently captures evidence status and review notes but not a separate disclosure-level enum.
+
+      '
+  - question_id: oq_template_transparency_subdimensions
+    question: 'Should future versions add subdimension fields for transparency purposes, audiences, content materials, and
+      withholding rationales?
+
+      '
+    owner_or_resolution_role: dsr_framework_maintainers
+    status: deferred
+    notes: 'This template remains L2 reviewable and schema-aligned; more detailed operationalization can be added after checklist
+      and documentation files are generated.
+
+      '
+  change_history:
+  - version: 0.1.0
+    date: '2026-04-27'
+    changed_by: GPT-5.5 Thinking
+    change_summary: 'Initial L2 reviewable YAML template generated for template_transparency_crosswalk.
+
+      '

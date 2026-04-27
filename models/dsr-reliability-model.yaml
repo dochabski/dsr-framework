@@ -1,0 +1,964 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_reliability_model
+  selection_id: model_reliability
+  title: DSR Reliability Model
+  item_type: specification
+  output_format: yaml
+  target_path: models/dsr-reliability-model.yaml
+  purpose: 'Define a reviewable reliability model for Design Science Research (DSR) artifacts, DSR methods, evaluation measures,
+    and design knowledge. The model distinguishes what is being assessed for reliability, when reliability is assessed, what
+    evidence may support the claim, and how reliability claims should be bounded, reviewed, and traced.
+
+    '
+  status: draft
+  version: 0.1.0
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  created_date: '2026-04-27'
+  license: CC0-1.0
+source_basis:
+- source_id: dsr_framework_generation_prompt
+  source_type: governing_prompt
+  role: generation_rules
+  evidence_status: mapped_to_project_file
+- source_id: dsr_framework_generation_spec
+  source_type: governing_specification
+  role: repository_structure_and_quality_gates
+  evidence_status: mapped_to_project_file
+- source_id: dsr_framework_selection_table
+  source_type: selection_registry
+  role: selected_target_path_and_dependencies
+  evidence_status: mapped_to_project_file
+- source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+  short_citation: Storey et al. (2025)
+  source_type: peer_reviewed_journal_article
+  role: primary_reliability_framework_basis
+  evidence_status: mapped_to_extraction_corpus
+  citation_anchor_ids:
+  - A001
+  - A006
+  - A008
+  - A010
+  - A011
+  - A012
+  - A014
+- source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  short_citation: Akoka et al. (2023)
+  source_type: peer_reviewed_journal_article
+  role: reliability_like_intercoder_agreement_and_knowledge_moment_support
+  evidence_status: mapped_to_extraction_corpus
+  citation_anchor_ids:
+  - A11
+  - A12
+  - A15
+- source_id: hevner_et_al_2024_transparency_in_design_science_research
+  short_citation: Hevner et al. (2024)
+  source_type: peer_reviewed_conceptual_article
+  role: transparency_and_documentation_support_for_reliability_evidence
+  evidence_status: mapped_to_extraction_corpus
+  citation_anchor_ids:
+  - CA06
+  - CA10
+  - CA13
+  - CA14
+- source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+  short_citation: Weigand et al. (2021)
+  source_type: peer_reviewed_conceptual_article
+  role: artifact_universal_make_plan_use_plan_and_capacity_specification_support
+  evidence_status: mapped_to_extraction_corpus
+  citation_anchor_ids:
+  - A09
+  - A11
+  - A15
+  - A17
+- source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+  short_citation: Storey et al. (2025)
+  evidence_anchor_id: A011
+  supports_construct: validity_reliability.reliability_framework
+  evidence_role: reliability
+  grounding_decision: adopted
+  evidence_status: substantive
+  target_path: models/dsr-reliability-model.yaml
+  note: 'Storey et al. (2025) grounds validity_reliability.reliability_framework through extracted anchor A011: A multidimensional
+    framework for assessing reliability in DSR across artifact, method, measures, and design knowledge using synchronic and
+    diachronic timing.'
+related_items:
+  upstream_dependencies:
+  - path: specs/product-dsr-quality-conformance-and-review-model.yaml
+    relationship: supplies_quality_gate_context
+    required_status: draft_or_later
+  - path: models/dsr-evaluation-alignment-model.yaml
+    relationship: supplies_evaluation_claim_alignment_context
+    required_status: draft_or_later
+  - path: models/dsr-artifact-ontology.yaml
+    relationship: supplies_artifact_boundary_and_artifact_universal_context
+    required_status: draft_or_later
+  - path: vocabularies/reliability-types.yaml
+    relationship: supplies_controlled_reliability_terms
+    required_status: draft_or_later
+  - path: vocabularies/evaluation-method-families.yaml
+    relationship: supplies_evaluation_method_family_terms
+    required_status: draft_or_later
+  - path: vocabularies/validity-types.yaml
+    relationship: supplies_validity_terms_for_reliability_validity_alignment
+    required_status: draft_or_later
+  downstream_dependents:
+  - path: checklists/reliability-checklist.yaml
+    relationship: operationalizes_review_questions
+  - path: docs/protocol/09-validity-reliability-replication-projectability.md
+    relationship: human_facing_explanation
+  - path: templates/evaluation-plan-template.yaml
+    relationship: embeds_reliability_evidence_planning_fields
+  - path: templates/evaluation-report-template.yaml
+    relationship: embeds_reliability_evidence_reporting_fields
+  - path: records/reviews/record-review-0001-self-review.yaml
+    relationship: may_record_initial_application
+model_scope:
+  applies_to:
+  - dsr_artifact_design_and_evaluation
+  - dsr_method_selection_and_use
+  - dsr_evaluation_measure_selection_and_use
+  - dsr_design_knowledge_claims
+  - review_of_dsr_artifact_packages
+  does_not_replace:
+  - validity_model
+  - evaluation_alignment_model
+  - projectability_model
+  - replication_model
+  - technical_safety_or_security_assurance_standard
+  reliability_positioning:
+    definition: 'Reliability is the dependability, consistency, or stability of a specified DSR target under specified conditions
+      and time horizons. A reliability claim is incomplete unless it states the target, mode, evidence basis, boundary conditions,
+      and relationship to validity or projectability claims.
+
+      '
+    relation_to_validity: 'Reliability supports validity by reducing uncertainty about whether an artifact, method, measure,
+      or design-knowledge claim can be trusted. It is not identical to validity because a result may be consistent without
+      being appropriate, useful, or true for the intended claim.
+
+      '
+    relation_to_replication: 'Reliability may support replication or reduce the need for full replication in some DSR cases,
+      but it does not replace replication. Replication remains a separate concern when the claim depends on repeated construction,
+      evaluation, transfer, or reuse.
+
+      '
+    relation_to_projectability: 'Diachronic reliability provides evidence that a result, artifact, method, measure, or design
+      knowledge may remain dependable across time, settings, versions, or related problem classes. Projectability claims still
+      require explicit boundary and transfer logic.
+
+      '
+controlled_entities:
+  reliability_target:
+    description: What is being assessed for reliability.
+    entries:
+    - id: artifact_reliability
+      label: Artifact reliability
+      definition: 'The dependability of a DSR artifact''s performance, capacities, or use effects under specified conditions.
+
+        '
+      allowed_use: 'Use when the claim concerns whether the artifact itself performs consistently, robustly, or dependably
+        in an intended environment or across environments.
+
+        '
+      boundary_notes: 'Do not use as a generic substitute for artifact utility or artifact validity. Utility asks whether
+        the artifact is useful; artifact reliability asks whether the relevant artifact behavior is dependable.
+
+        '
+      typical_units_of_analysis:
+      - artifact_type
+      - artifact_instance
+      - prototype
+      - instantiation
+      - algorithm
+      - model
+      - method_artifact
+      - socio_technical_system_artifact
+      common_evidence:
+      - robustness_test_results
+      - failure_mode_analysis
+      - performance_stability_observations
+      - capacity_verification
+      - repeated_demonstrations
+      - field_use_logs
+      - maintenance_or_defect_records
+    - id: method_reliability
+      label: Method reliability
+      definition: 'The dependability of the DSR method, procedure, or process by which the artifact and design knowledge are
+        produced, selected, evaluated, or justified.
+
+        '
+      allowed_use: 'Use when the claim concerns whether a DSR procedure can be applied consistently enough to produce trustworthy
+        project conduct, artifacts, or knowledge claims.
+
+        '
+      boundary_notes: 'Distinguish from process transparency. Process transparency documents what occurred; method reliability
+        assesses whether the method was sufficiently dependable and consistently applied for the claim being made.
+
+        '
+      typical_units_of_analysis:
+      - dsr_methodology
+      - research_protocol
+      - design_process
+      - build_process
+      - evaluation_process
+      - coding_or_classification_procedure
+      common_evidence:
+      - protocol_adherence_records
+      - process_logs
+      - design_decision_records
+      - independent_audit
+      - inter_coder_or_inter_reviewer_agreement
+      - repeat_application_across_cases
+      - method_variant_rationale
+    - id: measure_reliability
+      label: Measure reliability
+      definition: 'The consistency of measures, observations, instruments, scales, coded judgments, or evaluation indicators
+        used to assess DSR artifact utility, quality, effects, or contribution claims.
+
+        '
+      allowed_use: 'Use when the evidence base depends on measurement instruments, evaluator judgments, indicators, ratings,
+        usage metrics, observations, or coded data.
+
+        '
+      boundary_notes: 'Do not collapse measure reliability into evaluation validity. Reliable measures are necessary but not
+        sufficient for credible evaluation.
+
+        '
+      typical_units_of_analysis:
+      - survey_scale
+      - rubric
+      - observation_protocol
+      - performance_metric
+      - coded_publication_sample
+      - expert_rating
+      - usage_metric
+      common_evidence:
+      - inter_rater_agreement
+      - internal_consistency
+      - test_retest_results
+      - calibration_records
+      - measurement_invariance_check
+      - triangulation
+      - instrument_pilot_results
+    - id: design_knowledge_reliability
+      label: Design knowledge reliability
+      definition: 'The dependability of prescriptive or explanatory design knowledge when used to understand, build, adapt,
+        evaluate, or reuse artifacts within stated contexts or problem classes.
+
+        '
+      allowed_use: 'Use when the claim concerns whether design principles, design theories, contribution claims, or artifact-related
+        knowledge remain trustworthy beyond a single observation or local artifact instance.
+
+        '
+      boundary_notes: 'Do not overstate this as universal generalizability. Design knowledge reliability must identify context,
+        problem class, artifact boundary, mechanism, and evidence limits.
+
+        '
+      typical_units_of_analysis:
+      - design_principle
+      - design_theory
+      - contribution_claim
+      - artifact_pattern
+      - method_guideline
+      - reusable_design_specification
+      - problem_class_claim
+      common_evidence:
+      - saturated_field_evidence
+      - cross_case_support
+      - rival_explanation_analysis
+      - conceptual_replication
+      - differentiated_replication
+      - transfer_case_documentation
+      - boundary_condition_mapping
+  reliability_mode:
+    description: When or over what horizon reliability is being assessed.
+    entries:
+    - id: synchronic_internal_reliability
+      label: Synchronic or internal reliability
+      definition: 'Reliability assessed at a point in time, within a case, within a study, or across contemporaneous observations,
+        evaluators, measures, or artifact uses.
+
+        '
+      allowed_use: 'Use for same-study or same-period evidence such as triangulation, multiple observers, inter-rater agreement,
+        internal consistency, or intensive within-case assessment.
+
+        '
+      boundary_notes: 'Synchronic evidence does not by itself justify claims about future use, longitudinal stability, or
+        cross-context projectability.
+
+        '
+    - id: diachronic_external_reliability
+      label: Diachronic or external reliability
+      definition: 'Reliability assessed across time, versions, deployments, cases, contexts, evaluators, problem-class instances,
+        or subsequent research projects.
+
+        '
+      allowed_use: 'Use for repeated assessment, longitudinal evidence, cross-case evidence, reuse, transfer, maintenance,
+        or follow-on study evidence.
+
+        '
+      boundary_notes: 'Diachronic evidence must specify what changed and what was held stable; otherwise repeated observation
+        can obscure rather than clarify reliability.
+
+        '
+  reliability_claim_strength:
+    description: Strength levels for reviewing how far a reliability claim may go.
+    entries:
+    - id: not_assessed
+      label: Not assessed
+      definition: No reliability evidence is provided for the target.
+      allowed_use: Use when reliability is irrelevant, unavailable, or not yet examined.
+    - id: minimally_documented
+      label: Minimally documented
+      definition: 'The target and intended reliability concern are identified, but evidence is limited to description, rationale,
+        or untested assumption.
+
+        '
+      allowed_use: Use for early-stage planning, concept papers, or prototype packages.
+    - id: plausibly_supported
+      label: Plausibly supported
+      definition: 'Some direct evidence is provided, but scope, sample, duration, or independence is limited.
+
+        '
+      allowed_use: Use when evidence supports cautious local reliability claims.
+    - id: well_supported
+      label: Well supported
+      definition: 'Multiple evidence sources support the target, and major threats or boundary conditions are documented.
+
+        '
+      allowed_use: Use when reliability can be reviewed confidently for the declared scope.
+    - id: strongly_supported
+      label: Strongly supported
+      definition: 'Independent, repeated, or cross-context evidence supports the target, with documented threats, limitations,
+        and transfer conditions.
+
+        '
+      allowed_use: Use only when the claim is backed by robust synchronic and/or diachronic evidence.
+  evidence_role:
+    description: Functional roles evidence can play in a reliability argument.
+    entries:
+    - id: direct_reliability_evidence
+      definition: Evidence directly assessing dependability, consistency, or stability of the target.
+    - id: indirect_reliability_evidence
+      definition: Evidence that supports reliability through adjacent documentation or evaluation evidence.
+    - id: threat_mitigation_evidence
+      definition: Evidence showing that known reliability threats were reduced or controlled.
+    - id: boundary_evidence
+      definition: Evidence defining where the reliability claim does and does not apply.
+    - id: negative_or_failure_evidence
+      definition: Evidence of unreliability, instability, defect, disagreement, drift, or failed transfer.
+reliability_matrix:
+  description: 'Operational crosswalk of the four DSR reliability targets and two reliability modes. Each cell states the
+    review question, evidence examples, claim limits, and recommended records.
+
+    '
+  cells:
+  - cell_id: artifact_synchronic_reliability
+    target: artifact_reliability
+    mode: synchronic_internal_reliability
+    review_question: 'Does the artifact perform dependably under the current evaluation conditions and for the intended users,
+      tasks, inputs, or use context?
+
+      '
+    evidence_examples:
+    - controlled_demonstration_results
+    - acceptance_test_results
+    - artifact_capacity_checks
+    - robustness_or_stress_tests
+    - defect_or_failure_logs
+    - concurrent_observations_from_multiple_evaluators
+    claim_limit: 'Supports current-scope artifact dependability only. Does not by itself support long-term stability or transfer
+      to materially different settings.
+
+      '
+    recommended_records:
+    - artifact_specification_record
+    - demonstration_record
+    - evaluation_report
+    - review_record
+  - cell_id: artifact_diachronic_reliability
+    target: artifact_reliability
+    mode: diachronic_external_reliability
+    review_question: 'Does the artifact or artifact type continue to perform dependably across time, versions, deployments,
+      settings, or related problem instances?
+
+      '
+    evidence_examples:
+    - longitudinal_monitoring
+    - repeated_deployment_results
+    - version_comparison_results
+    - maintenance_records
+    - cross_context_field_evaluations
+    - differentiated_replication_records
+    claim_limit: 'Supports bounded artifact stability or transfer only when contextual differences, version changes, and maintenance
+      conditions are documented.
+
+      '
+    recommended_records:
+    - release_record
+    - preservation_record
+    - evaluation_report
+    - projectability_record
+  - cell_id: method_synchronic_reliability
+    target: method_reliability
+    mode: synchronic_internal_reliability
+    review_question: 'Was the DSR method applied consistently and traceably within the current study, build process, evaluation
+      process, or coding/classification task?
+
+      '
+    evidence_examples:
+    - protocol_adherence_record
+    - activity_log
+    - design_decision_record
+    - peer_audit
+    - inter_coder_agreement
+    - consistency_check_against_workflow
+    claim_limit: 'Supports the dependability of method application in the present study; it does not prove that the method
+      will work equally well in future studies.
+
+      '
+    recommended_records:
+    - design_decision_record
+    - build_transparency_record
+    - evaluation_plan
+    - review_record
+  - cell_id: method_diachronic_reliability
+    target: method_reliability
+    mode: diachronic_external_reliability
+    review_question: 'Does the DSR method remain dependable when reused, adapted, or compared across projects, teams, artifact
+      types, or problem classes?
+
+      '
+    evidence_examples:
+    - repeat_application_across_cases
+    - method_reuse_records
+    - comparison_to_established_dsr_methods
+    - documented_method_variants
+    - cross_project_review
+    - external_audit_or_replication
+    claim_limit: 'Supports a method-reuse claim only when adaptations and context changes are documented and distinguished
+      from core method components.
+
+      '
+    recommended_records:
+    - method_tailoring_record
+    - contribution_positioning_record
+    - review_record
+    - projectability_record
+  - cell_id: measure_synchronic_reliability
+    target: measure_reliability
+    mode: synchronic_internal_reliability
+    review_question: 'Are the measures, instruments, rubrics, observations, or evaluator judgments consistent within the current
+      evaluation setting?
+
+      '
+    evidence_examples:
+    - inter_rater_agreement
+    - internal_consistency_analysis
+    - instrument_calibration
+    - rubric_pilot_results
+    - evaluator_training_record
+    - triangulation_among_measure_types
+    claim_limit: 'Supports consistency of current evaluation evidence, but not necessarily construct validity or stability
+      across future contexts.
+
+      '
+    recommended_records:
+    - evaluation_plan
+    - evaluation_report
+    - review_record
+  - cell_id: measure_diachronic_reliability
+    target: measure_reliability
+    mode: diachronic_external_reliability
+    review_question: 'Do the measures remain stable, comparable, and interpretable across time, sites, evaluators, populations,
+      artifact versions, or evaluation cycles?
+
+      '
+    evidence_examples:
+    - test_retest_evidence
+    - longitudinal_calibration
+    - measurement_invariance_check
+    - repeated_rubric_application
+    - cross_site_measure_comparison
+    - instrument_revision_history
+    claim_limit: 'Supports measure stability only when changes to instruments, evaluators, contexts, samples, and artifacts
+      are traceable.
+
+      '
+    recommended_records:
+    - evaluation_plan
+    - evaluation_report
+    - change_history
+    - review_record
+  - cell_id: design_knowledge_synchronic_reliability
+    target: design_knowledge_reliability
+    mode: synchronic_internal_reliability
+    review_question: 'Is the design knowledge claim dependable within the present project, problem instance, artifact boundary,
+      and evidence base?
+
+      '
+    evidence_examples:
+    - triangulated_field_evidence
+    - stakeholder_confirmation
+    - rival_explanation_analysis
+    - saturated_case_evidence
+    - explicit_design_rationale
+    - traceability_from_problem_to_requirements_to_artifact_to_evaluation
+    claim_limit: 'Supports local or bounded design knowledge reliability. It should not be reported as general design theory
+      unless projectability evidence exists.
+
+      '
+    recommended_records:
+    - contribution_claim_record
+    - contribution_positioning_record
+    - evaluation_report
+    - transparency_crosswalk
+  - cell_id: design_knowledge_diachronic_reliability
+    target: design_knowledge_reliability
+    mode: diachronic_external_reliability
+    review_question: 'Does the design knowledge remain useful, interpretable, and dependable across subsequent cases, contexts,
+      implementations, versions, or related problem classes?
+
+      '
+    evidence_examples:
+    - conceptual_replication
+    - differentiated_replication
+    - transfer_case_evidence
+    - follow_on_study_evidence
+    - boundary_condition_mapping
+    - design_principle_refinement_history
+    claim_limit: 'Supports projectable design knowledge only when scope, mechanism, boundary conditions, non-transfer cases,
+      and context variation are explicit.
+
+      '
+    recommended_records:
+    - contribution_claim_record
+    - projectability_record
+    - release_record
+    - review_record
+relationships:
+- relationship_id: reliability_supports_validity
+  source_entity: reliability_claim
+  target_entity: validity_claim
+  relation_type: supports_but_does_not_substitute_for
+  description: 'Reliability evidence can strengthen validity claims, but validity still requires appropriate fit between problem,
+    artifact, evaluation, and contribution.
+
+    '
+- relationship_id: reliability_requires_target
+  source_entity: reliability_claim
+  target_entity: reliability_target
+  relation_type: must_identify
+  description: A reliability claim must specify the target being assessed.
+- relationship_id: reliability_requires_mode
+  source_entity: reliability_claim
+  target_entity: reliability_mode
+  relation_type: must_identify
+  description: A reliability claim must specify whether the evidence is synchronic, diachronic, or both.
+- relationship_id: reliability_constrains_projectability
+  source_entity: diachronic_external_reliability
+  target_entity: projectability_claim
+  relation_type: bounds_and_supports
+  description: 'Diachronic reliability supports transfer and projectability claims only within stated boundaries and documented
+    context variation.
+
+    '
+- relationship_id: process_transparency_enables_method_reliability
+  source_entity: process_transparency_evidence
+  target_entity: method_reliability
+  relation_type: enables_review_of
+  description: 'Activity logs, decision records, protocol records, and audit trails make method reliability reviewable.
+
+    '
+- relationship_id: evaluation_transparency_enables_measure_reliability
+  source_entity: evaluation_transparency_evidence
+  target_entity: measure_reliability
+  relation_type: enables_review_of
+  description: 'Evaluation plans, instruments, rubrics, calibration records, and reporting details make measure reliability
+    reviewable.
+
+    '
+- relationship_id: artifact_ontology_enables_artifact_reliability
+  source_entity: artifact_specification
+  target_entity: artifact_reliability
+  relation_type: enables_review_of
+  description: 'Make plans, use plans, capacity specifications, version metadata, and artifact boundaries define what artifact
+    performance can be assessed.
+
+    '
+- relationship_id: contribution_traceability_enables_design_knowledge_reliability
+  source_entity: contribution_claim_record
+  target_entity: design_knowledge_reliability
+  relation_type: enables_review_of
+  description: 'Clear traceability from problem class to artifact, evaluation, mechanism, and boundaries makes design knowledge
+    reliability reviewable.
+
+    '
+workflow:
+  id: dsr_reliability_assessment_workflow
+  title: Reliability Assessment Workflow
+  steps:
+  - step_id: identify_reliability_need
+    order: 1
+    action: 'Determine whether the DSR package makes any reliability-relevant claim about an artifact, method, measure, or
+      design knowledge.
+
+      '
+    required_inputs:
+    - artifact_profile
+    - evaluation_plan
+    - contribution_claim
+    outputs:
+    - reliability_scope_statement
+  - step_id: classify_reliability_target
+    order: 2
+    action: 'Classify the reliability target as artifact, method, measure, design knowledge, or a justified combination.
+
+      '
+    required_inputs:
+    - reliability_scope_statement
+    outputs:
+    - reliability_target_classification
+  - step_id: classify_reliability_mode
+    order: 3
+    action: 'Classify the evidence horizon as synchronic/internal, diachronic/external, or both.
+
+      '
+    required_inputs:
+    - reliability_target_classification
+    outputs:
+    - reliability_mode_classification
+  - step_id: select_evidence_plan
+    order: 4
+    action: 'Select evidence types that match the target-mode cell and the strength of the intended claim.
+
+      '
+    required_inputs:
+    - reliability_matrix
+    - evaluation_plan
+    outputs:
+    - reliability_evidence_plan
+  - step_id: collect_or_link_evidence
+    order: 5
+    action: 'Collect, retain, or link evidence in controlled records, templates, evaluation reports, release records, or review
+      records.
+
+      '
+    required_inputs:
+    - reliability_evidence_plan
+    outputs:
+    - reliability_evidence_bundle
+  - step_id: assess_threats_and_boundaries
+    order: 6
+    action: 'Identify reliability threats, mitigations, negative evidence, and boundary conditions before stating the reliability
+      claim.
+
+      '
+    required_inputs:
+    - reliability_evidence_bundle
+    outputs:
+    - reliability_threat_assessment
+    - reliability_boundary_statement
+  - step_id: state_claim_strength
+    order: 7
+    action: 'Assign a claim-strength level and write a bounded reliability claim that does not overstate validity, generalization,
+      replication, or projectability.
+
+      '
+    required_inputs:
+    - reliability_evidence_bundle
+    - reliability_threat_assessment
+    - reliability_boundary_statement
+    outputs:
+    - reliability_claim
+  - step_id: review_and_record
+    order: 8
+    action: 'Review the claim against the acceptance criteria and retain the review outcome in a review record.
+
+      '
+    required_inputs:
+    - reliability_claim
+    - acceptance_criteria
+    outputs:
+    - reliability_review_outcome
+reliability_threat_model:
+  threats:
+  - threat_id: unspecified_target
+    description: Reliability is asserted without specifying what is reliable.
+    applies_to:
+    - all_targets
+    mitigation:
+    - require_target_classification
+    - link_to_reliability_matrix_cell
+  - threat_id: timing_ambiguity
+    description: The claim does not distinguish single-case or same-time evidence from longitudinal or cross-context evidence.
+    applies_to:
+    - all_targets
+    mitigation:
+    - require_reliability_mode_classification
+    - separate_synchronic_and_diachronic_evidence
+  - threat_id: reliability_validity_conflation
+    description: Consistency evidence is treated as if it proves utility, appropriateness, or truth.
+    applies_to:
+    - all_targets
+    mitigation:
+    - require_linked_validity_claim_with_separate_evidence
+    - state_claim_limits
+  - threat_id: measure_instability
+    description: Instruments, rubrics, observations, or metrics change without traceability.
+    applies_to:
+    - measure_reliability
+    mitigation:
+    - retain_instrument_versions
+    - document_calibration_and_revision_history
+  - threat_id: method_drift
+    description: The DSR method changes across cycles without rationale or documentation.
+    applies_to:
+    - method_reliability
+    mitigation:
+    - maintain_activity_logs
+    - retain_design_decision_records
+    - record_tailoring_decisions
+  - threat_id: artifact_version_drift
+    description: Artifact performance evidence is mixed across versions without version control.
+    applies_to:
+    - artifact_reliability
+    mitigation:
+    - link_evidence_to_artifact_version
+    - preserve_release_and_change_history
+  - threat_id: context_overextension
+    description: Local or idiographic evidence is used to justify a broad design knowledge claim.
+    applies_to:
+    - design_knowledge_reliability
+    mitigation:
+    - state_problem_class_and_boundary_conditions
+    - link_to_projectability_model
+    - include_negative_or_non_transfer_evidence_when_available
+  - threat_id: evaluator_dependency
+    description: Reliability depends on one evaluator, coder, designer, or stakeholder perspective.
+    applies_to:
+    - method_reliability
+    - measure_reliability
+    - design_knowledge_reliability
+    mitigation:
+    - use_multiple_evaluators_where_feasible
+    - report_inter_rater_or_inter_reviewer_agreement
+    - triangulate_evidence_sources
+validation_implications:
+  required_fields_for_reliability_claim_record:
+  - claim_id
+  - reliability_target
+  - reliability_mode
+  - claim_strength
+  - evidence_summary
+  - evidence_links
+  - boundary_conditions
+  - threats_considered
+  - mitigations
+  - relationship_to_validity
+  - relationship_to_replication_or_projectability
+  - reviewer_decision
+  controlled_value_dependencies:
+    reliability_target: vocabularies/reliability-types.yaml
+    reliability_mode: vocabularies/reliability-types.yaml
+    claim_strength: this_model.controlled_entities.reliability_claim_strength
+  minimum_validation_rules:
+  - rule_id: rv_target_required
+    rule: reliability_target must be present for every reliability claim.
+    severity: error
+  - rule_id: rv_mode_required
+    rule: reliability_mode must be present for every reliability claim.
+    severity: error
+  - rule_id: rv_evidence_required_above_minimal
+    rule: 'Claims above minimally_documented must include at least one direct or indirect evidence link.
+
+      '
+    severity: error
+  - rule_id: rv_diachronic_requires_context_delta
+    rule: 'Diachronic claims must identify the time, version, case, setting, or context variation across which reliability
+      is asserted.
+
+      '
+    severity: error
+  - rule_id: rv_no_unbounded_generalization
+    rule: 'A design_knowledge_reliability claim may not imply universal generalization unless a projectability model or external
+      evidence supports the stated scope.
+
+      '
+    severity: warning
+  - rule_id: rv_validity_not_auto_passed
+    rule: 'A reliability pass does not automatically pass artifact validity, evaluation validity, external validity, or contribution
+      quality.
+
+      '
+    severity: warning
+acceptance_criteria:
+- criterion_id: ac_reliability_target_clarity
+  criterion: The model distinguishes artifact, method, measure, and design knowledge reliability.
+  evidence_required:
+  - controlled_entities.reliability_target
+  - reliability_matrix
+  pass_condition: Each target has definition, allowed use, boundary notes, evidence examples, and matrix cells.
+- criterion_id: ac_timing_clarity
+  criterion: The model distinguishes synchronic/internal and diachronic/external reliability.
+  evidence_required:
+  - controlled_entities.reliability_mode
+  - reliability_matrix
+  pass_condition: Each mode has definition, allowed use, boundary notes, and matrix application.
+- criterion_id: ac_claim_boundaries
+  criterion: Reliability claims are bounded and do not overclaim validity, replication, or projectability.
+  evidence_required:
+  - model_scope.reliability_positioning
+  - reliability_threat_model
+  - validation_implications
+  pass_condition: Claim limits and threat mitigations are explicit.
+- criterion_id: ac_reviewability
+  criterion: A reviewer can evaluate reliability evidence against explicit criteria.
+  evidence_required:
+  - workflow
+  - validation_implications
+  - acceptance_criteria
+  pass_condition: Required evidence, records, and failure conditions are specified.
+- criterion_id: ac_traceability
+  criterion: The model is traceable to governing project files and DSR corpus evidence.
+  evidence_required:
+  - source_basis
+  - traceability
+  pass_condition: Source IDs and evidence statuses are present without invented bibliographic claims.
+quality_and_conformance:
+  quality_gates:
+  - gate_id: qg_consistency
+    status: pass
+    rationale: Uses YAML, lower-kebab-case target path, controlled metadata, and repository model conventions.
+  - gate_id: qg_coherence
+    status: pass
+    rationale: Aligns with evaluation, validity, artifact ontology, transparency, replication, and projectability dependencies.
+  - gate_id: qg_cogency
+    status: pass
+    rationale: Provides target-mode matrix, workflow, threat model, validation rules, and acceptance criteria.
+  - gate_id: qg_correspondence
+    status: pass
+    rationale: Corresponds to the selected reliability model target and L2 reviewable conformance level.
+  - gate_id: qg_dsr_transparency
+    status: pass
+    rationale: Links reliability review to process, build, evaluation, and contribution transparency records.
+  - gate_id: qg_reviewability
+    status: pass
+    rationale: Includes explicit evidence expectations, rules, and claim-strength distinctions.
+  conformance_notes:
+  - 'This file is L2 reviewable. It is not yet L3 exercisable until paired with a reliability checklist, reliability vocabulary,
+    schema constraints, and at least one worked example record.
+
+    '
+  - 'Evidence mappings reference extraction-corpus source IDs and anchor IDs; full bibliographic verification should occur
+    before archival publication.
+
+    '
+traceability:
+- trace_id: tr_selection_model_reliability
+  from: dsr_framework_selection_table.model_reliability
+  to: model.dsr_reliability_model
+  relation: implements_selected_model
+  evidence_status: mapped
+- trace_id: tr_spec_model_rules
+  from: dsr_framework_generation_spec.content_generation_rules
+  to: model.dsr_reliability_model
+  relation: follows_generation_rules
+  evidence_status: mapped
+- trace_id: tr_primary_reliability_framework
+  from: storey_baskerville_kaul_2025_reliability_in_design_science_research
+  to: controlled_entities.reliability_target
+  relation: supplies_primary_target_taxonomy
+  evidence_status: mapped_to_extraction_corpus
+- trace_id: tr_reliability_modes
+  from: storey_baskerville_kaul_2025_reliability_in_design_science_research
+  to: controlled_entities.reliability_mode
+  relation: supplies_synchronic_diachronic_distinction
+  evidence_status: mapped_to_extraction_corpus
+- trace_id: tr_reliability_matrix
+  from: storey_baskerville_kaul_2025_reliability_in_design_science_research
+  to: reliability_matrix
+  relation: adapts_eight_cell_reliability_technique_logic
+  evidence_status: mapped_to_extraction_corpus
+- trace_id: tr_transparency_support
+  from: hevner_et_al_2024_transparency_in_design_science_research
+  to: relationships.process_transparency_enables_method_reliability
+  relation: supplies_transparency_recording_logic
+  evidence_status: mapped_to_extraction_corpus
+- trace_id: tr_artifact_ontology_support
+  from: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+  to: relationships.artifact_ontology_enables_artifact_reliability
+  relation: supplies_artifact_specification_boundary_logic
+  evidence_status: mapped_to_extraction_corpus
+implementation_guidance:
+  use_in_evaluation_planning:
+  - Add a reliability subsection to every DSR evaluation plan when the project makes dependable-performance, consistent-method,
+    stable-measure, or reusable-design-knowledge claims.
+  - Select at least one reliability target and mode before selecting evidence.
+  - Do not require all eight matrix cells for every project; select cells proportional to the claim being made.
+  use_in_evaluation_reporting:
+  - Report reliability evidence separately from utility, validity, novelty, and contribution evidence.
+  - Preserve negative reliability evidence where relevant; do not suppress failures, drift, disagreement, or unstable measures.
+  - Link reliability evidence to artifact version, method variant, instrument version, evaluator role, and context.
+  use_in_review:
+  - Ask whether the reliability claim is scoped to the evidence actually collected.
+  - Downgrade claim strength when target, mode, context, or version boundaries are missing.
+  - Require clarification when reliability language is used as a vague synonym for quality, rigor, validity, or generalizability.
+  use_in_repository_release:
+  - Pair the reliability model with release records, preservation records, and package inventory entries when reliability
+    depends on artifact versions, code, data, schemas, or documentation.
+limitations:
+- limitation_id: lim_conceptual_not_empirically_validated
+  statement: 'This generated model operationalizes corpus evidence and project requirements, but it has not yet been empirically
+    evaluated as a DSR artifact.
+
+    '
+- limitation_id: lim_vocabulary_dependency
+  statement: 'The model references vocabularies/reliability-types.yaml, which should be generated or reviewed to ensure controlled-term
+    consistency.
+
+    '
+- limitation_id: lim_domain_variation
+  statement: 'DSR reliability evidence differs substantially across software artifacts, conceptual artifacts, socio-technical
+    interventions, measures, and design theories; domain-specific examples are required for high-confidence reuse.
+
+    '
+- limitation_id: lim_no_claim_of_publication_readiness
+  statement: 'The file is suitable for L2 reviewable use but does not by itself satisfy L4 reusable or L5 archival publication-ready
+    requirements.
+
+    '
+open_questions:
+- question_id: oq_reliability_vocabulary_granularity
+  question: 'Should vocabularies/reliability-types.yaml include only the four targets and two modes, or also claim-strength
+    levels and evidence roles?
+
+    '
+  disposition: defer_to_vocabulary_generation
+- question_id: oq_schema_design
+  question: 'Should a dedicated reliability-claim schema be added, or should reliability fields be embedded in evaluation-plan,
+    evaluation-report, and review-record schemas?
+
+    '
+  disposition: defer_to_schema_generation
+- question_id: oq_measurement_examples
+  question: 'Which worked examples should be used to demonstrate measure reliability across qualitative, quantitative, mixed-method,
+    and technical artifact evaluations?
+
+    '
+  disposition: defer_to_examples
+- question_id: oq_aesthetic_and_nonmaterial_artifacts
+  question: 'How should reliability be assessed for aesthetic, symbolic, policy, governance, or other nonmaterial DSR artifacts?
+
+    '
+  disposition: defer_to_future_model_extension
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: initial_creation
+  summary: 'Initial L2 reviewable reliability model generated for model_reliability, defining reliability targets, modes,
+    matrix cells, workflow, threat model, validation implications, and traceability.
+
+    '
+  responsible_party: GPT-5.5 Thinking

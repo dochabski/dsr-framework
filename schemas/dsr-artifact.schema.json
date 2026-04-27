@@ -1,0 +1,1486 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/dsr-artifact.schema.json",
+  "$comment": "SPDX-License-Identifier: CC0-1.0. Generated for selection_id schema_dsr_artifact.",
+  "title": "DSR Artifact Record Schema",
+  "description": "Validates Design Science Research artifact records for the DSR Framework package. The schema emphasizes artifact identity, artifact ontology, make/use plans, capacities, boundaries, lifecycle state, demonstration/evaluation links, transparency, traceability, and L2 reviewability.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_record"
+  ],
+  "properties": {
+    "artifact_record": {
+      "$ref": "#/$defs/artifactRecord"
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stableId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:__[a-z0-9_]+)*$",
+      "minLength": 1
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "in_review",
+        "approved",
+        "released",
+        "superseded",
+        "deprecated",
+        "archived"
+      ]
+    },
+    "evidenceStatus": {
+      "type": "string",
+      "enum": [
+        "not_yet_mapped",
+        "planned",
+        "partial",
+        "present",
+        "not_applicable",
+        "insufficient"
+      ]
+    },
+    "conformanceLevel": {
+      "type": "string",
+      "enum": [
+        "l0_draft",
+        "l1_documented",
+        "l2_reviewable",
+        "l3_exercisable",
+        "l4_reusable",
+        "l5_archival_publication_ready"
+      ]
+    },
+    "artifactType": {
+      "type": "string",
+      "enum": [
+        "construct",
+        "model",
+        "method",
+        "instantiation",
+        "framework",
+        "ontology",
+        "taxonomy",
+        "vocabulary",
+        "schema",
+        "template",
+        "checklist",
+        "guideline",
+        "process_model",
+        "design_principle",
+        "knowledge_base",
+        "software_tool",
+        "dataset",
+        "metric_or_measure",
+        "record",
+        "mixed",
+        "other"
+      ]
+    },
+    "artifactOntologicalRole": {
+      "type": "string",
+      "enum": [
+        "artifact_universal",
+        "artifact_instance",
+        "technical_object",
+        "symbolic_artifact",
+        "information_systems_artifact",
+        "information_technology_artifact",
+        "design_knowledge_artifact",
+        "supporting_material",
+        "mixed",
+        "other"
+      ]
+    },
+    "artifactMateriality": {
+      "type": "string",
+      "enum": [
+        "conceptual_only",
+        "textual_or_documentary",
+        "software_or_executable",
+        "data_or_information",
+        "physical_or_material",
+        "socio_technical",
+        "mixed",
+        "other"
+      ]
+    },
+    "abstractionLevel": {
+      "type": "string",
+      "enum": [
+        "concrete_instance",
+        "low",
+        "moderate",
+        "high",
+        "highly_abstract",
+        "multi_level",
+        "not_applicable"
+      ]
+    },
+    "lifecycleStage": {
+      "type": "string",
+      "enum": [
+        "problem_identification",
+        "solution_objectives",
+        "design_and_development",
+        "demonstration",
+        "evaluation",
+        "communication",
+        "release",
+        "maintenance",
+        "retirement",
+        "other"
+      ]
+    },
+    "qualityGateStatus": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "conditional_pass",
+        "fail",
+        "not_applicable",
+        "not_reviewed"
+      ]
+    },
+    "transparencyDimension": {
+      "type": "string",
+      "enum": [
+        "process",
+        "problem_space",
+        "solution_space",
+        "build",
+        "evaluation",
+        "contribution"
+      ]
+    },
+    "claimType": {
+      "type": "string",
+      "enum": [
+        "utility",
+        "quality",
+        "contribution_to_knowledge",
+        "contribution_to_practice",
+        "responsible_design",
+        "reusability",
+        "projectability",
+        "other"
+      ]
+    },
+    "validationSeverity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "error",
+        "blocking"
+      ]
+    },
+    "personOrRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "role": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "affiliation": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "orcid": {
+          "type": "string",
+          "pattern": "^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9X]{4}$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      },
+      "required": [
+        "role"
+      ]
+    },
+    "controlledTermRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "label": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "vocabulary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "definition": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ]
+    },
+    "citationAnchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "citation_anchor_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        },
+        "evidence_summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "location": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "evidence_status"
+      ]
+    },
+    "sourceBasisEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "documentation_protocol",
+            "dsr_corpus",
+            "framework_internal_file",
+            "user_instruction",
+            "external_source",
+            "other"
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        },
+        "citation_anchors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citationAnchor"
+          }
+        }
+      },
+      "required": [
+        "source_id",
+        "source_type",
+        "evidence_status"
+      ]
+    },
+    "relatedItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "path": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "relationship": {
+          "type": "string",
+          "enum": [
+            "validates",
+            "validated_by",
+            "depends_on",
+            "implements",
+            "implemented_by",
+            "renders",
+            "rendered_by",
+            "uses",
+            "used_by",
+            "supersedes",
+            "superseded_by",
+            "related"
+          ]
+        },
+        "description": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "relationship"
+      ]
+    },
+    "changeEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "$ref": "#/$defs/semver"
+        },
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "change_type": {
+          "type": "string",
+          "enum": [
+            "created",
+            "revised",
+            "reviewed",
+            "released",
+            "deprecated",
+            "superseded",
+            "archived"
+          ]
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "responsible_party": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "version",
+        "date",
+        "change_type",
+        "summary"
+      ]
+    },
+    "identifierSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "doi": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "url": {
+          "$ref": "#/$defs/uri"
+        },
+        "repository_url": {
+          "$ref": "#/$defs/uri"
+        },
+        "package_path": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "local_path": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version_tag": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "other_identifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "scheme": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "value": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            },
+            "required": [
+              "scheme",
+              "value"
+            ]
+          }
+        }
+      }
+    },
+    "artifactComponent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "component_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "component_type": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/artifactType"
+            },
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          ]
+        },
+        "component_function": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        }
+      },
+      "required": [
+        "component_id",
+        "component_name",
+        "component_type",
+        "component_function"
+      ]
+    },
+    "planStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "step_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "step_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "step_description": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "input": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "output": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "responsible_role": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "acceptance_criteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "evidence_required": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "step_id",
+        "step_name",
+        "step_description"
+      ]
+    },
+    "artifactPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "plan_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "purpose": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/planStep"
+          },
+          "minItems": 1
+        },
+        "expected_effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "failure_modes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        }
+      },
+      "required": [
+        "plan_id",
+        "plan_name",
+        "purpose"
+      ]
+    },
+    "capacitySpecification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capacity_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "capacity_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "description": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "enabled_by_components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "realized_in_use_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "test_or_evaluation_method": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        }
+      },
+      "required": [
+        "capacity_id",
+        "capacity_name",
+        "description"
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "claim_type": {
+          "$ref": "#/$defs/claimType"
+        },
+        "claim_statement": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "idiographic_specific",
+            "nomothetic_general",
+            "analytical_generalization",
+            "projectable_to_problem_class",
+            "mixed",
+            "not_specified"
+          ]
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        },
+        "evidence_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "claim_id",
+        "claim_type",
+        "claim_statement",
+        "evidence_status"
+      ]
+    },
+    "evaluationLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "link_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "demonstration_record",
+            "evaluation_plan",
+            "evaluation_report",
+            "review_record",
+            "test_record",
+            "other"
+          ]
+        },
+        "path_or_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "relationship_to_artifact": {
+          "type": "string",
+          "enum": [
+            "demonstrates",
+            "evaluates",
+            "tests_capacity",
+            "validates_claim",
+            "reviews",
+            "documents_use",
+            "other"
+          ]
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "link_id",
+        "record_type",
+        "path_or_id",
+        "relationship_to_artifact",
+        "evidence_status"
+      ]
+    },
+    "transparencyEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "$ref": "#/$defs/transparencyDimension"
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        },
+        "evidence_location": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "dimension",
+        "evidence_status"
+      ]
+    },
+    "traceLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trace_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "source": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "target": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "relationship": {
+          "type": "string",
+          "enum": [
+            "derives_from",
+            "supports",
+            "validates",
+            "implements",
+            "is_validated_by",
+            "constrains",
+            "extends",
+            "references",
+            "supersedes",
+            "other"
+          ]
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        }
+      },
+      "required": [
+        "trace_id",
+        "source",
+        "target",
+        "relationship",
+        "evidence_status"
+      ]
+    },
+    "validationRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rule_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "rule_type": {
+          "type": "string",
+          "enum": [
+            "required_field",
+            "controlled_value",
+            "cross_reference",
+            "evidence_requirement",
+            "quality_gate",
+            "semantic_consistency",
+            "other"
+          ]
+        },
+        "description": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "severity": {
+          "$ref": "#/$defs/validationSeverity"
+        },
+        "pass_condition": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "remediation_guidance": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "rule_id",
+        "rule_type",
+        "description",
+        "severity",
+        "pass_condition"
+      ]
+    },
+    "qualityGateReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gate_id": {
+          "type": "string",
+          "enum": [
+            "qg_consistency",
+            "qg_coherence",
+            "qg_cogency",
+            "qg_correspondence",
+            "qg_dsr_transparency",
+            "qg_reviewability"
+          ]
+        },
+        "status": {
+          "$ref": "#/$defs/qualityGateStatus"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "notes": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "gate_id",
+        "status"
+      ]
+    },
+    "artifactIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "artifact_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "artifact_slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "artifact_version": {
+          "$ref": "#/$defs/semver"
+        },
+        "artifact_summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "artifact_owner": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "responsible_parties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/personOrRole"
+          }
+        },
+        "identifiers": {
+          "$ref": "#/$defs/identifierSet"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_name",
+        "artifact_version",
+        "artifact_summary"
+      ]
+    },
+    "artifactClassification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary_artifact_type": {
+          "$ref": "#/$defs/artifactType"
+        },
+        "secondary_artifact_types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactType"
+          }
+        },
+        "ontological_role": {
+          "$ref": "#/$defs/artifactOntologicalRole"
+        },
+        "materiality": {
+          "$ref": "#/$defs/artifactMateriality"
+        },
+        "abstraction_level": {
+          "$ref": "#/$defs/abstractionLevel"
+        },
+        "artifact_taxonomy_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/controlledTermRef"
+          }
+        },
+        "novelty_claim": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "reuse_claim": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "primary_artifact_type",
+        "ontological_role",
+        "materiality",
+        "abstraction_level"
+      ]
+    },
+    "artifactBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "included_in_artifact": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "minItems": 1
+        },
+        "excluded_from_artifact": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "non_goals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "context_of_use": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "use_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "artifact_network_relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "related_artifact_or_context": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "relationship": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "boundary_note": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            },
+            "required": [
+              "related_artifact_or_context",
+              "relationship"
+            ]
+          }
+        },
+        "boundary_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "included_in_artifact"
+      ]
+    },
+    "designSpecification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "design_specification_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactComponent"
+          }
+        },
+        "make_plans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactPlan"
+          }
+        },
+        "use_plans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactPlan"
+          }
+        },
+        "capacity_specifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/capacitySpecification"
+          }
+        },
+        "interfaces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "design_rationale": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "alternatives_considered": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "alternative": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "reason_selected_or_rejected": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            },
+            "required": [
+              "alternative",
+              "reason_selected_or_rejected"
+            ]
+          }
+        },
+        "implementation_notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "design_specification_id"
+      ]
+    },
+    "lifecycleAndState": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "current_lifecycle_stage": {
+          "$ref": "#/$defs/lifecycleStage"
+        },
+        "maturity_level": {
+          "$ref": "#/$defs/conformanceLevel"
+        },
+        "current_state_summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version_status": {
+          "type": "string",
+          "enum": [
+            "initial",
+            "active",
+            "stable",
+            "experimental",
+            "deprecated",
+            "superseded",
+            "archived"
+          ]
+        },
+        "previous_versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "version": {
+                "$ref": "#/$defs/semver"
+              },
+              "path_or_tag": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "summary": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            },
+            "required": [
+              "version"
+            ]
+          }
+        },
+        "next_planned_state": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "current_lifecycle_stage",
+        "maturity_level",
+        "current_state_summary"
+      ]
+    },
+    "utilityQualityContribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim"
+          }
+        },
+        "quality_attributes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "attribute_id": {
+                "$ref": "#/$defs/stableId"
+              },
+              "attribute_name": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "definition": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "assessment_method": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "evidence_status": {
+                "$ref": "#/$defs/evidenceStatus"
+              }
+            },
+            "required": [
+              "attribute_id",
+              "attribute_name",
+              "evidence_status"
+            ]
+          }
+        },
+        "knowledge_contribution_summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "practice_contribution_summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "claim_limitations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "claims"
+      ]
+    },
+    "demonstrationAndEvaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "demonstration_present": {
+          "type": "boolean"
+        },
+        "evaluation_present": {
+          "type": "boolean"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evaluationLink"
+          }
+        },
+        "evaluation_summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "distinction_note": {
+          "description": "Explanation of how demonstration differs from evaluation for this artifact.",
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "demonstration_present",
+        "evaluation_present"
+      ]
+    },
+    "transparencySection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transparency_summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transparencyEvidence"
+          }
+        },
+        "known_transparency_limits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "dimensions"
+      ]
+    },
+    "traceabilitySection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trace_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/traceLink"
+          }
+        },
+        "upstream_dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relatedItem"
+          }
+        },
+        "downstream_dependents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relatedItem"
+          }
+        }
+      },
+      "required": [
+        "trace_links"
+      ]
+    },
+    "validationAndReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "validation_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/validationRule"
+          }
+        },
+        "acceptance_criteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "quality_gate_status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/qualityGateReview"
+          }
+        },
+        "review_notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "required": [
+        "validation_rules",
+        "quality_gate_status"
+      ]
+    },
+    "conformanceSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "declared_conformance_level": {
+          "$ref": "#/$defs/conformanceLevel"
+        },
+        "tailoring": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "l2_reviewability_requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "validation_status": {
+          "type": "string",
+          "enum": [
+            "not_validated",
+            "schema_valid",
+            "schema_invalid",
+            "reviewed",
+            "approved"
+          ]
+        }
+      },
+      "required": [
+        "declared_conformance_level",
+        "validation_status"
+      ]
+    },
+    "extensionField": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "extension_name": {
+          "$ref": "#/$defs/stableId"
+        },
+        "extension_value": {},
+        "rationale": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "evidence_status": {
+          "$ref": "#/$defs/evidenceStatus"
+        }
+      },
+      "required": [
+        "extension_name",
+        "extension_value"
+      ]
+    },
+    "artifactRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "item_type": {
+          "const": "record"
+        },
+        "record_class": {
+          "const": "dsr_artifact"
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "purpose": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        },
+        "owner": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "artifact_identity": {
+          "$ref": "#/$defs/artifactIdentity"
+        },
+        "artifact_classification": {
+          "$ref": "#/$defs/artifactClassification"
+        },
+        "artifact_boundary": {
+          "$ref": "#/$defs/artifactBoundary"
+        },
+        "design_specification": {
+          "$ref": "#/$defs/designSpecification"
+        },
+        "lifecycle_and_state": {
+          "$ref": "#/$defs/lifecycleAndState"
+        },
+        "utility_quality_contribution": {
+          "$ref": "#/$defs/utilityQualityContribution"
+        },
+        "demonstration_and_evaluation": {
+          "$ref": "#/$defs/demonstrationAndEvaluation"
+        },
+        "transparency": {
+          "$ref": "#/$defs/transparencySection"
+        },
+        "traceability": {
+          "$ref": "#/$defs/traceabilitySection"
+        },
+        "validation_and_review": {
+          "$ref": "#/$defs/validationAndReview"
+        },
+        "conformance": {
+          "$ref": "#/$defs/conformanceSection"
+        },
+        "source_basis": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourceBasisEntry"
+          },
+          "minItems": 1
+        },
+        "related_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relatedItem"
+          }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "open_questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "change_history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/changeEvent"
+          },
+          "minItems": 1
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/extensionField"
+          }
+        }
+      },
+      "required": [
+        "item_id",
+        "item_type",
+        "record_class",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "owner",
+        "artifact_identity",
+        "artifact_classification",
+        "artifact_boundary",
+        "design_specification",
+        "lifecycle_and_state",
+        "utility_quality_contribution",
+        "demonstration_and_evaluation",
+        "transparency",
+        "traceability",
+        "validation_and_review",
+        "conformance",
+        "source_basis",
+        "related_items",
+        "change_history"
+      ]
+    }
+  }
+}

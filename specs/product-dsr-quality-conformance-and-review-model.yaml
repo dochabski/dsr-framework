@@ -1,0 +1,1462 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_quality_conformance_and_review_model
+  title: DSR Quality, Conformance, and Review Model Specification
+  purpose: >
+    Define the DSR Framework quality dimensions, conformance maturity levels,
+    quality gates, review workflow, acceptance criteria, review records, and
+    remediation expectations used to judge whether a Design Science Research
+    artifact package is documented, reviewable, reusable, and publication-ready
+    without overclaiming evaluation, reproducibility, generalization, or scholarly
+    contribution evidence.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  item_type: specification
+  target_path: specs/product-dsr-quality-conformance-and-review-model.yaml
+  selection_id: spec_quality_review
+  output_format: yaml
+  default_conformance_target: l2_reviewable
+  license: CC0-1.0
+
+source_basis:
+  - source_id: dsr_framework_generation_spec
+    role: governing_generation_and_conformance_rules
+    evidence_status: mapped
+    notes: >
+      Requires product specifications to include identity, conceptual model,
+      normative requirements, information items, workflow, quality and conformance,
+      traceability, implementation guidance, template/schema implications, and
+      open questions.
+  - source_id: dsr_framework_generation_prompt
+    role: governing_output_and_traceability_prompt
+    evidence_status: mapped
+    notes: >
+      Requires generated framework portions to preserve DSR distinctions, include
+      traceability, avoid invented evidence, and include acceptance criteria,
+      validation rules, failure modes, limitations, and completion reports.
+  - source_id: dsr_framework_selection_table
+    role: target_selection_authority
+    evidence_status: mapped
+    notes: >
+      Identifies spec_quality_review as a product_spec YAML file at
+      specs/product-dsr-quality-conformance-and-review-model.yaml with L2 default
+      conformance and dependencies on information item architecture and the DSR
+      lifecycle model.
+  - source_id: weber_2018_design_science_research
+    role: quality_model_source
+    evidence_status: mapped
+    notes: >
+      Supports separation of DSR process quality from outcome or product quality,
+      and provides criteria for problem specification, contribution to knowledge,
+      solution derivation, and artifact outcome quality.
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    role: transparency_and_reviewability_source
+    evidence_status: mapped
+    notes: >
+      Supports process, problem-space, solution-space, build, evaluation, and
+      contribution transparency as reviewable quality dimensions.
+  - source_id: reliability_framework_sources_in_dsr_corpus
+    role: reliability_and_validity_source_family
+    evidence_status: partially_mapped
+    notes: >
+      Supports distinction among artifact, method, measure, implementation,
+      process, and design-knowledge reliability, including synchronic and
+      diachronic review concerns.
+  - source_id: venable_et_al_2016_evaluation_strategy_family
+    role: evaluation_strategy_source_family
+    evidence_status: partially_mapped
+    notes: >
+      Supports formative/summative and artificial/naturalistic evaluation
+      distinctions used in review workflow and acceptance criteria.
+  - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+    role: contribution_and_knowledge_path_source
+    evidence_status: mapped
+    notes: >
+      Supports review of knowledge goal, knowledge scope, knowledge path,
+      contribution positioning, and strategy progression.
+  - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    role: artifact_ontology_source
+    evidence_status: mapped
+    notes: >
+      Supports artifact-boundary review, artifact universal versus instance
+      distinction, make/use plan traceability, and artifact-network context.
+
+related_items:
+  upstream_dependencies:
+    - item_id: product_dsr_information_item_architecture
+      path: specs/product-dsr-information-item-architecture.yaml
+      relation: depends_on
+      rationale: Review records, findings, evidence bundles, acceptance matrices, and remediation logs must use controlled information-item rules.
+    - item_id: product_dsr_lifecycle_and_contribution_model
+      path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+      relation: depends_on
+      rationale: Quality gates are aligned to DSR lifecycle stages, artifact taxonomy, contribution model, transparency, and evaluation alignment.
+    - item_id: product_dsr_artifact_package_specification
+      path: specs/product-dsr-artifact-package-specification.yaml
+      relation: aligns_with
+      rationale: Package-readiness and release-readiness gates must correspond to required package contents and evidence obligations.
+    - item_id: product_dsr_repository_architecture
+      path: specs/product-dsr-repository-architecture.yaml
+      relation: aligns_with
+      rationale: Review evidence and conformance outputs must be located in canonical repository directories.
+  downstream_outputs:
+    - item_id: model_reliability
+      path: models/dsr-reliability-model.yaml
+      relation: refines
+    - item_id: model_projectability
+      path: models/dsr-projectability-model.yaml
+      relation: refines
+    - item_id: model_publication_readiness
+      path: models/dsr-publication-readiness-model.yaml
+      relation: depends_on
+    - item_id: template_review_record
+      path: templates/review-record-template.yaml
+      relation: operationalizes
+    - item_id: checklist_reliability
+      path: checklists/reliability-checklist.yaml
+      relation: operationalizes
+    - item_id: checklist_projectability
+      path: checklists/replication-projectability-checklist.yaml
+      relation: operationalizes
+    - item_id: checklist_publication_readiness
+      path: checklists/publication-readiness-checklist.yaml
+      relation: depends_on
+    - item_id: record_self_review
+      path: records/reviews/record-review-0001-self-review.yaml
+      relation: instance_of
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    responsible_party: GPT-5.5 Thinking
+    summary: >
+      Created initial L2-reviewable product specification for DSR quality,
+      conformance, and review workflow.
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: Establish the review model identity, scope, users, and non-goals.
+    content:
+      product_scope:
+        included:
+          - Define controlled quality dimensions for DSR artifact packages.
+          - Define conformance maturity levels from L0 through L5.
+          - Define quality gates for planning, build, demonstration, evaluation, contribution, transparency, packaging, and publication readiness.
+          - Define review workflow roles, review cycles, decisions, findings, and remediation expectations.
+          - Define acceptance criteria for moving an artifact package between maturity levels.
+          - Define how review records connect to package inventory, conformance declaration, evaluation plans, and release records.
+        excluded:
+          - Does not empirically validate the DSR Framework itself.
+          - Does not replace domain-specific peer review by journals, conferences, institutional review boards, or funders.
+          - Does not claim that passing repository review proves artifact effectiveness in every use context.
+          - Does not require all DSR artifacts to be fully open, executable, or reproducible when privacy, security, proprietary, or maintenance constraints apply.
+      intended_users:
+        - role_id: artifact_author
+          responsibilities:
+            - Prepare evidence for quality gates.
+            - Respond to review findings.
+            - Update conformance declarations honestly.
+        - role_id: framework_maintainer
+          responsibilities:
+            - Maintain quality vocabulary, review templates, and checklists.
+            - Confirm repository-level consistency and traceability.
+            - Approve releases when acceptance criteria are satisfied.
+        - role_id: reviewer
+          responsibilities:
+            - Evaluate evidence against declared quality dimensions.
+            - Distinguish blocking from non-blocking findings.
+            - Avoid requiring unsupported evidence beyond the declared maturity level.
+        - role_id: adopter_or_reuser
+          responsibilities:
+            - Inspect conformance and review records before reuse.
+            - Respect boundary conditions, unresolved findings, and evidence limits.
+      review_principles:
+        - id: qp_evidence_over_assertion
+          statement: Quality claims must be supported by traceable evidence, not narrative conformance claims alone.
+        - id: qp_process_product_separation
+          statement: Process quality and artifact outcome quality must be reviewed separately because either may be stronger than the other.
+        - id: qp_claim_evidence_alignment
+          statement: Acceptance depends on alignment among contribution claims, artifact specifications, evaluation evidence, and stated limitations.
+        - id: qp_proportionate_review
+          statement: Review burden must be proportionate to artifact maturity, risk, intended reuse, and publication goals.
+        - id: qp_contextual_projectability
+          statement: Generalization, transfer, and reuse claims must be bounded by problem class, context, artifact type, and available evaluation evidence.
+        - id: qp_transparency_with_safeguards
+          statement: Transparency must support trust and reuse while protecting privacy, security, intellectual property, and maintenance feasibility.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: Define review entities, quality dimensions, maturity levels, decision values, and gate structure.
+    content:
+      core_entities:
+        - id: review_object
+          label: Review Object
+          definition: A controlled repository item, artifact package, evidence record, model, template, checklist, release, or documentation page submitted for quality review.
+          examples:
+            - dsr_artifact_package
+            - product_specification
+            - evaluation_plan
+            - evaluation_report
+            - contribution_claim
+            - transparency_crosswalk
+            - release_record
+        - id: evidence_bundle
+          label: Evidence Bundle
+          definition: A set of records, files, citations, evaluation outputs, decisions, issue links, or demonstrations used to support a review claim.
+        - id: quality_dimension
+          label: Quality Dimension
+          definition: A controlled evaluative aspect used to judge a review object.
+        - id: quality_gate
+          label: Quality Gate
+          definition: A review checkpoint with evidence requirements, acceptance criteria, decision options, and remediation rules.
+        - id: conformance_level
+          label: Conformance Level
+          definition: A declared maturity level indicating what kind of documentation, review, validation, reuse, or archival evidence has been achieved.
+        - id: review_cycle
+          label: Review Cycle
+          definition: One bounded pass through scope confirmation, evidence inspection, finding classification, decision, and remediation.
+        - id: review_finding
+          label: Review Finding
+          definition: A documented observation about conformance, evidence, risk, inconsistency, omission, or improvement opportunity.
+        - id: acceptance_decision
+          label: Acceptance Decision
+          definition: A controlled outcome assigned to a gate or review cycle.
+      quality_dimensions:
+        - id: qd_consistency
+          label: Consistency
+          definition: Conformance with repository naming, item type, status, directory, metadata, identifier, and version conventions.
+          evidence_examples:
+            - file_path
+            - item_id
+            - package_inventory_entry
+            - schema_or_template_alignment
+        - id: qd_coherence
+          label: Coherence
+          definition: Alignment among related products, source files, models, vocabularies, schemas, templates, checklists, records, and docs.
+          evidence_examples:
+            - related_items
+            - dependency_map
+            - traceability_matrix
+            - conflict_resolution_notes
+        - id: qd_cogency
+          label: Cogency
+          definition: Logical order, usable operating logic, explicit assumptions, and absence of unsupported inferential leaps.
+          evidence_examples:
+            - workflow_steps
+            - acceptance_criteria
+            - assumptions
+            - limitations
+        - id: qd_correspondence
+          label: Correspondence
+          definition: Fit between the generated portion, the declared DSR artifact package, selected conformance target, and source basis.
+          evidence_examples:
+            - artifact_profile_alignment
+            - conformance_alignment
+            - source_basis
+            - target_path
+        - id: qd_dsr_identity
+          label: DSR Identity
+          definition: Evidence that the work is Design Science Research rather than only consulting, routine engineering, documentation, or explanatory research.
+          evidence_examples:
+            - problem_objectives_record
+            - artifact_specification
+            - design_knowledge_claim
+            - build_evaluate_traceability
+        - id: qd_problem_space_quality
+          label: Problem-Space Quality
+          definition: Clarity, stakeholder relevance, boundary definition, problem class, local instance, goals, constraints, risks, and change conditions.
+          evidence_examples:
+            - problem_statement
+            - stakeholder_map
+            - requirements
+            - context_boundary_statement
+        - id: qd_solution_space_quality
+          label: Solution-Space Quality
+          definition: Grounding in prior knowledge, artifact families, kernel theories, design precedents, standards, and alternative solutions.
+          evidence_examples:
+            - solution_space_record
+            - source_basis_record
+            - alternative_analysis
+            - design_rationale
+        - id: qd_artifact_quality
+          label: Artifact Quality
+          definition: Quality of the artifact as a designed object, including boundary, components, make plan, use plan, capacities, interfaces, constraints, and versioning.
+          evidence_examples:
+            - artifact_specification
+            - component_model
+            - make_plan
+            - use_plan
+            - test_results
+        - id: qd_artifact_utility
+          label: Artifact Utility
+          definition: Evidence that the artifact can help address the problem or improve the target situation under stated conditions.
+          evidence_examples:
+            - demonstration_record
+            - evaluation_report
+            - use_case_evidence
+            - stakeholder_feedback
+        - id: qd_contribution_quality
+          label: Contribution Quality
+          definition: Clarity, novelty, significance, knowledge goal, knowledge scope, contribution type, and relation to existing DSR knowledge.
+          evidence_examples:
+            - contribution_claim
+            - contribution_positioning_record
+            - literature_grounding
+            - boundary_conditions
+        - id: qd_evaluation_adequacy
+          label: Evaluation Adequacy
+          definition: Fit between evaluation questions, artifact claims, methods, criteria, setting, participants or units, data, and conclusions.
+          evidence_examples:
+            - evaluation_plan
+            - evaluation_report
+            - criteria_alignment_matrix
+            - method_rationale
+        - id: qd_validity
+          label: Validity
+          definition: Degree to which evidence supports the stated problem, artifact, evaluation, context, contribution, and inference claims.
+          controlled_subdimensions:
+            - construct_validity
+            - semantic_validity
+            - procedural_validity
+            - artifact_validity
+            - evaluation_validity
+            - context_validity
+            - external_validity
+            - conclusion_validity
+          evidence_examples:
+            - validity_threat_log
+            - mitigation_plan
+            - boundary_conditions
+            - rival_explanation_analysis
+        - id: qd_reliability
+          label: Reliability
+          definition: Consistency, repeatability, stability, and dependable performance of methods, measures, artifacts, implementations, processes, or design knowledge.
+          controlled_subdimensions:
+            - artifact_reliability
+            - method_reliability
+            - measure_reliability
+            - implementation_reliability
+            - process_reliability
+            - design_knowledge_reliability
+            - synchronic_reliability
+            - diachronic_reliability
+          evidence_examples:
+            - procedural_detail
+            - repeated_tests
+            - reviewer_agreement
+            - versioned_artifact_behavior
+            - maintenance_notes
+        - id: qd_replication_projectability
+          label: Replication and Projectability
+          definition: Evidence that later users can repeat, adapt, transfer, extend, or interpret the work within clearly stated boundaries.
+          evidence_examples:
+            - replication_notes
+            - projectability_statement
+            - reuse_constraints
+            - adaptation_guidance
+            - problem_class_definition
+        - id: qd_transparency
+          label: DSR Transparency
+          definition: Visibility into process, problem space, solution space, build, evaluation, and contribution sufficient for review, trust, reuse, and critique.
+          controlled_subdimensions:
+            - process_transparency
+            - problem_space_transparency
+            - solution_space_transparency
+            - build_transparency
+            - evaluation_transparency
+            - contribution_transparency
+          evidence_examples:
+            - transparency_crosswalk
+            - activity_log
+            - design_decision_records
+            - evaluation_data_summary
+        - id: qd_responsible_design
+          label: Responsible Design
+          definition: Attention to ethical, legal, social, accessibility, privacy, security, equity, and harm-related implications of the artifact and its reuse.
+          evidence_examples:
+            - risk_register
+            - mitigation_record
+            - security_notes
+            - accessibility_review
+            - stakeholder_impact_notes
+        - id: qd_aesthetic_and_experiential_fit
+          label: Aesthetic and Experiential Fit
+          definition: Quality of artifact experience when aesthetics, usability, affect, or situated interpretation materially affect artifact utility or contribution.
+          evidence_examples:
+            - usability_findings
+            - aesthetic_criteria
+            - end_user_feedback
+            - design_rationale
+          applicability_rule: Optional unless the artifact's intended function, use, or contribution depends on experience, interpretation, persuasion, or creative form.
+        - id: qd_package_readiness
+          label: Package Readiness
+          definition: Completeness and navigability of the artifact package for repository review, reuse, citation, release, and preservation.
+          evidence_examples:
+            - package_inventory
+            - manifest
+            - metadata
+            - conformance_declaration
+            - license_and_citation_files
+      conformance_levels:
+        - id: l0_draft
+          label: L0 Draft
+          definition: Content exists but may be incomplete, internally unstable, or not yet traceable.
+          minimum_acceptance:
+            - Stable file path and item ID exist.
+            - Draft status is explicit.
+            - TODOs are visible rather than hidden.
+        - id: l1_documented
+          label: L1 Documented
+          definition: Core identity, purpose, ownership, version, source basis, related items, and change history are present.
+          minimum_acceptance:
+            - Required common fields are present.
+            - Repository location follows naming rules.
+            - Basic assumptions and limitations are stated.
+        - id: l2_reviewable
+          label: L2 Reviewable
+          definition: Reviewers can evaluate the item against explicit evidence requirements, acceptance criteria, traceability, limitations, and quality gates.
+          minimum_acceptance:
+            - Relevant quality dimensions are mapped.
+            - Gate criteria and evidence requirements are explicit.
+            - Source basis and traceability are recorded.
+            - Open questions do not block safe review.
+        - id: l3_exercisable
+          label: L3 Exercisable
+          definition: The item can be exercised through templates, checklists, schemas, examples, validation scripts, pilot review, or worked package use.
+          minimum_acceptance:
+            - At least one exercisable checklist, template, schema, or example exists.
+            - Validation defects can be captured as review findings.
+            - Remediation workflow is defined.
+        - id: l4_reusable
+          label: L4 Reusable
+          definition: The item has sufficient guidance, examples, boundary conditions, and review evidence for reuse by others beyond the original authoring context.
+          minimum_acceptance:
+            - Reuse constraints and adaptation guidance are documented.
+            - Representative review or pilot use has been completed.
+            - Non-blocking limitations are visible.
+        - id: l5_archival_publication_ready
+          label: L5 Archival Publication Ready
+          definition: The item is ready for tagged release, citation, preservation, DOI/registry use, and publication-facing review.
+          minimum_acceptance:
+            - Release record, package inventory, metadata, license, citation, and preservation evidence are complete.
+            - Publication-readiness checklist has no unresolved blocking findings.
+            - Archival risks are documented or mitigated.
+      acceptance_decisions:
+        - id: accept
+          label: Accept
+          use_when: All required criteria for the target gate and conformance level are satisfied.
+        - id: accept_with_minor_findings
+          label: Accept with Minor Findings
+          use_when: Non-blocking findings exist but do not compromise reviewability, safety, or stated conformance.
+        - id: conditional_acceptance
+          label: Conditional Acceptance
+          use_when: Acceptance depends on specified remediation before release or downstream reuse.
+        - id: revise_and_resubmit
+          label: Revise and Resubmit
+          use_when: One or more material criteria are unsatisfied but remediation is feasible.
+        - id: reject_for_scope
+          label: Reject for Scope
+          use_when: The item does not correspond to the selected product, artifact package, or DSR scope.
+        - id: defer
+          label: Defer
+          use_when: Review cannot proceed because necessary dependencies, evidence, or decisions are missing.
+      finding_severity:
+        - id: blocker
+          definition: Prevents declared conformance, release, or safe use.
+        - id: major
+          definition: Weakens evidence, coherence, or reviewability but can be remediated.
+        - id: minor
+          definition: Local inconsistency, formatting issue, unclear wording, or small omission.
+        - id: advisory
+          definition: Improvement suggestion that does not affect current conformance decision.
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: Define mandatory, recommended, optional, and prohibited rules for DSR quality review.
+    content:
+      must:
+        - id: qr_must_001
+          requirement: Every review object must declare item_id or product.id, item_type, title, purpose, status, version, owner or responsible role, source_basis, related_items, and change_history when it is a controlled item.
+          verification: schema_or_manual_metadata_review
+        - id: qr_must_002
+          requirement: Every quality gate must define evidence_required, acceptance_criteria, failure_modes, remediation_guidance, and decision_values.
+          verification: quality_gate_review
+        - id: qr_must_003
+          requirement: Review must distinguish artifact utility, artifact quality, and contribution to knowledge.
+          verification: traceability_and_claim_alignment_review
+        - id: qr_must_004
+          requirement: Review must distinguish demonstration from evaluation.
+          verification: evaluation_evidence_review
+        - id: qr_must_005
+          requirement: Evaluation claims must identify artifact claim, evaluation method, evaluation criterion, setting, data or evidence, result, limitation, and inference boundary.
+          verification: evaluation_plan_or_report_review
+        - id: qr_must_006
+          requirement: DSR transparency must be mapped across process, problem-space, solution-space, build, evaluation, and contribution dimensions, or marked not_applicable with rationale.
+          verification: transparency_crosswalk_review
+        - id: qr_must_007
+          requirement: Validity and reliability concerns must be recorded when the artifact makes effectiveness, evaluation, measurement, reuse, transfer, or contribution claims.
+          verification: validity_reliability_review
+        - id: qr_must_008
+          requirement: Conformance level declarations must not exceed the evidence available in review records, package inventory, evaluation records, and release records.
+          verification: conformance_declaration_review
+        - id: qr_must_009
+          requirement: Blocking review findings must be remediated or explicitly accepted through a documented tailoring or risk decision before release.
+          verification: finding_resolution_review
+        - id: qr_must_010
+          requirement: Each release candidate must include a review record or review summary identifying gate decisions and unresolved findings.
+          verification: release_gate_review
+      should:
+        - id: qr_should_001
+          requirement: Review criteria should be expressed in controlled fields, lists, or tables rather than only prose.
+          verification: structure_review
+        - id: qr_should_002
+          requirement: Reviewers should separate repository-conformance findings from DSR-methodological findings and publication-readiness findings.
+          verification: finding_classification_review
+        - id: qr_should_003
+          requirement: Review should use staged formative review before summative release review when the artifact is still evolving.
+          verification: workflow_review
+        - id: qr_should_004
+          requirement: Reuse and projectability claims should name the problem class, context boundary, artifact version, and adaptation constraints.
+          verification: projectability_review
+        - id: qr_should_005
+          requirement: Where feasible, review should include independent or second-pass inspection for high-risk, publication-ready, or reusable artifacts.
+          verification: review_assignment_record
+      may:
+        - id: qr_may_001
+          requirement: Low-risk L1 or L2 items may use self-review if reviewer independence is not required for the declared conformance level.
+          verification: self_review_record
+        - id: qr_may_002
+          requirement: Reviewers may defer non-applicable quality dimensions with rationale when they are irrelevant to the artifact type or maturity level.
+          verification: dimension_applicability_matrix
+        - id: qr_may_003
+          requirement: Authors may use qualitative, analytical, artificial, naturalistic, formative, summative, mixed-method, or repository-validation evidence when the method is aligned with the claim.
+          verification: evaluation_method_alignment_review
+      must_not:
+        - id: qr_must_not_001
+          requirement: Review must not equate guideline conformance with high-quality DSR without inspecting evidence and outcomes.
+          verification: claim_evidence_alignment_review
+        - id: qr_must_not_002
+          requirement: Review must not require exact reproducibility when artifact context, privacy, security, proprietary constraints, or DSR intervention effects make exact reproduction inappropriate.
+          verification: replication_context_review
+        - id: qr_must_not_003
+          requirement: Review must not accept publication-readiness, generalization, effectiveness, or reuse claims that are not bounded by evidence and stated limitations.
+          verification: overclaim_review
+        - id: qr_must_not_004
+          requirement: Review must not hide unresolved TODOs, assumptions, missing evidence, or known defects in release-facing records.
+          verification: release_readiness_review
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: Define the records and controlled files required to operationalize quality review.
+    content:
+      required_or_recommended_items:
+        - item_id: review_record
+          path_pattern: records/reviews/record-review-<sequence-or-date>-<slug>.yaml
+          item_type: record
+          requirement_level: must_for_l2_or_higher
+          purpose: Preserve reviewer, date, reviewed object, criteria, findings, decision, evidence, and remediation obligations.
+          minimum_fields:
+            - record_id
+            - record_class
+            - event_or_action
+            - reviewed_item
+            - date
+            - responsible_party
+            - reviewer_role
+            - target_conformance_level
+            - gate_results
+            - findings
+            - evidence
+            - outcome
+            - related_items
+            - retention_rule
+        - item_id: quality_gate_status_matrix
+          path_pattern: records/reviews/quality-gate-status-<sequence-or-date>.yaml
+          item_type: record
+          requirement_level: should
+          purpose: Summarize pass, conditional, fail, deferred, and not-applicable status for all quality gates.
+        - item_id: acceptance_matrix
+          path_pattern: records/reviews/acceptance-matrix-<sequence-or-date>.yaml
+          item_type: record
+          requirement_level: should_for_l3_or_higher
+          purpose: Map acceptance criteria to evidence and unresolved findings.
+        - item_id: finding_log
+          path_pattern: records/reviews/finding-log-<sequence-or-date>.yaml
+          item_type: record
+          requirement_level: may
+          purpose: Track findings across multiple review cycles where issue volume is high.
+        - item_id: remediation_record
+          path_pattern: records/reviews/record-remediation-<sequence-or-date>-<slug>.yaml
+          item_type: record
+          requirement_level: must_when_blocking_or_major_findings_exist
+          purpose: Record how blocking or major findings were resolved, deferred, tailored, or accepted as risk.
+        - item_id: conformance_declaration
+          path: conformance-declaration.yaml
+          item_type: record
+          requirement_level: must_for_package
+          purpose: Declare current conformance level and tailoring decisions.
+        - item_id: evaluation_plan
+          path_pattern: records/evaluations/record-evaluation-plan-<sequence-or-date>.yaml
+          item_type: plan
+          requirement_level: must_when_evaluation_claims_are_made
+          purpose: Pre-specify evaluation questions, methods, criteria, evidence, analysis, and claim alignment.
+        - item_id: evaluation_report
+          path_pattern: records/evaluations/record-evaluation-report-<sequence-or-date>.yaml
+          item_type: report
+          requirement_level: must_when_evaluation_has_been_completed
+          purpose: Preserve evaluation results, limitations, validity threats, and implications.
+        - item_id: transparency_crosswalk
+          path_pattern: records/dsr-transparency/record-dsr-transparency-crosswalk-<sequence-or-date>.yaml
+          item_type: record
+          requirement_level: should_for_l2_and_must_for_l4_or_higher
+          purpose: Map evidence across the six DSR transparency dimensions.
+        - item_id: release_record
+          path_pattern: records/releases/record-release-<sequence-or-date>-<version>.yaml
+          item_type: record
+          requirement_level: must_for_l5
+          purpose: Preserve release decision, package state, unresolved findings, archival metadata, and publication readiness.
+      finding_record_shape:
+        finding_id: <stable_finding_id>
+        severity: blocker | major | minor | advisory
+        dimension: <quality_dimension_id>
+        gate_id: <quality_gate_id>
+        finding_statement: <reviewer_observation>
+        evidence_reference: []
+        affected_items: []
+        required_action: <action_needed_or_null>
+        due_before: release | next_review | future_version | not_applicable
+        disposition: open | remediated | accepted_risk | deferred | invalid
+      evidence_bundle_shape:
+        evidence_bundle_id: <stable_evidence_bundle_id>
+        evidence_items:
+          - evidence_id: <stable_evidence_id>
+            evidence_type: file | record | citation_anchor | schema_validation | checklist_result | evaluation_result | decision_record | external_registry
+            location: <path_or_identifier>
+            supports_claims: []
+            limitations: []
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: Define quality gate sequence, review cycle steps, decisions, and remediation flow.
+    content:
+      review_modes:
+        - id: self_review
+          label: Self Review
+          allowed_for:
+            - l0_draft
+            - l1_documented
+            - l2_reviewable
+          independence: none
+          minimum_record: record_self_review
+        - id: maintainer_review
+          label: Maintainer Review
+          allowed_for:
+            - l1_documented
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+          independence: repository_maintainer_or_designated_reviewer
+          minimum_record: review_record
+        - id: independent_peer_review
+          label: Independent Peer Review
+          allowed_for:
+            - l4_reusable
+            - l5_archival_publication_ready
+          independence: reviewer_not_primary_author
+          minimum_record: review_record
+        - id: release_review
+          label: Release Review
+          allowed_for:
+            - l5_archival_publication_ready
+          independence: maintainer_or_release_authority
+          minimum_record: release_record
+      standard_review_cycle:
+        - step_id: rw_01_scope_review
+          step_name: Confirm review scope and conformance target
+          inputs:
+            - selected_item
+            - target_conformance_level
+            - package_inventory
+          outputs:
+            - review_scope_statement
+          exit_condition: Scope is accepted, narrowed, or deferred.
+        - step_id: rw_02_completeness_review
+          step_name: Inspect required metadata, related items, source basis, and file placement
+          inputs:
+            - selected_item
+            - repository_architecture_rules
+            - information_item_rules
+          outputs:
+            - completeness_findings
+          exit_condition: Required metadata omissions are recorded.
+        - step_id: rw_03_quality_dimension_mapping
+          step_name: Determine applicable quality dimensions
+          inputs:
+            - artifact_type
+            - lifecycle_stage
+            - contribution_claim
+            - target_conformance_level
+          outputs:
+            - dimension_applicability_matrix
+          exit_condition: Applicable, optional, and not-applicable dimensions are documented.
+        - step_id: rw_04_gate_review
+          step_name: Evaluate quality gates
+          inputs:
+            - evidence_bundle
+            - gate_acceptance_criteria
+            - checklists
+            - schemas
+          outputs:
+            - gate_results
+            - findings
+          exit_condition: Each required gate has a decision value.
+        - step_id: rw_05_claim_evidence_alignment
+          step_name: Inspect alignment among claims, evidence, limitations, and conformance level
+          inputs:
+            - artifact_profile
+            - contribution_claim
+            - evaluation_plan_or_report
+            - transparency_crosswalk
+          outputs:
+            - overclaim_findings
+            - limitation_updates
+          exit_condition: Unsupported claims are remediated, bounded, or recorded.
+        - step_id: rw_06_decision
+          step_name: Assign review decision
+          inputs:
+            - gate_results
+            - findings
+            - target_conformance_level
+          outputs:
+            - acceptance_decision
+          exit_condition: Decision is recorded with rationale.
+        - step_id: rw_07_remediation
+          step_name: Resolve findings or document deferral
+          inputs:
+            - findings
+            - remediation_actions
+            - tailoring_decisions
+          outputs:
+            - remediation_record
+            - updated_review_record
+          exit_condition: Blocking findings are closed, deferred by governance decision, or prevent acceptance.
+        - step_id: rw_08_update_inventory_and_conformance
+          step_name: Update package inventory and conformance declaration
+          inputs:
+            - review_record
+            - conformance_declaration
+            - package_inventory
+          outputs:
+            - updated_conformance_declaration
+            - updated_package_inventory
+          exit_condition: Declared conformance matches review evidence.
+      quality_gates:
+        - gate_id: qg_01_repository_consistency
+          label: Repository Consistency Gate
+          purpose: Confirm that the item can exist in the repository without violating naming, location, item-type, or metadata conventions.
+          applicable_levels:
+            - l1_documented
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - target_path
+            - item_id
+            - item_type
+            - status
+            - version
+            - owner
+            - related_items
+            - package_inventory_entry
+          acceptance_criteria:
+            - File path follows lower-kebab-case repository conventions.
+            - Item type is a controlled value or justified extension.
+            - Related items and dependencies are named without contradiction.
+            - Package inventory can reference the item unambiguously.
+          failure_modes:
+            - missing_metadata
+            - invalid_path
+            - conflicting_id
+            - orphaned_item
+          remediation_guidance: Correct metadata, path, identifiers, or inventory references before higher-level review.
+        - gate_id: qg_02_dsr_identity
+          label: DSR Identity Gate
+          purpose: Confirm that the work is a DSR artifact package or framework portion with a problem, artifact, design logic, and knowledge contribution role.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - problem_context
+            - artifact_description
+            - design_or_build_logic
+            - contribution_claim
+            - lifecycle_stage
+          acceptance_criteria:
+            - The artifact or framework portion is distinguishable from routine documentation or consulting output.
+            - The problem, artifact, demonstration/evaluation, and contribution role are explicit or intentionally not applicable.
+            - Artifact utility, artifact quality, and contribution to knowledge are not collapsed into one unsupported claim.
+          failure_modes:
+            - no_artifact_claim
+            - routine_design_only
+            - missing_contribution_logic
+            - demonstration_evaluation_conflation
+          remediation_guidance: Add or revise artifact profile, contribution positioning, and lifecycle alignment.
+        - gate_id: qg_03_problem_solution_grounding
+          label: Problem and Solution Grounding Gate
+          purpose: Confirm that problem-space and solution-space evidence are sufficient for the stated maturity level.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - problem_objectives_record
+            - stakeholder_or_context_notes
+            - solution_space_record
+            - source_basis
+            - requirements_or_success_criteria
+          acceptance_criteria:
+            - Problem class, local instance, stakeholders, goals, constraints, and boundaries are stated.
+            - Solution-space grounding identifies relevant prior DSR knowledge, artifacts, theories, methods, standards, or alternatives.
+            - Requirements or success criteria connect problem evidence to artifact design choices.
+          failure_modes:
+            - vague_problem
+            - missing_context_boundary
+            - ungrounded_solution
+            - untraceable_requirements
+          remediation_guidance: Strengthen problem-space and solution-space records; add traceability to requirements and rationale.
+        - gate_id: qg_04_artifact_specification
+          label: Artifact Specification Gate
+          purpose: Confirm artifact boundary, type, components, make/use logic, version, and constraints.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - artifact_specification
+            - artifact_type
+            - component_list
+            - make_or_build_plan
+            - use_or_application_plan
+            - version_identifier
+          acceptance_criteria:
+            - Artifact type and boundary are explicit.
+            - Components, dependencies, use conditions, and constraints are documented.
+            - Artifact instance, artifact type, and reusable design knowledge are distinguished where relevant.
+          failure_modes:
+            - ambiguous_artifact_boundary
+            - missing_component_specification
+            - no_use_plan
+            - no_version_control
+          remediation_guidance: Add artifact specification details and distinguish instance/type/design-knowledge claims.
+        - gate_id: qg_05_build_and_process_transparency
+          label: Build and Process Transparency Gate
+          purpose: Confirm that the design/build process is auditable enough for the declared maturity level.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - design_rationale
+            - design_decision_records
+            - build_transparency_record
+            - activity_log_or_process_summary
+            - alternatives_and_tradeoffs
+          acceptance_criteria:
+            - Major design decisions are traceable to requirements, constraints, evidence, or rationale.
+            - Process deviations and emergent decisions are described when they affect artifact quality or claims.
+            - Build transparency is sufficient for review without requiring unsafe or infeasible disclosure.
+          failure_modes:
+            - unexplained_design_decisions
+            - missing_build_record
+            - hidden_assumptions
+            - excessive_or_unsafe_opacity
+          remediation_guidance: Add design rationale, decision records, process notes, or safe transparency alternatives.
+        - gate_id: qg_06_demonstration_readiness
+          label: Demonstration Readiness Gate
+          purpose: Confirm that artifact demonstration is recorded separately from evaluation.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - demonstration_record
+            - use_scenario
+            - demonstration_context
+            - demonstrated_capability
+          acceptance_criteria:
+            - Demonstration context and use scenario are documented.
+            - Demonstration output shows that the artifact can be applied or exercised.
+            - Demonstration evidence is not overstated as evaluation evidence unless evaluative criteria were applied.
+          failure_modes:
+            - no_demonstration_record
+            - demonstration_evaluation_conflation
+            - unclear_use_scenario
+          remediation_guidance: Add demonstration record and revise claims to distinguish show-case use from evaluative testing.
+        - gate_id: qg_07_evaluation_adequacy
+          label: Evaluation Adequacy Gate
+          purpose: Confirm that evaluation evidence fits the artifact claims and maturity level.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - evaluation_plan
+            - evaluation_report_or_evaluation_status
+            - evaluation_criteria
+            - claim_alignment_matrix
+            - limitations
+          acceptance_criteria:
+            - Evaluation questions and criteria correspond to artifact utility, artifact quality, or contribution claims.
+            - Evaluation setting is classified, such as analytical, artificial, naturalistic, formative, summative, or mixed.
+            - Results, limitations, and inference boundaries are stated.
+            - Absence of evaluation is disclosed rather than hidden.
+          failure_modes:
+            - unsupported_effectiveness_claim
+            - method_claim_mismatch
+            - absent_limitations
+            - missing_evaluation_status
+          remediation_guidance: Add evaluation plan/report, reduce claims, or document planned future evaluation.
+        - gate_id: qg_08_validity_reliability
+          label: Validity and Reliability Gate
+          purpose: Confirm that validity and reliability concerns are identified, evidenced, mitigated, or bounded.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - validity_threats
+            - reliability_targets
+            - mitigation_actions
+            - repeatability_or_stability_notes
+            - reviewer_or_measure_consistency_evidence_if_applicable
+          acceptance_criteria:
+            - Validity concerns are mapped to claims and evidence.
+            - Reliability targets are stated when artifact behavior, method application, measures, or design knowledge must be dependable.
+            - Threats are mitigated, accepted as limitations, or deferred with rationale.
+          failure_modes:
+            - no_validity_discussion_for_evaluative_claims
+            - no_reliability_discussion_for_repeatable_methods
+            - unsupported_transfer_or_stability_claim
+          remediation_guidance: Add validity/reliability sections, threat logs, mitigation notes, or claim limitations.
+        - gate_id: qg_09_contribution_and_projectability
+          label: Contribution and Projectability Gate
+          purpose: Confirm contribution positioning, knowledge scope, problem-class boundary, reuse guidance, and replication/projectability claims.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - contribution_claim
+            - contribution_positioning_record
+            - knowledge_goal
+            - knowledge_scope
+            - problem_class
+            - boundary_conditions
+            - reuse_or_adaptation_guidance
+          acceptance_criteria:
+            - Contribution type is explicit and not inflated beyond evidence.
+            - Knowledge goal and scope are identified.
+            - Reuse, replication, transfer, or adaptation claims include boundary conditions.
+            - Routine design risk is considered for contribution claims.
+          failure_modes:
+            - vague_contribution
+            - overgeneralized_claim
+            - missing_boundary_conditions
+            - no_reuse_constraints
+          remediation_guidance: Revise contribution positioning and add projectability or reuse constraints.
+        - gate_id: qg_10_responsible_design_and_risk
+          label: Responsible Design and Risk Gate
+          purpose: Confirm relevant ethical, social, privacy, security, accessibility, equity, maintenance, and misuse risks are considered.
+          applicable_levels:
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - risk_register_or_risk_notes
+            - mitigation_plan
+            - privacy_security_or_ip_constraints
+            - accessibility_notes_when_applicable
+            - stakeholder_impact_notes
+          acceptance_criteria:
+            - Applicable risks and safeguards are identified.
+            - Transparency requirements do not force unsafe disclosure.
+            - Reuse constraints account for risk, maintenance, and stakeholder harm where applicable.
+          failure_modes:
+            - undisclosed_security_or_privacy_risk
+            - unsafe_open_artifact_expectation
+            - missing_accessibility_or_stakeholder_impact_notes
+          remediation_guidance: Add risk analysis, safeguards, partial-disclosure rationale, or reuse constraints.
+        - gate_id: qg_11_package_readiness
+          label: Package Readiness Gate
+          purpose: Confirm package contents, metadata, inventory, conformance declaration, and navigability.
+          applicable_levels:
+            - l1_documented
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+          evidence_required:
+            - manifest
+            - metadata
+            - artifact_profile
+            - package_inventory
+            - conformance_declaration
+            - license_and_citation_files_when_release_facing
+          acceptance_criteria:
+            - Required files for the declared conformance level are present or intentionally deferred.
+            - Inventory and conformance declaration match actual files.
+            - Package can be navigated by a reviewer without hidden context.
+          failure_modes:
+            - missing_required_package_file
+            - stale_inventory
+            - inconsistent_conformance_declaration
+          remediation_guidance: Update package inventory, manifest, metadata, or conformance declaration before release.
+        - gate_id: qg_12_release_and_publication_readiness
+          label: Release and Publication Readiness Gate
+          purpose: Confirm archival and publication-facing readiness for L5 release.
+          applicable_levels:
+            - l5_archival_publication_ready
+          evidence_required:
+            - release_record
+            - changelog_entry
+            - citation_metadata
+            - license
+            - archival_metadata
+            - publication_readiness_checklist
+            - unresolved_findings_summary
+          acceptance_criteria:
+            - No unresolved blocking findings remain.
+            - Release version, citation, license, and archival metadata are complete.
+            - Publication claims and limitations are aligned with review and evaluation evidence.
+            - Preservation and future-maintenance responsibilities are stated.
+          failure_modes:
+            - unresolved_blocker
+            - missing_release_metadata
+            - unsupported_publication_claim
+            - preservation_gap
+          remediation_guidance: Resolve blockers, complete release metadata, reduce publication claims, or defer release.
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: Define acceptance thresholds, scoring conventions, and conformance-level progression.
+    content:
+      gate_status_values:
+        - pass
+        - pass_with_minor_findings
+        - conditional_pass
+        - fail
+        - deferred
+        - not_applicable
+      conformance_progression_rules:
+        - level: l0_draft
+          required_gate_status:
+            qg_01_repository_consistency: conditional_pass_or_better
+          blocker_policy: Blockers may remain if clearly marked TODO and not released.
+        - level: l1_documented
+          required_gate_status:
+            qg_01_repository_consistency: pass_with_minor_findings_or_better
+            qg_11_package_readiness: conditional_pass_or_better
+          blocker_policy: No blockers in required metadata or file identity.
+        - level: l2_reviewable
+          required_gate_status:
+            qg_01_repository_consistency: pass_with_minor_findings_or_better
+            qg_02_dsr_identity: conditional_pass_or_better
+            qg_03_problem_solution_grounding: conditional_pass_or_better
+            qg_04_artifact_specification: conditional_pass_or_better
+            qg_07_evaluation_adequacy: conditional_pass_or_better
+            qg_09_contribution_and_projectability: conditional_pass_or_better
+            qg_11_package_readiness: pass_with_minor_findings_or_better
+          blocker_policy: No unresolved blockers that prevent review by an informed external reader.
+        - level: l3_exercisable
+          required_gate_status:
+            qg_01_repository_consistency: pass
+            qg_02_dsr_identity: pass_with_minor_findings_or_better
+            qg_04_artifact_specification: pass_with_minor_findings_or_better
+            qg_05_build_and_process_transparency: conditional_pass_or_better
+            qg_06_demonstration_readiness: pass_with_minor_findings_or_better
+            qg_07_evaluation_adequacy: conditional_pass_or_better
+            qg_11_package_readiness: pass_with_minor_findings_or_better
+          blocker_policy: No unresolved blockers in exercise path, templates, examples, or validation artifacts.
+        - level: l4_reusable
+          required_gate_status:
+            qg_01_repository_consistency: pass
+            qg_02_dsr_identity: pass
+            qg_03_problem_solution_grounding: pass_with_minor_findings_or_better
+            qg_04_artifact_specification: pass_with_minor_findings_or_better
+            qg_05_build_and_process_transparency: pass_with_minor_findings_or_better
+            qg_07_evaluation_adequacy: pass_with_minor_findings_or_better
+            qg_08_validity_reliability: pass_with_minor_findings_or_better
+            qg_09_contribution_and_projectability: pass_with_minor_findings_or_better
+            qg_10_responsible_design_and_risk: conditional_pass_or_better
+            qg_11_package_readiness: pass
+          blocker_policy: No unresolved blockers or major findings affecting reuse, safety, or claim interpretation.
+        - level: l5_archival_publication_ready
+          required_gate_status:
+            qg_01_repository_consistency: pass
+            qg_02_dsr_identity: pass
+            qg_03_problem_solution_grounding: pass
+            qg_04_artifact_specification: pass
+            qg_05_build_and_process_transparency: pass_with_minor_findings_or_better
+            qg_06_demonstration_readiness: pass_with_minor_findings_or_better
+            qg_07_evaluation_adequacy: pass_with_minor_findings_or_better
+            qg_08_validity_reliability: pass_with_minor_findings_or_better
+            qg_09_contribution_and_projectability: pass_with_minor_findings_or_better
+            qg_10_responsible_design_and_risk: pass_with_minor_findings_or_better
+            qg_11_package_readiness: pass
+            qg_12_release_and_publication_readiness: pass
+          blocker_policy: No unresolved blocking findings; major findings must be remediated, reduced to minor, or explicitly recorded as accepted risk with release authority approval.
+      scoring_guidance:
+        scoring_model: qualitative_gate_status
+        rationale: >
+          The model avoids false precision. Reviewers assign controlled status values
+          against explicit evidence and acceptance criteria rather than calculating
+          a single numeric score.
+        optional_numeric_summary:
+          allowed: true
+          warning: Numeric summaries may support dashboards but must not replace finding-level evidence.
+          suggested_mapping:
+            pass: 4
+            pass_with_minor_findings: 3
+            conditional_pass: 2
+            deferred: 1
+            fail: 0
+            not_applicable: null
+      acceptance_criteria_by_review_object:
+        product_specification:
+          - Required product-spec sections are present or tailored with rationale.
+          - Normative requirements and traceability are explicit.
+          - Quality gates and open questions are stated.
+        model:
+          - Entities, relationships, boundaries, validation implications, and traceability are defined.
+          - Model does not conflict with upstream specifications or controlled vocabularies.
+        vocabulary:
+          - Entries include id, label, definition, allowed use, boundary notes, related terms, and source basis where useful.
+          - Vocabulary values are stable enough for schema or template use.
+        schema:
+          - Schema validates corresponding information item and uses explicit required properties.
+          - additionalProperties policy is intentional.
+        template:
+          - Template is usable by a researcher and marks project-specific fields as TODO only when unavoidable.
+          - Template fields correspond to schemas, models, and information-item rules.
+        checklist:
+          - Checklist items include check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
+          - Checklist does not duplicate incompatible review criteria.
+        record:
+          - Record preserves a past action, decision, evaluation, review, release, or preservation event.
+          - Record includes evidence, outcome, retention rule, and related items.
+        docs_page:
+          - Human-facing page identifies its controlled source YAML or related files.
+          - Page does not become the sole source of controlled data.
+
+  - id: traceability
+    title: Traceability
+    purpose: Define how review criteria, evidence, findings, and conformance decisions are linked.
+    content:
+      traceability_objects:
+        - trace_id: tr_quality_model_to_generation_spec
+          source: dsr_framework_generation_spec.quality_gates
+          target: sections.workflow.content.quality_gates
+          relation: elaborates
+          evidence_status: mapped
+        - trace_id: tr_selection_to_product
+          source: dsr_framework_selection_table.spec_quality_review
+          target: product
+          relation: instantiates_selected_portion
+          evidence_status: mapped
+        - trace_id: tr_prompt_required_product_structure
+          source: dsr_framework_generation_prompt.required_structures.product_specification
+          target: sections
+          relation: conforms_to
+          evidence_status: mapped
+        - trace_id: tr_weber_process_product_quality
+          source: weber_2018_design_science_research
+          target: sections.conceptual_model.content.quality_dimensions
+          relation: informs
+          evidence_status: mapped
+        - trace_id: tr_hevner_transparency_framework
+          source: hevner_et_al_2024_transparency_in_design_science_research
+          target: qd_transparency
+          relation: informs
+          evidence_status: mapped
+        - trace_id: tr_evaluation_strategy_family
+          source: venable_et_al_2016_evaluation_strategy_family
+          target: qg_07_evaluation_adequacy
+          relation: informs
+          evidence_status: partially_mapped
+        - trace_id: tr_reliability_framework_family
+          source: reliability_framework_sources_in_dsr_corpus
+          target: qg_08_validity_reliability
+          relation: informs
+          evidence_status: partially_mapped
+        - trace_id: tr_contribution_knowledge_paths
+          source: akoka_et_al_2023_knowledge_contributions_in_dsr
+          target: qg_09_contribution_and_projectability
+          relation: informs
+          evidence_status: mapped
+        - trace_id: tr_artifact_ontology
+          source: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          target: qg_04_artifact_specification
+          relation: informs
+          evidence_status: mapped
+      required_trace_links_in_review_records:
+        - reviewed_item_to_quality_gate
+        - quality_gate_to_evidence_bundle
+        - finding_to_quality_dimension
+        - finding_to_remediation_action
+        - conformance_decision_to_gate_results
+        - release_decision_to_unresolved_findings
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: Provide practical rules for applying the review model in the repository.
+    content:
+      authoring_guidance:
+        - Start with the target conformance level and avoid preparing evidence that only applies to a higher maturity target unless it is readily available.
+        - Keep evidence close to the file or record it supports, but summarize review state in records/reviews.
+        - Use stable IDs for review findings so remediation can be tracked across versions.
+        - Prefer controlled values for quality dimensions, gate status, finding severity, and decisions.
+        - Mark unavailable evidence as not_yet_mapped, not_available, or not_applicable with rationale.
+      reviewer_guidance:
+        - Review the declared conformance level before applying gates.
+        - Classify each finding by severity, dimension, gate, affected item, and required action.
+        - Distinguish missing evidence from negative evidence.
+        - Reduce claims when evidence is absent rather than requiring unnecessary new studies.
+        - Treat context-specific artifact work as potentially valid DSR when artifact, problem, evaluation, and contribution boundaries are explicit.
+      maintainer_guidance:
+        - Maintain this specification as the source of truth for quality gates until superseded by more detailed checklists or schemas.
+        - Use review records to update package inventory and conformance declaration.
+        - Keep release-readiness criteria synchronized with publication and registry model files.
+        - Require explicit tailoring records when deviations affect declared conformance.
+      tailoring_rules:
+        allowed_tailoring:
+          - Mark dimensions not_applicable with rationale.
+          - Replace evidence types with equivalent evidence when privacy, security, or proprietary constraints apply.
+          - Apply self-review for L2 when independent review is not feasible.
+          - Defer L4/L5 publication evidence when generating earlier maturity files.
+        tailoring_requires_record:
+          - Waiving a required gate.
+          - Accepting an unresolved blocker as risk.
+          - Declaring L4 or L5 without independent review evidence.
+          - Omitting evaluation evidence while retaining effectiveness claims.
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: Identify downstream templates, schemas, and checklists needed to operationalize this specification.
+    content:
+      template_implications:
+        - target_path: templates/review-record-template.yaml
+          required: true
+          fields_to_include:
+            - reviewed_item
+            - target_conformance_level
+            - quality_dimension_applicability
+            - gate_results
+            - findings
+            - evidence_bundles
+            - decision
+            - remediation_actions
+            - reviewer_notes
+            - retention_rule
+        - target_path: templates/conformance-declaration-template.yaml
+          required: true
+          fields_to_include:
+            - declared_conformance_level
+            - evidence_summary
+            - tailoring_decisions
+            - unresolved_findings
+            - reviewer_or_approver
+        - target_path: templates/evaluation-plan-template.yaml
+          required: true
+          fields_to_include:
+            - artifact_claims
+            - evaluation_questions
+            - evaluation_methods
+            - criteria
+            - validity_threats
+            - reliability_considerations
+            - limitations
+      schema_implications:
+        - target_path: schemas/review-record.schema.json
+          required: recommended
+          validation_targets:
+            - review_record
+            - quality_gate_status_matrix
+        - target_path: schemas/conformance-declaration.schema.json
+          required: existing_or_planned
+          validation_targets:
+            - conformance_declaration
+        - target_path: schemas/dsr-evaluation-plan.schema.json
+          required: existing_or_planned
+          validation_targets:
+            - evaluation_plan
+      checklist_implications:
+        - target_path: checklists/evaluation-readiness-checklist.yaml
+          required: true
+          should_cover_gates:
+            - qg_06_demonstration_readiness
+            - qg_07_evaluation_adequacy
+            - qg_08_validity_reliability
+        - target_path: checklists/reliability-checklist.yaml
+          required: true
+          should_cover_dimensions:
+            - qd_reliability
+            - qd_replication_projectability
+        - target_path: checklists/replication-projectability-checklist.yaml
+          required: true
+          should_cover_dimensions:
+            - qd_replication_projectability
+            - qd_contribution_quality
+        - target_path: checklists/publication-readiness-checklist.yaml
+          required: true
+          should_cover_gates:
+            - qg_11_package_readiness
+            - qg_12_release_and_publication_readiness
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: Record unresolved decisions and future implementation tasks.
+    content:
+      open_questions:
+        - question_id: oq_quality_001
+          question: Should L4 and L5 require independent review for every artifact package, or only for release candidates intended for DOI-backed archival publication?
+          decision_status: unresolved
+          impact_if_unresolved: May affect publication-readiness and governance requirements.
+        - question_id: oq_quality_002
+          question: Should numeric scoring be prohibited in public conformance declarations or allowed as an optional dashboard summary?
+          decision_status: unresolved
+          impact_if_unresolved: May affect future automation and review dashboards.
+        - question_id: oq_quality_003
+          question: Which reliability vocabulary should become canonical for L2 versus L4 review requirements?
+          decision_status: partially_resolved
+          impact_if_unresolved: May affect reliability checklist and schema enumerations.
+        - question_id: oq_quality_004
+          question: What is the minimum acceptable evaluation evidence for claiming L4 reusable status for documentation-only or method-only artifacts?
+          decision_status: unresolved
+          impact_if_unresolved: May affect reuse claims for framework specifications and templates.
+      backlog:
+        - backlog_id: bl_quality_001
+          task: Generate templates/review-record-template.yaml.
+          priority: high
+          depends_on:
+            - product_dsr_quality_conformance_and_review_model
+        - backlog_id: bl_quality_002
+          task: Generate checklists/reliability-checklist.yaml.
+          priority: high
+          depends_on:
+            - model_reliability
+            - product_dsr_quality_conformance_and_review_model
+        - backlog_id: bl_quality_003
+          task: Generate checklists/replication-projectability-checklist.yaml.
+          priority: medium
+          depends_on:
+            - model_projectability
+            - product_dsr_quality_conformance_and_review_model
+        - backlog_id: bl_quality_004
+          task: Generate schemas/review-record.schema.json after review-record template is stable.
+          priority: medium
+          depends_on:
+            - templates/review-record-template.yaml
+        - backlog_id: bl_quality_005
+          task: Add example review record for the DSR Framework self-review.
+          priority: medium
+          depends_on:
+            - record_self_review
+
+quality_gates:
+  - gate_id: qg_consistency
+    source: dsr_framework_generation_spec
+    status_for_this_file: pass
+    evidence:
+      - product.target_path uses lower-kebab-case YAML path under specs/.
+      - product.item_type is specification.
+      - required metadata fields are present.
+  - gate_id: qg_coherence
+    source: dsr_framework_generation_spec
+    status_for_this_file: pass
+    evidence:
+      - Dependencies align with selection row and downstream model/checklist/template implications.
+      - Quality gates do not conflict with package, lifecycle, or information-item architecture assumptions.
+  - gate_id: qg_cogency
+    source: dsr_framework_generation_spec
+    status_for_this_file: pass
+    evidence:
+      - Review workflow, gate decisions, acceptance criteria, and remediation flow are operational.
+  - gate_id: qg_correspondence
+    source: dsr_framework_generation_spec
+    status_for_this_file: pass
+    evidence:
+      - Product content corresponds to quality dimensions, maturity, gates, review workflow, and acceptance criteria.
+  - gate_id: qg_dsr_transparency
+    source: dsr_framework_generation_spec
+    status_for_this_file: pass
+    evidence:
+      - DSR transparency is a quality dimension and required gate consideration.
+  - gate_id: qg_reviewability
+    source: dsr_framework_generation_spec
+    status_for_this_file: pass
+    evidence:
+      - Acceptance criteria, validation rules, evidence requirements, failure modes, and remediation guidance are present.
+
+traceability:
+  - trace_id: tr_selected_request
+    source: user_current_request.spec_quality_review
+    target: product.id
+    relation: generated_from
+    evidence_status: mapped
+  - trace_id: tr_product_spec_shape
+    source: dsr_framework_generation_prompt.product_specification_structure
+    target: sections
+    relation: conforms_to
+    evidence_status: mapped
+  - trace_id: tr_generation_spec_quality_gates
+    source: dsr_framework_generation_spec.quality_gates
+    target: quality_gates
+    relation: conforms_to
+    evidence_status: mapped
+  - trace_id: tr_dsr_corpus_quality_sources
+    source: dsr_extraction_corpus
+    target: sections.conceptual_model.content.quality_dimensions
+    relation: synthesizes
+    evidence_status: partially_mapped
+
+assumptions:
+  - assumption_id: as_quality_001
+    statement: The quality model should be usable for all repository product types, not only complete empirical DSR studies.
+    rationale: The selection row identifies a product specification for a framework artifact package, not a single research report.
+  - assumption_id: as_quality_002
+    statement: L2 reviewability is the target for this generated file; L4 and L5 gates are specified but not claimed as currently satisfied by the package.
+    rationale: The selected row's default conformance is L2.
+  - assumption_id: as_quality_003
+    statement: External documentation-protocol repository requirements are represented through the uploaded generation specification rather than live verification.
+    rationale: The user asked to maximize project registry files and did not request external updates.
+
+limitations:
+  - limitation_id: lm_quality_001
+    statement: This specification does not yet include a JSON Schema for review records.
+    mitigation: Schema generation is listed as backlog after the review-record template stabilizes.
+  - limitation_id: lm_quality_002
+    statement: DSR corpus citations are represented by source IDs and evidence status; not every source-family anchor has been fully mapped in this file.
+    mitigation: Future source-basis records should normalize citation anchors for each quality dimension.
+  - limitation_id: lm_quality_003
+    statement: The model uses qualitative gate decisions and does not provide a validated numeric scoring rubric.
+    mitigation: Optional numeric mapping is explicitly secondary and non-authoritative.
+
+open_questions:
+  - oq_quality_001
+  - oq_quality_002
+  - oq_quality_003
+  - oq_quality_004

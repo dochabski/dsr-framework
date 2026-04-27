@@ -1,0 +1,563 @@
+# SPDX-License-Identifier: CC0-1.0
+record:
+  record_id: record_dsr_transparency_crosswalk_0001
+  record_class: dsr_transparency_crosswalk
+  item_type: record
+  title: DSR Transparency Crosswalk Record 0001
+  purpose: >
+    Record the initial six-dimension Design Science Research transparency evidence
+    for the DSR Framework artifact package and preserve traceability to the DSR
+    transparency corpus, framework generation specification, and transparency
+    crosswalk template dependency.
+  status: draft
+  version: "0.1.0"
+  date: "2026-04-27"
+  event_or_action: initial_recording_of_six_dimension_dsr_transparency_evidence
+  responsible_party:
+    role: framework_author_or_maintainer
+    name: "TODO: Confirm responsible maintainer name before release."
+  created_by:
+    role: assistant
+    system: GPT-5.5 Thinking
+  conformance_target: l2_reviewable
+  retention_rule: >
+    Retain as a package evidence record for the life of the DSR Framework repository;
+    supersede only with a later numbered transparency crosswalk record that preserves
+    this record's identifier and change history.
+
+scope:
+  artifact_package: dsr_framework
+  target_path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+  selected_portion:
+    selection_id: record_transparency_crosswalk
+    portion_type: record
+    output_format: yaml
+    purpose: Record six-dimension transparency evidence.
+    default_conformance: L2
+    key_dependencies:
+      - transparency_crosswalk_template
+      - dsr_transparency_model
+      - dsr_corpus
+      - documentation_protocol
+  record_boundary:
+    includes:
+      - framework_level_transparency_evidence
+      - evidence_status_by_dimension
+      - citation_anchor_traceability
+      - review_and_validation_criteria
+      - limitations_and_open_questions
+    excludes:
+      - empirical evaluation of the framework package as a deployed artifact
+      - claim that every repository file has been independently audited
+      - release or publication readiness claims
+
+source_basis:
+  - source_id: user_current_request_2026_04_27_record_transparency_crosswalk
+    source_type: user_instruction
+    role: immediate_task_definition
+    evidence_status: mapped
+    notes: >
+      User selected record_transparency_crosswalk and instructed that the generated
+      file is new and should not be checked in Dropbox as already created.
+  - source_id: dsr_framework_generation_spec
+    source_type: governing_specification
+    role: repository_structure_and_quality_gate_rules
+    evidence_status: mapped
+    citation_or_anchor: dsr-framework-generation-spec.yaml
+  - source_id: dsr_framework_generation_prompt
+    source_type: governing_prompt
+    role: generation_procedure_and_record_output_rules
+    evidence_status: mapped
+    citation_or_anchor: dsr-framework-generation-prompt.md
+  - source_id: dsr_framework_selection_table
+    source_type: selection_registry
+    role: selected_path_and_dependency_confirmation
+    evidence_status: mapped
+    citation_or_anchor: dsr-framework-selection-table.md
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    source_type: primary_dsr_corpus_source
+    role: primary_six_dimension_transparency_framework_source
+    evidence_status: mapped
+    citation_or_anchor: CA01
+    short_citation: Hevner et al. (2024)
+  - source_id: dsr_extraction_corpus
+    source_type: internal_extraction_corpus
+    role: normalized_evidence_base_for_dsr_transparency_and_reporting_guidance
+    evidence_status: mapped
+
+related_items:
+  upstream_dependencies:
+    - item_id: model_transparency
+      path: models/dsr-transparency-model.yaml
+      relationship: defines_six_dimension_transparency_model
+      evidence_status: not_repository_audited_in_this_record
+    - item_id: template_transparency_crosswalk
+      path: templates/dsr-transparency-crosswalk-template.yaml
+      relationship: reusable_template_for_this_record_type
+      evidence_status: not_repository_audited_in_this_record
+    - item_id: schema_transparency_crosswalk
+      path: schemas/dsr-transparency-crosswalk.schema.json
+      relationship: expected_validation_schema
+      evidence_status: not_repository_audited_in_this_record
+    - item_id: checklist_transparency
+      path: checklists/dsr-transparency-crosswalk-checklist.yaml
+      relationship: review_checklist_for_transparency_records
+      evidence_status: not_repository_audited_in_this_record
+  downstream_or_consumer_items:
+    - item_id: docs_transparency
+      path: docs/protocol/10-transparency-and-reporting.md
+      relationship: human_facing_explanation_of_transparency_model
+    - item_id: record_self_review
+      path: records/reviews/record-review-0001-self-review.yaml
+      relationship: may cite this record as review evidence
+    - item_id: record_release_v0_1_0
+      path: records/releases/record-release-0001-v0-1-0.yaml
+      relationship: may cite this record as release-readiness evidence
+
+transparency_framework_reference:
+  model_name: DSR Transparency Framework
+  source: Hevner et al. (2024)
+  transparency_dimensions:
+    - process_transparency
+    - problem_space_transparency
+    - solution_space_transparency
+    - build_transparency
+    - evaluation_transparency
+    - contribution_transparency
+  corpus_anchor_summary:
+    - anchor_id: CA01
+      role: framework_definition
+      evidence_summary: >
+        The primary corpus source identifies six forms of DSR transparency:
+        process, problem space, solution space, build, evaluation, and contribution.
+    - anchor_id: CA16
+      role: operational_summary
+      evidence_summary: >
+        The primary corpus source summarizes challenges and guidance for all six
+        transparency dimensions.
+    - anchor_id: CA17
+      role: limitation_and_research_agenda
+      evidence_summary: >
+        The primary corpus source states that detailed prescriptive checklists are
+        premature and should be developed through future work.
+
+evidence_crosswalk:
+  - dimension_id: process_transparency
+    label: Process transparency
+    record_claim: >
+      The DSR Framework should preserve evidence of how repository portions are
+      selected, generated, reviewed, revised, and released.
+    evidence_recorded:
+      - evidence_id: process_evidence_001
+        evidence_type: governing_procedure
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-prompt.md
+        evidence_summary: >
+          The generation prompt requires each selected portion to be identified,
+          classified by portion type, generated using the correct output convention,
+          traced to dependencies, checked against quality gates, and accompanied by
+          a completion report.
+      - evidence_id: process_evidence_002
+        evidence_type: repository_record_architecture
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-spec.yaml
+        evidence_summary: >
+          The specification identifies records as retained evidence and requires
+          source basis, related items, traceability, assumptions, open questions,
+          and quality-gate review where applicable.
+      - evidence_id: process_evidence_003
+        evidence_type: corpus_anchor
+        evidence_status: mapped
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_id: CA06
+        evidence_summary: >
+          Process transparency requires clarity and completeness about activities,
+          reasoning, emergent decisions, and context.
+    expected_repository_evidence:
+      - selection requests
+      - generated file completion reports
+      - review records
+      - release records
+      - design decision records
+    sufficiency_assessment:
+      level: partial
+      rationale: >
+        The generation procedure and this retained record establish process evidence,
+        but a repository audit is still needed to confirm that all generated files
+        and reviews are present in the final package.
+    limitations:
+      - Exact generation transcript provenance is external to this YAML file unless exported or referenced.
+      - Dropbox-stored prior files were not inspected for this new-record generation task.
+
+  - dimension_id: problem_space_transparency
+    label: Problem-space transparency
+    record_claim: >
+      The DSR Framework should make explicit the problem it addresses: the need for
+      a reviewable, reusable, citable framework for planning, documenting,
+      evaluating, reviewing, and publishing DSR artifacts.
+    evidence_recorded:
+      - evidence_id: problem_space_evidence_001
+        evidence_type: governing_problem_definition
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-prompt.md
+        evidence_summary: >
+          The prompt defines the intended artifact package as a reviewable,
+          reusable, citable framework for planning, documenting, evaluating,
+          reviewing, and publishing DSR artifacts.
+      - evidence_id: problem_space_evidence_002
+        evidence_type: repository_scope_rule
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-spec.yaml
+        evidence_summary: >
+          The specification defines the package as a compound DSR artifact and
+          method/protocol artifact with controlled repository directories and
+          conformance expectations.
+      - evidence_id: problem_space_evidence_003
+        evidence_type: corpus_anchor
+        evidence_status: mapped
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_id: CA07
+        evidence_summary: >
+          Problem-space transparency requires documentation of scope, application
+          context, improvement goals, timeframe, stakeholders, and boundary conditions.
+    expected_repository_evidence:
+      - README.md
+      - artifact-profile.yaml
+      - metadata.yaml
+      - conformance-declaration.yaml
+      - specs/product-dsr-framework-foundation.yaml
+      - docs/protocol/00-framework-overview.md
+    sufficiency_assessment:
+      level: partial
+      rationale: >
+        The problem-space rationale is defined at the framework-generation level;
+        final sufficiency depends on root package metadata and overview files being
+        present and mutually consistent.
+    limitations:
+      - Stakeholder groups and implementation settings remain general unless refined in the artifact profile.
+      - Institutional or organizational adoption contexts are not asserted by this record.
+
+  - dimension_id: solution_space_transparency
+    label: Solution-space transparency
+    record_claim: >
+      The DSR Framework should document the scholarly, methodological, and repository
+      design knowledge used to construct the framework.
+    evidence_recorded:
+      - evidence_id: solution_space_evidence_001
+        evidence_type: governing_source_authority
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-spec.yaml
+        evidence_summary: >
+          The specification prioritizes the user's current request, the Documentation
+          Protocol repository, and the internal DSR extraction corpus as source
+          authorities for framework generation.
+      - evidence_id: solution_space_evidence_002
+        evidence_type: corpus_anchor
+        evidence_status: mapped
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_id: CA08
+        evidence_summary: >
+          Solution-space transparency requires engagement with DSR knowledge bases,
+          grounding theories, technical and behavioral knowledge, and existing
+          technologies or artifacts.
+      - evidence_id: solution_space_evidence_003
+        evidence_type: corpus_manifest
+        evidence_status: mapped
+        evidence_location: chunked_folder_conversion_extractions_20260427030321_manifest_json_part001.json
+        evidence_summary: >
+          The internal extraction manifest records a 71-source DSR extraction corpus
+          converted for framework use.
+    expected_repository_evidence:
+      - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      - crosswalks/source-traditions-to-framework-constructs.yaml
+      - specs/product-dsr-lifecycle-and-contribution-model.yaml
+      - models/dsr-framework-canonical-model.yaml
+      - docs/protocol/10-transparency-and-reporting.md
+    sufficiency_assessment:
+      level: moderate
+      rationale: >
+        The DSR corpus and source-authority hierarchy are explicit, but final
+        solution-space transparency should include a consolidated source-basis record
+        and crosswalks across the corpus.
+    limitations:
+      - External Documentation Protocol repository facts were not refreshed in this generation step.
+      - Exact source-to-construct coverage depends on the later completeness of source-basis and crosswalk files.
+
+  - dimension_id: build_transparency
+    label: Build transparency
+    record_claim: >
+      The DSR Framework should expose how its controlled files, templates,
+      checklists, records, and documentation are constructed and related.
+    evidence_recorded:
+      - evidence_id: build_evidence_001
+        evidence_type: repository_architecture
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-spec.yaml
+        evidence_summary: >
+          The specification defines canonical directories, naming rules, stable
+          identifier style, and required information item fields for generated files.
+      - evidence_id: build_evidence_002
+        evidence_type: selected_portion_registry
+        evidence_status: mapped
+        evidence_location: dsr-framework-selection-table.md
+        evidence_summary: >
+          The selection table maps selection identifiers to target paths, portion
+          types, output formats, purposes, conformance levels, and dependencies.
+      - evidence_id: build_evidence_003
+        evidence_type: corpus_anchor
+        evidence_status: mapped
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_id: CA09
+        evidence_summary: >
+          Build transparency requires documentation of design search, creative
+          reasoning, collaboration, and artifact construction choices.
+    expected_repository_evidence:
+      - specs/product-dsr-repository-architecture.yaml
+      - specs/product-dsr-information-item-architecture.yaml
+      - templates/
+      - schemas/
+      - checklists/
+      - records/design-decisions/
+    sufficiency_assessment:
+      level: partial
+      rationale: >
+        File naming, structure, and generation logic are explicit. Build transparency
+        will be stronger when design decision records and schema validation outputs
+        are retained in the repository.
+    limitations:
+      - This record documents the generation logic, not a full diff history of all framework files.
+      - Build rationale for prior generated files stored in Dropbox was not independently inspected.
+
+  - dimension_id: evaluation_transparency
+    label: Evaluation transparency
+    record_claim: >
+      The DSR Framework should distinguish demonstration from evaluation and preserve
+      criteria by which reviewers can assess framework quality, conformance, and use.
+    evidence_recorded:
+      - evidence_id: evaluation_evidence_001
+        evidence_type: quality_gate_model
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-spec.yaml
+        evidence_summary: >
+          The specification defines quality gates for consistency, coherence,
+          cogency, correspondence, DSR transparency, and reviewability.
+      - evidence_id: evaluation_evidence_002
+        evidence_type: governing_generation_rule
+        evidence_status: mapped
+        evidence_location: dsr-framework-generation-spec.yaml
+        evidence_summary: >
+          The specification requires distinguishing demonstration from evaluation
+          and distinguishing artifact utility, artifact quality, and knowledge
+          contribution.
+      - evidence_id: evaluation_evidence_003
+        evidence_type: corpus_anchor
+        evidence_status: mapped
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_id: CA10
+        evidence_summary: >
+          Evaluation transparency requires rigorous evaluation activities sufficient
+          to build stakeholder confidence, including technical and behavioral
+          qualities where applicable.
+    expected_repository_evidence:
+      - records/evaluations/record-evaluation-plan-0001.yaml
+      - templates/evaluation-plan-template.yaml
+      - templates/evaluation-report-template.yaml
+      - schemas/dsr-evaluation-plan.schema.json
+      - schemas/dsr-evaluation-report.schema.json
+      - checklists/evaluation-readiness-checklist.yaml
+      - records/reviews/record-review-0001-self-review.yaml
+    sufficiency_assessment:
+      level: partial
+      rationale: >
+        Review gates and distinctions are present, but the package should not claim
+        empirical evaluation until evaluation plans, reports, and review records are
+        completed and retained.
+    limitations:
+      - No naturalistic use evaluation of the DSR Framework is recorded here.
+      - This record does not assert that schema validation has been run against the repository package.
+
+  - dimension_id: contribution_transparency
+    label: Contribution transparency
+    record_claim: >
+      The DSR Framework should state its contribution as a protocol-governed,
+      reviewable, reusable framework artifact rather than as empirical proof of
+      superior DSR outcomes.
+    evidence_recorded:
+      - evidence_id: contribution_evidence_001
+        evidence_type: selected_record_dependency
+        evidence_status: mapped
+        evidence_location: dsr-framework-selection-table.md
+        evidence_summary: >
+          The selected record depends on the transparency crosswalk template and
+          supports a DSR transparency record, not a release or empirical evaluation.
+      - evidence_id: contribution_evidence_002
+        evidence_type: corpus_anchor
+        evidence_status: mapped
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_id: CA11
+        evidence_summary: >
+          Contribution transparency requires balancing scientific and practice
+          impacts through innovative artifacts and design theories in socio-technical
+          settings.
+      - evidence_id: contribution_evidence_003
+        evidence_type: corpus_anchor
+        evidence_status: mapped
+        source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+        citation_anchor_id: A07
+        evidence_summary: >
+          DSR contribution can be represented dynamically through knowledge moments
+          and paths rather than only as a static artifact label.
+    expected_repository_evidence:
+      - records/contributions/record-contribution-positioning-0001.yaml
+      - templates/contribution-claim-template.yaml
+      - templates/contribution-positioning-record-template.yaml
+      - schemas/dsr-contribution-claim.schema.json
+      - models/dsr-contribution-model.yaml
+      - docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+    sufficiency_assessment:
+      level: partial
+      rationale: >
+        Contribution transparency is framed and traceable to DSR corpus evidence;
+        final sufficiency depends on contribution-positioning records and release
+        claims remaining bounded to available evidence.
+    limitations:
+      - This record does not by itself establish publication readiness.
+      - Contribution significance should be reviewed after the full package inventory is complete.
+
+cross_dimension_findings:
+  overall_evidence_status: partial_l2_reviewable
+  strongest_supported_dimension:
+    dimension_id: solution_space_transparency
+    rationale: >
+      The source-authority hierarchy and internal DSR corpus are explicit and mapped
+      to the primary Hevner et al. transparency framework source.
+  weakest_supported_dimension:
+    dimension_id: evaluation_transparency
+    rationale: >
+      Evaluation rules and criteria are present, but retained evaluation-plan,
+      evaluation-report, and validation-output records are still needed before
+      stronger claims can be made.
+  principal_risks:
+    - risk_id: transparency_burden
+      description: Excessive transparency requirements could make the package difficult to maintain.
+      mitigation: Use proportionate L2 evidence records and escalate only selected files to higher conformance levels.
+      source_anchor_id: CA17
+    - risk_id: repository_audit_gap
+      description: Prior files stored outside this generation step were not audited for existence or consistency.
+      mitigation: Use package inventory and review records to confirm final repository state.
+    - risk_id: evidence_overclaim
+      description: The framework could overstate evaluation, reuse, replication, or publication readiness.
+      mitigation: Separate planned evidence, demonstration evidence, review evidence, and empirical evaluation evidence.
+    - risk_id: confidentiality_or_security
+      description: Transparency materials may reveal proprietary, security-sensitive, or privacy-sensitive information in future DSR applications.
+      mitigation: Allow bounded disclosure, summaries, pseudocode, redaction, or restricted artifacts where justified.
+      source_anchor_id: CA18
+
+quality_and_conformance:
+  acceptance_criteria:
+    - criterion_id: ac_record_identity
+      criterion: Record has stable record_id, record_class, date, responsible party, source_basis, related_items, evidence, outcome, and retention_rule.
+      status: pass
+    - criterion_id: ac_six_dimensions
+      criterion: Record covers process, problem-space, solution-space, build, evaluation, and contribution transparency.
+      status: pass
+    - criterion_id: ac_traceability
+      criterion: Each dimension includes mapped evidence and citation anchors or repository source references.
+      status: pass
+    - criterion_id: ac_bounded_claims
+      criterion: Record distinguishes current mapped evidence from repository-audit gaps and does not overclaim evaluation or publication readiness.
+      status: pass
+    - criterion_id: ac_reviewability
+      criterion: Record includes sufficiency assessments, limitations, risks, and validation rules.
+      status: pass
+  validation_rules:
+    - rule_id: val_yaml_parse
+      description: File must parse as YAML.
+      status: pass
+    - rule_id: val_required_record_fields
+      description: Required record fields must be present.
+      status: pass
+    - rule_id: val_dimension_ids
+      description: Crosswalk must include exactly the six controlled transparency dimensions.
+      status: pass
+    - rule_id: val_no_release_overclaim
+      description: File must not claim release readiness or empirical validation not recorded elsewhere.
+      status: pass
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+
+outcome:
+  result: transparency_crosswalk_record_created
+  summary: >
+    Initial L2-reviewable transparency evidence record created for the DSR Framework
+    package. The record maps all six DSR transparency dimensions to governing
+    framework-generation sources and internal DSR corpus anchors while preserving
+    explicit limits on repository audit, empirical evaluation, and release readiness.
+  package_use: >
+    Use this record as retained evidence for transparency review, self-review,
+    release-readiness review, and future refinement of the DSR transparency model,
+    template, checklist, and schema.
+  evidence_status: partially_mapped
+
+assumptions:
+  - assumption_id: asm_001
+    statement: The DSR Framework package is being built incrementally from selected framework portions.
+    basis: User has been selecting individual rows from the selection table for generation.
+  - assumption_id: asm_002
+    statement: The current generation step should not inspect Dropbox for this file because the user identified it as new.
+    basis: User instruction in the current request.
+  - assumption_id: asm_003
+    statement: Repository-audit evidence is outside the scope of this record unless explicitly included in the generated package later.
+    basis: The requested item is a transparency crosswalk record, not a package inventory or self-review.
+
+open_questions:
+  - question_id: oq_001
+    question: Should the final release package include automated validation output proving that all referenced files exist at their expected paths?
+    disposition: defer_to_package_inventory_and_automation_validation_model
+  - question_id: oq_002
+    question: Should future versions of this record include line-level citations to final repository files once all framework files are saved?
+    disposition: recommended_for_l3_or_higher_conformance
+  - question_id: oq_003
+    question: Which transparency materials should be public, summarized, redacted, or withheld for future applied DSR projects using this framework?
+    disposition: defer_to_governance_and_security_records
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change: Initial creation of DSR transparency crosswalk record.
+    changed_by: GPT-5.5 Thinking
+    review_status: not_reviewed
+
+completion_report:
+  generated_selection_id: record_transparency_crosswalk
+  generated_path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+  item_type: record
+  output_format: yaml
+  conformance_target: l2_reviewable
+  dependencies_used:
+    - dsr-framework-generation-prompt.md
+    - dsr-framework-generation-spec.yaml
+    - dsr-framework-selection-table.md
+    - chunked_folder_conversion_extractions_20260427030321_part001.yaml
+    - transparency_crosswalk_template
+    - dsr_transparency_model
+  assumptions:
+    - New file; not checked in Dropbox for prior existence per user instruction.
+    - Repository-audit confirmation of all related files remains outside this record.
+  open_questions:
+    - oq_001
+    - oq_002
+    - oq_003
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: records/evaluations/record-evaluation-plan-0001.yaml

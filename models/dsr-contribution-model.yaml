@@ -1,0 +1,935 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_contribution_model
+  title: DSR Contribution Model
+  item_type: specification
+  portion_type: model
+  selection_id: model_contribution
+  target_path: models/dsr-contribution-model.yaml
+  purpose: 'Define a controlled contribution-positioning model for Design Science Research artifacts, linking contribution
+    claims to knowledge goals, knowledge scopes, contribution types, artifact outputs, evidence bases, audiences, and reviewable
+    acceptance criteria.
+
+    '
+  status: draft
+  version: 0.1.0
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  output_format: yaml
+source_basis:
+- source_id: dsr_framework_generation_prompt
+  role: governing_generation_prompt
+  evidence_status: mapped
+- source_id: dsr_framework_generation_spec
+  role: governing_generation_specification
+  evidence_status: mapped
+- source_id: dsr_framework_selection_table
+  role: selected_target_registry
+  evidence_status: mapped
+- source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  short_citation: Akoka et al. 2023
+  role: primary_contribution_typology_source
+  evidence_status: mapped
+  mapped_anchors:
+  - A03
+  - A05
+  - A07
+  - A08
+  - A10
+  - A13
+  - A14
+  - A16
+- source_id: gregor_zwikael_2024_ijpm_102584
+  short_citation: Gregor and Zwikael 2024
+  role: design_knowledge_level_and_publication_guidance_source
+  evidence_status: mapped
+  mapped_anchors:
+  - A08
+  - A09
+  - A10
+  - A11
+  - A14
+  - A23
+  - A26
+  - A27
+  - A28
+- source_id: hevner_et_al_2024_transparency_in_design_science_research
+  short_citation: Hevner et al. 2024
+  role: contribution_transparency_and_reporting_source
+  evidence_status: mapped
+  mapped_anchors:
+  - CA01
+  - CA05
+  - CA11
+  - CA15
+  - CA16
+  - CA17
+- source_id: weigand_johannesson_andersson_2021_101878
+  short_citation: Weigand et al. 2021
+  role: artifact_boundary_and_artifact_theory_distinction_source
+  evidence_status: mapped
+  mapped_anchors:
+  - A04
+  - A17
+  - A18
+  - A19
+  - A20
+- source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  short_citation: Akoka et al. (2023)
+  evidence_anchor_id: A07
+  supports_construct: contribution_positioning.method_extension
+  evidence_role: typology
+  grounding_decision: adopted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Akoka et al. (2023) grounds contribution_positioning.method_extension through extracted anchor A07: A dynamic, graph-based
+    representation of DSR knowledge contributions plus seven strategies and four guidelines.'
+- source_id: feine_morana_maedche_2019_machine_executable_descriptive_knowledge
+  short_citation: Feine, Morana, and Maedche (2019)
+  evidence_anchor_id: A02
+  supports_construct: contribution_positioning.method_extension
+  evidence_role: definition
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Feine, Morana, and Maedche (2019) grounds contribution_positioning.method_extension through extracted anchor A02:
+    Operational method for transforming descriptive X-knowledge into machine-executable prescriptive design knowledge.'
+- source_id: vom_brocke_hevner_maedche_2020_intro_dsr
+  short_citation: vom Brocke, Hevner, and Maedche (2020)
+  evidence_anchor_id: A13
+  supports_construct: contribution_positioning.synthesis
+  evidence_role: definition
+  grounding_decision: adopted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'vom Brocke, Hevner, and Maedche (2020) grounds contribution_positioning.synthesis through extracted anchor A13: Synthesis
+    of canonical Design Science Research frameworks, process models, evaluation activities, design knowledge components, contribution
+    types, and the Design Science Research Grid.'
+- source_id: schwartz_yahav_2021_kcd
+  short_citation: Schwartz & Yahav (2021)
+  evidence_anchor_id: A6
+  supports_construct: contribution_positioning.method_extension
+  evidence_role: typology
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Schwartz & Yahav (2021) grounds contribution_positioning.method_extension through extracted anchor A6: Introduces
+    Knowledge Contribution Diagrams as an extensible graphical technique for representing multiple component-level knowledge
+    contributions within complex Design Science Research....'
+- source_id: moller_kruse_schoormann_otto_2022_boundary_spanning_design_principles
+  short_citation: Möller et al. (2022)
+  evidence_anchor_id: A03
+  supports_construct: contribution_positioning.theory_building
+  evidence_role: definition
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Möller et al. (2022) grounds contribution_positioning.theory_building through extracted anchor A03: Extends design-principle
+    theory by conceptualizing design principles as boundary objects and formulation/use as boundary-spanning activities.'
+- source_id: brendel_et_al_2021_replication_study_types_dsr
+  short_citation: Brendel et al. (2021)
+  evidence_anchor_id: A14
+  supports_construct: contribution_positioning.method_extension
+  evidence_role: typology
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Brendel et al. (2021) grounds contribution_positioning.method_extension through extracted anchor A14: Eight Design
+    Science Research replication study types plus a progression framework.'
+- source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+  short_citation: Peffers, Tuunanen, and Niehaves 2018
+  evidence_anchor_id: CA-003
+  supports_construct: contribution_positioning.synthesis
+  evidence_role: typology
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Peffers, Tuunanen, and Niehaves 2018 grounds contribution_positioning.synthesis through extracted anchor CA-003:
+    Defines and compares five prototype DSR genres to support genre-sensitive evaluation, reporting, and publication.'
+- source_id: baskerville_baiyere_gregor_hevner_rossi_2018_design_science_research_contributions
+  short_citation: Baskerville et al. (2018)
+  evidence_anchor_id: A3
+  supports_construct: contribution_positioning.synthesis
+  evidence_role: typology
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Baskerville et al. (2018) grounds contribution_positioning.synthesis through extracted anchor A3: Refines Design
+    Science Research contribution logic by balancing artifact sufficiency, design theorizing, process reflection, and impact
+    assessment for publication.'
+- source_id: pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+  short_citation: Pekkola 2023
+  evidence_anchor_id: not_available
+  supports_construct: contribution_positioning.contribution
+  evidence_role: boundary_condition
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-contribution-model.yaml
+  note: 'Pekkola 2023 grounds contribution_positioning.contribution through extracted anchor not_available: Reflections on
+    Supervising the Postgraduate Students’ Design Science Research Thesis.'
+related_items:
+  upstream_dependencies:
+  - id: vocab_contribution_types
+    path: vocabularies/contribution-types.yaml
+    relationship: controlled_values_for_contribution_type
+    status: expected_dependency
+  - id: vocab_knowledge_goals
+    path: vocabularies/knowledge-goals.yaml
+    relationship: controlled_values_for_knowledge_goal
+    status: expected_dependency
+  - id: vocab_knowledge_scopes
+    path: vocabularies/knowledge-scopes.yaml
+    relationship: controlled_values_for_knowledge_scope
+    status: expected_dependency
+  - id: model_canonical
+    path: models/dsr-framework-canonical-model.yaml
+    relationship: parent_entity_relationship_model
+    status: expected_dependency
+  - id: model_lifecycle
+    path: models/dsr-lifecycle-model.yaml
+    relationship: contribution_positioning_occurs_across_lifecycle
+    status: expected_dependency
+  - id: model_artifact_ontology
+    path: models/dsr-artifact-ontology.yaml
+    relationship: contribution_claims_reference_artifact_boundaries
+    status: expected_dependency
+  downstream_dependents:
+  - id: schema_contribution_claim
+    path: schemas/dsr-contribution-claim.schema.json
+    relationship: validates_contribution_claim_records
+  - id: template_contribution_claim
+    path: templates/contribution-claim-template.yaml
+    relationship: captures_contribution_claim_inputs
+  - id: template_contribution_positioning
+    path: templates/contribution-positioning-record-template.yaml
+    relationship: operationalizes_model_for_researcher_use
+  - id: checklist_contribution_positioning
+    path: checklists/contribution-positioning-checklist.yaml
+    relationship: reviews_claim_quality_against_this_model
+  - id: record_contribution_positioning
+    path: records/contributions/record-contribution-positioning-0001.yaml
+    relationship: positions_the_dsr_framework_artifact_package
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change: Initial draft generated from selected framework portion model_contribution.
+  responsible_party: GPT-5.5 Thinking
+model_scope:
+  includes:
+  - contribution_claim_identity
+  - contribution_goal_and_scope_positioning
+  - contribution_type_classification
+  - artifact_and_knowledge_product_alignment
+  - evidence_basis_and_quality_signals
+  - audience_and_communication_alignment
+  - boundary_conditions_and_non_goals
+  - validation_and_review_implications
+  excludes:
+  - detailed_artifact_component_ontology
+  - full_lifecycle_stage_definitions
+  - full_evaluation_method_taxonomy
+  - publication_readiness_scoring
+  boundary_statement: 'This model positions what kind of knowledge contribution a DSR project claims to make and how that
+    claim should be evidenced. It does not replace the artifact ontology, evaluation alignment model, or publication readiness
+    model.
+
+    '
+controlled_entities:
+- entity_id: contribution_claim
+  label: Contribution Claim
+  definition: 'A reviewable assertion that a DSR artifact, model, method, design principle, theory element, evaluation result,
+    or documentation package advances practice, research knowledge, or both.
+
+    '
+  required_attributes:
+  - claim_id
+  - claim_statement
+  - contribution_type
+  - knowledge_goals
+  - knowledge_scope
+  - artifact_reference
+  - problem_class_reference
+  - evidence_basis
+  - audience
+  - boundary_conditions
+  - limitations
+  validation_implications:
+  - A contribution claim must identify whether it advances artifact utility, artifact quality, design knowledge, or reporting
+    transparency.
+  - A contribution claim must not be treated as evaluated merely because the artifact was demonstrated.
+  - A contribution claim must identify its problem class or explicitly mark the claim as idiographic.
+- entity_id: contribution_positioning_record
+  label: Contribution Positioning Record
+  definition: 'A retained record that locates one or more contribution claims within the controlled contribution model and
+    preserves the rationale, evidence, limitations, and review status for the positioning decision.
+
+    '
+  required_attributes:
+  - record_id
+  - related_claims
+  - positioning_summary
+  - selected_axes
+  - evidence_mapping
+  - reviewer_notes
+  - outcome
+  - retention_rule
+  validation_implications:
+  - Each positioning record must cite at least one artifact, evaluation, source-basis, or design-rationale item.
+  - Each positioning record must distinguish contribution to practice from contribution to knowledge.
+- entity_id: knowledge_goal
+  label: Knowledge Goal
+  definition: 'The epistemic or pragmatic purpose of the knowledge produced by a DSR project.
+
+    '
+  controlled_values:
+  - id: definitional
+    label: Definitional
+    definition: Establishes or refines concepts, terms, boundaries, classes, or distinctions.
+    allowed_use: Use when the contribution clarifies what something is or how it should be classified.
+    boundary_notes: Do not use for a merely named artifact without conceptual boundary work.
+  - id: descriptive
+    label: Descriptive
+    definition: Characterizes observed artifact use, context, behavior, or design phenomena.
+    allowed_use: Use when the contribution reports what is present or observed.
+    boundary_notes: Do not use when the main claim explains causal mechanisms or prescribes intervention.
+  - id: explanatory
+    label: Explanatory
+    definition: Explains why an artifact, design choice, intervention, or outcome occurs.
+    allowed_use: Use when mechanisms, causes, or rationales are central to the contribution.
+    boundary_notes: Distinguish from evaluation findings that only report performance.
+  - id: predictive
+    label: Predictive
+    definition: Anticipates what outcomes, behavior, performance, or effects should occur under specified conditions.
+    allowed_use: Use when the contribution supports forecast, simulation, or expected-effect claims.
+    boundary_notes: Requires explicit conditions and outcome variables.
+  - id: explanatory_predictive
+    label: Explanatory-Predictive
+    definition: Combines mechanism explanation with warranted expectation of future effects.
+    allowed_use: Use for claims that both explain and support prediction across contexts.
+    boundary_notes: Do not use unless both explanatory and predictive commitments are explicit.
+  - id: prescriptive
+    label: Prescriptive
+    definition: States how to design, build, adapt, use, evaluate, or govern an artifact to achieve a goal.
+    allowed_use: Use for design principles, methods, guidelines, patterns, rules, and intervention logic.
+    boundary_notes: Requires a goal, situation, action, and intended effect.
+  - id: methodological
+    label: Methodological
+    definition: Improves how DSR itself is conducted, documented, evaluated, reviewed, or published.
+    allowed_use: Use for contributions to DSR process, transparency, evaluation, artifact packaging, or review method.
+    boundary_notes: Distinguish from domain-method contributions that solve only a local practical problem.
+  - id: evaluative
+    label: Evaluative
+    definition: Provides criteria, evidence, or judgments about artifact utility, quality, effects, or contribution strength.
+    allowed_use: Use when contribution rests primarily on evaluation design, results, or evaluative criteria.
+    boundary_notes: Evaluation evidence may support other goals but is not automatically a standalone evaluative contribution.
+  - id: normative
+    label: Normative
+    definition: Establishes values, obligations, responsible-design requirements, or acceptable-use constraints.
+    allowed_use: Use when contribution specifies what ought to be prioritized, avoided, or governed.
+    boundary_notes: Requires explicit value basis or governance rationale.
+- entity_id: knowledge_scope
+  label: Knowledge Scope
+  definition: 'The intended range of applicability of the contribution, from a single local case to generalizable or projectable
+    design knowledge.
+
+    '
+  controlled_values:
+  - id: idiographic_specific
+    label: Idiographic Specific
+    definition: Knowledge tied to one artifact instance, organization, case, setting, or implementation.
+    allowed_use: Use when the contribution is intentionally local or context-specific.
+    boundary_notes: Must not be overclaimed as generalizable without projectability evidence.
+  - id: projectable_to_problem_class
+    label: Projectable to Problem Class
+    definition: Knowledge intended to transfer to a defined class of problems, users, artifacts, or contexts.
+    allowed_use: Use when the contribution identifies a problem class and describes boundary conditions for transfer.
+    boundary_notes: Requires more than a single-case success claim.
+  - id: analytical_generalization
+    label: Analytical Generalization
+    definition: Knowledge generalized by theoretical, conceptual, or model-based reasoning rather than statistical representativeness.
+    allowed_use: Use for theory-building, ontology, design principle, framework, and model contributions.
+    boundary_notes: Must specify reasoning basis and constraints.
+  - id: nomothetic_general
+    label: Nomothetic General
+    definition: Knowledge intended to hold broadly across a class of situations at a high level of abstraction.
+    allowed_use: Use for generalized DSR theory, method, or taxonomy claims.
+    boundary_notes: Requires strong abstraction and evidence or rationale for breadth.
+  - id: mixed_multi_level
+    label: Mixed or Multi-Level
+    definition: Knowledge containing both local idiographic findings and generalized or projectable claims.
+    allowed_use: Use when a project reports local artifact evidence and abstracted design knowledge.
+    boundary_notes: Must separate local evidence from generalized claim.
+- entity_id: contribution_type
+  label: Contribution Type
+  definition: 'The kind of advancement claimed by the DSR work, classified by what changes in artifact practice, design knowledge,
+    DSR method, evaluation, or publication discourse.
+
+    '
+  controlled_values:
+  - id: artifact_innovation
+    label: Artifact Innovation
+    definition: Introduces or substantially improves an artifact type, architecture, method, model, construct, or instantiation.
+    allowed_use: Use when novelty is primarily in the artifact or designed solution.
+    boundary_notes: A routine implementation of known design knowledge is not sufficient.
+  - id: artifact_adaptation
+    label: Artifact Adaptation
+    definition: Adapts an artifact or design approach to a materially different problem class or context.
+    allowed_use: Use when contextual transfer and adaptation logic are central.
+    boundary_notes: Requires explicit difference between source and target contexts.
+  - id: design_principle
+    label: Design Principle
+    definition: Produces prescriptive guidance linking context, intervention/action, mechanism/rationale, and intended outcome.
+    allowed_use: Use for reusable rules, patterns, or principles for designing artifacts.
+    boundary_notes: Must include scope and boundary conditions.
+  - id: nascent_design_theory
+    label: Nascent Design Theory
+    definition: Produces partially formalized design knowledge such as schemas, methods, patterns, constructs, or provisional
+      theory elements.
+    allowed_use: Use when the contribution is more abstract than an artifact but not a complete design theory.
+    boundary_notes: Distinguish from full design theory by missing or immature theory components.
+  - id: full_design_theory
+    label: Full Design Theory
+    definition: Produces a mature design theory with purpose and scope, constructs, principles, mutability, propositions,
+      justificatory knowledge, implementation principles, and expository instantiation.
+    allowed_use: Use when most design-theory components are explicitly specified.
+    boundary_notes: Do not use for a framework or model lacking testable propositions or implementation logic.
+  - id: theory_building
+    label: Theory Building
+    definition: Advances DSR theory, artifact theory, design theory, or explanatory knowledge about design phenomena.
+    allowed_use: Use for conceptual, ontological, or theory-extension contributions.
+    boundary_notes: Should identify the theory or theoretical construct being advanced.
+  - id: method_extension
+    label: Method Extension
+    definition: Extends DSR methods for designing, evaluating, documenting, reviewing, or publishing artifacts.
+    allowed_use: Use for methodological models, process refinements, reporting frameworks, and quality models.
+    boundary_notes: Should specify how the method changes action, judgment, or evidence capture.
+  - id: evaluation_contribution
+    label: Evaluation Contribution
+    definition: Advances evaluation criteria, methods, measures, alignment logic, or evidence interpretation for DSR artifacts.
+    allowed_use: Use when evaluation design or evaluation knowledge is the primary contribution.
+    boundary_notes: Evaluation evidence supporting an artifact does not automatically create this contribution type.
+  - id: transparency_reporting_contribution
+    label: Transparency and Reporting Contribution
+    definition: Advances how DSR work is documented, communicated, reviewed, reproduced, adapted, or made reusable.
+    allowed_use: Use for templates, checklists, traceability frameworks, and publication guidance.
+    boundary_notes: Requires a clear documentation or communication improvement target.
+  - id: synthesis
+    label: Synthesis
+    definition: Integrates existing DSR concepts, evidence, methods, or examples into a usable framework or domain translation.
+    allowed_use: Use when contribution is primarily integrative rather than novel artifact invention.
+    boundary_notes: Must identify the source traditions being synthesized and the practical output of synthesis.
+  - id: domain_translation
+    label: Domain Translation
+    definition: Translates DSR concepts or artifacts into a new disciplinary or professional domain.
+    allowed_use: Use when the contribution helps a domain adopt DSR logic or artifact methods.
+    boundary_notes: Must not overclaim as new general DSR theory unless it changes the DSR model itself.
+  - id: responsible_design_contribution
+    label: Responsible Design Contribution
+    definition: Advances ethical, social, environmental, accessibility, security, equity, or governance dimensions of DSR
+      artifacts.
+    allowed_use: Use where responsible-design values are explicit and operational.
+    boundary_notes: Distinguish from incidental stakeholder benefit claims.
+- entity_id: contribution_level
+  label: Contribution Level
+  definition: 'The maturity and abstraction level of design knowledge produced by the DSR project.
+
+    '
+  controlled_values:
+  - id: level_1_artifact
+    label: Level 1 Artifact
+    definition: Concrete artifact or artifact description that advances prior knowledge and addresses a problem class.
+    allowed_use: Use when contribution remains close to a specific designed artifact.
+    boundary_notes: Must be more than routine implementation or consulting output.
+  - id: level_2_nascent_design_theory
+    label: Level 2 Nascent Design Theory
+    definition: Design principles, schemas, constructs, frameworks, methods, patterns, or provisional theory elements.
+    allowed_use: Use when artifact experience has been abstracted into reusable design knowledge.
+    boundary_notes: May lack complete theory structure or extensive testing.
+  - id: level_3_full_design_theory
+    label: Level 3 Full Design Theory
+    definition: Mature design theory with explicit scope, constructs, principles, propositions, grounding, implementation
+      logic, and examples.
+    allowed_use: Use when the contribution is explicitly theorized and sufficiently complete.
+    boundary_notes: Requires strong traceability among theory elements and evidence.
+  - id: meta_methodological
+    label: Meta-Methodological
+    definition: Contribution to the conduct, documentation, review, packaging, or governance of DSR itself.
+    allowed_use: Use for DSR framework, protocol, quality, and publication artifacts.
+    boundary_notes: Can coexist with Level 2 or Level 3 if the method produces design knowledge.
+- entity_id: evidence_basis
+  label: Evidence Basis
+  definition: 'The evidence, grounding, or reasoning used to justify that the contribution is real, bounded, and significant.
+
+    '
+  controlled_values:
+  - id: artifact_demonstration
+    label: Artifact Demonstration
+    definition: Shows artifact use in a scenario, example, proof of concept, simulation, or illustrative case.
+    boundary_notes: Demonstration does not equal evaluation unless criteria and findings are explicit.
+  - id: formative_evaluation
+    label: Formative Evaluation
+    definition: Evidence collected during artifact development to improve fit, function, quality, or usability.
+    boundary_notes: Supports build decisions but may not establish summative utility.
+  - id: summative_evaluation
+    label: Summative Evaluation
+    definition: Evidence collected to judge artifact utility, quality, effects, or goal achievement after development.
+    boundary_notes: Requires explicit evaluation criteria and outcomes.
+  - id: literature_synthesis
+    label: Literature Synthesis
+    definition: Prior literature or corpus evidence used to ground, compare, or justify the contribution.
+    boundary_notes: Must identify scope, selection logic, and synthesis method where possible.
+  - id: conceptual_argument
+    label: Conceptual Argument
+    definition: Reasoned analysis, ontology, logic, or theoretical coherence used as justification.
+    boundary_notes: Should not be overclaimed as empirical validation.
+  - id: stakeholder_evidence
+    label: Stakeholder Evidence
+    definition: Evidence from users, practitioners, reviewers, domain experts, or affected stakeholders.
+    boundary_notes: Must specify stakeholder roles and data source.
+  - id: traceability_evidence
+    label: Traceability Evidence
+    definition: Linked records showing how claims connect to requirements, artifact design, evaluation, and source basis.
+    boundary_notes: Supports reviewability but does not replace substantive evaluation.
+relationships:
+- relationship_id: claim_advances_goal
+  subject: contribution_claim
+  predicate: advances
+  object: knowledge_goal
+  cardinality: one_to_many
+  required: true
+  rule: Each contribution claim must identify at least one knowledge goal.
+- relationship_id: claim_has_scope
+  subject: contribution_claim
+  predicate: has_scope
+  object: knowledge_scope
+  cardinality: one_to_one
+  required: true
+  rule: Each contribution claim must identify the intended applicability scope.
+- relationship_id: claim_has_type
+  subject: contribution_claim
+  predicate: has_type
+  object: contribution_type
+  cardinality: one_to_many
+  required: true
+  rule: Multiple contribution types may be used only when their evidence bases are separately mapped.
+- relationship_id: claim_has_level
+  subject: contribution_claim
+  predicate: has_level
+  object: contribution_level
+  cardinality: one_to_many
+  required: true
+  rule: Contribution level must reflect the abstraction and maturity of the claimed design knowledge.
+- relationship_id: claim_references_artifact
+  subject: contribution_claim
+  predicate: references
+  object: dsr_artifact
+  cardinality: zero_to_many
+  required: conditional
+  rule: Required when the claim concerns an artifact, artifact type, artifact package, or artifact evaluation.
+- relationship_id: claim_references_problem_class
+  subject: contribution_claim
+  predicate: addresses
+  object: problem_class
+  cardinality: zero_to_many
+  required: conditional
+  rule: Required for projectable, analytical, or nomothetic claims; optional for explicitly idiographic claims.
+- relationship_id: claim_supported_by_evidence
+  subject: contribution_claim
+  predicate: supported_by
+  object: evidence_basis
+  cardinality: one_to_many
+  required: true
+  rule: Each claim must have at least one mapped evidence basis or evidence_status not_yet_mapped.
+- relationship_id: positioning_record_documents_claim
+  subject: contribution_positioning_record
+  predicate: documents
+  object: contribution_claim
+  cardinality: one_to_many
+  required: true
+  rule: Positioning records preserve claim rationale, limitations, and review outcome.
+positioning_axes:
+  required_axes:
+  - axis_id: contribution_type_axis
+    entity: contribution_type
+    question: What kind of advancement is claimed?
+    required: true
+  - axis_id: knowledge_goal_axis
+    entity: knowledge_goal
+    question: What is the goal of the knowledge produced?
+    required: true
+  - axis_id: knowledge_scope_axis
+    entity: knowledge_scope
+    question: How broadly is the claim intended to apply?
+    required: true
+  - axis_id: contribution_level_axis
+    entity: contribution_level
+    question: What maturity and abstraction level does the contribution reach?
+    required: true
+  - axis_id: evidence_basis_axis
+    entity: evidence_basis
+    question: What evidence, grounding, or reasoning supports the claim?
+    required: true
+  recommended_axes:
+  - axis_id: audience_axis
+    values:
+    - scholarly_researcher
+    - reviewer_or_editor
+    - practitioner
+    - policymaker_or_governance_actor
+    - technical_implementer
+    - public_or_affected_stakeholder
+    question: Who must be able to understand, evaluate, use, or reuse the contribution?
+  - axis_id: impact_target_axis
+    values:
+    - artifact_utility
+    - artifact_quality
+    - design_knowledge
+    - dsr_method
+    - reporting_transparency
+    - evaluation_quality
+    - stakeholder_practice
+    question: What kind of impact does the contribution target?
+  - axis_id: consensus_positioning_axis
+    values:
+    - applies_consensus_to_domain
+    - extends_consensus
+    - refines_consensus
+    - challenges_consensus
+    - not_yet_positioned
+    question: How does the claim relate to existing DSR consensus?
+claim_pattern_templates:
+- pattern_id: artifact_utility_claim
+  label: Artifact Utility Claim
+  claim_shape: 'The artifact helps specified users achieve specified goals in a specified problem class or context.
+
+    '
+  required_fields:
+  - artifact_reference
+  - users_or_stakeholders
+  - problem_class_or_context
+  - intended_use
+  - utility_criteria
+  - evidence_basis
+  - limitations
+  invalid_when:
+  - Utility is asserted without demonstration, evaluation, or explicit rationale.
+  - The artifact is described but no use goal is specified.
+- pattern_id: artifact_quality_claim
+  label: Artifact Quality Claim
+  claim_shape: 'The artifact has specified qualities such as correctness, usability, robustness, reliability, maintainability,
+    transparency, accessibility, or fit for use.
+
+    '
+  required_fields:
+  - artifact_reference
+  - quality_attributes
+  - measurement_or_assessment_method
+  - evidence_basis
+  - acceptance_thresholds
+  - limitations
+  invalid_when:
+  - Quality is inferred from novelty alone.
+  - Quality attributes are not operationalized.
+- pattern_id: design_knowledge_claim
+  label: Design Knowledge Claim
+  claim_shape: 'The project contributes reusable knowledge about how to design, build, adapt, evaluate, or govern artifacts.
+
+    '
+  required_fields:
+  - knowledge_goal
+  - knowledge_scope
+  - contribution_type
+  - abstraction_basis
+  - problem_class
+  - source_or_evaluation_basis
+  - boundary_conditions
+  invalid_when:
+  - The claim does not advance beyond a local artifact instance.
+  - Boundary conditions are omitted for projectable or general claims.
+- pattern_id: methodological_claim
+  label: Methodological Claim
+  claim_shape: 'The project improves DSR conduct, documentation, evaluation, review, packaging, transparency, or publication.
+
+    '
+  required_fields:
+  - methodological_problem
+  - proposed_method_or_model
+  - intended_users
+  - use_context
+  - evidence_or_rationale
+  - relation_to_existing_dsr_methods
+  - limitations
+  invalid_when:
+  - The method is merely an undocumented preference.
+  - The claim lacks comparison to prior method expectations.
+- pattern_id: responsible_design_claim
+  label: Responsible Design Claim
+  claim_shape: 'The project improves or governs ethical, social, accessibility, security, privacy, equity, environmental,
+    or stakeholder-accountability dimensions of DSR artifacts.
+
+    '
+  required_fields:
+  - responsible_design_value
+  - affected_stakeholders
+  - intervention_or_governance_mechanism
+  - risk_or_harm_addressed
+  - evidence_basis
+  - tradeoffs
+  - limitations
+  invalid_when:
+  - Values are named but not operationalized.
+  - Stakeholder effects are asserted without rationale or evidence.
+contribution_positioning_workflow:
+- step_id: cpw_01_identify_candidate_claims
+  label: Identify Candidate Claims
+  action: Extract all explicit and implied contribution claims from the project, artifact profile, evaluation records, and
+    reporting materials.
+  output: candidate_contribution_claims
+- step_id: cpw_02_separate_claim_kinds
+  label: Separate Utility, Quality, and Knowledge Claims
+  action: Distinguish artifact utility claims, artifact quality claims, and design knowledge claims before assigning contribution
+    type.
+  output: separated_claim_set
+- step_id: cpw_03_assign_goals_and_scope
+  label: Assign Knowledge Goals and Scope
+  action: Classify each knowledge claim by knowledge goal and intended scope.
+  output: goal_scope_positioning
+- step_id: cpw_04_assign_contribution_type_and_level
+  label: Assign Contribution Type and Level
+  action: Select contribution type and contribution level using controlled definitions and boundary notes.
+  output: typed_contribution_claims
+- step_id: cpw_05_map_evidence_and_traceability
+  label: Map Evidence and Traceability
+  action: Link each claim to artifact specifications, design rationale, demonstrations, evaluations, corpus sources, or review
+    records.
+  output: evidence_mapped_claims
+- step_id: cpw_06_state_boundaries_and_non_goals
+  label: State Boundaries and Non-Goals
+  action: Identify contexts, assumptions, limitations, and claims not made.
+  output: bounded_claims
+- step_id: cpw_07_review_for_overclaiming
+  label: Review for Overclaiming
+  action: Check whether the claim overstates generality, evaluation strength, novelty, reproducibility, or publication readiness.
+  output: reviewable_positioning_record
+boundary_conditions:
+- boundary_id: bc_demonstration_not_evaluation
+  statement: A demonstration may show plausible use but must not be reported as evaluation unless criteria, method, and findings
+    are explicit.
+- boundary_id: bc_instance_not_general_contribution
+  statement: A local artifact instance supports a general contribution only when abstraction, problem-class definition, or
+    projectability logic is provided.
+- boundary_id: bc_novelty_not_utility
+  statement: Novelty does not imply utility, quality, validity, reliability, or significance.
+- boundary_id: bc_transparency_not_complete_reproducibility
+  statement: Transparent documentation supports review and reuse but does not by itself establish exact reproducibility.
+- boundary_id: bc_method_claim_requires_method_delta
+  statement: A methodological contribution must specify what prior method, process, review practice, or documentation practice
+    is extended or improved.
+- boundary_id: bc_responsible_design_requires_operational_value
+  statement: Responsible-design claims require an explicit value, affected stakeholder, design decision, governance mechanism,
+    or evaluation criterion.
+validation_rules:
+- rule_id: vr_claim_has_controlled_type
+  severity: error
+  applies_to: contribution_claim
+  test: contribution_type must use a controlled value or mark evidence_status as not_yet_mapped for provisional classification.
+  failure_message: Contribution type is missing or uncontrolled.
+- rule_id: vr_claim_has_goal_and_scope
+  severity: error
+  applies_to: contribution_claim
+  test: knowledge_goals and knowledge_scope must be present.
+  failure_message: Contribution claim cannot be reviewed without knowledge goal and scope.
+- rule_id: vr_projectable_claim_has_problem_class
+  severity: error
+  applies_to: contribution_claim
+  test: Claims with projectable_to_problem_class, analytical_generalization, nomothetic_general, or mixed_multi_level scope
+    must identify a problem_class_reference.
+  failure_message: Generalized or projectable claim lacks a problem class.
+- rule_id: vr_evidence_strength_not_overclaimed
+  severity: warning
+  applies_to: contribution_claim
+  test: Claims supported only by demonstration or conceptual argument must not be labeled as empirically evaluated unless
+    evaluation evidence is mapped.
+  failure_message: Evidence basis does not support the claimed evaluation strength.
+- rule_id: vr_practice_and_knowledge_separated
+  severity: warning
+  applies_to: contribution_positioning_record
+  test: contribution_to_practice and contribution_to_knowledge must be separately described or explicitly marked not_applicable.
+  failure_message: Practice impact and knowledge contribution are conflated.
+- rule_id: vr_boundaries_present
+  severity: warning
+  applies_to: contribution_claim
+  test: boundary_conditions and limitations must be present for every claim.
+  failure_message: Claim has no stated boundary conditions or limitations.
+review_criteria:
+- criterion_id: rc_clarity
+  question: Is the contribution claim stated in a single reviewable sentence before elaboration?
+  pass_condition: Claim statement identifies what is contributed, to whom, for what purpose, and at what scope.
+- criterion_id: rc_novelty
+  question: Does the claim explain how the contribution differs from prior artifacts, methods, theories, or reporting practices?
+  pass_condition: Prior work or source basis is identified, and the delta is explicit.
+- criterion_id: rc_relevance
+  question: Does the claim connect to a practical problem, DSR methodological problem, or knowledge gap?
+  pass_condition: Problem class, stakeholder, or methodological gap is explicit.
+- criterion_id: rc_rigor
+  question: Is the claim grounded in prior literature, design rationale, evaluation, traceability, or conceptual argument?
+  pass_condition: At least one evidence basis is mapped and adequate for the claim strength.
+- criterion_id: rc_projectability
+  question: Are transfer conditions, context limits, and problem-class boundaries identified?
+  pass_condition: Non-local claims include boundary conditions and reuse/adaptation guidance.
+- criterion_id: rc_transparency
+  question: Are contribution evidence, assumptions, non-goals, and limitations transparent enough for review?
+  pass_condition: Claim record includes evidence mapping, limitations, assumptions, and overclaiming checks.
+quality_and_conformance:
+  conformance_level: l2_reviewable
+  acceptance_criteria:
+  - id: ac_model_has_required_entities
+    statement: Model defines contribution claim, contribution positioning record, knowledge goal, knowledge scope, contribution
+      type, contribution level, and evidence basis.
+    verification_method: inspect_controlled_entities
+  - id: ac_model_has_relationships
+    statement: Model defines required relationships among claims, goals, scopes, types, levels, artifacts, problem classes,
+      evidence, and positioning records.
+    verification_method: inspect_relationships
+  - id: ac_model_has_boundary_rules
+    statement: Model prevents common DSR overclaims, including demonstration-as-evaluation and instance-as-general-contribution
+      errors.
+    verification_method: inspect_boundary_conditions_and_validation_rules
+  - id: ac_model_has_traceability
+    statement: Model includes source basis and traceability to upstream vocabularies, downstream schema/template/checklist
+      products, and corpus anchors where mapped.
+    verification_method: inspect_source_basis_and_traceability
+  quality_gates:
+  - id: qg_consistency
+    status: pass
+    rationale: File path, naming, item type, status, version, owner, related items, and YAML format follow the generation
+      specification.
+  - id: qg_coherence
+    status: pass
+    rationale: Model links to expected contribution, knowledge-goal, and knowledge-scope vocabularies and downstream schemas/templates/checklists.
+  - id: qg_cogency
+    status: pass
+    rationale: Model proceeds from entities to values, relationships, workflow, boundaries, validation, and review criteria.
+  - id: qg_correspondence
+    status: pass
+    rationale: Model directly supports the selected contribution-positioning purpose for the DSR Framework artifact package.
+  - id: qg_dsr_transparency
+    status: pass
+    rationale: Contribution transparency is represented through claim evidence, scope, assumptions, limitations, and source-basis
+      mapping.
+  - id: qg_reviewability
+    status: pass
+    rationale: Acceptance criteria, validation rules, and review criteria are explicit.
+traceability:
+- trace_id: tr_selection_to_model
+  source: dsr_framework_selection_table.model_contribution
+  target: model.dsr_contribution_model
+  relationship: implements_selected_model
+  evidence_status: mapped
+- trace_id: tr_spec_to_model_requirements
+  source: dsr_framework_generation_spec.content_generation_rules
+  target: model.dsr_contribution_model
+  relationship: follows_generation_rules
+  evidence_status: mapped
+- trace_id: tr_model_to_vocabs
+  source: model.dsr_contribution_model.controlled_entities
+  target:
+  - vocabularies/contribution-types.yaml
+  - vocabularies/knowledge-goals.yaml
+  - vocabularies/knowledge-scopes.yaml
+  relationship: supplies_candidate_controlled_values_for_vocabularies
+  evidence_status: not_yet_mapped
+- trace_id: tr_akoka_to_path_based_contribution
+  source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  target: model.dsr_contribution_model.knowledge_goal_scope_path_logic
+  relationship: grounds_dynamic_knowledge_contribution_positioning
+  evidence_status: mapped
+  citation_anchor_ids:
+  - A05
+  - A07
+  - A08
+  - A10
+  - A13
+- trace_id: tr_gregor_zwikael_to_level_model
+  source: gregor_zwikael_2024_ijpm_102584
+  target: model.dsr_contribution_model.contribution_level
+  relationship: grounds_design_knowledge_level_classification
+  evidence_status: mapped
+  citation_anchor_ids:
+  - A08
+  - A09
+  - A11
+  - A23
+- trace_id: tr_hevner_transparency_to_reporting
+  source: hevner_et_al_2024_transparency_in_design_science_research
+  target: model.dsr_contribution_model.claim_pattern_templates.methodological_claim
+  relationship: grounds_contribution_transparency_and_reporting_requirements
+  evidence_status: mapped
+  citation_anchor_ids:
+  - CA11
+  - CA15
+  - CA16
+  - CA17
+- trace_id: tr_weigand_to_artifact_boundary
+  source: weigand_johannesson_andersson_2021_101878
+  target: model.dsr_contribution_model.boundary_conditions.bc_instance_not_general_contribution
+  relationship: grounds_artifact_instance_vs_artifact_universal_boundary
+  evidence_status: mapped
+  citation_anchor_ids:
+  - A17
+  - A18
+  - A20
+implementation_guidance:
+  authoring_guidance:
+  - Start every contribution-positioning record with a concise claim statement.
+  - Use multiple contribution claims rather than forcing one claim to carry utility, quality, and knowledge contribution at
+    once.
+  - Assign knowledge scope conservatively; use mixed_multi_level when local evidence and generalized claims coexist.
+  - Treat projectability as a claim requiring problem-class definition, boundary conditions, and evidence or rationale.
+  - Preserve not_yet_mapped when source evidence or downstream vocabulary entries have not yet been generated.
+  reviewer_guidance:
+  - Check whether the claimed contribution type matches the evidence basis.
+  - Flag routine implementation, consulting output, or local success as overclaimed if no abstraction is provided.
+  - Require separate discussion of practice impact and contribution to knowledge.
+  - Require explicit limitations for every non-idiographic claim.
+  schema_implications:
+  - schema_contribution_claim should require claim_id, claim_statement, contribution_type, knowledge_goals, knowledge_scope,
+    evidence_basis, limitations, and review_status.
+  - schema_contribution_claim should validate controlled values against vocabularies once vocabularies are finalized.
+  - schema_contribution_claim should allow evidence_status not_yet_mapped during draft phases.
+  template_implications:
+  - template_contribution_claim should prompt for artifact utility, artifact quality, and knowledge contribution as separate
+    fields.
+  - template_contribution_positioning should include a review-for-overclaiming section.
+  - checklist_contribution_positioning should mirror the review_criteria in this model.
+assumptions:
+- id: asm_model_dependencies_pending
+  statement: Referenced vocabulary, schema, template, and checklist files may be generated later; this model provides controlled-value
+    candidates and relationship rules for them.
+- id: asm_l2_target
+  statement: The file targets l2_reviewable rather than executable validation because the dependent JSON Schema is not yet
+    generated in this selection.
+- id: asm_internal_corpus_sufficient
+  statement: The internal DSR corpus provides sufficient contribution-model evidence for this draft; no external source lookup
+    was used.
+limitations:
+- id: lim_vocabularies_not_finalized
+  statement: Controlled values are included here for model coherence but should be reconciled with the dedicated vocabulary
+    files when generated.
+- id: lim_no_empirical_validation_of_model
+  statement: This contribution model is protocol-ready and reviewable but has not yet been empirically tested with independent
+    DSR authors or reviewers.
+- id: lim_corpus_anchor_granularity
+  statement: Citation anchors are mapped at source-extraction level; future review may refine them against page-level source
+    PDFs.
+open_questions:
+- id: oq_include_aesthetic_contribution_type
+  question: Should aesthetic contribution be modeled as a distinct contribution type or as a responsible-design / artifact-quality
+    subdimension?
+  disposition: defer_to_aesthetics_vocabulary_and_quality_model
+- id: oq_scoring_model
+  question: Should contribution strength be scored ordinally or kept as qualitative review criteria?
+  disposition: defer_to_quality_conformance_and_review_model
+- id: oq_multi_claim_aggregation
+  question: How should multiple contribution claims be aggregated for package-level publication readiness?
+  disposition: defer_to_publication_readiness_model

@@ -1,0 +1,1369 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_protocol_foundation
+  title: Protocol Foundation Product Specification
+  item_id: product_protocol_foundation
+  item_type: specification
+  selection_id: spec_protocol_foundation
+  target_path: specs/product-protocol-foundation.yaml
+  purpose: >
+    Define the foundation specification for applying the Documentation Protocol
+    to the DSR Framework artifact package, including scope control, conformance
+    targets, tailoring rules, repository governance, traceability obligations,
+    and reviewability expectations.
+  status: draft
+  owner: dsr_framework_maintainers
+  responsible_role: framework_protocol_steward
+  package_role: foundation_product_specification
+  default_conformance: l2_reviewable
+version: "0.1.0"
+source_basis:
+  - id: user_current_request
+    source_type: immediate_task_definition
+    evidence_status: mapped
+    evidence_note: >
+      User selected spec_protocol_foundation with target path
+      specs/product-protocol-foundation.yaml, portion type product_spec, output
+      format yaml, default conformance L2, and dependency on documentation
+      protocol.
+  - id: dsr_framework_generation_spec
+    source_type: governing_generation_specification
+    evidence_status: mapped
+    evidence_note: >
+      Provides repository architecture, naming rules, controlled information
+      item expectations, product-spec section structure, source-basis rules,
+      traceability rules, and quality gates.
+  - id: dsr_framework_generation_prompt
+    source_type: governing_generation_prompt
+    evidence_status: mapped
+    evidence_note: >
+      Requires product specifications to be generated as controlled YAML files
+      with required metadata, traceability, quality and conformance material,
+      source basis, and a completion report.
+  - id: documentation_protocol_repository
+    source_type: upstream_protocol_repository
+    evidence_status: not_yet_mapped
+    repository: https://github.com/dochabski/documentation-protocol
+    evidence_note: >
+      The repository is the intended governing documentation protocol source,
+      but this file does not assert unmapped repository-specific facts beyond
+      the project generation specification's documented alignment rules.
+  - id: dsr_extraction_corpus
+    source_type: scholarly_and_methodological_evidence_base
+    evidence_status: partially_mapped
+    evidence_note: >
+      Used for DSR-aligned transparency, artifact-package, reviewability, and
+      contribution distinctions where relevant to protocol requirements.
+dependencies:
+  required:
+    - id: documentation_protocol
+      relationship: governs
+      description: >
+        Supplies the external documentation-protocol logic that the DSR
+        Framework adapts for artifact-package documentation.
+      evidence_status: not_yet_mapped
+    - id: root_manifest
+      relationship: constrained_by
+      path: manifest.yaml
+      description: Declares canonical package identity and repository-level control.
+      evidence_status: planned_dependency
+    - id: root_conformance_declaration
+      relationship: constrained_by
+      path: conformance-declaration.yaml
+      description: Declares the applied conformance target and tailoring exceptions.
+      evidence_status: planned_dependency
+    - id: root_package_inventory
+      relationship: constrained_by
+      path: package-inventory.yaml
+      description: Inventories controlled files and validation responsibilities.
+      evidence_status: planned_dependency
+  downstream:
+    - id: spec_product_catalog
+      path: specs/product-catalog.yaml
+      relationship: registers
+    - id: spec_dsr_framework_foundation
+      path: specs/product-dsr-framework-foundation.yaml
+      relationship: provides_protocol_constraints_for
+    - id: spec_information_item_architecture
+      path: specs/product-dsr-information-item-architecture.yaml
+      relationship: provides_foundation_for
+    - id: spec_repository_architecture
+      path: specs/product-dsr-repository-architecture.yaml
+      relationship: provides_foundation_for
+    - id: spec_artifact_package
+      path: specs/product-dsr-artifact-package-specification.yaml
+      relationship: provides_foundation_for
+    - id: spec_quality_review
+      path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relationship: provides_foundation_for
+    - id: spec_templates_checklists
+      path: specs/product-dsr-templates-and-checklists.yaml
+      relationship: provides_foundation_for
+related_items:
+  upstream:
+    - manifest.yaml
+    - metadata.yaml
+    - artifact-profile.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+  peer_products:
+    - specs/product-catalog.yaml
+    - specs/product-dsr-framework-foundation.yaml
+    - specs/product-dsr-information-item-architecture.yaml
+    - specs/product-dsr-repository-architecture.yaml
+    - specs/product-dsr-quality-conformance-and-review-model.yaml
+  records:
+    - records/tailoring/
+    - records/design-decisions/
+    - records/source-basis/
+    - records/reviews/
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change: Initial draft generated for the spec_protocol_foundation selection.
+    responsible_party: GPT-5.5 Thinking
+    review_status: unreviewed
+assumptions:
+  - id: asm_protocol_repository_unchecked
+    statement: >
+      The Documentation Protocol repository should be treated as the upstream
+      source of truth, but repository-specific details remain unmapped in this
+      draft until a source-basis record or direct repository review is added.
+    impact: >
+      This specification uses only protocol-alignment rules already present in
+      the DSR Framework generation specification and marks unmapped protocol
+      evidence explicitly.
+  - id: asm_l2_default
+    statement: >
+      The selected row's L2 default is interpreted as l2_reviewable rather than
+      an exercisable, reusable, or archival-publication-ready release level.
+    impact: >
+      The file includes review criteria and traceability but does not claim full
+      automation, publication release readiness, or archival preservation.
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: >
+      Establish the protocol-foundation product's identity, intended function,
+      boundaries, users, and operating principles.
+    content:
+      product_identity:
+        product_id: product_protocol_foundation
+        product_family: dsr_framework_specs
+        controlled_file: specs/product-protocol-foundation.yaml
+        product_kind: product_specification
+        conformance_target: l2_reviewable
+      product_mission: >
+        Provide the governing bridge between the Documentation Protocol and the
+        DSR Framework package so that every generated framework file can be
+        scoped, named, structured, traced, tailored, reviewed, and maintained as
+        part of a coherent artifact package.
+      primary_users:
+        - role: framework_maintainer
+          use_case: Define and maintain repository-wide protocol obligations.
+        - role: framework_contributor
+          use_case: Determine what fields, records, trace links, and review evidence are required.
+        - role: reviewer
+          use_case: Evaluate whether generated files satisfy explicit protocol and DSR quality criteria.
+        - role: downstream_reuser
+          use_case: Understand which parts of the framework are mandatory, tailored, optional, or still in draft.
+      in_scope:
+        - repository-level source-of-truth rules
+        - controlled file categories and information item expectations
+        - conformance-level interpretation for the DSR Framework package
+        - tailoring rules and required tailoring records
+        - baseline traceability and reviewability obligations
+        - relationships among package inventory, conformance declaration, product catalog, specs, models, templates, checklists, records, and docs
+      out_of_scope:
+        - full reproduction of the upstream Documentation Protocol repository
+        - final JSON Schema definitions for every information item
+        - empirical evaluation of the DSR Framework artifact package
+        - publication or DOI release procedures beyond foundation-level requirements
+        - domain-specific DSR project content supplied by future users
+      operating_principles:
+        - id: protocol_first_source_of_truth
+          statement: >
+            Controlled specifications, models, vocabularies, schemas, templates,
+            checklists, and records are source-of-truth files; Markdown docs are
+            explanatory or rendering layers unless explicitly declared otherwise.
+        - id: minimal_overclaiming
+          statement: >
+            A file may claim only the conformance, evidence, evaluation, and
+            publication-readiness status actually supported by retained records.
+        - id: traceability_before_scaling
+          statement: >
+            Product, model, vocabulary, schema, template, checklist, and record
+            files should be traceable before the package is expanded toward
+            automation or release readiness.
+        - id: tailoring_as_recorded_exception
+          statement: >
+            Tailoring is allowed, but exceptions must be deliberate, bounded,
+            justified, recorded, and reviewable.
+        - id: reviewability_by_default
+          statement: >
+            The default artifact-package state should allow a reviewer to inspect
+            scope, assumptions, sources, dependencies, quality gates, and open
+            questions without relying on hidden context.
+      non_goals:
+        - Create a closed or proprietary methodology.
+        - Replace established DSR methods, reporting norms, or discipline-specific evaluation standards.
+        - Force all DSR projects into the same level of documentation burden.
+        - Treat demonstration evidence as if it were evaluation evidence.
+        - Treat local artifact usefulness as sufficient evidence of scholarly contribution.
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: >
+      Define the controlled concepts and relationships used to govern scope,
+      conformance, and tailoring across the DSR Framework repository.
+    content:
+      core_entities:
+        - id: documentation_protocol
+          label: Documentation Protocol
+          definition: >
+            The upstream protocol model that supplies repository, information
+            item, metadata, record, and documentation governance expectations.
+          attributes:
+            - repository_source
+            - version_or_commit
+            - mapped_requirements
+            - tailoring_allowances
+        - id: protocol_profile
+          label: DSR Framework Protocol Profile
+          definition: >
+            The DSR Framework-specific application of the Documentation Protocol,
+            including selected conformance targets, permitted tailoring, and
+            repository conventions.
+          attributes:
+            - conformance_target
+            - in_scope_products
+            - tailored_obligations
+            - review_gates
+        - id: artifact_package
+          label: Artifact Package
+          definition: >
+            A coherent repository package containing controlled source files,
+            human-facing documentation, evidence records, templates, checklists,
+            schemas, examples, and release metadata.
+          attributes:
+            - package_identity
+            - package_inventory
+            - conformance_declaration
+            - release_state
+        - id: information_item
+          label: Information Item
+          definition: >
+            A controlled unit of package content, such as a specification, model,
+            vocabulary, schema, template, checklist, record, or documentation page.
+          attributes:
+            - item_id
+            - item_type
+            - status
+            - owner
+            - source_basis
+            - related_items
+        - id: conformance_level
+          label: Conformance Level
+          definition: >
+            A declared maturity target specifying how complete, reviewable,
+            executable, reusable, or publication-ready a file or package claims to be.
+          attributes:
+            - level_id
+            - label
+            - obligations
+            - evidence_required
+            - permitted_claims
+        - id: tailoring_decision
+          label: Tailoring Decision
+          definition: >
+            A retained decision that modifies, scopes, defers, or strengthens a
+            protocol obligation for the DSR Framework package.
+          attributes:
+            - decision_id
+            - obligation_affected
+            - rationale
+            - scope
+            - evidence
+            - expiry_or_review_trigger
+        - id: quality_gate
+          label: Quality Gate
+          definition: >
+            An explicit review criterion used to determine whether a generated
+            file is consistent, coherent, cogent, correspondent, transparent,
+            and reviewable.
+          attributes:
+            - gate_id
+            - question
+            - evidence_required
+            - pass_condition
+            - remediation
+        - id: trace_link
+          label: Trace Link
+          definition: >
+            A relationship connecting a requirement, product section, evidence
+            source, information item, review criterion, decision, or downstream output.
+          attributes:
+            - trace_id
+            - source
+            - target
+            - relationship
+            - evidence_status
+      conformance_ladder:
+        - level_id: l0_draft
+          label: Draft
+          minimum_obligations:
+            - file exists at a valid path
+            - stable item identity is present
+            - status is explicitly marked draft
+          permitted_claims:
+            - exploratory structure
+          prohibited_claims:
+            - reviewable completeness
+            - reuse readiness
+            - publication readiness
+        - level_id: l1_documented
+          label: Documented
+          minimum_obligations:
+            - required metadata fields are present
+            - purpose and scope are explicit
+            - dependencies and assumptions are listed
+            - open questions are recorded
+          permitted_claims:
+            - internally documented
+          prohibited_claims:
+            - independent review readiness without criteria
+        - level_id: l2_reviewable
+          label: Reviewable
+          minimum_obligations:
+            - traceability objects are present
+            - acceptance criteria or quality gates are present
+            - evidence status is mapped or explicitly marked not_yet_mapped
+            - limitations and non-goals are explicit
+            - dependencies are sufficient for reviewer inspection
+          permitted_claims:
+            - ready for structured review
+          prohibited_claims:
+            - executable validation unless supported by schemas or tests
+            - archival publication readiness
+        - level_id: l3_exercisable
+          label: Exercisable
+          minimum_obligations:
+            - templates, schemas, checklists, or workflows can be exercised on a sample package
+            - validation responsibilities are identified
+            - failure and remediation paths are defined
+          permitted_claims:
+            - usable in pilot application
+          prohibited_claims:
+            - broad reuse maturity unless evaluated across contexts
+        - level_id: l4_reusable
+          label: Reusable
+          minimum_obligations:
+            - examples or demonstrations show reuse across at least one scenario
+            - versioning and change rules are stable
+            - dependency and tailoring rules are clear for adopters
+          permitted_claims:
+            - reusable artifact-package method
+          prohibited_claims:
+            - archival status without release and preservation records
+        - level_id: l5_archival_publication_ready
+          label: Archival Publication Ready
+          minimum_obligations:
+            - release records are complete
+            - citation and preservation metadata are complete
+            - publication-readiness checklist is passed
+            - archival repository or DOI pathway is documented
+          permitted_claims:
+            - citable release candidate or released package
+          prohibited_claims:
+            - unresolved blocking governance or licensing issues
+      tailoring_dimensions:
+        - id: scope_tailoring
+          label: Scope tailoring
+          definition: Include, exclude, defer, or stage content obligations by package boundary.
+          requires_record: true
+        - id: depth_tailoring
+          label: Depth tailoring
+          definition: Adjust granularity of fields, records, or evidence required for a conformance level.
+          requires_record: true
+        - id: evidence_tailoring
+          label: Evidence tailoring
+          definition: Permit not_yet_mapped evidence where source mapping is planned but not complete.
+          requires_record: true
+        - id: automation_tailoring
+          label: Automation tailoring
+          definition: Defer schema, test, workflow, or CI validation until exercisable maturity.
+          requires_record: true
+        - id: publication_tailoring
+          label: Publication tailoring
+          definition: Separate reviewable artifact-package content from archival/publication obligations.
+          requires_record: true
+      relationship_rules:
+        - source: documentation_protocol
+          relationship: is_adapted_by
+          target: protocol_profile
+        - source: protocol_profile
+          relationship: governs
+          target: artifact_package
+        - source: artifact_package
+          relationship: contains
+          target: information_item
+        - source: conformance_level
+          relationship: defines_obligations_for
+          target: information_item
+        - source: tailoring_decision
+          relationship: modifies_or_defers
+          target: conformance_level
+        - source: trace_link
+          relationship: connects
+          target: source_basis_and_quality_gate
+        - source: quality_gate
+          relationship: reviews
+          target: information_item
+      transparency_mapping:
+        - dimension: process_transparency
+          protocol_role: Document generation, revision, review, tailoring, and release steps.
+        - dimension: problem_space_transparency
+          protocol_role: Document package scope, users, improvement goals, constraints, and non-goals.
+        - dimension: solution_space_transparency
+          protocol_role: Document upstream protocol, DSR corpus grounding, and related artifacts.
+        - dimension: build_transparency
+          protocol_role: Document file creation, design decisions, structure choices, and unresolved assumptions.
+        - dimension: evaluation_transparency
+          protocol_role: Distinguish review, demonstration, validation, and evaluation records.
+        - dimension: contribution_transparency
+          protocol_role: Document claims about utility, quality, reuse, and contribution to DSR knowledge.
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: >
+      State mandatory, recommended, optional, and prohibited protocol-foundation
+      requirements for the DSR Framework package.
+    content:
+      must:
+        - id: req_pf_must_001
+          requirement: >
+            Every controlled source-of-truth file must include a stable identity,
+            item type, title or label, purpose, status, version, owner or
+            responsible role, source basis, related items, and change history.
+          verification: Inspect required metadata fields.
+        - id: req_pf_must_002
+          requirement: >
+            Every generated product specification must include the standard
+            product-spec sections unless a tailoring decision records and
+            justifies an exception.
+          verification: Check section ids against the product-spec structure.
+        - id: req_pf_must_003
+          requirement: >
+            Every controlled file must declare evidence status for substantive
+            source-basis claims as mapped, partially_mapped, not_yet_mapped,
+            planned_dependency, or not_applicable.
+          verification: Inspect source_basis and traceability entries.
+        - id: req_pf_must_004
+          requirement: >
+            Every conformance claim must identify the level claimed, the evidence
+            supporting that level, and any tailoring exceptions.
+          verification: Inspect conformance_declaration_alignment and tailoring records.
+        - id: req_pf_must_005
+          requirement: >
+            Tailoring decisions must be retained in records/tailoring or another
+            explicitly declared records location.
+          verification: Confirm a retained tailoring record exists or is listed as required.
+        - id: req_pf_must_006
+          requirement: >
+            Package inventory alignment must be preserved whenever a new file is
+            added, renamed, superseded, or deprecated.
+          verification: Compare controlled file path to package-inventory.yaml.
+        - id: req_pf_must_007
+          requirement: >
+            The framework must distinguish artifact utility, artifact quality,
+            and contribution to knowledge when making DSR claims.
+          verification: Inspect artifact profile, contribution records, and quality review sections.
+        - id: req_pf_must_008
+          requirement: >
+            The framework must distinguish demonstration, validation, review,
+            and evaluation activities.
+          verification: Inspect workflow, records, and evaluation-related products.
+        - id: req_pf_must_009
+          requirement: >
+            Markdown documentation must not be treated as the only controlled
+            source for structured requirements when a YAML or JSON source file exists.
+          verification: Check docs/protocol pages for source YAML references.
+        - id: req_pf_must_010
+          requirement: >
+            Open questions must be retained when a dependency, source mapping,
+            conformance obligation, or validation rule is unresolved.
+          verification: Inspect open_questions and backlog fields.
+      should:
+        - id: req_pf_should_001
+          requirement: >
+            Controlled file identifiers should use lower_snake_case, while file
+            names should use lower-kebab-case and the expected extension.
+          verification: Inspect file path and item ids.
+        - id: req_pf_should_002
+          requirement: >
+            Product specifications should use concise operational wording and
+            controlled lists where validation matters.
+          verification: Review prose density and field structure.
+        - id: req_pf_should_003
+          requirement: >
+            Each product should identify upstream dependencies and downstream
+            products affected by its definitions.
+          verification: Inspect dependencies and related_items.
+        - id: req_pf_should_004
+          requirement: >
+            Evidence placeholders should be specific enough for a future reviewer
+            to complete source mapping without rediscovering the purpose of the placeholder.
+          verification: Inspect not_yet_mapped evidence notes.
+        - id: req_pf_should_005
+          requirement: >
+            Quality gates should include evidence required, pass condition, fail
+            condition or failure mode, and remediation guidance.
+          verification: Inspect quality_gates entries.
+        - id: req_pf_should_006
+          requirement: >
+            Protocol requirements should be proportionate to the claimed
+            conformance level and not impose L4 or L5 obligations on L2 files.
+          verification: Compare obligations to conformance_ladder.
+      may:
+        - id: req_pf_may_001
+          requirement: >
+            A product may include source-specific extensions when normalized
+            fields are insufficient and when the extension is marked as such.
+          verification: Inspect source_specific_extensions if present.
+        - id: req_pf_may_002
+          requirement: >
+            A product may defer executable validation until L3 if reviewable
+            acceptance criteria are supplied at L2.
+          verification: Inspect conformance evidence and validation rules.
+        - id: req_pf_may_003
+          requirement: >
+            A Markdown render may summarize controlled YAML content for human
+            use if it links back to the controlled source file.
+          verification: Inspect docs/protocol files.
+      must_not:
+        - id: req_pf_must_not_001
+          requirement: >
+            The package must not claim empirical evaluation, reuse maturity, or
+            archival/publication readiness without retained evidence records.
+          verification: Inspect claims against records/evaluations and records/releases.
+        - id: req_pf_must_not_002
+          requirement: >
+            The package must not invent bibliographic evidence or cite unmapped
+            scholarly claims as if they were verified.
+          verification: Inspect source_basis and traceability source ids.
+        - id: req_pf_must_not_003
+          requirement: >
+            Tailoring must not silently remove mandatory fields, records, or
+            quality gates.
+          verification: Inspect tailoring records and missing-field justifications.
+        - id: req_pf_must_not_004
+          requirement: >
+            The package must not conflate a local artifact instance with a
+            reusable artifact type, design specification, or design knowledge claim.
+          verification: Inspect artifact ontology and contribution-positioning files.
+        - id: req_pf_must_not_005
+          requirement: >
+            The package must not use repository structure as evidence of DSR
+            contribution unless contribution claims and evaluation evidence are separately documented.
+          verification: Inspect contribution records and evaluation plan/report records.
+  - id: information_items
+    title: Information Items and Records
+    purpose: >
+      Identify the protocol-controlled files and retained records needed to make
+      scope, conformance, and tailoring reviewable.
+    content:
+      controlled_information_item_classes:
+        - id: root_package_control_file
+          label: Root package control file
+          purpose: Identify, govern, inventory, and declare the package.
+          examples:
+            - manifest.yaml
+            - metadata.yaml
+            - artifact-profile.yaml
+            - package-inventory.yaml
+            - conformance-declaration.yaml
+          minimum_fields:
+            - item_id
+            - item_type
+            - title
+            - purpose
+            - status
+            - version
+            - owner
+            - related_items
+            - source_basis
+            - change_history
+        - id: product_specification
+          label: Product specification
+          purpose: Define controlled products and their required behavior, content, dependencies, and review gates.
+          examples:
+            - specs/product-protocol-foundation.yaml
+            - specs/product-catalog.yaml
+            - specs/product-dsr-framework-foundation.yaml
+          minimum_sections:
+            - identity_and_purpose
+            - conceptual_model
+            - normative_requirements
+            - information_items
+            - workflow
+            - quality_and_conformance
+            - traceability
+            - implementation_guidance
+            - template_or_schema_implications
+            - open_questions_and_backlog
+        - id: model_file
+          label: Model file
+          purpose: Define controlled entities, relationships, boundary conditions, and validation implications.
+          examples:
+            - models/dsr-framework-canonical-model.yaml
+            - models/dsr-lifecycle-model.yaml
+            - models/dsr-transparency-model.yaml
+        - id: vocabulary_file
+          label: Vocabulary file
+          purpose: Define stable controlled terms and their allowed use.
+          examples:
+            - vocabularies/artifact-types.yaml
+            - vocabularies/contribution-types.yaml
+            - vocabularies/transparency-dimensions.yaml
+        - id: schema_file
+          label: Schema file
+          purpose: Validate corresponding YAML or JSON information items.
+          examples:
+            - schemas/artifact-profile.schema.json
+            - schemas/conformance-declaration.schema.json
+        - id: template_file
+          label: Template file
+          purpose: Provide reusable information-capture structures for researchers.
+          examples:
+            - templates/evaluation-plan-template.yaml
+            - templates/dsr-transparency-crosswalk-template.yaml
+        - id: checklist_file
+          label: Checklist file
+          purpose: Provide explicit review questions, evidence requirements, pass/fail conditions, and remediation guidance.
+          examples:
+            - checklists/dsr-minimum-viable-study-checklist.yaml
+            - checklists/artifact-package-readiness-checklist.yaml
+        - id: retained_record
+          label: Retained record
+          purpose: Preserve evidence of decisions, source basis, tailoring, reviews, evaluations, releases, or preservation events.
+          examples:
+            - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+            - records/tailoring/record-tailoring-0001-protocol-profile.yaml
+            - records/reviews/record-review-0001-self-review.yaml
+        - id: human_facing_doc
+          label: Human-facing documentation page
+          purpose: Explain controlled source files for readers without replacing source-of-truth structures.
+          examples:
+            - docs/protocol/00-framework-overview.md
+            - docs/protocol/10-transparency-and-reporting.md
+      retained_record_requirements:
+        tailoring_record:
+          required_when:
+            - a mandatory requirement is deferred
+            - a field is omitted for scope reasons
+            - a conformance target is modified
+            - a protocol obligation is replaced by an equivalent local rule
+          minimum_fields:
+            - record_id
+            - record_class
+            - event_or_action
+            - date
+            - responsible_party
+            - obligation_affected
+            - rationale
+            - evidence
+            - outcome
+            - related_items
+            - retention_rule
+        source_basis_record:
+          required_when:
+            - a source family is mapped into the framework
+            - corpus evidence is introduced into a controlled product
+            - documentation-protocol obligations are imported or updated
+          minimum_fields:
+            - record_id
+            - source_family
+            - mapping_scope
+            - evidence_items
+            - unmapped_items
+            - limitations
+            - related_items
+            - retention_rule
+        review_record:
+          required_when:
+            - a file claims l2_reviewable or higher
+            - a release changes conformance level
+            - a reviewer accepts a tailoring exception
+          minimum_fields:
+            - record_id
+            - review_scope
+            - review_criteria
+            - evidence_reviewed
+            - findings
+            - outcome
+            - remediation_items
+            - retention_rule
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: >
+      Define the operating sequence for applying the protocol foundation to
+      generated DSR Framework files.
+    content:
+      lifecycle:
+        - step_id: wf_pf_001
+          step_name: Select generation target
+          actor: framework_contributor
+          input:
+            - selection_id
+            - target_path
+            - portion_type
+            - output_format
+            - conformance_target
+          actions:
+            - Resolve the selected row from the generation specification or selection table.
+            - Confirm the expected file type and repository location.
+          output:
+            - generation_task_definition
+          exit_criteria:
+            - Selection id, target path, item type, and conformance target are explicit.
+        - step_id: wf_pf_002
+          step_name: Establish source basis
+          actor: framework_protocol_steward
+          input:
+            - user_current_request
+            - generation_specification
+            - generation_prompt
+            - documentation_protocol_mapping
+            - dsr_corpus_mapping
+          actions:
+            - Identify sources that govern structure, content, and evidence.
+            - Mark source evidence status as mapped, partially_mapped, not_yet_mapped, planned_dependency, or not_applicable.
+          output:
+            - source_basis_block
+            - unresolved_source_mapping_items
+          exit_criteria:
+            - No substantive claim lacks an evidence-status declaration.
+        - step_id: wf_pf_003
+          step_name: Set conformance target
+          actor: framework_contributor
+          input:
+            - selected_default_conformance
+            - package_conformance_declaration
+          actions:
+            - Translate the selected level into the package conformance ladder.
+            - Identify obligations and prohibited claims for that level.
+          output:
+            - conformance_target
+            - conformance_obligations
+          exit_criteria:
+            - Required evidence for the claimed level is identified.
+        - step_id: wf_pf_004
+          step_name: Apply tailoring
+          actor: framework_protocol_steward
+          input:
+            - protocol_obligations
+            - package_scope
+            - conformance_target
+          actions:
+            - Determine whether any requirement is deferred, scoped, replaced, or strengthened.
+            - Create or reference a tailoring record for each exception.
+          output:
+            - tailoring_decisions
+            - tailoring_records
+          exit_criteria:
+            - Every exception has rationale, scope, evidence, and review trigger.
+        - step_id: wf_pf_005
+          step_name: Generate or revise controlled file
+          actor: framework_contributor
+          input:
+            - generation_task_definition
+            - product_or_item_structure
+            - source_basis_block
+            - related_items
+          actions:
+            - Author the file in the required output format.
+            - Include metadata, traceability, quality gates, assumptions, limitations, and open questions.
+          output:
+            - controlled_file
+          exit_criteria:
+            - File can be placed at target path without violating repository or naming conventions.
+        - step_id: wf_pf_006
+          step_name: Review against gates
+          actor: reviewer
+          input:
+            - controlled_file
+            - quality_gates
+            - conformance_obligations
+          actions:
+            - Evaluate consistency, coherence, cogency, correspondence, DSR transparency, and reviewability.
+            - Record pass, fail, warning, or not_applicable status.
+          output:
+            - review_record
+            - remediation_items
+          exit_criteria:
+            - Review outcome is retained or explicitly deferred with rationale.
+        - step_id: wf_pf_007
+          step_name: Update inventory and dependency map
+          actor: framework_maintainer
+          input:
+            - controlled_file
+            - package_inventory
+            - product_catalog
+          actions:
+            - Add or update file entry, validation responsibility, dependency links, and status.
+          output:
+            - updated_package_inventory
+            - updated_product_catalog
+          exit_criteria:
+            - Package inventory and product catalog do not conflict with the controlled file.
+        - step_id: wf_pf_008
+          step_name: Prepare release or next iteration
+          actor: framework_maintainer
+          input:
+            - review_records
+            - open_questions
+            - backlog
+          actions:
+            - Determine whether the file remains draft, moves to review, becomes approved, or is included in a release.
+          output:
+            - release_readiness_status
+            - next_recommended_work
+          exit_criteria:
+            - Status and next actions are explicit.
+      decision_points:
+        - id: dp_pf_001
+          question: Is documentation-protocol evidence fully mapped for this obligation?
+          yes_action: Use mapped protocol evidence in traceability.
+          no_action: Mark evidence_status as not_yet_mapped and add a backlog item.
+        - id: dp_pf_002
+          question: Does the file claim L3 or higher conformance?
+          yes_action: Require executable workflow, validation, schema, or example evidence.
+          no_action: Limit claims to documented or reviewable status.
+        - id: dp_pf_003
+          question: Does the content make a DSR contribution claim?
+          yes_action: Require contribution-positioning and source-basis traceability.
+          no_action: Mark contribution transparency as supportive or not_applicable.
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: >
+      Define how the protocol foundation is reviewed and how conformance claims
+      are interpreted.
+    content:
+      conformance_claim:
+        claimed_level: l2_reviewable
+        rationale: >
+          This file includes required product-spec sections, controlled identity,
+          source basis, dependencies, normative requirements, workflow, quality
+          gates, traceability, implementation guidance, and open questions. It
+          is ready for structured review but does not yet claim executable
+          validation, broad reuse, or archival publication readiness.
+        evidence_required:
+          - stable target path and product identity
+          - required product-spec sections
+          - source basis with evidence status
+          - dependencies and related items
+          - quality gates and acceptance criteria
+          - open questions and backlog
+      quality_gate_mapping:
+        - gate_id: qg_consistency
+          local_gate_id: qg_pf_consistency
+          question: Does this file follow naming, item type, status, and directory conventions?
+          evidence_required:
+            - product.target_path
+            - product.item_type
+            - repository naming rules
+          pass_condition: File path is specs/product-protocol-foundation.yaml and item_type is specification.
+          fail_condition: File path, item type, status, or naming style conflicts with repository conventions.
+          remediation_guidance: Rename or restructure the file and update package inventory.
+          status: pass_pending_review
+        - gate_id: qg_coherence
+          local_gate_id: qg_pf_coherence
+          question: Does this file align with related products, package inventory, and conformance declaration?
+          evidence_required:
+            - dependencies
+            - related_items
+            - traceability
+          pass_condition: Dependencies and downstream products are explicit and non-conflicting.
+          fail_condition: The file introduces contradictions with existing package control files.
+          remediation_guidance: Revise dependencies, related items, or conformance alignment.
+          status: pass_pending_review
+        - gate_id: qg_cogency
+          local_gate_id: qg_pf_cogency
+          question: Is the protocol-foundation logic operational and usable without hidden assumptions?
+          evidence_required:
+            - conceptual_model
+            - normative_requirements
+            - workflow
+            - implementation_guidance
+          pass_condition: A contributor can use the file to structure and review controlled content.
+          fail_condition: Core terms, workflow, or review obligations remain ambiguous.
+          remediation_guidance: Add definitions, decision points, or examples.
+          status: pass_pending_review
+        - gate_id: qg_correspondence
+          local_gate_id: qg_pf_correspondence
+          question: Does the file support the DSR Framework artifact-package target?
+          evidence_required:
+            - product purpose
+            - conformance claim
+            - DSR transparency mapping
+          pass_condition: The file governs artifact-package documentation without overclaiming evaluation or release readiness.
+          fail_condition: The file drifts into generic documentation guidance without DSR package relevance.
+          remediation_guidance: Reconnect requirements to DSR artifact-package obligations and related products.
+          status: pass_pending_review
+        - gate_id: qg_dsr_transparency
+          local_gate_id: qg_pf_dsr_transparency
+          question: Does the file support applicable DSR transparency dimensions?
+          evidence_required:
+            - transparency_mapping
+            - traceability entries
+          pass_condition: Process, problem-space, solution-space, build, evaluation, and contribution transparency roles are identified.
+          fail_condition: Transparency role is absent or indistinct.
+          remediation_guidance: Add dimension-specific documentation obligations.
+          status: pass_pending_review
+        - gate_id: qg_reviewability
+          local_gate_id: qg_pf_reviewability
+          question: Can reviewers evaluate this file against explicit criteria?
+          evidence_required:
+            - quality gates
+            - acceptance criteria
+            - validation rules
+            - limitations
+          pass_condition: Review criteria and remediation paths are present.
+          fail_condition: Reviewer cannot determine pass, fail, warning, or not_applicable status.
+          remediation_guidance: Add explicit acceptance criteria and evidence requirements.
+          status: pass_pending_review
+      acceptance_criteria:
+        - id: ac_pf_001
+          criterion: File exists at specs/product-protocol-foundation.yaml with valid YAML syntax.
+        - id: ac_pf_002
+          criterion: Product id, item type, status, version, owner, source basis, related items, and change history are present.
+        - id: ac_pf_003
+          criterion: All standard product-spec sections are present.
+        - id: ac_pf_004
+          criterion: Conformance levels and tailoring rules are defined sufficiently for downstream specs.
+        - id: ac_pf_005
+          criterion: Quality gates include evidence requirements and remediation guidance.
+        - id: ac_pf_006
+          criterion: Documentation Protocol evidence not directly mapped is marked not_yet_mapped rather than inferred.
+        - id: ac_pf_007
+          criterion: The file does not claim L3, L4, or L5 status.
+      validation_rules:
+        - id: val_pf_001
+          rule: YAML must parse without syntax errors.
+          validation_method: yaml_parser
+        - id: val_pf_002
+          rule: Product id must be product_protocol_foundation.
+          validation_method: field_check
+        - id: val_pf_003
+          rule: Product target_path must equal specs/product-protocol-foundation.yaml.
+          validation_method: field_check
+        - id: val_pf_004
+          rule: Required section ids must be present exactly once.
+          validation_method: section_id_check
+        - id: val_pf_005
+          rule: Each quality gate must include question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
+          validation_method: structural_check
+      limitations:
+        - id: lim_pf_001
+          limitation: >
+            The upstream Documentation Protocol repository has not been directly
+            audited in this file, so repository-specific obligations remain
+            not_yet_mapped.
+        - id: lim_pf_002
+          limitation: >
+            This file defines reviewable protocol foundations but does not yet
+            provide JSON Schema enforcement.
+        - id: lim_pf_003
+          limitation: >
+            This file does not empirically evaluate whether the protocol improves
+            DSR artifact package quality or reuse.
+  - id: traceability
+    title: Traceability
+    purpose: >
+      Link this product specification to its governing sources, dependent files,
+      DSR evidence families, and review criteria.
+    content:
+      trace_links:
+        - trace_id: tr_pf_001
+          source: user_current_request
+          relationship: selects_generation_target
+          target: product_protocol_foundation
+          evidence_status: mapped
+        - trace_id: tr_pf_002
+          source: dsr_framework_generation_spec
+          relationship: defines_product_spec_structure
+          target: sections
+          evidence_status: mapped
+        - trace_id: tr_pf_003
+          source: dsr_framework_generation_spec
+          relationship: defines_repository_architecture
+          target: information_items
+          evidence_status: mapped
+        - trace_id: tr_pf_004
+          source: dsr_framework_generation_spec
+          relationship: defines_quality_gates
+          target: quality_and_conformance
+          evidence_status: mapped
+        - trace_id: tr_pf_005
+          source: documentation_protocol_repository
+          relationship: governs_protocol_alignment
+          target: conceptual_model
+          evidence_status: not_yet_mapped
+        - trace_id: tr_pf_006
+          source: hevner_et_al_2024_transparency_in_design_science_research
+          source_anchor_ids:
+            - CA01
+            - CA06
+            - CA16
+          relationship: supports_transparency_mapping
+          target: conceptual_model.transparency_mapping
+          evidence_status: partially_mapped
+        - trace_id: tr_pf_007
+          source: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          source_anchor_ids:
+            - A17
+            - A18
+            - A19
+          relationship: supports_artifact_and_contribution_distinctions
+          target: normative_requirements
+          evidence_status: partially_mapped
+        - trace_id: tr_pf_008
+          source: akoka_et_al_2023_knowledge_contributions_in_dsr
+          source_anchor_ids:
+            - A07
+            - A10
+            - A13
+          relationship: supports_knowledge_contribution_and_guideline_traceability
+          target: normative_requirements
+          evidence_status: partially_mapped
+      dependency_trace_matrix:
+        - product_or_file: specs/product-catalog.yaml
+          depends_on_this_spec_for:
+            - product registry conventions
+            - dependency typing
+            - conformance mapping
+          required_trace_forward: true
+        - product_or_file: specs/product-dsr-framework-foundation.yaml
+          depends_on_this_spec_for:
+            - framework scope boundaries
+            - default assumptions
+            - protocol-level non-goals
+          required_trace_forward: true
+        - product_or_file: specs/product-dsr-information-item-architecture.yaml
+          depends_on_this_spec_for:
+            - information item class definitions
+            - required metadata fields
+            - retained record classes
+          required_trace_forward: true
+        - product_or_file: specs/product-dsr-repository-architecture.yaml
+          depends_on_this_spec_for:
+            - repository source-of-truth logic
+            - naming and path conventions
+            - controlled versus human-facing file distinction
+          required_trace_forward: true
+        - product_or_file: specs/product-dsr-quality-conformance-and-review-model.yaml
+          depends_on_this_spec_for:
+            - conformance ladder
+            - quality gate categories
+            - reviewability expectations
+          required_trace_forward: true
+      evidence_status_policy:
+        mapped: Source evidence is available in the project files or corpus extraction and has been connected to a trace entry.
+        partially_mapped: Source evidence is available but requires further review or more precise anchoring before release.
+        not_yet_mapped: The source is expected or governing, but evidence has not yet been reviewed or anchored.
+        planned_dependency: The file or record is expected in the package architecture but is not used as completed evidence here.
+        not_applicable: The evidence type does not apply to the claim or file.
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: >
+      Provide practical instructions for applying this protocol foundation while
+      generating, reviewing, and maintaining repository files.
+    content:
+      authoring_guidance:
+        - id: impl_pf_001
+          instruction: >
+            Start each controlled file from its selection_id, target path, item
+            type, output format, purpose, default conformance, and dependencies.
+        - id: impl_pf_002
+          instruction: >
+            Use YAML for source-of-truth structured specifications, models,
+            vocabularies, templates, checklists, and records unless the selected
+            target requires Markdown or JSON Schema.
+        - id: impl_pf_003
+          instruction: >
+            Use lower-kebab-case for file names and lower_snake_case for stable
+            identifiers.
+        - id: impl_pf_004
+          instruction: >
+            Include source_basis and traceability entries even when evidence is
+            not yet fully mapped; use not_yet_mapped rather than silent omission.
+        - id: impl_pf_005
+          instruction: >
+            Keep product specifications operational: define requirements,
+            workflows, quality gates, validation rules, limitations, and backlog.
+      review_guidance:
+        - id: rev_pf_001
+          instruction: >
+            Reviewers should first verify path, identity, item type, and required
+            section presence before evaluating substantive content.
+        - id: rev_pf_002
+          instruction: >
+            Reviewers should compare conformance claims to evidence records and
+            must downgrade or qualify claims when evidence is missing.
+        - id: rev_pf_003
+          instruction: >
+            Reviewers should treat not_yet_mapped source evidence as acceptable
+            for L2 only when the limitation is explicit and non-blocking.
+        - id: rev_pf_004
+          instruction: >
+            Reviewers should identify whether tailoring is recorded and whether
+            the exception changes downstream validation responsibilities.
+      repository_integration_guidance:
+        placement_rule: >
+          Place this file at specs/product-protocol-foundation.yaml and list it
+          in package-inventory.yaml and specs/product-catalog.yaml.
+        status_rule: >
+          Keep status as draft until a review record accepts the file against its
+          quality gates.
+        inventory_rule: >
+          Add validation responsibility for YAML syntax, product-spec section
+          presence, source-basis completeness, and dependency traceability.
+        release_rule: >
+          Do not include this file in an L5 release claim until source-basis,
+          review, and release records support that status.
+      failure_modes:
+        - id: fm_pf_001
+          failure: Hidden dependency on the upstream Documentation Protocol.
+          indicator: Requirements cite protocol authority without mapping the source or evidence status.
+          remediation: Add source-basis and tailoring records or downgrade the claim.
+        - id: fm_pf_002
+          failure: Conformance overclaiming.
+          indicator: File claims reuse, executable validation, or publication readiness without records.
+          remediation: Restrict claim to L2 or add required evidence.
+        - id: fm_pf_003
+          failure: Inconsistent controlled vocabulary.
+          indicator: IDs, labels, or conformance terms conflict across specs, models, and vocabularies.
+          remediation: Update product catalog and affected vocabularies or add a decision record.
+        - id: fm_pf_004
+          failure: Documentation-only drift.
+          indicator: Human-readable guidance exists without controlled YAML source, traceability, or review gates.
+          remediation: Move controlled requirements into YAML and link docs back to source files.
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: >
+      Identify templates, schemas, records, and validation artifacts implied by
+      this protocol foundation.
+    content:
+      implied_schemas:
+        - id: product_spec_schema
+          path: schemas/product-spec.schema.json
+          purpose: Validate product specification files in specs/.
+          minimum_validation_targets:
+            - product.id
+            - product.item_type
+            - product.target_path
+            - version
+            - source_basis
+            - dependencies
+            - sections
+            - quality_gates
+            - traceability
+            - open_questions
+          status: proposed
+        - id: conformance_declaration_schema
+          path: schemas/conformance-declaration.schema.json
+          purpose: Validate declared conformance level, tailoring, evidence, and limitations.
+          status: planned_in_selection_table
+        - id: package_inventory_schema
+          path: schemas/package-inventory.schema.json
+          purpose: Validate package inventory entries and validation responsibilities.
+          status: planned_in_selection_table
+      implied_templates:
+        - id: tailoring_record_template
+          path: templates/tailoring-record-template.yaml
+          purpose: Capture protocol tailoring decisions and evidence.
+          status: proposed
+        - id: source_basis_record_template
+          path: templates/source-basis-record-template.yaml
+          purpose: Capture source family mapping, evidence status, limitations, and update triggers.
+          status: proposed
+        - id: product_spec_template
+          path: templates/product-spec-template.yaml
+          purpose: Provide reusable product-spec structure for specs/ files.
+          status: proposed
+      package_inventory_implications:
+        - path: specs/product-protocol-foundation.yaml
+          validation_responsibilities:
+            - yaml_parse
+            - product_identity_check
+            - required_section_check
+            - source_basis_status_check
+            - quality_gate_presence_check
+            - traceability_presence_check
+          expected_status: draft
+          conformance_target: l2_reviewable
+      checklist_implications:
+        - id: protocol_foundation_review_checklist
+          proposed_path: checklists/protocol-foundation-review-checklist.yaml
+          purpose: Review whether protocol foundation, conformance, and tailoring obligations are satisfied.
+          candidate_checks:
+            - target path and identity are correct
+            - conformance level is supported by evidence
+            - source basis is mapped or explicitly qualified
+            - tailoring decisions are recorded
+            - downstream dependencies are identified
+            - quality gates are reviewable
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: >
+      Preserve unresolved issues and follow-on work required to mature this file
+      beyond L2 reviewability.
+    content:
+      open_questions:
+        - id: oq_pf_001
+          question: >
+            Which exact Documentation Protocol repository version, commit, or
+            release should be cited as the governing source of truth?
+          evidence_needed:
+            - repository URL
+            - commit hash or release tag
+            - relevant protocol files
+          blocking_for: l4_reusable
+        - id: oq_pf_002
+          question: >
+            Should the DSR Framework define a dedicated product-spec JSON Schema
+            or reuse a general information-item schema?
+          evidence_needed:
+            - schema design decision
+            - validation examples
+          blocking_for: l3_exercisable
+        - id: oq_pf_003
+          question: >
+            Which tailoring decisions should be global package policies versus
+            file-specific exceptions?
+          evidence_needed:
+            - governance decision
+            - tailoring record template
+          blocking_for: l3_exercisable
+        - id: oq_pf_004
+          question: >
+            Should conformance levels be declared per file, per package, or both
+            when the repository contains mixed maturity artifacts?
+          evidence_needed:
+            - conformance declaration design decision
+            - package inventory examples
+          blocking_for: l4_reusable
+      backlog:
+        - id: bl_pf_001
+          action: Directly map the upstream Documentation Protocol repository into a source-basis record.
+          priority: high
+          target_file_or_record: records/source-basis/record-source-basis-0002-documentation-protocol.yaml
+        - id: bl_pf_002
+          action: Create a reusable product-spec template.
+          priority: medium
+          target_file_or_record: templates/product-spec-template.yaml
+        - id: bl_pf_003
+          action: Create a product-spec schema and validate this file against it.
+          priority: medium
+          target_file_or_record: schemas/product-spec.schema.json
+        - id: bl_pf_004
+          action: Create a protocol-foundation review record after human review.
+          priority: high
+          target_file_or_record: records/reviews/record-review-0002-protocol-foundation.yaml
+        - id: bl_pf_005
+          action: Update product catalog and package inventory entries for this file.
+          priority: high
+          target_file_or_record: specs/product-catalog.yaml
+quality_gates:
+  - id: qg_pf_consistency
+    question: Does the file use the required name, path, item type, status, and repository convention?
+    evidence_required:
+      - specs/product-protocol-foundation.yaml
+      - product.id
+      - product.item_type
+      - product.status
+    pass_condition: File path and identifiers match the selected row and repository naming rules.
+    fail_condition: File is misplaced, incorrectly named, or lacks controlled identity.
+    remediation_guidance: Correct the path, item id, item type, and package inventory entry.
+  - id: qg_pf_coherence
+    question: Does the file align with the product catalog, package inventory, conformance declaration, and downstream specs?
+    evidence_required:
+      - dependencies
+      - related_items
+      - traceability
+    pass_condition: Dependencies and downstream relationships are explicit and non-conflicting.
+    fail_condition: Relationships are missing, circular without explanation, or contradictory.
+    remediation_guidance: Revise dependency and traceability sections and update affected package-control files.
+  - id: qg_pf_cogency
+    question: Can a contributor apply the protocol foundation without hidden assumptions?
+    evidence_required:
+      - conceptual_model
+      - normative_requirements
+      - workflow
+      - implementation_guidance
+    pass_condition: Scope, conformance, tailoring, workflow, and review logic are explicit.
+    fail_condition: Key concepts or procedures remain undefined.
+    remediation_guidance: Add definitions, examples, decision points, or acceptance criteria.
+  - id: qg_pf_correspondence
+    question: Does this product correspond to the DSR Framework artifact package and selected L2 purpose?
+    evidence_required:
+      - product purpose
+      - conformance_claim
+      - DSR transparency mapping
+    pass_condition: File supports a reviewable DSR Framework package without overclaiming higher maturity.
+    fail_condition: File is either too generic or claims higher evidence maturity than supported.
+    remediation_guidance: Re-scope to protocol foundation and revise conformance claims.
+  - id: qg_pf_dsr_transparency
+    question: Does the product support process, problem-space, solution-space, build, evaluation, and contribution transparency?
+    evidence_required:
+      - transparency_mapping
+      - retained_record_requirements
+      - trace_links
+    pass_condition: Each dimension has a declared protocol role or an explicit non-applicability rationale.
+    fail_condition: Transparency obligations are absent, collapsed, or indistinct.
+    remediation_guidance: Add dimension-specific protocol obligations and trace them to relevant products.
+  - id: qg_pf_reviewability
+    question: Can this file be reviewed against explicit evidence and acceptance criteria?
+    evidence_required:
+      - quality_gates
+      - acceptance_criteria
+      - validation_rules
+      - limitations
+      - open_questions
+    pass_condition: Reviewer can assign pass, fail, warning, or not-applicable statuses using listed evidence.
+    fail_condition: Review criteria are implicit or insufficiently operational.
+    remediation_guidance: Add evidence requirements, pass/fail conditions, and remediation guidance.
+traceability:
+  - trace_id: tr_pf_root_001
+    source: user_current_request
+    relationship: selected
+    target: spec_protocol_foundation
+    evidence_status: mapped
+  - trace_id: tr_pf_root_002
+    source: dsr_framework_selection_table
+    relationship: defines_target_path_and_purpose
+    target: specs/product-protocol-foundation.yaml
+    evidence_status: mapped
+  - trace_id: tr_pf_root_003
+    source: dsr_framework_generation_spec
+    relationship: defines_product_spec_requirements
+    target: product_protocol_foundation
+    evidence_status: mapped
+  - trace_id: tr_pf_root_004
+    source: dsr_framework_generation_prompt
+    relationship: defines_generation_procedure
+    target: product_protocol_foundation
+    evidence_status: mapped
+  - trace_id: tr_pf_root_005
+    source: documentation_protocol_repository
+    relationship: governs_documentation_protocol_alignment
+    target: product_protocol_foundation
+    evidence_status: not_yet_mapped
+open_questions:
+  - id: oq_pf_root_001
+    question: Which Documentation Protocol commit or release should this file identify as the governing external baseline?
+    priority: high
+  - id: oq_pf_root_002
+    question: Should product-spec schema validation be created before or after the full product catalog is stabilized?
+    priority: medium
+  - id: oq_pf_root_003
+    question: Should tailoring records be mandatory for every deferred L3+ automation obligation, or only for deviations from the declared L2 baseline?
+    priority: medium

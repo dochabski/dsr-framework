@@ -1,0 +1,2555 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_catalog
+  title: DSR Framework Product Catalog
+  purpose: Provide the controlled registry of DSR Framework repository products, target paths, output formats, conformance targets, dependency relationships, and validation responsibilities.
+  status: draft
+information_item:
+  item_id: spec_product_catalog
+  item_type: specification
+  target_path: specs/product-catalog.yaml
+  output_format: yaml
+  selection_id: spec_product_catalog
+version: 0.1.0
+owner: framework_maintainer
+conformance:
+  default_conformance: L2
+  conformance_target: l2_reviewable
+  tailoring: Catalog entries are reviewable and dependency-mapped; executable validation is deferred to schema and automation products.
+source_basis:
+- source_id: user_current_request
+  source_type: immediate_task_definition
+  role: Selected spec_product_catalog as the generation target.
+- source_id: dsr_framework_selection_table
+  source_type: project_registry
+  role: Supplies selection IDs, target paths, portion types, formats, purposes, conformance levels, and key dependencies.
+- source_id: dsr_framework_generation_spec
+  source_type: generation_specification
+  role: Defines repository architecture, content generation rules, product specification structure, quality gates, and completion report requirements.
+- source_id: dsr_framework_generation_prompt
+  source_type: generation_prompt
+  role: Defines procedure, required product-spec structure, DSR distinctions, quality standards, and final response conventions.
+- source_id: dsr_extraction_corpus
+  source_type: internal_evidence_base
+  role: Provides scholarly and methodological source basis for downstream DSR concepts; catalog-level evidence mapping is limited to registry dependency control.
+- source_id: documentation_protocol_repository
+  source_type: external_protocol_reference
+  role: Named governing protocol source; not re-queried during this generation.
+dependencies:
+- dsr_framework_selection_table
+- dsr_framework_generation_spec
+- dsr_framework_generation_prompt
+related_items:
+- manifest.yaml
+- metadata.yaml
+- artifact-profile.yaml
+- package-inventory.yaml
+- conformance-declaration.yaml
+- specs/product-dsr-repository-architecture.yaml
+- specs/product-dsr-artifact-package-specification.yaml
+- specs/product-dsr-quality-conformance-and-review-model.yaml
+- specs/product-dsr-automation-and-validation-model.yaml
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change: Initial product catalog generated from the DSR Framework selection table.
+  responsible_party: GPT-5.5 Thinking
+catalog:
+  catalog_id: dsr_framework_product_catalog_v0_1_0
+  registry_scope: All generation targets listed in the DSR Framework selection table.
+  entry_count: 89
+  family_index:
+    root_package_control:
+    - root_readme
+    - root_manifest
+    - root_metadata
+    - root_artifact_profile
+    - root_package_inventory
+    - root_conformance_declaration
+    product_specifications:
+    - spec_product_catalog
+    - spec_protocol_foundation
+    - spec_dsr_framework_foundation
+    - spec_dsr_lifecycle_contribution
+    - spec_information_item_architecture
+    - spec_repository_architecture
+    - spec_metadata_identifier
+    - spec_artifact_package
+    - spec_quality_review
+    - spec_publication_registry
+    - spec_templates_checklists
+    - spec_automation_validation
+    - spec_implementation_roadmap
+    models:
+    - model_canonical
+    - model_lifecycle
+    - model_artifact_ontology
+    - model_contribution
+    - model_evaluation_alignment
+    - model_transparency
+    - model_reliability
+    - model_projectability
+    - model_publication_readiness
+    - model_decision_flow
+    vocabularies:
+    - vocab_artifact_types
+    - vocab_contribution_types
+    - vocab_knowledge_goals
+    - vocab_knowledge_scopes
+    - vocab_lifecycle_stages
+    - vocab_evaluation_methods
+    - vocab_validity_types
+    - vocab_reliability_types
+    - vocab_replication_types
+    - vocab_projectability_types
+    - vocab_transparency_dimensions
+    - vocab_genre_types
+    - vocab_responsible_design_values
+    - vocab_aesthetics_dimensions
+    schemas:
+    - schema_artifact_profile
+    - schema_package_inventory
+    - schema_conformance_declaration
+    - schema_dsr_project
+    - schema_dsr_artifact
+    - schema_evaluation_plan
+    - schema_evaluation_report
+    - schema_contribution_claim
+    - schema_transparency_crosswalk
+    templates:
+    - template_artifact_profile
+    - template_package_inventory
+    - template_conformance_declaration
+    - template_project_charter
+    - template_problem_objectives
+    - template_solution_space
+    - template_design_rationale
+    - template_artifact_specification
+    - template_build_transparency
+    - template_demonstration_record
+    - template_evaluation_plan
+    - template_evaluation_report
+    - template_contribution_claim
+    - template_contribution_positioning
+    - template_transparency_crosswalk
+    - template_review_record
+    checklists:
+    - checklist_minimum_dsr
+    - checklist_package_readiness
+    - checklist_transparency
+    - checklist_evaluation_readiness
+    - checklist_contribution_positioning
+    - checklist_reliability
+    - checklist_projectability
+    - checklist_publication_readiness
+    protocol_documentation:
+    - docs_overview
+    - docs_lifecycle_contribution
+    - docs_artifact_ontology
+    - docs_evaluation
+    - docs_validity_reliability
+    - docs_transparency
+    - docs_publication_review
+    records:
+    - record_source_basis
+    - record_contribution_positioning
+    - record_transparency_crosswalk
+    - record_evaluation_plan
+    - record_self_review
+    - record_release_v0_1_0
+  conformance_index:
+    l1_documented:
+    - root_readme
+    - root_manifest
+    - root_metadata
+    - root_artifact_profile
+    - root_package_inventory
+    - root_conformance_declaration
+    l2_reviewable:
+    - spec_product_catalog
+    - spec_protocol_foundation
+    - spec_dsr_framework_foundation
+    - spec_dsr_lifecycle_contribution
+    - spec_information_item_architecture
+    - spec_repository_architecture
+    - spec_metadata_identifier
+    - spec_artifact_package
+    - spec_quality_review
+    - spec_templates_checklists
+    - spec_implementation_roadmap
+    - model_canonical
+    - model_lifecycle
+    - model_artifact_ontology
+    - model_contribution
+    - model_evaluation_alignment
+    - model_transparency
+    - model_reliability
+    - model_projectability
+    - model_decision_flow
+    - vocab_artifact_types
+    - vocab_contribution_types
+    - vocab_knowledge_goals
+    - vocab_knowledge_scopes
+    - vocab_lifecycle_stages
+    - vocab_evaluation_methods
+    - vocab_validity_types
+    - vocab_reliability_types
+    - vocab_replication_types
+    - vocab_projectability_types
+    - vocab_transparency_dimensions
+    - vocab_genre_types
+    - vocab_responsible_design_values
+    - vocab_aesthetics_dimensions
+    - schema_artifact_profile
+    - schema_package_inventory
+    - schema_conformance_declaration
+    - schema_dsr_project
+    - schema_dsr_artifact
+    - schema_evaluation_plan
+    - schema_evaluation_report
+    - schema_contribution_claim
+    - schema_transparency_crosswalk
+    - template_artifact_profile
+    - template_package_inventory
+    - template_conformance_declaration
+    - template_project_charter
+    - template_problem_objectives
+    - template_solution_space
+    - template_design_rationale
+    - template_artifact_specification
+    - template_build_transparency
+    - template_demonstration_record
+    - template_evaluation_plan
+    - template_evaluation_report
+    - template_contribution_claim
+    - template_contribution_positioning
+    - template_transparency_crosswalk
+    - template_review_record
+    - checklist_minimum_dsr
+    - checklist_package_readiness
+    - checklist_transparency
+    - checklist_evaluation_readiness
+    - checklist_contribution_positioning
+    - checklist_reliability
+    - checklist_projectability
+    - docs_overview
+    - docs_lifecycle_contribution
+    - docs_artifact_ontology
+    - docs_evaluation
+    - docs_validity_reliability
+    - docs_transparency
+    - record_source_basis
+    - record_contribution_positioning
+    - record_transparency_crosswalk
+    - record_evaluation_plan
+    - record_self_review
+    l5_archival_publication_ready:
+    - spec_publication_registry
+    - record_release_v0_1_0
+    l3_exercisable:
+    - spec_automation_validation
+    l4_reusable:
+    - model_publication_readiness
+    - checklist_publication_readiness
+    - docs_publication_review
+  entries:
+  - selection_id: root_readme
+    target_path: README.md
+    product_family: root_package_control
+    portion_type: root_description
+    output_format: markdown
+    purpose: Public repository entry point.
+    default_conformance: L1
+    conformance_target: l1_documented
+    generation_status: planned
+    dependency_terms:
+    - artifact-profile
+    - package-inventory
+    resolved_dependencies:
+    - root_artifact_profile
+    - root_package_inventory
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: root_manifest
+    target_path: manifest.yaml
+    product_family: root_package_control
+    portion_type: root_specification
+    output_format: yaml
+    purpose: Repository manifest and canonical package identity.
+    default_conformance: L1
+    conformance_target: l1_documented
+    generation_status: planned
+    dependency_terms:
+    - repository architecture
+    resolved_dependencies:
+    - spec_repository_architecture
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: root_metadata
+    target_path: metadata.yaml
+    product_family: root_package_control
+    portion_type: metadata_record
+    output_format: yaml
+    purpose: Structured project metadata.
+    default_conformance: L1
+    conformance_target: l1_documented
+    generation_status: planned
+    dependency_terms:
+    - metadata profile
+    resolved_dependencies:
+    - spec_metadata_identifier
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: root_artifact_profile
+    target_path: artifact-profile.yaml
+    product_family: root_package_control
+    portion_type: artifact_profile
+    output_format: yaml
+    purpose: Artifact identity, type, scope, claims, conformance, reuse constraints.
+    default_conformance: L1
+    conformance_target: l1_documented
+    generation_status: planned
+    dependency_terms:
+    - DSR lifecycle/contribution model
+    resolved_dependencies:
+    - spec_dsr_lifecycle_contribution
+    - model_lifecycle
+    - model_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: root_package_inventory
+    target_path: package-inventory.yaml
+    product_family: root_package_control
+    portion_type: package_inventory
+    output_format: yaml
+    purpose: Inventory all package files and validation responsibilities.
+    default_conformance: L1
+    conformance_target: l1_documented
+    generation_status: planned
+    dependency_terms:
+    - repository architecture
+    - artifact package spec
+    resolved_dependencies:
+    - spec_repository_architecture
+    - spec_artifact_package
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: root_conformance_declaration
+    target_path: conformance-declaration.yaml
+    product_family: root_package_control
+    portion_type: conformance_record
+    output_format: yaml
+    purpose: Declare conformance level and tailoring.
+    default_conformance: L1
+    conformance_target: l1_documented
+    generation_status: planned
+    dependency_terms:
+    - quality/conformance model
+    resolved_dependencies:
+    - spec_quality_review
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_product_catalog
+    target_path: specs/product-catalog.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Product registry and dependency map.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - all specs
+    resolved_dependencies: []
+    dependency_family_refs:
+    - product_specifications
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_protocol_foundation
+    target_path: specs/product-protocol-foundation.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Foundation specification for scope, conformance, and tailoring.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - documentation protocol
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies:
+    - documentation_protocol_repository
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_dsr_framework_foundation
+    target_path: specs/product-dsr-framework-foundation.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: DSR Framework identity, scope, users, assumptions, non-goals.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - protocol foundation
+    resolved_dependencies:
+    - spec_protocol_foundation
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_dsr_lifecycle_contribution
+    target_path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: DSR lifecycle, artifact taxonomy, contribution model, transparency, evaluation alignment.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR corpus
+    - protocol foundation
+    resolved_dependencies:
+    - record_source_basis
+    - spec_protocol_foundation
+    dependency_family_refs: []
+    source_family_dependencies:
+    - dsr_extraction_corpus
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_information_item_architecture
+    target_path: specs/product-dsr-information-item-architecture.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: DSR-specific information items and records.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - documentation protocol information item architecture
+    resolved_dependencies:
+    - spec_information_item_architecture
+    dependency_family_refs: []
+    source_family_dependencies:
+    - documentation_protocol_repository
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_repository_architecture
+    target_path: specs/product-dsr-repository-architecture.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Repository tree, naming rules, and file responsibilities.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - documentation protocol repository architecture
+    resolved_dependencies:
+    - spec_repository_architecture
+    dependency_family_refs: []
+    source_family_dependencies:
+    - documentation_protocol_repository
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_metadata_identifier
+    target_path: specs/product-dsr-metadata-and-identifier-profile.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Metadata, citation, authorship, DOI, provenance, and identifier profile.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - metadata profile
+    - publication model
+    resolved_dependencies:
+    - spec_metadata_identifier
+    - spec_publication_registry
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_artifact_package
+    target_path: specs/product-dsr-artifact-package-specification.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Required package contents, evidence, examples, records, and conformance obligations.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - repository architecture
+    - quality model
+    resolved_dependencies:
+    - spec_repository_architecture
+    - spec_quality_review
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_quality_review
+    target_path: specs/product-dsr-quality-conformance-and-review-model.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Quality dimensions, maturity, gates, review workflow, and acceptance criteria.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - information item architecture
+    - DSR lifecycle model
+    resolved_dependencies:
+    - model_lifecycle
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - information item architecture
+    validation_responsibility: structured_content_review
+  - selection_id: spec_publication_registry
+    target_path: specs/product-dsr-publication-and-registry-model.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Release, DOI, registry, archival, and publication-readiness model.
+    default_conformance: L5
+    conformance_target: l5_archival_publication_ready
+    generation_status: planned
+    dependency_terms:
+    - metadata profile
+    - quality model
+    resolved_dependencies:
+    - spec_metadata_identifier
+    - spec_quality_review
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_templates_checklists
+    target_path: specs/product-dsr-templates-and-checklists.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Operating material specification for templates and checklists.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - information item architecture
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - information item architecture
+    validation_responsibility: structured_content_review
+  - selection_id: spec_automation_validation
+    target_path: specs/product-dsr-automation-and-validation-model.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Schema, metadata, inventory, link, and release validation model.
+    default_conformance: L3
+    conformance_target: l3_exercisable
+    generation_status: planned
+    dependency_terms:
+    - schemas
+    - package inventory
+    resolved_dependencies:
+    - root_package_inventory
+    dependency_family_refs:
+    - schemas
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: spec_implementation_roadmap
+    target_path: specs/product-dsr-implementation-roadmap.yaml
+    product_family: product_specifications
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Development phases, pilots, release path, and backlog.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - product catalog
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - product catalog
+    validation_responsibility: structured_content_review
+  - selection_id: model_canonical
+    target_path: models/dsr-framework-canonical-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Master model of DSR Framework entities and relationships.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR lifecycle spec
+    resolved_dependencies:
+    - spec_dsr_lifecycle_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_lifecycle
+    target_path: models/dsr-lifecycle-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Operational DSR lifecycle model.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR lifecycle spec
+    resolved_dependencies:
+    - spec_dsr_lifecycle_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_artifact_ontology
+    target_path: models/dsr-artifact-ontology.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Artifact ontology and boundary model.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - artifact-types vocabulary
+    resolved_dependencies:
+    - vocab_artifact_types
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_contribution
+    target_path: models/dsr-contribution-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Contribution-positioning model.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution-types
+    - knowledge-goals
+    - knowledge-scopes
+    resolved_dependencies:
+    - vocab_contribution_types
+    - vocab_knowledge_goals
+    - vocab_knowledge_scopes
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_evaluation_alignment
+    target_path: models/dsr-evaluation-alignment-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Evaluation plan and claim-alignment model.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation vocabularies
+    resolved_dependencies:
+    - vocab_evaluation_methods
+    - vocab_validity_types
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_transparency
+    target_path: models/dsr-transparency-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Six-dimension DSR transparency model.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency dimensions
+    resolved_dependencies:
+    - vocab_transparency_dimensions
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_reliability
+    target_path: models/dsr-reliability-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Artifact/method/measure/design-knowledge reliability model.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - reliability vocabulary
+    resolved_dependencies:
+    - vocab_reliability_types
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_projectability
+    target_path: models/dsr-projectability-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Generalization, transfer, adaptation, and reuse model.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - projectability and replication vocabularies
+    resolved_dependencies:
+    - vocab_projectability_types
+    - vocab_replication_types
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: model_publication_readiness
+    target_path: models/dsr-publication-readiness-model.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Publication and release readiness model.
+    default_conformance: L4
+    conformance_target: l4_reusable
+    generation_status: planned
+    dependency_terms:
+    - quality review
+    - publication registry
+    resolved_dependencies:
+    - spec_publication_registry
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - quality review
+    validation_responsibility: structured_content_review
+  - selection_id: model_decision_flow
+    target_path: models/dsr-decision-flow.yaml
+    product_family: models
+    portion_type: model
+    output_format: yaml
+    purpose: Decision tree for selecting artifact type, contribution type, evaluation path, and conformance level.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - canonical model
+    resolved_dependencies:
+    - model_canonical
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_artifact_types
+    target_path: vocabularies/artifact-types.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Controlled artifact taxonomy.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR lifecycle spec
+    resolved_dependencies:
+    - spec_dsr_lifecycle_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_contribution_types
+    target_path: vocabularies/contribution-types.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Contribution-positioning vocabulary.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR corpus
+    resolved_dependencies:
+    - record_source_basis
+    dependency_family_refs: []
+    source_family_dependencies:
+    - dsr_extraction_corpus
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_knowledge_goals
+    target_path: vocabularies/knowledge-goals.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Definitional, descriptive, explanatory, predictive, explanatory-predictive, prescriptive.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution model
+    resolved_dependencies:
+    - model_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_knowledge_scopes
+    target_path: vocabularies/knowledge-scopes.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Idiographic, nomothetic, mixed/projectable.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution model
+    resolved_dependencies:
+    - model_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_lifecycle_stages
+    target_path: vocabularies/lifecycle-stages.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR lifecycle stages.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - lifecycle model
+    resolved_dependencies:
+    - model_lifecycle
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_evaluation_methods
+    target_path: vocabularies/evaluation-method-families.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Evaluation method families.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation model
+    resolved_dependencies:
+    - model_evaluation_alignment
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_validity_types
+    target_path: vocabularies/validity-types.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR validity vocabulary.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - quality model
+    resolved_dependencies:
+    - spec_quality_review
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_reliability_types
+    target_path: vocabularies/reliability-types.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR reliability vocabulary.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - reliability model
+    resolved_dependencies:
+    - model_reliability
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_replication_types
+    target_path: vocabularies/replication-types.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR replication vocabulary.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - projectability model
+    resolved_dependencies:
+    - model_projectability
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_projectability_types
+    target_path: vocabularies/projectability-types.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Projectability and transfer vocabulary.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - projectability model
+    resolved_dependencies:
+    - model_projectability
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_transparency_dimensions
+    target_path: vocabularies/transparency-dimensions.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Six DSR transparency dimensions.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency model
+    resolved_dependencies:
+    - model_transparency
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_genre_types
+    target_path: vocabularies/genre-types.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR genre vocabulary.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - genre standards crosswalk
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - genre_standards_crosswalk
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_responsible_design_values
+    target_path: vocabularies/responsible-design-values.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Responsible-design values.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - responsible DSR docs
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - responsible_dsr_docs
+    validation_responsibility: structured_content_review
+  - selection_id: vocab_aesthetics_dimensions
+    target_path: vocabularies/aesthetics-dimensions.yaml
+    product_family: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Aesthetic value dimensions.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - aesthetics docs
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - aesthetics_docs
+    validation_responsibility: structured_content_review
+  - selection_id: schema_artifact_profile
+    target_path: schemas/artifact-profile.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate artifact profile files.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - artifact-profile template
+    resolved_dependencies:
+    - template_artifact_profile
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_package_inventory
+    target_path: schemas/package-inventory.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate package inventory files.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - package-inventory template
+    resolved_dependencies:
+    - template_package_inventory
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_conformance_declaration
+    target_path: schemas/conformance-declaration.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate conformance declaration.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - conformance declaration template
+    resolved_dependencies:
+    - template_conformance_declaration
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_dsr_project
+    target_path: schemas/dsr-project.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate a full DSR project record.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - canonical model
+    resolved_dependencies:
+    - model_canonical
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_dsr_artifact
+    target_path: schemas/dsr-artifact.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR artifact records.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - artifact ontology
+    resolved_dependencies:
+    - model_artifact_ontology
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_evaluation_plan
+    target_path: schemas/dsr-evaluation-plan.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR evaluation plans.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation plan template
+    resolved_dependencies:
+    - template_evaluation_plan
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_evaluation_report
+    target_path: schemas/dsr-evaluation-report.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR evaluation reports.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation report template
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - evaluation report template
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_contribution_claim
+    target_path: schemas/dsr-contribution-claim.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate contribution claims.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution claim template
+    resolved_dependencies:
+    - template_contribution_claim
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: schema_transparency_crosswalk
+    target_path: schemas/dsr-transparency-crosswalk.schema.json
+    product_family: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR transparency crosswalks.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency crosswalk template
+    resolved_dependencies:
+    - template_transparency_crosswalk
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: schema_validation_and_review
+  - selection_id: template_artifact_profile
+    target_path: templates/artifact-profile-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Reusable artifact profile template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - artifact profile schema
+    resolved_dependencies:
+    - schema_artifact_profile
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_package_inventory
+    target_path: templates/package-inventory-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Reusable package inventory template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - package inventory schema
+    resolved_dependencies:
+    - schema_package_inventory
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_conformance_declaration
+    target_path: templates/conformance-declaration-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Reusable conformance declaration template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - conformance schema
+    resolved_dependencies:
+    - schema_conformance_declaration
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_project_charter
+    target_path: templates/dsr-project-charter-template.md
+    product_family: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Human-facing DSR project charter.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR lifecycle model
+    resolved_dependencies:
+    - model_lifecycle
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_problem_objectives
+    target_path: templates/problem-and-objectives-template.md
+    product_family: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Problem context, objectives, requirements, success criteria.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - problem-space schema
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - problem_space_schema
+    validation_responsibility: structured_content_review
+  - selection_id: template_solution_space
+    target_path: templates/solution-space-record-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Solution-space grounding record.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - solution-space schema
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - solution_space_schema
+    validation_responsibility: structured_content_review
+  - selection_id: template_design_rationale
+    target_path: templates/design-rationale-template.md
+    product_family: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Design decisions, alternatives, tradeoffs, rationale.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - design-rationale schema
+    resolved_dependencies: []
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs:
+    - design_rationale_schema
+    validation_responsibility: structured_content_review
+  - selection_id: template_artifact_specification
+    target_path: templates/artifact-specification-template.md
+    product_family: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Artifact components, use logic, boundary, version.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - artifact ontology
+    resolved_dependencies:
+    - model_artifact_ontology
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_build_transparency
+    target_path: templates/build-transparency-record-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Build-process transparency record.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency dimensions
+    resolved_dependencies:
+    - vocab_transparency_dimensions
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_demonstration_record
+    target_path: templates/demonstration-record-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Demonstration context and use scenario.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - lifecycle model
+    resolved_dependencies:
+    - model_lifecycle
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_evaluation_plan
+    target_path: templates/evaluation-plan-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Evaluation plan template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation plan schema
+    resolved_dependencies:
+    - schema_evaluation_plan
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_evaluation_report
+    target_path: templates/evaluation-report-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Evaluation report template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation report schema
+    resolved_dependencies:
+    - schema_evaluation_report
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_contribution_claim
+    target_path: templates/contribution-claim-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Contribution claim template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution claim schema
+    resolved_dependencies:
+    - schema_contribution_claim
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_contribution_positioning
+    target_path: templates/contribution-positioning-record-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Contribution positioning record template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution model
+    resolved_dependencies:
+    - model_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_transparency_crosswalk
+    target_path: templates/dsr-transparency-crosswalk-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Six-part transparency crosswalk template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency model
+    resolved_dependencies:
+    - model_transparency
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: template_review_record
+    target_path: templates/review-record-template.yaml
+    product_family: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Review record template.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - quality model
+    resolved_dependencies:
+    - spec_quality_review
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: structured_content_review
+  - selection_id: checklist_minimum_dsr
+    target_path: checklists/dsr-minimum-viable-study-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Minimum DSR identity checklist.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR lifecycle model
+    resolved_dependencies:
+    - model_lifecycle
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: checklist_package_readiness
+    target_path: checklists/artifact-package-readiness-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Artifact package readiness checklist.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - artifact package spec
+    resolved_dependencies:
+    - spec_artifact_package
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: checklist_transparency
+    target_path: checklists/dsr-transparency-crosswalk-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: DSR transparency checklist.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency model
+    resolved_dependencies:
+    - model_transparency
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: checklist_evaluation_readiness
+    target_path: checklists/evaluation-readiness-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Evaluation readiness checklist.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation model
+    resolved_dependencies:
+    - model_evaluation_alignment
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: checklist_contribution_positioning
+    target_path: checklists/contribution-positioning-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Contribution positioning checklist.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution model
+    resolved_dependencies:
+    - model_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: checklist_reliability
+    target_path: checklists/reliability-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Reliability checklist.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - reliability model
+    resolved_dependencies:
+    - model_reliability
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: checklist_projectability
+    target_path: checklists/replication-projectability-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Replication and projectability checklist.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - projectability model
+    resolved_dependencies:
+    - model_projectability
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: checklist_publication_readiness
+    target_path: checklists/publication-readiness-checklist.yaml
+    product_family: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Publication readiness checklist.
+    default_conformance: L4
+    conformance_target: l4_reusable
+    generation_status: planned
+    dependency_terms:
+    - publication readiness model
+    resolved_dependencies:
+    - model_publication_readiness
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: checklist_review
+  - selection_id: docs_overview
+    target_path: docs/protocol/00-framework-overview.md
+    product_family: protocol_documentation
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Human-facing framework overview.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - root README
+    - specs
+    resolved_dependencies:
+    - root_readme
+    dependency_family_refs:
+    - product_specifications
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: docs_lifecycle_contribution
+    target_path: docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+    product_family: protocol_documentation
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Human-facing lifecycle and contribution guidance.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - lifecycle spec
+    resolved_dependencies:
+    - spec_dsr_lifecycle_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: docs_artifact_ontology
+    target_path: docs/protocol/05-artifact-ontology.md
+    product_family: protocol_documentation
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Artifact ontology guide.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - artifact ontology model
+    resolved_dependencies:
+    - model_artifact_ontology
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: docs_evaluation
+    target_path: docs/protocol/08-evaluation-framework.md
+    product_family: protocol_documentation
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Evaluation framework guide.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation alignment model
+    resolved_dependencies:
+    - model_evaluation_alignment
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: docs_validity_reliability
+    target_path: docs/protocol/09-validity-reliability-replication-projectability.md
+    product_family: protocol_documentation
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Validity, reliability, replication, and projectability guide.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - reliability and projectability models
+    resolved_dependencies:
+    - model_projectability
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: docs_transparency
+    target_path: docs/protocol/10-transparency-and-reporting.md
+    product_family: protocol_documentation
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Transparency and reporting guide.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency model
+    resolved_dependencies:
+    - model_transparency
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: docs_publication_review
+    target_path: docs/protocol/14-publication-and-review-guidance.md
+    product_family: protocol_documentation
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Publication and review guidance.
+    default_conformance: L4
+    conformance_target: l4_reusable
+    generation_status: planned
+    dependency_terms:
+    - publication readiness model
+    resolved_dependencies:
+    - model_publication_readiness
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: documentation_review
+  - selection_id: record_source_basis
+    target_path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    product_family: records
+    portion_type: record
+    output_format: yaml
+    purpose: Record DSR corpus and protocol source basis.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - DSR corpus
+    - documentation protocol
+    resolved_dependencies:
+    - record_source_basis
+    dependency_family_refs: []
+    source_family_dependencies:
+    - dsr_extraction_corpus
+    - documentation_protocol_repository
+    unregistered_dependency_refs: []
+    validation_responsibility: record_completeness_review
+  - selection_id: record_contribution_positioning
+    target_path: records/contributions/record-contribution-positioning-0001.yaml
+    product_family: records
+    portion_type: record
+    output_format: yaml
+    purpose: Position the DSR Framework contribution.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - contribution model
+    resolved_dependencies:
+    - model_contribution
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: record_completeness_review
+  - selection_id: record_transparency_crosswalk
+    target_path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+    product_family: records
+    portion_type: record
+    output_format: yaml
+    purpose: Record six-dimension transparency evidence.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - transparency crosswalk template
+    resolved_dependencies:
+    - template_transparency_crosswalk
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: record_completeness_review
+  - selection_id: record_evaluation_plan
+    target_path: records/evaluations/record-evaluation-plan-0001.yaml
+    product_family: records
+    portion_type: record
+    output_format: yaml
+    purpose: Evaluation plan for the framework package.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - evaluation plan template
+    resolved_dependencies:
+    - template_evaluation_plan
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: record_completeness_review
+  - selection_id: record_self_review
+    target_path: records/reviews/record-review-0001-self-review.yaml
+    product_family: records
+    portion_type: record
+    output_format: yaml
+    purpose: Initial self-review record.
+    default_conformance: L2
+    conformance_target: l2_reviewable
+    generation_status: planned
+    dependency_terms:
+    - review checklist
+    resolved_dependencies:
+    - checklist_package_readiness
+    - checklist_minimum_dsr
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: record_completeness_review
+  - selection_id: record_release_v0_1_0
+    target_path: records/releases/record-release-0001-v0-1-0.yaml
+    product_family: records
+    portion_type: record
+    output_format: yaml
+    purpose: First release record.
+    default_conformance: L5
+    conformance_target: l5_archival_publication_ready
+    generation_status: planned
+    dependency_terms:
+    - release readiness checklist
+    resolved_dependencies:
+    - checklist_publication_readiness
+    dependency_family_refs: []
+    source_family_dependencies: []
+    unregistered_dependency_refs: []
+    validation_responsibility: record_completeness_review
+  dependency_map:
+    edge_count: 112
+    edge_semantics:
+    - relationship: depends_on
+      definition: The source product should be generated, reviewed, or stabilized with reference to the target product.
+    - relationship: depends_on_family
+      definition: The source product depends on all or a controlled subset of a product family rather than a single file.
+    - relationship: grounded_in_source_family
+      definition: The source product depends on a source family or evidence base rather than a generated repository file.
+    - relationship: dependency_not_registered_in_selection_table
+      definition: The dependency term is meaningful but does not currently resolve to a registered selection ID.
+    edges:
+    - from: root_readme
+      to: root_artifact_profile
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_readme
+      to: root_package_inventory
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_manifest
+      to: spec_repository_architecture
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_metadata
+      to: spec_metadata_identifier
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_artifact_profile
+      to: spec_dsr_lifecycle_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_artifact_profile
+      to: model_lifecycle
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_artifact_profile
+      to: model_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_package_inventory
+      to: spec_repository_architecture
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_package_inventory
+      to: spec_artifact_package
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: root_conformance_declaration
+      to: spec_quality_review
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_product_catalog
+      to: product_specifications
+      relationship: depends_on_family
+      source: selection_table_key_dependencies
+    - from: spec_protocol_foundation
+      to: documentation_protocol_repository
+      relationship: grounded_in_source_family
+      source: selection_table_key_dependencies
+    - from: spec_dsr_framework_foundation
+      to: spec_protocol_foundation
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_dsr_lifecycle_contribution
+      to: record_source_basis
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_dsr_lifecycle_contribution
+      to: spec_protocol_foundation
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_dsr_lifecycle_contribution
+      to: dsr_extraction_corpus
+      relationship: grounded_in_source_family
+      source: selection_table_key_dependencies
+    - from: spec_information_item_architecture
+      to: spec_information_item_architecture
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_information_item_architecture
+      to: documentation_protocol_repository
+      relationship: grounded_in_source_family
+      source: selection_table_key_dependencies
+    - from: spec_repository_architecture
+      to: spec_repository_architecture
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_repository_architecture
+      to: documentation_protocol_repository
+      relationship: grounded_in_source_family
+      source: selection_table_key_dependencies
+    - from: spec_metadata_identifier
+      to: spec_metadata_identifier
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_metadata_identifier
+      to: spec_publication_registry
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_artifact_package
+      to: spec_repository_architecture
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_artifact_package
+      to: spec_quality_review
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_quality_review
+      to: model_lifecycle
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_quality_review
+      to: information item architecture
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: spec_publication_registry
+      to: spec_metadata_identifier
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_publication_registry
+      to: spec_quality_review
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_templates_checklists
+      to: information item architecture
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: spec_automation_validation
+      to: root_package_inventory
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: spec_automation_validation
+      to: schemas
+      relationship: depends_on_family
+      source: selection_table_key_dependencies
+    - from: spec_implementation_roadmap
+      to: product catalog
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: model_canonical
+      to: spec_dsr_lifecycle_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_lifecycle
+      to: spec_dsr_lifecycle_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_artifact_ontology
+      to: vocab_artifact_types
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_contribution
+      to: vocab_contribution_types
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_contribution
+      to: vocab_knowledge_goals
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_contribution
+      to: vocab_knowledge_scopes
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_evaluation_alignment
+      to: vocab_evaluation_methods
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_evaluation_alignment
+      to: vocab_validity_types
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_transparency
+      to: vocab_transparency_dimensions
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_reliability
+      to: vocab_reliability_types
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_projectability
+      to: vocab_projectability_types
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_projectability
+      to: vocab_replication_types
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_publication_readiness
+      to: spec_publication_registry
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: model_publication_readiness
+      to: quality review
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: model_decision_flow
+      to: model_canonical
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_artifact_types
+      to: spec_dsr_lifecycle_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_contribution_types
+      to: record_source_basis
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_contribution_types
+      to: dsr_extraction_corpus
+      relationship: grounded_in_source_family
+      source: selection_table_key_dependencies
+    - from: vocab_knowledge_goals
+      to: model_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_knowledge_scopes
+      to: model_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_lifecycle_stages
+      to: model_lifecycle
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_evaluation_methods
+      to: model_evaluation_alignment
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_validity_types
+      to: spec_quality_review
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_reliability_types
+      to: model_reliability
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_replication_types
+      to: model_projectability
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_projectability_types
+      to: model_projectability
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_transparency_dimensions
+      to: model_transparency
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: vocab_genre_types
+      to: genre_standards_crosswalk
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: vocab_responsible_design_values
+      to: responsible_dsr_docs
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: vocab_aesthetics_dimensions
+      to: aesthetics_docs
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: schema_artifact_profile
+      to: template_artifact_profile
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: schema_package_inventory
+      to: template_package_inventory
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: schema_conformance_declaration
+      to: template_conformance_declaration
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: schema_dsr_project
+      to: model_canonical
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: schema_dsr_artifact
+      to: model_artifact_ontology
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: schema_evaluation_plan
+      to: template_evaluation_plan
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: schema_evaluation_report
+      to: evaluation report template
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: schema_contribution_claim
+      to: template_contribution_claim
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: schema_transparency_crosswalk
+      to: template_transparency_crosswalk
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_artifact_profile
+      to: schema_artifact_profile
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_package_inventory
+      to: schema_package_inventory
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_conformance_declaration
+      to: schema_conformance_declaration
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_project_charter
+      to: model_lifecycle
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_problem_objectives
+      to: problem_space_schema
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: template_solution_space
+      to: solution_space_schema
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: template_design_rationale
+      to: design_rationale_schema
+      relationship: dependency_not_registered_in_selection_table
+      source: selection_table_key_dependencies
+    - from: template_artifact_specification
+      to: model_artifact_ontology
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_build_transparency
+      to: vocab_transparency_dimensions
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_demonstration_record
+      to: model_lifecycle
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_evaluation_plan
+      to: schema_evaluation_plan
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_evaluation_report
+      to: schema_evaluation_report
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_contribution_claim
+      to: schema_contribution_claim
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_contribution_positioning
+      to: model_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_transparency_crosswalk
+      to: model_transparency
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: template_review_record
+      to: spec_quality_review
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_minimum_dsr
+      to: model_lifecycle
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_package_readiness
+      to: spec_artifact_package
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_transparency
+      to: model_transparency
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_evaluation_readiness
+      to: model_evaluation_alignment
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_contribution_positioning
+      to: model_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_reliability
+      to: model_reliability
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_projectability
+      to: model_projectability
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: checklist_publication_readiness
+      to: model_publication_readiness
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: docs_overview
+      to: root_readme
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: docs_overview
+      to: product_specifications
+      relationship: depends_on_family
+      source: selection_table_key_dependencies
+    - from: docs_lifecycle_contribution
+      to: spec_dsr_lifecycle_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: docs_artifact_ontology
+      to: model_artifact_ontology
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: docs_evaluation
+      to: model_evaluation_alignment
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: docs_validity_reliability
+      to: model_projectability
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: docs_transparency
+      to: model_transparency
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: docs_publication_review
+      to: model_publication_readiness
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: record_source_basis
+      to: record_source_basis
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: record_source_basis
+      to: dsr_extraction_corpus
+      relationship: grounded_in_source_family
+      source: selection_table_key_dependencies
+    - from: record_source_basis
+      to: documentation_protocol_repository
+      relationship: grounded_in_source_family
+      source: selection_table_key_dependencies
+    - from: record_contribution_positioning
+      to: model_contribution
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: record_transparency_crosswalk
+      to: template_transparency_crosswalk
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: record_evaluation_plan
+      to: template_evaluation_plan
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: record_self_review
+      to: checklist_package_readiness
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: record_self_review
+      to: checklist_minimum_dsr
+      relationship: depends_on
+      source: selection_table_key_dependencies
+    - from: record_release_v0_1_0
+      to: checklist_publication_readiness
+      relationship: depends_on
+      source: selection_table_key_dependencies
+sections:
+- id: identity_and_purpose
+  title: Identity and Purpose
+  purpose: Define the product catalog as the authoritative registry and dependency map for generated DSR Framework repository portions.
+  content:
+    file_role: controlled_product_specification
+    catalog_functions:
+    - Identify every selectable repository product by stable selection ID.
+    - Map product families, paths, formats, and conformance targets.
+    - Preserve key dependencies and normalize dependency relationships where possible.
+    - Support package inventory, roadmap, validation automation, and release planning.
+    out_of_scope:
+    - Does not contain the full content of each product.
+    - Does not replace schemas, templates, or checklists.
+    - Does not assert that every listed product has already been generated or approved.
+- id: conceptual_model
+  title: Conceptual Model
+  purpose: Define the catalog concepts used to control product identification, grouping, dependency mapping, and validation responsibility.
+  content:
+    entities:
+    - id: catalog_entry
+      definition: A controlled generation target with selection ID, repository path, portion type, output format, purpose, conformance target, and dependencies.
+    - id: product_family
+      definition: A repository-level grouping of products by function, such as specs, models, vocabularies, schemas, templates, checklists, docs, records, or root control files.
+    - id: dependency_edge
+      definition: A directed relation from a dependent catalog entry to a product, product family, source family, or unresolved dependency term.
+    - id: conformance_target
+      definition: A declared review or maturity target translated from the selection table level labels L1 through L5 into controlled conformance identifiers.
+    - id: validation_responsibility
+      definition: The primary review or validation mode expected for the product type.
+    relationships:
+    - catalog_entry belongs_to product_family
+    - catalog_entry has_default_conformance conformance_target
+    - catalog_entry depends_on catalog_entry
+    - catalog_entry depends_on_family product_family
+    - catalog_entry grounded_in_source_family source_basis
+    - catalog_entry has_validation_responsibility validation_responsibility
+    boundary_conditions:
+    - Dependency terms from the selection table are retained even when a precise registered target is unavailable.
+    - Source-family dependencies such as documentation_protocol_repository and dsr_extraction_corpus are not repository products unless separately represented by records.
+    - Catalog entries indicate intended products, not actual file-existence status.
+- id: normative_requirements
+  title: Normative Requirements
+  purpose: State the rules governing catalog maintenance, dependency control, and downstream use.
+  content:
+    must:
+    - Each generated repository product must have a stable selection_id or a recorded rationale for being outside the catalog.
+    - Each catalog entry must include target_path, portion_type, output_format, purpose, default_conformance, and dependency information.
+    - Each dependency term from the selection table must be retained in dependency_terms even when normalized dependency resolution is partial.
+    - Each dependency edge must distinguish generated product dependencies from source-family dependencies and unresolved dependencies.
+    - The catalog must be updated when target paths, conformance levels, repository structure, or validation responsibilities change.
+    should:
+    - Downstream package inventories should derive required file lists from this catalog when possible.
+    - Roadmap and release planning should use product_family and conformance_target indexes to sequence work.
+    - Automation should validate that generated files match registered target paths and expected formats.
+    - Unregistered dependency references should be resolved into future catalog entries, crosswalks, schemas, or explicit external sources.
+    may:
+    - The catalog may include additional fields for owner, review status, release status, generated checksum, or last-reviewed date.
+    - Catalog consumers may filter entries by product_family, conformance_target, generation_status, or validation_responsibility.
+    must_not:
+    - The catalog must not be used as evidence that a product has passed review unless the entry has an approved review record.
+    - The catalog must not silently drop dependency terms that are not yet resolved to registered files.
+    - The catalog must not replace the package inventory as the record of actual package contents.
+- id: information_items
+  title: Information Items and Records
+  purpose: Specify the information items controlled by the catalog and how they relate to package records.
+  content:
+    catalog_entry_required_fields:
+    - selection_id
+    - target_path
+    - product_family
+    - portion_type
+    - output_format
+    - purpose
+    - default_conformance
+    - conformance_target
+    - generation_status
+    - dependency_terms
+    - resolved_dependencies
+    - dependency_family_refs
+    - source_family_dependencies
+    - unregistered_dependency_refs
+    - validation_responsibility
+    catalog_level_indexes:
+    - family_index
+    - conformance_index
+    - dependency_map
+    related_records:
+    - record: package-inventory.yaml
+      relationship: Actual package inventory should confirm which cataloged products are present, omitted, deferred, or generated.
+    - record: conformance-declaration.yaml
+      relationship: Conformance declaration should summarize target maturity and tailoring across cataloged products.
+    - record: records/reviews/record-review-0001-self-review.yaml
+      relationship: Review records should use catalog entries as review scope units.
+    - record: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      relationship: Source-basis records should substantiate DSR-corpus dependencies referenced by catalog entries.
+- id: workflow
+  title: Workflow and Operating Procedure
+  purpose: Describe how maintainers use and update the product catalog.
+  content:
+    workflow_steps:
+    - step_id: pcat_step_01_register
+      name: Register or revise product entry
+      action: Add or update the catalog entry whenever a selected product, path, type, format, purpose, or conformance target changes.
+      output: Updated catalog entry.
+    - step_id: pcat_step_02_normalize_dependencies
+      name: Normalize dependencies
+      action: Map dependency terms to registered selection IDs, product families, source families, or unregistered dependency references.
+      output: Updated resolved_dependencies and dependency_map edges.
+    - step_id: pcat_step_03_sequence_generation
+      name: Sequence generation work
+      action: Prioritize foundational specs and vocabularies before dependent models, templates, schemas, checklists, docs, and records.
+      output: Roadmap-ready product ordering.
+    - step_id: pcat_step_04_validate_alignment
+      name: Validate package alignment
+      action: Compare catalog entries with the package inventory, generated files, schemas, review records, and release records.
+      output: Discrepancy list and remediation tasks.
+    recommended_generation_order:
+    - root_package_control
+    - product_specifications
+    - vocabularies
+    - models
+    - schemas
+    - templates
+    - checklists
+    - protocol_documentation
+    - records
+- id: quality_and_conformance
+  title: Quality and Conformance
+  purpose: Define acceptance criteria, validation rules, and quality gates for the catalog.
+  content:
+    acceptance_criteria:
+    - id: pcat_ac_01_complete_registry
+      criterion: All rows from the selection table are represented as catalog entries.
+      evidence_required:
+      - entry_count
+      - source selection table row count
+      status: satisfied_for_initial_generation
+    - id: pcat_ac_02_path_format_alignment
+      criterion: Each entry preserves target path and output format from the selection table.
+      evidence_required:
+      - catalog.entries.target_path
+      - catalog.entries.output_format
+      status: satisfied_for_initial_generation
+    - id: pcat_ac_03_dependency_preservation
+      criterion: Dependency terms are retained and classified as resolved, family-level, source-family, or unregistered.
+      evidence_required:
+      - catalog.dependency_map.edges
+      status: satisfied_for_initial_generation
+    - id: pcat_ac_04_reviewability
+      criterion: The catalog contains explicit quality gates, validation rules, and failure modes.
+      evidence_required:
+      - quality_gates
+      - sections.quality_and_conformance
+      status: satisfied_for_initial_generation
+    validation_rules:
+    - entry_count should equal the number of non-header product rows in the selection table.
+    - selection_id values must be unique.
+    - target_path values should be unique unless a documented alias or replacement is declared.
+    - resolved_dependencies should reference existing catalog selection_id values.
+    - unregistered_dependency_refs should be reviewed before L3 or higher automation conformance is claimed.
+    - output_format must be consistent with target_path extension.
+    failure_modes:
+    - id: pcat_fm_01_missing_entry
+      description: A selected product is absent from the catalog.
+      remediation: Add the product entry and dependency edges, then update entry_count and indexes.
+    - id: pcat_fm_02_unresolved_dependency_without_note
+      description: A dependency term cannot be resolved and is not recorded as unregistered or external.
+      remediation: Classify the term explicitly and decide whether to add a new catalog entry or source-basis record.
+    - id: pcat_fm_03_path_conflict
+      description: Two entries point to the same target_path without a documented reason.
+      remediation: Correct the path or record an alias/supersession decision.
+- id: traceability
+  title: Traceability
+  purpose: Record upstream source links, downstream products, evidence status, and dependency trace semantics.
+  content:
+    upstream_sources:
+    - user_current_request
+    - dsr_framework_selection_table
+    - dsr_framework_generation_spec
+    - dsr_framework_generation_prompt
+    downstream_consumers:
+    - package-inventory.yaml
+    - specs/product-dsr-implementation-roadmap.yaml
+    - specs/product-dsr-automation-and-validation-model.yaml
+    - records/reviews/record-review-0001-self-review.yaml
+    - records/releases/record-release-0001-v0-1-0.yaml
+    evidence_status: registry_mapped_from_selection_table; scholarly_evidence_not_required_for_catalog_entries; downstream DSR concept files must map corpus evidence separately
+    trace_id_prefix: pcat_trace
+- id: implementation_guidance
+  title: Implementation Guidance
+  purpose: Provide practical guidance for using the catalog in a GitHub-publishable repository.
+  content:
+    repository_use:
+    - Place this file at specs/product-catalog.yaml.
+    - Use package-inventory.yaml to declare actual generated files and omit/defer decisions.
+    - Use this catalog as the target list for scaffolding directories, validating paths, and planning releases.
+    - Maintain catalog entries in lower_snake_case for selection IDs and lower-kebab-case for file names.
+    automation_hooks:
+    - Check that every generated file has a catalog entry or approved exception.
+    - Check output_format against file extension.
+    - Check that resolved_dependencies reference registered entries.
+    - Emit warnings for unregistered_dependency_refs.
+    - Compare generation_status with review and release records.
+    human_review_guidance:
+    - Review unregistered_dependency_refs first because they indicate conceptual dependencies not yet represented as generated files.
+    - Review L4 and L5 targets for stronger archival, release, DOI, and publication-readiness requirements.
+    - Review source_family_dependencies to ensure source-basis records are present and sufficient.
+- id: template_or_schema_implications
+  title: Template or Schema Implications
+  purpose: Identify downstream templates and schemas implied by the product catalog.
+  content:
+    future_schema_recommendation:
+      selection_id: schema_product_catalog
+      target_path: schemas/product-catalog.schema.json
+      status: not_in_current_selection_table
+      rationale: A catalog schema would support automated validation of registry entries, dependency edges, and conformance indexes.
+    package_inventory_implications:
+    - Package inventory should include a generated_present, deferred, omitted, or out_of_scope status for each cataloged target.
+    - Package inventory validation should detect catalog entries without corresponding inventory rows.
+    roadmap_implications:
+    - Implementation roadmap should sequence work using product_family and dependency_map edges.
+    - Roadmap should explicitly decide how to resolve unregistered dependency references.
+- id: open_questions_and_backlog
+  title: Open Questions and Backlog
+  purpose: List unresolved catalog decisions and future improvements.
+  content:
+    open_questions:
+    - id: pcat_oq_01_schema_registration
+      question: Should a product-catalog JSON Schema be added to the selection table for automated validation?
+      evidence_status: not_yet_mapped
+    - id: pcat_oq_02_crosswalk_registration
+      question: Should genre standards, responsible DSR, aesthetics, problem-space, solution-space, and design-rationale dependencies become registered crosswalks or specs?
+      evidence_status: not_yet_mapped
+    - id: pcat_oq_03_status_lifecycle
+      question: Should generation_status be synchronized automatically with review records and release records?
+      evidence_status: not_yet_mapped
+    backlog_items:
+    - Add catalog schema if automation conformance is pursued.
+    - Add review status fields after self-review records exist.
+    - Resolve unregistered dependency references into generated files, records, crosswalks, or explicit external dependencies.
+    - Add checksums or generated file metadata after repository scaffolding is created.
+quality_gates:
+- id: qg_consistency
+  status: pass
+  rationale: Uses required target path, YAML format, controlled selection ID, and product specification structure.
+- id: qg_coherence
+  status: pass_with_watch_items
+  rationale: Catalog entries align with the selection table; unregistered dependencies are explicitly retained for later resolution.
+- id: qg_cogency
+  status: pass
+  rationale: Defines entry structure, dependency semantics, workflow, acceptance criteria, and failure modes.
+- id: qg_correspondence
+  status: pass
+  rationale: Supports DSR Framework as a reviewable artifact package by controlling product identity and dependency structure.
+- id: qg_dsr_transparency
+  status: pass
+  rationale: Supports process and contribution transparency by making product scope, dependency basis, and validation responsibility explicit.
+- id: qg_reviewability
+  status: pass
+  rationale: Contains explicit acceptance criteria, validation rules, quality gates, and unresolved questions.
+traceability:
+- trace_id: pcat_trace_001
+  from: user_current_request.selection_id
+  to: information_item.selection_id
+  relationship: selects_generation_target
+  evidence_status: mapped
+- trace_id: pcat_trace_002
+  from: dsr_framework_selection_table.rows
+  to: catalog.entries
+  relationship: enumerates_catalog_entries
+  evidence_status: mapped
+- trace_id: pcat_trace_003
+  from: dsr_framework_generation_spec.coherence_rules.product_spec
+  to: sections
+  relationship: requires_product_spec_structure
+  evidence_status: mapped
+- trace_id: pcat_trace_004
+  from: dsr_framework_generation_spec.quality_gates
+  to: quality_gates
+  relationship: implements_quality_gate_review
+  evidence_status: mapped
+assumptions:
+- The selection table is treated as the authoritative list of current generation targets.
+- Dependency terms are interpreted conservatively; unresolved terms are retained rather than silently normalized away.
+- All entries begin with generation_status planned because this catalog does not verify actual file existence or review approval.
+- The documentation protocol repository is referenced as a governing source but was not externally queried for current changes during this file generation.
+open_questions:
+- Should unregistered dependency references be added to the selection table as new specs, schemas, records, or crosswalks?
+- Should product-catalog.schema.json be introduced as a new validation artifact?
+- Should generation_status values be controlled by a separate vocabulary?

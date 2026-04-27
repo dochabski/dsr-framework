@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/package-inventory.schema.json",
+  "title": "DSR Framework Package Inventory Schema",
+  "description": "Validates package inventory records and package-inventory templates, preserving inventory, validation, traceability, and review fields.",
+  "type": "object",
+  "required": [
+    "package_inventory"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "package_inventory": {
+      "type": "object",
+      "required": [
+        "item_id",
+        "item_type",
+        "record_id",
+        "record_class",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "owner",
+        "source_basis",
+        "related_items",
+        "inventory_scope",
+        "change_history"
+      ],
+      "properties": {
+        "item_id": {},
+        "item_type": {},
+        "record_id": {},
+        "record_class": {},
+        "title": {},
+        "purpose": {},
+        "status": {},
+        "version": {},
+        "date": {},
+        "owner": {},
+        "responsible_party": {},
+        "event_or_action": {},
+        "conformance_target": {},
+        "inventory_policy": {},
+        "source_basis": {},
+        "related_items": {},
+        "inventory_scope": {},
+        "directory_inventory": {},
+        "root_file_inventory": {},
+        "validation_profiles": {},
+        "file_inventory": {},
+        "cross_file_validation_rules": {},
+        "acceptance_criteria": {},
+        "quality_gate_status": {},
+        "validation_status": {},
+        "assumptions": {},
+        "limitations": {},
+        "open_questions": {},
+        "retention_rule": {},
+        "change_history": {},
+        "date_created": {},
+        "date_last_reviewed": {},
+        "template_guidance": {},
+        "package_identity": {},
+        "validation_model": {},
+        "inventory_entries": {},
+        "directory_entries": {},
+        "conformance_summary": {},
+        "traceability": {},
+        "failure_modes": {},
+        "review_and_maintenance": {}
+      },
+      "additionalProperties": true,
+      "anyOf": [
+        {
+          "required": [
+            "file_inventory",
+            "directory_inventory",
+            "root_file_inventory",
+            "validation_profiles"
+          ]
+        },
+        {
+          "required": [
+            "inventory_entries",
+            "directory_entries",
+            "validation_model"
+          ]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

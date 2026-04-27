@@ -1,0 +1,595 @@
+# SPDX-License-Identifier: CC0-1.0
+template:
+  id: demonstration_record_template
+  title: Demonstration Record Template
+  item_type: specification
+  target_record_class: demonstration_record
+  target_path_pattern: records/demonstrations/record-demonstration-<sequence-or-date>.yaml
+  purpose: 'Provide a reusable YAML template for documenting a Design Science Research demonstration: the context, use scenario,
+    artifact interaction, observed outputs, evidence retained, and boundaries between demonstration, evaluation, and contribution
+    claims.
+
+    '
+  status: draft
+  version: 0.1.0
+  conformance_target: l2_reviewable
+  owner_role: dsr_project_owner
+  created_date: '2026-04-27'
+  license: CC0-1.0
+source_basis:
+- source_id: dsr_framework_generation_spec
+  role: generation_and_repository_conformance_rules
+  evidence_status: mapped
+  notes: 'Requires controlled YAML templates to include stable identifiers, source_basis, related_items, traceability, quality
+    gates, reviewability, and explicit distinction between demonstration and evaluation.
+
+    '
+- source_id: dsr_framework_generation_prompt
+  role: generation_procedure_and_output_conventions
+  evidence_status: mapped
+  notes: 'Requires selected portions to follow target path, output format, dependencies, conformance target, metadata, traceability,
+    quality material, and completion reporting.
+
+    '
+- source_id: dsr_extraction_corpus
+  role: dsr_demonstration_and_use_grounding
+  evidence_status: mapped
+  example_anchor_ids:
+  - akoka_et_al_2023:A13
+  - hevner_et_al_2024:CA05
+  - hevner_et_al_2024:CA15
+  - hevner_et_al_2024:CA16
+  - weigand_johannesson_andersson_2021:A08
+  - weigand_johannesson_andersson_2021:A09
+  - weigand_johannesson_andersson_2021:A19
+  notes: 'The corpus distinguishes conceptual demonstrations, illustrative scenarios, prototype or artifact use demonstrations,
+    and empirical evaluation evidence.
+
+    '
+- source_id: meijer_nijssen_bulles_2018_agile_enterprise_design
+  short_citation: Meijer, Nijssen, and Bulles (2018)
+  evidence_anchor_id: A16
+  supports_construct: demonstration_and_use.methodology
+  evidence_role: example
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: templates/demonstration-record-template.yaml
+  note: 'Meijer, Nijssen, and Bulles (2018) grounds demonstration_and_use.methodology through extracted anchor A16: The paper
+    operationalizes evaluation of a multi-component DSR artifact for agile enterprise design through three hypotheses and
+    two agility variables.'
+dependencies:
+  upstream:
+  - selection_id: model_lifecycle
+    path: models/dsr-lifecycle-model.yaml
+    relationship: supplies_lifecycle_stage_and_demonstration_positioning
+    required: true
+  - selection_id: template_artifact_specification
+    path: templates/artifact-specification-template.md
+    relationship: supplies_artifact_identity_boundary_components_and_use_logic
+    required: recommended
+  - selection_id: template_problem_objectives
+    path: templates/problem-and-objectives-template.md
+    relationship: supplies_problem_context_objectives_requirements_and_success_criteria
+    required: recommended
+  - selection_id: template_solution_space
+    path: templates/solution-space-record-template.yaml
+    relationship: supplies_solution_space_grounding_and_related_artifacts
+    required: recommended
+  downstream:
+  - selection_id: template_evaluation_plan
+    path: templates/evaluation-plan-template.yaml
+    relationship: demonstration_evidence_can_inform_but_not_substitute_for_evaluation
+  - selection_id: template_evaluation_report
+    path: templates/evaluation-report-template.yaml
+    relationship: evaluation_reports_may_reference_demonstration_records_as_contextual_evidence
+  - selection_id: template_contribution_claim
+    path: templates/contribution-claim-template.yaml
+    relationship: contribution_claims_may_reference_demonstrations_as_use_context_evidence
+  - selection_id: template_transparency_crosswalk
+    path: templates/dsr-transparency-crosswalk-template.yaml
+    relationship: demonstration_records_support_process_problem_build_evaluation_and_contribution_transparency
+related_items:
+- item_id: dsr_lifecycle_model
+  path: models/dsr-lifecycle-model.yaml
+  relationship: lifecycle_dependency
+- item_id: dsr_evaluation_alignment_model
+  path: models/dsr-evaluation-alignment-model.yaml
+  relationship: separates_demonstration_from_evaluation_and_claim_testing
+- item_id: dsr_transparency_model
+  path: models/dsr-transparency-model.yaml
+  relationship: supplies_transparency_dimensions_for_record_mapping
+- item_id: dsr_project_template
+  path: templates/dsr-project-charter-template.md
+  relationship: project_context_source
+usage_guidance:
+  when_to_use:
+  - After an artifact, artifact component, model, method, prototype, template, or design principle has been shown in use.
+  - When a DSR project needs retained evidence that an artifact can be applied to a scenario, stakeholder task, simulated
+    context, or exemplar case.
+  - When reviewers need to see the artifact's intended use context before assessing evaluation claims.
+  when_not_to_use:
+  - Do not use this template as a substitute for an evaluation plan or evaluation report.
+  - Do not treat a demonstration alone as evidence of effectiveness, validity, reliability, or generalizability.
+  - Do not use it to record only design rationale; use the design-rationale template for alternatives, tradeoffs, and design
+    decisions.
+  demonstration_evaluation_boundary: 'A demonstration documents that an artifact was applied in a context or scenario and
+    records what happened. Evaluation judges artifact utility, artifact quality, or contribution claims against explicit criteria,
+    methods, and evidence. A single project activity may include both, but the evidentiary roles must remain separate.
+
+    '
+  placeholder_rule: 'Values beginning with TODO are project-specific placeholders to be completed when creating a concrete
+    demonstration record.
+
+    '
+record_template:
+  record:
+    record_id: 'TODO: record-demonstration-0001'
+    record_class: demonstration_record
+    title: 'TODO: concise title of the demonstration'
+    event_or_action: demonstrated_artifact_use
+    date: 'TODO: YYYY-MM-DD'
+    status: draft
+    version: 0.1.0
+    responsible_party:
+      name: 'TODO: responsible person or team'
+      role: 'TODO: principal investigator, designer, evaluator, reviewer, practitioner, or other role'
+      affiliation: 'TODO: organization or project affiliation'
+    retention_rule:
+      retention_period: project_lifecycle_plus_release_archive
+      retention_rationale: 'Retain the demonstration record with the DSR artifact package so future reviewers and reusers
+        can inspect context, use logic, evidence, and limits of the demonstration.
+
+        '
+      disposition: archive_with_artifact_package
+  project_reference:
+    dsr_project_id: 'TODO: project identifier'
+    project_title: 'TODO: project title'
+    lifecycle_stage:
+      value: demonstration
+      allowed_values:
+      - problem_identification
+      - objectives_definition
+      - design_and_development
+      - demonstration
+      - evaluation
+      - communication
+      - release_or_preservation
+    demonstration_sequence_number: 'TODO: integer or stable sequence code'
+    related_problem_record_id: 'TODO: related problem/objectives record ID or null'
+    related_solution_space_record_id: 'TODO: related solution-space record ID or null'
+    related_design_rationale_id: 'TODO: related design rationale record ID or null'
+  artifact_under_demonstration:
+    artifact_id: 'TODO: stable artifact identifier'
+    artifact_name: 'TODO: artifact name'
+    artifact_version: 'TODO: semantic version, commit, release, or draft identifier'
+    artifact_type:
+      value: 'TODO: construct | model | method | instantiation | framework | taxonomy | template | checklist | schema | dataset
+        | software | other'
+    artifact_boundary: 'TODO: what is included in and excluded from the demonstrated artifact'
+    artifact_abstraction_level:
+      value: 'TODO: conceptual_only | specification | prototype | executable_instantiation | deployed_system | other'
+    instance_or_type_demonstrated:
+      value: 'TODO: artifact_type | artifact_instance | artifact_component | use_plan | design_principle | documentation_package'
+    components_demonstrated:
+    - component_id: 'TODO: component identifier'
+      component_name: 'TODO: component name'
+      role_in_demonstration: 'TODO: how the component is used or shown'
+    use_plan_reference:
+      use_plan_id: 'TODO: related use plan or artifact specification section'
+      intended_users: []
+      intended_effects: []
+    make_plan_reference:
+      make_plan_id: 'TODO: related make plan, build record, or null'
+      relevant_build_constraints: []
+  demonstration_summary:
+    demonstration_type:
+      value: 'TODO: conceptual_walkthrough'
+      allowed_values:
+      - conceptual_walkthrough
+      - illustrative_scenario
+      - worked_example
+      - prototype_walkthrough
+      - simulation
+      - pilot_use
+      - field_use_case
+      - classroom_or_training_use
+      - practitioner_use_case
+      - repository_example
+      - other
+    demonstration_status:
+      value: completed
+      allowed_values:
+      - completed
+      - completed_with_deviations
+      - incomplete
+      - superseded
+    purpose: 'TODO: State why the demonstration was conducted and what it was intended to show about artifact use, feasibility,
+      understandability, scenario fit, or lifecycle progression.
+
+      '
+    demonstration_question: 'TODO: What use-oriented question does this demonstration answer?'
+    demonstrated_use_claim: 'TODO: The bounded claim this demonstration supports'
+    claims_not_supported: []
+    summary_result: 'TODO: one- to three-sentence summary of what occurred'
+  context:
+    setting_type:
+      value: 'TODO: synthetic'
+      allowed_values:
+      - synthetic
+      - laboratory
+      - classroom_or_training
+      - repository_or_documentation
+      - organizational
+      - practitioner_field
+      - technical_runtime
+      - literature_based
+      - mixed
+      - other
+    domain: 'TODO: application or research domain'
+    organization_or_site: 'TODO: organization, site, or not_applicable'
+    geographic_or_regulatory_context: 'TODO: jurisdiction, policy context, or not_applicable'
+    sociotechnical_context: 'TODO: users, roles, technologies, workflows, social arrangements, or constraints'
+    stakeholder_context:
+      primary_stakeholders: []
+      secondary_stakeholders: []
+      stakeholder_needs_relevant_to_demonstration: []
+    problem_context_reference: 'TODO: problem-space record, section, or brief summary'
+    solution_context_reference: 'TODO: solution-space record, source, or brief summary'
+    assumptions:
+    - assumption_id: demo_assumption_001
+      statement: 'TODO: assumption needed for the demonstration to be interpretable'
+      risk_if_false: 'TODO: consequence if assumption is wrong'
+    boundary_conditions:
+    - condition_id: demo_boundary_001
+      description: 'TODO: boundary limiting interpretation or transfer of the demonstration'
+      implication: 'TODO: what later users should not infer beyond this boundary'
+  participants_and_roles:
+    demonstration_users_or_participants:
+    - participant_or_role_id: 'TODO: user_role_001'
+      role_label: 'TODO: user, designer, practitioner, reviewer, learner, or other'
+      involvement: 'TODO: what this role did during the demonstration'
+      recruitment_or_selection_basis: 'TODO: how the role/person/example was selected, or not_applicable'
+      consent_or_permission_status: 'TODO: not_applicable | obtained | pending | restricted | other'
+    observers_or_recorders:
+    - observer_id: 'TODO: observer_001'
+      role_label: 'TODO: observer, notetaker, system logger, facilitator, or other'
+      responsibility: 'TODO: evidence captured or observation responsibility'
+    evaluator_roles_present:
+      present: false
+      notes: 'TODO: If evaluators were present, explain whether they only observed the demonstration or also conducted a formal
+        evaluation activity recorded elsewhere.
+
+        '
+  use_scenario:
+    scenario_id: 'TODO: demo-scenario-001'
+    scenario_title: 'TODO: scenario title'
+    scenario_type:
+      value: 'TODO: representative_use_case'
+      allowed_values:
+      - representative_use_case
+      - edge_case
+      - failure_or_stress_case
+      - onboarding_case
+      - comparison_case
+      - publication_example
+      - training_case
+      - other
+    actor_roles:
+    - role_id: 'TODO: actor_001'
+      role_label: 'TODO: actor label'
+      goal: 'TODO: actor goal in the scenario'
+    preconditions:
+    - 'TODO: condition that must be true before the demonstration begins'
+    trigger_event: 'TODO: event or need that initiates artifact use'
+    task_or_use_case: 'TODO: task, workflow, question, or problem addressed by the artifact'
+    inputs_or_materials:
+    - material_id: 'TODO: input_001'
+      name: 'TODO: input or material name'
+      source_or_location: 'TODO: path, URI, repository, source, or not_applicable'
+      sensitivity: 'TODO: public | internal | confidential | restricted | not_applicable'
+    procedure_steps:
+    - step_id: demo_step_001
+      sequence: 1
+      actor: 'TODO: actor or system role'
+      action: 'TODO: action taken'
+      artifact_interaction: 'TODO: how the artifact was used, inspected, configured, executed, or interpreted'
+      expected_observation: 'TODO: what should be visible if the demonstration proceeds as intended'
+      actual_observation: 'TODO: what was observed'
+      evidence_captured:
+      - 'TODO: evidence_item_id or null'
+    outputs:
+    - output_id: 'TODO: output_001'
+      output_name: 'TODO: output name'
+      output_type: 'TODO: record | generated_file | visualization | decision | recommendation | artifact_state | other'
+      location_or_reference: 'TODO: path, URI, appendix, screenshot, or not_applicable'
+      interpretation: 'TODO: what the output shows within the limits of the demonstration'
+  demonstration_environment:
+    environment_description: 'TODO: physical, digital, organizational, or conceptual environment'
+    hardware: []
+    software: []
+    data_sources: []
+    configuration:
+    - config_id: 'TODO: config_001'
+      setting: 'TODO: setting name'
+      value: 'TODO: value or redacted'
+      rationale: 'TODO: why this setting was used'
+    constraints:
+    - 'TODO: time, access, security, privacy, data, runtime, stakeholder, or resource constraint'
+    deviations_from_expected_setup:
+    - deviation_id: 'TODO: deviation_001'
+      description: 'TODO: deviation or none'
+      effect_on_interpretation: 'TODO: how the deviation affects the record'
+  evidence:
+    evidence_summary: 'TODO: concise summary of retained evidence'
+    evidence_items:
+    - evidence_item_id: demo_evidence_001
+      evidence_type:
+        value: 'TODO: notes'
+        allowed_values:
+        - notes
+        - screenshot
+        - video
+        - audio
+        - transcript
+        - system_log
+        - generated_file
+        - repository_link
+        - dataset
+        - survey_response
+        - interview_excerpt
+        - observation_protocol
+        - working_example
+        - other
+      description: 'TODO: evidence description'
+      location_or_uri: 'TODO: file path, repository path, URI, appendix reference, or restricted'
+      access_control: 'TODO: public | internal | restricted | confidential | redacted'
+      collected_by: 'TODO: person, role, or system'
+      collection_date: 'TODO: YYYY-MM-DD'
+      integrity_hash: 'TODO: SHA-256 or not_applicable'
+      retention_rule: retain_with_demonstration_record
+    evidence_gaps:
+    - gap_id: demo_gap_001
+      description: 'TODO: missing evidence, if any'
+      implication: 'TODO: how this weakens or limits the demonstration record'
+  observations_and_interpretation:
+    artifact_utility_observations:
+    - observation_id: utility_obs_001
+      observation: 'TODO: what the demonstration suggests about usefulness, task fit, feasibility, or user value'
+      evidence_item_ids: []
+      interpretation_limit: 'TODO: why this is not yet a formal utility evaluation unless separately evaluated'
+    artifact_quality_observations:
+    - observation_id: quality_obs_001
+      quality_attribute: 'TODO: usability | functionality | reliability | interoperability | maintainability | accessibility
+        | security | other'
+      observation: 'TODO: what was observed about artifact quality'
+      evidence_item_ids: []
+      interpretation_limit: 'TODO: whether this is anecdotal, inspected, tested, or formally evaluated elsewhere'
+    contribution_relevance_observations:
+    - observation_id: contribution_obs_001
+      contribution_dimension: 'TODO: practice_contribution | scientific_contribution | design_knowledge | method_extension
+        | artifact_reuse | projectability | other'
+      observation: 'TODO: what the demonstration suggests about contribution relevance'
+      evidence_item_ids: []
+      interpretation_limit: 'TODO: what contribution claim is not established by the demonstration alone'
+    unexpected_results:
+    - result_id: unexpected_001
+      description: 'TODO: unexpected result or none'
+      response_or_follow_up: 'TODO: change, issue, evaluation question, or not_applicable'
+    limitations:
+    - limitation_id: demo_limitation_001
+      description: 'TODO: limitation of the demonstration'
+      effect_on_claims: 'TODO: claims that should be weakened, excluded, or evaluated later'
+  demonstration_vs_evaluation:
+    formal_evaluation_conducted_in_same_activity: false
+    evaluation_record_reference: 'TODO: evaluation plan/report ID or null'
+    evaluation_boundary_statement: 'This record documents demonstration evidence. It does not by itself establish artifact
+      effectiveness, reliability, validity, comparative performance, or generalizability unless those claims are evaluated
+      in a linked evaluation record.
+
+      '
+    claims_supported_by_demonstration_only:
+    - 'TODO: bounded demonstration-supported claim'
+    claims_requiring_evaluation:
+    - 'TODO: claim requiring formal evaluation before publication or release'
+    recommended_follow_up_evaluation:
+    - evaluation_need_id: eval_need_001
+      question: 'TODO: evaluation question suggested by the demonstration'
+      suggested_method_family: 'TODO: experiment | case_study | expert_review | simulation | benchmark | field_evaluation
+        | analytical_evaluation | other'
+      priority: 'TODO: low | medium | high'
+  transparency_alignment:
+    process_transparency:
+      supported: true
+      evidence: 'TODO: procedure steps, deviations, and responsible roles'
+    problem_space_transparency:
+      supported: true
+      evidence: 'TODO: problem context, stakeholder needs, and boundary conditions'
+    solution_space_transparency:
+      supported: true
+      evidence: 'TODO: solution context, related artifacts, or grounding references'
+    build_transparency:
+      supported: true
+      evidence: 'TODO: artifact version, configuration, and components demonstrated'
+    evaluation_transparency:
+      supported: partial
+      evidence: 'TODO: distinction between demonstration and evaluation, plus evaluation follow-up needs'
+    contribution_transparency:
+      supported: partial
+      evidence: 'TODO: contribution relevance observations and unsupported claims'
+  responsible_design_and_risk:
+    ethical_or_social_values_relevant:
+    - 'TODO: transparency, accessibility, privacy, security, fairness, stakeholder autonomy, or other'
+    risks_or_harms_observed_or_possible:
+    - risk_id: demo_risk_001
+      risk: 'TODO: risk or harm'
+      affected_stakeholders: []
+      mitigation_or_control: 'TODO: mitigation, control, or not_applicable'
+      residual_risk: 'TODO: low | medium | high | unknown'
+    data_privacy_or_security_notes: 'TODO: privacy/security issues and redaction decisions, or not_applicable'
+    accessibility_notes: 'TODO: accessibility considerations for demonstration materials, or not_applicable'
+  review_and_acceptance:
+    acceptance_criteria:
+    - criterion_id: demo_ac_001
+      criterion: Demonstration context is sufficiently described for a reviewer to understand where and why artifact use occurred.
+      evidence_required:
+      - context.setting_type
+      - context.domain
+      - context.stakeholder_context
+      - context.boundary_conditions
+      pass_condition: Required context fields are complete or explicitly marked not_applicable with rationale.
+    - criterion_id: demo_ac_002
+      criterion: Demonstration procedure is reproducible enough for review of what was done.
+      evidence_required:
+      - use_scenario.procedure_steps
+      - demonstration_environment.configuration
+      - evidence.evidence_items
+      pass_condition: Procedure steps, environment, and retained evidence allow an independent reviewer to reconstruct the
+        demonstration logic.
+    - criterion_id: demo_ac_003
+      criterion: Demonstration and evaluation claims are not conflated.
+      evidence_required:
+      - demonstration_vs_evaluation.evaluation_boundary_statement
+      - demonstration_vs_evaluation.claims_supported_by_demonstration_only
+      - demonstration_vs_evaluation.claims_requiring_evaluation
+      pass_condition: The record clearly identifies which claims require later formal evaluation.
+    - criterion_id: demo_ac_004
+      criterion: Artifact identity and version are traceable.
+      evidence_required:
+      - artifact_under_demonstration.artifact_id
+      - artifact_under_demonstration.artifact_version
+      - artifact_under_demonstration.components_demonstrated
+      pass_condition: A reviewer can identify exactly what artifact or component was demonstrated.
+    reviewer_notes:
+    - 'TODO: reviewer comments or null'
+    review_status:
+      value: not_reviewed
+      allowed_values:
+      - not_reviewed
+      - reviewed_with_minor_issues
+      - reviewed_with_major_issues
+      - accepted
+      - rejected
+      - superseded
+  validation_rules:
+    required_fields:
+    - record.record_id
+    - record.record_class
+    - record.event_or_action
+    - record.date
+    - record.responsible_party
+    - record.retention_rule
+    - project_reference.dsr_project_id
+    - artifact_under_demonstration.artifact_id
+    - artifact_under_demonstration.artifact_version
+    - demonstration_summary.demonstration_type
+    - context.setting_type
+    - use_scenario.scenario_id
+    - use_scenario.procedure_steps
+    - evidence.evidence_items
+    - demonstration_vs_evaluation.evaluation_boundary_statement
+    - review_and_acceptance.acceptance_criteria
+    controlled_value_checks:
+    - field: project_reference.lifecycle_stage.value
+      allowed_values_source: inline_allowed_values
+    - field: demonstration_summary.demonstration_type.value
+      allowed_values_source: inline_allowed_values
+    - field: demonstration_summary.demonstration_status.value
+      allowed_values_source: inline_allowed_values
+    - field: context.setting_type.value
+      allowed_values_source: inline_allowed_values
+    - field: use_scenario.scenario_type.value
+      allowed_values_source: inline_allowed_values
+    - field: evidence.evidence_items[].evidence_type.value
+      allowed_values_source: inline_allowed_values
+    - field: review_and_acceptance.review_status.value
+      allowed_values_source: inline_allowed_values
+    failure_modes:
+    - failure_id: demo_fail_001
+      failure_condition: Artifact version is missing or ambiguous.
+      remediation_guidance: Add artifact version, release, commit hash, file path, or repository reference.
+    - failure_id: demo_fail_002
+      failure_condition: Scenario steps are too vague to reconstruct artifact use.
+      remediation_guidance: Add stepwise actions, actors, artifact interactions, expected observations, and evidence references.
+    - failure_id: demo_fail_003
+      failure_condition: Demonstration is used to claim evaluated effectiveness without a linked evaluation method.
+      remediation_guidance: Move effectiveness claims to an evaluation plan/report or restate them as bounded demonstration
+        observations.
+    - failure_id: demo_fail_004
+      failure_condition: Evidence is unavailable, inaccessible, or not retained.
+      remediation_guidance: Attach or reference retained evidence, or document the evidence gap and its implication.
+  traceability:
+    upstream_trace_links:
+    - trace_id: demo_trace_lifecycle
+      source_item: models/dsr-lifecycle-model.yaml
+      source_element: lifecycle_stage.demonstration
+      target_element: project_reference.lifecycle_stage
+      evidence_status: not_yet_mapped
+    - trace_id: demo_trace_artifact_spec
+      source_item: templates/artifact-specification-template.md
+      source_element: artifact_components_use_logic_boundary_version
+      target_element: artifact_under_demonstration
+      evidence_status: not_yet_mapped
+    - trace_id: demo_trace_problem_objectives
+      source_item: templates/problem-and-objectives-template.md
+      source_element: problem_context_objectives_requirements_success_criteria
+      target_element: context.problem_context_reference
+      evidence_status: not_yet_mapped
+    downstream_trace_links:
+    - trace_id: demo_trace_to_evaluation_plan
+      target_item: templates/evaluation-plan-template.yaml
+      target_element: evaluation_context_and_evaluation_questions
+      relationship: demonstration_suggests_follow_up_evaluation_questions
+    - trace_id: demo_trace_to_contribution_claim
+      target_item: templates/contribution-claim-template.yaml
+      target_element: contribution_evidence_and_limitations
+      relationship: demonstration_supplies_bounded_use_context_evidence
+    - trace_id: demo_trace_to_transparency_crosswalk
+      target_item: templates/dsr-transparency-crosswalk-template.yaml
+      target_element: transparency_evidence
+      relationship: demonstration_supplies_transparency_evidence
+  change_history:
+  - version: 0.1.0
+    date: '2026-04-27'
+    change: Initial reusable demonstration record template.
+    changed_by: GPT-5.5 Thinking
+quality_gate_mapping:
+  qg_consistency:
+    status: pass
+    evidence:
+    - target_path_pattern_uses_lower_kebab_case
+    - yaml_template_format
+    - controlled_record_class
+  qg_coherence:
+    status: pass
+    evidence:
+    - dependencies_link_lifecycle_artifact_evaluation_contribution_and_transparency_items
+    - demonstration_evaluation_boundary_declared
+  qg_cogency:
+    status: pass
+    evidence:
+    - use_scenario_steps
+    - demonstration_environment
+    - evidence_items
+    - observations_and_interpretation
+  qg_correspondence:
+    status: pass
+    evidence:
+    - template_supports_reviewable_reusable_dsr_artifact_package
+    - artifact_utility_quality_and_knowledge_contribution_observations_separated
+  qg_dsr_transparency:
+    status: pass
+    evidence:
+    - transparency_alignment_maps_all_six_dimensions
+  qg_reviewability:
+    status: pass
+    evidence:
+    - acceptance_criteria
+    - validation_rules
+    - failure_modes
+open_questions:
+- question_id: demo_oq_001
+  question: Should a future schema formally validate demonstration records separately from evaluation reports?
+  disposition: recommend_future_schema_or_extension
+- question_id: demo_oq_002
+  question: Should repository examples include both a conceptual demonstration and a field-use demonstration?
+  disposition: defer_until_examples_directory_is_defined

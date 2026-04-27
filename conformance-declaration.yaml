@@ -1,0 +1,513 @@
+# SPDX-License-Identifier: CC0-1.0
+conformance_declaration:
+  item_id: dsr_framework_conformance_declaration
+  record_id: record_conformance_declaration_root_0001
+  record_class: conformance_record
+  item_type: record
+  title: DSR Framework Conformance Declaration
+  purpose: >
+    Declare the initial conformance level, tailoring rationale, evidence basis,
+    review obligations, and non-overclaiming constraints for the DSR Framework
+    artifact package.
+  status: draft
+  version: "0.1.0"
+  date: "2026-04-27"
+  responsible_party: framework_maintainer
+  owner: framework_maintainer
+  event_or_action: declare_initial_l1_conformance_and_tailoring
+
+  file_identity:
+    selection_id: root_conformance_declaration
+    target_path: conformance-declaration.yaml
+    portion_type: conformance_record
+    output_format: yaml
+    default_conformance_from_selection_table: L1
+    governing_selection_purpose: Declare conformance level and tailoring.
+    key_dependencies:
+      - quality_conformance_model
+
+  declaration:
+    declaration_id: dsr_framework_initial_l1_declaration
+    applies_to:
+      artifact_package_id: dsr_framework
+      artifact_package_title: Design Science Research Framework
+      package_class:
+        primary: compound_dsr_artifact
+        secondary:
+          - method_or_protocol_artifact
+          - model_or_taxonomy_artifact
+          - documentation_only
+          - data_or_information_artifact
+    declared_current_conformance_level:
+      id: l1_documented
+      label: L1 documented
+      declaration_status: declared_for_initial_root_package_control
+      rationale: >
+        The selected root conformance-declaration portion has a default L1
+        conformance expectation. This declaration documents package-level
+        conformance intent and tailoring but does not assert that the complete
+        repository has passed L2 review, schema validation, exercisable tests,
+        reuse validation, or archival/publication gates.
+    intended_next_conformance_level:
+      id: l2_reviewable
+      label: L2 reviewable
+      trigger_conditions:
+        - All root package control files are present and internally consistent.
+        - The package inventory maps required files, owners, validation responsibilities, and dependency relationships.
+        - The quality/conformance model, relevant schemas, and review records are generated or explicitly stubbed.
+        - A reviewer can evaluate claims against explicit acceptance criteria and evidence.
+    effective_date: "2026-04-27"
+    review_cycle: per_release_or_material_change
+
+  conformance_level_catalog:
+    - level_id: l0_draft
+      label: L0 draft
+      minimum_condition: Content exists but may be structurally incomplete or unreviewed.
+      package_claim_allowed: false
+    - level_id: l1_documented
+      label: L1 documented
+      minimum_condition: >
+        The item has a stable identifier, purpose, status, version, ownership,
+        source basis, related items, traceability, assumptions or limitations,
+        and enough structure to support later review.
+      package_claim_allowed: true
+    - level_id: l2_reviewable
+      label: L2 reviewable
+      minimum_condition: >
+        The item can be reviewed against explicit criteria, evidence requirements,
+        dependency mappings, and validation expectations.
+      package_claim_allowed: false
+    - level_id: l3_exercisable
+      label: L3 exercisable
+      minimum_condition: >
+        The item can be executed, applied, checked, or validated through defined
+        procedures, examples, tests, schemas, or review workflows.
+      package_claim_allowed: false
+    - level_id: l4_reusable
+      label: L4 reusable
+      minimum_condition: >
+        The item has demonstrated reuse-readiness through examples, templates,
+        portability guidance, stable interfaces, and documented boundary conditions.
+      package_claim_allowed: false
+    - level_id: l5_archival_publication_ready
+      label: L5 archival publication ready
+      minimum_condition: >
+        The package is release-ready, citable, preservation-ready, and aligned
+        with registry, DOI, license, citation, governance, and archival obligations.
+      package_claim_allowed: false
+
+  tailoring:
+    tailoring_id: tailoring_initial_root_package_conformance
+    tailoring_status: active_for_initial_draft
+    tailoring_rationale: >
+      This declaration is intentionally conservative. It establishes L1
+      documented conformance for the root package control layer while reserving
+      stronger claims until related models, schemas, checklists, package inventory,
+      review records, and release records are available for inspection.
+    tailored_scope:
+      included:
+        - root package identity and governance alignment
+        - current conformance declaration
+        - conformance level semantics
+        - quality gate mapping for this file
+        - cross-file review obligations
+      excluded_from_current_claim:
+        - empirical evaluation of framework utility
+        - proof of artifact reuse by external users
+        - release, DOI, registry, or archival readiness
+        - automated schema validation beyond YAML parseability of this file
+        - complete repository inventory verification
+    permitted_unresolved_items:
+      - unresolved_item: full_quality_conformance_model
+        treatment: dependency_pending_generation_or_review
+        impact_on_claim: prevents_l2_or_higher_package_claim
+      - unresolved_item: conformance_schema
+        treatment: expected_downstream_schema
+        impact_on_claim: prevents_schema_validated_claim
+      - unresolved_item: independent_review_record
+        treatment: not_yet_available
+        impact_on_claim: prevents_reviewed_claim
+
+  source_basis:
+    - source_id: user_current_request
+      source_type: immediate_task_definition
+      role: selected root_conformance_declaration row and requested file output
+      evidence_status: mapped
+    - source_id: dsr_framework_selection_table
+      source_type: project_registry
+      role: target path, portion type, output format, purpose, default conformance, and key dependency
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_spec
+      source_type: governing_generation_specification
+      role: repository architecture, information item rules, record fields, quality gates, traceability, and output conventions
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_prompt
+      source_type: governing_generation_prompt
+      role: generation procedure, output conventions, metadata expectations, and completion-report expectations
+      evidence_status: mapped
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      source_type: dsr_corpus_source
+      role: DSR transparency grounding for process, problem-space, solution-space, build, evaluation, and contribution transparency
+      evidence_status: mapped_to_source_id_only
+    - source_id: dsr_extraction_corpus
+      source_type: internal_scholarly_evidence_base
+      role: broader DSR evidence base for future conformance review and traceability
+      evidence_status: not_yet_mapped_at_claim_level
+
+  related_items:
+    upstream_dependencies:
+      - item_id: dsr_framework_generation_spec
+        relationship: governs
+      - item_id: dsr_framework_generation_prompt
+        relationship: governs
+      - item_id: dsr_framework_selection_table
+        relationship: selects_target
+      - item_id: product_dsr_quality_conformance_and_review_model
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relationship: expected_normative_dependency
+        status: pending_or_external_to_this_file
+    peer_root_items:
+      - item_id: root_manifest
+        path: manifest.yaml
+        relationship: declares_package_identity
+      - item_id: root_metadata
+        path: metadata.yaml
+        relationship: supplies_structured_project_metadata
+      - item_id: root_artifact_profile
+        path: artifact-profile.yaml
+        relationship: supplies_artifact_scope_claims_and_reuse_constraints
+      - item_id: root_package_inventory
+        path: package-inventory.yaml
+        relationship: supplies_file_inventory_and_validation_responsibilities
+    downstream_items:
+      - item_id: schema_conformance_declaration
+        path: schemas/conformance-declaration.schema.json
+        relationship: should_validate_this_record
+      - item_id: template_conformance_declaration
+        path: templates/conformance-declaration-template.yaml
+        relationship: should_generalize_this_record_shape
+      - item_id: record_self_review
+        path: records/reviews/record-review-0001-self-review.yaml
+        relationship: should_review_this_declaration
+      - item_id: checklist_package_readiness
+        path: checklists/artifact-package-readiness-checklist.yaml
+        relationship: should_test_package_readiness_claims
+
+  evidence:
+    - evidence_id: ev_current_selection
+      evidence_type: user_selection
+      statement: >
+        The user selected root_conformance_declaration targeting
+        conformance-declaration.yaml as a YAML conformance record with default
+        L1 conformance and quality/conformance model dependency.
+      supports:
+        - declared_current_conformance_level
+        - file_identity
+    - evidence_id: ev_generation_rules
+      evidence_type: generation_specification
+      statement: >
+        The generation specification requires controlled files to include stable
+        IDs, source basis, related items, traceability, assumptions or open
+        questions when unsettled, and reviewable quality-gate information.
+      supports:
+        - source_basis
+        - traceability
+        - quality_gate_mapping
+        - validation_rules
+    - evidence_id: ev_record_fields
+      evidence_type: information_item_rule
+      statement: >
+        Record files require record identity, record class, event or action,
+        date, responsible party, evidence, outcome, related items, and retention rule.
+      supports:
+        - conformance_declaration.record_id
+        - conformance_declaration.record_class
+        - evidence
+        - outcome
+        - retention_rule
+    - evidence_id: ev_dsr_transparency
+      evidence_type: dsr_corpus_source_id
+      source_id: hevner_et_al_2024_transparency_in_design_science_research
+      statement: >
+        DSR transparency is treated as covering process, problem space, solution
+        space, build, evaluation, and contribution transparency.
+      supports:
+        - transparency_dimension_mapping
+        - quality_gate_mapping.qg_dsr_transparency
+
+  conformance_obligations:
+    must:
+      - obligation_id: co_must_preserve_non_overclaiming
+        statement: >
+          The package must not claim L2 or higher conformance until reviewability,
+          validation, and dependency evidence have been generated or mapped.
+      - obligation_id: co_must_keep_root_files_aligned
+        statement: >
+          The declaration must remain synchronized with manifest.yaml,
+          metadata.yaml, artifact-profile.yaml, and package-inventory.yaml.
+      - obligation_id: co_must_document_tailoring
+        statement: >
+          Any deviation from required package contents, review workflow,
+          evidence requirements, schema validation, or release obligations must
+          be explicitly recorded as tailoring.
+      - obligation_id: co_must_expose_review_criteria
+        statement: >
+          Conformance claims must be reviewable against explicit acceptance
+          criteria, evidence requirements, validation rules, and failure modes.
+    should:
+      - obligation_id: co_should_link_schema
+        statement: >
+          This file should be validated by schemas/conformance-declaration.schema.json
+          once that schema exists.
+      - obligation_id: co_should_link_reviews
+        statement: >
+          This file should be reviewed through a retained review record before
+          any release or publication-readiness claim.
+      - obligation_id: co_should_link_inventory
+        statement: >
+          The package inventory should list this file as a required root package
+          control file and identify its validation responsibility.
+    must_not:
+      - obligation_id: co_must_not_assert_evaluation
+        statement: >
+          This declaration must not treat demonstration, documentation, or
+          source-basis mapping as empirical evaluation of framework utility.
+      - obligation_id: co_must_not_assert_reuse
+        statement: >
+          This declaration must not assert external reuse, replication, or
+          publication readiness without retained evidence.
+
+  acceptance_criteria:
+    - criterion_id: ac_identity
+      criterion: The file has a stable item ID, record ID, record class, type, title, purpose, status, version, owner, date, and responsible party.
+      evidence_required:
+        - file_identity
+        - top_level_metadata
+      pass_condition: All identity fields are populated with stable values.
+      current_status: pass
+    - criterion_id: ac_conformance_claim
+      criterion: The file declares a current conformance level and limits the scope of the claim.
+      evidence_required:
+        - declared_current_conformance_level
+        - tailoring
+        - limitations
+      pass_condition: L1 is declared and higher-level claims are explicitly reserved.
+      current_status: pass
+    - criterion_id: ac_traceability
+      criterion: The file maps source basis, dependencies, related items, and downstream validation expectations.
+      evidence_required:
+        - source_basis
+        - related_items
+        - traceability
+      pass_condition: Upstream, peer, and downstream relationships are explicitly identified.
+      current_status: pass
+    - criterion_id: ac_reviewability
+      criterion: The file includes quality gates, validation rules, acceptance criteria, and failure modes.
+      evidence_required:
+        - quality_gate_mapping
+        - validation_rules
+        - failure_modes
+      pass_condition: A reviewer can inspect what would count as pass or fail.
+      current_status: pass
+    - criterion_id: ac_cross_file_validation
+      criterion: The file is checked against manifest, metadata, artifact profile, package inventory, and conformance schema.
+      evidence_required:
+        - package_inventory_alignment
+        - schema_validation_report
+        - retained_review_record
+      pass_condition: Cross-file dependencies are present and do not conflict.
+      current_status: pending
+
+  validation_rules:
+    - rule_id: vr_yaml_parseability
+      rule_type: syntax
+      statement: The file must parse as YAML 1.2 compatible structured content.
+      validation_method: yaml_parser
+      current_status: pass
+    - rule_id: vr_required_record_fields
+      rule_type: structural
+      statement: Required record fields must be present.
+      validation_method: manual_or_schema_review
+      current_status: pass
+    - rule_id: vr_declared_level_allowed_value
+      rule_type: controlled_value
+      statement: declared_current_conformance_level.id must use an allowed conformance level ID from the level catalog.
+      validation_method: schema_or_manual_review
+      current_status: pass
+    - rule_id: vr_no_higher_level_overclaim
+      rule_type: semantic
+      statement: Higher conformance levels must not be marked package_claim_allowed true unless evidence has been retained.
+      validation_method: reviewer_check
+      current_status: pass
+    - rule_id: vr_cross_file_consistency
+      rule_type: dependency
+      statement: The declaration must not conflict with manifest.yaml, metadata.yaml, artifact-profile.yaml, or package-inventory.yaml.
+      validation_method: repository_review
+      current_status: pending
+
+  transparency_dimension_mapping:
+    process_transparency:
+      applicability: applicable
+      role_of_this_file: Declares how process evidence and review obligations must be retained for conformance claims.
+      evidence_status: partially_mapped
+    problem_space_transparency:
+      applicability: indirect
+      role_of_this_file: Requires package claims to remain aligned to the DSR Framework artifact scope and non-goals.
+      evidence_status: partially_mapped
+    solution_space_transparency:
+      applicability: indirect
+      role_of_this_file: Links the declaration to the generation specification, documentation protocol expectations, and DSR corpus source basis.
+      evidence_status: partially_mapped
+    build_transparency:
+      applicability: applicable
+      role_of_this_file: Records the initial build-state constraint that only this file is being generated in this request.
+      evidence_status: mapped
+    evaluation_transparency:
+      applicability: applicable
+      role_of_this_file: Distinguishes future evaluation and review evidence from current documentation evidence.
+      evidence_status: mapped
+    contribution_transparency:
+      applicability: applicable
+      role_of_this_file: Prevents overclaiming contribution, reuse, replication, or publication readiness beyond retained evidence.
+      evidence_status: mapped
+
+  quality_gate_mapping:
+    qg_consistency:
+      status: pass
+      rationale: The generated file uses the selected lower-kebab-case target path, YAML format, record type, status, and root package control role.
+    qg_coherence:
+      status: pass_with_pending_cross_file_review
+      rationale: Dependencies and related root files are identified without asserting they have all been validated in this generation step.
+    qg_cogency:
+      status: pass
+      rationale: The declaration separates current level, intended next level, tailoring, obligations, validation rules, and failure modes.
+    qg_correspondence:
+      status: pass
+      rationale: The file corresponds to the selected purpose of declaring conformance level and tailoring for a DSR artifact package.
+    qg_dsr_transparency:
+      status: pass
+      rationale: The file maps relevant transparency dimensions and distinguishes documentation from evaluation.
+    qg_reviewability:
+      status: pass
+      rationale: Acceptance criteria, validation rules, quality gate statuses, and failure modes are explicit.
+
+  failure_modes:
+    - failure_mode_id: fm_missing_root_alignment
+      description: Root package files make inconsistent package identity, version, ownership, or conformance claims.
+      consequence: L1 claim for the package control layer must be suspended until corrected.
+      remediation_guidance: Reconcile manifest.yaml, metadata.yaml, artifact-profile.yaml, package-inventory.yaml, and this declaration.
+    - failure_mode_id: fm_overclaimed_maturity
+      description: The package claims L2 or higher conformance without review records, schemas, inventory evidence, or validation outputs.
+      consequence: Higher-level conformance claim is invalid.
+      remediation_guidance: Downgrade claim to L1 or generate and retain the required evidence.
+    - failure_mode_id: fm_unrecorded_tailoring
+      description: Required files, fields, evidence, or review obligations are omitted without a tailoring record.
+      consequence: Conformance review cannot determine whether omission is intentional or accidental.
+      remediation_guidance: Add a tailoring entry or restore the missing requirement.
+    - failure_mode_id: fm_schema_mismatch
+      description: Future conformance schema rejects this file.
+      consequence: The file remains draft and cannot support automated validation claims.
+      remediation_guidance: Update either this file or the schema and retain the design decision.
+
+  outcome:
+    outcome_id: outcome_initial_l1_conformance_declared
+    status: documented
+    summary: >
+      Initial L1 documented conformance is declared for the DSR Framework root
+      conformance-declaration record. The declaration is conservative and does
+      not assert L2 reviewability or higher package maturity until related
+      dependencies and retained review evidence are available.
+    current_claims_allowed:
+      - The root conformance declaration exists as a structured YAML record.
+      - The declaration documents current conformance level, tailoring, evidence basis, limitations, and review obligations.
+      - The declaration is suitable for later schema and reviewer validation.
+    current_claims_not_allowed:
+      - The complete repository has passed independent review.
+      - The framework has been empirically evaluated for utility.
+      - The package is reusable by external users without further review.
+      - The package is publication-ready, DOI-ready, or archival-ready.
+
+  limitations:
+    - limitation_id: lim_dependency_model_pending
+      statement: >
+        The quality/conformance model dependency is referenced but not fully
+        generated or reviewed in this file.
+    - limitation_id: lim_no_schema_validation_yet
+      statement: >
+        YAML parseability has been checked, but validation against a formal
+        conformance-declaration JSON Schema is pending schema generation.
+    - limitation_id: lim_no_repository_wide_audit
+      statement: >
+        This record does not audit the full repository tree or verify that every
+        required package file exists.
+    - limitation_id: lim_no_external_evidence_update
+      statement: >
+        No external GitHub, DOI, registry, or license metadata was checked for
+        this file because the selected task did not require current external facts.
+
+  open_questions:
+    - question_id: oq_conformance_level_names
+      question: Should public-facing labels use L1/L2 shorthand, lower_snake_case IDs, or both?
+      disposition: use_both_for_now
+    - question_id: oq_schema_exactness
+      question: What exact fields should schemas/conformance-declaration.schema.json require once generated?
+      disposition: defer_to_schema_generation_step
+    - question_id: oq_tailoring_records
+      question: Should each tailoring decision also be retained in records/tailoring as a separate auditable record?
+      disposition: recommended_but_not_required_for_this_file
+
+  retention_rule:
+    retention_id: retain_for_life_of_artifact_package
+    retention_period: permanent_while_package_is_active
+    retention_rationale: >
+      The conformance declaration is a root package control record needed to
+      interpret package maturity claims, review status, and release constraints.
+    disposition: preserve_with_release_history
+
+  traceability:
+    - trace_id: tr_selection_to_file
+      from: dsr_framework_selection_table.root_conformance_declaration
+      to: conformance-declaration.yaml
+      relationship: generates_selected_target
+      evidence_status: mapped
+    - trace_id: tr_spec_to_record_fields
+      from: dsr_framework_generation_spec.information_item_rules.record_required_fields
+      to: conformance_declaration.required_record_fields
+      relationship: implements_required_record_shape
+      evidence_status: mapped
+    - trace_id: tr_spec_to_quality_gates
+      from: dsr_framework_generation_spec.quality_gates
+      to: conformance_declaration.quality_gate_mapping
+      relationship: implements_quality_review_alignment
+      evidence_status: mapped
+    - trace_id: tr_prompt_to_non_overclaiming
+      from: dsr_framework_generation_prompt.general_generation_procedure
+      to: conformance_declaration.outcome.current_claims_not_allowed
+      relationship: implements_distinction_between_documentation_review_evaluation_and_release_claims
+      evidence_status: mapped
+    - trace_id: tr_dsr_transparency_source
+      from: hevner_et_al_2024_transparency_in_design_science_research
+      to: conformance_declaration.transparency_dimension_mapping
+      relationship: informs_transparency_dimensions
+      evidence_status: mapped_to_source_id_only
+
+  assumptions:
+    - assumption_id: as_package_id
+      statement: dsr_framework is the canonical package identifier until manifest.yaml or metadata.yaml supersedes it.
+      risk_if_wrong: Cross-file identity mismatch.
+      mitigation: Reconcile with manifest.yaml and metadata.yaml during package inventory review.
+    - assumption_id: as_owner
+      statement: framework_maintainer is the responsible role for this root control record.
+      risk_if_wrong: Ownership metadata may need revision before release.
+      mitigation: Update owner/responsible_party when governance files define a named role or maintainer.
+    - assumption_id: as_l1_mapping
+      statement: The selection-table value L1 maps to l1_documented in the internal conformance catalog.
+      risk_if_wrong: Conformance labels may need normalization.
+      mitigation: Update conformance level catalog when the quality/conformance model is finalized.
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change_type: initial_creation
+      description: Initial root conformance declaration generated from selected root_conformance_declaration row.
+      responsible_party: GPT-5.5 Thinking

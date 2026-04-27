@@ -1,0 +1,1364 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_metadata_and_identifier_profile
+  item_id: product_dsr_metadata_and_identifier_profile
+  item_type: specification
+  selection_id: spec_metadata_identifier
+  title: DSR Metadata and Identifier Profile
+  purpose: >
+    Define the controlled metadata, citation, authorship, provenance, DOI,
+    registry, and identifier requirements for the DSR Framework artifact package
+    and for DSR artifact packages authored with the framework.
+  status: draft
+  version: "0.1.0"
+  owner: framework_maintainers
+  target_path: specs/product-dsr-metadata-and-identifier-profile.yaml
+  default_conformance: l2_reviewable
+  license: CC0-1.0
+
+source_basis:
+  - id: user_current_request
+    role: immediate_generation_request
+    evidence_status: provided
+    notes: >
+      User selected spec_metadata_identifier and requested a YAML file at
+      specs/product-dsr-metadata-and-identifier-profile.yaml.
+  - id: dsr_framework_generation_prompt
+    role: generation_procedure_and_product_spec_structure
+    evidence_status: mapped
+    trace_ref: generation_prompt.product_spec_structure
+  - id: dsr_framework_generation_spec
+    role: repository_architecture_conformance_quality_and_traceability_rules
+    evidence_status: mapped
+    trace_ref: generation_spec.repository_architecture.content_generation_rules
+  - id: dsr_framework_selection_table
+    role: selected_target_path_purpose_dependencies_and_conformance
+    evidence_status: mapped
+    trace_ref: selection_table.spec_metadata_identifier
+  - id: hevner_et_al_2024_transparency_in_design_science_research
+    role: dsr_transparency_and_repository_materials_support
+    evidence_status: mapped_to_corpus_source
+    citation_anchor_ids:
+      - CA14
+      - CA15
+      - CA16
+  - id: akoka_et_al_2023_knowledge_contributions_in_dsr
+    role: knowledge_contribution_traceability_and_citation_anchor_pattern
+    evidence_status: mapped_to_corpus_source
+    citation_anchor_ids:
+      - A07
+      - A10
+      - A13
+  - id: publication_identifier_standards
+    role: external_identifier_and_citation_standards
+    evidence_status: not_yet_mapped
+    notes: >
+      DOI, ORCID, ROR, CFF, SPDX, and archival-platform requirements should be
+      verified against their current official specifications before an L5 release.
+
+dependencies:
+  upstream:
+    - id: spec_protocol_foundation
+      path: specs/product-protocol-foundation.yaml
+      dependency_type: governance
+      expected_use: Defines conformance levels, tailoring, and source-of-truth rules.
+    - id: spec_repository_architecture
+      path: specs/product-dsr-repository-architecture.yaml
+      dependency_type: repository_structure
+      expected_use: Defines root files, canonical directories, and naming rules.
+    - id: spec_information_item_architecture
+      path: specs/product-dsr-information-item-architecture.yaml
+      dependency_type: information_architecture
+      expected_use: Defines controlled item and record structures used by metadata files.
+    - id: spec_publication_registry
+      path: specs/product-dsr-publication-and-registry-model.yaml
+      dependency_type: publication_and_archival_model
+      expected_use: Defines release, DOI, registry, archival, and publication-readiness obligations.
+  downstream:
+    - id: root_metadata
+      path: metadata.yaml
+      dependency_type: implementation_target
+    - id: root_manifest
+      path: manifest.yaml
+      dependency_type: package_identity_target
+    - id: root_artifact_profile
+      path: artifact-profile.yaml
+      dependency_type: artifact_identity_target
+    - id: root_package_inventory
+      path: package-inventory.yaml
+      dependency_type: inventory_target
+    - id: citation_file
+      path: CITATION.cff
+      dependency_type: citation_target
+    - id: zenodo_metadata
+      path: .zenodo.json
+      dependency_type: archival_metadata_target
+    - id: record_release_v0_1_0
+      path: records/releases/record-release-0001-v0-1-0.yaml
+      dependency_type: release_record_target
+    - id: record_source_basis
+      path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      dependency_type: source_provenance_target
+
+related_items:
+  - product-catalog.yaml
+  - metadata.yaml
+  - manifest.yaml
+  - artifact-profile.yaml
+  - package-inventory.yaml
+  - conformance-declaration.yaml
+  - CITATION.cff
+  - .zenodo.json
+  - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+  - records/releases/record-release-0001-v0-1-0.yaml
+  - records/preservation/
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    responsible_party: GPT-5.5 Thinking
+    change_type: initial_creation
+    summary: >
+      Created the L2 reviewable product specification for metadata, citation,
+      authorship, DOI, provenance, and identifier profile controls.
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: Define the product boundary and the metadata functions this specification governs.
+    content:
+      product_scope:
+        governs:
+          - package-level metadata for the DSR Framework repository
+          - artifact-level metadata for reusable DSR artifact packages
+          - citation metadata for human and machine-readable citation systems
+          - authorship and contribution attribution
+          - provenance events and retained evidence of source, build, review, release, and preservation actions
+          - identifier assignment, resolution, versioning, and deprecation
+          - DOI readiness and archival metadata preparation
+        excludes:
+          - assigning a live DOI before archival release
+          - verifying current third-party registry requirements without a fresh external check
+          - storing sensitive contributor information beyond what is needed for citation and governance
+          - replacing the publication registry or release-readiness model
+      intended_users:
+        - role: framework_maintainer
+          use: Maintains package metadata, identifiers, citation files, and release records.
+        - role: dsr_researcher
+          use: Applies metadata and identifier requirements to a DSR artifact package.
+        - role: reviewer
+          use: Checks traceability, citation readiness, provenance, and authorship adequacy.
+        - role: repository_user
+          use: Finds, cites, reuses, forks, or audits the framework package.
+        - role: archivist_or_registrar
+          use: Evaluates preservation metadata, DOI readiness, and archival deposit completeness.
+      conformance_position:
+        default_level: l2_reviewable
+        l2_meaning: >
+          Metadata fields, identifiers, provenance records, and citation outputs are
+          specified sufficiently for review, repository placement, and later schema/template implementation.
+        l5_escalation: >
+          Archival-publication readiness requires verification of current DOI, Zenodo,
+          GitHub, CFF, ORCID, ROR, license, and repository metadata requirements.
+      controlled_outputs:
+        - metadata.yaml
+        - CITATION.cff
+        - .zenodo.json
+        - manifest.yaml
+        - artifact-profile.yaml
+        - package-inventory.yaml
+        - records/releases/record-release-*.yaml
+        - records/source-basis/record-source-basis-*.yaml
+        - records/preservation/record-preservation-*.yaml
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: Define the entities, relationships, and lifecycle logic for metadata and identifiers.
+    content:
+      core_entities:
+        - id: metadata_record
+          label: Metadata Record
+          definition: >
+            A structured source-of-truth record describing package identity,
+            maintainers, version, license, keywords, status, relationships, and citation-relevant facts.
+          primary_files:
+            - metadata.yaml
+            - manifest.yaml
+        - id: citation_record
+          label: Citation Record
+          definition: >
+            A structured representation of how the artifact package should be cited by humans and tools.
+          primary_files:
+            - CITATION.cff
+            - .zenodo.json
+            - README.md
+        - id: contributor
+          label: Contributor
+          definition: >
+            A person, group, organization, or system credited with authorship, maintenance,
+            review, data curation, conceptualization, methodology, software, documentation, or governance work.
+          primary_files:
+            - metadata.yaml
+            - CITATION.cff
+            - records/contributions/record-contribution-positioning-0001.yaml
+        - id: identifier
+          label: Identifier
+          definition: >
+            A stable string, URI, DOI, checksum, path, release tag, or registry key used to identify a package,
+            file, version, person, organization, source, record, claim, evidence item, or release.
+          primary_files:
+            - manifest.yaml
+            - metadata.yaml
+            - package-inventory.yaml
+        - id: provenance_event
+          label: Provenance Event
+          definition: >
+            A dated, attributable event recording creation, revision, review, validation, release,
+            archival deposit, source ingestion, or preservation action.
+          primary_files:
+            - records/source-basis/
+            - records/design-decisions/
+            - records/reviews/
+            - records/releases/
+            - records/preservation/
+        - id: source_basis
+          label: Source Basis
+          definition: >
+            The documented evidence, specification, corpus source, protocol rule, or decision record supporting a claim or requirement.
+          primary_files:
+            - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+            - specs/product-*.yaml
+        - id: release_identity
+          label: Release Identity
+          definition: >
+            The unique combination of package version, release date, release tag, commit reference,
+            archive deposit, DOI status, checksum set, and release record.
+          primary_files:
+            - records/releases/record-release-*.yaml
+            - CHANGELOG.md
+            - .zenodo.json
+      identifier_classes:
+        - id: local_stable_id
+          label: Local Stable ID
+          examples:
+            - product_dsr_metadata_and_identifier_profile
+            - qg_reviewability
+          syntax_rule: lower_snake_case
+          persistence_rule: Must not be changed after release except by explicit deprecation and replacement trace.
+        - id: repository_path
+          label: Repository Path
+          examples:
+            - specs/product-dsr-metadata-and-identifier-profile.yaml
+            - records/releases/record-release-0001-v0-1-0.yaml
+          syntax_rule: lower-kebab-case paths with approved extensions
+          persistence_rule: Path changes require package-inventory and manifest updates.
+        - id: content_checksum
+          label: Content Checksum
+          examples:
+            - sha256:<hex>
+          syntax_rule: algorithm prefix followed by digest
+          persistence_rule: Regenerate when file content changes; retain prior value in release or preservation records.
+        - id: semantic_version
+          label: Semantic Version
+          examples:
+            - "0.1.0"
+            - "1.0.0"
+          syntax_rule: major.minor.patch with optional prerelease/build metadata where needed
+          persistence_rule: Package-level versions must be reflected in metadata, manifest, changelog, and release records.
+        - id: release_tag
+          label: Release Tag
+          examples:
+            - v0.1.0
+          syntax_rule: v<semantic_version>
+          persistence_rule: Must resolve to a repository state when released.
+        - id: doi
+          label: Digital Object Identifier
+          examples:
+            - "10.xxxx/zenodo.xxxxxxx"
+          syntax_rule: DOI syntax verified at release time
+          persistence_rule: DOI must not be claimed as issued until assigned by the registry or archive.
+        - id: orcid
+          label: ORCID iD
+          examples:
+            - "0000-0000-0000-0000"
+          syntax_rule: ORCID syntax verified before publication metadata release
+          persistence_rule: Optional unless contributor chooses to include it.
+        - id: ror
+          label: Research Organization Registry ID
+          examples:
+            - "https://ror.org/<id>"
+          syntax_rule: ROR URI syntax verified before publication metadata release
+          persistence_rule: Optional unless institutional affiliation is included in archival metadata.
+        - id: spdx_license_id
+          label: SPDX License Identifier
+          examples:
+            - CC0-1.0
+          syntax_rule: SPDX identifier as used by repository license metadata
+          persistence_rule: Must match LICENSE and file-level SPDX headers where present.
+        - id: citation_anchor_id
+          label: Citation Anchor ID
+          examples:
+            - CA14
+            - A07
+          syntax_rule: source-local stable evidence anchor
+          persistence_rule: Must remain traceable to the source extraction record.
+      relationship_model:
+        - id: metadata_describes_package
+          subject: metadata_record
+          predicate: describes
+          object: release_identity
+          cardinality: one_to_many_over_time
+        - id: citation_represents_release
+          subject: citation_record
+          predicate: cites
+          object: release_identity
+          cardinality: one_to_one_for_released_version
+        - id: contributor_has_role
+          subject: contributor
+          predicate: has_contribution_role
+          object: contribution_role
+          cardinality: many_to_many
+        - id: identifier_identifies_entity
+          subject: identifier
+          predicate: identifies
+          object: package_or_file_or_record_or_source_or_person_or_release
+          cardinality: many_to_one
+        - id: provenance_event_supports_traceability
+          subject: provenance_event
+          predicate: supports
+          object: traceability_claim
+          cardinality: many_to_many
+        - id: source_basis_supports_requirement
+          subject: source_basis
+          predicate: supports
+          object: normative_requirement
+          cardinality: many_to_many
+      lifecycle_states:
+        - id: planned
+          definition: Identifier or metadata element is specified but not yet bound to a released object.
+        - id: assigned
+          definition: Identifier or metadata element is bound to an internal object in the working repository.
+        - id: validated
+          definition: Identifier or metadata element has passed syntax, uniqueness, and cross-reference checks.
+        - id: released
+          definition: Identifier or metadata element is included in a tagged or archived release.
+        - id: deprecated
+          definition: Identifier or metadata element remains retained for traceability but should not be used for new references.
+        - id: superseded
+          definition: Identifier or metadata element has an explicit replacement.
+      authorship_and_credit_model:
+        minimum_credit_fields:
+          - display_name
+          - contribution_roles
+          - contact_or_profile_reference_if_public
+          - affiliation_if_public
+          - identifier_if_public
+        contribution_roles:
+          - conceptualization
+          - methodology
+          - software
+          - validation
+          - formal_analysis
+          - investigation
+          - resources
+          - data_curation
+          - writing_original_draft
+          - writing_review_editing
+          - visualization
+          - supervision
+          - project_administration
+          - funding_acquisition
+          - maintenance
+          - review
+          - governance
+          - automation_support
+        attribution_boundary: >
+          Authorship metadata should credit substantive intellectual, technical,
+          documentation, governance, and review contributions without exposing nonpublic personal data.
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: State mandatory, recommended, optional, and prohibited requirements for metadata and identifiers.
+    content:
+      must:
+        - id: mid_must_001
+          requirement: Every controlled package file must have a stable local identifier or be covered by a package inventory entry.
+          rationale: Enables traceability, validation, and review.
+          verification: Inspect package-inventory.yaml and file-level identifiers where applicable.
+        - id: mid_must_002
+          requirement: Metadata source-of-truth files must use YAML or JSON-compatible structured formats unless the target format is fixed by a community standard.
+          rationale: Supports machine validation and protocol-governed repository use.
+          verification: Inspect file extensions and parseability.
+        - id: mid_must_003
+          requirement: metadata.yaml must identify package title, description, version, status, license, maintainers, keywords, repository URL, related files, and source basis.
+          rationale: Provides the minimum structured identity record for the package.
+          verification: Validate metadata.yaml against the future metadata schema or manual checklist.
+        - id: mid_must_004
+          requirement: CITATION.cff must be generated or maintained before any public release that invites citation.
+          rationale: Provides a standardized human and machine-readable citation route.
+          verification: Confirm CITATION.cff exists and aligns with metadata.yaml and release record.
+        - id: mid_must_005
+          requirement: .zenodo.json or equivalent archival metadata must be prepared before a DOI-backed archival release.
+          rationale: Supports archival deposit and DOI metadata quality.
+          verification: Confirm archival metadata exists and does not claim an unissued DOI.
+        - id: mid_must_006
+          requirement: DOI fields must use explicit status values rather than implying availability.
+          rationale: Prevents overclaiming publication or archival readiness.
+          verification: Inspect doi_status values across metadata, citation, and release records.
+        - id: mid_must_007
+          requirement: Contributor metadata must distinguish display name, role, optional persistent identifier, affiliation, and contact or profile reference.
+          rationale: Separates attribution from governance and limits unnecessary personal data exposure.
+          verification: Inspect contributor records in metadata.yaml and CITATION.cff.
+        - id: mid_must_008
+          requirement: Source-basis references must identify whether evidence is mapped, not yet mapped, inferred, or externally pending verification.
+          rationale: Preserves transparency and prevents invented evidence.
+          verification: Inspect source_basis entries for evidence_status.
+        - id: mid_must_009
+          requirement: Release metadata must align across metadata.yaml, manifest.yaml, package-inventory.yaml, CHANGELOG.md, CITATION.cff, archival metadata, and release records.
+          rationale: Prevents contradictory version, path, DOI, license, or citation claims.
+          verification: Cross-file consistency check.
+        - id: mid_must_010
+          requirement: Identifiers must be unique within their declared scope.
+          rationale: Enables deterministic linking and validation.
+          verification: Run duplicate-id validation across controlled files.
+        - id: mid_must_011
+          requirement: Identifier changes after release must be documented as deprecation or supersession events.
+          rationale: Maintains citability and auditability.
+          verification: Inspect decision, release, or preservation records.
+        - id: mid_must_012
+          requirement: Each provenance event must record event date, responsible party, affected items, evidence, outcome, and related identifiers.
+          rationale: Supports process, build, review, and preservation transparency.
+          verification: Inspect records directories and release records.
+      should:
+        - id: mid_should_001
+          requirement: Public contributor identifiers should use ORCID where contributors elect to disclose one.
+          rationale: Improves author disambiguation without requiring disclosure.
+        - id: mid_should_002
+          requirement: Organizational affiliations should use a public organization identifier where available and appropriate.
+          rationale: Improves affiliation disambiguation for archival metadata.
+        - id: mid_should_003
+          requirement: Files should include SPDX license identifiers when practical.
+          rationale: Supports automated license scanning and reuse clarity.
+        - id: mid_should_004
+          requirement: Release records should include content checksums for controlled files.
+          rationale: Supports preservation and fixity checks.
+        - id: mid_should_005
+          requirement: The README should display a concise citation recommendation linked back to CITATION.cff.
+          rationale: Helps users cite the artifact package correctly.
+        - id: mid_should_006
+          requirement: Metadata should preserve both human-readable labels and machine-readable IDs.
+          rationale: Supports usability and automation.
+        - id: mid_should_007
+          requirement: Records should link provenance events to DSR transparency dimensions where applicable.
+          rationale: Supports auditability of process, source, build, evaluation, and contribution transparency.
+        - id: mid_should_008
+          requirement: Identifiers should be durable enough to survive file reorganization through explicit redirects or supersession records.
+          rationale: Supports long-term reuse and repository evolution.
+      may:
+        - id: mid_may_001
+          requirement: A package may include BibTeX, CSL-JSON, RIS, or other citation exports in addition to CITATION.cff.
+          rationale: Supports diverse scholarly workflows.
+        - id: mid_may_002
+          requirement: A package may maintain separate contributor, affiliation, or funding records when metadata.yaml becomes too large.
+          rationale: Supports scaling without degrading root metadata usability.
+        - id: mid_may_003
+          requirement: A package may include registry-specific metadata for GitHub, Zenodo, OSF, institutional repositories, or data catalogs.
+          rationale: Supports multiple dissemination channels.
+        - id: mid_may_004
+          requirement: A package may include cryptographic signatures or software bill of materials records when executable assets are present.
+          rationale: Supports higher assurance preservation and supply-chain review.
+      must_not:
+        - id: mid_must_not_001
+          requirement: The package must not claim an issued DOI unless the DOI has been assigned by the relevant registry or archive.
+          rationale: Prevents false citation metadata.
+        - id: mid_must_not_002
+          requirement: The package must not silently reuse a stable ID for a different concept, file, source, claim, or release.
+          rationale: Prevents identifier collision and provenance corruption.
+        - id: mid_must_not_003
+          requirement: The package must not expose sensitive personal data as required metadata.
+          rationale: Supports privacy and responsible governance.
+        - id: mid_must_not_004
+          requirement: The package must not make metadata.yaml the only record of release, preservation, or review actions.
+          rationale: Retained records must preserve evidence of those actions.
+        - id: mid_must_not_005
+          requirement: The package must not rely on directory structure alone as a substitute for explicit identifiers and inventory.
+          rationale: Repository organization is necessary but not sufficient for traceability.
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: Specify required and optional metadata-bearing files and their responsibilities.
+    content:
+      required_files:
+        - path: metadata.yaml
+          item_type: metadata_record
+          responsibility: Package identity, citation-relevant metadata, maintainers, keywords, status, license, and source-basis summary.
+          required_for_conformance: l1_documented
+        - path: manifest.yaml
+          item_type: specification
+          responsibility: Canonical package identity, version, repository structure, and product references.
+          required_for_conformance: l1_documented
+        - path: artifact-profile.yaml
+          item_type: description
+          responsibility: Artifact identity, type, scope, claims, conformance, reuse constraints, and non-goals.
+          required_for_conformance: l1_documented
+        - path: package-inventory.yaml
+          item_type: record
+          responsibility: File inventory, validation responsibility, status, checksum readiness, and owner mapping.
+          required_for_conformance: l1_documented
+        - path: conformance-declaration.yaml
+          item_type: record
+          responsibility: Declared conformance target, tailoring, exclusions, and evidence references.
+          required_for_conformance: l1_documented
+        - path: CITATION.cff
+          item_type: citation_record
+          responsibility: Machine-readable citation metadata.
+          required_for_conformance: l2_reviewable_for_public_citation
+        - path: .zenodo.json
+          item_type: archival_metadata_record
+          responsibility: Archive deposit metadata and DOI-readiness information.
+          required_for_conformance: l5_archival_publication_ready
+        - path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+          item_type: record
+          responsibility: Evidence source basis for the DSR corpus and protocol foundations.
+          required_for_conformance: l2_reviewable
+        - path: records/releases/record-release-0001-v0-1-0.yaml
+          item_type: record
+          responsibility: Release event, version, tag, DOI status, checksums, and publication claims.
+          required_for_conformance: l5_archival_publication_ready
+      recommended_field_groups:
+        metadata_identity:
+          fields:
+            - package_id
+            - title
+            - short_title
+            - description
+            - version
+            - status
+            - language
+            - license
+            - repository_url
+            - homepage_url
+            - canonical_citation
+        contributors:
+          fields:
+            - contributor_id
+            - display_name
+            - contribution_roles
+            - affiliation
+            - orcid
+            - profile_url
+            - contact_visibility
+        identifiers:
+          fields:
+            - local_id
+            - repository_path
+            - release_tag
+            - commit_hash
+            - doi
+            - doi_status
+            - archive_record_url
+            - checksum
+        citation:
+          fields:
+            - preferred_citation
+            - citation_cff_alignment
+            - bibtex_key
+            - apa_7_rendering
+            - chicago_author_date_rendering
+            - version_citation_policy
+        provenance:
+          fields:
+            - provenance_event_id
+            - event_type
+            - event_date
+            - responsible_party
+            - affected_items
+            - evidence
+            - outcome
+            - retention_rule
+        source_basis:
+          fields:
+            - source_id
+            - source_type
+            - role
+            - evidence_status
+            - citation_anchor_ids
+            - trace_ref
+        publication_and_archival_status:
+          fields:
+            - release_status
+            - doi_status
+            - archive_status
+            - registry_status
+            - preservation_status
+            - publication_readiness_limitations
+      record_classes:
+        - id: source_basis_record
+          directory: records/source-basis
+          event_scope: Source ingestion, corpus definition, evidence mapping, and evidence limitations.
+        - id: design_decision_record
+          directory: records/design-decisions
+          event_scope: Identifier, metadata, repository, schema, and citation design decisions.
+        - id: review_record
+          directory: records/reviews
+          event_scope: Metadata quality review, citation review, schema review, and conformance review.
+        - id: release_record
+          directory: records/releases
+          event_scope: Release publication, version tagging, DOI status, changelog confirmation, and checksum capture.
+        - id: preservation_record
+          directory: records/preservation
+          event_scope: Archival deposit, fixity check, mirror creation, DOI registration, and long-term access verification.
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: Define the operational sequence for metadata creation, review, release, and preservation.
+    content:
+      workflow_steps:
+        - step_id: mid_step_001
+          name: initialize_package_identity
+          trigger: New DSR artifact package or new major package restructuring.
+          inputs:
+            - artifact-profile.yaml
+            - manifest.yaml
+            - product catalog
+          actions:
+            - assign package_id and local stable IDs
+            - define title, short title, description, scope, status, version, and license
+            - create or update metadata.yaml
+          outputs:
+            - metadata.yaml
+          review_gate: qg_consistency
+        - step_id: mid_step_002
+          name: assign_and_register_identifiers
+          trigger: New controlled file, product, model, vocabulary, schema, template, checklist, record, or release.
+          inputs:
+            - repository architecture rules
+            - package inventory
+          actions:
+            - assign local stable ID
+            - assign repository path
+            - add inventory entry
+            - record relationships and dependencies
+          outputs:
+            - package-inventory.yaml
+            - manifest.yaml
+          review_gate: qg_coherence
+        - step_id: mid_step_003
+          name: capture_authorship_and_contribution
+          trigger: New contributor, maintainer, reviewer, automated-system contribution, or governance change.
+          inputs:
+            - contribution notes
+            - governance file
+            - review records
+          actions:
+            - record contributor display name and roles
+            - add optional public identifiers when provided
+            - align contributor metadata across metadata.yaml and CITATION.cff
+          outputs:
+            - metadata.yaml
+            - CITATION.cff
+          review_gate: qg_reviewability
+        - step_id: mid_step_004
+          name: map_source_basis_and_provenance
+          trigger: New evidence basis, design decision, corpus source, external standard, or validation event.
+          inputs:
+            - DSR corpus extraction records
+            - generation specification
+            - review findings
+          actions:
+            - add source_basis entries
+            - attach evidence_status values
+            - record provenance event where durable evidence is needed
+          outputs:
+            - source_basis entries
+            - records/source-basis/
+            - records/design-decisions/
+          review_gate: qg_dsr_transparency
+        - step_id: mid_step_005
+          name: generate_citation_metadata
+          trigger: Public release candidate, archive candidate, or citation request.
+          inputs:
+            - metadata.yaml
+            - contributor metadata
+            - license
+            - release version
+          actions:
+            - create or update CITATION.cff
+            - create preferred citation renderings
+            - verify consistency with metadata.yaml
+            - mark DOI status accurately
+          outputs:
+            - CITATION.cff
+            - README citation section
+          review_gate: qg_correspondence
+        - step_id: mid_step_006
+          name: prepare_archival_metadata
+          trigger: Candidate release for DOI-backed archival deposit.
+          inputs:
+            - metadata.yaml
+            - CITATION.cff
+            - release record
+            - package inventory
+          actions:
+            - prepare .zenodo.json or equivalent archival metadata
+            - verify license, authorship, keywords, related identifiers, and version
+            - mark DOI status as pending, reserved, or issued only when supported by evidence
+          outputs:
+            - .zenodo.json
+            - records/releases/record-release-*.yaml
+          review_gate: qg_reviewability
+        - step_id: mid_step_007
+          name: release_and_preserve
+          trigger: Approved release.
+          inputs:
+            - validated package inventory
+            - changelog
+            - citation metadata
+            - archival metadata
+          actions:
+            - tag release
+            - capture checksums
+            - archive release if applicable
+            - update DOI and registry status when issued
+            - create release and preservation records
+          outputs:
+            - release tag
+            - release record
+            - preservation record
+          review_gate: qg_correspondence
+      status_values:
+        metadata_status:
+          - draft
+          - in_review
+          - approved
+          - released
+          - superseded
+          - deprecated
+          - archived
+        doi_status:
+          - not_applicable
+          - not_requested
+          - planned
+          - pending
+          - reserved
+          - issued
+          - deprecated
+          - unknown
+        registry_status:
+          - not_applicable
+          - planned
+          - submitted
+          - indexed
+          - failed
+          - withdrawn
+          - superseded
+        evidence_status:
+          - mapped
+          - mapped_to_corpus_source
+          - not_yet_mapped
+          - inferred
+          - externally_pending_verification
+          - not_applicable
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: Define acceptance criteria, validation logic, failure modes, and review gates for this metadata profile.
+    content:
+      acceptance_criteria:
+        - id: mid_ac_001
+          criterion: All required root metadata and identifier files are represented in the package inventory.
+          evidence_required:
+            - package-inventory.yaml
+            - manifest.yaml
+          pass_condition: Each required file has path, item type, owner, status, and validation responsibility.
+        - id: mid_ac_002
+          criterion: Citation metadata is internally consistent.
+          evidence_required:
+            - metadata.yaml
+            - CITATION.cff
+            - README.md
+            - release record when present
+          pass_condition: Title, version, authorship, license, repository URL, DOI status, and preferred citation do not conflict.
+        - id: mid_ac_003
+          criterion: DOI claims are accurate and status-coded.
+          evidence_required:
+            - metadata.yaml
+            - .zenodo.json
+            - release record
+          pass_condition: No file presents a DOI as issued without supporting registry/archive evidence.
+        - id: mid_ac_004
+          criterion: Contributor attribution is role-aware and minimally sufficient.
+          evidence_required:
+            - metadata.yaml
+            - CITATION.cff
+            - governance or contribution record if needed
+          pass_condition: Contributors are listed with roles and optional public identifiers; sensitive personal data is not required.
+        - id: mid_ac_005
+          criterion: Provenance events are retained for review-relevant actions.
+          evidence_required:
+            - records/source-basis/
+            - records/design-decisions/
+            - records/reviews/
+            - records/releases/
+            - records/preservation/
+          pass_condition: Each retained record has event/action, date, responsible party, evidence, outcome, related items, and retention rule.
+        - id: mid_ac_006
+          criterion: Stable IDs are unique within scope.
+          evidence_required:
+            - controlled YAML files
+            - package inventory
+          pass_condition: No duplicate ID occurs within the same identifier namespace.
+        - id: mid_ac_007
+          criterion: Metadata supports DSR transparency without overclaiming evaluation or publication readiness.
+          evidence_required:
+            - source_basis entries
+            - transparency crosswalk where present
+            - release and review records
+          pass_condition: Evidence status and conformance status are explicit; unknown or pending evidence is labeled.
+      validation_rules:
+        - id: mid_vr_001
+          rule: Parse all YAML and JSON files before release.
+          severity: error
+        - id: mid_vr_002
+          rule: Check every controlled item for item_id or equivalent inventory identifier.
+          severity: error
+        - id: mid_vr_003
+          rule: Check file paths against repository naming rules.
+          severity: error
+        - id: mid_vr_004
+          rule: Check DOI fields for accepted doi_status values.
+          severity: error
+        - id: mid_vr_005
+          rule: Warn when DOI syntax appears in metadata but doi_status is not issued, reserved, or pending.
+          severity: warning
+        - id: mid_vr_006
+          rule: Check that release version is consistent across metadata.yaml, manifest.yaml, CHANGELOG.md, CITATION.cff, .zenodo.json, and release record.
+          severity: error
+        - id: mid_vr_007
+          rule: Check contributor records for display_name and contribution_roles.
+          severity: error
+        - id: mid_vr_008
+          rule: Warn when source_basis entries lack evidence_status.
+          severity: warning
+        - id: mid_vr_009
+          rule: Check that deprecated identifiers have replacement or rationale fields.
+          severity: warning
+        - id: mid_vr_010
+          rule: Check that each release record includes checksum readiness or a rationale for omission.
+          severity: warning
+      failure_modes:
+        - id: mid_fm_001
+          failure: Citation file contradicts metadata.yaml.
+          consequence: Users may cite the wrong version, authors, or title.
+          remediation: Reconcile citation fields and record correction in change history.
+        - id: mid_fm_002
+          failure: DOI is implied before issue.
+          consequence: Publication readiness is overstated.
+          remediation: Set doi_status to planned, pending, or not_requested and remove issued DOI claim.
+        - id: mid_fm_003
+          failure: Stable IDs are reused.
+          consequence: Traceability and records become ambiguous.
+          remediation: Assign a new ID and mark the conflicting ID deprecated or superseded.
+        - id: mid_fm_004
+          failure: Contributor role metadata is absent.
+          consequence: Authorship, maintenance, and review responsibilities are unclear.
+          remediation: Add contribution roles and governance links.
+        - id: mid_fm_005
+          failure: Provenance records are not retained.
+          consequence: Reviewers cannot audit source, build, evaluation, release, or preservation events.
+          remediation: Create retained records and link affected items.
+      conformance_levels:
+        l0_draft:
+          expectations:
+            - local identifiers may be incomplete
+            - DOI and archival metadata may be absent
+            - source_basis may include not_yet_mapped entries
+        l1_documented:
+          expectations:
+            - root metadata files exist
+            - package identity and license are explicit
+            - basic contributor and version metadata are documented
+        l2_reviewable:
+          expectations:
+            - source_basis entries exist
+            - stable IDs and paths are reviewable
+            - citation metadata is structurally specified
+            - DOI status is explicit
+            - provenance record classes are defined
+        l3_exercisable:
+          expectations:
+            - validation checks can run against metadata and inventory files
+            - metadata templates and schemas are implemented
+        l4_reusable:
+          expectations:
+            - metadata and citation outputs support reuse by external projects
+            - registry metadata can be adapted for downstream artifact packages
+        l5_archival_publication_ready:
+          expectations:
+            - DOI and archive metadata are verified against current registry rules
+            - release record, preservation record, checksums, and citation files are complete
+      quality_gate_mapping:
+        qg_consistency:
+          supported_by:
+            - naming rules
+            - stable identifier classes
+            - required metadata files
+        qg_coherence:
+          supported_by:
+            - cross-file alignment rules
+            - dependency mapping
+            - identifier lifecycle model
+        qg_cogency:
+          supported_by:
+            - workflow steps
+            - acceptance criteria
+            - failure modes
+        qg_correspondence:
+          supported_by:
+            - package identity fields
+            - release identity model
+            - DOI status controls
+        qg_dsr_transparency:
+          supported_by:
+            - provenance event requirements
+            - source_basis evidence_status fields
+            - retained records
+        qg_reviewability:
+          supported_by:
+            - validation rules
+            - reviewer-facing acceptance criteria
+            - traceability table
+
+  - id: traceability
+    title: Traceability
+    purpose: Map this profile to sources, related products, downstream implementation targets, and evidence status.
+    content:
+      trace_links:
+        - trace_id: mid_trace_001
+          source: user_current_request
+          target: product_dsr_metadata_and_identifier_profile
+          relationship: selects_generation_target
+          evidence_status: provided
+        - trace_id: mid_trace_002
+          source: dsr_framework_selection_table.spec_metadata_identifier
+          target: specs/product-dsr-metadata-and-identifier-profile.yaml
+          relationship: declares_path_purpose_and_dependencies
+          evidence_status: mapped
+        - trace_id: mid_trace_003
+          source: dsr_framework_generation_prompt.product_spec_structure
+          target: sections
+          relationship: defines_required_product_spec_sections
+          evidence_status: mapped
+        - trace_id: mid_trace_004
+          source: dsr_framework_generation_spec.repository_architecture
+          target: required_files_and_directory_rules
+          relationship: constrains_repository_location_and_naming
+          evidence_status: mapped
+        - trace_id: mid_trace_005
+          source: dsr_framework_generation_spec.content_generation_rules
+          target: normative_requirements
+          relationship: constrains_metadata_traceability_and_quality
+          evidence_status: mapped
+        - trace_id: mid_trace_006
+          source: hevner_et_al_2024_transparency_in_design_science_research.CA14
+          target: provenance_and_repository_materials
+          relationship: supports_repository_materials_and_transparency_guidance
+          evidence_status: mapped_to_corpus_source
+        - trace_id: mid_trace_007
+          source: hevner_et_al_2024_transparency_in_design_science_research.CA16
+          target: dsr_transparency_quality_gate_mapping
+          relationship: supports_six_feature_transparency_alignment
+          evidence_status: mapped_to_corpus_source
+        - trace_id: mid_trace_008
+          source: akoka_et_al_2023_knowledge_contributions_in_dsr.A07
+          target: citation_anchor_and_source_basis_pattern
+          relationship: informs_evidence_anchor_traceability
+          evidence_status: mapped_to_corpus_source
+        - trace_id: mid_trace_009
+          source: publication_identifier_standards
+          target: doi_orcid_ror_cff_zenodo_controls
+          relationship: requires_current_external_verification_before_l5_release
+          evidence_status: externally_pending_verification
+      downstream_trace_targets:
+        - target_id: metadata_yaml
+          path: metadata.yaml
+          required_sections:
+            - metadata_identity
+            - contributors
+            - identifiers
+            - citation
+            - source_basis
+            - publication_and_archival_status
+        - target_id: citation_cff
+          path: CITATION.cff
+          required_sections:
+            - cff_version
+            - title
+            - message
+            - type
+            - authors
+            - version
+            - license
+            - repository_code
+            - url
+            - keywords
+            - preferred_citation_if_needed
+        - target_id: zenodo_json
+          path: .zenodo.json
+          required_sections:
+            - title
+            - creators
+            - description
+            - license
+            - keywords
+            - related_identifiers
+            - upload_type
+            - version
+        - target_id: release_record
+          path_pattern: records/releases/record-release-*.yaml
+          required_sections:
+            - release_identity
+            - release_event
+            - doi_status
+            - archive_status
+            - checksums
+            - validation_evidence
+            - limitations
+            - outcome
+      evidence_limitations:
+        - id: mid_el_001
+          limitation: Current external metadata standards were not live-verified for this draft.
+          effect: L5 archival publication readiness must remain pending until verification is performed.
+        - id: mid_el_002
+          limitation: Some downstream files may not yet exist at the time this product spec is authored.
+          effect: This specification defines obligations and implications rather than proving package completion.
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: Provide practical guidance for implementing this profile in repository files and validation tools.
+    content:
+      authoring_guidelines:
+        - id: mid_ig_001
+          guidance: Keep metadata.yaml concise enough for human review while preserving links to more detailed records.
+        - id: mid_ig_002
+          guidance: Use local stable IDs for every controlled concept, file, source, record, and quality gate.
+        - id: mid_ig_003
+          guidance: Keep citation metadata synchronized by treating metadata.yaml as the source for title, description, license, repository URL, and version.
+        - id: mid_ig_004
+          guidance: Treat CITATION.cff as the source for citation-specific rendering only after it is cross-checked against metadata.yaml.
+        - id: mid_ig_005
+          guidance: Use release records rather than root metadata files to preserve event-specific release evidence.
+        - id: mid_ig_006
+          guidance: Add explicit TODO markers only when a field requires project-specific information or external verification.
+      yaml_patterns:
+        minimal_identifier_object:
+          id: example_identifier
+          identifier_type: local_stable_id
+          value: example_identifier
+          status: assigned
+          assigned_date: "2026-04-27"
+          assigned_by: framework_maintainers
+          identifies: example_controlled_item
+        minimal_doi_object:
+          doi: null
+          doi_status: planned
+          registry: Zenodo_or_equivalent
+          evidence: null
+          note: DOI must not be populated as issued until assigned by the registry.
+        minimal_provenance_event:
+          provenance_event_id: record_event_example_0001
+          event_type: review
+          date: "2026-04-27"
+          responsible_party: framework_maintainers
+          affected_items:
+            - metadata.yaml
+          evidence:
+            - review_record_reference
+          outcome: in_review
+          retention_rule: retain_for_life_of_package
+      validation_automation_recommendations:
+        - id: mid_auto_001
+          recommendation: Add a duplicate-ID scan across YAML and JSON files.
+        - id: mid_auto_002
+          recommendation: Add a path naming validator using repository architecture rules.
+        - id: mid_auto_003
+          recommendation: Add cross-file version and citation consistency checks.
+        - id: mid_auto_004
+          recommendation: Add DOI status and DOI syntax checks.
+        - id: mid_auto_005
+          recommendation: Add source_basis evidence_status checks.
+        - id: mid_auto_006
+          recommendation: Add release checksum generation and fixity reporting.
+      review_instructions:
+        - id: mid_rev_001
+          instruction: Review metadata first for package identity, then identifiers, then citation consistency, then provenance records.
+        - id: mid_rev_002
+          instruction: Treat unresolved DOI, ORCID, ROR, CFF, or archive-platform requirements as open issues unless externally verified.
+        - id: mid_rev_003
+          instruction: Confirm that metadata supports review and reuse without overstating release, evaluation, or publication maturity.
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: Identify downstream schemas, templates, and checklists that should implement this profile.
+    content:
+      schema_implications:
+        - id: schema_metadata
+          path: schemas/metadata.schema.json
+          status: recommended_new_schema
+          validates:
+            - metadata.yaml
+          minimum_required_properties:
+            - package_id
+            - title
+            - description
+            - version
+            - status
+            - license
+            - contributors
+            - identifiers
+            - citation
+            - source_basis
+            - related_items
+            - change_history
+        - id: schema_citation_cff_alignment
+          path: schemas/citation-cff-alignment.schema.json
+          status: optional_support_schema
+          validates:
+            - CITATION.cff alignment extract
+          minimum_required_properties:
+            - title
+            - authors
+            - version
+            - license
+            - repository_code
+            - doi_status
+        - id: schema_release_record
+          path: schemas/release-record.schema.json
+          status: recommended_new_schema
+          validates:
+            - records/releases/record-release-*.yaml
+          minimum_required_properties:
+            - record_id
+            - record_class
+            - release_identity
+            - doi_status
+            - validation_evidence
+            - outcome
+            - retention_rule
+      template_implications:
+        - id: template_metadata
+          path: templates/metadata-template.yaml
+          status: recommended_new_template
+          purpose: Provide a fillable metadata.yaml template using this profile.
+        - id: template_release_record
+          path: templates/release-record-template.yaml
+          status: recommended_new_template
+          purpose: Provide a fillable release record template with DOI, checksum, and archival fields.
+        - id: template_preservation_record
+          path: templates/preservation-record-template.yaml
+          status: recommended_new_template
+          purpose: Provide a fillable preservation event record template.
+      checklist_implications:
+        - id: checklist_metadata_readiness
+          path: checklists/metadata-and-identifier-readiness-checklist.yaml
+          status: recommended_new_checklist
+          purpose: Check identity, citation, DOI, provenance, and identifier readiness.
+        - id: checklist_publication_readiness
+          path: checklists/publication-readiness-checklist.yaml
+          status: existing_or_planned_related_checklist
+          purpose: Include metadata and DOI checks before release.
+      controlled_vocabulary_implications:
+        - id: vocabulary_identifier_types
+          path: vocabularies/identifier-types.yaml
+          status: recommended_new_vocabulary
+          entries_seed:
+            - local_stable_id
+            - repository_path
+            - semantic_version
+            - release_tag
+            - doi
+            - orcid
+            - ror
+            - spdx_license_id
+            - checksum
+            - citation_anchor_id
+        - id: vocabulary_provenance_event_types
+          path: vocabularies/provenance-event-types.yaml
+          status: recommended_new_vocabulary
+          entries_seed:
+            - creation
+            - revision
+            - review
+            - validation
+            - source_ingestion
+            - release
+            - archival_deposit
+            - preservation_check
+            - deprecation
+            - supersession
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: Preserve unresolved decisions and implementation tasks without blocking L2 reviewability.
+    content:
+      open_questions:
+        - id: mid_oq_001
+          question: Should the framework use a dedicated metadata.schema.json target even though it is not currently listed in the selection table?
+          owner: framework_maintainers
+          resolution_status: open
+          impact: Could improve L3 validation readiness.
+        - id: mid_oq_002
+          question: Which external archival platform is canonical for the first DOI-backed release?
+          owner: framework_maintainers
+          resolution_status: open
+          impact: Determines final .zenodo.json or equivalent archival metadata requirements.
+        - id: mid_oq_003
+          question: Should contributor roles be strictly aligned to a named external taxonomy or maintained as a local controlled vocabulary?
+          owner: framework_maintainers
+          resolution_status: open
+          impact: Affects CITATION.cff, governance, and contribution records.
+        - id: mid_oq_004
+          question: Should source extraction records receive package-local citation anchor IDs in addition to corpus source IDs?
+          owner: framework_maintainers
+          resolution_status: open
+          impact: Affects long-term evidence traceability.
+      backlog:
+        - id: mid_bl_001
+          task: Create metadata-template.yaml.
+          priority: high
+          target_conformance: l2_reviewable
+        - id: mid_bl_002
+          task: Create metadata.schema.json.
+          priority: high
+          target_conformance: l3_exercisable
+        - id: mid_bl_003
+          task: Create identifier-types.yaml and provenance-event-types.yaml vocabularies.
+          priority: medium
+          target_conformance: l3_exercisable
+        - id: mid_bl_004
+          task: Create metadata-and-identifier-readiness-checklist.yaml.
+          priority: medium
+          target_conformance: l2_reviewable
+        - id: mid_bl_005
+          task: Verify current DOI, CFF, Zenodo, ORCID, ROR, SPDX, and GitHub metadata requirements before L5 release.
+          priority: high
+          target_conformance: l5_archival_publication_ready
+        - id: mid_bl_006
+          task: Add automated cross-file metadata consistency checks.
+          priority: high
+          target_conformance: l3_exercisable
+      limitations:
+        - id: mid_lim_001
+          limitation: This draft specifies DOI readiness but does not assign or verify a DOI.
+        - id: mid_lim_002
+          limitation: This draft defines metadata and identifier controls but does not generate downstream schemas or templates.
+        - id: mid_lim_003
+          limitation: External registry rules must be verified before publication-ready release claims.
+
+quality_gates:
+  - id: qg_consistency
+    question: Does the file use required naming, status, item type, and directory conventions?
+    evidence_required:
+      - target_path
+      - product.item_type
+      - repository naming rules
+    pass_condition: File path is specs/product-dsr-metadata-and-identifier-profile.yaml and item type is specification.
+    status: pass
+  - id: qg_coherence
+    question: Does the profile align with related product specs and downstream files?
+    evidence_required:
+      - dependencies
+      - related_items
+      - traceability
+    pass_condition: Dependencies and implementation targets are explicitly mapped.
+    status: pass
+  - id: qg_cogency
+    question: Is the profile operational, ordered, and usable without hidden assumptions?
+    evidence_required:
+      - workflow
+      - normative_requirements
+      - acceptance_criteria
+      - failure_modes
+    pass_condition: Requirements, workflow, and checks are explicit.
+    status: pass
+  - id: qg_correspondence
+    question: Does the profile support the intended DSR Framework artifact package?
+    evidence_required:
+      - conformance_position
+      - controlled_outputs
+      - downstream_trace_targets
+    pass_condition: Package metadata, citation, provenance, DOI, and archival needs are covered.
+    status: pass
+  - id: qg_dsr_transparency
+    question: Does the profile support DSR transparency dimensions where applicable?
+    evidence_required:
+      - provenance_event requirements
+      - source_basis evidence status
+      - quality gate mapping
+    pass_condition: Process, source, release, preservation, and contribution traceability are explicit.
+    status: pass
+  - id: qg_reviewability
+    question: Can a reviewer evaluate this profile using explicit criteria?
+    evidence_required:
+      - acceptance_criteria
+      - validation_rules
+      - failure_modes
+    pass_condition: Review criteria and remediation paths are present.
+    status: pass
+
+traceability:
+  - trace_id: mid_global_trace_001
+    from: spec_metadata_identifier
+    to: specs/product-dsr-metadata-and-identifier-profile.yaml
+    relationship: generated_as_selected_file
+    evidence_status: provided
+  - trace_id: mid_global_trace_002
+    from: dsr_framework_generation_spec
+    to: product_spec_structure
+    relationship: conforms_to_generation_rules
+    evidence_status: mapped
+  - trace_id: mid_global_trace_003
+    from: dsr_transparency_corpus_sources
+    to: provenance_and_source_basis_requirements
+    relationship: supports_transparency_orientation
+    evidence_status: mapped_to_corpus_source
+  - trace_id: mid_global_trace_004
+    from: external_identifier_standards
+    to: l5_archival_publication_ready_requirements
+    relationship: requires_future_verification
+    evidence_status: externally_pending_verification
+
+open_questions:
+  - mid_oq_001
+  - mid_oq_002
+  - mid_oq_003
+  - mid_oq_004
+
+completion_report:
+  generated_selection_id: spec_metadata_identifier
+  generated_path: specs/product-dsr-metadata-and-identifier-profile.yaml
+  item_type: specification
+  output_format: yaml
+  conformance_target: l2_reviewable
+  dependencies_used:
+    - metadata profile
+    - publication model
+    - documentation protocol repository architecture
+    - DSR corpus transparency and traceability sources
+  assumptions:
+    - The file is a product specification, not the metadata.yaml implementation file.
+    - DOI, ORCID, ROR, CFF, SPDX, Zenodo, and GitHub metadata facts require later external verification before L5 release.
+    - Contributor identifiers are optional unless contributors choose to disclose them.
+  open_questions:
+    - mid_oq_001
+    - mid_oq_002
+    - mid_oq_003
+    - mid_oq_004
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: specs/product-dsr-publication-and-registry-model.yaml

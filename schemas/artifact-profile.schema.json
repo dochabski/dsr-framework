@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/artifact-profile.schema.json",
+  "title": "DSR Framework Artifact Profile Schema",
+  "description": "Validates DSR Framework artifact-profile instances and artifact-profile templates using the richer literature-aligned profile structure.",
+  "type": "object",
+  "required": [
+    "artifact_profile"
+  ],
+  "properties": {
+    "artifact_profile": {
+      "type": "object",
+      "description": "Literature-aligned artifact profile or artifact-profile template. Requires identity, source basis, traceability, and either profile-instance or template claim/evaluation sections.",
+      "required": [
+        "item_id",
+        "item_type",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "owner",
+        "artifact_identity",
+        "related_items",
+        "source_basis",
+        "traceability",
+        "change_history"
+      ],
+      "properties": {
+        "item_id": {
+          "type": "string"
+        },
+        "item_type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "owner": {},
+        "artifact_identity": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "related_items": {},
+        "source_basis": {},
+        "traceability": {},
+        "change_history": {},
+        "artifact_typing": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "dsr_scope": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "contribution_profile": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "knowledge_profile": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "transparency_profile": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "quality_and_conformance_profile": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "reuse_profile": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "claims": {},
+        "demonstration_and_evaluation": {},
+        "conformance": {},
+        "validity_reliability_replication_projectability": {},
+        "responsible_design_and_risk": {}
+      },
+      "additionalProperties": true,
+      "anyOf": [
+        {
+          "required": [
+            "artifact_typing",
+            "dsr_scope",
+            "contribution_profile",
+            "knowledge_profile",
+            "transparency_profile",
+            "quality_and_conformance_profile"
+          ]
+        },
+        {
+          "required": [
+            "claims",
+            "demonstration_and_evaluation",
+            "conformance",
+            "artifact_boundary_and_components"
+          ]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,431 @@
+# SPDX-License-Identifier: CC0-1.0
+---
+template:
+  item_id: evaluation_plan_template
+  item_type: template
+  title: DSR Evaluation Plan Template
+  purpose: >
+    Provide a reusable, reviewable YAML template for planning Design Science
+    Research evaluation activities before, during, and after artifact construction.
+    The template helps researchers align evaluation questions, claims, evidence,
+    criteria, methods, stakeholders, validity threats, reliability controls,
+    transparency obligations, and contribution claims.
+  status: draft
+  version: "0.1.0"
+  owner: "TODO: responsible role or maintainer"
+  target_path: templates/evaluation-plan-template.yaml
+  default_conformance: l2_reviewable
+  intended_users:
+    - dsr_researcher
+    - artifact_designer
+    - evaluator
+    - reviewer
+    - project_stakeholder
+  related_items:
+    upstream_dependencies:
+      - id: schema_evaluation_plan
+        path: schemas/dsr-evaluation-plan.schema.json
+        relationship: should_validate_instances_of_this_template
+      - id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relationship: supplies_evaluation_alignment_concepts
+      - id: vocab_evaluation_methods
+        path: vocabularies/evaluation-method-families.yaml
+        relationship: supplies_controlled_method_families
+      - id: vocab_validity_types
+        path: vocabularies/validity-types.yaml
+        relationship: supplies_validity_terms
+      - id: vocab_reliability_types
+        path: vocabularies/reliability-types.yaml
+        relationship: supplies_reliability_terms
+      - id: vocab_replication_types
+        path: vocabularies/replication-types.yaml
+        relationship: supplies_replication_terms
+      - id: vocab_projectability_types
+        path: vocabularies/projectability-types.yaml
+        relationship: supplies_projectability_terms
+      - id: model_transparency
+        path: models/dsr-transparency-model.yaml
+        relationship: supplies_transparency_dimensions
+    downstream_records:
+      - id: record_evaluation_plan
+        path: records/evaluations/record-evaluation-plan-0001.yaml
+        relationship: may_be_instantiated_from_this_template
+      - id: template_evaluation_report
+        path: templates/evaluation-report-template.yaml
+        relationship: should_receive_results_from_this_plan
+      - id: checklist_evaluation_readiness
+        path: checklists/evaluation-readiness-checklist.yaml
+        relationship: should_review_instances_of_this_template
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      evidence_status: mapped
+      relevance: >
+        Establishes repository conventions, required metadata, L2 reviewability,
+        quality gates, traceability expectations, and output rules for templates.
+    - source_id: dsr_framework_generation_prompt
+      evidence_status: mapped
+      relevance: >
+        Requires template files to be directly usable by researchers, with TODO
+        placeholders only where project-specific information is required.
+    - source_id: dsr_extraction_corpus
+      evidence_status: partially_mapped
+      relevance: >
+        Supplies DSR evaluation concepts, including formative and summative
+        evaluation, artificial and naturalistic evaluation, artifact utility,
+        artifact quality, contribution evidence, validity, reliability,
+        replication, and transparency.
+    - source_id: venable_feds_family
+      evidence_status: not_yet_mapped
+      relevance: >
+        Expected source family for formative, summative, artificial, and
+        naturalistic evaluation distinctions.
+    - source_id: hevner_transparency_family
+      evidence_status: not_yet_mapped
+      relevance: >
+        Expected source family for evaluation transparency and stakeholder
+        confidence requirements.
+  assumptions:
+    - >
+      The instantiated plan is created before the evaluation report and should
+      not contain final results except as planning assumptions or known baseline
+      evidence.
+    - >
+      Evaluation may address artifact utility, artifact quality, contribution to
+      knowledge, or a combination of these; the plan must explicitly distinguish
+      them.
+    - >
+      Demonstration can support evaluation readiness or plausibility but should
+      not be mislabeled as evaluation unless it uses explicit evaluation criteria
+      and evidence.
+  limitations:
+    - >
+      This template does not prescribe a single evaluation method. Method choice
+      must be justified by artifact type, claim type, lifecycle stage, stakeholder
+      context, risk, and contribution scope.
+    - >
+      This template supports L2 reviewability by default. Stronger conformance
+      levels may require executable validation, external review, replication
+      packages, release evidence, or archival metadata.
+  open_questions:
+    - question_id: oq_evaluation_metric_enumerations
+      question: >
+        Which evaluation metrics should be enumerated by controlled vocabulary
+        rather than left as project-specific text?
+      status: open
+    - question_id: oq_evidence_thresholds
+      question: >
+        Which evidence thresholds should be required for L3, L4, and L5
+        conformance in future schema versions?
+      status: open
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial reusable evaluation plan template generated.
+      responsible_party: GPT-5.5 Thinking
+
+evaluation_plan:
+  plan_id: "TODO: stable lower_snake_case evaluation plan identifier"
+  plan_type: dsr_evaluation_plan
+  title: "TODO: concise title of the evaluation plan"
+  status: draft
+  version: "0.1.0"
+  date_created: "TODO: YYYY-MM-DD"
+  date_updated: "TODO: YYYY-MM-DD or null"
+  responsible_party:
+    name: "TODO: person or role responsible for the evaluation plan"
+    role: "TODO: principal investigator, artifact owner, evaluator, reviewer, or other role"
+    affiliation: "TODO: organization or project unit"
+  project_identity:
+    dsr_project_id: "TODO: linked DSR project identifier"
+    project_title: "TODO: project title"
+    artifact_id: "TODO: linked artifact identifier"
+    artifact_name: "TODO: artifact name"
+    artifact_type: "TODO: controlled artifact type, such as construct, model, method, instantiation, framework, taxonomy, ontology, process_model, tool, or package"
+    artifact_version_under_evaluation: "TODO: version, commit, release, or configuration"
+    evaluation_scope:
+      scope_type: "TODO: component, artifact_instance, artifact_type, process, method, package, or contribution_claim"
+      included_components:
+        - "TODO: artifact component, module, feature, procedure, or documentation item included"
+      excluded_components:
+        - "TODO: artifact component, module, feature, procedure, or documentation item excluded"
+      boundary_rationale: "TODO: why this evaluation scope is appropriate"
+  evaluation_purpose:
+    primary_purpose: "TODO: formative_improvement, summative_judgment, contribution_support, risk_reduction, readiness_review, replication_support, or mixed"
+    lifecycle_stage: "TODO: problem_framing, requirements, design, build, demonstration, evaluation, contribution_positioning, dissemination, release, maintenance, or retirement"
+    evaluation_timing:
+      - "TODO: formative, summative, ex_ante, ex_post, continuous, or longitudinal"
+    evaluation_setting:
+      - "TODO: artificial_setting, naturalistic_setting, laboratory, field, simulation, expert_review, literature_based_argument, archival_review, technical_test, user_study, case_study, pilot, or operational_use"
+    intended_decision_supported: "TODO: what decision this plan is intended to support"
+    intended_audiences:
+      - audience_id: "TODO: researcher, reviewer, practitioner, manager, policymaker, technical_maintainer, stakeholder_group, or public_user"
+        information_need: "TODO: what this audience needs from the evaluation"
+  claims_under_evaluation:
+    - claim_id: "TODO: claim_001"
+      claim_text: "TODO: specific evaluable claim"
+      claim_type: "TODO: utility_claim, quality_claim, contribution_claim, validity_claim, reliability_claim, projectability_claim, transparency_claim, responsible_design_claim, or other"
+      claim_scope: "TODO: idiographic_local, projectable_to_problem_class, nomothetic_general, mixed, or unclear"
+      related_artifact_component: "TODO: linked component or null"
+      expected_evidence_level: "TODO: plausibility, feasibility, effectiveness, efficiency, adoption, usability, reliability, validity, comparative_advantage, transferability, or other"
+      rationale_for_evaluation: "TODO: why this claim must be evaluated"
+      evidence_status: planned
+  evaluation_questions:
+    - question_id: "TODO: eq_001"
+      question: "TODO: evaluative question linked to one or more claims"
+      linked_claim_ids:
+        - "TODO: claim_001"
+      decision_relevance: "TODO: how answering this question affects artifact design, acceptance, reuse, or contribution positioning"
+      evaluation_target: "TODO: artifact_utility, artifact_quality, contribution_to_knowledge, implementation_feasibility, stakeholder_acceptance, risk_control, or mixed"
+      success_criteria:
+        - criterion_id: "TODO: crit_001"
+          criterion: "TODO: criterion name"
+          operational_definition: "TODO: how the criterion is interpreted in this project"
+          threshold_or_decision_rule: "TODO: pass/fail, minimum acceptable value, comparative benchmark, qualitative standard, or review judgment"
+          evidence_required:
+            - "TODO: data, observation, log, test result, expert judgment, user feedback, citation, artifact inspection, or other evidence"
+          failure_condition: "TODO: what would count as failing this criterion"
+  evaluation_design:
+    overall_strategy: "TODO: concise design summary"
+    evaluation_pathway:
+      artificial_evaluation:
+        planned: "TODO: true or false"
+        rationale: "TODO: why artificial evaluation is or is not appropriate"
+        methods:
+          - method_id: "TODO: method_artificial_001"
+            method_family: "TODO: controlled method family from evaluation-method-families vocabulary"
+            method_name: "TODO: method name"
+            method_description: "TODO: what will be done"
+            evaluation_question_ids:
+              - "TODO: eq_001"
+            units_of_analysis:
+              - "TODO: artifact component, scenario, case, user, task, document, transaction, or record"
+            data_to_collect:
+              - "TODO: metric, observation, document, trace, interview, survey response, log, or test output"
+            instruments_or_materials:
+              - "TODO: rubric, test script, scenario, checklist, survey, interview protocol, benchmark, dataset, or code"
+            sampling_or_selection_logic: "TODO: how units, scenarios, cases, or reviewers are selected"
+            procedure_summary:
+              - step_id: "TODO: step_001"
+                action: "TODO: action to perform"
+                expected_output: "TODO: output, evidence, or record created by the step"
+            analysis_plan: "TODO: how collected evidence will be analyzed"
+            limitations: "TODO: known limits of this method"
+      naturalistic_evaluation:
+        planned: "TODO: true or false"
+        rationale: "TODO: why naturalistic evaluation is or is not appropriate"
+        methods:
+          - method_id: "TODO: method_naturalistic_001"
+            method_family: "TODO: controlled method family from evaluation-method-families vocabulary"
+            method_name: "TODO: method name"
+            method_description: "TODO: what will be done in a real or realistic use context"
+            evaluation_question_ids:
+              - "TODO: eq_001"
+            use_context: "TODO: organizational, educational, technical, social, or domain context"
+            participants_or_stakeholders:
+              - stakeholder_role: "TODO: role"
+                involvement: "TODO: observation, use, interview, review, co-design, approval, or other"
+            data_to_collect:
+              - "TODO: metric, observation, document, trace, interview, survey response, log, or outcome indicator"
+            procedure_summary:
+              - step_id: "TODO: step_001"
+                action: "TODO: action to perform"
+                expected_output: "TODO: output, evidence, or record created by the step"
+            analysis_plan: "TODO: how evidence will be analyzed"
+            limitations: "TODO: known limits of this method"
+    comparison_logic:
+      comparison_type: "TODO: no_comparison, baseline, pre_post, benchmark, alternative_artifact, expert_standard, historical_case, theoretical_expectation, or mixed"
+      comparator_description: "TODO: comparator or baseline description"
+      rationale: "TODO: why this comparison is appropriate or why no comparison is used"
+    demonstration_relationship:
+      demonstration_present_or_planned: "TODO: true or false"
+      demonstration_record_id: "TODO: linked demonstration record or null"
+      distinction_from_evaluation: >
+        TODO: explain whether demonstration is only showing use/feasibility or is
+        also being treated as evaluation with explicit criteria and evidence.
+  evidence_plan:
+    evidence_items:
+      - evidence_id: "TODO: ev_001"
+        evidence_type: "TODO: quantitative_metric, qualitative_observation, document_review, expert_judgment, user_feedback, technical_test, log_data, archival_record, citation, or mixed"
+        linked_question_ids:
+          - "TODO: eq_001"
+        linked_claim_ids:
+          - "TODO: claim_001"
+        source_or_collection_method: "TODO: where the evidence comes from"
+        collection_timing: "TODO: before_build, during_build, after_build, during_use, after_use, longitudinal, or other"
+        storage_location: "TODO: repository path, record ID, dataset ID, or secure location"
+        access_constraints: "TODO: none, privacy, proprietary, security, embargo, consent_required, or other"
+        quality_controls:
+          - "TODO: calibration, reviewer training, instrument validation, audit trail, duplicate coding, version control, or other"
+        retention_rule: "TODO: how long evidence must be retained and where"
+    evidence_sufficiency_rationale: "TODO: why the planned evidence is sufficient for L2 reviewability"
+  data_management_and_ethics:
+    human_participants_involved: "TODO: true, false, or unknown"
+    ethics_review_required: "TODO: true, false, unknown, or not_applicable"
+    ethics_review_status: "TODO: not_started, submitted, approved, exempt, not_required, or unknown"
+    privacy_considerations:
+      - "TODO: personal data, de-identification, consent, restricted access, or not_applicable"
+    security_considerations:
+      - "TODO: system access, vulnerability exposure, credential handling, secure storage, or not_applicable"
+    proprietary_or_ip_constraints:
+      - "TODO: proprietary data, protected code, licensing, trade secret, or not_applicable"
+    responsible_design_values_considered:
+      - "TODO: transparency, accountability, privacy, accessibility, fairness, sustainability, safety, usability, or other"
+  validity_and_reliability_plan:
+    validity_threats:
+      - threat_id: "TODO: val_threat_001"
+        validity_type: "TODO: construct_validity, internal_validity, conclusion_validity, external_validity, ecological_validity, evaluation_validity, artifact_validity, context_validity, or other"
+        threat_description: "TODO: threat to credible interpretation"
+        likely_effect: "TODO: how this threat could distort findings or claims"
+        mitigation: "TODO: planned mitigation"
+        residual_risk: "TODO: low, moderate, high, or unknown"
+    reliability_controls:
+      - control_id: "TODO: rel_control_001"
+        reliability_target: "TODO: measure_reliability, evaluator_reliability, process_reliability, artifact_reliability, implementation_reliability, or method_reliability"
+        control_description: "TODO: planned control"
+        evidence_to_record: "TODO: what evidence will show the control was used"
+    replication_and_projectability:
+      replication_type_supported: "TODO: exact_replication, direct_replication, conceptual_replication, differentiated_replication, reuse, adaptation, transfer, or not_applicable"
+      projectability_claim: "TODO: what can reasonably be projected beyond the evaluation setting"
+      boundary_conditions:
+        - "TODO: context, population, artifact version, organizational constraint, domain condition, or technical condition"
+      reuse_requirements:
+        - "TODO: documentation, code, data, configuration, training, license, or environment required for reuse"
+  transparency_plan:
+    transparency_dimensions:
+      process_transparency:
+        required: true
+        planned_materials:
+          - "TODO: activity log, decision record, design rationale, review notes, or workflow trace"
+      problem_space_transparency:
+        required: true
+        planned_materials:
+          - "TODO: problem statement, stakeholder map, requirements, success criteria, context boundary, or risk register"
+      solution_space_transparency:
+        required: true
+        planned_materials:
+          - "TODO: literature basis, alternative artifacts, technology baseline, design precedent, or theory grounding"
+      build_transparency:
+        required: true
+        planned_materials:
+          - "TODO: build record, design rationale, version history, commit trace, prototype notes, or configuration record"
+      evaluation_transparency:
+        required: true
+        planned_materials:
+          - "TODO: this evaluation plan, instruments, data dictionary, evaluation report, analysis notes, or evidence index"
+      contribution_transparency:
+        required: true
+        planned_materials:
+          - "TODO: contribution claim, positioning record, publication argument, practice implication, or knowledge contribution map"
+    transparency_risk_controls:
+      - risk_id: "TODO: trans_risk_001"
+        risk: "TODO: information_overload, burden, privacy, security, intellectual_property, proprietary_information, misinterpretation, or other"
+        mitigation: "TODO: how transparency will be balanced with risk"
+  analysis_and_interpretation_plan:
+    analysis_methods:
+      - analysis_id: "TODO: analysis_001"
+        analysis_type: "TODO: descriptive_statistics, inferential_statistics, thematic_analysis, rubric_scoring, trace_analysis, comparative_analysis, expert_synthesis, argumentation, or mixed"
+        linked_evidence_ids:
+          - "TODO: ev_001"
+        output: "TODO: table, narrative finding, score, model, decision, claim update, or report section"
+    interpretation_rules:
+      - rule_id: "TODO: interp_rule_001"
+        condition: "TODO: condition or evidence pattern"
+        interpretation: "TODO: claim supported, claim partially supported, claim not supported, redesign required, more evidence required, or other"
+    uncertainty_reporting: "TODO: how uncertainty, limitations, missing data, disagreement, or mixed findings will be reported"
+  decision_and_action_plan:
+    possible_decisions:
+      - decision_id: "TODO: decision_001"
+        decision: "TODO: proceed_to_build, revise_artifact, conduct_additional_evaluation, release, reject_claim, narrow_claim, broaden_evidence, or other"
+        evidence_needed:
+          - "TODO: evidence or criterion required"
+        responsible_party: "TODO: role or person"
+    feedback_into_design:
+      planned_feedback_loop: "TODO: how evaluation findings will affect artifact design or documentation"
+      related_record_types:
+        - design_decision_record
+        - evaluation_report
+        - review_record
+        - contribution_positioning_record
+  acceptance_criteria:
+    - criterion_id: ac_l2_reviewable_001
+      criterion: Evaluation questions are explicitly linked to artifact, quality, utility, or contribution claims.
+      pass_condition: Every evaluation question lists at least one linked claim or evaluation target.
+    - criterion_id: ac_l2_reviewable_002
+      criterion: Evaluation methods are justified by claim type and lifecycle stage.
+      pass_condition: Every planned method includes rationale, data to collect, procedure, and analysis plan.
+    - criterion_id: ac_l2_reviewable_003
+      criterion: Demonstration and evaluation are distinguished.
+      pass_condition: The demonstration_relationship field explains whether demonstration evidence is separate from or part of evaluation.
+    - criterion_id: ac_l2_reviewable_004
+      criterion: Validity threats and reliability controls are documented.
+      pass_condition: At least one validity threat and one reliability control are listed, or a not_applicable rationale is provided.
+    - criterion_id: ac_l2_reviewable_005
+      criterion: Evaluation transparency materials are identified.
+      pass_condition: The transparency_plan identifies planned materials for evaluation transparency and at least one additional relevant transparency dimension.
+  validation_rules:
+    required_fields:
+      - evaluation_plan.plan_id
+      - evaluation_plan.title
+      - evaluation_plan.project_identity.artifact_id
+      - evaluation_plan.evaluation_purpose.primary_purpose
+      - evaluation_plan.claims_under_evaluation
+      - evaluation_plan.evaluation_questions
+      - evaluation_plan.evaluation_design
+      - evaluation_plan.evidence_plan
+      - evaluation_plan.validity_and_reliability_plan
+      - evaluation_plan.transparency_plan
+      - evaluation_plan.acceptance_criteria
+    controlled_value_expectations:
+      - field: evaluation_plan.evaluation_purpose.primary_purpose
+        expected_source: evaluation alignment model or schema enumeration
+      - field: evaluation_plan.evaluation_purpose.lifecycle_stage
+        expected_source: lifecycle stages vocabulary
+      - field: evaluation_plan.evaluation_design.*.methods.method_family
+        expected_source: evaluation-method-families vocabulary
+      - field: evaluation_plan.validity_and_reliability_plan.validity_threats.validity_type
+        expected_source: validity-types vocabulary
+      - field: evaluation_plan.validity_and_reliability_plan.reliability_controls.reliability_target
+        expected_source: reliability-types vocabulary
+    review_notes:
+      - >
+        A reviewer should reject or return the plan for revision if evaluation
+        methods do not correspond to the stated claims.
+      - >
+        A reviewer should require claim narrowing if the proposed evidence is
+        insufficient for the declared contribution scope.
+  failure_modes:
+    - failure_mode_id: fm_claim_method_mismatch
+      description: The selected method cannot reasonably evaluate the stated claim.
+      remediation_guidance: Narrow the claim, change the method, add additional evidence, or revise the evaluation question.
+    - failure_mode_id: fm_demonstration_overclaimed_as_evaluation
+      description: The plan treats a use demonstration as evaluative proof without explicit criteria or evidence.
+      remediation_guidance: Reclassify as demonstration or add criteria, evidence, and analysis logic.
+    - failure_mode_id: fm_missing_context_boundary
+      description: The plan omits boundary conditions needed for projectability or replication.
+      remediation_guidance: Add context, stakeholder, artifact-version, and environmental constraints.
+    - failure_mode_id: fm_unmanaged_transparency_risk
+      description: The plan requires openness that may expose privacy, security, proprietary, or intellectual-property risks.
+      remediation_guidance: Add access controls, redaction, abstraction, repository restrictions, or a justified transparency limit.
+  traceability:
+    - trace_id: tr_template_to_schema
+      source: templates/evaluation-plan-template.yaml
+      target: schemas/dsr-evaluation-plan.schema.json
+      relationship: should_be_validated_by
+      evidence_status: not_yet_verified
+    - trace_id: tr_plan_to_report
+      source: templates/evaluation-plan-template.yaml
+      target: templates/evaluation-report-template.yaml
+      relationship: supplies_planned_questions_methods_criteria_and_evidence_requirements
+      evidence_status: planned
+    - trace_id: tr_plan_to_contribution_claim
+      source: templates/evaluation-plan-template.yaml
+      target: templates/contribution-claim-template.yaml
+      relationship: provides_evidence_plan_for_claim_support
+      evidence_status: planned
+  retention_rule:
+    retain_as: controlled_template
+    minimum_retention: life_of_repository
+    rationale: >
+      The template governs reusable evaluation planning records and should remain
+      available for review, reuse, schema alignment, and historical traceability.

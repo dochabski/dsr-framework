@@ -1,0 +1,676 @@
+# SPDX-License-Identifier: CC0-1.0
+manifest:
+  item_id: dsr_framework_manifest
+  item_type: specification
+  portion_type: root_specification
+  selection_id: root_manifest
+  title: DSR Framework Repository Manifest
+  purpose: 'Declare the canonical package identity, root file set, directory architecture, dependency structure, conformance
+    target, validation obligations, and traceability expectations for the Design Science Research Framework repository.
+
+    '
+  status: draft
+  version: 0.1.0
+  package:
+    package_id: dsr_framework
+    package_name: DSR Framework
+    package_slug: dsr-framework
+    package_class:
+      primary: compound_dsr_artifact
+      secondary:
+      - method_or_protocol_artifact
+      - model_or_taxonomy_artifact
+      - documentation_only
+      - data_or_information_artifact
+    canonical_description: 'A protocol-governed, GitHub-publishable Design Science Research framework for planning, documenting,
+      evaluating, reviewing, and publishing DSR artifacts.
+
+      '
+    canonical_repository_role: source_of_truth_package
+    repository_url: https://github.com/dochabski/dsr-framework
+    publication_status: public_draft_release_prepared
+    intended_release: v0.1.0
+    license:
+      spdx_id: CC0-1.0
+      license_file: LICENSE
+      license_text_files:
+      - LICENSES/CC0-1.0.txt
+      - LICENSES/Apache-2.0.txt
+      reuse_file: REUSE.toml
+      evidence_status: open_license_confirmed
+    citation_files:
+    - CITATION.cff
+    - .zenodo.json
+    - codemeta.json
+    normalization_status:
+      status: public_draft_release_prepared
+      normalized_at: '2026-04-27'
+      structure_status: canonical_directories_populated_from_product_catalog
+      required_root_file_status: all_required_root_files_present_as_draft_or_controlled_files
+      schema_contract_status: schema_template_and_schema_record_pairs_validate
+      parse_status: yaml_json_cff_parse_checks_pass_after_source_traceability_remediation
+      repaired_corpus_reference:
+        individual_records: ../Extractions_Repaired
+        combined_yaml: ../Extractions_Combined_Repaired/dsr_extractions_repaired_20260427.yaml
+        record_count: 71
+        status: parseable_working_corpus_for_next_literature_alignment_pass
+      publication_readiness_status: github_release_prepared_zenodo_publish_pending_confirmation
+      latest_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
+      literature_alignment_status: source_traceability_remediated_and_validation_passed
+      latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
+      source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
+      source_traceability_validation_counts:
+        total_corpus_sources: 71
+        source_basis_only_or_no_substantive_hits: 0
+        minimally_mapped_single_substantive_hit: 0
+        substantively_mapped_multi_file: 71
+        trace_objects_with_required_pattern: 142
+        evidence_status_counts:
+          substantive: 142
+      reserved_zenodo_doi: 10.5281/zenodo.19835424
+      github_repository: https://github.com/dochabski/dsr-framework
+  owner:
+    responsible_role: project_maintainer
+    stewarding_body: David Ochabski
+    contact: https://github.com/dochabski
+    github_handle: '@dochabski'
+  conformance:
+    selected_default_conformance: l1_documented
+    generated_file_conformance_target: l1_documented
+    package_default_conformance_target: l2_reviewable
+    conformance_declaration_file: conformance-declaration.yaml
+    tailoring_status: preliminary_root_manifest
+    conformance_rationale: 'The selected table row identifies root_manifest as an L1 root specification. The broader generation
+      specification treats the package default as L2 reviewable; this manifest therefore declares L1 for the generated file
+      while preserving a path toward L2 package reviewability through package inventory, schemas, records, and review gates.
+
+      '
+  source_basis:
+  - source_id: user_current_request
+    source_type: immediate_task_definition
+    role: selected root_manifest row and file-generation instruction
+    evidence_status: provided
+  - source_id: dsr_framework_generation_spec
+    source_type: governing_specification
+    role: repository architecture, item rules, naming rules, quality gates, and completion-report requirements
+    evidence_status: provided
+  - source_id: dsr_framework_generation_prompt
+    source_type: governing_generation_prompt
+    role: output conventions, required metadata, traceability, and reviewability requirements
+    evidence_status: provided
+  - source_id: dsr_framework_selection_table
+    source_type: selection_registry
+    role: target path, portion type, output format, purpose, conformance, and dependencies
+    evidence_status: provided
+  - source_id: dsr_extraction_corpus
+    source_type: internal_dsr_corpus
+    role: scholarly and methodological evidence base for downstream DSR framework products
+    evidence_status: repaired_working_copy_available_for_next_alignment_pass
+    notes: Original corpus preserved; repaired corpus copy parses with 71 records.
+  - source_id: documentation_protocol_repository
+    source_type: external_repository_model
+    role: governing documentation-protocol model referenced by the generation specification
+    evidence_status: checked_2026-04-27_for_public_release_metadata_precedent
+  - source_id: dsr_extraction_corpus_repaired
+    source_type: internal_dsr_corpus_repaired_copy
+    role: working corpus for second-pass literature alignment and vocabulary/schema authority checks
+    evidence_status: available_parse_validated
+    record_count: 71
+    paths:
+    - ../Extractions_Repaired
+    - ../Extractions_Combined_Repaired/dsr_extractions_repaired_20260427.yaml
+  - source_id: evaluator_source_to_framework_alignment_crosswalk
+    source_type: evaluator_remediation_artifact
+    role: Crosswalk mapping each repaired corpus source to target framework constructs, grounding decisions, and evidence
+      status.
+    evidence_status: integrated_2026-04-27
+    paths:
+    - crosswalks/source-to-framework-alignment.yaml
+    - ../source-to-framework-alignment.yaml
+  - source_id: evaluator_source_trace_summary
+    source_type: evaluator_traceability_summary
+    role: Baseline traceability count evidence used to verify remediation movement from source-basis-only to substantive grounding.
+    evidence_status: used_for_validation_2026-04-27
+    path: ../source_trace_summary.tsv
+  repository_architecture:
+    required_root_files:
+    - path: README.md
+      role: public_repository_entry_point
+      required: true
+      expected_item_type: description
+      validation_status: present_current_orientation
+      existence_audit_date: '2026-04-27'
+    - path: LICENSE
+      role: license_terms
+      required: true
+      expected_item_type: policy
+      validation_status: present_open_license_confirmed
+      existence_audit_date: '2026-04-27'
+    - path: CITATION.cff
+      role: citation_metadata
+      required: true
+      expected_item_type: metadata_record
+      validation_status: present_release_metadata_updated_with_reserved_doi
+      existence_audit_date: '2026-04-27'
+    - path: CHANGELOG.md
+      role: release_change_log
+      required: true
+      expected_item_type: record
+      validation_status: present_updated_for_v0_1_0_public_draft
+      existence_audit_date: '2026-04-27'
+    - path: CONTRIBUTING.md
+      role: contributor_guidance
+      required: true
+      expected_item_type: procedure
+      validation_status: present_draft
+      existence_audit_date: '2026-04-27'
+    - path: GOVERNANCE.md
+      role: governance_model
+      required: true
+      expected_item_type: policy
+      validation_status: present_draft_needs_public_maintainer_confirmation
+      existence_audit_date: '2026-04-27'
+    - path: SECURITY.md
+      role: security_reporting_policy
+      required: true
+      expected_item_type: policy
+      validation_status: present_draft
+      existence_audit_date: '2026-04-27'
+    - path: CODE_OF_CONDUCT.md
+      role: participation_norms
+      required: true
+      expected_item_type: policy
+      validation_status: present_draft
+      existence_audit_date: '2026-04-27'
+    - path: .zenodo.json
+      role: archival_and_doi_metadata
+      required: true
+      expected_item_type: metadata_record
+      validation_status: present_release_metadata_updated_pending_publish_confirmation
+      existence_audit_date: '2026-04-27'
+    - path: manifest.yaml
+      role: repository_manifest_and_canonical_package_identity
+      required: true
+      expected_item_type: specification
+      validation_status: present_current_control_file
+      existence_audit_date: '2026-04-27'
+    - path: metadata.yaml
+      role: structured_project_metadata
+      required: true
+      expected_item_type: metadata_record
+      validation_status: present_draft_needs_public_metadata_confirmation
+      existence_audit_date: '2026-04-27'
+    - path: artifact-profile.yaml
+      role: artifact_identity_scope_claims_and_reuse_constraints
+      required: true
+      expected_item_type: description
+      validation_status: present_draft
+      existence_audit_date: '2026-04-27'
+    - path: package-inventory.yaml
+      role: package_file_inventory_and_validation_responsibilities
+      required: true
+      expected_item_type: record
+      validation_status: present_current_control_file
+      existence_audit_date: '2026-04-27'
+    - path: conformance-declaration.yaml
+      role: conformance_level_and_tailoring_declaration
+      required: true
+      expected_item_type: record
+      validation_status: present_draft
+      existence_audit_date: '2026-04-27'
+    - path: REUSE.toml
+      role: machine-readable license annotations
+      required: true
+      expected_item_type: metadata
+      validation_status: present
+      existence_audit_date: '2026-04-27'
+    - path: codemeta.json
+      role: CodeMeta citation metadata
+      required: true
+      expected_item_type: metadata
+      validation_status: present
+      existence_audit_date: '2026-04-27'
+    canonical_directories:
+    - path: specs
+      role: controlled product specifications
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: models
+      role: conceptual and operational models
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: vocabularies
+      role: controlled vocabularies
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: schemas
+      role: JSON Schema validation files
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: templates
+      role: reusable templates
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: checklists
+      role: quality and readiness checklists
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: docs/protocol
+      role: human-facing protocol documentation
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/decisions
+      role: retained decision records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/design-decisions
+      role: retained design-decision records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/tailoring
+      role: retained tailoring records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/source-basis
+      role: evidence basis records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/dsr-transparency
+      role: transparency evidence records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/contributions
+      role: contribution-positioning records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/evaluations
+      role: evaluation plans and reports
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/reviews
+      role: quality and self-review records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/releases
+      role: release records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: records/preservation
+      role: preservation and archival records
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: crosswalks
+      role: mappings among sources, protocol products, and framework constructs
+      required: true
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: examples
+      role: demonstration packages and examples
+      required: false
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: .github/ISSUE_TEMPLATE
+      role: repository issue templates
+      required: false
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+    - path: .github/workflows
+      role: automation and validation workflows
+      required: false
+      directory_status: exists
+      existence_audit_date: '2026-04-27'
+  naming_rules:
+    files: lower-kebab-case
+    yaml_extension: .yaml
+    markdown_extension: .md
+    schema_extension: .schema.json
+    product_file_pattern: product-<product-id>.yaml
+    record_file_pattern: record-<record-class>-<sequence-or-date>.yaml
+    template_file_pattern: <target-name>-template.<extension>
+    checklist_file_pattern: <target-name>-checklist.yaml
+    stable_identifier_style: lower_snake_case
+  dependency_map:
+    upstream_dependencies:
+    - dependency_id: repository_architecture
+      dependency_type: governing_structure
+      required_for: manifest_identity_and_file_tree
+      status: available_from_generation_spec
+    - dependency_id: dsr_framework_generation_spec
+      dependency_type: governing_specification
+      required_for: conformance_quality_traceability_and_output_rules
+      status: available
+    - dependency_id: dsr_framework_selection_table
+      dependency_type: selection_registry
+      required_for: selected_target_and_default_conformance
+      status: available
+    peer_root_files:
+    - artifact-profile.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+    - metadata.yaml
+    downstream_dependents:
+    - specs/product-catalog.yaml
+    - specs/product-dsr-repository-architecture.yaml
+    - specs/product-dsr-artifact-package-specification.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+    - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+  package_control:
+    source_of_truth_rules:
+    - id: sot_001
+      rule: Structured package-control data should be maintained in YAML or JSON-compatible files.
+      applies_to:
+      - manifest.yaml
+      - metadata.yaml
+      - artifact-profile.yaml
+      - package-inventory.yaml
+      - conformance-declaration.yaml
+    - id: sot_002
+      rule: Markdown files should remain human-facing descriptions or guides and should link back to controlled YAML or JSON
+        files where applicable.
+      applies_to:
+      - README.md
+      - docs/protocol
+    - id: sot_003
+      rule: Evidence claims must be traceable to the DSR corpus, the documentation protocol, project records, or explicit
+        scoped/reserved status markers.
+      applies_to:
+      - specs
+      - models
+      - records
+      - checklists
+      - docs/protocol
+    manifest_authority:
+      role: package_identity_index
+      authoritative_for:
+      - package_id
+      - package_name
+      - root_file_expectations
+      - canonical_directory_expectations
+      - dependency_relationships
+      - package_control_validation_expectations
+      not_authoritative_for:
+      - detailed artifact contribution claims
+      - final publication readiness
+      - empirical evaluation findings
+      - exhaustive file inventory
+      delegated_authority:
+        artifact-profile.yaml: artifact scope, contribution claims, reuse constraints, and boundary conditions
+        metadata.yaml: bibliographic, authorship, citation, and release metadata
+        package-inventory.yaml: exhaustive file inventory and validation status
+        conformance-declaration.yaml: conformance level, tailoring, and review status
+        records/source-basis/record-source-basis-0001-dsr-corpus.yaml: retained scholarly source-basis evidence
+  validation:
+    validation_status: organized_validated_draft
+    validation_date: '2026-04-27'
+    validation_rules:
+    - validation_id: val_manifest_required_fields
+      rule: Manifest must include item_id, item_type, title, purpose, status, version, owner, related_items, source_basis,
+        and change_history.
+      status: pass
+    - validation_id: val_repository_root_alignment
+      rule: Required root files must include manifest.yaml and package-control peer files.
+      status: pass
+    - validation_id: val_directory_alignment
+      rule: Canonical directories must preserve specs, models, vocabularies, schemas, templates, checklists, docs, records,
+        crosswalks, examples, and GitHub automation areas.
+      status: pass
+    - validation_id: val_conformance_statement
+      rule: Manifest must distinguish selected L1 file conformance from broader L2 package target.
+      status: pass
+    - validation_id: val_traceability
+      rule: Manifest must include upstream dependencies, evidence statuses, quality gates, and related items.
+      status: pass
+    - validation_id: val_required_root_files_present
+      rule: All required root files must exist in the organized package copy.
+      status: pass
+    - validation_id: val_schema_contract_alignment
+      rule: Schemas must validate their corresponding generated templates and retained records after authority reconciliation.
+      status: pass
+    - validation_id: val_repaired_corpus_available
+      rule: A parseable repaired extraction corpus must be available before second-pass literature alignment.
+      status: pass
+    failure_modes:
+    - failure_id: fm_missing_root_file
+      description: A required root file is absent from package inventory or release archive.
+      remediation: Add the file or document tailoring in conformance-declaration.yaml.
+    - failure_id: fm_uncontrolled_identity
+      description: Package identity differs across manifest.yaml, metadata.yaml, artifact-profile.yaml, and CITATION.cff.
+      remediation: Reconcile canonical package_id, title, version, repository URL, and release metadata.
+    - failure_id: fm_unmapped_evidence
+      description: A DSR concept or quality claim is made without corpus, protocol, or record evidence.
+      remediation: Add trace links to records/source-basis or mark evidence_status as not_yet_mapped.
+    - failure_id: fm_overclaimed_readiness
+      description: The package claims L4/L5 reuse or archival publication readiness without supporting evaluation and release
+        records.
+      remediation: Downgrade the conformance claim or add required review, validation, preservation, and release records.
+    validation_summary:
+      required_root_files: pass_all_present
+      canonical_directories: pass_all_required_directories_present_or_intentionally_empty
+      yaml_json_cff_parse: pass
+      json_schema_meta_validation: pass
+      schema_template_record_validation: pass_previously_failing_pairs_now_validate
+      repaired_corpus_parse: pass_71_records
+      publication_readiness: not_ready_metadata_and_review_pending
+      literature_alignment_review: completed_2026-04-27_pass_with_required_followup
+  quality_gates:
+  - gate_id: qg_consistency
+    status: pass
+    evidence:
+    - manifest path is root-level manifest.yaml
+    - item_type is specification
+    - naming rules use lower-kebab-case files and lower_snake_case identifiers
+  - gate_id: qg_coherence
+    status: pass
+    evidence:
+    - peer root files are declared
+    - package inventory and conformance declaration are delegated, not duplicated exhaustively
+    - repository architecture follows the generation specification
+  - gate_id: qg_cogency
+    status: pass
+    evidence:
+    - manifest separates identity, architecture, dependencies, validation, traceability, and limitations
+    - failure modes and remediation guidance are explicit
+  - gate_id: qg_correspondence
+    status: pass
+    evidence:
+    - package class and repository structure correspond to a compound DSR artifact package
+    - manifest supports repository-level identity and package control
+  - gate_id: qg_dsr_transparency
+    status: pass
+    evidence:
+    - manifest maps its role to process, problem-space, solution-space, build, evaluation, and contribution transparency
+  - gate_id: qg_reviewability
+    status: pass
+    evidence:
+    - validation rules, quality gates, assumptions, open questions, and related items are explicit
+  dsr_transparency_mapping:
+    process_transparency:
+      role: Declares repository control flow, dependencies, validation status, and change history.
+      applicability: direct
+    problem_space_transparency:
+      role: Identifies the framework purpose and intended use as a DSR artifact package.
+      applicability: indirect
+    solution_space_transparency:
+      role: Identifies the generation specification, documentation protocol, and DSR corpus as source bases.
+      applicability: direct
+    build_transparency:
+      role: Captures generation date, generation mode, validation status, and change record.
+      applicability: direct
+    evaluation_transparency:
+      role: Defines validation rules, failure modes, and quality gates for reviewer inspection.
+      applicability: direct
+    contribution_transparency:
+      role: Positions the repository as a reusable framework package while deferring detailed claims to artifact-profile.yaml
+        and contribution records.
+      applicability: indirect
+  traceability:
+  - trace_id: tr_root_manifest_to_selection
+    from: dsr_framework_selection_table.root_manifest
+    to: manifest.item_id
+    relation: selected_generation_target
+    evidence_status: provided
+  - trace_id: tr_manifest_to_generation_spec_architecture
+    from: dsr_framework_generation_spec.repository_architecture
+    to: manifest.repository_architecture
+    relation: implements_repository_architecture
+    evidence_status: provided
+  - trace_id: tr_manifest_to_quality_gates
+    from: dsr_framework_generation_spec.quality_gates
+    to: manifest.quality_gates
+    relation: applies_quality_gates
+    evidence_status: provided
+  - trace_id: tr_manifest_to_prompt_procedure
+    from: dsr_framework_generation_prompt.general_generation_procedure
+    to: manifest.validation
+    relation: implements_generation_procedure
+    evidence_status: provided
+  - trace_id: tr_manifest_to_dsr_corpus
+    from: dsr_extraction_corpus
+    to: manifest.source_basis
+    relation: declares_available_scholarly_source_basis
+    evidence_status: available_not_yet_mapped
+  - trace_id: tr_manifest_to_repaired_corpus
+    from: dsr_extraction_corpus_repaired
+    to: manifest.normalization_status.repaired_corpus_reference
+    relation: declares_current_working_corpus_for_literature_alignment
+    evidence_status: available_parse_validated
+  - trace_id: tr_manifest_to_literature_alignment_review
+    from: dsr_extraction_corpus_repaired
+    to: records/reviews/record-literature-alignment-0001.yaml
+    relation: supports_second_pass_literature_alignment_review
+    evidence_status: review_completed_pass_with_required_followup
+  related_items:
+    upstream:
+    - dsr-framework-generation-spec.yaml
+    - dsr-framework-generation-prompt.md
+    - dsr-framework-selection-table.md
+    - chunked_folder_conversion_extractions_20260427030321_part001.yaml
+    - chunked_folder_conversion_extractions_20260427030321_manifest_json_part001.json
+    - ../Extractions_Repaired
+    - ../Extractions_Combined_Repaired/dsr_extractions_repaired_20260427.yaml
+    - FRAMEWORK_AUDIT_2026-04-27.md
+    peer:
+    - README.md
+    - metadata.yaml
+    - artifact-profile.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+    - CITATION.cff
+    - .zenodo.json
+    downstream:
+    - specs/product-catalog.yaml
+    - specs/product-dsr-repository-architecture.yaml
+    - specs/product-dsr-artifact-package-specification.yaml
+    - schemas/package-inventory.schema.json
+    - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    - records/reviews/record-literature-alignment-0001.yaml
+  acceptance_criteria:
+  - criterion_id: ac_manifest_identity
+    criterion: Manifest declares a stable package identity and root repository role.
+    evidence_required:
+    - package.package_id
+    - package.package_name
+    - item_id
+    - item_type
+    status: pass
+  - criterion_id: ac_repository_architecture
+    criterion: Manifest declares required root files and canonical directories.
+    evidence_required:
+    - repository_architecture.required_root_files
+    - repository_architecture.canonical_directories
+    status: pass
+  - criterion_id: ac_dependency_control
+    criterion: Manifest distinguishes upstream dependencies, peer root files, and downstream dependents.
+    evidence_required:
+    - dependency_map
+    - related_items
+    status: pass
+  - criterion_id: ac_reviewability
+    criterion: Manifest includes validation rules, failure modes, quality gates, assumptions, limitations, and open questions.
+    evidence_required:
+    - validation
+    - quality_gates
+    - assumptions
+    - limitations
+    - open_questions
+    status: pass
+  assumptions:
+  - assumption_id: asm_001
+    statement: The public repository URL is not yet known at generation time.
+    handling: Repository URL is resolved in metadata.yaml, CITATION.cff, .zenodo.json, and manifest.yaml for the public draft
+      release.
+  - assumption_id: asm_002
+    statement: CC0-1.0 is used as the provisional license identifier because the governing generation files carry CC0-1.0
+      SPDX headers.
+    handling: Confirm against the final LICENSE file before public release.
+  - assumption_id: asm_003
+    statement: root_manifest is treated as L1 documented according to the selected table row, while the broader package default
+      remains L2 reviewable according to the generation specification.
+    handling: Reconcile any conformance tailoring in conformance-declaration.yaml.
+  limitations:
+  - limitation_id: lim_001
+    statement: This manifest does not replace package-inventory.yaml as an exhaustive file-by-file inventory.
+  - limitation_id: lim_002
+    statement: This manifest does not assert empirical evaluation, publication readiness, DOI registration, or repository
+      archival completion.
+  - limitation_id: lim_003
+    statement: The live documentation-protocol repository was checked for structural alignment on 2026-04-27, but future upstream
+      changes are not pinned to a commit in this package yet.
+  - limitation_id: lim_004
+    statement: Required root files are present, but public repository URL, creator metadata, maintainer contact, release date,
+      and DOI information have been updated for the public draft release, with Zenodo publication pending explicit confirmation.
+  open_questions:
+  - question_id: oq_repository_url
+    question: What is the canonical GitHub repository URL for the DSR Framework package?
+    blocking_release: true
+    assigned_to: project_maintainer
+  - question_id: oq_maintainer_identity
+    question: What public maintainer name, organization, or contact route should be declared?
+    blocking_release: true
+    assigned_to: project_maintainer
+  - question_id: oq_license_confirmation
+    question: Should the repository license remain CC0-1.0 for all generated framework files?
+    blocking_release: true
+    assigned_to: project_maintainer
+  - question_id: oq_inventory_completion
+    question: Which selected files will be generated before the first v0.1.0 release candidate?
+    blocking_release: false
+    assigned_to: project_maintainer
+  change_history:
+  - version: 0.1.0
+    date: '2026-04-27'
+    change_type: initial_generation
+    description: Generated root repository manifest from selected root_manifest row.
+    responsible_party: GPT-5.5 Thinking
+    related_request: user selected root_manifest from DSR Framework selection table
+  - version: 0.1.0
+    date: '2026-04-27'
+    change_type: normalization_update
+    description: Updated manifest to reflect organized package structure, required root file presence, schema/template validation
+      pass, and repaired corpus availability.
+    responsible_party: GPT-5.5 Thinking
+    related_request: update root control files after schema authority reconciliation
+  - version: 0.1.0
+    date: '2026-04-27'
+    change_type: literature_alignment_update
+    description: Registered second-pass literature alignment review and recorded pass-with-required-followup status.
+    responsible_party: GPT-5.5 Thinking
+    related_request: second-pass literature alignment review using repaired corpus

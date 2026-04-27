@@ -1,0 +1,1135 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_publication_readiness_model
+  item_id: dsr_publication_readiness_model
+  item_type: specification
+  title: DSR Publication and Release Readiness Model
+  purpose: >
+    Define the controlled model used to determine whether a Design Science Research
+    artifact package is ready for scholarly submission, repository release,
+    citation, reuse, and archival preservation. The model distinguishes manuscript
+    readiness, artifact-package readiness, repository-release readiness, and
+    archival-publication readiness so that a project can be reviewed without
+    overclaiming evidence, reproducibility, projectability, or publication status.
+  status: draft
+  version: "0.1.0"
+  target_path: models/dsr-publication-readiness-model.yaml
+  selection_id: model_publication_readiness
+  output_format: yaml
+  conformance_target: l4_reusable
+  owner: dsr_framework_maintainers
+  responsible_roles:
+    - role_id: artifact_author
+      label: Artifact Author
+      responsibility: Prepare the manuscript, artifact package, evidence bundle, and release notes.
+    - role_id: quality_reviewer
+      label: Quality Reviewer
+      responsibility: Review consistency, coherence, cogency, correspondence, transparency, and conformance.
+    - role_id: release_manager
+      label: Release Manager
+      responsibility: Confirm package integrity, version tagging, release metadata, and repository readiness.
+    - role_id: publication_steward
+      label: Publication Steward
+      responsibility: Confirm publication target fit, citation metadata, licensing, archival deposit, and public communication.
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial publication-readiness model generated from the DSR Framework selection table.
+      responsible_party: GPT-5.5 Thinking
+
+source_basis:
+  - source_id: user_current_request
+    source_type: immediate_task_definition
+    role: selection_authority
+    evidence_status: mapped
+    notes: User selected model_publication_readiness and requested a file with the proper file name.
+  - source_id: dsr_framework_selection_table
+    source_type: project_registry
+    role: target_path_and_dependency_authority
+    evidence_status: mapped
+    mapped_claims:
+      - model_publication_readiness targets models/dsr-publication-readiness-model.yaml.
+      - The portion type is model, output format is yaml, default conformance is L4, and dependencies are quality review and publication registry.
+  - source_id: dsr_framework_generation_spec
+    source_type: governing_specification
+    role: repository_and_quality_gate_authority
+    evidence_status: mapped
+    mapped_claims:
+      - Controlled models belong in models/ and should use YAML-compatible structured data.
+      - Controlled items require stable identifiers, source basis, related items, traceability, quality gates, and reviewability criteria.
+      - Generated content must distinguish demonstration from evaluation, artifact utility from artifact quality, and contribution to knowledge.
+  - source_id: dsr_framework_generation_prompt
+    source_type: generation_prompt
+    role: procedure_authority
+    evidence_status: mapped
+    mapped_claims:
+      - Model files must define controlled entities, relationships, boundary conditions, validation implications, and traceability.
+      - The selected file should preserve DSR distinctions around transparency, validity, reliability, replication, and projectability.
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    source_type: dsr_corpus_source
+    role: transparency_and_publication_guidance
+    evidence_status: mapped
+    citation_anchor_ids:
+      - CA01
+      - CA06
+      - CA10
+      - CA14
+      - CA15
+      - CA16
+      - CA17
+      - CA18
+    mapped_claims:
+      - DSR transparency includes process, problem-space, solution-space, build, evaluation, and contribution transparency.
+      - Repository materials, code, data, process traces, and other transparency artifacts can support review and reuse, while proportionality and confidentiality constraints must be respected.
+  - source_id: reining_etal_2022
+    source_type: dsr_corpus_source
+    role: cumulative_knowledge_and_retention_guidance
+    evidence_status: mapped
+    citation_anchor_ids:
+      - A01
+      - A02
+      - A08
+      - A09
+      - A10
+      - A17
+    mapped_claims:
+      - Publication readiness should support cumulative DSR through relevance, novelty-reuse balance, testability, usefulness, retention, repositories, taxonomies, benchmarking, and documentation standards.
+  - source_id: gregor_zwikael_2024
+    source_type: dsr_corpus_source
+    role: publication_positioning_and_problem_class_guidance
+    evidence_status: mapped
+    citation_anchor_ids:
+      - A01
+      - A06
+      - A10
+      - A12
+      - A13
+      - A14
+    mapped_claims:
+      - DSR publication positioning should identify problem class, methods, grounding, artifact type, and knowledge contribution level.
+  - source_id: baskerville_baiyere_gregor_hevner_rossi_2018_design_science_research_contributions
+    source_type: dsr_corpus_source
+    role: contribution_and_publication_norms
+    evidence_status: mapped
+    citation_anchor_ids:
+      - A1
+      - A3
+      - A11
+      - A15
+      - A18
+      - A19
+    mapped_claims:
+      - DSR publication should not be judged only by descriptive theory contribution; artifact, design theory, process, impact, novelty, utility, and contribution claims must be positioned clearly.
+  - source_id: vom_brocke_gau_maedche_2021_journaling_dsr_process
+    source_type: dsr_corpus_source
+    role: process_transparency_guidance
+    evidence_status: mapped
+    citation_anchor_ids:
+      - A04
+      - A06
+      - A07
+      - A10
+    mapped_claims:
+      - Publication readiness can be improved by documenting design-process scope, steps, reflections, and results as the DSR process unfolds.
+
+related_items:
+  upstream_dependencies:
+    - path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relation: supplies_quality_review_model
+      required: true
+    - path: specs/product-dsr-publication-and-registry-model.yaml
+      relation: supplies_release_registry_and_archival_rules
+      required: true
+    - path: models/dsr-transparency-model.yaml
+      relation: supplies_transparency_dimensions
+      required: true
+    - path: models/dsr-evaluation-alignment-model.yaml
+      relation: supplies_claim_evidence_alignment_logic
+      required: true
+    - path: models/dsr-reliability-model.yaml
+      relation: supplies_reliability_review_logic
+      required: true
+    - path: models/dsr-projectability-model.yaml
+      relation: supplies_projectability_and_reuse_logic
+      required: true
+  downstream_dependents:
+    - path: checklists/publication-readiness-checklist.yaml
+      relation: operationalizes_readiness_gates_as_review_questions
+    - path: docs/protocol/14-publication-and-review-guidance.md
+      relation: explains_publication_readiness_model_for_human_readers
+    - path: records/releases/record-release-0001-v0-1-0.yaml
+      relation: records_release_decision_against_this_model
+    - path: package-inventory.yaml
+      relation: lists_generated_file_and_validation_responsibility
+
+model_scope:
+  applies_to:
+    - dsr_framework_repository_release
+    - dsr_artifact_package
+    - dsr_project_record_set
+    - dsr_manuscript_or_publication_package
+    - reusable_framework_release
+    - archival_deposit_candidate
+  publication_readiness_definition: >
+    The state in which a DSR artifact package has sufficient identity, evidence,
+    contribution positioning, quality review, transparency, metadata, license clarity,
+    and release controls to be submitted to a scholarly or professional venue without
+    known unresolved blockers.
+  release_readiness_definition: >
+    The state in which the repository package can be tagged, cited, downloaded,
+    validated, and reused by others under its declared license and conformance level.
+  archival_readiness_definition: >
+    The state in which the release has stable metadata, preservation records, citation
+    information, licensing, provenance, and registry deposit material sufficient for
+    durable access and later audit.
+  non_goals:
+    - This model does not guarantee acceptance by a journal, conference, registry, repository, or archive.
+    - This model does not replace venue-specific author instructions, peer-review criteria, or legal review.
+    - This model does not assert that all DSR artifacts are reproducible in the same sense as controlled experiments.
+    - This model does not require full public disclosure of confidential, proprietary, security-sensitive, or privacy-sensitive material.
+  boundaries:
+    - boundary_id: b_publication_vs_acceptance
+      rule: Readiness means sufficient preparation for review, not publication acceptance.
+    - boundary_id: b_release_vs_archival
+      rule: A reusable release may be ready before a DOI, registry deposit, or preservation record is complete.
+    - boundary_id: b_transparency_vs_disclosure
+      rule: Transparency may be achieved through scoped summaries, redaction, metadata, or access-controlled materials when open disclosure is unsafe or inappropriate.
+    - boundary_id: b_evidence_vs_claim_strength
+      rule: Claim strength must be limited by available evidence; absent evidence produces conditional readiness, not full readiness.
+
+controlled_entities:
+  - entity_id: publication_candidate
+    label: Publication Candidate
+    definition: A DSR manuscript, paper, report, or public-facing scholarly narrative prepared for review or dissemination.
+    required_attributes:
+      - title
+      - abstract_or_summary
+      - publication_target
+      - contribution_claims
+      - evidence_summary
+      - author_roles
+      - status
+    boundary_notes: A publication candidate is not the same as a repository release; it may cite or summarize the artifact package rather than contain every artifact file.
+  - entity_id: release_candidate
+    label: Release Candidate
+    definition: A versioned repository package proposed for public release, reuse, citation, or deposit.
+    required_attributes:
+      - release_version
+      - release_scope
+      - package_inventory
+      - validation_status
+      - license_profile
+      - known_limitations
+      - release_notes
+    boundary_notes: A release candidate can be reviewable even when some archival metadata or publication venue details are pending.
+  - entity_id: archival_deposit_candidate
+    label: Archival Deposit Candidate
+    definition: A release candidate prepared for DOI registration, repository deposit, preservation packaging, or long-term registry entry.
+    required_attributes:
+      - stable_identifier_plan
+      - citation_metadata
+      - preservation_record
+      - rights_statement
+      - retention_rule
+      - checksum_or_fixity_evidence
+    boundary_notes: Archival readiness adds durability and fixity obligations beyond ordinary release readiness.
+  - entity_id: evidence_bundle
+    label: Evidence Bundle
+    definition: The collected records, evaluation reports, reviews, checklists, traces, source-basis records, and examples supporting readiness claims.
+    required_attributes:
+      - evidence_items
+      - source_basis
+      - claim_alignment
+      - evidence_limitations
+      - evidence_status
+    boundary_notes: Evidence may support demonstration, evaluation, quality review, or release validation; those functions must not be collapsed.
+  - entity_id: contribution_positioning_profile
+    label: Contribution Positioning Profile
+    definition: Structured statement of artifact type, problem class, knowledge goals, knowledge scope, novelty, utility, target audience, and contribution strength.
+    required_attributes:
+      - artifact_type
+      - problem_class
+      - knowledge_goal
+      - knowledge_scope
+      - contribution_type
+      - novelty_claim
+      - utility_claim
+      - scholarly_contribution
+      - practical_contribution
+    boundary_notes: Contribution positioning constrains publishability claims but does not by itself establish evaluation evidence.
+  - entity_id: quality_review_result
+    label: Quality Review Result
+    definition: A retained assessment of consistency, coherence, cogency, correspondence, DSR transparency, and reviewability.
+    required_attributes:
+      - reviewer
+      - date
+      - criteria_assessed
+      - findings
+      - blockers
+      - required_remediation
+      - decision
+    boundary_notes: Quality review is a readiness input; it is not equivalent to peer review or empirical evaluation.
+  - entity_id: publication_target
+    label: Publication Target
+    definition: The intended venue, channel, registry, repository, conference, journal, documentation site, or public release destination.
+    required_attributes:
+      - target_name
+      - target_type
+      - audience
+      - submission_or_release_requirements
+      - fit_rationale
+      - constraints
+    boundary_notes: Target-specific constraints can raise the readiness threshold beyond this generic model.
+  - entity_id: metadata_profile
+    label: Metadata Profile
+    definition: Structured citation, authorship, provenance, license, version, identifier, and access metadata needed for publication and reuse.
+    required_attributes:
+      - title
+      - version
+      - authors_or_maintainers
+      - license
+      - citation
+      - identifiers
+      - keywords
+      - dates
+      - provenance
+    boundary_notes: Metadata must be consistent across README, CITATION.cff, .zenodo.json, manifest, package inventory, and release records where present.
+  - entity_id: rights_and_risk_profile
+    label: Rights and Risk Profile
+    definition: Controlled description of licensing, attribution, third-party content, privacy, security, intellectual-property, and disclosure constraints.
+    required_attributes:
+      - license_id
+      - third_party_materials
+      - attribution_requirements
+      - sensitive_materials
+      - disclosure_constraints
+      - mitigation_controls
+    boundary_notes: Rights clearance is a release blocker when licensing or disclosure risks are unresolved.
+  - entity_id: readiness_gate
+    label: Readiness Gate
+    definition: A review checkpoint with explicit evidence requirements, pass criteria, conditional-pass criteria, blockers, and remediation actions.
+    required_attributes:
+      - gate_id
+      - gate_name
+      - applies_to
+      - evidence_required
+      - pass_condition
+      - conditional_pass_condition
+      - fail_condition
+      - remediation_guidance
+    boundary_notes: Gates can be satisfied, conditionally satisfied, failed, waived with rationale, or not applicable with rationale.
+  - entity_id: release_decision
+    label: Release Decision
+    definition: A retained decision to proceed, proceed with conditions, defer, reject, archive internally, or supersede a publication or repository release candidate.
+    required_attributes:
+      - decision_id
+      - decision_date
+      - decision_state
+      - decision_authority
+      - evidence_basis
+      - conditions
+      - next_action
+    boundary_notes: Release decisions must be recorded; informal readiness impressions do not satisfy L4 reviewability.
+  - entity_id: post_release_obligation
+    label: Post-Release Obligation
+    definition: A maintenance, erratum, preservation, citation, support, issue-response, or update obligation created by publication or release.
+    required_attributes:
+      - obligation_id
+      - trigger
+      - responsible_role
+      - due_condition
+      - monitoring_method
+      - closure_condition
+    boundary_notes: L4 reuse requires some post-release responsibility model even if long-term support is limited.
+
+readiness_dimensions:
+  - dimension_id: prd_identity_scope
+    label: Identity and Scope Readiness
+    definition: The candidate clearly identifies what artifact package, publication object, version, audience, and contribution scope is under review.
+    evidence_required:
+      - manifest.yaml
+      - metadata.yaml
+      - artifact-profile.yaml
+      - README.md
+      - publication_target_statement
+  - dimension_id: prd_package_completeness
+    label: Package Completeness Readiness
+    definition: Required package files, models, specifications, schemas, templates, records, docs, and examples are present or intentionally excluded with rationale.
+    evidence_required:
+      - package-inventory.yaml
+      - repository_tree_check
+      - required_file_status_report
+  - dimension_id: prd_contribution_positioning
+    label: Contribution Positioning Readiness
+    definition: Artifact type, contribution type, knowledge goal, knowledge scope, novelty, reuse, practical utility, and scholarly contribution are explicit and bounded.
+    evidence_required:
+      - contribution_claim_template_or_record
+      - artifact_profile_claims
+      - source_basis_record
+      - novelty_and_reuse_statement
+  - dimension_id: prd_evidence_alignment
+    label: Evidence Alignment Readiness
+    definition: Evaluation, demonstration, review, and validation evidence are aligned to claims without overstating support.
+    evidence_required:
+      - evaluation_plan
+      - evaluation_report
+      - demonstration_records
+      - claim_evidence_matrix
+      - limitations_statement
+  - dimension_id: prd_quality_conformance
+    label: Quality and Conformance Readiness
+    definition: The package has passed controlled review for consistency, coherence, cogency, correspondence, DSR transparency, and reviewability.
+    evidence_required:
+      - review_record
+      - checklist_results
+      - conformance_declaration
+      - unresolved_issue_log
+  - dimension_id: prd_transparency
+    label: DSR Transparency Readiness
+    definition: Process, problem-space, solution-space, build, evaluation, and contribution transparency are documented at a level appropriate for the release target.
+    evidence_required:
+      - dsr_transparency_crosswalk
+      - build_transparency_record
+      - design_rationale_record
+      - solution_space_record
+      - evaluation_transparency_evidence
+  - dimension_id: prd_reliability_projectability
+    label: Reliability, Replication, and Projectability Readiness
+    definition: Reliability claims, reuse conditions, transfer constraints, adaptation guidance, and replication limits are explicit.
+    evidence_required:
+      - reliability_checklist
+      - replication_projectability_checklist
+      - boundary_conditions
+      - reuse_or_adaptation_guidance
+  - dimension_id: prd_rights_risk
+    label: Rights, Ethics, and Risk Readiness
+    definition: License, attribution, third-party content, privacy, confidentiality, security, and responsible-design concerns have been reviewed and mitigated.
+    evidence_required:
+      - LICENSE
+      - third_party_materials_record
+      - security_review_or_statement
+      - responsible_design_review
+      - risk_register
+  - dimension_id: prd_metadata_citation
+    label: Metadata and Citation Readiness
+    definition: Citation, version, authorship, identifiers, keywords, provenance, and access metadata are internally consistent and publication-ready.
+    evidence_required:
+      - CITATION.cff
+      - .zenodo.json
+      - metadata.yaml
+      - manifest.yaml
+      - release_notes
+  - dimension_id: prd_repository_release
+    label: Repository Release Readiness
+    definition: The repository package can be validated, tagged, cited, retrieved, and reused with known limitations.
+    evidence_required:
+      - package_inventory_validation
+      - changelog_entry
+      - release_record
+      - checksum_or_file_integrity_evidence
+      - issue_or_backlog_status
+  - dimension_id: prd_archival_preservation
+    label: Archival and Preservation Readiness
+    definition: Deposit, DOI, fixity, preservation metadata, retention, and supersession rules are defined where archival publication is intended.
+    evidence_required:
+      - preservation_record
+      - archival_deposit_metadata
+      - identifier_record
+      - retention_rule
+  - dimension_id: prd_communication_response
+    label: Communication and Review Response Readiness
+    definition: The candidate can support review, revision, response, public explanation, and practitioner-oriented interpretation.
+    evidence_required:
+      - review_response_plan
+      - practitioner_summary_or_docs
+      - reviewer_guidance
+      - known_limitations_and_faq
+
+readiness_states:
+  - state_id: not_ready
+    label: Not Ready
+    definition: One or more blocking defects prevent responsible submission or release.
+    allowed_next_states:
+      - in_preparation
+      - deferred
+  - state_id: in_preparation
+    label: In Preparation
+    definition: The candidate is being assembled and is not yet ready for formal readiness review.
+    allowed_next_states:
+      - review_ready
+      - not_ready
+      - deferred
+  - state_id: review_ready
+    label: Review Ready
+    definition: The candidate has enough structure and evidence for internal quality review.
+    allowed_next_states:
+      - revision_required
+      - release_candidate
+      - publication_ready_with_conditions
+  - state_id: revision_required
+    label: Revision Required
+    definition: Review identified issues that must be corrected before release or submission.
+    allowed_next_states:
+      - review_ready
+      - deferred
+      - not_ready
+  - state_id: publication_ready_with_conditions
+    label: Publication Ready With Conditions
+    definition: Submission or release may proceed if listed conditions are disclosed and tracked.
+    allowed_next_states:
+      - publication_ready
+      - release_candidate
+      - revision_required
+  - state_id: release_candidate
+    label: Release Candidate
+    definition: The repository package is versioned and ready for final release validation.
+    allowed_next_states:
+      - released
+      - archival_release_ready
+      - revision_required
+  - state_id: publication_ready
+    label: Publication Ready
+    definition: The candidate satisfies publication-readiness gates for the declared target and has no unresolved blocking defects.
+    allowed_next_states:
+      - submitted
+      - release_candidate
+      - archival_release_ready
+  - state_id: submitted
+    label: Submitted
+    definition: The publication candidate has been submitted to a venue or registry; external review is pending.
+    allowed_next_states:
+      - revision_required
+      - accepted
+      - rejected
+      - withdrawn
+  - state_id: released
+    label: Released
+    definition: The repository package has been publicly released, tagged, and documented.
+    allowed_next_states:
+      - archival_release_ready
+      - superseded
+      - deprecated
+  - state_id: archival_release_ready
+    label: Archival Release Ready
+    definition: The release is ready for DOI registration, preservation, or durable repository deposit.
+    allowed_next_states:
+      - archived
+      - released
+      - superseded
+  - state_id: archived
+    label: Archived
+    definition: The release has durable preservation metadata and deposit or retention evidence.
+    allowed_next_states:
+      - superseded
+      - deprecated
+  - state_id: deferred
+    label: Deferred
+    definition: Readiness work has been paused for strategic, evidence, scope, or resource reasons.
+    allowed_next_states:
+      - in_preparation
+      - not_ready
+  - state_id: rejected
+    label: Rejected
+    definition: A venue, reviewer, or release authority rejected the candidate.
+    allowed_next_states:
+      - revision_required
+      - deferred
+      - withdrawn
+  - state_id: withdrawn
+    label: Withdrawn
+    definition: The author or release authority withdrew the candidate from consideration.
+    allowed_next_states:
+      - in_preparation
+      - deferred
+  - state_id: superseded
+    label: Superseded
+    definition: A later version has replaced the release or publication package.
+    allowed_next_states:
+      - archived
+      - deprecated
+  - state_id: deprecated
+    label: Deprecated
+    definition: The release remains accessible but is no longer recommended for active use.
+    allowed_next_states:
+      - archived
+
+readiness_gates:
+  - gate_id: prg_01_identity_and_scope
+    gate_name: Identity and Scope Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+    readiness_dimensions:
+      - prd_identity_scope
+    evidence_required:
+      - manifest.yaml
+      - metadata.yaml
+      - artifact-profile.yaml
+      - publication_target_statement
+    pass_condition: Candidate identity, version, scope, audience, and target are internally consistent.
+    conditional_pass_condition: Minor metadata gaps exist but do not alter scope, version, or target interpretation.
+    fail_condition: Candidate scope, version, audience, or target cannot be determined reliably.
+    remediation_guidance: Reconcile manifest, metadata, artifact profile, README, and target statement before further review.
+  - gate_id: prg_02_contribution_positioning
+    gate_name: Contribution Positioning Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+    readiness_dimensions:
+      - prd_contribution_positioning
+    evidence_required:
+      - contribution_claim_record
+      - source_basis_record
+      - novelty_reuse_analysis
+      - problem_class_statement
+    pass_condition: Claims distinguish artifact utility, artifact quality, scholarly contribution, practical contribution, knowledge goal, and knowledge scope.
+    conditional_pass_condition: "Contribution is plausible but some source-basis mappings remain marked evidence_status: not_yet_mapped."
+    fail_condition: Contribution claims are generic, unsupported, overstated, or not distinguishable from routine design work.
+    remediation_guidance: Revise contribution profile and map each major claim to evidence, source basis, and boundary conditions.
+  - gate_id: prg_03_evidence_and_claim_alignment
+    gate_name: Evidence and Claim Alignment Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+    readiness_dimensions:
+      - prd_evidence_alignment
+    evidence_required:
+      - evaluation_plan
+      - evaluation_report
+      - demonstration_record
+      - claim_evidence_matrix
+      - limitations_statement
+    pass_condition: Each major readiness, utility, quality, and contribution claim is supported by proportionate evidence or explicitly limited.
+    conditional_pass_condition: Evidence is sufficient for a draft or preprint but not yet sufficient for stronger generalization, reuse, or archival claims.
+    fail_condition: Demonstration is presented as evaluation, evaluation evidence is missing, or claim scope exceeds evidence strength.
+    remediation_guidance: Separate demonstration from evaluation, reduce claim strength, or add evaluation and review evidence.
+  - gate_id: prg_04_quality_and_conformance_review
+    gate_name: Quality and Conformance Review Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+    readiness_dimensions:
+      - prd_quality_conformance
+    evidence_required:
+      - review_record
+      - conformance_declaration
+      - checklist_results
+      - issue_log
+    pass_condition: Review record shows no blocking failures across consistency, coherence, cogency, correspondence, DSR transparency, and reviewability.
+    conditional_pass_condition: Non-blocking issues are recorded with owner, due condition, and disclosure path.
+    fail_condition: Blocking conformance issues, missing required records, or unresolved contradictions remain.
+    remediation_guidance: Complete remediation and retain a revised review record before advancing the release state.
+  - gate_id: prg_05_transparency_and_traceability
+    gate_name: Transparency and Traceability Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+      - archival_deposit_candidate
+    readiness_dimensions:
+      - prd_transparency
+    evidence_required:
+      - dsr_transparency_crosswalk
+      - design_rationale_record
+      - solution_space_record
+      - build_transparency_record
+      - traceability_matrix
+    pass_condition: Process, problem-space, solution-space, build, evaluation, and contribution transparency are present or marked not_applicable with rationale.
+    conditional_pass_condition: Some transparency evidence is summarized or access-controlled because of proportionality, privacy, security, or proprietary constraints.
+    fail_condition: Critical design decisions, source basis, evaluation basis, or contribution evidence cannot be traced.
+    remediation_guidance: Add trace links, summarize restricted evidence, or document constraints and alternative verification paths.
+  - gate_id: prg_06_package_integrity
+    gate_name: Package Integrity Gate
+    applies_to:
+      - release_candidate
+      - archival_deposit_candidate
+    readiness_dimensions:
+      - prd_package_completeness
+      - prd_repository_release
+    evidence_required:
+      - package-inventory.yaml
+      - repository_tree_check
+      - changelog_entry
+      - validation_log
+      - file_integrity_evidence
+    pass_condition: Required files are present, inventory is current, links resolve, and validation shows no blocking errors.
+    conditional_pass_condition: Optional downstream files are absent but marked intentionally deferred with rationale.
+    fail_condition: Missing required files, broken critical links, invalid YAML or JSON, or unresolved inventory mismatches exist.
+    remediation_guidance: Re-run package validation, correct file paths and inventory entries, and update change records.
+  - gate_id: prg_07_rights_ethics_security
+    gate_name: Rights, Ethics, and Security Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+      - archival_deposit_candidate
+    readiness_dimensions:
+      - prd_rights_risk
+    evidence_required:
+      - LICENSE
+      - rights_and_risk_profile
+      - third_party_materials_record
+      - security_statement
+      - responsible_design_review
+    pass_condition: License, third-party material, attribution, privacy, security, and ethical disclosure risks are resolved or mitigated.
+    conditional_pass_condition: Some materials are restricted or redacted with clear rationale and safe substitute descriptions.
+    fail_condition: License is missing, rights are ambiguous, or release could expose sensitive, proprietary, unsafe, or unauthorized material.
+    remediation_guidance: Replace, remove, license, redact, or restrict problematic material and document the decision.
+  - gate_id: prg_08_metadata_citation
+    gate_name: Metadata and Citation Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+      - archival_deposit_candidate
+    readiness_dimensions:
+      - prd_metadata_citation
+    evidence_required:
+      - CITATION.cff
+      - metadata.yaml
+      - .zenodo.json
+      - manifest.yaml
+      - release_notes
+    pass_condition: Title, version, contributors, license, identifiers, keywords, dates, and citation fields are consistent across metadata surfaces.
+    conditional_pass_condition: Identifier fields are pending deposit but the planned identifier strategy is explicit.
+    fail_condition: Metadata conflict would prevent reliable citation, attribution, indexing, or reuse.
+    remediation_guidance: Harmonize metadata files and rerun metadata consistency review.
+  - gate_id: prg_09_release_and_archival_controls
+    gate_name: Release and Archival Controls Gate
+    applies_to:
+      - release_candidate
+      - archival_deposit_candidate
+    readiness_dimensions:
+      - prd_repository_release
+      - prd_archival_preservation
+    evidence_required:
+      - release_record
+      - preservation_record
+      - version_tag_plan
+      - retention_rule
+      - supersession_policy
+    pass_condition: Release decision, versioning, preservation, retention, fixity, and supersession controls are documented.
+    conditional_pass_condition: Release may proceed before archival deposit if the deposit task is recorded as a post-release obligation.
+    fail_condition: The release cannot be reconstructed, cited, audited, or superseded from retained records.
+    remediation_guidance: Create release and preservation records, assign obligations, and verify version/tag consistency.
+  - gate_id: prg_10_review_response_and_communication
+    gate_name: Review Response and Communication Gate
+    applies_to:
+      - publication_candidate
+      - release_candidate
+    readiness_dimensions:
+      - prd_communication_response
+    evidence_required:
+      - reviewer_guidance
+      - practitioner_summary
+      - limitations_and_faq
+      - issue_response_plan
+    pass_condition: Reviewer, researcher, practitioner, and maintainer audiences can understand scope, use, limitations, and response channels.
+    conditional_pass_condition: Practitioner-facing communication is minimal but sufficient for the declared release audience.
+    fail_condition: Intended users cannot determine how to review, cite, reuse, adapt, or report issues.
+    remediation_guidance: Add human-facing guidance, limitations, issue templates, and response process documentation.
+
+relationships:
+  - relationship_id: rel_candidate_has_evidence_bundle
+    subject_entity: publication_candidate
+    predicate: is_supported_by
+    object_entity: evidence_bundle
+    cardinality: one_to_one_or_many
+    validation_implication: A publication candidate cannot pass evidence alignment without an evidence bundle or explicit evidence limitations.
+  - relationship_id: rel_release_has_inventory
+    subject_entity: release_candidate
+    predicate: is_enumerated_by
+    object_entity: package_inventory
+    cardinality: one_to_one
+    validation_implication: Release readiness requires package inventory alignment.
+  - relationship_id: rel_claims_constrained_by_evidence
+    subject_entity: contribution_positioning_profile
+    predicate: is_constrained_by
+    object_entity: evidence_bundle
+    cardinality: many_to_many
+    validation_implication: Contribution claims must not exceed evidence strength or scope.
+  - relationship_id: rel_quality_review_evaluates_candidate
+    subject_entity: quality_review_result
+    predicate: evaluates
+    object_entity: release_candidate
+    cardinality: many_to_one
+    validation_implication: L4 readiness requires a retained quality review result.
+  - relationship_id: rel_metadata_describes_release
+    subject_entity: metadata_profile
+    predicate: describes
+    object_entity: release_candidate
+    cardinality: one_to_one_or_many
+    validation_implication: Metadata conflicts across files block citation readiness.
+  - relationship_id: rel_rights_profile_constrains_disclosure
+    subject_entity: rights_and_risk_profile
+    predicate: constrains
+    object_entity: release_candidate
+    cardinality: one_to_one_or_many
+    validation_implication: Disclosure constraints must be resolved before public release.
+  - relationship_id: rel_readiness_gate_controls_state_transition
+    subject_entity: readiness_gate
+    predicate: controls_transition_to
+    object_entity: readiness_state
+    cardinality: many_to_many
+    validation_implication: State changes must reference gate outcomes.
+  - relationship_id: rel_release_decision_records_gate_outcomes
+    subject_entity: release_decision
+    predicate: records
+    object_entity: readiness_gate
+    cardinality: one_to_many
+    validation_implication: A release decision must cite the gates reviewed and their status.
+  - relationship_id: rel_archival_candidate_extends_release_candidate
+    subject_entity: archival_deposit_candidate
+    predicate: extends
+    object_entity: release_candidate
+    cardinality: one_to_one
+    validation_implication: Archival readiness cannot be assessed until release readiness is at least conditional.
+  - relationship_id: rel_post_release_obligation_follows_release
+    subject_entity: post_release_obligation
+    predicate: is_triggered_by
+    object_entity: release_decision
+    cardinality: many_to_one
+    validation_implication: Conditional releases require tracked post-release obligations.
+
+workflow:
+  - step_id: prw_01_intake
+    title: Intake Candidate
+    action: Identify the publication candidate, release candidate, target audience, intended release level, and applicable readiness gates.
+    inputs:
+      - selected_candidate
+      - publication_target
+      - package_inventory
+    outputs:
+      - readiness_review_scope
+      - applicable_gate_list
+  - step_id: prw_02_map_claims
+    title: Map Claims and Contribution Positioning
+    action: Map artifact, utility, quality, contribution, projectability, and publication claims to evidence and source basis.
+    inputs:
+      - artifact_profile
+      - contribution_claim_record
+      - source_basis_record
+    outputs:
+      - claim_evidence_matrix
+      - claim_strength_limits
+  - step_id: prw_03_review_quality
+    title: Conduct Quality and Conformance Review
+    action: Apply quality gates for consistency, coherence, cogency, correspondence, DSR transparency, and reviewability.
+    inputs:
+      - review_record_template
+      - generated_files
+      - conformance_declaration
+    outputs:
+      - quality_review_result
+      - blocker_log
+  - step_id: prw_04_resolve_evidence_gaps
+    title: Resolve Evidence and Transparency Gaps
+    action: Separate demonstration from evaluation, reduce unsupported claims, add missing evidence, or document limitations.
+    inputs:
+      - claim_evidence_matrix
+      - evaluation_plan
+      - evaluation_report
+      - transparency_crosswalk
+    outputs:
+      - revised_evidence_bundle
+      - limitations_statement
+  - step_id: prw_05_validate_package
+    title: Validate Package and Metadata
+    action: Verify required files, YAML/JSON validity, link integrity, citation metadata, version consistency, and inventory alignment.
+    inputs:
+      - package_inventory
+      - metadata_profile
+      - repository_tree
+      - validation_rules
+    outputs:
+      - validation_log
+      - metadata_consistency_result
+  - step_id: prw_06_review_rights_and_risks
+    title: Review Rights, Ethics, and Security
+    action: Check license, attribution, third-party materials, confidential content, privacy, security, and responsible-design risks.
+    inputs:
+      - rights_and_risk_profile
+      - LICENSE
+      - SECURITY.md
+      - third_party_materials_record
+    outputs:
+      - rights_clearance_result
+      - disclosure_constraints
+  - step_id: prw_07_make_release_decision
+    title: Make Publication or Release Decision
+    action: Assign a readiness state and record conditions, blockers, obligations, and next actions.
+    inputs:
+      - gate_results
+      - quality_review_result
+      - validation_log
+      - rights_clearance_result
+    outputs:
+      - release_decision
+      - post_release_obligations
+  - step_id: prw_08_publish_or_defer
+    title: Publish, Submit, Archive, or Defer
+    action: Submit to the target venue, tag repository release, deposit archive, or defer with rationale.
+    inputs:
+      - release_decision
+      - publication_target
+      - release_notes
+      - archival_metadata
+    outputs:
+      - submission_record
+      - release_record
+      - preservation_record
+      - deferred_action_record
+  - step_id: prw_09_monitor_after_release
+    title: Monitor Post-Release Obligations
+    action: Track errata, reviewer feedback, issue reports, citations, preservation updates, and supersession decisions.
+    inputs:
+      - post_release_obligations
+      - issue_tracker
+      - review_feedback
+      - registry_status
+    outputs:
+      - maintenance_record
+      - errata_or_revision_record
+      - supersession_record
+
+validation_implications:
+  schema_expectations:
+    - expectation_id: vi_required_identity_fields
+      description: Publication-readiness records should require candidate_id, candidate_type, version, target, readiness_state, gate_results, evidence_basis, decision, and responsible_party.
+      suggested_schema_target: schemas/publication-readiness-record.schema.json
+    - expectation_id: vi_gate_result_enumeration
+      description: Gate result values should be restricted to pass, conditional_pass, fail, waived_with_rationale, not_applicable_with_rationale, and not_assessed.
+      suggested_schema_target: schemas/publication-readiness-record.schema.json
+    - expectation_id: vi_claim_evidence_alignment
+      description: "Each claim above minimal descriptive scope should reference at least one evidence item or carry evidence_status: not_yet_mapped."
+      suggested_schema_target: schemas/dsr-contribution-claim.schema.json
+    - expectation_id: vi_metadata_consistency
+      description: Metadata files should share title, version, license, contributors, dates, and identifiers where applicable.
+      suggested_schema_target: schemas/package-inventory.schema.json
+  checklist_implications:
+    - checklist_id: checklist_publication_readiness
+      path: checklists/publication-readiness-checklist.yaml
+      required_mapping: Each readiness_gate should produce at least one checklist item.
+    - checklist_id: checklist_package_readiness
+      path: checklists/artifact-package-readiness-checklist.yaml
+      required_mapping: Package integrity and repository release checks should align with prg_06_package_integrity.
+    - checklist_id: checklist_transparency
+      path: checklists/dsr-transparency-crosswalk-checklist.yaml
+      required_mapping: Transparency checks should align with prg_05_transparency_and_traceability.
+  automation_implications:
+    - rule_id: auto_yaml_parse
+      description: All YAML and JSON-compatible files in the release candidate should parse before release.
+      severity: blocker
+    - rule_id: auto_required_files_present
+      description: Required root files, specs, models, vocabularies, schemas, templates, checklists, docs, and records should match package inventory expectations.
+      severity: blocker
+    - rule_id: auto_internal_links
+      description: Internal links and target_path references should resolve or be explicitly marked planned.
+      severity: major
+    - rule_id: auto_metadata_consistency
+      description: Citation and release metadata should be compared across manifest, metadata, CITATION.cff, .zenodo.json, and release records.
+      severity: major
+    - rule_id: auto_no_blocking_open_questions
+      description: Open questions marked blocking must be closed or converted into recorded release conditions before publication_ready.
+      severity: blocker
+
+quality_and_conformance:
+  readiness_thresholds:
+    l1_documented:
+      minimum_state: review_ready
+      minimum_gates:
+        - prg_01_identity_and_scope
+        - prg_02_contribution_positioning
+      allowed_limitations:
+        - Evidence mapping may be incomplete if limitations are explicit.
+    l2_reviewable:
+      minimum_state: review_ready
+      minimum_gates:
+        - prg_01_identity_and_scope
+        - prg_02_contribution_positioning
+        - prg_03_evidence_and_claim_alignment
+        - prg_04_quality_and_conformance_review
+        - prg_05_transparency_and_traceability
+      allowed_limitations:
+        - Some downstream release metadata may remain planned.
+    l3_exercisable:
+      minimum_state: release_candidate
+      minimum_gates:
+        - prg_01_identity_and_scope
+        - prg_02_contribution_positioning
+        - prg_03_evidence_and_claim_alignment
+        - prg_04_quality_and_conformance_review
+        - prg_05_transparency_and_traceability
+        - prg_06_package_integrity
+      allowed_limitations:
+        - Archival deposit may remain pending.
+    l4_reusable:
+      minimum_state: publication_ready_with_conditions
+      minimum_gates:
+        - prg_01_identity_and_scope
+        - prg_02_contribution_positioning
+        - prg_03_evidence_and_claim_alignment
+        - prg_04_quality_and_conformance_review
+        - prg_05_transparency_and_traceability
+        - prg_06_package_integrity
+        - prg_07_rights_ethics_security
+        - prg_08_metadata_citation
+        - prg_10_review_response_and_communication
+      allowed_limitations:
+        - Archival deposit can be pending if recorded as a post-release obligation.
+        - Some transparency materials can be summarized or access-controlled with rationale.
+    l5_archival_publication_ready:
+      minimum_state: archival_release_ready
+      minimum_gates:
+        - prg_01_identity_and_scope
+        - prg_02_contribution_positioning
+        - prg_03_evidence_and_claim_alignment
+        - prg_04_quality_and_conformance_review
+        - prg_05_transparency_and_traceability
+        - prg_06_package_integrity
+        - prg_07_rights_ethics_security
+        - prg_08_metadata_citation
+        - prg_09_release_and_archival_controls
+        - prg_10_review_response_and_communication
+      allowed_limitations:
+        - None that block citation, preservation, licensing, or release audit.
+  quality_gates:
+    - gate_id: qg_consistency
+      status: modeled
+      application: Confirm naming, item type, path, state, and metadata consistency.
+    - gate_id: qg_coherence
+      status: modeled
+      application: Confirm alignment with quality review, publication registry, transparency, evaluation, reliability, and projectability models.
+    - gate_id: qg_cogency
+      status: modeled
+      application: Confirm the readiness process can be followed without hidden assumptions.
+    - gate_id: qg_correspondence
+      status: modeled
+      application: Confirm that release/readiness claims correspond to the DSR artifact package and declared conformance level.
+    - gate_id: qg_dsr_transparency
+      status: modeled
+      application: Confirm transparency dimensions are present, scoped, or marked not applicable with rationale.
+    - gate_id: qg_reviewability
+      status: modeled
+      application: Confirm readiness decisions are evidence-backed and reviewable.
+  acceptance_criteria:
+    - id: ac_model_entities_defined
+      criterion: Controlled entities are defined with required attributes and boundary notes.
+    - id: ac_relationships_defined
+      criterion: Relationships connect publication candidates, release candidates, evidence, metadata, gates, decisions, and obligations.
+    - id: ac_gates_reviewable
+      criterion: Readiness gates include evidence requirements, pass conditions, fail conditions, and remediation guidance.
+    - id: ac_l4_threshold_explicit
+      criterion: L4 reusable readiness threshold is explicit and does not overclaim L5 archival readiness.
+    - id: ac_traceability_present
+      criterion: Source basis, related items, and traceability links are present.
+    - id: ac_validation_implications_present
+      criterion: Schema, checklist, and automation implications are included.
+
+traceability:
+  - trace_id: tr_selection_to_file
+    source: dsr-framework-selection-table.md::model_publication_readiness
+    target: models/dsr-publication-readiness-model.yaml
+    relation: defines_generation_target
+    evidence_status: mapped
+  - trace_id: tr_spec_to_model_structure
+    source: dsr-framework-generation-spec.yaml::content_generation_rules
+    target: model.controlled_entities
+    relation: requires_controlled_model_content
+    evidence_status: mapped
+  - trace_id: tr_prompt_to_model_requirements
+    source: dsr-framework-generation-prompt.md::model_files
+    target: model_scope
+    relation: requires_entities_relationships_boundaries_validation_traceability
+    evidence_status: mapped
+  - trace_id: tr_transparency_to_readiness
+    source: hevner_et_al_2024_transparency_in_design_science_research
+    target: readiness_dimensions.prd_transparency
+    relation: grounds_transparency_readiness_dimensions
+    evidence_status: mapped
+  - trace_id: tr_cumulative_dsr_to_release
+    source: reining_etal_2022
+    target: readiness_dimensions.prd_repository_release
+    relation: grounds_retention_reuse_documentation_and_repository_readiness
+    evidence_status: mapped
+  - trace_id: tr_publication_positioning
+    source: gregor_zwikael_2024
+    target: readiness_dimensions.prd_contribution_positioning
+    relation: grounds_problem_class_grounding_and_contribution_positioning
+    evidence_status: mapped
+  - trace_id: tr_contribution_norms
+    source: baskerville_baiyere_gregor_hevner_rossi_2018_design_science_research_contributions
+    target: readiness_gates.prg_02_contribution_positioning
+    relation: grounds_artifact_theory_process_and_impact_publication_norms
+    evidence_status: mapped
+  - trace_id: tr_journaling_to_process_transparency
+    source: vom_brocke_gau_maedche_2021_journaling_dsr_process
+    target: readiness_gates.prg_05_transparency_and_traceability
+    relation: grounds_process_documentation_and_traceability_expectations
+    evidence_status: mapped
+
+implementation_guidance:
+  use_sequence:
+    - Use this model to classify the candidate as publication_candidate, release_candidate, archival_deposit_candidate, or a combination.
+    - Select the readiness threshold from the declared conformance target.
+    - Apply only the gates relevant to the candidate type and threshold.
+    - Record gate outcomes using controlled result values.
+    - Convert failed gates into remediation actions before advancing state.
+    - Convert conditional passes into release conditions or post-release obligations.
+    - Do not advance to publication_ready or archival_release_ready unless blockers are resolved or explicitly waived with rationale by the responsible authority.
+  review_result_values:
+    - pass
+    - conditional_pass
+    - fail
+    - waived_with_rationale
+    - not_applicable_with_rationale
+    - not_assessed
+  blocker_classes:
+    - blocker_id: blocker_missing_identity
+      label: Missing or conflicting package identity
+      default_severity: blocker
+    - blocker_id: blocker_unmapped_core_claims
+      label: Core claims lack evidence or limitations
+      default_severity: blocker
+    - blocker_id: blocker_invalid_package
+      label: Required file or validation failure
+      default_severity: blocker
+    - blocker_id: blocker_license_or_rights
+      label: License, attribution, privacy, security, or rights issue
+      default_severity: blocker
+    - blocker_id: blocker_metadata_conflict
+      label: Metadata conflict prevents citation or indexing
+      default_severity: major
+    - blocker_id: blocker_transparency_gap
+      label: Critical process, build, evaluation, or contribution trace is missing
+      default_severity: major
+  conditional_release_policy:
+    allowed_when:
+      - Conditions do not undermine artifact identity, evidence integrity, license safety, or user safety.
+      - Conditions are disclosed in release notes or publication limitations.
+      - Each condition has an owner, trigger, monitoring method, and closure condition.
+    not_allowed_when:
+      - A blocker concerns license authority, unauthorized disclosure, invalid package contents, or unsupported core claims.
+
+assumptions:
+  - The generated DSR Framework package is intended for public GitHub release and possible scholarly publication.
+  - L4 readiness means reusable and reviewable release readiness, not guaranteed archival deposit or external publication acceptance.
+  - The publication registry specification will define repository-specific DOI, archival, and registry mechanics beyond this model.
+  - The quality review specification supplies detailed review workflow; this model supplies publication-readiness structure and state logic.
+
+limitations:
+  - This draft model uses mapped corpus-level source IDs and citation anchors; it does not embed full bibliographic records.
+  - This model is generic across DSR artifact packages and should be tailored to specific journal, conference, repository, or archive requirements.
+  - This model does not substitute for legal, privacy, security, institutional-review, or publisher-specific compliance review.
+  - Some evidence requirements may be not applicable for conceptual-only artifacts, provided the rationale is recorded.
+
+open_questions:
+  - question_id: oq_publication_target_specific_profiles
+    question: Should later versions include venue-specific readiness profiles for journals, conferences, GitHub releases, Zenodo deposits, and institutional repositories?
+    priority: medium
+    disposition: backlog
+  - question_id: oq_public_metrics
+    question: Should post-release impact indicators such as citations, forks, downloads, issues, adaptations, or teaching use be standardized as publication-readiness extensions?
+    priority: medium
+    disposition: backlog
+  - question_id: oq_rights_review_detail
+    question: Should the rights and risk profile be expanded into a dedicated schema or checklist for third-party materials, privacy, security, and AI-assisted generation disclosures?
+    priority: high
+    disposition: backlog

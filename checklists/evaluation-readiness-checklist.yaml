@@ -1,0 +1,844 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: dsr_evaluation_readiness_checklist
+  item_id: dsr_evaluation_readiness_checklist
+  item_type: procedure
+  selection_id: checklist_evaluation_readiness
+  target_path: checklists/evaluation-readiness-checklist.yaml
+  title: DSR Evaluation Readiness Checklist
+  purpose: >
+    Determine whether a Design Science Research project, artifact package, or
+    evaluation plan is sufficiently specified, evidenced, and governed to begin
+    or approve artifact evaluation at the declared conformance level.
+  status: draft
+  version: "0.1.0"
+  owner:
+    role: dsr_framework_maintainer
+    responsibilities:
+      - Maintain the checklist as evaluation-model guidance evolves.
+      - Ensure checklist items remain aligned with evaluation templates, schemas,
+        records, and review procedures.
+      - Resolve conflicts between evaluation readiness criteria and later quality
+        or publication-readiness criteria.
+  conformance_target: l2_reviewable
+  default_decision_rule:
+    ready: >
+      All critical checks pass, and any advisory checks that fail have explicit
+      accepted-risk notes, remediation owners, and follow-up records.
+    conditionally_ready: >
+      One or more critical checks are partially satisfied, but evaluation can
+      proceed only after documented remediation or review-board acceptance of
+      the residual risk.
+    not_ready: >
+      Any critical check fails without an approved exception, or the evaluation
+      would not produce evidence capable of supporting the stated DSR claims.
+  review_scope:
+    applies_to:
+      - evaluation plans
+      - evaluation protocols
+      - demonstration-to-evaluation transitions
+      - artifact evaluation packages
+      - DSR project records before formative or summative evaluation
+    does_not_replace:
+      - human subjects review
+      - institutional ethics review
+      - legal, privacy, or security review
+      - statistical analysis review when specialized methods are used
+      - domain-specific safety or compliance review
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      basis_type: governing_generation_specification
+      evidence_status: mapped
+      relevance: >
+        Requires controlled YAML files, stable IDs, source_basis, related_items,
+        traceability, reviewability, and checklist item fields.
+    - source_id: dsr_framework_generation_prompt
+      basis_type: governing_generation_prompt
+      evidence_status: mapped
+      relevance: >
+        Requires checklist files to use the checklist root structure and to preserve
+        DSR distinctions including demonstration versus evaluation, utility versus
+        quality versus knowledge contribution, and relevant transparency dimensions.
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      basis_type: dsr_corpus_source
+      evidence_status: mapped
+      relevance: >
+        Supports evaluation transparency, stakeholder confidence, formative and
+        summative evaluation evidence, fitness for use, and fitness for evolution.
+    - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+      basis_type: dsr_corpus_source
+      evidence_status: mapped
+      relevance: >
+        Supports linking evaluation evidence to DSR knowledge contribution paths,
+        methodological strategy, robustness, utility, and contribution reporting.
+    - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+      basis_type: dsr_corpus_source
+      evidence_status: mapped
+      relevance: >
+        Supports evaluation traceability between artifact specification, make plan,
+        use plan, capacities, use effects, and use contexts.
+    - source_id: evaluation_model
+      basis_type: framework_dependency
+      evidence_status: not_yet_mapped
+      relevance: >
+        Declared dependency for the selected checklist; exact model file should be
+        linked when models/dsr-evaluation-alignment-model.yaml is finalized.
+  related_items:
+    upstream_dependencies:
+      - id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relationship: primary_model_dependency
+      - id: vocab_evaluation_methods
+        path: vocabularies/evaluation-method-families.yaml
+        relationship: controlled_method_vocabulary
+      - id: template_evaluation_plan
+        path: templates/evaluation-plan-template.yaml
+        relationship: reviewed_information_item
+      - id: template_evaluation_report
+        path: templates/evaluation-report-template.yaml
+        relationship: downstream_reporting_item
+      - id: schema_evaluation_plan
+        path: schemas/dsr-evaluation-plan.schema.json
+        relationship: validation_dependency
+      - id: schema_evaluation_report
+        path: schemas/dsr-evaluation-report.schema.json
+        relationship: reporting_validation_dependency
+      - id: model_lifecycle
+        path: models/dsr-lifecycle-model.yaml
+        relationship: lifecycle_context
+      - id: model_contribution
+        path: models/dsr-contribution-model.yaml
+        relationship: claim_alignment_dependency
+      - id: model_reliability
+        path: models/dsr-reliability-model.yaml
+        relationship: reliability_alignment_dependency
+      - id: model_projectability
+        path: models/dsr-projectability-model.yaml
+        relationship: boundary_and_transfer_alignment_dependency
+      - id: model_transparency
+        path: models/dsr-transparency-model.yaml
+        relationship: evaluation_transparency_dependency
+    downstream_users:
+      - id: record_evaluation_plan
+        path: records/evaluations/record-evaluation-plan-0001.yaml
+        relationship: readiness_evidence_record
+      - id: record_self_review
+        path: records/reviews/record-review-0001-self-review.yaml
+        relationship: review_record
+      - id: docs_evaluation
+        path: docs/protocol/08-evaluation-framework.md
+        relationship: human_facing_guidance
+      - id: checklist_publication_readiness
+        path: checklists/publication-readiness-checklist.yaml
+        relationship: later_readiness_gate
+  readiness_dimensions:
+    - id: claim_alignment
+      label: Claim Alignment
+      purpose: Ensure evaluation evidence can support artifact, utility, quality,
+        contribution, and projectability claims without overclaiming.
+    - id: method_fit
+      label: Method Fit
+      purpose: Ensure evaluation methods match the artifact type, lifecycle stage,
+        problem class, stakeholder context, and claim strength.
+    - id: evidence_quality
+      label: Evidence Quality
+      purpose: Ensure data, instruments, criteria, analysis logic, and records are
+        sufficient for reviewable evaluation.
+    - id: governance_and_risk
+      label: Governance and Risk
+      purpose: Ensure ethics, privacy, security, feasibility, and operational risks
+        are addressed before evaluation begins.
+    - id: transparency_and_reporting
+      label: Transparency and Reporting
+      purpose: Ensure evaluation materials can be interpreted, reviewed, reused,
+        and linked to later reports and contribution claims.
+  required_evidence_bundle:
+    minimum_items:
+      - problem_and_objectives_record
+      - artifact_specification
+      - evaluation_plan
+      - evaluation_questions_or_claim_matrix
+      - evaluation_criteria_and_thresholds
+      - method_rationale
+      - data_collection_or_observation_plan
+      - analysis_plan
+      - validity_and_reliability_risk_notes
+      - stakeholder_or_user_involvement_notes
+      - ethics_privacy_security_screening
+      - evidence_storage_and_recordkeeping_plan
+  items:
+    - check_id: eval_ready_001_claims_declared
+      dimension: claim_alignment
+      severity: critical
+      question: >
+        Are the artifact, utility, artifact-quality, and knowledge-contribution
+        claims explicitly declared before evaluation begins?
+      evidence_required:
+        - artifact profile or artifact specification
+        - contribution claim draft or claim matrix
+        - evaluation plan section mapping claims to evidence
+      pass_condition: >
+        Each claim is stated with a claim type, scope, intended evidence, and
+        boundary condition; no claim depends on evidence that the plan will not collect.
+      fail_condition: >
+        Claims are implicit, mixed together, unsupported by planned evidence, or
+        framed so broadly that evaluation results could not reasonably support them.
+      remediation_guidance: >
+        Create a claim-evidence matrix separating artifact utility, artifact quality,
+        contribution to knowledge, and projectability before approving evaluation.
+
+    - check_id: eval_ready_002_artifact_boundary_defined
+      dimension: claim_alignment
+      severity: critical
+      question: >
+        Is the artifact boundary defined well enough to know what is being evaluated?
+      evidence_required:
+        - artifact specification
+        - component list or architecture description
+        - make-plan and use-plan notes where applicable
+        - artifact version identifier
+      pass_condition: >
+        The artifact version, components, intended capacities, use context, excluded
+        components, and dependencies are sufficiently clear for evaluators to inspect
+        what was tested.
+      fail_condition: >
+        The evaluation object is ambiguous, unstable, or conflated with surrounding
+        systems, implementation context, theory, or user practice.
+      remediation_guidance: >
+        Add an artifact boundary statement, version identifier, component map, and
+        dependency list before proceeding.
+
+    - check_id: eval_ready_003_problem_and_objectives_traceable
+      dimension: claim_alignment
+      severity: critical
+      question: >
+        Are the evaluation criteria traceable to the problem, objectives,
+        requirements, and success criteria?
+      evidence_required:
+        - problem and objectives record
+        - requirements or success criteria
+        - evaluation criteria table
+        - traceability matrix
+      pass_condition: >
+        Each evaluation criterion maps to at least one objective or requirement and
+        identifies the planned evidence that will indicate success, failure, or partial
+        satisfaction.
+      fail_condition: >
+        Criteria are generic, disconnected from project objectives, or unable to show
+        whether the artifact addresses the focal problem.
+      remediation_guidance: >
+        Build or revise the requirements-to-criteria traceability matrix and remove
+        criteria that cannot be justified from the problem and objectives record.
+
+    - check_id: eval_ready_004_demonstration_distinguished_from_evaluation
+      dimension: method_fit
+      severity: critical
+      question: >
+        Is demonstration clearly distinguished from evaluation?
+      evidence_required:
+        - demonstration record, if applicable
+        - evaluation plan
+        - evaluation report outline
+      pass_condition: >
+        Demonstration is treated as showing use or feasibility, while evaluation is
+        treated as systematic evidence collection against criteria; any demonstration
+        evidence reused for evaluation has explicit rationale and limits.
+      fail_condition: >
+        The plan assumes that showing the artifact can be used is sufficient evidence
+        that it is useful, valid, reliable, generalizable, or knowledge-contributory.
+      remediation_guidance: >
+        Add separate demonstration and evaluation sections, then identify which
+        evaluation claims require evidence beyond demonstration.
+
+    - check_id: eval_ready_005_evaluation_questions_specified
+      dimension: method_fit
+      severity: critical
+      question: >
+        Are evaluation questions specified at the right granularity for the artifact
+        type and lifecycle stage?
+      evidence_required:
+        - evaluation questions
+        - artifact type classification
+        - lifecycle stage classification
+        - claim-evidence matrix
+      pass_condition: >
+        Questions identify what will be assessed, for whom, in what context, by what
+        evidence, and at what lifecycle stage.
+      fail_condition: >
+        Questions are absent, too broad to answer, or focused only on general interest
+        rather than on the artifact and its intended contribution.
+      remediation_guidance: >
+        Rewrite evaluation questions using a structured form: object, criterion,
+        context, evidence source, and intended decision.
+
+    - check_id: eval_ready_006_method_family_justified
+      dimension: method_fit
+      severity: critical
+      question: >
+        Is the selected evaluation method family justified for the claim strength,
+        artifact maturity, and available setting?
+      evidence_required:
+        - method family selection
+        - rationale for formative, summative, ex ante, ex post, artificial, or naturalistic evaluation
+        - constraints and feasibility notes
+      pass_condition: >
+        The method rationale explains why the selected approach is sufficient for the
+        declared claims and why excluded alternatives are not required at this stage.
+      fail_condition: >
+        Method selection is convenience-driven, unexplained, or mismatched to claims
+        such as field utility, stakeholder confidence, or projectability.
+      remediation_guidance: >
+        Add a method-selection rationale that compares feasible alternatives and
+        narrows the claim scope if only weaker evidence can be collected.
+
+    - check_id: eval_ready_007_artificial_or_naturalistic_setting_rationale
+      dimension: method_fit
+      severity: critical
+      question: >
+        Is the evaluation setting classified and justified as artificial,
+        naturalistic, analytical, literature-based, simulation-based, field-based,
+        or mixed?
+      evidence_required:
+        - setting description
+        - user or unit description
+        - environmental assumptions
+        - setting limitations
+      pass_condition: >
+        The setting is named, its realism is described, and the plan states what kinds
+        of claims the setting can and cannot support.
+      fail_condition: >
+        The plan implies field validity from an artificial setting, or treats a local
+        field study as automatically generalizable beyond its boundary conditions.
+      remediation_guidance: >
+        Add setting classification, realism notes, boundary conditions, and claim
+        limitations.
+
+    - check_id: eval_ready_008_baseline_or_comparison_defined
+      dimension: method_fit
+      severity: advisory
+      question: >
+        Is there an appropriate baseline, comparison case, benchmark, prior artifact,
+        expert judgment standard, or justified no-baseline rationale?
+      evidence_required:
+        - baseline or comparison description
+        - benchmark source or comparator rationale
+        - no-baseline rationale, if applicable
+      pass_condition: >
+        The comparison logic is sufficient for interpreting whether the artifact is
+        better, adequate, novel, feasible, or useful relative to a relevant reference.
+      fail_condition: >
+        The plan reports positive results without any context for interpreting their
+        significance, adequacy, or improvement.
+      remediation_guidance: >
+        Identify a comparator, benchmark, threshold, prior solution, expert review
+        standard, or explicit reason why comparison is not applicable.
+
+    - check_id: eval_ready_009_stakeholders_and_units_identified
+      dimension: evidence_quality
+      severity: critical
+      question: >
+        Are stakeholders, users, evaluators, participants, documents, artifacts, cases,
+        or other evaluation units identified?
+      evidence_required:
+        - stakeholder map
+        - participant or unit criteria
+        - evaluator role description
+        - inclusion and exclusion criteria, if applicable
+      pass_condition: >
+        The plan identifies who or what supplies evidence, why those units are
+        appropriate, and how their role relates to evaluation claims.
+      fail_condition: >
+        Evaluation units are unspecified, opportunistic, or inconsistent with the
+        intended use context.
+      remediation_guidance: >
+        Define evaluation units and stakeholder roles, including recruitment,
+        selection, sampling, or document-selection logic where applicable.
+
+    - check_id: eval_ready_010_criteria_operationalized
+      dimension: evidence_quality
+      severity: critical
+      question: >
+        Are evaluation criteria operationalized with observable indicators,
+        measures, rubrics, thresholds, or judgment rules?
+      evidence_required:
+        - criteria and indicators table
+        - scoring rubric or threshold definitions
+        - instrument definitions
+        - decision rules
+      pass_condition: >
+        Each criterion has observable evidence, a method of interpretation, and a
+        pass/fail/partial decision rule appropriate to the conformance target.
+      fail_condition: >
+        Criteria remain conceptual labels such as utility, rigor, validity, or value
+        without observable indicators or judgment rules.
+      remediation_guidance: >
+        Convert each criterion into indicators, measures, or rubric descriptors and
+        identify how reviewers will interpret the evidence.
+
+    - check_id: eval_ready_011_data_collection_plan_complete
+      dimension: evidence_quality
+      severity: critical
+      question: >
+        Is the data collection or evidence capture plan complete enough to execute?
+      evidence_required:
+        - data collection protocol
+        - instruments or observation forms
+        - collection schedule or event triggers
+        - data retention and storage notes
+      pass_condition: >
+        The plan specifies what evidence will be collected, when, by whom, using what
+        instrument or source, and how the evidence will be stored for review.
+      fail_condition: >
+        Evidence collection relies on informal memory, undocumented observations, or
+        undefined instruments.
+      remediation_guidance: >
+        Add collection procedures, instruments, logging rules, retention locations,
+        and responsibilities before evaluation begins.
+
+    - check_id: eval_ready_012_analysis_plan_declared
+      dimension: evidence_quality
+      severity: critical
+      question: >
+        Is the analysis plan declared before evidence is interpreted?
+      evidence_required:
+        - analysis procedures
+        - coding or calculation rules
+        - synthesis plan
+        - criteria-to-analysis mapping
+      pass_condition: >
+        The plan explains how collected evidence will be reduced, coded, calculated,
+        compared, synthesized, or interpreted for each evaluation question.
+      fail_condition: >
+        The plan collects data but leaves interpretation methods unspecified until
+        after results are known.
+      remediation_guidance: >
+        Add an analysis plan and mark any genuinely exploratory analysis as exploratory.
+
+    - check_id: eval_ready_013_validity_threats_identified
+      dimension: evidence_quality
+      severity: critical
+      question: >
+        Are validity threats and mitigation strategies identified for the planned
+        evaluation?
+      evidence_required:
+        - validity threat register
+        - mitigation plan
+        - residual risk notes
+        - boundary conditions
+      pass_condition: >
+        The plan identifies relevant threats such as construct, evaluation,
+        ecological, context, internal, external, or conclusion validity and describes
+        mitigation or residual-risk handling.
+      fail_condition: >
+        The evaluation plan makes validity-sensitive claims without naming threats,
+        assumptions, or limitations.
+      remediation_guidance: >
+        Add a validity threat register aligned to the method family, setting, artifact
+        type, and claim scope.
+
+    - check_id: eval_ready_014_reliability_and_repeatability_addressed
+      dimension: evidence_quality
+      severity: advisory
+      question: >
+        Are reliability, repeatability, or evaluator consistency considerations
+        addressed where relevant?
+      evidence_required:
+        - reliability notes
+        - inter-rater or reviewer consistency plan, if applicable
+        - instrument consistency notes
+        - artifact version and execution repeatability notes
+      pass_condition: >
+        The plan identifies which reliability target matters--artifact, method,
+        measure, process, implementation, or evaluator--and how consistency will be
+        supported or bounded.
+      fail_condition: >
+        The evaluation depends on repeatable procedures, stable measures, or evaluator
+        judgment but does not address consistency.
+      remediation_guidance: >
+        Add version control, repeated-run procedures, reviewer calibration, instrument
+        definitions, or reliability limitations as appropriate.
+
+    - check_id: eval_ready_015_projectability_and_boundary_conditions_defined
+      dimension: claim_alignment
+      severity: critical
+      question: >
+        Are projectability, transfer, generalization, replication, and boundary
+        conditions defined at the level supported by the evaluation?
+      evidence_required:
+        - boundary condition statement
+        - problem class definition
+        - context description
+        - replication or transfer notes
+      pass_condition: >
+        The plan states what problem class, context, users, settings, or artifact
+        versions the evaluation may speak to, and what it cannot support.
+      fail_condition: >
+        The plan implies broad generalization from local, artificial, or limited
+        evidence without boundary conditions.
+      remediation_guidance: >
+        Add projectability boundaries and narrow claims to the evidence that the
+        planned evaluation can support.
+
+    - check_id: eval_ready_016_ethics_privacy_security_screened
+      dimension: governance_and_risk
+      severity: critical
+      question: >
+        Have ethics, privacy, security, safety, proprietary-information, and
+        stakeholder-risk issues been screened before evaluation begins?
+      evidence_required:
+        - ethics or human subjects screening
+        - privacy and security review notes
+        - data sensitivity classification
+        - proprietary or intellectual property risk notes
+        - stakeholder risk assessment
+      pass_condition: >
+        Applicable governance reviews are completed or scheduled, and evaluation
+        procedures do not expose unmanaged risks to people, organizations, data,
+        artifacts, or intellectual property.
+      fail_condition: >
+        Evaluation would collect sensitive evidence, involve people, expose artifacts,
+        or use proprietary materials without a documented governance pathway.
+      remediation_guidance: >
+        Pause evaluation approval until ethics, privacy, security, legal, or domain
+        governance requirements are resolved or explicitly marked not applicable.
+
+    - check_id: eval_ready_017_resources_and_feasibility_confirmed
+      dimension: governance_and_risk
+      severity: advisory
+      question: >
+        Are resources, access, schedule, tools, stakeholders, and operational
+        constraints sufficient for the planned evaluation?
+      evidence_required:
+        - resource plan
+        - access permissions
+        - evaluation schedule
+        - tool and environment requirements
+        - dependency and constraint list
+      pass_condition: >
+        The plan identifies required resources and confirms that likely constraints
+        will not invalidate the evaluation or prevent evidence capture.
+      fail_condition: >
+        The plan depends on unavailable participants, inaccessible systems, unstable
+        artifacts, missing permissions, or unrealistic timelines.
+      remediation_guidance: >
+        Revise the scope, schedule, method, evidence requirements, or claim strength
+        to match feasible resources.
+
+    - check_id: eval_ready_018_instrumentation_and_logging_ready
+      dimension: evidence_quality
+      severity: advisory
+      question: >
+        Are instrumentation, logging, screenshots, version records, audit trails,
+        or observation artifacts ready before evaluation begins?
+      evidence_required:
+        - logging plan
+        - artifact version record
+        - observation or screenshot procedure
+        - evidence file naming convention
+      pass_condition: >
+        Evidence capture mechanisms are prepared and can preserve what occurred, what
+        artifact version was evaluated, and what context or configuration was present.
+      fail_condition: >
+        Important evaluation events or artifact states would be lost, reconstructed
+        after the fact, or unverifiable.
+      remediation_guidance: >
+        Add version logging, event capture, observation templates, screenshot rules,
+        file naming, and storage procedures.
+
+    - check_id: eval_ready_019_formative_feedback_path_defined
+      dimension: method_fit
+      severity: advisory
+      question: >
+        If evaluation is formative or iterative, is the feedback-to-redesign pathway
+        defined?
+      evidence_required:
+        - formative evaluation plan
+        - redesign decision rule
+        - issue or defect tracking plan
+        - change record procedure
+      pass_condition: >
+        The plan states how findings will be triaged, translated into changes, and
+        recorded without obscuring which artifact version produced which evidence.
+      fail_condition: >
+        Formative findings may modify the artifact without preserving versioned
+        evidence or design-rationale records.
+      remediation_guidance: >
+        Add a versioned feedback, redesign, and change-record process before beginning
+        iterative evaluation.
+
+    - check_id: eval_ready_020_summative_decision_rule_defined
+      dimension: method_fit
+      severity: critical
+      question: >
+        If evaluation is summative, is the acceptance, rejection, revision, or
+        release decision rule defined?
+      evidence_required:
+        - summative evaluation criteria
+        - acceptance thresholds
+        - decision authority
+        - planned outcome categories
+      pass_condition: >
+        The plan identifies how evidence will support a decision such as accept,
+        revise, reject, defer, release, or conduct further evaluation.
+      fail_condition: >
+        The plan collects evidence but does not define how the evidence will affect
+        artifact, package, or publication decisions.
+      remediation_guidance: >
+        Add decision categories, thresholds, responsible reviewers, and required
+        follow-up actions.
+
+    - check_id: eval_ready_021_contribution_claim_alignment_checked
+      dimension: claim_alignment
+      severity: critical
+      question: >
+        Does the planned evaluation align with the intended contribution type and
+        knowledge scope?
+      evidence_required:
+        - contribution positioning record or draft
+        - knowledge goal and knowledge scope classification
+        - evaluation-to-contribution mapping
+      pass_condition: >
+        The evaluation can support the declared contribution type, such as method,
+        model, construct, instantiation, design principle, taxonomy, or framework,
+        within the declared idiographic, nomothetic, or projectable scope.
+      fail_condition: >
+        The contribution claim exceeds what the evaluation can demonstrate, test,
+        justify, or make reviewable.
+      remediation_guidance: >
+        Narrow the contribution claim, add additional evaluation evidence, or revise
+        the contribution positioning record.
+
+    - check_id: eval_ready_022_transparency_materials_planned
+      dimension: transparency_and_reporting
+      severity: critical
+      question: >
+        Are evaluation transparency materials planned for reviewers and later users?
+      evidence_required:
+        - evaluation protocol
+        - evidence package plan
+        - analysis script or analytic procedure, if applicable
+        - reviewer notes or audit trail
+        - repository or recordkeeping location
+      pass_condition: >
+        Materials are sufficient for a reviewer to understand what was evaluated,
+        how evidence was collected, how results were interpreted, and what limitations
+        apply.
+      fail_condition: >
+        Evaluation transparency depends on undocumented researcher memory or materials
+        that cannot be shared, summarized, or retained.
+      remediation_guidance: >
+        Create an evidence package plan with shareable, restricted, and summary-only
+        materials clearly identified.
+
+    - check_id: eval_ready_023_limitations_and_non_goals_declared
+      dimension: transparency_and_reporting
+      severity: critical
+      question: >
+        Are limitations, non-goals, and unsupported claims declared before evaluation?
+      evidence_required:
+        - limitations section
+        - non-goals section
+        - unsupported claim list
+        - residual risk notes
+      pass_condition: >
+        The evaluation plan states what it will not evaluate, which claims will remain
+        unsupported, and what limitations must be carried into the evaluation report.
+      fail_condition: >
+        The plan has no clear constraints and risks implying that any positive result
+        supports all artifact and knowledge claims.
+      remediation_guidance: >
+        Add limitations, non-goals, unsupported claims, and required report caveats.
+
+    - check_id: eval_ready_024_evaluation_record_ready
+      dimension: transparency_and_reporting
+      severity: critical
+      question: >
+        Is there a recordkeeping plan for preserving evaluation decisions, evidence,
+        outcomes, and reviewer judgments?
+      evidence_required:
+        - evaluation record template or record path
+        - evidence retention rule
+        - review record path
+        - responsible party assignment
+      pass_condition: >
+        The plan identifies where evaluation evidence, decisions, review comments,
+        results, exceptions, and retention rules will be recorded.
+      fail_condition: >
+        Evaluation can proceed but its decisions, evidence, or review judgments would
+        not be preserved in controlled records.
+      remediation_guidance: >
+        Create or reference evaluation and review record paths before approving
+        evaluation execution.
+
+    - check_id: eval_ready_025_schema_and_package_alignment_checked
+      dimension: transparency_and_reporting
+      severity: advisory
+      question: >
+        Does the evaluation plan align with the relevant templates, schemas,
+        package inventory, and conformance declaration?
+      evidence_required:
+        - schema validation notes
+        - package inventory entry
+        - conformance declaration reference
+        - related item links
+      pass_condition: >
+        The evaluation plan and related records can be placed in the repository,
+        referenced by package inventory, and validated or reviewed under the declared
+        conformance level.
+      fail_condition: >
+        Evaluation materials are structurally inconsistent with the repository package
+        or cannot be validated, inventoried, or linked.
+      remediation_guidance: >
+        Update paths, identifiers, inventory entries, schema alignment, and conformance
+        references before committing evaluation materials.
+  review_workflow:
+    - step_id: prepare_evidence_bundle
+      description: Assemble the minimum evidence bundle listed in this checklist.
+      output: evaluation_readiness_evidence_bundle
+    - step_id: perform_item_review
+      description: Score each checklist item as pass, fail, partial, not_applicable,
+        or accepted_risk.
+      output: item_level_readiness_results
+    - step_id: resolve_critical_failures
+      description: Remediate or formally accept risk for every critical failure.
+      output: remediation_or_exception_record
+    - step_id: issue_readiness_decision
+      description: Apply the default decision rule and record ready,
+        conditionally_ready, or not_ready.
+      output: evaluation_readiness_decision
+    - step_id: link_records
+      description: Link the checklist result to the evaluation plan, review record,
+        package inventory, and later evaluation report.
+      output: linked_repository_records
+  scoring:
+    allowed_item_results:
+      - pass
+      - partial
+      - fail
+      - not_applicable
+      - accepted_risk
+    critical_failure_rule: >
+      A failed critical item blocks a ready decision unless it is remediated or
+      converted to accepted_risk by an authorized reviewer with rationale.
+    advisory_failure_rule: >
+      Failed advisory items do not automatically block evaluation, but they must be
+      recorded with rationale, remediation, or limitation notes.
+  validation_rules:
+    - rule_id: eval_ready_val_001_required_fields
+      description: >
+        Every checklist item must include check_id, question, evidence_required,
+        pass_condition, fail_condition, and remediation_guidance.
+    - rule_id: eval_ready_val_002_unique_ids
+      description: All check_id values must be unique and stable.
+    - rule_id: eval_ready_val_003_critical_traceability
+      description: >
+        Every critical item must map to at least one readiness dimension and one
+        evidence source.
+    - rule_id: eval_ready_val_004_no_unbounded_claims
+      description: >
+        The checklist result must not mark a project ready when claims, criteria,
+        evidence, or boundary conditions remain undefined.
+  quality_gate_mapping:
+    - gate_id: qg_consistency
+      checklist_support:
+        - eval_ready_025_schema_and_package_alignment_checked
+        - eval_ready_024_evaluation_record_ready
+    - gate_id: qg_coherence
+      checklist_support:
+        - eval_ready_003_problem_and_objectives_traceable
+        - eval_ready_021_contribution_claim_alignment_checked
+    - gate_id: qg_cogency
+      checklist_support:
+        - eval_ready_005_evaluation_questions_specified
+        - eval_ready_010_criteria_operationalized
+        - eval_ready_012_analysis_plan_declared
+    - gate_id: qg_correspondence
+      checklist_support:
+        - eval_ready_001_claims_declared
+        - eval_ready_006_method_family_justified
+        - eval_ready_015_projectability_and_boundary_conditions_defined
+    - gate_id: qg_dsr_transparency
+      checklist_support:
+        - eval_ready_004_demonstration_distinguished_from_evaluation
+        - eval_ready_022_transparency_materials_planned
+        - eval_ready_023_limitations_and_non_goals_declared
+    - gate_id: qg_reviewability
+      checklist_support:
+        - eval_ready_011_data_collection_plan_complete
+        - eval_ready_013_validity_threats_identified
+        - eval_ready_024_evaluation_record_ready
+  assumptions:
+    - id: assumption_eval_ready_001
+      statement: >
+        The detailed evaluation alignment model and evaluation-method vocabulary may
+        be refined later; this checklist is written to remain compatible with those
+        controlled files without requiring their final wording.
+    - id: assumption_eval_ready_002
+      statement: >
+        L2 reviewable readiness requires explicit evidence, traceability, and review
+        criteria, but does not require full empirical execution or archival-publication
+        readiness.
+  limitations:
+    - id: limitation_eval_ready_001
+      statement: >
+        This checklist assesses readiness to evaluate; it does not determine whether
+        the evaluation results are positive, publishable, reproducible, or sufficient
+        for later release.
+    - id: limitation_eval_ready_002
+      statement: >
+        Specialized quantitative, qualitative, experimental, software, safety, or
+        human-subjects methods may require additional domain review outside this file.
+  open_questions:
+    - id: oq_eval_ready_001
+      question: >
+        Should future L3 or L4 versions add numeric scoring weights for method fit,
+        validity, reliability, stakeholder confidence, and evidence sufficiency?
+      owner_role: dsr_framework_maintainer
+      evidence_status: not_yet_mapped
+    - id: oq_eval_ready_002
+      question: >
+        Should artificial, naturalistic, simulation, analytical, and literature-based
+        evaluation modes each receive method-specific sub-checklists?
+      owner_role: dsr_framework_maintainer
+      evidence_status: not_yet_mapped
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change_type: created
+      summary: Initial L2 reviewable evaluation readiness checklist generated for
+        checklist_evaluation_readiness.
+      responsible_role: GPT-5.5 Thinking
+completion_report:
+  generated_selection_id: checklist_evaluation_readiness
+  generated_path: checklists/evaluation-readiness-checklist.yaml
+  item_type: procedure
+  output_format: yaml
+  conformance_target: l2_reviewable
+  dependencies_used:
+    - dsr-framework-selection-table.md
+    - dsr-framework-generation-spec.yaml
+    - dsr-framework-generation-prompt.md
+    - chunked_folder_conversion_extractions_20260427030321_part001.yaml
+    - models/dsr-evaluation-alignment-model.yaml
+    - vocabularies/evaluation-method-families.yaml
+    - templates/evaluation-plan-template.yaml
+    - templates/evaluation-report-template.yaml
+    - schemas/dsr-evaluation-plan.schema.json
+    - schemas/dsr-evaluation-report.schema.json
+  assumptions:
+    - Evaluation readiness is treated as a pre-evaluation review gate, not an
+      evaluation result or publication-readiness decision.
+    - L2 reviewability requires explicit evidence and traceability, but not full
+      automation or archival release readiness.
+  open_questions:
+    - Whether future versions should include weighted scoring for readiness decisions.
+    - Whether method-specific sub-checklists should be created for artificial,
+      naturalistic, analytical, simulation, field, and literature-based evaluation.
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: checklist_contribution_positioning

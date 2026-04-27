@@ -1,0 +1,616 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: dsr_projectability_types
+  item_id: vocab_projectability_types
+  item_type: vocabulary
+  title: DSR Projectability Types Vocabulary
+  purpose: >
+    Provide controlled vocabulary values for classifying how a Design Science
+    Research artifact, method, model, design principle, evaluation finding, or
+    contribution claim may be projected, transferred, adapted, reused, or bounded
+    beyond the original study context.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  target_path: vocabularies/projectability-types.yaml
+  default_conformance: L2
+  dependencies:
+    - id: model_projectability
+      path: models/dsr-projectability-model.yaml
+      relation: governs_projectability_interpretation
+    - id: vocab_replication_types
+      path: vocabularies/replication-types.yaml
+      relation: adjacent_vocabulary
+    - id: vocab_knowledge_scopes
+      path: vocabularies/knowledge-scopes.yaml
+      relation: distinguishes_idiographic_nomothetic_and_projectable_scope
+    - id: docs_validity_reliability_projectability
+      path: docs/protocol/09-validity-reliability-replication-projectability.md
+      relation: human_facing_guidance
+  source_basis:
+    - source_id: akoka_et_al_2023
+      basis_type: dsr_corpus
+      evidence_status: mapped_summary
+      relevance: >
+        Supports dynamic knowledge paths, strategy chaining, knowledge accumulation,
+        and explicit limits on generality from sampled DSR papers.
+      citation_anchor_ids: [A07, A13, A14, A15, A16]
+    - source_id: hevner_et_al_2024
+      basis_type: dsr_corpus
+      evidence_status: mapped_summary
+      relevance: >
+        Supports transparency, context documentation, boundary conditions, reuse,
+        differentiated replication, and repository-based reuse materials.
+      citation_anchor_ids: [CA07, CA13, CA14, CA15]
+    - source_id: leimeister_dickhaut_janson_2021
+      basis_type: dsr_corpus
+      evidence_status: mapped_summary
+      relevance: >
+        Supports design patterns as reusable and transferable design-knowledge
+        structures, including the transferability-versus-suitability tension.
+      citation_anchor_ids: [A08, A11, A12, A15]
+    - source_id: dsr_framework_generation_spec
+      basis_type: generation_specification
+      evidence_status: mapped_summary
+      relevance: >
+        Requires vocabulary entries to include identifiers, labels, definitions,
+        allowed use, boundary notes, related terms, source basis, traceability,
+        and reviewable conformance material.
+  related_items:
+    upstream:
+      - models/dsr-projectability-model.yaml
+      - vocabularies/replication-types.yaml
+      - vocabularies/knowledge-scopes.yaml
+    downstream:
+      - checklists/replication-projectability-checklist.yaml
+      - docs/protocol/09-validity-reliability-replication-projectability.md
+      - templates/contribution-claim-template.yaml
+      - schemas/dsr-contribution-claim.schema.json
+  usage_notes:
+    - >
+      Use these values to classify the kind of projectability claim being made,
+      not the strength of evidence for that claim. Evidence strength should be
+      captured separately through evaluation quality, validity, reliability, and
+      replication fields.
+    - >
+      Projectability is weaker than universal generalization. A projectability
+      classification should preserve context, boundary conditions, required
+      tailoring, and known limits.
+    - >
+      Do not use this vocabulary to classify replication design. Use the
+      replication-types vocabulary for repeat, reproduction, conceptual
+      replication, differentiated replication, or related study-design labels.
+
+  entries:
+    - id: non_projectable_local_utility
+      label: Non-projectable local utility
+      definition: >
+        A finding, artifact, or intervention is judged useful in the original
+        local context, but no claim is made that it can be transferred, reused,
+        generalized, or adapted beyond that context.
+      allowed_use: >
+        Use when the evidence supports local utility or feasibility only, or
+        when the study deliberately avoids broader transfer claims.
+      boundary_notes: >
+        Do not use for cases where the artifact may plausibly transfer but has
+        not yet been evaluated elsewhere; use transfer_candidate or
+        boundary_conditioned_projectability instead.
+      related_terms:
+        - local_utility
+        - idiographic_scope
+        - no_generalization_claim
+      source_basis:
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped_summary
+        - source_id: dsr_framework_generation_spec
+          evidence_status: mapped_summary
+
+    - id: transfer_candidate
+      label: Transfer candidate
+      definition: >
+        A result or artifact has features that may be relevant beyond the
+        original context, but transfer has not yet been demonstrated or
+        adequately bounded.
+      allowed_use: >
+        Use for early-stage DSR outputs, conceptual artifacts, prototypes, or
+        single-context studies where possible transfer is plausible but still
+        requires further demonstration, evaluation, or replication.
+      boundary_notes: >
+        This is a provisional classification. It should not be treated as an
+        established projectability claim.
+      related_terms:
+        - plausible_transfer
+        - exploratory_projectability
+        - future_evaluation_needed
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped_summary
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped_summary
+
+    - id: contextual_transfer
+      label: Contextual transfer
+      definition: >
+        Transfer of design knowledge, artifact logic, or implementation guidance
+        to a context that is sufficiently similar to the original setting for
+        the original assumptions and boundary conditions to remain materially
+        relevant.
+      allowed_use: >
+        Use when the receiving context shares important problem, stakeholder,
+        technology, organizational, regulatory, or use-practice conditions with
+        the original context.
+      boundary_notes: >
+        Do not use when transfer requires substantial redesign, domain
+        translation, or new theoretical grounding; use adaptive_transfer or
+        cross_domain_transfer instead.
+      related_terms:
+        - similar_context
+        - boundary_conditions
+        - naturalistic_evaluation
+      source_basis:
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped_summary
+        - source_id: dsr_evaluation_guidance
+          evidence_status: not_yet_mapped
+
+    - id: adaptive_transfer
+      label: Adaptive transfer
+      definition: >
+        Transfer that requires intentional tailoring, redesign, parameter
+        adjustment, or configuration before the artifact or design knowledge can
+        be responsibly used in a new context.
+      allowed_use: >
+        Use when the original artifact or design principle is relevant but must
+        be modified to fit different users, infrastructures, constraints,
+        processes, data conditions, risks, or governance arrangements.
+      boundary_notes: >
+        Distinguish adaptive transfer from mere implementation variation. The
+        adaptation should affect design logic, use logic, evaluation criteria,
+        or context fit.
+      related_terms:
+        - tailoring
+        - configuration
+        - design_adaptation
+        - situated_use
+      source_basis:
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped_summary
+        - source_id: leimeister_dickhaut_janson_2021
+          evidence_status: mapped_summary
+
+    - id: cross_domain_transfer
+      label: Cross-domain transfer
+      definition: >
+        Transfer of an artifact, method, design principle, or design pattern
+        from one application domain to another domain with materially different
+        terminology, stakeholder structures, constraints, or success criteria.
+      allowed_use: >
+        Use when the contribution is intentionally projected across domains and
+        requires explicit translation of problem class, solution logic, and
+        evaluation criteria.
+      boundary_notes: >
+        Cross-domain transfer requires stronger explanation than contextual
+        transfer because similarity cannot be assumed from the original case.
+      related_terms:
+        - domain_translation
+        - analogical_transfer
+        - transdisciplinary_design
+      source_basis:
+        - source_id: leimeister_dickhaut_janson_2021
+          evidence_status: mapped_summary
+        - source_id: dsr_corpus
+          evidence_status: not_yet_mapped
+
+    - id: analytic_generalization
+      label: Analytic generalization
+      definition: >
+        Projection from one or more evaluated instances to an abstract claim
+        about an artifact type, mechanism, design principle, method, or problem
+        class, supported by explicit reasoning rather than statistical sampling
+        alone.
+      allowed_use: >
+        Use when a DSR output abstracts from local observations into reusable
+        design knowledge while preserving the reasoning that links case evidence
+        to the higher-level claim.
+      boundary_notes: >
+        Do not use as a synonym for statistical generalization. Analytic
+        generalization requires theory, mechanism, design rationale, or structured
+        comparison to support the abstraction.
+      related_terms:
+        - design_theory
+        - abstraction
+        - problem_class
+        - explanatory_mechanism
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped_summary
+        - source_id: dsr_corpus
+          evidence_status: not_yet_mapped
+
+    - id: projectable_to_problem_class
+      label: Projectable to problem class
+      definition: >
+        The artifact or design knowledge is framed as applicable to a defined
+        class of recurring problems rather than only to one local problem
+        instance.
+      allowed_use: >
+        Use when the problem class is named, its inclusion conditions are
+        described, and the artifact logic is expressed at a level that can guide
+        new instances in that class.
+      boundary_notes: >
+        The problem class must be bounded. Do not use for vague claims that an
+        artifact is broadly useful without specifying the class of problems or
+        contexts to which the claim applies.
+      related_terms:
+        - problem_class
+        - design_principle
+        - prescriptive_knowledge
+      source_basis:
+        - source_id: leimeister_dickhaut_janson_2021
+          evidence_status: mapped_summary
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped_summary
+
+    - id: boundary_conditioned_projectability
+      label: Boundary-conditioned projectability
+      definition: >
+        Projectability that is explicitly conditional on documented boundary
+        conditions such as actor capabilities, organizational maturity,
+        data quality, technological infrastructure, regulatory setting, or use
+        practice.
+      allowed_use: >
+        Use when the contribution can be projected beyond the original case only
+        if specified assumptions, constraints, and contextual preconditions hold.
+      boundary_notes: >
+        This type should include or reference a boundary-condition record. If
+        boundary conditions are unknown, use transfer_candidate instead.
+      related_terms:
+        - boundary_conditions
+        - context_validity
+        - external_validity
+        - assumption_record
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped_summary
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped_summary
+
+    - id: parameterized_projectability
+      label: Parameterized projectability
+      definition: >
+        Projectability expressed through explicit parameters, variable ranges,
+        configuration options, or decision rules that define how the artifact or
+        method should change across contexts.
+      allowed_use: >
+        Use for configurable methods, models, templates, architectures, or
+        design patterns where transfer depends on documented parameter settings
+        or conditional branches.
+      boundary_notes: >
+        Do not use for informal tailoring guidance. The parameters or decision
+        variables must be identifiable enough for review or later schema support.
+      related_terms:
+        - configuration
+        - tailoring_rule
+        - decision_rule
+        - method_engineering
+      source_basis:
+        - source_id: dsr_corpus
+          evidence_status: not_yet_mapped
+        - source_id: dsr_framework_generation_spec
+          evidence_status: mapped_summary
+
+    - id: artifact_type_reuse
+      label: Artifact type reuse
+      definition: >
+        Reuse of an artifact specification, artifact universal, architecture,
+        design pattern, or artifact type rather than reuse of one local artifact
+        instance alone.
+      allowed_use: >
+        Use when the reusable contribution is the general artifact definition,
+        make/use logic, design specification, or pattern structure that can be
+        instantiated again.
+      boundary_notes: >
+        Do not use when only a deployed instance is copied without reusable
+        design knowledge, specification, or boundary documentation.
+      related_terms:
+        - artifact_universal
+        - design_specification
+        - make_plan
+        - use_plan
+      source_basis:
+        - source_id: weigand_johannesson_andersson_2021
+          evidence_status: mapped_summary
+        - source_id: leimeister_dickhaut_janson_2021
+          evidence_status: mapped_summary
+
+    - id: method_reuse
+      label: Method reuse
+      definition: >
+        Reuse of a procedure, method, protocol, evaluation strategy, design
+        process, or documentation routine in another DSR project.
+      allowed_use: >
+        Use when the projected contribution is primarily procedural or
+        methodological and can guide later researchers or practitioners through
+        comparable activities.
+      boundary_notes: >
+        Distinguish method reuse from artifact reuse. The reused object is the
+        procedure or method, not necessarily the original technical artifact.
+      related_terms:
+        - process_model
+        - protocol
+        - procedure
+        - evaluation_method
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped_summary
+        - source_id: dsr_corpus
+          evidence_status: not_yet_mapped
+
+    - id: design_pattern_reuse
+      label: Design pattern reuse
+      definition: >
+        Reuse of a structured design pattern that connects a recurring problem
+        context, forces or requirements, a solution approach, rationale,
+        consequences, and implementation guidance.
+      allowed_use: >
+        Use when design knowledge is deliberately codified as a pattern intended
+        to bridge problem-space understanding and solution-space action across
+        recurring situations.
+      boundary_notes: >
+        Pattern reuse requires enough specificity to guide action and enough
+        abstraction to travel across cases. If it is too local, use contextual
+        transfer; if too abstract, document the loss of suitability.
+      related_terms:
+        - pattern_language
+        - reusable_design_knowledge
+        - transferability_suitability_tension
+      source_basis:
+        - source_id: leimeister_dickhaut_janson_2021
+          evidence_status: mapped_summary
+
+    - id: component_reuse
+      label: Component reuse
+      definition: >
+        Reuse of a modular artifact component, capability, data structure,
+        model element, template segment, control, or service in another artifact
+        or artifact package.
+      allowed_use: >
+        Use where the reusable unit is a separable component rather than the
+        whole artifact, method, or theory.
+      boundary_notes: >
+        Component reuse does not by itself establish that the entire artifact is
+        projectable. Evaluate integration assumptions and interface dependencies.
+      related_terms:
+        - modularity
+        - interface_dependency
+        - partial_reuse
+        - integration_context
+      source_basis:
+        - source_id: dsr_corpus
+          evidence_status: not_yet_mapped
+        - source_id: dsr_framework_generation_spec
+          evidence_status: mapped_summary
+
+    - id: cumulative_path_extension
+      label: Cumulative path extension
+      definition: >
+        Projectability achieved by extending, chaining, or repositioning prior
+        design knowledge within an explicit sequence of knowledge moments,
+        strategies, or contribution paths.
+      allowed_use: >
+        Use when a project builds from previous DSR knowledge by adding a next
+        knowledge moment, switching strategy, abstracting from an instantiation,
+        or developing an existing path into a richer contribution.
+      boundary_notes: >
+        This type requires a traceable predecessor contribution or strategy path.
+        Without such a predecessor, use transfer_candidate or analytic_generalization.
+      related_terms:
+        - knowledge_path
+        - strategy_chaining
+        - cumulative_knowledge
+        - contribution_progression
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped_summary
+          citation_anchor_ids: [A13, A14, A16]
+
+    - id: scalability_projectability
+      label: Scalability projectability
+      definition: >
+        Projectability based on evidence or argument that the artifact, method,
+        or design knowledge can remain useful when the number of users,
+        artifacts, records, contexts, transactions, institutions, or data volumes
+        increases.
+      allowed_use: >
+        Use when the projection claim concerns scale effects, operational load,
+        performance, governance capacity, maintainability, or adoption across a
+        larger population or package scope.
+      boundary_notes: >
+        Do not use for general transfer claims that do not involve scale. Also
+        distinguish technical scalability from organizational or governance
+        scalability.
+      related_terms:
+        - scalability
+        - maintainability
+        - adoption_capacity
+        - operational_load
+      source_basis:
+        - source_id: dsr_corpus
+          evidence_status: not_yet_mapped
+        - source_id: dsr_framework_generation_spec
+          evidence_status: mapped_summary
+
+    - id: institutionalization_projectability
+      label: Institutionalization projectability
+      definition: >
+        Projectability based on the ability to embed the artifact, method, or
+        design knowledge into durable organizational routines, governance
+        structures, documentation protocols, review processes, or repositories.
+      allowed_use: >
+        Use when the projection claim concerns sustained organizational use,
+        retention, handoff, release management, auditability, or repository-based
+        reuse.
+      boundary_notes: >
+        Do not use merely because an artifact is useful. Institutionalization
+        requires evidence or design logic for persistence beyond an isolated
+        project team or one-time evaluation.
+      related_terms:
+        - knowledge_retention
+        - governance
+        - repository_reuse
+        - release_process
+      source_basis:
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped_summary
+        - source_id: dsr_framework_generation_spec
+          evidence_status: mapped_summary
+
+  controlled_groupings:
+    by_claim_strength:
+      no_broader_claim:
+        - non_projectable_local_utility
+      provisional:
+        - transfer_candidate
+      bounded_or_conditioned:
+        - contextual_transfer
+        - adaptive_transfer
+        - cross_domain_transfer
+        - boundary_conditioned_projectability
+        - parameterized_projectability
+      abstracted_or_reusable:
+        - analytic_generalization
+        - projectable_to_problem_class
+        - artifact_type_reuse
+        - method_reuse
+        - design_pattern_reuse
+        - component_reuse
+      cumulative_or_operational:
+        - cumulative_path_extension
+        - scalability_projectability
+        - institutionalization_projectability
+    by_primary_transfer_object:
+      artifact_or_component:
+        - artifact_type_reuse
+        - component_reuse
+        - scalability_projectability
+      method_or_process:
+        - method_reuse
+        - parameterized_projectability
+        - institutionalization_projectability
+      design_knowledge:
+        - analytic_generalization
+        - projectable_to_problem_class
+        - design_pattern_reuse
+        - cumulative_path_extension
+      context_or_domain:
+        - contextual_transfer
+        - adaptive_transfer
+        - cross_domain_transfer
+        - boundary_conditioned_projectability
+
+  validation_rules:
+    - rule_id: projectability_type_required_for_broader_claims
+      rule: >
+        Any contribution claim that asserts transfer, reuse, generalization,
+        adaptation, cumulative extension, or broader applicability should select
+        at least one projectability type from this vocabulary.
+      severity: should
+    - rule_id: boundary_conditions_required_for_transfer
+      rule: >
+        contextual_transfer, adaptive_transfer, cross_domain_transfer,
+        boundary_conditioned_projectability, and parameterized_projectability
+        should reference documented boundary conditions or tailoring assumptions.
+      severity: should
+    - rule_id: distinguish_projectability_from_replication
+      rule: >
+        Do not use this vocabulary to classify the study design used to repeat,
+        reproduce, or replicate an artifact evaluation. Use the replication-types
+        vocabulary for replication design and this vocabulary for the nature of
+        the broader applicability claim.
+      severity: must
+    - rule_id: no_unbounded_generalization
+      rule: >
+        Do not classify a contribution as projectable_to_problem_class or
+        analytic_generalization unless the problem class, abstraction logic,
+        or design-knowledge target is explicitly described.
+      severity: must
+
+  quality_gate_mapping:
+    - gate_id: qg_consistency
+      status: pass
+      rationale: >
+        Uses lower-kebab-case target path, lower_snake_case stable identifiers,
+        YAML source-of-truth format, and vocabulary entry structure.
+    - gate_id: qg_coherence
+      status: pass
+      rationale: >
+        Aligns with the projectability model, replication vocabulary,
+        knowledge-scope vocabulary, and projectability checklist dependency map.
+    - gate_id: qg_cogency
+      status: pass
+      rationale: >
+        Distinguishes local utility, provisional transfer, contextual transfer,
+        adaptation, abstraction, reuse, cumulative extension, scalability, and
+        institutionalization.
+    - gate_id: qg_correspondence
+      status: pass
+      rationale: >
+        Supports the DSR Framework as a reviewable vocabulary for documenting
+        projectability and transfer claims.
+    - gate_id: qg_dsr_transparency
+      status: pass
+      rationale: >
+        Requires explicit context, boundary-condition, tailoring, and evidence
+        distinctions for broader applicability claims.
+    - gate_id: qg_reviewability
+      status: pass
+      rationale: >
+        Provides validation rules and boundary notes that reviewers can apply to
+        contribution claims and package records.
+
+  traceability:
+    - trace_id: trace_vocab_projectability_selection
+      source: dsr_framework_selection_table.vocab_projectability_types
+      target: vocabularies/projectability-types.yaml
+      relation: implements_selected_portion
+    - trace_id: trace_projectability_model_dependency
+      source: models/dsr-projectability-model.yaml
+      target: dsr_projectability_types
+      relation: vocabulary_supports_model
+    - trace_id: trace_replication_projectability_checklist
+      source: dsr_projectability_types
+      target: checklists/replication-projectability-checklist.yaml
+      relation: controlled_values_for_review_items
+    - trace_id: trace_contribution_claim_template
+      source: dsr_projectability_types
+      target: templates/contribution-claim-template.yaml
+      relation: controlled_values_for_claim_scope_and_transfer
+
+  assumptions:
+    - assumption_id: assumption_vocab_scope
+      statement: >
+        This vocabulary classifies kinds of projectability and transfer claims;
+        it does not score evidence quality, validity, reliability, or replication
+        strength.
+    - assumption_id: assumption_adjacent_vocabularies
+      statement: >
+        Replication types, validity types, reliability types, and knowledge
+        scopes remain separate vocabularies and should be cross-referenced rather
+        than collapsed into this file.
+  open_questions:
+    - question_id: oq_projectability_scale
+      question: >
+        Should a future version define ordinal evidence levels for projectability
+        strength, or should strength remain in evaluation/validity records?
+      disposition: defer_to_projectability_model
+    - question_id: oq_schema_enumeration
+      question: >
+        Should contribution-claim and project-record schemas enumerate these
+        values directly or reference this vocabulary dynamically?
+      disposition: defer_to_schema_generation
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial L2 reviewable vocabulary generated for vocab_projectability_types.
+      responsible_party: GPT-5.5 Thinking

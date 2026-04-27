@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/dsr-evaluation-plan.schema.json",
+  "title": "DSR Evaluation Plan Schema",
+  "description": "Validates evaluation-plan templates and retained evaluation-plan records. The contract preserves DSR claim evaluation, evidence planning, validity/reliability, transparency, decisions, and retention.",
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "evaluation_plan"
+      ]
+    },
+    {
+      "required": [
+        "template",
+        "evaluation_plan"
+      ]
+    },
+    {
+      "required": [
+        "record"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "template": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evaluation_plan": {
+      "type": "object",
+      "required": [
+        "plan_id",
+        "plan_type",
+        "title",
+        "status",
+        "version",
+        "responsible_party",
+        "project_identity",
+        "evaluation_purpose",
+        "claims_under_evaluation",
+        "evaluation_questions",
+        "evaluation_design",
+        "evidence_plan",
+        "validity_and_reliability_plan",
+        "transparency_plan",
+        "analysis_and_interpretation_plan",
+        "acceptance_criteria",
+        "validation_rules",
+        "traceability",
+        "retention_rule"
+      ],
+      "properties": {
+        "plan_id": {},
+        "plan_type": {},
+        "title": {},
+        "status": {},
+        "version": {},
+        "date_created": {},
+        "date_updated": {},
+        "responsible_party": {},
+        "project_identity": {},
+        "evaluation_purpose": {},
+        "claims_under_evaluation": {},
+        "evaluation_questions": {},
+        "evaluation_design": {},
+        "evidence_plan": {},
+        "data_management_and_ethics": {},
+        "validity_and_reliability_plan": {},
+        "transparency_plan": {},
+        "analysis_and_interpretation_plan": {},
+        "decision_and_action_plan": {},
+        "acceptance_criteria": {},
+        "validation_rules": {},
+        "failure_modes": {},
+        "traceability": {},
+        "retention_rule": {}
+      },
+      "additionalProperties": true
+    },
+    "record": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "record_class",
+        "item_type",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "date",
+        "responsible_party",
+        "event_or_action",
+        "evaluation_plan",
+        "evidence",
+        "outcome",
+        "retention_rule",
+        "traceability",
+        "change_history"
+      ],
+      "additionalProperties": true
+    },
+    "completion_report": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

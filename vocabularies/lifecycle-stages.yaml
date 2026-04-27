@@ -1,0 +1,861 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: vocab_lifecycle_stages
+  item_id: vocab_lifecycle_stages
+  item_type: specification
+  title: DSR Lifecycle Stages Vocabulary
+  purpose: >
+    Provide controlled lifecycle-stage terms for identifying, sequencing, documenting,
+    reviewing, and validating Design Science Research activities in the DSR Framework.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  target_path: vocabularies/lifecycle-stages.yaml
+  conformance_target: l2_reviewable
+  selection:
+    selection_id: vocab_lifecycle_stages
+    portion_type: vocabulary
+    output_format: yaml
+    default_conformance: L2
+    purpose: DSR lifecycle stages.
+    key_dependencies:
+      - model_lifecycle
+  scope:
+    applies_to:
+      - dsr_project_records
+      - artifact_profiles
+      - design_rationale_records
+      - demonstration_records
+      - evaluation_plans
+      - evaluation_reports
+      - contribution_claims
+      - transparency_crosswalks
+      - review_records
+      - release_records
+    does_not_define:
+      - a mandatory linear process for every DSR project
+      - a replacement for domain-specific project-management phases
+      - a claim that every project must produce evidence at every stage before exploratory work can begin
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      source_type: governing_specification
+      evidence_status: mapped
+      relevance: >
+        Governs repository conventions, YAML-controlled source files, required metadata,
+        traceability, quality gates, and vocabulary entry structure.
+    - source_id: dsr_framework_generation_prompt
+      source_type: governing_prompt
+      evidence_status: mapped
+      relevance: >
+        Requires controlled vocabulary entries with id, label, definition, allowed_use,
+        boundary_notes, related_terms, and source_basis.
+    - source_id: selection_table
+      source_type: generation_registry
+      evidence_status: mapped
+      relevance: >
+        Identifies vocab_lifecycle_stages as the requested target for
+        vocabularies/lifecycle-stages.yaml.
+    - source_id: project_management_dsr_methodology_source
+      source_type: dsr_extraction_corpus
+      evidence_status: mapped
+      citation_anchors:
+        - A16
+      relevance: >
+        Provides the Peffers et al. six-step DSR process sequence: problem identification
+        and motivation, objectives for a solution, design and development, demonstration,
+        evaluation, and communication.
+    - source_id: weber_dsr_quality_evaluation_source
+      source_type: dsr_extraction_corpus
+      evidence_status: mapped
+      citation_anchors:
+        - A09
+        - A10
+        - A11
+        - A13
+        - A14
+      relevance: >
+        Supports the lifecycle as an iterative DSR process and distinguishes process
+        quality from outcome quality, including problem specification, solution derivation,
+        and artifact-type-specific outcome evaluation.
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      source_type: dsr_extraction_corpus
+      evidence_status: mapped
+      citation_anchors:
+        - CA01
+        - CA05
+        - CA06
+        - CA07
+        - CA08
+        - CA10
+        - CA11
+        - CA16
+      relevance: >
+        Supports lifecycle documentation across process, problem-space, solution-space,
+        build, evaluation, and contribution transparency.
+    - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+      source_type: dsr_extraction_corpus
+      evidence_status: mapped
+      citation_anchors:
+        - A07
+        - A08
+        - A13
+        - A14
+      relevance: >
+        Supports viewing DSR as movement through knowledge moments and using paths to
+        articulate contribution progression.
+  usage_rules:
+    - rule_id: lifecycle_stage_required_for_stage_gated_records
+      rule: >
+        Records, templates, and checklists that describe DSR activity progress should use
+        one or more entry ids from this vocabulary instead of ad hoc stage labels.
+    - rule_id: allow_iteration_and_overlap
+      rule: >
+        Lifecycle stages may overlap, repeat, or be revisited; sequence_order expresses a
+        default narrative and review sequence, not a strict waterfall constraint.
+    - rule_id: separate_demonstration_from_evaluation
+      rule: >
+        Demonstration records should show artifact use or feasibility; evaluation records
+        should assess artifact utility, artifact quality, claim support, or contribution
+        adequacy against explicit criteria.
+    - rule_id: separate_communication_from_release
+      rule: >
+        Communication covers scholarly and practitioner reporting; package review and
+        release covers repository governance, versioning, conformance, and preservation.
+  entries:
+    - id: problem_identification_and_motivation
+      label: Problem Identification and Motivation
+      sequence_order: 10
+      lifecycle_role: core_dsr_stage
+      definition: >
+        Stage in which the focal problem, problem class, stakeholders, practical relevance,
+        unsatisfactory current state, and motivation for a DSR intervention are identified
+        and justified.
+      allowed_use: >
+        Use when classifying work that frames the problem situation, explains why the
+        problem matters, identifies affected stakeholders, or distinguishes a researchable
+        DSR problem from ordinary design work.
+      boundary_notes: >
+        Do not use for solution requirements alone; use solution_objectives_and_requirements
+        when the artifact success criteria have already been derived. Do not treat a local
+        inconvenience as a DSR problem unless a broader problem class or knowledge contribution
+        is articulated.
+      related_terms:
+        narrower:
+          - problem_space_definition
+          - stakeholder_analysis
+          - problem_class_identification
+        broader:
+          - process_transparency
+        see_also:
+          - solution_objectives_and_requirements
+          - solution_space_grounding
+      source_basis:
+        - source_id: project_management_dsr_methodology_source
+          citation_anchors: [A16]
+          evidence_status: mapped
+        - source_id: weber_dsr_quality_evaluation_source
+          citation_anchors: [A11]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - problem_statement
+          - problem_class
+          - stakeholder_description
+          - practical_relevance_rationale
+          - current_gap_or_unsatisfactory_state
+        common_failure_modes:
+          - problem_is_only_a_task_request
+          - stakeholders_are_not_identified
+          - motivation_does_not_distinguish_research_from_practice
+
+    - id: problem_space_definition
+      label: Problem-Space Definition
+      sequence_order: 15
+      lifecycle_role: dsr_framework_extension_stage
+      definition: >
+        Stage in which the application context, scope, improvement goals, constraints,
+        timeframe, stakeholders, and boundary conditions of the DSR problem space are made explicit.
+      allowed_use: >
+        Use when a record emphasizes context definition, problem-space boundaries, goals,
+        constraints, and environmental conditions that shape artifact requirements and evaluation.
+      boundary_notes: >
+        Use problem_identification_and_motivation for initial recognition and justification of
+        the problem. Use solution_space_grounding when the focus shifts from the problem context
+        to theories, prior artifacts, technologies, or design knowledge that may inform a solution.
+      related_terms:
+        narrower:
+          - application_context
+          - improvement_goal
+          - boundary_condition
+          - stakeholder_context
+        broader:
+          - problem_identification_and_motivation
+          - problem_space_transparency
+        see_also:
+          - solution_objectives_and_requirements
+          - evaluation_and_learning
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA07, CA16]
+          evidence_status: mapped
+        - source_id: weber_dsr_quality_evaluation_source
+          citation_anchors: [A11]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - bounded_research_scope
+          - context_description
+          - improvement_goals
+          - constraints
+          - boundary_conditions
+        common_failure_modes:
+          - context_is_too_vague_for_projectability
+          - improvement_goals_are_not_distinguishable_from_solution_features
+          - boundary_conditions_are_absent
+
+    - id: solution_space_grounding
+      label: Solution-Space Grounding
+      sequence_order: 20
+      lifecycle_role: dsr_framework_extension_stage
+      definition: >
+        Stage in which existing descriptive knowledge, prescriptive knowledge, design theories,
+        technologies, prior artifacts, domain evidence, and alternative solution approaches are
+        reviewed and connected to the intended artifact design.
+      allowed_use: >
+        Use when classifying literature review, justificatory knowledge, precedent analysis,
+        theory grounding, technology scan, prior-artifact review, or solution alternative mapping.
+      boundary_notes: >
+        Do not use merely because references are cited. Use this stage only when prior knowledge
+        constrains, informs, justifies, or differentiates the artifact design or contribution claim.
+      related_terms:
+        narrower:
+          - justificatory_knowledge
+          - prior_artifact_review
+          - theory_grounding
+          - solution_alternative_analysis
+        broader:
+          - solution_space_transparency
+        see_also:
+          - artifact_design_and_development
+          - contribution_positioning
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA08, CA16]
+          evidence_status: mapped
+        - source_id: project_management_dsr_methodology_source
+          citation_anchors: [A22]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - knowledge_base_sources
+          - prior_artifacts_or_solution_candidates
+          - grounding_theories_or_design_principles
+          - rationale_for_selected_solution_direction
+        common_failure_modes:
+          - references_are_listed_but_not_used
+          - solution_novelty_is_claimed_without_prior_artifact_comparison
+          - grounding_sources_do_not_trace_to_design_decisions
+
+    - id: solution_objectives_and_requirements
+      label: Solution Objectives and Requirements
+      sequence_order: 30
+      lifecycle_role: core_dsr_stage
+      definition: >
+        Stage in which the desired solution objectives, artifact requirements, success criteria,
+        constraints, and acceptance conditions are derived from the problem space and solution-space grounding.
+      allowed_use: >
+        Use when classifying specification of what the artifact must accomplish, what quality attributes
+        it must satisfy, what constraints shape feasible design, or what criteria will later guide demonstration
+        and evaluation.
+      boundary_notes: >
+        Do not use for artifact construction itself; use artifact_design_and_development when the design is being
+        formed or built. Do not use for evaluation results; use evaluation_and_learning when evidence of attainment
+        is being assessed.
+      related_terms:
+        narrower:
+          - meta_requirements
+          - design_requirements
+          - quality_attributes
+          - acceptance_criteria
+        broader:
+          - process_transparency
+        see_also:
+          - problem_space_definition
+          - artifact_design_and_development
+          - evaluation_and_learning
+      source_basis:
+        - source_id: project_management_dsr_methodology_source
+          citation_anchors: [A16]
+          evidence_status: mapped
+        - source_id: weber_dsr_quality_evaluation_source
+          citation_anchors: [A13]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - objectives_for_solution
+          - requirements_or_meta_requirements
+          - success_criteria
+          - constraints
+          - trace_to_problem_statement
+        common_failure_modes:
+          - objectives_are_not_testable_or_reviewable
+          - requirements_do_not_trace_to_problem_context
+          - acceptance_criteria_are_missing
+
+    - id: artifact_design_and_development
+      label: Artifact Design and Development
+      sequence_order: 40
+      lifecycle_role: core_dsr_stage
+      definition: >
+        Stage in which the DSR artifact, artifact type, design specification, components,
+        make/use logic, design rationale, and implementation or instantiation plan are created,
+        modified, or selected.
+      allowed_use: >
+        Use when classifying design decisions, artifact construction, prototyping, make-plan
+        development, use-plan development, design search, creative synthesis, or technical build activity.
+      boundary_notes: >
+        Do not use for showing that an artifact can be used; use demonstration_and_use for feasibility or use
+        scenarios. Do not use for judging whether the artifact is good enough; use evaluation_and_learning for
+        assessment against criteria.
+      related_terms:
+        narrower:
+          - design_rationale
+          - artifact_specification
+          - build_transparency
+          - make_plan
+          - use_plan
+          - prototype_development
+        broader:
+          - build_transparency
+        see_also:
+          - solution_space_grounding
+          - demonstration_and_use
+          - evaluation_and_learning
+      source_basis:
+        - source_id: project_management_dsr_methodology_source
+          citation_anchors: [A16]
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA09, CA16]
+          evidence_status: mapped
+        - source_id: weigand_johannesson_andersson_2021_101878
+          citation_anchors: [A09, A15, A17]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - artifact_type
+          - artifact_boundary
+          - component_description
+          - design_decision_log
+          - design_rationale
+          - make_or_use_plan
+        common_failure_modes:
+          - artifact_boundary_is_unclear
+          - design_choices_are_not_justified
+          - build_activity_is_reported_without_artifact_specification
+
+    - id: demonstration_and_use
+      label: Demonstration and Use
+      sequence_order: 50
+      lifecycle_role: core_dsr_stage
+      definition: >
+        Stage in which the artifact is shown, exercised, instantiated, simulated, piloted, or otherwise
+        used in a scenario or context to demonstrate feasibility, usability, or practical applicability.
+      allowed_use: >
+        Use when classifying scenario walkthroughs, proof-of-concept use, prototype demonstrations,
+        simulations, pilots, worked examples, training workshops, or use-context illustrations.
+      boundary_notes: >
+        Demonstration may provide evidence, but it is not equivalent to evaluation unless explicit criteria,
+        data, comparison, or judgment are used to assess artifact quality, utility, or claim support.
+      related_terms:
+        narrower:
+          - prototype_demonstration
+          - scenario_walkthrough
+          - pilot_use
+          - simulation
+          - worked_example
+        broader:
+          - process_transparency
+        see_also:
+          - artifact_design_and_development
+          - evaluation_and_learning
+      source_basis:
+        - source_id: project_management_dsr_methodology_source
+          citation_anchors: [A16]
+          evidence_status: mapped
+        - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+          citation_anchors: [A13]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - demonstration_context
+          - users_or_participants_if_applicable
+          - task_or_use_case
+          - demonstration_output
+          - limits_of_demonstration
+        common_failure_modes:
+          - demonstration_is_claimed_as_evaluation_without_criteria
+          - use_context_is_not_described
+          - demonstration_output_is_not_traceable_to_artifact
+
+    - id: evaluation_and_learning
+      label: Evaluation and Learning
+      sequence_order: 60
+      lifecycle_role: core_dsr_stage
+      definition: >
+        Stage in which artifact utility, artifact quality, fitness for use, fitness for evolution,
+        validity, reliability, contribution support, or implementation effects are assessed against
+        explicit criteria and used to decide whether to revise, extend, accept, or reject claims.
+      allowed_use: >
+        Use when classifying formative evaluation, summative evaluation, artificial evaluation,
+        naturalistic evaluation, expert review, analytic assessment, experiment, case study,
+        simulation assessment, field test, or post-demonstration learning.
+      boundary_notes: >
+        Do not use for mere presentation of an artifact in use unless the record includes criteria and an
+        assessment logic. Do not collapse evaluation findings into contribution claims; use contribution_positioning
+        when articulating the knowledge contribution supported by evaluation evidence.
+      related_terms:
+        narrower:
+          - formative_evaluation
+          - summative_evaluation
+          - artificial_evaluation
+          - naturalistic_evaluation
+          - validity_assessment
+          - reliability_assessment
+          - revision_decision
+        broader:
+          - evaluation_transparency
+        see_also:
+          - demonstration_and_use
+          - contribution_positioning
+          - projectability_and_reuse
+      source_basis:
+        - source_id: project_management_dsr_methodology_source
+          citation_anchors: [A16, A21]
+          evidence_status: mapped
+        - source_id: weber_dsr_quality_evaluation_source
+          citation_anchors: [A10, A14, A15]
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA10, CA16]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - evaluation_question
+          - evaluation_method
+          - evaluation_criteria
+          - data_or_observations
+          - findings
+          - limitations
+          - revision_or_claim_decision
+        common_failure_modes:
+          - no_explicit_criteria
+          - findings_do_not_support_claims
+          - demonstration_and_evaluation_are_conflated
+          - context_limits_are_not_reported
+
+    - id: contribution_positioning
+      label: Contribution Positioning
+      sequence_order: 70
+      lifecycle_role: dsr_framework_extension_stage
+      definition: >
+        Stage in which the DSR knowledge contribution is classified, scoped, bounded, and linked
+        to artifact evidence, prior knowledge, contribution type, knowledge goal, and knowledge scope.
+      allowed_use: >
+        Use when classifying contribution claims, novelty assessment, contribution type selection,
+        idiographic or nomothetic scope judgments, design principle extraction, or claim-evidence alignment.
+      boundary_notes: >
+        Do not use merely for communication or publication formatting. Use this stage when the substantive
+        knowledge contribution is being positioned relative to the corpus, problem class, artifact, and evaluation evidence.
+      related_terms:
+        narrower:
+          - contribution_claim
+          - knowledge_goal
+          - knowledge_scope
+          - contribution_type
+          - design_principle
+          - claim_evidence_alignment
+        broader:
+          - contribution_transparency
+        see_also:
+          - evaluation_and_learning
+          - communication_and_dissemination
+          - projectability_and_reuse
+      source_basis:
+        - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+          citation_anchors: [A07, A08, A10, A14]
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA11, CA16]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - contribution_type
+          - knowledge_goal
+          - knowledge_scope
+          - novelty_or_reuse_rationale
+          - claim_evidence_links
+          - boundary_conditions
+        common_failure_modes:
+          - contribution_is_only_asserted
+          - artifact_utility_is_mistaken_for_knowledge_contribution
+          - knowledge_scope_is_not_bounded
+
+    - id: projectability_and_reuse
+      label: Projectability and Reuse
+      sequence_order: 75
+      lifecycle_role: dsr_framework_extension_stage
+      definition: >
+        Stage in which the artifact, design knowledge, evaluation findings, and boundary conditions
+        are prepared for adaptation, transfer, reuse, replication, extension, or accumulation across
+        cases, settings, or problem classes.
+      allowed_use: >
+        Use when classifying transferability reasoning, reuse guidance, replication planning,
+        adaptation conditions, cumulative knowledge mapping, or repository packaging for future users.
+      boundary_notes: >
+        Do not use for generic publication claims. Use only when the record identifies what may be reused,
+        by whom, under what conditions, and with what limits or adaptation requirements.
+      related_terms:
+        narrower:
+          - transfer_conditions
+          - reuse_constraints
+          - replication_conditions
+          - adaptation_guidance
+          - boundary_conditions
+        broader:
+          - contribution_transparency
+        see_also:
+          - contribution_positioning
+          - communication_and_dissemination
+          - package_review_and_release
+      source_basis:
+        - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+          citation_anchors: [A14, A15, A16]
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA13, CA14, CA15]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - reusable_elements
+          - adaptation_conditions
+          - boundary_conditions
+          - replication_or_transfer_notes
+          - repository_or_packaging_implications
+        common_failure_modes:
+          - generalization_is_overclaimed
+          - reuse_conditions_are_not_specified
+          - local_context_limits_are_hidden
+
+    - id: communication_and_dissemination
+      label: Communication and Dissemination
+      sequence_order: 80
+      lifecycle_role: core_dsr_stage
+      definition: >
+        Stage in which the problem, artifact, design process, evaluation evidence, limitations,
+        contribution, and practical implications are communicated to scholarly, practitioner,
+        technical, public, or governance audiences.
+      allowed_use: >
+        Use when classifying journal reporting, repository documentation, practitioner guidance,
+        technical documentation, conference presentation, protocol documentation, or other dissemination activity.
+      boundary_notes: >
+        Communication may report contribution positioning, but it is not the same as contribution positioning.
+        Use package_review_and_release when the concern is versioned release governance rather than communication content.
+      related_terms:
+        narrower:
+          - scholarly_reporting
+          - practitioner_guidance
+          - technical_documentation
+          - protocol_documentation
+          - repository_documentation
+        broader:
+          - process_transparency
+          - contribution_transparency
+        see_also:
+          - contribution_positioning
+          - package_review_and_release
+      source_basis:
+        - source_id: project_management_dsr_methodology_source
+          citation_anchors: [A16, A28]
+          evidence_status: mapped
+        - source_id: weber_dsr_quality_evaluation_source
+          citation_anchors: [A06, A09]
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA15, CA16]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - intended_audiences
+          - communication_outputs
+          - artifact_and_evaluation_summary
+          - contribution_summary
+          - limitations
+          - repository_or_reference_links
+        common_failure_modes:
+          - audience_is_unspecified
+          - artifact_is_described_without_use_guidance
+          - limitations_are_not_communicated
+
+    - id: package_review_and_release
+      label: Package Review and Release
+      sequence_order: 90
+      lifecycle_role: dsr_framework_governance_stage
+      definition: >
+        Stage in which the DSR artifact package is checked for conformance, completeness,
+        traceability, citation readiness, versioning, licensing, preservation, and release readiness.
+      allowed_use: >
+        Use when classifying review records, readiness checks, release records, preservation records,
+        package-inventory updates, conformance declarations, or repository governance activities.
+      boundary_notes: >
+        This is a DSR Framework package-governance stage rather than a canonical DSRM research stage.
+        Do not use it to replace evaluation_and_learning; release readiness can be passed even when empirical
+        evaluation remains limited, provided limitations and evidence status are transparent.
+      related_terms:
+        narrower:
+          - quality_review
+          - conformance_review
+          - release_record
+          - preservation_record
+          - citation_readiness
+        broader:
+          - repository_governance
+        see_also:
+          - communication_and_dissemination
+          - projectability_and_reuse
+      source_basis:
+        - source_id: dsr_framework_generation_spec
+          evidence_status: mapped
+        - source_id: dsr_framework_generation_prompt
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchors: [CA14, CA16, CA17]
+          evidence_status: mapped
+      validation_implications:
+        expected_evidence:
+          - package_inventory_alignment
+          - conformance_declaration_alignment
+          - quality_gate_status
+          - release_notes
+          - license_and_citation_metadata
+          - preservation_or_archival_plan
+        common_failure_modes:
+          - release_status_overclaims_evaluation_maturity
+          - package_inventory_is_incomplete
+          - traceability_links_are_missing
+  ordering_model:
+    default_sequence:
+      - problem_identification_and_motivation
+      - problem_space_definition
+      - solution_space_grounding
+      - solution_objectives_and_requirements
+      - artifact_design_and_development
+      - demonstration_and_use
+      - evaluation_and_learning
+      - contribution_positioning
+      - projectability_and_reuse
+      - communication_and_dissemination
+      - package_review_and_release
+    iteration_rules:
+      - from_stage: evaluation_and_learning
+        to_stage: artifact_design_and_development
+        rationale: Evaluation findings may require redesign, redevelopment, or refinement.
+      - from_stage: solution_objectives_and_requirements
+        to_stage: problem_space_definition
+        rationale: Requirements work may expose incomplete or incorrect problem framing.
+      - from_stage: contribution_positioning
+        to_stage: solution_space_grounding
+        rationale: Contribution claims may require additional prior-artifact or theory grounding.
+      - from_stage: projectability_and_reuse
+        to_stage: evaluation_and_learning
+        rationale: Transfer or reuse claims may require additional evaluation evidence.
+      - from_stage: package_review_and_release
+        to_stage: communication_and_dissemination
+        rationale: Review findings may require clearer documentation before release.
+  crosswalks:
+    peffers_dsr_methodology:
+      problem_identification_and_motivation: problem_identification_and_motivation
+      solution_objectives_and_requirements: objectives_for_a_solution
+      artifact_design_and_development: design_and_development
+      demonstration_and_use: demonstration
+      evaluation_and_learning: evaluation
+      communication_and_dissemination: communication
+      notes: >
+        problem_space_definition, solution_space_grounding, contribution_positioning,
+        projectability_and_reuse, and package_review_and_release are DSR Framework refinements
+        used to make documentation, transparency, and artifact-package governance explicit.
+    hevner_2024_transparency_framework:
+      process_transparency:
+        - problem_identification_and_motivation
+        - solution_objectives_and_requirements
+        - artifact_design_and_development
+        - demonstration_and_use
+        - communication_and_dissemination
+      problem_space_transparency:
+        - problem_space_definition
+      solution_space_transparency:
+        - solution_space_grounding
+      build_transparency:
+        - artifact_design_and_development
+      evaluation_transparency:
+        - evaluation_and_learning
+      contribution_transparency:
+        - contribution_positioning
+        - projectability_and_reuse
+        - communication_and_dissemination
+    repository_products:
+      artifact_profile: artifact-profile.yaml
+      lifecycle_model: models/dsr-lifecycle-model.yaml
+      evaluation_model: models/dsr-evaluation-alignment-model.yaml
+      contribution_model: models/dsr-contribution-model.yaml
+      transparency_model: models/dsr-transparency-model.yaml
+      package_inventory: package-inventory.yaml
+      conformance_declaration: conformance-declaration.yaml
+  validation_rules:
+    - rule_id: valid_lifecycle_stage_id
+      description: >
+        Any lifecycle_stage field in a DSR Framework controlled file should resolve to one
+        of the vocabulary entry ids in this file.
+      severity: error
+    - rule_id: demonstration_evaluation_distinction
+      description: >
+        A record classified as demonstration_and_use should not be used as the sole basis for
+        evaluation claims unless evaluation criteria and findings are also supplied.
+      severity: warning
+    - rule_id: contribution_requires_evidence_linkage
+      description: >
+        A contribution_positioning record should link contribution claims to artifact, demonstration,
+        evaluation, or source-basis evidence.
+      severity: error
+    - rule_id: release_maturity_not_overclaimed
+      description: >
+        package_review_and_release should not imply L4 or L5 maturity unless package readiness,
+        citation, preservation, and conformance evidence are available.
+      severity: warning
+  acceptance_criteria:
+    - criterion_id: ac_entry_shape
+      statement: >
+        Each vocabulary entry includes id, label, definition, allowed_use, boundary_notes,
+        related_terms, source_basis, and validation implications.
+    - criterion_id: ac_core_dsr_alignment
+      statement: >
+        The controlled vocabulary preserves the canonical Peffers-style DSR stages while allowing
+        DSR Framework-specific transparency and governance stages.
+    - criterion_id: ac_reviewability
+      statement: >
+        Entries include expected evidence and common failure modes sufficient for reviewer use.
+    - criterion_id: ac_traceability
+      statement: >
+        Entries identify governing specification sources and DSR corpus source-basis references without
+        inventing bibliographic evidence.
+  quality_gates:
+    - id: qg_consistency
+      status: pass
+      rationale: >
+        File path, naming, YAML format, status, version, and controlled vocabulary structure align
+        with repository conventions.
+    - id: qg_coherence
+      status: pass
+      rationale: >
+        Stage ids align with lifecycle model dependencies and related DSR Framework vocabularies,
+        models, templates, records, and checklists.
+    - id: qg_cogency
+      status: pass
+      rationale: >
+        Stage definitions distinguish problem framing, requirements, build, demonstration,
+        evaluation, contribution, communication, and release governance.
+    - id: qg_correspondence
+      status: pass
+      rationale: >
+        Vocabulary supports the DSR Framework as a reviewable artifact package rather than only
+        a generic project-management workflow.
+    - id: qg_dsr_transparency
+      status: pass
+      rationale: >
+        Crosswalk maps lifecycle stages to process, problem-space, solution-space, build,
+        evaluation, and contribution transparency.
+    - id: qg_reviewability
+      status: pass
+      rationale: >
+        Validation rules, expected evidence, common failure modes, and acceptance criteria are included.
+  related_items:
+    upstream_dependencies:
+      - models/dsr-lifecycle-model.yaml
+      - specs/product-dsr-lifecycle-and-contribution-model.yaml
+      - models/dsr-framework-canonical-model.yaml
+      - models/dsr-transparency-model.yaml
+      - models/dsr-evaluation-alignment-model.yaml
+      - vocabularies/artifact-types.yaml
+      - vocabularies/contribution-types.yaml
+      - vocabularies/knowledge-goals.yaml
+      - vocabularies/knowledge-scopes.yaml
+    downstream_dependents:
+      - templates/dsr-project-charter-template.md
+      - templates/problem-and-objectives-template.md
+      - templates/design-rationale-template.md
+      - templates/demonstration-record-template.yaml
+      - templates/evaluation-plan-template.yaml
+      - templates/evaluation-report-template.yaml
+      - templates/contribution-claim-template.yaml
+      - checklists/dsr-minimum-viable-study-checklist.yaml
+      - checklists/evaluation-readiness-checklist.yaml
+      - checklists/artifact-package-readiness-checklist.yaml
+      - records/evaluations/record-evaluation-plan-0001.yaml
+      - records/releases/record-release-0001-v0-1-0.yaml
+  traceability:
+    - trace_id: tr_vocab_lifecycle_stages_to_selection
+      relation: generated_from_selection
+      source: dsr-framework-selection-table.md#vocab_lifecycle_stages
+      target: vocabularies/lifecycle-stages.yaml
+      evidence_status: mapped
+    - trace_id: tr_vocab_lifecycle_stages_to_prompt
+      relation: conforms_to_generation_prompt
+      source: dsr-framework-generation-prompt.md
+      target: vocabularies/lifecycle-stages.yaml
+      evidence_status: mapped
+    - trace_id: tr_vocab_lifecycle_stages_to_spec
+      relation: conforms_to_generation_spec
+      source: dsr-framework-generation-spec.yaml
+      target: vocabularies/lifecycle-stages.yaml
+      evidence_status: mapped
+    - trace_id: tr_vocab_lifecycle_stages_to_corpus
+      relation: grounded_in_dsr_corpus
+      source: chunked_folder_conversion_extractions_20260427030321_part001.yaml
+      target: vocabularies/lifecycle-stages.yaml
+      evidence_status: mapped
+  assumptions:
+    - assumption_id: asm_lifecycle_extension
+      statement: >
+        The lifecycle vocabulary should preserve the six canonical DSRM stages while adding
+        DSR Framework stages needed for transparency, contribution positioning, projectability,
+        and repository release governance.
+      review_required: true
+    - assumption_id: asm_sequence_non_waterfall
+      statement: >
+        The sequence order is a default review and documentation order, not a mandatory waterfall process.
+      review_required: false
+  limitations:
+    - limitation_id: lim_model_dependency
+      statement: >
+        This vocabulary is designed to be compatible with the lifecycle model, but final stage names
+        should be rechecked if models/dsr-lifecycle-model.yaml is revised.
+    - limitation_id: lim_evidence_granularity
+      statement: >
+        Source-basis mappings use existing extraction-record anchors rather than direct page-level
+        citations to original PDFs.
+  open_questions:
+    - question_id: oq_stage_granularity
+      question: >
+        Should problem_space_definition and solution_objectives_and_requirements remain separate stages
+        in all templates, or should lightweight projects combine them?
+      disposition: retain_for_review
+    - question_id: oq_release_stage_scope
+      question: >
+        Should package_review_and_release remain in the lifecycle vocabulary or move to a separate
+        repository-governance vocabulary?
+      disposition: retain_for_review
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial draft generated from selection_id vocab_lifecycle_stages.
+      responsible_party: GPT-5.5 Thinking

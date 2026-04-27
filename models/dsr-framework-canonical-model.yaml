@@ -1,0 +1,1422 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_framework_canonical_model
+  item_id: dsr_framework_canonical_model
+  selection_id: model_canonical
+  target_path: models/dsr-framework-canonical-model.yaml
+  item_type: specification
+  portion_type: model
+  title: DSR Framework Canonical Model
+  purpose: >
+    Define the master model of Design Science Research Framework entities,
+    relationships, boundary conditions, validation implications, and traceability
+    links used by downstream schemas, templates, checklists, documentation, and
+    retained records.
+  status: draft
+  version: "0.1.0"
+  owner: DSR Framework maintainers
+  conformance_target: l2_reviewable
+  default_conformance: L2
+  created_date: "2026-04-27"
+  license_expression: CC0-1.0
+
+source_basis:
+  - source_id: user_current_request
+    role: immediate_generation_target
+    evidence_status: direct_user_selection
+    notes: >
+      User selected model_canonical with target path
+      models/dsr-framework-canonical-model.yaml.
+  - source_id: dsr_framework_generation_spec
+    role: generation_rules_and_repository_conventions
+    evidence_status: mapped
+    used_for:
+      - repository_path
+      - controlled_item_metadata
+      - quality_gates
+      - traceability_requirements
+      - model_file_requirements
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure_and_dsr_distinctions
+    evidence_status: mapped
+    used_for:
+      - artifact_utility_quality_contribution_distinction
+      - demonstration_evaluation_distinction
+      - artifact_instance_type_distinction
+      - transparency_dimensions
+      - reviewability_expectations
+  - source_id: dsr_framework_selection_table
+    role: selection_registry
+    evidence_status: mapped
+    used_for:
+      - selection_id
+      - target_path
+      - portion_type
+      - output_format
+      - default_conformance
+      - key_dependencies
+  - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+    role: knowledge_contribution_and_strategy_basis
+    evidence_status: mapped
+    citation_anchor_ids: [A02, A07, A08, A10, A13, A16]
+    used_for:
+      - knowledge_goal
+      - knowledge_scope
+      - path_of_knowledge_types
+      - contribution_strategy
+      - knowledge_accumulation
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    role: transparency_framework_basis
+    evidence_status: mapped
+    citation_anchor_ids: [CA01, CA05, CA06, CA07, CA08, CA09, CA10, CA11, CA16]
+    used_for:
+      - process_transparency
+      - problem_space_transparency
+      - solution_space_transparency
+      - build_transparency
+      - evaluation_transparency
+      - contribution_transparency
+  - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    role: artifact_ontology_basis
+    evidence_status: mapped
+    citation_anchor_ids: [A03, A09, A11, A12, A15, A17, A18, A19, A20]
+    used_for:
+      - artifact_universal
+      - artifact_instance
+      - design_specification
+      - make_plan
+      - use_plan
+      - capacity_specification
+      - artifact_network
+      - make_use_contexts
+  - source_id: dsr_extraction_corpus
+    role: broader_scholarly_and_methodological_evidence_base
+    evidence_status: partially_mapped
+    used_for:
+      - canonical_dsr_terms
+      - artifact_taxonomy
+      - evaluation_alignment
+      - quality_review
+      - projectability_and_replication
+
+related_items:
+  upstream_dependencies:
+    - specs/product-dsr-lifecycle-and-contribution-model.yaml
+    - specs/product-dsr-framework-foundation.yaml
+    - specs/product-dsr-information-item-architecture.yaml
+    - specs/product-dsr-quality-conformance-and-review-model.yaml
+    - specs/product-dsr-automation-and-validation-model.yaml
+    - vocabularies/artifact-types.yaml
+    - vocabularies/contribution-types.yaml
+    - vocabularies/knowledge-goals.yaml
+    - vocabularies/knowledge-scopes.yaml
+    - vocabularies/lifecycle-stages.yaml
+    - vocabularies/transparency-dimensions.yaml
+  downstream_dependents:
+    - models/dsr-decision-flow.yaml
+    - schemas/dsr-project.schema.json
+    - schemas/dsr-artifact.schema.json
+    - schemas/dsr-evaluation-plan.schema.json
+    - schemas/dsr-evaluation-report.schema.json
+    - schemas/dsr-contribution-claim.schema.json
+    - schemas/dsr-transparency-crosswalk.schema.json
+    - templates/artifact-specification-template.md
+    - templates/evaluation-plan-template.yaml
+    - templates/contribution-claim-template.yaml
+    - templates/dsr-transparency-crosswalk-template.yaml
+    - checklists/dsr-minimum-viable-study-checklist.yaml
+    - checklists/evaluation-readiness-checklist.yaml
+    - docs/protocol/00-framework-overview.md
+  sibling_models:
+    - models/dsr-lifecycle-model.yaml
+    - models/dsr-artifact-ontology.yaml
+    - models/dsr-contribution-model.yaml
+    - models/dsr-evaluation-alignment-model.yaml
+    - models/dsr-transparency-model.yaml
+    - models/dsr-reliability-model.yaml
+    - models/dsr-projectability-model.yaml
+    - models/dsr-publication-readiness-model.yaml
+
+model_scope:
+  in_scope:
+    - DSR framework package identity and governance entities.
+    - DSR project, artifact, lifecycle, stakeholder, requirement, evaluation, contribution, evidence, transparency, and review entities.
+    - Relationships needed to validate traceability from problem space through artifact design, evaluation, contribution claims, and publication records.
+    - Boundary rules that distinguish DSR research artifacts from local practice outputs and artifact instances.
+    - Validation implications for schemas, templates, checklists, package inventory, and release records.
+  out_of_scope:
+    - Complete JSON Schema implementations.
+    - RDF, OWL, SHACL, JSON-LD, or OntoUML serialization.
+    - Complete bibliography or source-basis record.
+    - Empirical validation of the framework package.
+    - Claims that all DSR traditions use identical lifecycle terminology.
+  assumptions:
+    - The canonical model coordinates specialized model files rather than replacing them.
+    - L2 reviewability requires explicit entities, relationships, boundary conditions, validation implications, and traceability, but not full machine-executable schema coverage.
+    - Evidence anchors are mapped where available; unmapped relationships remain eligible for later evidence enrichment.
+
+modeling_conventions:
+  identifier_style: lower_snake_case
+  file_naming_style: lower-kebab-case
+  entity_id_prefix: ent_
+  relationship_id_prefix: rel_
+  constraint_id_prefix: con_
+  trace_id_prefix: trace_
+  cardinality_notation: source_min..source_max -> target_min..target_max
+  controlled_value_policy: >
+    Prefer vocabulary IDs from vocabularies/ once those files are generated;
+    otherwise preserve provisional controlled values in this model.
+  evidence_status_values:
+    - mapped
+    - partially_mapped
+    - not_yet_mapped
+    - not_applicable
+    - deferred
+    - not_yet_evaluated
+  validation_language: Use MUST, SHOULD, MAY, and MUST_NOT only for normative validation implications.
+
+canonical_layers:
+  - layer_id: package_control_layer
+    label: Package Control Layer
+    purpose: >
+      Identify the DSR Framework repository as a governed artifact package with
+      inventory, metadata, conformance, and release records.
+    primary_entities:
+      - ent_framework_package
+      - ent_manifest
+      - ent_metadata_record
+      - ent_package_inventory
+      - ent_conformance_declaration
+      - ent_release_record
+  - layer_id: research_context_layer
+    label: Research Context Layer
+    purpose: >
+      Represent the problem, stakeholders, objectives, requirements, constraints,
+      and solution-space grounding that motivate a DSR project.
+    primary_entities:
+      - ent_dsr_project
+      - ent_problem_space
+      - ent_stakeholder
+      - ent_objective
+      - ent_requirement
+      - ent_solution_space
+      - ent_source_basis_record
+  - layer_id: artifact_design_layer
+    label: Artifact Design Layer
+    purpose: >
+      Represent artifact types, artifact instances, design specifications, design
+      rationale, build records, and artifact networks.
+    primary_entities:
+      - ent_dsr_artifact
+      - ent_artifact_universal
+      - ent_artifact_instance
+      - ent_design_specification
+      - ent_make_plan
+      - ent_use_plan
+      - ent_capacity_specification
+      - ent_design_decision_record
+      - ent_build_transparency_record
+      - ent_artifact_network
+  - layer_id: lifecycle_and_workflow_layer
+    label: Lifecycle and Workflow Layer
+    purpose: Coordinate stages, transitions, required outputs, and review gates across DSR work.
+    primary_entities:
+      - ent_lifecycle_stage
+      - ent_lifecycle_transition
+      - ent_workflow_gate
+      - ent_tailoring_decision
+  - layer_id: demonstration_evaluation_layer
+    label: Demonstration and Evaluation Layer
+    purpose: >
+      Separate artifact use demonstration from rigorous evaluation, and connect
+      evaluation evidence to claims and quality criteria.
+    primary_entities:
+      - ent_demonstration_record
+      - ent_evaluation_plan
+      - ent_evaluation_report
+      - ent_evaluation_method
+      - ent_evaluation_criterion
+      - ent_evidence_item
+  - layer_id: contribution_knowledge_layer
+    label: Contribution and Knowledge Layer
+    purpose: >
+      Represent contribution claims, design knowledge, knowledge goals, knowledge
+      scopes, contribution types, and knowledge accumulation paths.
+    primary_entities:
+      - ent_contribution_claim
+      - ent_contribution_positioning_record
+      - ent_design_knowledge
+      - ent_knowledge_goal
+      - ent_knowledge_scope
+      - ent_contribution_type
+      - ent_knowledge_path
+  - layer_id: quality_transparency_layer
+    label: Quality and Transparency Layer
+    purpose: >
+      Represent transparency dimensions, quality gates, validity, reliability,
+      replication, projectability, responsible design, and review records.
+    primary_entities:
+      - ent_transparency_crosswalk
+      - ent_transparency_dimension
+      - ent_quality_gate
+      - ent_validity_claim
+      - ent_reliability_claim
+      - ent_replication_claim
+      - ent_projectability_claim
+      - ent_responsible_design_value
+      - ent_review_record
+  - layer_id: publication_reuse_layer
+    label: Publication and Reuse Layer
+    purpose: Represent release, citation, DOI, preservation, licensing, archival readiness, and reuse constraints.
+    primary_entities:
+      - ent_publication_record
+      - ent_citation_metadata
+      - ent_preservation_record
+      - ent_reuse_constraint
+      - ent_external_registry_entry
+
+controlled_entities:
+  - entity_id: ent_framework_package
+    label: DSR Framework Package
+    entity_type: package_control
+    definition: >
+      The governed repository-level compound DSR artifact that contains controlled
+      specifications, models, vocabularies, schemas, templates, checklists,
+      records, documentation, examples, and crosswalks.
+    required_properties:
+      - package_id
+      - title
+      - version
+      - status
+      - license
+      - maintainer
+      - conformance_level
+      - manifest
+      - package_inventory
+    identity_rule: One canonical framework package is identified by manifest.yaml and related root metadata files.
+    boundary_notes: >
+      The package is the publishable artifact; individual files are component
+      information items unless explicitly identified as artifacts or records.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_manifest
+    label: Manifest
+    entity_type: package_control_file
+    definition: >
+      A root specification that declares canonical package identity, repository
+      structure, authoritative files, and package-level relationships.
+    required_properties:
+      - item_id
+      - item_type
+      - title
+      - version
+      - status
+      - package_identity
+      - canonical_directories
+      - related_items
+    identity_rule: File path MUST be manifest.yaml.
+    boundary_notes: The manifest identifies the package; it does not replace package-inventory.yaml for file-level validation responsibilities.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_metadata_record
+    label: Metadata Record
+    entity_type: metadata_record
+    definition: Structured root metadata for citation, authorship, provenance, licensing, identifiers, and repository context.
+    required_properties: [item_id, title, version, status, authors, license, identifiers, provenance]
+    identity_rule: File path MUST be metadata.yaml.
+    boundary_notes: Metadata describes the package and supports citation; it is not the scholarly evidence record.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_package_inventory
+    label: Package Inventory
+    entity_type: record
+    definition: A retained inventory of package files, expected paths, validation duties, owner roles, and release inclusion status.
+    required_properties: [record_id, record_class, inventory_items, validation_responsibilities, related_items, retention_rule]
+    identity_rule: File path MUST be package-inventory.yaml.
+    boundary_notes: The inventory records package contents; schemas and automation perform validation.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_conformance_declaration
+    label: Conformance Declaration
+    entity_type: record
+    definition: A controlled record declaring conformance level, tailoring decisions, exclusions, evidence basis, and unresolved obligations.
+    required_properties: [record_id, record_class, conformance_level, tailoring, evidence, outcome, related_items, retention_rule]
+    identity_rule: File path MUST be conformance-declaration.yaml.
+    boundary_notes: The declaration reports conformance; it does not substitute for evidence, review records, or validation outputs.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_dsr_project
+    label: DSR Project
+    entity_type: research_unit
+    definition: >
+      A planned or executed design science research effort that addresses a
+      relevant problem by designing, building, demonstrating, evaluating, and
+      communicating an artifact and its design knowledge contribution.
+    required_properties:
+      - project_id
+      - problem_space
+      - solution_space
+      - artifact
+      - lifecycle_stage
+      - evaluation
+      - contribution_claims
+      - transparency_crosswalk
+    identity_rule: Each DSR project MUST have a stable project_id and SHOULD be validated by schemas/dsr-project.schema.json once available.
+    boundary_notes: A DSR project is not merely a development project; it must connect artifact work to knowledge contribution and evidence.
+    source_basis:
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      - hevner_et_al_2024_transparency_in_design_science_research
+  - entity_id: ent_problem_space
+    label: Problem Space
+    entity_type: research_context
+    definition: The contextualized application problem, including scope, stakeholders, improvement goals, needs, constraints, risks, and timeframe.
+    required_properties: [problem_id, context, stakeholders, needs, objectives, constraints, success_criteria, boundary_conditions]
+    identity_rule: Each DSR project MUST have at least one problem_space record or section.
+    boundary_notes: Problem space describes the situated need and desired improvement, not the artifact or theory base.
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - entity_id: ent_stakeholder
+    label: Stakeholder
+    entity_type: actor_role
+    definition: A person, group, role, organization, community, or audience affected by or involved in the DSR problem, artifact, evaluation, publication, or reuse context.
+    required_properties: [stakeholder_id, role, interest, involvement_stage, evidence_or_source]
+    identity_rule: Stakeholders SHOULD be represented by role where individual identification is unnecessary or inappropriate.
+    boundary_notes: Stakeholder presence does not imply direct participation; involvement_stage must specify the role's relation to the project.
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+  - entity_id: ent_objective
+    label: Objective
+    entity_type: requirement_context
+    definition: A desired improvement, research objective, design objective, evaluation objective, or contribution objective derived from the problem space.
+    required_properties: [objective_id, objective_type, statement, source_problem, success_criteria]
+    identity_rule: Objectives SHOULD be traceable to problem-space needs and evaluation criteria.
+    boundary_notes: Objectives are broader than requirements; requirements operationalize objectives as design or validation obligations.
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - entity_id: ent_requirement
+    label: Requirement
+    entity_type: requirement_context
+    definition: A functional, nonfunctional, documentation, evaluation, ethical, governance, or conformance obligation the artifact, project, or package must satisfy.
+    required_properties: [requirement_id, requirement_type, statement, source, acceptance_criterion, verification_method]
+    identity_rule: Each requirement SHOULD be verifiable by inspection, demonstration, test, evaluation, review, or trace evidence.
+    boundary_notes: A requirement without an acceptance criterion is a design concern, not yet a reviewable requirement.
+    source_basis:
+      - dsr_framework_generation_spec
+      - hevner_et_al_2024_transparency_in_design_science_research
+  - entity_id: ent_solution_space
+    label: Solution Space
+    entity_type: research_context
+    definition: The relevant design knowledge, descriptive knowledge, prescriptive knowledge, theories, technologies, prior artifacts, methods, constraints, and alternatives available to inform artifact design.
+    required_properties: [solution_space_id, source_basis, prior_artifacts, theories, technologies, alternatives, design_rationale_links]
+    identity_rule: A solution_space record SHOULD distinguish grounding evidence from alternatives considered and rejected.
+    boundary_notes: Solution-space grounding informs design; it is not evaluation evidence.
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - entity_id: ent_dsr_artifact
+    label: DSR Artifact
+    entity_type: artifact
+    definition: >
+      A designed research artifact represented as a reusable artifact type,
+      design specification, model, method, construct, instantiation, framework,
+      ontology, taxonomy, or other controlled artifact category, with relevance
+      and rigor obligations.
+    required_properties: [artifact_id, artifact_type, artifact_boundary, design_specification, intended_use, evaluation_status, contribution_links]
+    identity_rule: Each artifact MUST specify whether it is an artifact type, artifact instance, or both, and MUST identify its intended contribution role.
+    boundary_notes: A local working object is not sufficient as a DSR artifact unless documented, situated, evaluated or evaluation-ready, and connected to design knowledge contribution.
+    source_basis:
+      - weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  - entity_id: ent_artifact_universal
+    label: Artifact Universal
+    entity_type: artifact_ontology
+    definition: A reusable artifact kind or type identified by a design specification, including make plan, use plan, and capacities, rather than by a single implementation instance.
+    required_properties: [artifact_universal_id, design_specification, make_plan, use_plan, capacity_specification, boundary_conditions]
+    identity_rule: When claiming reusable DSR design knowledge, the artifact universal SHOULD be explicit.
+    boundary_notes: Do not treat a one-off artifact instance as an artifact universal unless the design type and reusable specification are documented.
+    source_basis: [weigand_johannesson_andersson_2021_artifact_ontology_for_dsr]
+  - entity_id: ent_artifact_instance
+    label: Artifact Instance
+    entity_type: artifact_ontology
+    definition: A concrete implementation, demonstration object, prototype, document, software object, configuration, or deployed artifact that instantiates an artifact type or design specification.
+    required_properties: [artifact_instance_id, instance_of, version, implementation_context, use_context, evidence_links]
+    identity_rule: Each artifact instance SHOULD reference the artifact universal or design specification it instantiates when that type is available.
+    boundary_notes: An artifact instance can provide evaluation or demonstration evidence but is not by itself a generalized contribution claim.
+    source_basis: [weigand_johannesson_andersson_2021_artifact_ontology_for_dsr]
+  - entity_id: ent_design_specification
+    label: Design Specification
+    entity_type: artifact_ontology
+    definition: The controlled description of artifact form, function, intended use, make logic, use logic, capacity claims, components, constraints, and version boundaries.
+    required_properties: [design_specification_id, artifact_id, components, make_plan, use_plan, capacity_specification, quality_attributes, version]
+    identity_rule: Every DSR artifact SHOULD have a design specification sufficient for review and reuse at the declared conformance level.
+    boundary_notes: The design specification is not the same as design rationale; rationale explains why choices were made.
+    source_basis:
+      - weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+      - hevner_et_al_2024_transparency_in_design_science_research
+  - entity_id: ent_make_plan
+    label: Make Plan
+    entity_type: artifact_ontology
+    definition: A design component describing how an artifact instance can be produced, assembled, configured, written, or generated to satisfy make goals and capacity expectations.
+    required_properties: [make_plan_id, artifact_id, make_goal, inputs, steps, outputs, capacity_tests]
+    identity_rule: A make plan SHOULD be specific enough to support build transparency and review of artifact quality.
+    boundary_notes: For documentation artifacts, a make plan may be an authoring or generation procedure rather than a manufacturing procedure.
+    source_basis: [weigand_johannesson_andersson_2021_artifact_ontology_for_dsr]
+  - entity_id: ent_use_plan
+    label: Use Plan
+    entity_type: artifact_ontology
+    definition: A design component describing how intended users or roles apply the artifact under specified use conditions to obtain intended effects.
+    required_properties: [use_plan_id, artifact_id, use_goal, intended_users, use_conditions, expected_effects, misuse_or_boundary_notes]
+    identity_rule: A use plan SHOULD identify use context and expected effects before summative evaluation is claimed.
+    boundary_notes: Use effects attributable to the artifact should be distinguished from broader usage effects caused by practice, context, or organizational change.
+    source_basis: [weigand_johannesson_andersson_2021_artifact_ontology_for_dsr]
+  - entity_id: ent_capacity_specification
+    label: Capacity Specification
+    entity_type: artifact_ontology
+    definition: A statement of artifact capacities, affordances, or quality attributes expected to be realized in make or use contexts.
+    required_properties: [capacity_id, artifact_id, capacity_statement, test_or_evaluation_method, acceptance_criterion]
+    identity_rule: Capacity claims SHOULD be verifiable through build tests, demonstration, evaluation, or inspection.
+    boundary_notes: A capacity claim is not evidence of realized value; it must be linked to demonstration or evaluation evidence.
+    source_basis: [weigand_johannesson_andersson_2021_artifact_ontology_for_dsr]
+  - entity_id: ent_artifact_network
+    label: Artifact Network
+    entity_type: artifact_context
+    definition: A set of artifacts, infrastructures, practices, data objects, documents, tools, templates, schemas, and contexts that interact with or condition the focal artifact.
+    required_properties: [network_id, focal_artifact, related_artifacts, dependencies, integration_points, contextual_risks]
+    identity_rule: Artifact network documentation SHOULD be included when evaluation, reuse, or projectability depends on surrounding artifacts.
+    boundary_notes: Do not collapse the whole socio-technical system into the focal artifact; identify the focal artifact and its network separately.
+    source_basis: [weigand_johannesson_andersson_2021_artifact_ontology_for_dsr]
+  - entity_id: ent_design_decision_record
+    label: Design Decision Record
+    entity_type: record
+    definition: A retained record documenting a consequential design choice, alternatives considered, rationale, evidence, tradeoffs, and resulting changes.
+    required_properties: [record_id, record_class, event_or_action, date, responsible_party, alternatives, evidence, outcome, related_items, retention_rule]
+    identity_rule: Significant design choices SHOULD be documented as records/design-decisions/ items or equivalent structured sections.
+    boundary_notes: Routine editorial changes do not require separate decision records unless they alter model meaning, conformance, or review obligations.
+    source_basis:
+      - dsr_framework_generation_spec
+      - hevner_et_al_2024_transparency_in_design_science_research
+  - entity_id: ent_build_transparency_record
+    label: Build Transparency Record
+    entity_type: record
+    definition: A structured record of artifact construction activity, including process steps, tools, inputs, outputs, reasoning, limitations, and reproducibility or reuse constraints.
+    required_properties: [record_id, record_class, build_activity, inputs, outputs, tools, rationale, evidence, related_items, retention_rule]
+    identity_rule: Build transparency records SHOULD link to artifact versions and design decisions.
+    boundary_notes: Build transparency can be proportionate; it need not expose proprietary, private, or security-sensitive details.
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - entity_id: ent_lifecycle_stage
+    label: Lifecycle Stage
+    entity_type: workflow_control
+    definition: A controlled phase or activity state in the DSR lifecycle used to organize planning, artifact development, demonstration, evaluation, contribution positioning, review, and release.
+    required_properties: [stage_id, label, purpose, entry_criteria, outputs, exit_criteria, review_gate]
+    identity_rule: Lifecycle stages SHOULD use IDs from vocabularies/lifecycle-stages.yaml once available.
+    boundary_notes: Lifecycle stage order may be iterative and tailored; stage presence should not imply strict waterfall sequencing.
+    source_basis:
+      - dsr_framework_generation_spec
+      - dsr_extraction_corpus
+  - entity_id: ent_lifecycle_transition
+    label: Lifecycle Transition
+    entity_type: workflow_control
+    definition: A permitted movement between lifecycle stages, including trigger, required evidence, review criteria, and iteration logic.
+    required_properties: [transition_id, from_stage, to_stage, trigger, evidence_required, approval_or_review]
+    identity_rule: Transitions SHOULD preserve traceability when a project iterates backward or changes strategy.
+    boundary_notes: Iteration is expected in DSR; a transition is invalid only when it bypasses required evidence for the declared conformance level.
+    source_basis:
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      - hevner_et_al_2024_transparency_in_design_science_research
+  - entity_id: ent_workflow_gate
+    label: Workflow Gate
+    entity_type: quality_control
+    definition: A decision point that checks required outputs, evidence, quality conditions, and conformance criteria before release, evaluation, or publication steps proceed.
+    required_properties: [gate_id, applies_to_stage, criteria, evidence_required, pass_condition, fail_condition, remediation]
+    identity_rule: Workflow gates SHOULD reuse quality_gate definitions where applicable.
+    boundary_notes: A gate documents review readiness; it is not evidence of artifact utility unless tied to evaluation results.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_demonstration_record
+    label: Demonstration Record
+    entity_type: record
+    definition: A record showing that an artifact can be used or instantiated in a scenario, example, prototype, walkthrough, case, or application context.
+    required_properties: [record_id, record_class, demonstration_context, artifact_version, task_or_use_case, observed_output, limitations, related_items, retention_rule]
+    identity_rule: A demonstration record MUST_NOT be described as evaluation unless evaluation criteria, method, and evidence are present.
+    boundary_notes: Demonstration establishes plausibility or use illustration; evaluation tests claims against criteria.
+    source_basis:
+      - dsr_framework_generation_prompt
+      - dsr_extraction_corpus
+  - entity_id: ent_evaluation_plan
+    label: Evaluation Plan
+    entity_type: plan
+    definition: A prospective plan specifying evaluation questions, claims tested, criteria, methods, data, analysis approach, context, risks, and acceptance thresholds.
+    required_properties: [plan_id, claims_under_evaluation, evaluation_questions, criteria, methods, data_sources, analysis_plan, acceptance_thresholds, limitations]
+    identity_rule: Evaluation plans SHOULD be created before or alongside evaluation reports and SHOULD trace each method to a claim.
+    boundary_notes: An evaluation plan is not an evaluation result; it defines intended evidence and method.
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - dsr_framework_generation_spec
+  - entity_id: ent_evaluation_report
+    label: Evaluation Report
+    entity_type: report
+    definition: A retained report presenting evaluation context, methods, data, findings, interpretation, limitations, and claim-level implications.
+    required_properties: [report_id, evaluation_plan, artifact_version, methods_executed, results, claim_implications, limitations, evidence_items]
+    identity_rule: An evaluation report SHOULD reference the evaluation plan or explain deviations.
+    boundary_notes: Evaluation findings may support, weaken, or qualify contribution claims; reports must not overstate generality.
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - dsr_extraction_corpus
+  - entity_id: ent_evaluation_method
+    label: Evaluation Method
+    entity_type: method
+    definition: A method family or concrete procedure used to assess artifact utility, artifact quality, claim validity, reliability, projectability, or contribution evidence.
+    required_properties: [method_id, method_family, evaluation_setting, data_required, claims_supported, limitations]
+    identity_rule: Evaluation methods SHOULD be drawn from vocabularies/evaluation-method-families.yaml once available.
+    boundary_notes: Usability tests, proofs, simulations, field studies, expert reviews, and literature-based arguments do not support identical claims.
+    source_basis: [dsr_extraction_corpus]
+  - entity_id: ent_evaluation_criterion
+    label: Evaluation Criterion
+    entity_type: quality_control
+    definition: A defined standard, attribute, question, metric, threshold, or qualitative judgment basis used to interpret evaluation evidence.
+    required_properties: [criterion_id, criterion_type, operational_definition, measurement_or_assessment_method, pass_or_interpretation_rule]
+    identity_rule: Each evaluation criterion SHOULD map to one or more contribution, utility, quality, validity, reliability, or projectability claims.
+    boundary_notes: Criteria must be explicit enough to avoid post hoc reinterpretation of evaluation results.
+    source_basis:
+      - dsr_framework_generation_spec
+      - dsr_extraction_corpus
+  - entity_id: ent_evidence_item
+    label: Evidence Item
+    entity_type: evidence
+    definition: A citable, reviewable data object, source anchor, record, observation, result, decision note, code artifact, example, or document used to support a claim, requirement, review outcome, or trace link.
+    required_properties: [evidence_id, evidence_type, source, location_or_path, supports, limitations, access_status]
+    identity_rule: Evidence items MUST identify what they support and SHOULD include source location or repository path.
+    boundary_notes: evidence_status not_yet_mapped is acceptable for draft traceability but insufficient for publication-readiness claims.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_contribution_claim
+    label: Contribution Claim
+    entity_type: claim
+    definition: A reviewable assertion about how a DSR project or artifact contributes to practice, design knowledge, methodology, theory, evaluation, reporting, or future research.
+    required_properties: [claim_id, claim_type, knowledge_goal, knowledge_scope, artifact_link, evidence_items, limitations, boundary_conditions]
+    identity_rule: Each contribution claim MUST distinguish claim type, scope, evidence basis, and boundary conditions.
+    boundary_notes: Do not conflate artifact usefulness, artifact quality, and contribution to knowledge; they may support each other but remain distinct claim types.
+    source_basis:
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      - dsr_framework_generation_prompt
+  - entity_id: ent_contribution_positioning_record
+    label: Contribution Positioning Record
+    entity_type: record
+    definition: A retained record that positions the artifact or framework contribution relative to prior DSR knowledge, artifact types, contribution types, knowledge goals, knowledge scopes, novelty, significance, and limitations.
+    required_properties: [record_id, record_class, positioned_artifact, prior_knowledge, contribution_type, knowledge_goal, knowledge_scope, evidence, outcome, retention_rule]
+    identity_rule: Contribution positioning SHOULD be updated when artifact scope, evidence, or release status changes materially.
+    boundary_notes: A positioning record organizes evidence and rationale for review; it does not by itself prove contribution significance.
+    source_basis: [akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr]
+  - entity_id: ent_design_knowledge
+    label: Design Knowledge
+    entity_type: knowledge_object
+    definition: Reusable or projectable knowledge about artifact form, function, use, construction, evaluation, design principles, design theory, methods, patterns, or constraints.
+    required_properties: [knowledge_id, knowledge_goal, knowledge_scope, statement, artifact_or_project_basis, evidence_links, boundary_conditions]
+    identity_rule: Design knowledge SHOULD identify whether it is idiographic, nomothetic, mixed, or projectable to a problem class.
+    boundary_notes: Design knowledge may be embedded in an artifact but should be made explicit for review, reuse, and publication.
+    source_basis:
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      - hevner_et_al_2024_transparency_in_design_science_research
+  - entity_id: ent_knowledge_goal
+    label: Knowledge Goal
+    entity_type: controlled_value
+    definition: The purpose of knowledge produced, such as definitional, descriptive, explanatory, predictive, explanatory-predictive, methodological, evaluative, or prescriptive knowledge.
+    required_properties: [goal_id, label, definition, allowed_use, boundary_notes]
+    identity_rule: Knowledge goals SHOULD be drawn from vocabularies/knowledge-goals.yaml once generated.
+    boundary_notes: Prescriptive design knowledge should not be labeled explanatory unless it states or tests causal or explanatory mechanisms.
+    source_basis: [akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr]
+  - entity_id: ent_knowledge_scope
+    label: Knowledge Scope
+    entity_type: controlled_value
+    definition: The intended range of applicability of knowledge, including idiographic, nomothetic, mixed, analytical-generalization, or projectable-to-problem-class scopes.
+    required_properties: [scope_id, label, definition, allowed_use, boundary_notes]
+    identity_rule: Knowledge scopes SHOULD be drawn from vocabularies/knowledge-scopes.yaml once generated.
+    boundary_notes: Projectable or analytical generalization claims must identify boundary conditions and evidence rather than implying universal generalization.
+    source_basis: [akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr]
+  - entity_id: ent_contribution_type
+    label: Contribution Type
+    entity_type: controlled_value
+    definition: A controlled classification of the main contribution role, such as new artifact, artifact improvement, method extension, design theory, taxonomy, ontology, evaluation framework, reporting guidance, synthesis, or reusable package.
+    required_properties: [contribution_type_id, label, definition, allowed_use, boundary_notes, examples]
+    identity_rule: Contribution types SHOULD be drawn from vocabularies/contribution-types.yaml once generated.
+    boundary_notes: Contribution type describes the scholarly or practical contribution, not merely the file format or repository folder.
+    source_basis: [dsr_extraction_corpus]
+  - entity_id: ent_knowledge_path
+    label: Knowledge Path
+    entity_type: knowledge_object
+    definition: A sequence or graph of knowledge moments and transitions showing how a DSR project moves among knowledge goals, knowledge scopes, artifacts, evaluations, and contribution claims.
+    required_properties: [path_id, nodes, edges, strategy_or_pattern, evidence_links, limitations]
+    identity_rule: Knowledge paths MAY be used to document cumulative contribution development, especially where multiple contribution claims are made.
+    boundary_notes: A knowledge path represents contribution development, not every project activity.
+    source_basis: [akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr]
+  - entity_id: ent_transparency_crosswalk
+    label: Transparency Crosswalk
+    entity_type: record_or_template
+    definition: A structured mapping showing how project or package materials support process, problem-space, solution-space, build, evaluation, and contribution transparency.
+    required_properties: [crosswalk_id, scope, transparency_dimensions, evidence_items, gaps, limitations, review_status]
+    identity_rule: Each DSR package SHOULD include a transparency crosswalk at L2 or above unless explicitly tailored out with rationale.
+    boundary_notes: Transparency should be proportionate and risk-aware; not all source materials need to be public or exhaustive.
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - entity_id: ent_transparency_dimension
+    label: Transparency Dimension
+    entity_type: controlled_value
+    definition: >
+      One of the framework dimensions used to organize DSR transparency:
+      process, problem space, solution space, build, evaluation, and contribution.
+    required_properties: [dimension_id, label, definition, minimum_evidence, boundary_notes]
+    identity_rule: Transparency dimensions SHOULD align with vocabularies/transparency-dimensions.yaml once generated.
+    boundary_notes: Dimensions overlap in practice but should be recorded separately to avoid obscuring evidence gaps.
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - entity_id: ent_quality_gate
+    label: Quality Gate
+    entity_type: quality_control
+    definition: A reusable review criterion with evidence requirements, pass condition, fail condition, and remediation guidance.
+    required_properties: [gate_id, question, evidence_required, pass_condition, fail_condition, remediation_guidance]
+    identity_rule: Quality gates SHOULD be reusable across product specs, checklists, review records, and release readiness decisions.
+    boundary_notes: Passing a gate means the file is reviewable against that criterion; it does not mean external peer review has occurred.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_validity_claim
+    label: Validity Claim
+    entity_type: claim
+    definition: A claim about whether evidence, constructs, procedures, interpretations, evaluation, or transfer logic support the intended inference.
+    required_properties: [validity_claim_id, validity_type, claim_statement, threats, mitigations, evidence_items]
+    identity_rule: Validity claims SHOULD identify threats and mitigation, not merely assert that an artifact is valid.
+    boundary_notes: Validity is claim-specific; one evaluation can support some inferences while leaving others untested.
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - dsr_extraction_corpus
+  - entity_id: ent_reliability_claim
+    label: Reliability Claim
+    entity_type: claim
+    definition: A claim about consistency, repeatability, dependability, stability, or reproducibility of artifact behavior, method execution, measurement, review, or design knowledge interpretation.
+    required_properties: [reliability_claim_id, reliability_type, claim_statement, conditions, evidence_items, limitations]
+    identity_rule: Reliability claims SHOULD distinguish process, implementation, measurement, evaluator, artifact, and design-knowledge reliability where relevant.
+    boundary_notes: Reliability does not imply utility or validity; it concerns consistency under specified conditions.
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  - entity_id: ent_replication_claim
+    label: Replication Claim
+    entity_type: claim
+    definition: A claim or plan concerning exact, conceptual, differentiated, or constructive replication of artifact design, evaluation, or design knowledge.
+    required_properties: [replication_claim_id, replication_type, replication_target, required_materials, boundary_conditions, evidence_items]
+    identity_rule: >
+      Replication claims SHOULD specify what is expected to replicate:
+      artifact behavior, method, use effect, evaluation result, or design principle.
+    boundary_notes: Exact replication may be inappropriate for socio-technical interventions; differentiated replication and projectability may be more suitable.
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - dsr_extraction_corpus
+  - entity_id: ent_projectability_claim
+    label: Projectability Claim
+    entity_type: claim
+    definition: A claim about the conditions under which artifact knowledge, design principles, methods, or evaluation findings can be adapted, transferred, reused, or generalized to another problem class or context.
+    required_properties: [projectability_claim_id, target_context, source_context, transfer_logic, boundary_conditions, evidence_items, adaptation_requirements]
+    identity_rule: Projectability claims MUST identify source context, target context, boundary conditions, and evidence basis.
+    boundary_notes: Projectability is conditional transfer or adaptation logic, not universal generalization.
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  - entity_id: ent_responsible_design_value
+    label: Responsible Design Value
+    entity_type: controlled_value
+    definition: A value, risk, duty, or governance concern relevant to artifact design, documentation, evaluation, release, reuse, or stakeholder impact.
+    required_properties: [value_id, label, definition, risk_or_obligation, evidence_or_decision_links]
+    identity_rule: Responsible design values SHOULD be included when design choices affect privacy, security, equity, accessibility, safety, stakeholder burden, transparency, or societal accountability.
+    boundary_notes: Responsible design values should be operationalized as risks, requirements, design decisions, or evaluation criteria where possible.
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - entity_id: ent_review_record
+    label: Review Record
+    entity_type: record
+    definition: A retained record of self-review, peer review, editorial review, quality review, conformance review, or release-readiness review.
+    required_properties: [record_id, record_class, event_or_action, date, responsible_party, review_scope, evidence, findings, outcome, retention_rule]
+    identity_rule: Review records SHOULD reference the files, gates, checklist items, and evidence reviewed.
+    boundary_notes: Self-review should not be labeled independent review; review type and reviewer role must be explicit.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_release_record
+    label: Release Record
+    entity_type: record
+    definition: A retained record documenting a package release event, version, contents, checks, known limitations, archival status, publication status, and next actions.
+    required_properties: [record_id, record_class, release_version, release_date, included_files, validation_summary, known_issues, outcome, retention_rule]
+    identity_rule: Each public release SHOULD have exactly one canonical release record.
+    boundary_notes: A release record can declare draft release status without claiming archival publication readiness.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_publication_record
+    label: Publication Record
+    entity_type: record
+    definition: A record of public dissemination, citation metadata, repository publication, DOI registration, archival deposit, or formal publication submission.
+    required_properties: [record_id, record_class, publication_target, citation_metadata, identifiers, access_status, review_status, retention_rule]
+    identity_rule: Publication records SHOULD distinguish repository release, archival deposit, preprint, peer-reviewed publication, and DOI registration.
+    boundary_notes: Publication readiness requires quality, metadata, license, release, and preservation evidence; it should not be inferred from file existence alone.
+    source_basis: [dsr_framework_generation_spec]
+  - entity_id: ent_source_basis_record
+    label: Source Basis Record
+    entity_type: record
+    definition: A retained record describing the corpus, evidence sources, extraction status, evidence limits, and traceability basis used by the framework package.
+    required_properties: [record_id, record_class, corpus_scope, source_list, extraction_method, limitations, evidence, retention_rule]
+    identity_rule: Source basis records SHOULD support downstream traceability to source IDs and citation anchors.
+    boundary_notes: Source basis records describe evidence availability; they do not replace individual evidence items or citation anchors.
+    source_basis:
+      - dsr_framework_generation_spec
+      - dsr_extraction_corpus
+  - entity_id: ent_tailoring_decision
+    label: Tailoring Decision
+    entity_type: record_or_decision
+    definition: A documented decision to include, exclude, defer, simplify, or intensify a requirement, file, evidence obligation, workflow gate, or conformance expectation.
+    required_properties: [decision_id, subject, decision, rationale, impact, approval_or_responsible_role, evidence_links]
+    identity_rule: Tailoring decisions SHOULD be traceable to conformance declaration and package inventory when they affect release or validation.
+    boundary_notes: Tailoring is not noncompliance when documented with scope, rationale, and effect.
+    source_basis: [dsr_framework_generation_spec]
+
+canonical_relationships:
+  - relationship_id: rel_package_has_manifest
+    source_entity: ent_framework_package
+    predicate: has_manifest
+    target_entity: ent_manifest
+    cardinality: 1..1 -> 1..1
+    required: true
+    description: The framework package is identified by exactly one manifest.
+    validation_implication: manifest.yaml MUST exist for package-level validation.
+  - relationship_id: rel_package_has_inventory
+    source_entity: ent_framework_package
+    predicate: has_package_inventory
+    target_entity: ent_package_inventory
+    cardinality: 1..1 -> 1..1
+    required: true
+    description: The package uses the inventory to enumerate files and validation responsibilities.
+    validation_implication: package-inventory.yaml MUST include this model file after generation.
+  - relationship_id: rel_package_declares_conformance
+    source_entity: ent_framework_package
+    predicate: declares_conformance_through
+    target_entity: ent_conformance_declaration
+    cardinality: 1..1 -> 0..1
+    required: false
+    description: The package declares its conformance level and tailoring through a retained record.
+    validation_implication: L1 and higher package states SHOULD include conformance-declaration.yaml.
+  - relationship_id: rel_project_frames_problem_space
+    source_entity: ent_dsr_project
+    predicate: frames
+    target_entity: ent_problem_space
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: A DSR project must frame at least one problem space.
+    validation_implication: A DSR project record without problem_space is invalid for L2 reviewability.
+  - relationship_id: rel_problem_space_identifies_stakeholders
+    source_entity: ent_problem_space
+    predicate: identifies
+    target_entity: ent_stakeholder
+    cardinality: 1..1 -> 0..n
+    required: false
+    description: Problem-space documentation identifies stakeholders, whether directly involved or only affected.
+    validation_implication: If no stakeholders are identified, the problem_space SHOULD explain why stakeholder mapping is not applicable or not yet mapped.
+  - relationship_id: rel_problem_space_generates_objectives
+    source_entity: ent_problem_space
+    predicate: generates
+    target_entity: ent_objective
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Problem-space needs lead to research, design, evaluation, or contribution objectives.
+    validation_implication: Objectives MUST trace to problem-space needs or constraints.
+  - relationship_id: rel_objective_operationalized_by_requirement
+    source_entity: ent_objective
+    predicate: is_operationalized_by
+    target_entity: ent_requirement
+    cardinality: 1..1 -> 0..n
+    required: false
+    description: Objectives may be translated into verifiable design, documentation, evaluation, or conformance requirements.
+    validation_implication: Requirements SHOULD include acceptance criteria and verification methods.
+  - relationship_id: rel_project_grounded_in_solution_space
+    source_entity: ent_dsr_project
+    predicate: is_grounded_in
+    target_entity: ent_solution_space
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: A DSR project is grounded in prior knowledge, artifacts, methods, technologies, and alternatives.
+    validation_implication: Solution-space evidence MUST distinguish grounding sources from evaluation results.
+  - relationship_id: rel_solution_space_informs_design_specification
+    source_entity: ent_solution_space
+    predicate: informs
+    target_entity: ent_design_specification
+    cardinality: 1..n -> 1..n
+    required: true
+    description: Design specifications are informed by solution-space knowledge and alternatives.
+    validation_implication: Design specification SHOULD link to source_basis and design rationale.
+  - relationship_id: rel_project_produces_artifact
+    source_entity: ent_dsr_project
+    predicate: produces_or_refines
+    target_entity: ent_dsr_artifact
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: A DSR project produces, adapts, refines, evaluates, or packages one or more DSR artifacts.
+    validation_implication: A DSR project without a focal artifact cannot satisfy minimum DSR identity.
+  - relationship_id: rel_artifact_represented_as_universal
+    source_entity: ent_dsr_artifact
+    predicate: may_be_represented_as
+    target_entity: ent_artifact_universal
+    cardinality: 1..1 -> 0..1
+    required: false
+    description: Reusable artifact claims may be represented as an artifact universal.
+    validation_implication: If projectability or reuse is claimed, artifact_universal or equivalent reusable specification SHOULD be present.
+  - relationship_id: rel_artifact_has_instance
+    source_entity: ent_dsr_artifact
+    predicate: has_instance
+    target_entity: ent_artifact_instance
+    cardinality: 1..1 -> 0..n
+    required: false
+    description: Artifacts may have concrete instances used for demonstration, evaluation, or release.
+    validation_implication: If evaluation uses an instance, the instance version and context MUST be documented.
+  - relationship_id: rel_artifact_has_design_specification
+    source_entity: ent_dsr_artifact
+    predicate: has_design_specification
+    target_entity: ent_design_specification
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: A DSR artifact has at least one design specification for reviewable artifact identity.
+    validation_implication: Design specification MUST include boundary, components, use logic, and version for L2 reviewability.
+  - relationship_id: rel_design_specification_has_make_plan
+    source_entity: ent_design_specification
+    predicate: includes
+    target_entity: ent_make_plan
+    cardinality: 1..1 -> 0..n
+    required: false
+    description: Design specifications may include make plans that explain artifact construction.
+    validation_implication: A make plan SHOULD be present when build transparency, reuse, or replication is claimed.
+  - relationship_id: rel_design_specification_has_use_plan
+    source_entity: ent_design_specification
+    predicate: includes
+    target_entity: ent_use_plan
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: A DSR artifact design specification includes intended use logic.
+    validation_implication: Use plan MUST identify intended users or use roles and expected effects.
+  - relationship_id: rel_design_specification_has_capacity_specification
+    source_entity: ent_design_specification
+    predicate: includes
+    target_entity: ent_capacity_specification
+    cardinality: 1..1 -> 0..n
+    required: false
+    description: Design specifications may include capacities or quality attributes to be tested or evaluated.
+    validation_implication: Capacity claims SHOULD map to acceptance criteria or evaluation criteria.
+  - relationship_id: rel_design_decision_shapes_artifact
+    source_entity: ent_design_decision_record
+    predicate: shapes
+    target_entity: ent_dsr_artifact
+    cardinality: 0..n -> 1..n
+    required: false
+    description: Design decisions document consequential choices affecting artifact form, function, or scope.
+    validation_implication: Consequential decisions SHOULD link to changed artifact version or design specification.
+  - relationship_id: rel_artifact_embedded_in_network
+    source_entity: ent_dsr_artifact
+    predicate: is_embedded_in
+    target_entity: ent_artifact_network
+    cardinality: 0..n -> 0..n
+    required: false
+    description: Artifacts may depend on or interact with surrounding artifact networks.
+    validation_implication: Network dependencies SHOULD be documented when they affect evaluation or reuse.
+  - relationship_id: rel_project_advances_through_lifecycle_stage
+    source_entity: ent_dsr_project
+    predicate: advances_through
+    target_entity: ent_lifecycle_stage
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: A project advances through lifecycle stages, with iteration allowed.
+    validation_implication: Current lifecycle stage SHOULD be explicit in project records and review records.
+  - relationship_id: rel_lifecycle_stage_has_transition
+    source_entity: ent_lifecycle_stage
+    predicate: permits_transition
+    target_entity: ent_lifecycle_transition
+    cardinality: 1..1 -> 0..n
+    required: false
+    description: Lifecycle stages may have permitted transitions and required evidence.
+    validation_implication: Transition records SHOULD identify evidence when bypassing or repeating stages.
+  - relationship_id: rel_stage_checked_by_workflow_gate
+    source_entity: ent_lifecycle_stage
+    predicate: is_checked_by
+    target_entity: ent_workflow_gate
+    cardinality: 0..n -> 0..n
+    required: false
+    description: Lifecycle stages may be checked by workflow gates.
+    validation_implication: Gate outcomes SHOULD be retained in review records when used for release or conformance claims.
+  - relationship_id: rel_demonstration_uses_artifact_instance
+    source_entity: ent_demonstration_record
+    predicate: uses
+    target_entity: ent_artifact_instance
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Demonstration records use one or more artifact instances or examples.
+    validation_implication: Demonstration record MUST identify artifact version or instance.
+  - relationship_id: rel_evaluation_plan_tests_claim
+    source_entity: ent_evaluation_plan
+    predicate: tests_or_assesses
+    target_entity: ent_contribution_claim
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Evaluation plans specify which utility, quality, validity, reliability, projectability, or contribution claims will be assessed.
+    validation_implication: Evaluation plans MUST map methods and criteria to claims.
+  - relationship_id: rel_evaluation_plan_uses_method
+    source_entity: ent_evaluation_plan
+    predicate: uses
+    target_entity: ent_evaluation_method
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Evaluation plans use one or more methods.
+    validation_implication: Each method MUST include setting, data, claims supported, and limitations.
+  - relationship_id: rel_evaluation_method_applies_criterion
+    source_entity: ent_evaluation_method
+    predicate: applies
+    target_entity: ent_evaluation_criterion
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Evaluation methods apply explicit criteria.
+    validation_implication: Criteria MUST be operationalized before results are interpreted as evidence.
+  - relationship_id: rel_evaluation_report_reports_evidence
+    source_entity: ent_evaluation_report
+    predicate: reports
+    target_entity: ent_evidence_item
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Evaluation reports cite evidence items from analysis, observation, tests, review, or artifact behavior.
+    validation_implication: Reports without evidence_items cannot support evaluated claims.
+  - relationship_id: rel_evidence_supports_claim
+    source_entity: ent_evidence_item
+    predicate: supports_or_qualifies
+    target_entity: ent_contribution_claim
+    cardinality: 0..n -> 0..n
+    required: false
+    description: Evidence can support, qualify, weaken, or refute contribution claims.
+    validation_implication: Claim records SHOULD capture evidence direction as supports, qualifies, weakens, refutes, or not_yet_mapped.
+  - relationship_id: rel_claim_has_knowledge_goal
+    source_entity: ent_contribution_claim
+    predicate: has_knowledge_goal
+    target_entity: ent_knowledge_goal
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Each contribution claim identifies one or more knowledge goals.
+    validation_implication: Contribution claims without knowledge_goal are incomplete for L2 reviewability.
+  - relationship_id: rel_claim_has_knowledge_scope
+    source_entity: ent_contribution_claim
+    predicate: has_knowledge_scope
+    target_entity: ent_knowledge_scope
+    cardinality: 1..1 -> 1..1
+    required: true
+    description: Each contribution claim identifies intended scope.
+    validation_implication: Claims with projectable, mixed, or nomothetic scope MUST include boundary conditions and evidence basis.
+  - relationship_id: rel_claim_classified_by_contribution_type
+    source_entity: ent_contribution_claim
+    predicate: is_classified_by
+    target_entity: ent_contribution_type
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Contribution claims are classified by contribution type.
+    validation_implication: Contribution type SHOULD match vocabulary IDs and not merely duplicate artifact_type.
+  - relationship_id: rel_design_knowledge_may_form_path
+    source_entity: ent_design_knowledge
+    predicate: may_be_arranged_in
+    target_entity: ent_knowledge_path
+    cardinality: 0..n -> 0..n
+    required: false
+    description: Design knowledge elements may be arranged into contribution paths for cumulative DSR reasoning.
+    validation_implication: Knowledge paths SHOULD identify nodes, edges, and evidence anchors when used for contribution positioning.
+  - relationship_id: rel_project_has_transparency_crosswalk
+    source_entity: ent_dsr_project
+    predicate: has_transparency_crosswalk
+    target_entity: ent_transparency_crosswalk
+    cardinality: 1..1 -> 0..1
+    required: false
+    description: Projects may include a transparency crosswalk summarizing evidence across the six transparency dimensions.
+    validation_implication: At L2 and above, transparency coverage SHOULD be explicit or tailored out.
+  - relationship_id: rel_crosswalk_covers_dimension
+    source_entity: ent_transparency_crosswalk
+    predicate: covers
+    target_entity: ent_transparency_dimension
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: The crosswalk covers relevant transparency dimensions.
+    validation_implication: Crosswalks SHOULD indicate evidence, gap, not_applicable, or deferred status for each dimension.
+  - relationship_id: rel_quality_gate_checked_by_review
+    source_entity: ent_quality_gate
+    predicate: is_checked_in
+    target_entity: ent_review_record
+    cardinality: 0..n -> 0..n
+    required: false
+    description: Quality gates are applied and documented through review records.
+    validation_implication: Review records SHOULD identify gate results, evidence, and remediation actions.
+  - relationship_id: rel_projectability_claim_depends_on_context_evidence
+    source_entity: ent_projectability_claim
+    predicate: depends_on
+    target_entity: ent_evidence_item
+    cardinality: 1..1 -> 1..n
+    required: true
+    description: Projectability claims depend on documented source context, target context, adaptation logic, and evidence.
+    validation_implication: Projectability claims without context and evidence MUST be marked not_yet_supported.
+  - relationship_id: rel_review_informs_release
+    source_entity: ent_review_record
+    predicate: informs
+    target_entity: ent_release_record
+    cardinality: 0..n -> 0..n
+    required: false
+    description: Review records can inform release decisions and release readiness.
+    validation_implication: Release records SHOULD summarize relevant review outcomes and known issues.
+  - relationship_id: rel_release_may_have_publication_record
+    source_entity: ent_release_record
+    predicate: may_be_disseminated_through
+    target_entity: ent_publication_record
+    cardinality: 0..n -> 0..n
+    required: false
+    description: A release may be disseminated through repository publication, DOI registration, archival deposit, or scholarly publication.
+    validation_implication: Publication records MUST distinguish release status from archival publication readiness.
+  - relationship_id: rel_tailoring_decision_updates_conformance
+    source_entity: ent_tailoring_decision
+    predicate: updates_or_justifies
+    target_entity: ent_conformance_declaration
+    cardinality: 0..n -> 0..1
+    required: false
+    description: Tailoring decisions justify departures from default requirements or conformance expectations.
+    validation_implication: Conformance declarations SHOULD list active tailoring decisions affecting required files or evidence.
+
+lifecycle_alignment:
+  lifecycle_policy: >
+    Stages are ordered for documentation convenience but may iterate. Each stage
+    should generate or update controlled entities and traceability evidence.
+  stages:
+    - stage_id: problem_framing
+      label: Problem Framing
+      purpose: Define and bound the relevant problem, stakeholders, objectives, constraints, and success criteria.
+      primary_entities_created_or_updated: [ent_problem_space, ent_stakeholder, ent_objective, ent_requirement]
+      minimum_outputs: [problem_space, objectives, requirements_or_rationale_for_deferral]
+      transparency_dimensions: [problem_space]
+      exit_criteria:
+        - Problem is specific enough to motivate artifact design.
+        - Success criteria or acceptance logic are stated.
+    - stage_id: solution_grounding
+      label: Solution Grounding
+      purpose: Map prior theory, artifacts, methods, technologies, and alternatives that inform design.
+      primary_entities_created_or_updated: [ent_solution_space, ent_source_basis_record, ent_design_decision_record]
+      minimum_outputs: [source_basis, solution_space, alternative_summary]
+      transparency_dimensions: [solution_space]
+      exit_criteria:
+        - Design grounding is traceable.
+        - Alternatives and constraints are visible.
+    - stage_id: artifact_design
+      label: Artifact Design
+      purpose: Specify the artifact type, boundary, design specification, components, make logic, use logic, and capacity expectations.
+      primary_entities_created_or_updated: [ent_dsr_artifact, ent_artifact_universal, ent_design_specification, ent_make_plan, ent_use_plan, ent_capacity_specification]
+      minimum_outputs: [artifact_specification, use_plan, design_rationale]
+      transparency_dimensions: [build, process]
+      exit_criteria:
+        - Artifact identity and boundary are clear.
+        - Artifact instance/type distinction is stated.
+    - stage_id: artifact_build
+      label: Artifact Build
+      purpose: Create, configure, write, assemble, or otherwise produce artifact instances or package files.
+      primary_entities_created_or_updated: [ent_artifact_instance, ent_build_transparency_record, ent_design_decision_record, ent_package_inventory]
+      minimum_outputs: [artifact_instance_or_file, build_notes, version_or_path]
+      transparency_dimensions: [build, process]
+      exit_criteria:
+        - Artifact version is identifiable.
+        - Build activity is sufficiently reviewable for the conformance level.
+    - stage_id: demonstration
+      label: Demonstration
+      purpose: Show artifact use in an example, scenario, prototype, or application context without overclaiming evaluation.
+      primary_entities_created_or_updated: [ent_demonstration_record, ent_artifact_instance, ent_evidence_item]
+      minimum_outputs: [demonstration_context, artifact_version, observed_or_expected_output]
+      transparency_dimensions: [build, problem_space, contribution]
+      exit_criteria:
+        - Demonstration is distinguished from evaluation.
+        - Limitations are documented.
+    - stage_id: evaluation
+      label: Evaluation
+      purpose: Assess artifact utility, quality, validity, reliability, projectability, or contribution claims using explicit criteria and methods.
+      primary_entities_created_or_updated: [ent_evaluation_plan, ent_evaluation_method, ent_evaluation_criterion, ent_evaluation_report, ent_evidence_item]
+      minimum_outputs: [evaluation_plan_or_rationale, criteria, evidence, evaluation_findings_or_not_yet_evaluated_status]
+      transparency_dimensions: [evaluation]
+      exit_criteria:
+        - Evaluation claims are bounded.
+        - Evidence is linked to criteria and claims.
+    - stage_id: contribution_positioning
+      label: Contribution Positioning
+      purpose: State and classify contribution claims, knowledge goals, knowledge scopes, evidence, novelty, significance, and limitations.
+      primary_entities_created_or_updated: [ent_contribution_claim, ent_contribution_positioning_record, ent_design_knowledge, ent_knowledge_goal, ent_knowledge_scope, ent_contribution_type]
+      minimum_outputs: [contribution_claims, knowledge_goal, knowledge_scope, limitations]
+      transparency_dimensions: [contribution]
+      exit_criteria:
+        - Artifact utility, artifact quality, and contribution to knowledge are not conflated.
+        - Scope and boundary conditions are explicit.
+    - stage_id: review_and_release
+      label: Review and Release
+      purpose: Review quality, conformance, transparency, package readiness, and release obligations before public or internal release.
+      primary_entities_created_or_updated: [ent_quality_gate, ent_review_record, ent_release_record, ent_conformance_declaration, ent_package_inventory]
+      minimum_outputs: [review_record, known_issues, release_or_deferral_decision]
+      transparency_dimensions: [process, contribution]
+      exit_criteria:
+        - Quality gate outcomes are documented.
+        - Release status does not overclaim archival or publication readiness.
+    - stage_id: publication_and_reuse
+      label: Publication and Reuse
+      purpose: Prepare citation, DOI, archival, reuse, licensing, registry, and public documentation materials.
+      primary_entities_created_or_updated: [ent_publication_record, ent_citation_metadata, ent_preservation_record, ent_reuse_constraint, ent_external_registry_entry]
+      minimum_outputs: [citation_metadata, license, reuse_constraints, publication_status]
+      transparency_dimensions: [contribution, process]
+      exit_criteria:
+        - Publication metadata are complete enough for the declared status.
+        - Reuse constraints are clear.
+
+boundary_conditions:
+  - boundary_id: bnd_artifact_instance_vs_artifact_universal
+    statement: >
+      A concrete artifact instance may demonstrate or evaluate a design, but
+      reusable DSR contribution claims should identify the artifact type, design
+      specification, design knowledge, or projectability logic.
+    applies_to_entities: [ent_artifact_instance, ent_artifact_universal, ent_contribution_claim]
+    source_basis: [weigand_johannesson_andersson_2021_artifact_ontology_for_dsr]
+  - boundary_id: bnd_demonstration_vs_evaluation
+    statement: Demonstration shows artifact use or feasibility in a context; evaluation assesses claims against explicit criteria and evidence.
+    applies_to_entities: [ent_demonstration_record, ent_evaluation_plan, ent_evaluation_report]
+    source_basis: [dsr_framework_generation_prompt, dsr_extraction_corpus]
+  - boundary_id: bnd_utility_quality_contribution
+    statement: Artifact utility, artifact quality, and contribution to knowledge are separate but related claim families and must be represented separately when reviewed.
+    applies_to_entities: [ent_contribution_claim, ent_evaluation_criterion, ent_evidence_item]
+    source_basis: [dsr_framework_generation_prompt]
+  - boundary_id: bnd_problem_space_vs_solution_space
+    statement: Problem-space records represent context, needs, stakeholders, goals, constraints, and boundaries; solution-space records represent grounding knowledge, prior artifacts, technologies, methods, and alternatives.
+    applies_to_entities: [ent_problem_space, ent_solution_space]
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - boundary_id: bnd_transparency_vs_overdisclosure
+    statement: Transparency materials should be sufficient for review, trust, application, and reuse, but may be proportionately limited for privacy, security, proprietary, intellectual property, or maintenance reasons.
+    applies_to_entities: [ent_transparency_crosswalk, ent_build_transparency_record, ent_publication_record]
+    source_basis: [hevner_et_al_2024_transparency_in_design_science_research]
+  - boundary_id: bnd_projectability_vs_universal_generalization
+    statement: Projectability and transfer claims must identify target context, source context, adaptation logic, boundary conditions, and evidence rather than implying universal generalization.
+    applies_to_entities: [ent_projectability_claim, ent_knowledge_scope, ent_contribution_claim]
+    source_basis:
+      - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      - hevner_et_al_2024_transparency_in_design_science_research
+  - boundary_id: bnd_practice_project_vs_dsr_project
+    statement: A practice, consulting, or software-development project becomes a DSR project only when it is framed, grounded, documented, evaluated or evaluation-ready, and positioned as a contribution to design knowledge.
+    applies_to_entities: [ent_dsr_project, ent_dsr_artifact, ent_contribution_claim]
+    source_basis:
+      - hevner_et_al_2024_transparency_in_design_science_research
+      - weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+
+normative_constraints:
+  - constraint_id: con_project_minimum_identity
+    level: MUST
+    statement: A DSR project record must identify a problem_space, focal artifact, lifecycle stage, and at least one contribution_claim or explicit not_yet_positioned status.
+    applies_to: [ent_dsr_project]
+    validation_method: schema_or_checklist
+    failure_mode: The project is not reviewable as DSR rather than generic development work.
+  - constraint_id: con_claim_traceability
+    level: MUST
+    statement: Each contribution claim must identify claim type, knowledge goal, knowledge scope, evidence status, and boundary conditions.
+    applies_to: [ent_contribution_claim]
+    validation_method: schema_or_review
+    failure_mode: Contribution is underspecified or overclaimed.
+  - constraint_id: con_demonstration_evaluation_separation
+    level: MUST_NOT
+    statement: A demonstration record must not be labeled as an evaluation report unless it includes evaluation criteria, methods, evidence, and claim implications.
+    applies_to: [ent_demonstration_record, ent_evaluation_report]
+    validation_method: review
+    failure_mode: Artifact use is overclaimed as evaluated evidence.
+  - constraint_id: con_design_specification_reviewability
+    level: SHOULD
+    statement: Each artifact should have a design specification with boundary, components, intended users, use plan, version, and quality attributes sufficient for the declared conformance target.
+    applies_to: [ent_dsr_artifact, ent_design_specification]
+    validation_method: schema_or_checklist
+    failure_mode: Artifact cannot be reviewed, reused, or evaluated consistently.
+  - constraint_id: con_transparency_crosswalk_l2
+    level: SHOULD
+    statement: At L2 reviewability, the package or project should map process, problem-space, solution-space, build, evaluation, and contribution transparency evidence or explain non-applicability.
+    applies_to: [ent_transparency_crosswalk]
+    validation_method: checklist_or_review
+    failure_mode: Reviewers cannot determine which transparency obligations are satisfied or deferred.
+  - constraint_id: con_evaluation_claim_alignment
+    level: MUST
+    statement: Evaluation reports must map methods, criteria, evidence, and findings to the claims they support, qualify, or fail to support.
+    applies_to: [ent_evaluation_report, ent_contribution_claim, ent_evidence_item]
+    validation_method: schema_or_review
+    failure_mode: Evaluation evidence cannot be interpreted against artifact or contribution claims.
+  - constraint_id: con_evidence_status_truthfulness
+    level: MUST
+    statement: When evidence is absent, incomplete, or not yet mapped, the field evidence_status must state not_yet_mapped, not_yet_evaluated, not_applicable, or deferred rather than implying support.
+    applies_to: [ent_evidence_item, ent_contribution_claim, ent_evaluation_report, traceability]
+    validation_method: review
+    failure_mode: The model overstates evidentiary support.
+  - constraint_id: con_release_status_no_overclaim
+    level: MUST_NOT
+    statement: Release or publication records must not claim archival publication readiness, reproducibility, external validation, or peer review unless corresponding evidence exists.
+    applies_to: [ent_release_record, ent_publication_record, ent_review_record]
+    validation_method: review
+    failure_mode: Publication or reuse status is misleading.
+
+validation_implications:
+  schema_implications:
+    - schema_target: schemas/dsr-project.schema.json
+      must_validate_entities: [ent_dsr_project, ent_problem_space, ent_solution_space, ent_dsr_artifact, ent_contribution_claim, ent_transparency_crosswalk]
+      minimum_required_relationships: [rel_project_frames_problem_space, rel_project_grounded_in_solution_space, rel_project_produces_artifact]
+    - schema_target: schemas/dsr-artifact.schema.json
+      must_validate_entities: [ent_dsr_artifact, ent_artifact_universal, ent_artifact_instance, ent_design_specification, ent_make_plan, ent_use_plan, ent_capacity_specification]
+      minimum_required_relationships: [rel_artifact_has_design_specification, rel_design_specification_has_use_plan]
+    - schema_target: schemas/dsr-evaluation-plan.schema.json
+      must_validate_entities: [ent_evaluation_plan, ent_evaluation_method, ent_evaluation_criterion, ent_contribution_claim]
+      minimum_required_relationships: [rel_evaluation_plan_tests_claim, rel_evaluation_plan_uses_method, rel_evaluation_method_applies_criterion]
+    - schema_target: schemas/dsr-evaluation-report.schema.json
+      must_validate_entities: [ent_evaluation_report, ent_evidence_item, ent_evaluation_method, ent_evaluation_criterion]
+      minimum_required_relationships: [rel_evaluation_report_reports_evidence, rel_evidence_supports_claim]
+    - schema_target: schemas/dsr-contribution-claim.schema.json
+      must_validate_entities: [ent_contribution_claim, ent_knowledge_goal, ent_knowledge_scope, ent_contribution_type, ent_evidence_item]
+      minimum_required_relationships: [rel_claim_has_knowledge_goal, rel_claim_has_knowledge_scope, rel_claim_classified_by_contribution_type]
+    - schema_target: schemas/dsr-transparency-crosswalk.schema.json
+      must_validate_entities: [ent_transparency_crosswalk, ent_transparency_dimension, ent_evidence_item]
+      minimum_required_relationships: [rel_crosswalk_covers_dimension]
+  template_implications:
+    - template_target: templates/artifact-specification-template.md
+      must_include_sections: [artifact_identity, artifact_boundary, artifact_type_or_universal, artifact_instances, design_specification, make_plan, use_plan, capacity_claims, version_and_change_control]
+    - template_target: templates/evaluation-plan-template.yaml
+      must_include_sections: [claims_under_evaluation, evaluation_questions, criteria, methods, data_sources, analysis_plan, acceptance_thresholds, risks_and_limitations]
+    - template_target: templates/contribution-claim-template.yaml
+      must_include_sections: [claim_identity, claim_type, knowledge_goal, knowledge_scope, artifact_link, evidence_status, evidence_items, boundary_conditions, limitations]
+    - template_target: templates/dsr-transparency-crosswalk-template.yaml
+      must_include_sections: [process_transparency, problem_space_transparency, solution_space_transparency, build_transparency, evaluation_transparency, contribution_transparency, risks_or_redactions]
+  checklist_implications:
+    - checklist_target: checklists/dsr-minimum-viable-study-checklist.yaml
+      must_check: [problem_space_present, artifact_present, design_specification_present, demonstration_or_evaluation_status_clear, contribution_claim_present_or_deferred]
+    - checklist_target: checklists/evaluation-readiness-checklist.yaml
+      must_check: [claim_method_criterion_alignment, artifact_version_identified, evaluation_context_documented, evidence_collection_plan_present, limitations_documented]
+    - checklist_target: checklists/reliability-checklist.yaml
+      must_check: [reliability_target_identified, conditions_specified, evidence_or_test_present, limitations_documented]
+    - checklist_target: checklists/replication-projectability-checklist.yaml
+      must_check: [source_context_documented, target_context_or_problem_class_defined, transfer_logic_stated, adaptation_requirements_identified, evidence_status_clear]
+
+traceability:
+  - trace_id: trace_selection_to_model
+    source_object: model_canonical selection row
+    target_object: "model.id: dsr_framework_canonical_model"
+    trace_type: generation_target
+    evidence_status: mapped
+  - trace_id: trace_spec_to_repository_conventions
+    source_object: dsr_framework_generation_spec.repository_architecture
+    target_object: model.target_path and related_items
+    trace_type: repository_convention
+    evidence_status: mapped
+  - trace_id: trace_spec_to_common_metadata
+    source_object: dsr_framework_generation_spec.information_item_rules.common_required_fields
+    target_object: model metadata fields
+    trace_type: metadata_requirement
+    evidence_status: mapped
+  - trace_id: trace_prompt_to_dsr_distinctions
+    source_object: dsr_framework_generation_prompt.General generation procedure item 7
+    target_object: boundary_conditions and normative_constraints
+    trace_type: semantic_distinction
+    evidence_status: mapped
+  - trace_id: trace_weigand_to_artifact_ontology
+    source_object: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr anchors A09, A15, A17, A20
+    target_object: artifact ontology entities and relationships
+    trace_type: scholarly_evidence
+    evidence_status: mapped
+  - trace_id: trace_hevner_2024_to_transparency
+    source_object: hevner_et_al_2024_transparency_in_design_science_research anchors CA01, CA05, CA16
+    target_object: transparency entities, dimensions, and crosswalk constraints
+    trace_type: scholarly_evidence
+    evidence_status: mapped
+  - trace_id: trace_akoka_to_knowledge_contribution
+    source_object: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr anchors A07, A08, A10, A13
+    target_object: knowledge goal, knowledge scope, knowledge path, and contribution claim entities
+    trace_type: scholarly_evidence
+    evidence_status: mapped
+  - trace_id: trace_corpus_to_quality_projectability
+    source_object: dsr_extraction_corpus normalized master table fields and quality-related extraction fields
+    target_object: validity, reliability, replication, projectability, and review entities
+    trace_type: corpus_synthesis
+    evidence_status: partially_mapped
+
+quality_and_conformance:
+  quality_gate_status:
+    - gate_id: qg_consistency
+      status: pass
+      evidence:
+        - target_path uses models/ and lower-kebab-case
+        - YAML format
+        - stable lower_snake_case IDs
+      notes: The file is structured as a model specification under the canonical repository architecture.
+    - gate_id: qg_coherence
+      status: pass
+      evidence:
+        - related_items include upstream dependencies and downstream dependents
+        - relationships align entities with lifecycle, artifact, evaluation, contribution, transparency, and review models
+      notes: Specialized sibling models remain downstream elaborations rather than contradictory replacements.
+    - gate_id: qg_cogency
+      status: pass
+      evidence:
+        - controlled_entities
+        - canonical_relationships
+        - boundary_conditions
+        - normative_constraints
+        - validation_implications
+      notes: The model can guide schema, template, checklist, and documentation development.
+    - gate_id: qg_correspondence
+      status: pass
+      evidence:
+        - DSR package control
+        - DSR project model
+        - artifact model
+        - evaluation model
+        - contribution model
+        - review and release model
+      notes: The model corresponds to a reviewable, reusable DSR Framework artifact package.
+    - gate_id: qg_dsr_transparency
+      status: pass
+      evidence:
+        - transparency_crosswalk entity
+        - six transparency dimensions
+        - lifecycle transparency mapping
+      notes: Transparency obligations are represented as first-class model objects.
+    - gate_id: qg_reviewability
+      status: pass
+      evidence:
+        - normative_constraints
+        - validation_implications
+        - quality_gate_status
+        - traceability
+      notes: A reviewer can evaluate the model against explicit criteria and trace links.
+  acceptance_criteria:
+    - criterion_id: ac_entity_coverage
+      statement: The model defines core package, project, artifact, lifecycle, evaluation, contribution, transparency, quality, review, and publication entities.
+      evidence_required: [controlled_entities]
+      status: met
+    - criterion_id: ac_relationship_coverage
+      statement: The model defines relationships sufficient to trace from problem framing through artifact design, evaluation, contribution, review, and release.
+      evidence_required: [canonical_relationships]
+      status: met
+    - criterion_id: ac_boundary_rules
+      statement: The model states boundary conditions that prevent common DSR overclaims and category errors.
+      evidence_required: [boundary_conditions, normative_constraints]
+      status: met
+    - criterion_id: ac_validation_implications
+      statement: The model identifies schema, template, and checklist implications for downstream implementation.
+      evidence_required: [validation_implications]
+      status: met
+    - criterion_id: ac_traceability
+      statement: The model maps key entities and constraints to generation sources and DSR corpus sources where available.
+      evidence_required: [source_basis, traceability]
+      status: met
+
+limitations:
+  - This model is a L2 reviewable conceptual model, not yet an executable ontology or complete JSON Schema implementation.
+  - Some quality, validity, reliability, replication, and projectability terms are represented at the canonical level and should be refined in specialized vocabulary and model files.
+  - Evidence from the broader DSR extraction corpus is only partially mapped here; future source-basis records should add more exact source anchors for each controlled value.
+  - The model intentionally preserves iterative lifecycle flexibility and should not be interpreted as a mandatory waterfall process.
+
+open_questions:
+  - question_id: oq_formal_ontology_serialization
+    question: Should this canonical model later be serialized as RDF, OWL, SHACL, or JSON-LD for machine-actionable semantic validation?
+    decision_status: open
+    impact: Affects future automation and knowledge graph integration.
+  - question_id: oq_entity_granularity
+    question: Should artifact universal, design specification, make plan, use plan, and capacity specification remain separate entities in all templates, or should some be collapsed for low-conformance project packages?
+    decision_status: open
+    impact: Affects template usability and burden.
+  - question_id: oq_quality_claim_vocabularies
+    question: Which validity, reliability, replication, and projectability vocabularies should become normative controlled vocabularies for v0.1.0?
+    decision_status: open
+    impact: Affects schema enum stability and checklist wording.
+  - question_id: oq_dsr_genre_boundary
+    question: How should the framework distinguish DSR genres that are design theory, artifact package, methodology, ontology, taxonomy, software instantiation, and reporting protocol?
+    decision_status: open
+    impact: Affects contribution-positioning records and publication-readiness guidance.
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: created
+    summary: Initial L2 reviewable canonical model generated for selected DSR Framework portion model_canonical.
+    responsible_role: assistant

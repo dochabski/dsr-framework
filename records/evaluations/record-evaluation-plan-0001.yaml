@@ -1,0 +1,842 @@
+# SPDX-License-Identifier: CC0-1.0
+record:
+  record_id: record_evaluation_plan_0001
+  record_class: evaluation_plan
+  item_type: record
+  title: DSR Framework Package Evaluation Plan Record
+  purpose: >
+    Define the reviewable evaluation plan for the DSR Framework artifact package,
+    including evaluation objects, claims, criteria, methods, evidence sources,
+    acceptance thresholds, outputs, limitations, and traceability obligations.
+  status: draft
+  version: "0.1.0"
+  date: "2026-04-27"
+  responsible_party:
+    role: framework_maintainer
+    name: "TODO: assign maintainer name"
+  event_or_action: >
+    Planned evaluation of the DSR Framework package for L2 reviewable conformance,
+    with attention to package structure, internal coherence, DSR transparency,
+    evaluation alignment, traceability, and reviewer usability.
+  conformance_target: l2_reviewable
+  selection_context:
+    selection_id: record_evaluation_plan
+    target_path: records/evaluations/record-evaluation-plan-0001.yaml
+    portion_type: record
+    output_format: yaml
+    purpose: Evaluation plan for the framework package.
+    default_conformance: L2
+    key_dependencies:
+      - templates/evaluation-plan-template.yaml
+      - schemas/dsr-evaluation-plan.schema.json
+      - models/dsr-evaluation-alignment-model.yaml
+      - docs/protocol/08-evaluation-framework.md
+      - checklists/evaluation-readiness-checklist.yaml
+
+  source_basis:
+    - source_id: user_current_request
+      role: immediate_task_definition
+      evidence_status: mapped
+      notes: >
+        User selected record_evaluation_plan and requested creation as a new file
+        with the proper target filename.
+    - source_id: dsr_framework_generation_spec
+      role: governing_generation_specification
+      evidence_status: mapped
+      notes: >
+        Provides repository architecture, record-required fields, content rules,
+        quality gates, traceability expectations, and completion report expectations.
+    - source_id: dsr_framework_generation_prompt
+      role: generation_procedure_and_output_rules
+      evidence_status: mapped
+      notes: >
+        Provides generation procedure, record-file expectations, DSR distinctions,
+        and final reporting conventions.
+    - source_id: dsr_framework_selection_table
+      role: selected_target_registry
+      evidence_status: mapped
+      notes: >
+        Identifies record_evaluation_plan as records/evaluations/record-evaluation-plan-0001.yaml.
+    - source_id: dsr_extraction_corpus
+      role: scholarly_and_methodological_evidence_base
+      evidence_status: partially_mapped
+      notes: >
+        Corpus supports DSR evaluation, transparency, artifact quality, validity,
+        reliability, projectability, and contribution distinctions. Exact article-level
+        evidence should be mapped in downstream evaluation reports when claims require it.
+
+  related_items:
+    upstream_dependencies:
+      - item_id: template_evaluation_plan
+        path: templates/evaluation-plan-template.yaml
+        relation: template_basis
+        required: true
+      - item_id: schema_evaluation_plan
+        path: schemas/dsr-evaluation-plan.schema.json
+        relation: validation_schema
+        required: true
+      - item_id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relation: conceptual_model
+        required: true
+      - item_id: checklist_evaluation_readiness
+        path: checklists/evaluation-readiness-checklist.yaml
+        relation: readiness_checklist
+        required: true
+      - item_id: docs_evaluation
+        path: docs/protocol/08-evaluation-framework.md
+        relation: human_facing_guidance
+        required: false
+      - item_id: record_source_basis
+        path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+        relation: evidence_base_record
+        required: true
+      - item_id: record_contribution_positioning
+        path: records/contributions/record-contribution-positioning-0001.yaml
+        relation: contribution_claim_context
+        required: true
+      - item_id: record_transparency_crosswalk
+        path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+        relation: transparency_evidence_context
+        required: true
+    downstream_outputs:
+      - item_id: record_self_review
+        path: records/reviews/record-review-0001-self-review.yaml
+        relation: planned_evaluation_output
+      - item_id: evaluation_report_instance
+        path: records/evaluations/record-evaluation-report-0001.yaml
+        relation: possible_future_output
+        status: not_yet_created
+      - item_id: record_release_v0_1_0
+        path: records/releases/record-release-0001-v0-1-0.yaml
+        relation: release_readiness_input
+      - item_id: package_inventory
+        path: package-inventory.yaml
+        relation: inventory_update_input
+
+  evaluation_plan:
+    plan_id: dsr_framework_evaluation_plan_0001
+    plan_status: draft
+    plan_type: package_quality_and_dsr_alignment_evaluation
+    evaluation_scope:
+      included:
+        - repository_structure_and_naming
+        - required_controlled_fields
+        - package_inventory_alignment
+        - source_basis_and_traceability
+        - evaluation_alignment
+        - transparency_coverage
+        - contribution_positioning_alignment
+        - checklist_and_schema_readiness
+        - reviewer_usability
+        - limitations_and_non_overclaiming
+      excluded:
+        - claim: Naturalistic field evaluation of the framework by independent DSR researchers.
+          rationale: Not available at L2 reviewable package stage.
+        - claim: Statistical validation of evaluation instruments.
+          rationale: No measured multi-rater or psychometric dataset exists yet.
+        - claim: Archival publication readiness or DOI release readiness.
+          rationale: Reserved for L5 release records and publication-readiness review.
+    evaluation_objects:
+      - object_id: dsr_framework_artifact_package
+        object_type: compound_dsr_artifact_package
+        description: >
+          The repository package as a compound artifact containing specifications,
+          models, vocabularies, schemas, templates, checklists, records, docs,
+          crosswalks, and examples.
+        evaluation_interest:
+          - package_completeness
+          - internal_coherence
+          - reviewer_usability
+          - reuse_readiness
+      - object_id: controlled_yaml_and_json_items
+        object_type: structured_information_items
+        description: >
+          Source-of-truth specifications, models, vocabularies, schemas, templates,
+          checklists, records, metadata, manifest, artifact profile, inventory,
+          and conformance declaration files.
+        evaluation_interest:
+          - schema_validity
+          - stable_identifier_consistency
+          - traceability
+          - controlled_vocabulary_use
+      - object_id: human_facing_docs
+        object_type: protocol_documentation
+        description: >
+          Markdown documentation pages that render, explain, or operationalize
+          controlled YAML/JSON files for human users and reviewers.
+        evaluation_interest:
+          - clarity
+          - source_file_alignment
+          - non_duplication_of_controlled_data
+      - object_id: retained_records
+        object_type: evidence_records
+        description: >
+          Records preserving source basis, transparency, contribution positioning,
+          evaluation, review, release, and preservation evidence.
+        evaluation_interest:
+          - auditability
+          - retention_suitability
+          - decision_and_evidence_traceability
+
+    claims_under_evaluation:
+      - claim_id: claim_pkg_l2_reviewable
+        claim_type: conformance_claim
+        claim_statement: >
+          The DSR Framework package is organized and documented sufficiently for
+          L2 reviewable use.
+        evidence_required:
+          - package_inventory_alignment
+          - conformance_declaration_alignment
+          - required_field_presence
+          - quality_gate_results
+        evaluation_priority: critical
+      - claim_id: claim_pkg_dsr_identity
+        claim_type: identity_claim
+        claim_statement: >
+          The package represents a Design Science Research framework artifact
+          rather than only a general documentation template collection.
+        evidence_required:
+          - artifact_profile_alignment
+          - lifecycle_model_alignment
+          - contribution_model_alignment
+          - source_basis_mapping
+        evaluation_priority: critical
+      - claim_id: claim_pkg_transparency
+        claim_type: transparency_claim
+        claim_statement: >
+          The package makes process, problem-space, solution-space, build,
+          evaluation, and contribution transparency reviewable.
+        evidence_required:
+          - transparency_crosswalk
+          - transparency_model_alignment
+          - documentation_guidance
+          - records_supporting_each_dimension
+        evaluation_priority: high
+      - claim_id: claim_pkg_evaluation_alignment
+        claim_type: evaluation_claim
+        claim_statement: >
+          The package distinguishes artifact utility, artifact quality, and
+          contribution-to-knowledge evaluation and maps each claim to evidence.
+        evidence_required:
+          - evaluation_alignment_model
+          - evaluation_plan_template
+          - evaluation_readiness_checklist
+          - this_record
+        evaluation_priority: critical
+      - claim_id: claim_pkg_reuse_readiness_limited
+        claim_type: reuse_claim
+        claim_statement: >
+          The package is prepared for structured review and limited reuse, while
+          not yet claiming archival publication readiness or empirically validated
+          field utility.
+        evidence_required:
+          - limitations
+          - non_goals
+          - open_questions
+          - quality_gate_results
+        evaluation_priority: high
+
+    evaluation_questions:
+      - question_id: eq_structure
+        question: >
+          Does the package follow the required repository architecture, naming rules,
+          item-type conventions, and controlled field expectations?
+        related_claims:
+          - claim_pkg_l2_reviewable
+        criteria:
+          - consistency
+          - reviewability
+      - question_id: eq_coherence
+        question: >
+          Do related specifications, models, vocabularies, schemas, templates,
+          checklists, records, and docs agree without conflicting definitions or
+          unsupported cross-references?
+        related_claims:
+          - claim_pkg_l2_reviewable
+          - claim_pkg_dsr_identity
+        criteria:
+          - coherence
+          - cogency
+      - question_id: eq_traceability
+        question: >
+          Are claims, dependencies, source basis entries, and evidence obligations
+          traceable enough for a reviewer to audit the package?
+        related_claims:
+          - claim_pkg_l2_reviewable
+          - claim_pkg_evaluation_alignment
+        criteria:
+          - traceability
+          - reviewability
+      - question_id: eq_dsr_transparency
+        question: >
+          Does the package provide reviewable support for process, problem-space,
+          solution-space, build, evaluation, and contribution transparency?
+        related_claims:
+          - claim_pkg_transparency
+        criteria:
+          - dsr_transparency
+          - correspondence
+      - question_id: eq_evaluation_alignment
+        question: >
+          Does the package distinguish demonstration from evaluation and avoid
+          overclaiming evidence that has not yet been produced?
+        related_claims:
+          - claim_pkg_evaluation_alignment
+          - claim_pkg_reuse_readiness_limited
+        criteria:
+          - cogency
+          - correspondence
+      - question_id: eq_user_reviewability
+        question: >
+          Can a reviewer use the available checklists, templates, schemas, and
+          records to evaluate the package without hidden assumptions?
+        related_claims:
+          - claim_pkg_l2_reviewable
+          - claim_pkg_reuse_readiness_limited
+        criteria:
+          - reviewability
+          - usability
+
+    evaluation_methods:
+      - method_id: method_structural_conformance_review
+        method_family: structured_review
+        timing: formative
+        setting: desk_review
+        description: >
+          Inspect repository paths, filenames, item types, required fields,
+          status values, identifiers, version fields, and related-item references.
+        data_collected:
+          - file_path_inventory
+          - required_field_presence_matrix
+          - naming_rule_exceptions
+        evaluator_role: framework_reviewer
+        outputs:
+          - structural_conformance_findings
+      - method_id: method_schema_and_yaml_validation
+        method_family: technical_validation
+        timing: formative
+        setting: local_repository_or_ci
+        description: >
+          Validate YAML parseability and JSON Schema conformance where stable
+          schemas exist; record schema gaps where schemas are not yet available.
+        data_collected:
+          - yaml_parse_results
+          - json_schema_validation_results
+          - schema_gap_log
+        evaluator_role: technical_reviewer
+        outputs:
+          - validation_report
+      - method_id: method_traceability_sampling
+        method_family: traceability_review
+        timing: formative
+        setting: desk_review
+        description: >
+          Sample trace links across source basis, models, templates, checklists,
+          records, docs, and package inventory to verify that dependencies are
+          findable and not contradicted.
+        data_collected:
+          - sampled_trace_links
+          - resolved_links
+          - unresolved_links
+          - evidence_status_values
+        evaluator_role: method_reviewer
+        outputs:
+          - traceability_findings
+      - method_id: method_claim_evidence_alignment_review
+        method_family: qualitative_evidence_review
+        timing: summative_for_l2
+        setting: desk_review
+        description: >
+          Review each package-level claim against available evidence, explicitly
+          distinguishing supported claims, partially supported claims, unsupported
+          claims, and claims deferred to later conformance levels.
+        data_collected:
+          - claim_register
+          - evidence_mapping
+          - unsupported_or_deferred_claims
+        evaluator_role: independent_or_self_reviewer
+        outputs:
+          - claim_evidence_alignment_matrix
+      - method_id: method_checklist_based_readiness_review
+        method_family: checklist_review
+        timing: summative_for_l2
+        setting: desk_review
+        description: >
+          Apply the evaluation-readiness, package-readiness, transparency,
+          contribution-positioning, reliability, projectability, and publication-readiness
+          checklists as applicable to the current conformance target.
+        data_collected:
+          - checklist_results
+          - remediation_items
+          - unresolved_risks
+        evaluator_role: framework_reviewer
+        outputs:
+          - readiness_review_record
+      - method_id: method_reader_walkthrough
+        method_family: usability_walkthrough
+        timing: formative
+        setting: desk_review_or_pilot
+        description: >
+          Walk through the package from a reviewer or adopter perspective to assess
+          whether controlled files, docs, templates, and records can be located and
+          applied without hidden assumptions.
+        data_collected:
+          - walkthrough_notes
+          - user_path_failures
+          - unclear_terms
+          - documentation_gaps
+        evaluator_role: target_user_or_reviewer
+        outputs:
+          - usability_findings
+
+    criteria_and_acceptance_thresholds:
+      - criterion_id: consistency
+        criterion_label: Consistency
+        operational_definition: >
+          The package follows naming, structure, item-type, status, and identifier
+          conventions.
+        pass_threshold: >
+          No critical repository-structure or target-path errors; minor inconsistencies
+          are logged with remediation guidance.
+        fail_condition: >
+          Required path, item type, or controlled identifier conventions are violated
+          in a way that prevents repository placement or review.
+      - criterion_id: coherence
+        criterion_label: Coherence
+        operational_definition: >
+          Related files agree with each other and do not introduce contradictory
+          definitions, incompatible dependencies, or unsupported file relationships.
+        pass_threshold: >
+          All critical cross-file dependencies are present or explicitly marked
+          not_yet_created with rationale.
+        fail_condition: >
+          A file asserts a dependency, claim, or definition that conflicts with
+          another controlled file and lacks a recorded tailoring rationale.
+      - criterion_id: cogency
+        criterion_label: Cogency
+        operational_definition: >
+          The file set presents a clear operational logic from DSR identity through
+          artifact package construction, review, evaluation, and release.
+        pass_threshold: >
+          A reviewer can follow the package logic without requiring unstated assumptions.
+        fail_condition: >
+          The package contains unsupported leaps, missing acceptance logic, or ambiguous
+          distinctions between artifact quality, utility, and knowledge contribution.
+      - criterion_id: correspondence
+        criterion_label: Correspondence
+        operational_definition: >
+          The package corresponds to the intended compound DSR artifact and selected
+          conformance target.
+        pass_threshold: >
+          Claims, records, templates, checklists, and docs support L2 reviewable
+          conformance without implying stronger evidence than available.
+        fail_condition: >
+          The package claims empirical utility, broad generalizability, archival
+          readiness, or publication readiness without evaluation evidence.
+      - criterion_id: dsr_transparency
+        criterion_label: DSR transparency
+        operational_definition: >
+          Process, problem-space, solution-space, build, evaluation, and contribution
+          transparency are represented or explicitly marked not applicable with rationale.
+        pass_threshold: >
+          Each transparency dimension has at least one related controlled file,
+          record, checklist, or documented evidence obligation.
+        fail_condition: >
+          Any relevant transparency dimension is omitted without rationale.
+      - criterion_id: reviewability
+        criterion_label: Reviewability
+        operational_definition: >
+          The package can be evaluated by reviewers using explicit criteria,
+          evidence requirements, checklists, schemas, and traceability records.
+        pass_threshold: >
+          Every selected controlled item has review criteria, validation logic,
+          or an associated checklist/schema relation.
+        fail_condition: >
+          Reviewers cannot determine what evidence is required to accept or reject
+          a package claim.
+      - criterion_id: reviewer_usability
+        criterion_label: Reviewer usability
+        operational_definition: >
+          A human reviewer can locate the needed files, understand their role,
+          and apply the evaluation workflow.
+        pass_threshold: >
+          Walkthrough notes show no blocking navigation or interpretation failures.
+        fail_condition: >
+          A reviewer cannot determine where to begin, what is authoritative, or
+          how to record findings.
+
+    evidence_collection_plan:
+      evidence_items:
+        - evidence_id: ev_package_inventory
+          evidence_type: inventory_record
+          expected_location: package-inventory.yaml
+          collection_method: inspect_and_sample
+          required_for:
+            - claim_pkg_l2_reviewable
+        - evidence_id: ev_conformance_declaration
+          evidence_type: conformance_record
+          expected_location: conformance-declaration.yaml
+          collection_method: inspect
+          required_for:
+            - claim_pkg_l2_reviewable
+            - claim_pkg_reuse_readiness_limited
+        - evidence_id: ev_artifact_profile
+          evidence_type: artifact_identity_record
+          expected_location: artifact-profile.yaml
+          collection_method: inspect
+          required_for:
+            - claim_pkg_dsr_identity
+        - evidence_id: ev_source_basis_record
+          evidence_type: source_basis_record
+          expected_location: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+          collection_method: inspect_traceability
+          required_for:
+            - claim_pkg_dsr_identity
+            - claim_pkg_evaluation_alignment
+        - evidence_id: ev_transparency_crosswalk
+          evidence_type: transparency_record
+          expected_location: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+          collection_method: inspect_traceability
+          required_for:
+            - claim_pkg_transparency
+        - evidence_id: ev_contribution_positioning_record
+          evidence_type: contribution_record
+          expected_location: records/contributions/record-contribution-positioning-0001.yaml
+          collection_method: inspect_traceability
+          required_for:
+            - claim_pkg_dsr_identity
+            - claim_pkg_reuse_readiness_limited
+        - evidence_id: ev_evaluation_records
+          evidence_type: evaluation_record_set
+          expected_location: records/evaluations/
+          collection_method: inspect_and_update
+          required_for:
+            - claim_pkg_evaluation_alignment
+        - evidence_id: ev_review_record
+          evidence_type: review_record
+          expected_location: records/reviews/record-review-0001-self-review.yaml
+          collection_method: create_after_review
+          required_for:
+            - claim_pkg_l2_reviewable
+            - claim_pkg_reuse_readiness_limited
+        - evidence_id: ev_validation_results
+          evidence_type: technical_validation_report
+          expected_location: records/reviews/or_ci_logs
+          collection_method: parse_validate_and_record
+          required_for:
+            - claim_pkg_l2_reviewable
+        - evidence_id: ev_walkthrough_notes
+          evidence_type: usability_review_notes
+          expected_location: records/reviews/or_issue_backlog
+          collection_method: reviewer_walkthrough
+          required_for:
+            - claim_pkg_reuse_readiness_limited
+
+    evaluation_workflow:
+      - step_id: eval_step_01_define_package_boundary
+        step_name: Define package boundary
+        action: >
+          Confirm which files are in the evaluation scope and which files are deferred.
+        inputs:
+          - package-inventory.yaml
+          - selection table
+        outputs:
+          - evaluated_file_scope
+      - step_id: eval_step_02_validate_structure
+        step_name: Validate structure and parseability
+        action: >
+          Check paths, filenames, YAML/JSON parseability, required fields, and
+          schema conformance where schemas exist.
+        inputs:
+          - repository_file_set
+          - schemas
+        outputs:
+          - structural_validation_results
+      - step_id: eval_step_03_review_traceability
+        step_name: Review traceability
+        action: >
+          Inspect source_basis, related_items, traceability objects, and evidence_status
+          values across controlled files.
+        inputs:
+          - source_basis_record
+          - controlled_files
+        outputs:
+          - traceability_findings
+      - step_id: eval_step_04_review_claim_alignment
+        step_name: Review claim-evidence alignment
+        action: >
+          Compare package-level claims against evidence and record unsupported,
+          partially supported, or deferred claims.
+        inputs:
+          - artifact-profile.yaml
+          - contribution_positioning_record
+          - evaluation_alignment_model
+        outputs:
+          - claim_evidence_alignment_matrix
+      - step_id: eval_step_05_apply_quality_gates
+        step_name: Apply quality gates
+        action: >
+          Evaluate consistency, coherence, cogency, correspondence, DSR transparency,
+          and reviewability.
+        inputs:
+          - generated_file_set
+          - checklists
+          - this_evaluation_plan
+        outputs:
+          - quality_gate_status
+      - step_id: eval_step_06_record_findings
+        step_name: Record findings and remediation
+        action: >
+          Write review findings, pass/fail status, remediation items, limitations,
+          and open questions into retained review records.
+        inputs:
+          - quality_gate_status
+          - validation_results
+          - reviewer_notes
+        outputs:
+          - records/reviews/record-review-0001-self-review.yaml
+      - step_id: eval_step_07_reassess_after_remediation
+        step_name: Reassess after remediation
+        action: >
+          Re-check remediated items and update review records before release planning.
+        inputs:
+          - remediation_log
+          - updated_files
+        outputs:
+          - updated_review_status
+
+    roles_and_responsibilities:
+      - role_id: framework_maintainer
+        responsibilities:
+          - maintain package inventory
+          - update controlled files
+          - resolve remediation items
+          - preserve evaluation records
+      - role_id: method_reviewer
+        responsibilities:
+          - review DSR identity and contribution alignment
+          - assess distinction among demonstration, evaluation, and contribution
+          - inspect source-basis and traceability adequacy
+      - role_id: technical_reviewer
+        responsibilities:
+          - validate YAML and JSON Schema conformance
+          - check links and identifiers
+          - report automation and validation gaps
+      - role_id: target_user_reviewer
+        responsibilities:
+          - conduct reviewer walkthrough
+          - identify usability and interpretation barriers
+          - assess whether templates and checklists are actionable
+
+    risk_register:
+      - risk_id: risk_missing_dependency_files
+        risk_statement: >
+          Some referenced dependencies may not yet exist or may be incomplete at
+          the time this record is created.
+        severity: medium
+        mitigation: >
+          Mark not_yet_created or not_yet_mapped explicitly and review dependency
+          status during package-inventory validation.
+      - risk_id: risk_overclaiming_evaluation
+        risk_statement: >
+          The package may be described as reusable or publishable before evidence
+          supports those stronger claims.
+        severity: high
+        mitigation: >
+          Restrict this plan to L2 reviewability and document naturalistic evaluation,
+          reuse validation, and release readiness as future work unless evidence exists.
+      - risk_id: risk_traceability_burden
+        risk_statement: >
+          Excessive traceability detail may make the framework difficult to maintain.
+        severity: medium
+        mitigation: >
+          Use stable IDs, concise evidence_status values, and sampled traceability
+          checks rather than exhaustive article-level mapping in every file.
+      - risk_id: risk_template_schema_drift
+        risk_statement: >
+          Templates, schemas, checklists, and records may diverge as the package evolves.
+        severity: high
+        mitigation: >
+          Include schema-template-review checks in each evaluation cycle and update
+          related_items after changes.
+      - risk_id: risk_reader_navigation_failure
+        risk_statement: >
+          Reviewers may not know which files are authoritative or where to start.
+        severity: medium
+        mitigation: >
+          Use README, manifest, package inventory, docs/protocol pages, and file-level
+          related_items to establish navigation paths.
+
+    limitations:
+      - limitation_id: lim_no_field_evaluation_yet
+        statement: >
+          This plan does not claim that the DSR Framework has been empirically tested
+          by independent researchers in naturalistic use.
+      - limitation_id: lim_schema_coverage_may_be_incomplete
+        statement: >
+          Some target schemas may be planned but not yet generated; schema gaps must
+          be recorded rather than treated as silent failures.
+      - limitation_id: lim_evidence_mapping_is_incremental
+        statement: >
+          Corpus evidence should be mapped at the claim level when required, but this
+          plan does not exhaustively map every corpus source to every evaluation criterion.
+      - limitation_id: lim_l2_not_release_ready
+        statement: >
+          L2 reviewable conformance does not imply L4 reusable or L5 archival publication-ready conformance.
+
+    open_questions:
+      - question_id: oq_evaluator_assignment
+        question: Who will serve as the independent or semi-independent method reviewer for the first review cycle?
+        disposition: unresolved
+      - question_id: oq_schema_execution
+        question: Which validation mechanism will execute JSON Schema and link checks in local or CI environments?
+        disposition: unresolved
+      - question_id: oq_thresholds_for_l3_l4
+        question: What additional evidence will be required to move from L2 reviewable to L3 exercisable or L4 reusable?
+        disposition: unresolved
+      - question_id: oq_pilot_use_cases
+        question: Which example DSR projects should be used for later pilot walkthroughs?
+        disposition: unresolved
+
+  evidence:
+    retained_evidence_status: planned
+    evidence_summary: >
+      This record preserves the evaluation plan for the DSR Framework package.
+      Actual review findings, validation outputs, and remediation decisions must
+      be preserved in subsequent review and evaluation records.
+    evidence_items_created_by_this_record:
+      - this_evaluation_plan_record
+    evidence_items_to_be_created_later:
+      - structural_conformance_findings
+      - schema_validation_results
+      - traceability_findings
+      - claim_evidence_alignment_matrix
+      - readiness_review_record
+      - reviewer_walkthrough_notes
+      - remediation_log
+
+  outcome:
+    outcome_status: plan_established
+    summary: >
+      Evaluation planning is established for L2 reviewable package assessment.
+      The package is not yet evaluated by this record; subsequent review records
+      must document execution results, findings, and remediation status.
+    decision: >
+      Use this record as the retained evaluation-plan baseline for the first
+      DSR Framework package evaluation cycle.
+    conditions_for_closure:
+      - records/reviews/record-review-0001-self-review.yaml is completed.
+      - Required validation results are retained or explicitly deferred with rationale.
+      - Critical L2 quality-gate failures are resolved or documented as release blockers.
+
+  retention_rule:
+    retention_class: permanent_project_record
+    minimum_retention_period: life_of_repository
+    rationale: >
+      Evaluation plans document how framework quality, reviewability, and DSR
+      correspondence were assessed and must remain auditable across releases.
+
+  quality_gate_status:
+    consistency:
+      status: pass
+      rationale: >
+        Uses the selected target path, YAML format, lower-kebab-case filename,
+        record item type, and required record fields.
+    coherence:
+      status: pass
+      rationale: >
+        Connects to the evaluation plan template, evaluation schema, evaluation
+        model, evaluation readiness checklist, source-basis record, contribution
+        record, and transparency record without asserting those files are already final.
+    cogency:
+      status: pass
+      rationale: >
+        Provides evaluation scope, claims, questions, methods, criteria, evidence,
+        workflow, roles, risks, limitations, and open questions.
+    correspondence:
+      status: pass
+      rationale: >
+        Supports the DSR Framework as a compound artifact package and limits claims
+        to L2 reviewable conformance.
+    dsr_transparency:
+      status: pass
+      rationale: >
+        Explicitly maps evaluation to process, problem-space, solution-space,
+        build, evaluation, and contribution transparency obligations.
+    reviewability:
+      status: pass
+      rationale: >
+        Defines acceptance thresholds, failure conditions, evidence outputs,
+        review workflow, and retained records.
+
+  traceability:
+    - trace_id: tr_record_evaluation_plan_selection
+      from: dsr_framework_selection_table.record_evaluation_plan
+      to: records/evaluations/record-evaluation-plan-0001.yaml
+      relation: selected_generation_target
+      evidence_status: mapped
+    - trace_id: tr_record_required_fields
+      from: dsr_framework_generation_spec.information_item_rules.record_required_fields
+      to: record
+      relation: structural_conformance
+      evidence_status: mapped
+    - trace_id: tr_quality_gates
+      from: dsr_framework_generation_spec.quality_gates
+      to: record.quality_gate_status
+      relation: quality_gate_application
+      evidence_status: mapped
+    - trace_id: tr_evaluation_template_dependency
+      from: templates/evaluation-plan-template.yaml
+      to: record.evaluation_plan
+      relation: template_dependency
+      evidence_status: not_yet_verified_against_file_content
+    - trace_id: tr_evaluation_schema_dependency
+      from: schemas/dsr-evaluation-plan.schema.json
+      to: record.evaluation_plan
+      relation: validation_dependency
+      evidence_status: not_yet_verified_against_file_content
+    - trace_id: tr_dsr_transparency_alignment
+      from: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+      to: record.evaluation_plan.evaluation_questions.eq_dsr_transparency
+      relation: transparency_evaluation_dependency
+      evidence_status: partially_mapped
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial creation of evaluation plan record.
+      changed_by: GPT-5.5 Thinking
+      change_rationale: >
+        User selected record_evaluation_plan from the DSR Framework selection table.
+
+completion_report:
+  generated_selection_id: record_evaluation_plan
+  generated_path: records/evaluations/record-evaluation-plan-0001.yaml
+  item_type: record
+  output_format: yaml
+  conformance_target: l2_reviewable
+  dependencies_used:
+    - dsr-framework-generation-prompt.md
+    - dsr-framework-generation-spec.yaml
+    - dsr-framework-selection-table.md
+    - templates/evaluation-plan-template.yaml
+    - schemas/dsr-evaluation-plan.schema.json
+    - models/dsr-evaluation-alignment-model.yaml
+    - checklists/evaluation-readiness-checklist.yaml
+  assumptions:
+    - The file is a plan record, so it may define future evaluation execution steps without claiming that evaluation has already occurred.
+    - Dependency files may exist in the broader framework set even if not inspected during this generation turn.
+    - The first evaluation cycle targets L2 reviewable conformance, not L4 reuse or L5 archival publication readiness.
+  open_questions:
+    - Who will serve as independent or semi-independent method reviewer for the first package review?
+    - Which validation mechanism will execute schema and link checks?
+    - What additional evidence will be required for L3, L4, and L5 advancement?
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: records/reviews/record-review-0001-self-review.yaml

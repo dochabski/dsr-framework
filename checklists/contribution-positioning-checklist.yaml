@@ -1,0 +1,748 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: contribution_positioning_checklist
+  item_id: checklist_contribution_positioning
+  item_type: procedure
+  title: Contribution Positioning Checklist
+  target_path: checklists/contribution-positioning-checklist.yaml
+  purpose: >
+    Provide an evidence-based review procedure for determining whether a Design
+    Science Research contribution is clearly positioned, bounded, classified,
+    justified, and communicated as reusable design knowledge rather than merely
+    as local artifact construction or implementation activity.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  default_review_mode: evidence_based_review
+  review_subjects:
+    - artifact_profile
+    - contribution_claim
+    - contribution_positioning_record
+    - artifact_specification
+    - evaluation_plan
+    - evaluation_report
+    - transparency_crosswalk
+    - manuscript_or_publication_narrative
+  source_basis:
+    - source_id: user_current_request
+      role: immediate_task_definition
+      evidence_status: mapped
+      evidence_note: >
+        User selected checklist_contribution_positioning targeting
+        checklists/contribution-positioning-checklist.yaml at L2 conformance.
+    - source_id: dsr_framework_generation_spec
+      role: generation_rules_and_quality_gates
+      evidence_status: mapped
+      evidence_note: >
+        Specifies controlled YAML outputs, stable identifiers, checklist item
+        fields, traceability, source_basis, related_items, and reviewability.
+    - source_id: dsr_framework_generation_prompt
+      role: generation_procedure
+      evidence_status: mapped
+      evidence_note: >
+        Requires selected-portion interpretation, metadata, traceability,
+        preservation of DSR distinctions, quality material, and completion report.
+    - source_id: dsr_framework_selection_table
+      role: selected_portion_registry
+      evidence_status: mapped
+      evidence_note: >
+        Identifies this file as a YAML checklist with contribution model dependency.
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      role: contribution_typology_and_knowledge_path_basis
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A03
+        - A05
+        - A07
+        - A08
+        - A10
+        - A13
+      evidence_note: >
+        Supports review of knowledge goals, knowledge scope, sequential knowledge
+        moments, contribution strategy fit, and possible contribution path extension.
+    - source_id: akoka_comynwattiau_prat_storey_2017_dsr_knowledge_types
+      role: knowledge_type_and_evaluation_criteria_basis
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A8
+        - A11
+        - A12
+      evidence_note: >
+        Supports review of definitional, descriptive, prescriptive, explanatory,
+        predictive, and explanatory-predictive knowledge types and their evaluation implications.
+    - source_id: gregor_hevner_2013_knowledge_contribution_framework
+      role: contribution_positioning_basis
+      evidence_status: indirectly_mapped_from_extraction_corpus
+      evidence_note: >
+        Used through extracted sources that identify the Knowledge Contribution
+        Framework as a problem-maturity by solution-maturity positioning grid.
+    - source_id: knowledge_contribution_diagram_source_extraction
+      role: component_level_contribution_positioning_basis
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A1
+        - A4
+        - A5
+        - A7
+        - A9
+      evidence_note: >
+        Supports reviewing complex DSR artifacts at both whole-artifact and
+        component/sub-artifact levels rather than collapsing all contributions into one claim.
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      role: contribution_transparency_basis
+      evidence_status: mapped
+      citation_anchor_ids:
+        - CA01
+        - CA11
+        - CA16
+      evidence_note: >
+        Supports contribution transparency as a DSR-specific reporting dimension
+        balancing practice impact and scientific knowledge contribution.
+  related_items:
+    upstream_dependencies:
+      - selection_id: model_contribution
+        path: models/dsr-contribution-model.yaml
+        relationship: primary_model_dependency
+      - selection_id: vocab_contribution_types
+        path: vocabularies/contribution-types.yaml
+        relationship: controlled_vocabulary_dependency
+      - selection_id: vocab_knowledge_goals
+        path: vocabularies/knowledge-goals.yaml
+        relationship: controlled_vocabulary_dependency
+      - selection_id: vocab_knowledge_scopes
+        path: vocabularies/knowledge-scopes.yaml
+        relationship: controlled_vocabulary_dependency
+      - selection_id: template_contribution_positioning
+        path: templates/contribution-positioning-record-template.yaml
+        relationship: record_template_dependency
+      - selection_id: schema_contribution_claim
+        path: schemas/dsr-contribution-claim.schema.json
+        relationship: claim_schema_dependency
+    downstream_uses:
+      - selection_id: record_contribution_positioning
+        path: records/contributions/record-contribution-positioning-0001.yaml
+        relationship: checklist_can_review_record
+      - selection_id: docs_lifecycle_contribution
+        path: docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+        relationship: human_facing_guidance
+      - selection_id: docs_publication_review
+        path: docs/protocol/14-publication-and-review-guidance.md
+        relationship: publication_review_guidance
+  review_logic:
+    review_result_values:
+      - pass
+      - pass_with_conditions
+      - fail
+      - not_applicable
+    minimum_l2_acceptance_rule: >
+      A contribution positioning record is L2-reviewable when all required checks
+      are pass or pass_with_conditions, every pass_with_conditions outcome has a
+      remediation action, and no required contribution claim lacks supporting evidence.
+    required_check_categories:
+      - contribution_identity
+      - artifact_boundary
+      - knowledge_goal_and_scope
+      - contribution_type_and_maturity
+      - evidence_alignment
+      - transparency_and_communication
+    reviewer_notes: >
+      Reviewers should judge whether contribution claims are sufficiently explicit,
+      bounded, and traceable for scholarly review. The checklist does not require
+      proof of final publishability or external generalization at L2.
+  items:
+    - check_id: cpc_01_contribution_statement
+      category: contribution_identity
+      priority: required
+      question: >
+        Is the claimed contribution stated as a DSR knowledge contribution rather
+        than only as an artifact, implementation, deliverable, or local improvement?
+      evidence_required:
+        - contribution_claim_statement
+        - artifact_profile_or_project_charter
+        - statement_of_scientific_or_design_knowledge_contribution
+      pass_condition: >
+        The file states what knowledge is contributed, identifies who can use that
+        knowledge, and distinguishes the knowledge contribution from artifact delivery.
+      fail_condition: >
+        The claim only says that an artifact was built, deployed, automated, or improved
+        without specifying the knowledge produced by that work.
+      remediation_guidance: >
+        Rewrite the claim to identify the reusable design knowledge, methodological
+        insight, artifact class, design principle, evaluation finding, or theory extension.
+      traceability:
+        - trace_id: cpc_01_to_contribution_model
+          target: models/dsr-contribution-model.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_02_artifact_and_contribution_boundary
+      category: artifact_boundary
+      priority: required
+      question: >
+        Are the artifact boundary and the contribution boundary both explicit and non-identical?
+      evidence_required:
+        - artifact_specification
+        - contribution_claim
+        - artifact_boundary_statement
+        - contribution_boundary_statement
+      pass_condition: >
+        The artifact boundary states what the artifact includes and excludes, while
+        the contribution boundary states what knowledge claims are and are not being made.
+      fail_condition: >
+        The file treats the artifact scope and the contribution scope as the same thing
+        or leaves either boundary implicit.
+      remediation_guidance: >
+        Add separate boundary statements for artifact components, artifact use context,
+        knowledge claims, non-claims, intended audiences, and excluded contribution areas.
+      traceability:
+        - trace_id: cpc_02_to_artifact_ontology
+          target: models/dsr-artifact-ontology.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_03_problem_relevance_link
+      category: contribution_identity
+      priority: required
+      question: >
+        Does the contribution trace back to a defined problem class or problem situation?
+      evidence_required:
+        - problem_and_objectives_record
+        - problem_class_statement
+        - stakeholder_or_context_description
+        - contribution_claim
+      pass_condition: >
+        The contribution identifies the problem class or situated problem to which the
+        design knowledge is relevant and explains why the contribution matters for that problem.
+      fail_condition: >
+        The contribution is stated without a problem class, context, stakeholder need,
+        or relevance rationale.
+      remediation_guidance: >
+        Add a problem relevance statement connecting the contribution to documented
+        problem-space evidence, stakeholder concerns, and improvement goals.
+      traceability:
+        - trace_id: cpc_03_to_problem_objectives_template
+          target: templates/problem-and-objectives-template.md
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_04_solution_space_grounding
+      category: evidence_alignment
+      priority: required
+      question: >
+        Is the contribution positioned against the prior solution space, knowledge base,
+        and related artifact classes?
+      evidence_required:
+        - solution_space_record
+        - literature_or_prior_artifact_summary
+        - related_work_or_kernel_theory_notes
+        - contribution_differentiation_statement
+      pass_condition: >
+        The claim explains how the contribution relates to prior theories, artifacts,
+        design principles, methods, models, or known solution approaches.
+      fail_condition: >
+        The file asserts novelty or usefulness without comparing the contribution to
+        prior DSR knowledge or adjacent solution approaches.
+      remediation_guidance: >
+        Add a solution-space grounding section that identifies reused knowledge,
+        extended knowledge, gaps, and the specific contribution difference.
+      traceability:
+        - trace_id: cpc_04_to_solution_space_template
+          target: templates/solution-space-record-template.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_05_knowledge_goal_classification
+      category: knowledge_goal_and_scope
+      priority: required
+      question: >
+        Is the contribution classified by knowledge goal using controlled or explicitly mapped terms?
+      evidence_required:
+        - selected_knowledge_goal
+        - rationale_for_knowledge_goal
+        - evidence_anchor_or_record_field_supporting_classification
+      pass_condition: >
+        The contribution identifies one or more knowledge goals such as definitional,
+        descriptive, explanatory, predictive, explanatory-predictive, prescriptive,
+        methodological, evaluative, or normative, with rationale and evidence.
+      fail_condition: >
+        The knowledge goal is missing, ambiguous, or assigned without evidence.
+      remediation_guidance: >
+        Select the closest controlled knowledge-goal term, add a rationale, and map
+        any non-controlled term to a controlled term or mark it as a proposed extension.
+      traceability:
+        - trace_id: cpc_05_to_knowledge_goals_vocab
+          target: vocabularies/knowledge-goals.yaml
+          evidence_status: not_yet_mapped
+        - trace_id: cpc_05_to_akoka_2023_a08
+          target: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A08
+          evidence_status: mapped
+
+    - check_id: cpc_06_knowledge_scope_classification
+      category: knowledge_goal_and_scope
+      priority: required
+      question: >
+        Is the contribution classified by knowledge scope and is that scope justified?
+      evidence_required:
+        - selected_knowledge_scope
+        - target_context_or_problem_class
+        - boundary_conditions
+        - scope_rationale
+      pass_condition: >
+        The contribution identifies whether its scope is idiographic, nomothetic,
+        mixed, projectable, or analytically generalized, and explains the evidence
+        and boundary conditions supporting that scope.
+      fail_condition: >
+        The file implies broad generality without evidence or leaves scope unstated.
+      remediation_guidance: >
+        Add a scope classification, state the unit of projectability, and limit the
+        claim to contexts supported by demonstration, evaluation, or argumentation.
+      traceability:
+        - trace_id: cpc_06_to_knowledge_scopes_vocab
+          target: vocabularies/knowledge-scopes.yaml
+          evidence_status: not_yet_mapped
+        - trace_id: cpc_06_to_akoka_2023_a05
+          target: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A05
+          evidence_status: mapped
+
+    - check_id: cpc_07_contribution_type_classification
+      category: contribution_type_and_maturity
+      priority: required
+      question: >
+        Is the contribution classified by contribution type with a defensible rationale?
+      evidence_required:
+        - selected_contribution_type
+        - contribution_type_rationale
+        - comparison_to_existing_dsr_knowledge
+        - evidence_of_new_or_extended_knowledge
+      pass_condition: >
+        The contribution is classified using a controlled or mapped contribution type
+        and the rationale explains why the claim is not routine artifact application alone.
+      fail_condition: >
+        The contribution type is absent, generic, or unsupported by the artifact and evidence records.
+      remediation_guidance: >
+        Classify the contribution as, for example, invention, improvement, exaptation,
+        method extension, theory building, synthesis, evaluation contribution, or routine
+        design, and justify the placement with evidence.
+      traceability:
+        - trace_id: cpc_07_to_contribution_types_vocab
+          target: vocabularies/contribution-types.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_08_problem_solution_maturity
+      category: contribution_type_and_maturity
+      priority: recommended
+      question: >
+        If the contribution uses a maturity-grid logic, are problem maturity and solution
+        maturity both assessed rather than inferred from novelty language alone?
+      evidence_required:
+        - problem_maturity_assessment
+        - solution_maturity_assessment
+        - prior_solution_or_domain_maturity_evidence
+        - contribution_grid_or_equivalent_positioning
+      pass_condition: >
+        The file separately assesses problem maturity and solution maturity and uses
+        that assessment to support contribution positioning.
+      fail_condition: >
+        The file labels the contribution as novel, innovative, or routine without
+        separately assessing problem and solution maturity.
+      remediation_guidance: >
+        Add a two-dimensional maturity assessment or explain why another contribution
+        positioning method is more appropriate for the case.
+      traceability:
+        - trace_id: cpc_08_to_kcf_basis
+          target: gregor_hevner_2013_knowledge_contribution_framework
+          evidence_status: indirectly_mapped_from_extraction_corpus
+
+    - check_id: cpc_09_routine_design_risk
+      category: contribution_type_and_maturity
+      priority: required
+      question: >
+        Has the file assessed the risk that the work is routine design, consulting,
+        system building, or local implementation rather than DSR contribution?
+      evidence_required:
+        - routine_design_risk_assessment
+        - distinction_from_practice_or_consulting
+        - evidence_of_design_knowledge_or_scientific_contribution
+      pass_condition: >
+        The file explicitly distinguishes the contribution from routine implementation
+        and explains the design knowledge, theory, method, principle, or evaluation insight produced.
+      fail_condition: >
+        The file lacks a routine-design risk statement or relies only on local utility
+        as evidence of research contribution.
+      remediation_guidance: >
+        Add a routine-design risk assessment, identify what makes the work research,
+        and narrow the claim if the evidence supports only local utility.
+      traceability:
+        - trace_id: cpc_09_to_contribution_model
+          target: models/dsr-contribution-model.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_10_component_level_contributions
+      category: artifact_boundary
+      priority: recommended
+      question: >
+        For complex artifacts, are contribution claims decomposed by meaningful artifact
+        component, sub-artifact, information artifact, technology artifact, social artifact,
+        guideline, model, method, or design principle?
+      evidence_required:
+        - artifact_component_inventory
+        - component_level_contribution_table
+        - rationale_for_any_whole_artifact_only_claim
+      pass_condition: >
+        Complex artifacts either provide component-level contribution positioning or
+        justify why a whole-artifact contribution claim is sufficient.
+      fail_condition: >
+        The file collapses materially different component contributions into a single
+        undifferentiated artifact-level claim.
+      remediation_guidance: >
+        Add a component-level contribution table or diagram that identifies each component,
+        its role, contribution type, maturity position, and evidence basis.
+      traceability:
+        - trace_id: cpc_10_to_kcd_extraction
+          target: knowledge_contribution_diagram_source_extraction:A1
+          evidence_status: mapped
+
+    - check_id: cpc_11_temporal_or_path_positioning
+      category: contribution_type_and_maturity
+      priority: recommended
+      question: >
+        Does the file locate the contribution within a sequence of knowledge moments,
+        prior contributions, current claims, and possible next contributions?
+      evidence_required:
+        - knowledge_moment_or_path_record
+        - prior_contribution_links
+        - current_contribution_position
+        - possible_follow_on_contribution_notes
+      pass_condition: >
+        The contribution is positioned dynamically, showing how it builds from prior
+        knowledge and how it may support later knowledge production.
+      fail_condition: >
+        The file treats the contribution as static when the project contains multiple
+        knowledge moments or a clear contribution progression.
+      remediation_guidance: >
+        Add a knowledge path or contribution progression note identifying prior,
+        current, and potential next knowledge contributions.
+      traceability:
+        - trace_id: cpc_11_to_akoka_2023_path
+          target: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A07
+          evidence_status: mapped
+
+    - check_id: cpc_12_science_practice_balance
+      category: transparency_and_communication
+      priority: required
+      question: >
+        Does the contribution statement distinguish scientific or design-knowledge
+        contribution from practice impact or artifact utility?
+      evidence_required:
+        - scientific_contribution_statement
+        - practice_contribution_statement
+        - artifact_utility_evidence
+        - knowledge_contribution_evidence
+      pass_condition: >
+        The file separately identifies contribution to knowledge and contribution to
+        practice, and does not use practice value alone as proof of scholarly contribution.
+      fail_condition: >
+        Practice usefulness, stakeholder satisfaction, or implementation success is
+        presented as the entire contribution without a knowledge claim.
+      remediation_guidance: >
+        Add separate subsections for practice impact, artifact utility, artifact quality,
+        and design-knowledge contribution.
+      traceability:
+        - trace_id: cpc_12_to_transparency_contribution_dimension
+          target: models/dsr-transparency-model.yaml#contribution_transparency
+          evidence_status: not_yet_mapped
+        - trace_id: cpc_12_to_hevner_2024_ca11
+          target: hevner_et_al_2024_transparency_in_design_science_research:CA11
+          evidence_status: mapped
+
+    - check_id: cpc_13_demonstration_evaluation_contribution_alignment
+      category: evidence_alignment
+      priority: required
+      question: >
+        Are demonstration and evaluation evidence aligned to the specific contribution claim?
+      evidence_required:
+        - demonstration_record
+        - evaluation_plan_or_report
+        - contribution_claim
+        - claim_evidence_crosswalk
+      pass_condition: >
+        The file shows which demonstration or evaluation evidence supports each
+        contribution claim and distinguishes evidence of use from evidence of evaluation.
+      fail_condition: >
+        The file cites demonstration, pilot use, or evaluation results without connecting
+        them to the claimed contribution or without distinguishing their evidentiary role.
+      remediation_guidance: >
+        Add a claim-evidence crosswalk that maps each claim to demonstration evidence,
+        evaluation evidence, limitations, and open validation needs.
+      traceability:
+        - trace_id: cpc_13_to_evaluation_alignment_model
+          target: models/dsr-evaluation-alignment-model.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_14_evidence_strength_and_limitations
+      category: evidence_alignment
+      priority: required
+      question: >
+        Does the contribution positioning state the strength of evidence and its limitations?
+      evidence_required:
+        - evidence_strength_rating
+        - evidence_limitations
+        - validity_or_reliability_notes
+        - boundary_conditions
+      pass_condition: >
+        The file states how strong the evidence is, what it supports, what it does not
+        support, and what validity, reliability, or transfer limitations remain.
+      fail_condition: >
+        The file overclaims significance, generality, reliability, or publication readiness
+        beyond the evidence provided.
+      remediation_guidance: >
+        Add an evidence strength assessment and downgrade, qualify, or split claims that
+        are not supported by the current evidence base.
+      traceability:
+        - trace_id: cpc_14_to_generation_spec_overclaim_rule
+          target: dsr_framework_generation_spec:content_generation_rules
+          evidence_status: mapped
+
+    - check_id: cpc_15_audience_specific_communication
+      category: transparency_and_communication
+      priority: recommended
+      question: >
+        Are contribution claims communicated for the relevant scholarly, practitioner,
+        reviewer, technical, or public audiences?
+      evidence_required:
+        - communication_audience_list
+        - audience_specific_contribution_statements
+        - publication_or_repository_guidance
+      pass_condition: >
+        The file identifies intended audiences and provides contribution wording or
+        evidence summaries suitable for those audiences.
+      fail_condition: >
+        The file provides one generic contribution statement that does not address the
+        needs of reviewers, researchers, practitioners, or other intended users.
+      remediation_guidance: >
+        Add audience-specific claim summaries, separating technical details, scholarly
+        contribution, practice relevance, and plain-language significance.
+      traceability:
+        - trace_id: cpc_15_to_hevner_2024_tables
+          target: hevner_et_al_2024_transparency_in_design_science_research:CA15
+          evidence_status: mapped
+
+    - check_id: cpc_16_claim_granularity
+      category: contribution_identity
+      priority: recommended
+      question: >
+        Are contribution claims granular enough to be reviewed, challenged, revised,
+        accepted, or rejected independently?
+      evidence_required:
+        - list_of_atomic_contribution_claims
+        - claim_ids
+        - evidence_links_for_each_claim
+        - acceptance_or_review_criteria
+      pass_condition: >
+        Claims are stated as discrete, reviewable units with identifiers and evidence links.
+      fail_condition: >
+        A broad contribution paragraph contains multiple implied claims that cannot be
+        reviewed separately.
+      remediation_guidance: >
+        Split broad claims into atomic claims and assign each claim a stable ID, evidence
+        basis, intended scope, and review status.
+      traceability:
+        - trace_id: cpc_16_to_contribution_claim_schema
+          target: schemas/dsr-contribution-claim.schema.json
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_17_related_vocabulary_alignment
+      category: knowledge_goal_and_scope
+      priority: required
+      question: >
+        Are contribution type, knowledge goal, knowledge scope, and related genre terms
+        aligned with controlled vocabularies or explicitly marked as proposed extensions?
+      evidence_required:
+        - controlled_vocabulary_terms
+        - vocabulary_crosswalk
+        - proposed_extension_notes_if_any
+      pass_condition: >
+        All controlled fields either use approved vocabulary values or document a proposed
+        extension with rationale and compatibility notes.
+      fail_condition: >
+        The file uses ad hoc terms for contribution type, knowledge goal, or knowledge
+        scope without mapping them to framework vocabularies.
+      remediation_guidance: >
+        Replace ad hoc terms with controlled values or add a vocabulary-extension note
+        with definition, boundary notes, and related terms.
+      traceability:
+        - trace_id: cpc_17_to_vocabularies
+          target:
+            - vocabularies/contribution-types.yaml
+            - vocabularies/knowledge-goals.yaml
+            - vocabularies/knowledge-scopes.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_18_claim_non_goals_and_non_contributions
+      category: transparency_and_communication
+      priority: required
+      question: >
+        Does the contribution positioning identify non-goals, non-contributions,
+        and claims intentionally not being made?
+      evidence_required:
+        - non_goals
+        - non_contribution_claims
+        - excluded_scope_notes
+        - limitations
+      pass_condition: >
+        The file includes explicit non-goals or non-contribution statements that prevent
+        readers from inferring unsupported claims.
+      fail_condition: >
+        The file leaves scope limitations implicit, making it easy to overread the contribution.
+      remediation_guidance: >
+        Add non-goal and non-contribution entries for unsupported generalization,
+        unevaluated use cases, excluded stakeholders, nonvalidated contexts, and deferred claims.
+      traceability:
+        - trace_id: cpc_18_to_generation_spec_limitations_rule
+          target: dsr_framework_generation_spec:content_generation_rules
+          evidence_status: mapped
+
+    - check_id: cpc_19_review_decision_record
+      category: reviewability
+      priority: required
+      question: >
+        Is the outcome of contribution-positioning review recorded with reviewer,
+        date, evidence, status, and remediation actions?
+      evidence_required:
+        - review_record
+        - reviewer_or_responsible_role
+        - review_date
+        - checklist_results
+        - remediation_actions
+      pass_condition: >
+        The review outcome is retained as a record or record-ready object, with each
+        failed or conditional item linked to a remediation action.
+      fail_condition: >
+        The checklist is used informally without a retained review outcome or action log.
+      remediation_guidance: >
+        Create or update a review record that preserves item-level outcomes, decision
+        rationale, evidence links, and follow-up actions.
+      traceability:
+        - trace_id: cpc_19_to_review_record_template
+          target: templates/review-record-template.yaml
+          evidence_status: not_yet_mapped
+
+    - check_id: cpc_20_publication_or_repository_positioning
+      category: transparency_and_communication
+      priority: optional
+      question: >
+        If the work is intended for publication, release, or registry deposit, does the
+        contribution positioning support abstract, keywords, metadata, repository summary,
+        and reviewer-facing significance claims?
+      evidence_required:
+        - publication_summary_or_abstract
+        - repository_metadata
+        - reviewer_facing_significance_statement
+        - contribution_keywords
+      pass_condition: >
+        Publication or repository-facing metadata accurately summarizes the contribution,
+        its scope, its evidence basis, and its limitations.
+      fail_condition: >
+        Public-facing metadata overstates novelty, omits limitations, or fails to identify
+        the contribution type and intended reuse context.
+      remediation_guidance: >
+        Revise publication and repository metadata to match the reviewed contribution
+        claim, evidence strength, knowledge goal, knowledge scope, and boundary conditions.
+      traceability:
+        - trace_id: cpc_20_to_publication_readiness_model
+          target: models/dsr-publication-readiness-model.yaml
+          evidence_status: not_yet_mapped
+  scoring_guidance:
+    l2_reviewable:
+      pass: >
+        All required items pass or pass_with_conditions, and every condition has an
+        assigned remediation action.
+      pass_with_conditions: >
+        One or more recommended items fail, or one or more required items need minor
+        clarification, but the contribution remains reviewable.
+      fail: >
+        One or more required items fail in a way that prevents review of the contribution
+        claim, scope, evidence basis, or artifact/contribution boundary.
+  quality_gate_mapping:
+    qg_consistency:
+      mapped_checks:
+        - cpc_17_related_vocabulary_alignment
+        - cpc_19_review_decision_record
+      status: pass
+    qg_coherence:
+      mapped_checks:
+        - cpc_02_artifact_and_contribution_boundary
+        - cpc_04_solution_space_grounding
+        - cpc_13_demonstration_evaluation_contribution_alignment
+      status: pass
+    qg_cogency:
+      mapped_checks:
+        - cpc_01_contribution_statement
+        - cpc_03_problem_relevance_link
+        - cpc_16_claim_granularity
+      status: pass
+    qg_correspondence:
+      mapped_checks:
+        - cpc_07_contribution_type_classification
+        - cpc_08_problem_solution_maturity
+        - cpc_09_routine_design_risk
+      status: pass
+    qg_dsr_transparency:
+      mapped_checks:
+        - cpc_12_science_practice_balance
+        - cpc_15_audience_specific_communication
+        - cpc_18_claim_non_goals_and_non_contributions
+      status: pass
+    qg_reviewability:
+      mapped_checks:
+        - cpc_14_evidence_strength_and_limitations
+        - cpc_19_review_decision_record
+      status: pass
+  validation_rules:
+    - rule_id: vr_required_item_fields
+      description: >
+        Each checklist item must include check_id, question, evidence_required,
+        pass_condition, fail_condition, and remediation_guidance.
+      severity: error
+    - rule_id: vr_required_traceability
+      description: >
+        Required checklist items should include at least one traceability target
+        or evidence-status note.
+      severity: warning
+    - rule_id: vr_no_unbounded_claims
+      description: >
+        Any broad claims of novelty, generality, reliability, reuse, or publication
+        readiness must be qualified by evidence strength and boundary conditions.
+      severity: error
+    - rule_id: vr_controlled_vocabulary_alignment
+      description: >
+        Knowledge goal, knowledge scope, and contribution type should use controlled
+        terms or explicitly documented proposed extensions.
+      severity: error
+  assumptions:
+    - >
+      The contribution model, contribution-type vocabulary, knowledge-goal vocabulary,
+      and knowledge-scope vocabulary will provide the canonical controlled values when finalized.
+    - >
+      At L2, the checklist evaluates reviewability and evidence traceability, not final
+      empirical proof of generalization or publication acceptance.
+  limitations:
+    - >
+      This checklist does not replace a full contribution claim schema, artifact profile,
+      evaluation report, or peer-review rubric.
+    - >
+      Some source-specific DSR contribution categories may require vocabulary extensions
+      after the contribution model is finalized.
+  open_questions:
+    - question_id: oq_cpc_01
+      question: >
+        Should the contribution-positioning model preserve the Gregor-Hevner quadrant
+        names directly or normalize them into a broader contribution-type vocabulary?
+      status: open
+    - question_id: oq_cpc_02
+      question: >
+        Should component-level contribution positioning be required for all complex
+        artifacts at L2, or remain recommended until L3/L4?
+      status: open
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial draft generated for selection_id checklist_contribution_positioning.
+      changed_by: GPT-5.5 Thinking

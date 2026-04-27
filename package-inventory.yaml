@@ -1,0 +1,4280 @@
+# SPDX-License-Identifier: CC0-1.0
+package_inventory:
+  item_id: dsr_framework_package_inventory
+  item_type: record
+  record_id: package_inventory_root_0001
+  record_class: package_inventory
+  title: DSR Framework Package Inventory
+  purpose: Inventory all required, planned, and controlled files in the DSR Framework package and assign validation responsibilities
+    for each file class and file entry.
+  status: public_draft_release_prepared
+  version: 0.1.0
+  date: '2026-04-27'
+  owner: framework_maintainer
+  responsible_party: framework_maintainer
+  event_or_action: package_inventory_updated_for_public_draft_release
+  conformance_target: l2_reviewable
+  inventory_policy:
+    scope: root_repository_package
+    file_existence_claim: All controlled files listed in file_inventory exist at their declared package paths in the organized
+      package copy as of 2026-04-27. This confirms path existence and parse/schema checks where noted; it does not certify
+      publication readiness.
+    update_rule: Update this inventory whenever a controlled file is added, removed, renamed, superseded, assigned a new validation
+      responsibility, or moved between draft/review/release states.
+    source_of_truth_rule: Use package-inventory.yaml as the structured package inventory; human-facing documentation may render
+      or summarize it but should not override it.
+  source_basis:
+  - source_id: user_current_request
+    role: immediate_task_definition
+    selection_id: root_package_inventory
+    target_path: package-inventory.yaml
+  - source_id: dsr_framework_generation_spec
+    role: repository_architecture_and_quality_gate_basis
+    evidence_status: mapped_to_uploaded_specification
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure_and_output_convention_basis
+    evidence_status: mapped_to_uploaded_prompt
+  - source_id: dsr_framework_selection_table
+    role: selected_file_registry_basis
+    evidence_status: mapped_to_uploaded_selection_table
+  - source_id: dsr_extraction_corpus
+    role: future_dsr_conceptual_evidence_basis_and_repaired_working_corpus_basis
+    evidence_status: repaired_working_copy_available
+    note: Repaired corpus copies parse with 71 records and should be used for the next literature-alignment pass.
+  - source_id: schema_authority_reconciliation
+    role: schema_template_record_contract_alignment_basis
+    evidence_status: completed_2026-04-27
+    note: Schemas were reshaped to validate richer literature-aligned templates and records; template content was corrected
+      where the schema caught real placeholder type errors.
+  - source_id: evaluator_source_to_framework_alignment_crosswalk
+    role: source_to_framework_remediation_crosswalk_and_acceptance_rule
+    target_path: crosswalks/source-to-framework-alignment.yaml
+    evidence_status: integrated_2026-04-27
+    note: Evaluator response accepted the missing-traceability finding and provided the draft crosswalk used for remediation.
+  related_items:
+    upstream:
+    - manifest.yaml
+    - artifact-profile.yaml
+    - specs/product-dsr-repository-architecture.yaml
+    - specs/product-dsr-artifact-package-specification.yaml
+    - specs/product-dsr-quality-conformance-and-review-model.yaml
+    peer:
+    - metadata.yaml
+    - conformance-declaration.yaml
+    - README.md
+    downstream:
+    - schemas/package-inventory.schema.json
+    - templates/package-inventory-template.yaml
+    - checklists/artifact-package-readiness-checklist.yaml
+    - specs/product-dsr-automation-and-validation-model.yaml
+    - records/reviews/record-literature-alignment-0001.yaml
+    - crosswalks/source-to-framework-alignment.yaml
+  inventory_scope:
+    included:
+    - required root files
+    - controlled product specifications
+    - models
+    - vocabularies
+    - schemas
+    - templates
+    - checklists
+    - human-facing protocol documentation
+    - records
+    - crosswalks
+    - examples
+    - GitHub automation and issue-template directories when introduced
+    excluded:
+    - temporary working files
+    - local editor configuration
+    - generated site build artifacts
+    - private notes not intended for repository release
+    - large source PDFs unless explicitly added to records or evidence packages
+  conformance_level_meanings:
+  - level: l1_documented
+    meaning: File is named, scoped, and assigned a purpose and validation responsibility.
+  - level: l2_reviewable
+    meaning: File has enough structure, traceability, and criteria for independent review.
+  - level: l3_exercisable
+    meaning: File can be exercised by validation tooling, templates, examples, or workflow checks.
+  - level: l4_reusable
+    meaning: File is stable enough for reuse across projects with minimal adaptation.
+  - level: l5_archival_publication_ready
+    meaning: File is release-ready for archival citation, DOI registration, or publication workflow.
+  directory_inventory:
+  - directory_id: dir_001
+    path: specs
+    purpose: Controlled product specifications.
+    expected_file_count_from_selection_table: 13
+    listed_files:
+    - specs/product-catalog.yaml
+    - specs/product-protocol-foundation.yaml
+    - specs/product-dsr-framework-foundation.yaml
+    - specs/product-dsr-lifecycle-and-contribution-model.yaml
+    - specs/product-dsr-information-item-architecture.yaml
+    - specs/product-dsr-repository-architecture.yaml
+    - specs/product-dsr-metadata-and-identifier-profile.yaml
+    - specs/product-dsr-artifact-package-specification.yaml
+    - specs/product-dsr-quality-conformance-and-review-model.yaml
+    - specs/product-dsr-publication-and-registry-model.yaml
+    - specs/product-dsr-templates-and-checklists.yaml
+    - specs/product-dsr-automation-and-validation-model.yaml
+    - specs/product-dsr-implementation-roadmap.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 13
+      present_count: 13
+      missing_count: 0
+  - directory_id: dir_002
+    path: models
+    purpose: Conceptual and operational DSR models.
+    expected_file_count_from_selection_table: 10
+    listed_files:
+    - models/dsr-framework-canonical-model.yaml
+    - models/dsr-lifecycle-model.yaml
+    - models/dsr-artifact-ontology.yaml
+    - models/dsr-contribution-model.yaml
+    - models/dsr-evaluation-alignment-model.yaml
+    - models/dsr-transparency-model.yaml
+    - models/dsr-reliability-model.yaml
+    - models/dsr-projectability-model.yaml
+    - models/dsr-publication-readiness-model.yaml
+    - models/dsr-decision-flow.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 10
+      present_count: 10
+      missing_count: 0
+  - directory_id: dir_003
+    path: vocabularies
+    purpose: Controlled vocabularies used by schemas, templates, and reviews.
+    expected_file_count_from_selection_table: 14
+    listed_files:
+    - vocabularies/artifact-types.yaml
+    - vocabularies/contribution-types.yaml
+    - vocabularies/knowledge-goals.yaml
+    - vocabularies/knowledge-scopes.yaml
+    - vocabularies/lifecycle-stages.yaml
+    - vocabularies/evaluation-method-families.yaml
+    - vocabularies/validity-types.yaml
+    - vocabularies/reliability-types.yaml
+    - vocabularies/replication-types.yaml
+    - vocabularies/projectability-types.yaml
+    - vocabularies/transparency-dimensions.yaml
+    - vocabularies/genre-types.yaml
+    - vocabularies/responsible-design-values.yaml
+    - vocabularies/aesthetics-dimensions.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 14
+      present_count: 14
+      missing_count: 0
+  - directory_id: dir_004
+    path: schemas
+    purpose: JSON Schema validators for controlled YAML/JSON records.
+    expected_file_count_from_selection_table: 9
+    listed_files:
+    - schemas/artifact-profile.schema.json
+    - schemas/package-inventory.schema.json
+    - schemas/conformance-declaration.schema.json
+    - schemas/dsr-project.schema.json
+    - schemas/dsr-artifact.schema.json
+    - schemas/dsr-evaluation-plan.schema.json
+    - schemas/dsr-evaluation-report.schema.json
+    - schemas/dsr-contribution-claim.schema.json
+    - schemas/dsr-transparency-crosswalk.schema.json
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 9
+      present_count: 9
+      missing_count: 0
+  - directory_id: dir_005
+    path: templates
+    purpose: Reusable authoring templates.
+    expected_file_count_from_selection_table: 16
+    listed_files:
+    - templates/artifact-profile-template.yaml
+    - templates/package-inventory-template.yaml
+    - templates/conformance-declaration-template.yaml
+    - templates/dsr-project-charter-template.md
+    - templates/problem-and-objectives-template.md
+    - templates/solution-space-record-template.yaml
+    - templates/design-rationale-template.md
+    - templates/artifact-specification-template.md
+    - templates/build-transparency-record-template.yaml
+    - templates/demonstration-record-template.yaml
+    - templates/evaluation-plan-template.yaml
+    - templates/evaluation-report-template.yaml
+    - templates/contribution-claim-template.yaml
+    - templates/contribution-positioning-record-template.yaml
+    - templates/dsr-transparency-crosswalk-template.yaml
+    - templates/review-record-template.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 16
+      present_count: 16
+      missing_count: 0
+  - directory_id: dir_006
+    path: checklists
+    purpose: Quality, readiness, and review checklists.
+    expected_file_count_from_selection_table: 8
+    listed_files:
+    - checklists/dsr-minimum-viable-study-checklist.yaml
+    - checklists/artifact-package-readiness-checklist.yaml
+    - checklists/dsr-transparency-crosswalk-checklist.yaml
+    - checklists/evaluation-readiness-checklist.yaml
+    - checklists/contribution-positioning-checklist.yaml
+    - checklists/reliability-checklist.yaml
+    - checklists/replication-projectability-checklist.yaml
+    - checklists/publication-readiness-checklist.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 8
+      present_count: 8
+      missing_count: 0
+  - directory_id: dir_007
+    path: docs/protocol
+    purpose: Human-facing protocol documentation generated from or aligned with controlled files.
+    expected_file_count_from_selection_table: 7
+    listed_files:
+    - docs/protocol/00-framework-overview.md
+    - docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+    - docs/protocol/05-artifact-ontology.md
+    - docs/protocol/08-evaluation-framework.md
+    - docs/protocol/09-validity-reliability-replication-projectability.md
+    - docs/protocol/10-transparency-and-reporting.md
+    - docs/protocol/14-publication-and-review-guidance.md
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 7
+      present_count: 7
+      missing_count: 0
+  - directory_id: dir_008
+    path: records/decisions
+    purpose: Retained decision records.
+    expected_file_count_from_selection_table: 0
+    listed_files: []
+    directory_status: exists_empty_required
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 0
+      present_count: 0
+      missing_count: 0
+  - directory_id: dir_009
+    path: records/design-decisions
+    purpose: Retained artifact and protocol design decisions.
+    expected_file_count_from_selection_table: 0
+    listed_files: []
+    directory_status: exists_empty_required
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 0
+      present_count: 0
+      missing_count: 0
+  - directory_id: dir_010
+    path: records/tailoring
+    purpose: Tailoring and conformance adaptation records.
+    expected_file_count_from_selection_table: 0
+    listed_files: []
+    directory_status: exists_empty_required
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 0
+      present_count: 0
+      missing_count: 0
+  - directory_id: dir_011
+    path: records/source-basis
+    purpose: Source basis and evidence-basis records.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
+  - directory_id: dir_012
+    path: records/dsr-transparency
+    purpose: DSR transparency evidence records.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
+  - directory_id: dir_013
+    path: records/contributions
+    purpose: Contribution positioning and claim records.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/contributions/record-contribution-positioning-0001.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
+  - directory_id: dir_014
+    path: records/evaluations
+    purpose: Evaluation plan and report records.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/evaluations/record-evaluation-plan-0001.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
+  - directory_id: dir_015
+    path: records/reviews
+    purpose: Review and self-review records.
+    expected_file_count_from_selection_table: 2
+    listed_files:
+    - records/reviews/record-review-0001-self-review.yaml
+    - records/reviews/record-literature-alignment-0001.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 2
+      present_count: 2
+      missing_count: 0
+  - directory_id: dir_016
+    path: records/releases
+    purpose: Release records.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/releases/record-release-0001-v0-1-0.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
+  - directory_id: dir_017
+    path: records/preservation
+    purpose: Preservation and archival records.
+    expected_file_count_from_selection_table: 0
+    listed_files: []
+    directory_status: exists_empty_required
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 0
+      present_count: 0
+      missing_count: 0
+  - directory_id: dir_018
+    path: crosswalks
+    purpose: Mappings among source traditions, protocol products, and framework constructs.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - crosswalks/source-to-framework-alignment.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
+  - directory_id: dir_019
+    path: examples
+    purpose: Demonstration packages, not required package files.
+    expected_file_count_from_selection_table: 0
+    listed_files: []
+    directory_status: exists_empty_required
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 0
+      present_count: 0
+      missing_count: 0
+  - directory_id: dir_020
+    path: .github/ISSUE_TEMPLATE
+    purpose: Issue templates for repository governance.
+    expected_file_count_from_selection_table: 0
+    listed_files: []
+    directory_status: exists_empty_required
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 0
+      present_count: 0
+      missing_count: 0
+  - directory_id: dir_021
+    path: .github/workflows
+    purpose: Automation workflows for validation and release checks.
+    expected_file_count_from_selection_table: 0
+    listed_files: []
+    directory_status: exists_empty_required
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 0
+      present_count: 0
+      missing_count: 0
+  - directory_id: dir_022
+    path: LICENSES
+    purpose: Full license texts for repository licensing notice and REUSE annotations.
+    expected_file_count_from_selection_table: 2
+    listed_files:
+    - LICENSES/CC0-1.0.txt
+    - LICENSES/Apache-2.0.txt
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-27'
+    listed_file_existence:
+      listed_count: 2
+      present_count: 2
+      missing_count: 0
+  root_file_inventory:
+  - path: README.md
+    listed: true
+    inventory_entry_id: inv_0001
+    exists: true
+    current_status: present_current_orientation
+    existence_audit_date: '2026-04-27'
+  - path: LICENSE
+    listed: true
+    inventory_entry_id: inv_0002
+    exists: true
+    current_status: present_draft_needs_final_license_confirmation
+    existence_audit_date: '2026-04-27'
+  - path: CITATION.cff
+    listed: true
+    inventory_entry_id: inv_0003
+    exists: true
+    current_status: present_draft_needs_creator_repository_and_release_metadata
+    existence_audit_date: '2026-04-27'
+  - path: CHANGELOG.md
+    listed: true
+    inventory_entry_id: inv_0004
+    exists: true
+    current_status: present_draft
+    existence_audit_date: '2026-04-27'
+  - path: CONTRIBUTING.md
+    listed: true
+    inventory_entry_id: inv_0005
+    exists: true
+    current_status: present_draft
+    existence_audit_date: '2026-04-27'
+  - path: GOVERNANCE.md
+    listed: true
+    inventory_entry_id: inv_0006
+    exists: true
+    current_status: present_draft_needs_public_maintainer_confirmation
+    existence_audit_date: '2026-04-27'
+  - path: SECURITY.md
+    listed: true
+    inventory_entry_id: inv_0007
+    exists: true
+    current_status: present_draft
+    existence_audit_date: '2026-04-27'
+  - path: CODE_OF_CONDUCT.md
+    listed: true
+    inventory_entry_id: inv_0008
+    exists: true
+    current_status: present_draft
+    existence_audit_date: '2026-04-27'
+  - path: .zenodo.json
+    listed: true
+    inventory_entry_id: inv_0009
+    exists: true
+    current_status: present_draft_do_not_publish_until_metadata_confirmed
+    existence_audit_date: '2026-04-27'
+  - path: manifest.yaml
+    listed: true
+    inventory_entry_id: inv_0010
+    exists: true
+    current_status: present_current_control_file
+    existence_audit_date: '2026-04-27'
+  - path: metadata.yaml
+    listed: true
+    inventory_entry_id: inv_0011
+    exists: true
+    current_status: present_draft_needs_public_metadata_confirmation
+    existence_audit_date: '2026-04-27'
+  - path: artifact-profile.yaml
+    listed: true
+    inventory_entry_id: inv_0012
+    exists: true
+    current_status: present_draft_schema_validated
+    existence_audit_date: '2026-04-27'
+  - path: package-inventory.yaml
+    listed: true
+    inventory_entry_id: inv_0013
+    exists: true
+    current_status: present_current_control_file_schema_validated
+    existence_audit_date: '2026-04-27'
+  - path: conformance-declaration.yaml
+    listed: true
+    inventory_entry_id: inv_0014
+    exists: true
+    current_status: present_draft_schema_validated
+    existence_audit_date: '2026-04-27'
+  - path: REUSE.toml
+    listed: true
+    inventory_entry_id: root_REUSE_toml
+    exists: true
+    current_status: present_machine_readable_license_annotations
+    existence_audit_date: '2026-04-27'
+  - path: codemeta.json
+    listed: true
+    inventory_entry_id: root_codemeta_json
+    exists: true
+    current_status: present_codemeta_metadata
+    existence_audit_date: '2026-04-27'
+  validation_profiles:
+  - validation_profile_id: vp_yaml_controlled_file
+    applies_to: General controlled YAML files.
+    primary_responsible_role: framework_maintainer
+    required_checks:
+    - YAML parses without duplicate-key warnings where tooling supports detection.
+    - Top-level metadata includes stable ID, title, purpose, status, version, owner or responsible role, source_basis, related_items,
+      and change_history where applicable.
+    - Traceability entries use stable trace IDs and evidence_status when evidence is not mapped.
+  - validation_profile_id: vp_controlled_record
+    applies_to: Root records and records/ retained evidence files.
+    primary_responsible_role: records_steward
+    required_checks:
+    - Record includes record_id, record_class, event_or_action, date, responsible_party, evidence, outcome, related_items,
+      and retention_rule where applicable.
+    - Record does not state future intentions as completed outcomes unless record_class is explicitly a plan.
+    - Evidence and outcome are distinguishable.
+  - validation_profile_id: vp_product_specification
+    applies_to: specs/product-*.yaml files.
+    primary_responsible_role: product_spec_owner
+    required_checks:
+    - Contains identity_and_purpose, conceptual_model, normative_requirements, information_items, workflow, quality_and_conformance,
+      traceability, implementation_guidance, template_or_schema_implications, and open_questions_and_backlog unless explicitly
+      tailored.
+    - Normative statements are testable and use must, should, may, or must_not.
+    - Downstream templates, schemas, checklists, and docs are listed or marked not_yet_mapped.
+  - validation_profile_id: vp_model
+    applies_to: models/*.yaml files.
+    primary_responsible_role: model_owner
+    required_checks:
+    - Defines controlled entities, relationships, boundary conditions, validation implications, and traceability.
+    - Separates conceptual constructs from operational records and templates.
+    - Does not contradict vocabularies or upstream specifications.
+  - validation_profile_id: vp_vocabulary
+    applies_to: vocabularies/*.yaml files.
+    primary_responsible_role: vocabulary_steward
+    required_checks:
+    - Each entry has id, label, definition, allowed_use, boundary_notes, related_terms, and source_basis where useful.
+    - Controlled IDs use lower_snake_case.
+    - Boundary notes distinguish near-synonyms and disallowed uses.
+  - validation_profile_id: vp_json_schema
+    applies_to: schemas/*.schema.json and JSON metadata files.
+    primary_responsible_role: schema_maintainer
+    required_checks:
+    - Schema includes $schema, $id, title, type, required, properties, and additionalProperties settings.
+    - Schema validates the corresponding YAML/JSON information item.
+    - Enumerations align with controlled vocabularies where stable.
+  - validation_profile_id: vp_template
+    applies_to: templates/* files.
+    primary_responsible_role: template_owner
+    required_checks:
+    - Template is directly usable by a researcher.
+    - TODO placeholders are limited to project-specific facts and explain needed input.
+    - Template maps to schema, checklist, or model where applicable.
+  - validation_profile_id: vp_checklist
+    applies_to: checklists/*.yaml files.
+    primary_responsible_role: review_workflow_owner
+    required_checks:
+    - Each checklist item has check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
+    - Checklist items are evidence-based and reviewable.
+    - Checklist maps to quality gates or product requirements.
+  - validation_profile_id: vp_markdown_documentation
+    applies_to: README.md and docs/protocol/*.md.
+    primary_responsible_role: documentation_maintainer
+    required_checks:
+    - Human-facing documentation identifies controlled source YAML or related files.
+    - Markdown does not become the sole source of controlled data.
+    - Links to files, examples, records, and templates are valid or marked not_yet_mapped.
+  - validation_profile_id: vp_root_governance
+    applies_to: LICENSE, CONTRIBUTING.md, GOVERNANCE.md, SECURITY.md, CODE_OF_CONDUCT.md.
+    primary_responsible_role: repository_governance_owner
+    required_checks:
+    - Root governance file exists at declared path.
+    - Content is consistent with repository license, contribution process, and community expectations.
+    - No governance policy conflicts with conformance declaration or release process.
+  - validation_profile_id: vp_release_metadata
+    applies_to: CITATION.cff, .zenodo.json, CHANGELOG.md, and release records.
+    primary_responsible_role: release_manager
+    required_checks:
+    - Citation, archival, and changelog metadata are synchronized at release time.
+    - DOI, version, release date, and author metadata are either populated or marked TODO before archival release.
+    - Release readiness checklist is completed before L5 claims.
+  file_inventory:
+  - inventory_entry_id: inv_0001
+    file_id: file_readme_md
+    selection_id: root_readme
+    path: README.md
+    package_section: root
+    portion_type: root_description
+    output_format: markdown
+    purpose: Public repository entry point.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - artifact-profile
+    - package-inventory
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0002
+    file_id: file_license
+    selection_id: null
+    path: LICENSE
+    package_section: root
+    portion_type: policy
+    output_format: plain_text
+    purpose: Repository license statement for reuse and redistribution terms.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_root_governance
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0003
+    file_id: file_citation_cff
+    selection_id: null
+    path: CITATION.cff
+    package_section: root
+    portion_type: metadata_record
+    output_format: cff_yaml
+    purpose: Citation metadata for scholarly and software citation.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+    publication_readiness_status: draft_not_publication_ready
+  - inventory_entry_id: inv_0004
+    file_id: file_changelog_md
+    selection_id: null
+    path: CHANGELOG.md
+    package_section: root
+    portion_type: record
+    output_format: markdown
+    purpose: Human-facing release history and change summary.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0005
+    file_id: file_contributing_md
+    selection_id: null
+    path: CONTRIBUTING.md
+    package_section: root
+    portion_type: procedure
+    output_format: markdown
+    purpose: Contributor guidance for issue, pull request, review, and content standards.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0006
+    file_id: file_governance_md
+    selection_id: null
+    path: GOVERNANCE.md
+    package_section: root
+    portion_type: policy
+    output_format: markdown
+    purpose: Governance model for maintainers, decision rights, releases, and stewardship.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0007
+    file_id: file_security_md
+    selection_id: null
+    path: SECURITY.md
+    package_section: root
+    portion_type: policy
+    output_format: markdown
+    purpose: Security and responsible disclosure guidance.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0008
+    file_id: file_code_of_conduct_md
+    selection_id: null
+    path: CODE_OF_CONDUCT.md
+    package_section: root
+    portion_type: policy
+    output_format: markdown
+    purpose: Community participation and conduct expectations.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0009
+    file_id: file_zenodo_json
+    selection_id: null
+    path: .zenodo.json
+    package_section: root
+    portion_type: metadata_record
+    output_format: json
+    purpose: Archival and DOI metadata for Zenodo release integration.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+    publication_readiness_status: draft_not_publication_ready
+  - inventory_entry_id: inv_0010
+    file_id: file_manifest_yaml
+    selection_id: root_manifest
+    path: manifest.yaml
+    package_section: root
+    portion_type: root_specification
+    output_format: yaml
+    purpose: Repository manifest and canonical package identity.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0011
+    file_id: file_metadata_yaml
+    selection_id: root_metadata
+    path: metadata.yaml
+    package_section: root
+    portion_type: metadata_record
+    output_format: yaml
+    purpose: Structured project metadata.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - metadata profile
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0012
+    file_id: file_artifact_profile_yaml
+    selection_id: root_artifact_profile
+    path: artifact-profile.yaml
+    package_section: root
+    portion_type: artifact_profile
+    output_format: yaml
+    purpose: Artifact identity, type, scope, claims, conformance, reuse constraints.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - DSR lifecycle/contribution model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0013
+    file_id: file_package_inventory_yaml
+    selection_id: root_package_inventory
+    path: package-inventory.yaml
+    package_section: root
+    portion_type: package_inventory
+    output_format: yaml
+    purpose: Inventory all package files and validation responsibilities.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    - artifact package spec
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0014
+    file_id: file_conformance_declaration_yaml
+    selection_id: root_conformance_declaration
+    path: conformance-declaration.yaml
+    package_section: root
+    portion_type: conformance_record
+    output_format: yaml
+    purpose: Declare conformance level and tailoring.
+    default_conformance: l1
+    required_for_package_class: true
+    dependency_basis:
+    - quality/conformance model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0015
+    file_id: file_specs__product_catalog_yaml
+    selection_id: spec_product_catalog
+    path: specs/product-catalog.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Product registry and dependency map.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - all specs
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0016
+    file_id: file_specs__product_protocol_foundation_yaml
+    selection_id: spec_protocol_foundation
+    path: specs/product-protocol-foundation.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Foundation specification for scope, conformance, and tailoring.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - documentation protocol
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0017
+    file_id: file_specs__product_dsr_framework_foundation_yaml
+    selection_id: spec_dsr_framework_foundation
+    path: specs/product-dsr-framework-foundation.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: DSR Framework identity, scope, users, assumptions, non-goals.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - protocol foundation
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0018
+    file_id: file_specs__product_dsr_lifecycle_and_contribution_model_yaml
+    selection_id: spec_dsr_lifecycle_contribution
+    path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: DSR lifecycle, artifact taxonomy, contribution model, transparency, evaluation alignment.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR corpus
+    - protocol foundation
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0019
+    file_id: file_specs__product_dsr_information_item_architecture_yaml
+    selection_id: spec_information_item_architecture
+    path: specs/product-dsr-information-item-architecture.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: DSR-specific information items and records.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - documentation protocol information item architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0020
+    file_id: file_specs__product_dsr_repository_architecture_yaml
+    selection_id: spec_repository_architecture
+    path: specs/product-dsr-repository-architecture.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Repository tree, naming rules, and file responsibilities.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - documentation protocol repository architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0021
+    file_id: file_specs__product_dsr_metadata_and_identifier_profile_yaml
+    selection_id: spec_metadata_identifier
+    path: specs/product-dsr-metadata-and-identifier-profile.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Metadata, citation, authorship, DOI, provenance, and identifier profile.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - metadata profile
+    - publication model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0022
+    file_id: file_specs__product_dsr_artifact_package_specification_yaml
+    selection_id: spec_artifact_package
+    path: specs/product-dsr-artifact-package-specification.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Required package contents, evidence, examples, records, and conformance obligations.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - repository architecture
+    - quality model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0023
+    file_id: file_specs__product_dsr_quality_conformance_and_review_model_yaml
+    selection_id: spec_quality_review
+    path: specs/product-dsr-quality-conformance-and-review-model.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Quality dimensions, maturity, gates, review workflow, and acceptance criteria.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - information item architecture
+    - DSR lifecycle model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0024
+    file_id: file_specs__product_dsr_publication_and_registry_model_yaml
+    selection_id: spec_publication_registry
+    path: specs/product-dsr-publication-and-registry-model.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Release, DOI, registry, archival, and publication-readiness model.
+    default_conformance: l5
+    required_for_package_class: true
+    dependency_basis:
+    - metadata profile
+    - quality model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+    publication_readiness_status: draft_not_publication_ready
+  - inventory_entry_id: inv_0025
+    file_id: file_specs__product_dsr_templates_and_checklists_yaml
+    selection_id: spec_templates_checklists
+    path: specs/product-dsr-templates-and-checklists.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Operating material specification for templates and checklists.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - information item architecture
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0026
+    file_id: file_specs__product_dsr_automation_and_validation_model_yaml
+    selection_id: spec_automation_validation
+    path: specs/product-dsr-automation-and-validation-model.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Schema, metadata, inventory, link, and release validation model.
+    default_conformance: l3
+    required_for_package_class: true
+    dependency_basis:
+    - schemas
+    - package inventory
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0027
+    file_id: file_specs__product_dsr_implementation_roadmap_yaml
+    selection_id: spec_implementation_roadmap
+    path: specs/product-dsr-implementation-roadmap.yaml
+    package_section: specs
+    portion_type: product_spec
+    output_format: yaml
+    purpose: Development phases, pilots, release path, and backlog.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - product catalog
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_product_specification
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0028
+    file_id: file_models__dsr_framework_canonical_model_yaml
+    selection_id: model_canonical
+    path: models/dsr-framework-canonical-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Master model of DSR Framework entities and relationships.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR lifecycle spec
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0029
+    file_id: file_models__dsr_lifecycle_model_yaml
+    selection_id: model_lifecycle
+    path: models/dsr-lifecycle-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Operational DSR lifecycle model.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR lifecycle spec
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0030
+    file_id: file_models__dsr_artifact_ontology_yaml
+    selection_id: model_artifact_ontology
+    path: models/dsr-artifact-ontology.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Artifact ontology and boundary model.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - artifact-types vocabulary
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0031
+    file_id: file_models__dsr_contribution_model_yaml
+    selection_id: model_contribution
+    path: models/dsr-contribution-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Contribution-positioning model.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution-types
+    - knowledge-goals
+    - knowledge-scopes
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0032
+    file_id: file_models__dsr_evaluation_alignment_model_yaml
+    selection_id: model_evaluation_alignment
+    path: models/dsr-evaluation-alignment-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Evaluation plan and claim-alignment model.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation vocabularies
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0033
+    file_id: file_models__dsr_transparency_model_yaml
+    selection_id: model_transparency
+    path: models/dsr-transparency-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Six-dimension DSR transparency model.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency dimensions
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0034
+    file_id: file_models__dsr_reliability_model_yaml
+    selection_id: model_reliability
+    path: models/dsr-reliability-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Artifact/method/measure/design-knowledge reliability model.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - reliability vocabulary
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0035
+    file_id: file_models__dsr_projectability_model_yaml
+    selection_id: model_projectability
+    path: models/dsr-projectability-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Generalization, transfer, adaptation, and reuse model.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - projectability and replication vocabularies
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0036
+    file_id: file_models__dsr_publication_readiness_model_yaml
+    selection_id: model_publication_readiness
+    path: models/dsr-publication-readiness-model.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Publication and release readiness model.
+    default_conformance: l4
+    required_for_package_class: true
+    dependency_basis:
+    - quality review
+    - publication registry
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0037
+    file_id: file_models__dsr_decision_flow_yaml
+    selection_id: model_decision_flow
+    path: models/dsr-decision-flow.yaml
+    package_section: models
+    portion_type: model
+    output_format: yaml
+    purpose: Decision tree for selecting artifact type, contribution type, evaluation path, and conformance level.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - canonical model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_model
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0038
+    file_id: file_vocabularies__artifact_types_yaml
+    selection_id: vocab_artifact_types
+    path: vocabularies/artifact-types.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Controlled artifact taxonomy.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR lifecycle spec
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0039
+    file_id: file_vocabularies__contribution_types_yaml
+    selection_id: vocab_contribution_types
+    path: vocabularies/contribution-types.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Contribution-positioning vocabulary.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR corpus
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0040
+    file_id: file_vocabularies__knowledge_goals_yaml
+    selection_id: vocab_knowledge_goals
+    path: vocabularies/knowledge-goals.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Definitional, descriptive, explanatory, predictive, explanatory-predictive, prescriptive.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0041
+    file_id: file_vocabularies__knowledge_scopes_yaml
+    selection_id: vocab_knowledge_scopes
+    path: vocabularies/knowledge-scopes.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Idiographic, nomothetic, mixed/projectable.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0042
+    file_id: file_vocabularies__lifecycle_stages_yaml
+    selection_id: vocab_lifecycle_stages
+    path: vocabularies/lifecycle-stages.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR lifecycle stages.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - lifecycle model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0043
+    file_id: file_vocabularies__evaluation_method_families_yaml
+    selection_id: vocab_evaluation_methods
+    path: vocabularies/evaluation-method-families.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Evaluation method families.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0044
+    file_id: file_vocabularies__validity_types_yaml
+    selection_id: vocab_validity_types
+    path: vocabularies/validity-types.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR validity vocabulary.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - quality model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0045
+    file_id: file_vocabularies__reliability_types_yaml
+    selection_id: vocab_reliability_types
+    path: vocabularies/reliability-types.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR reliability vocabulary.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - reliability model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0046
+    file_id: file_vocabularies__replication_types_yaml
+    selection_id: vocab_replication_types
+    path: vocabularies/replication-types.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR replication vocabulary.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - projectability model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0047
+    file_id: file_vocabularies__projectability_types_yaml
+    selection_id: vocab_projectability_types
+    path: vocabularies/projectability-types.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Projectability and transfer vocabulary.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - projectability model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0048
+    file_id: file_vocabularies__transparency_dimensions_yaml
+    selection_id: vocab_transparency_dimensions
+    path: vocabularies/transparency-dimensions.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Six DSR transparency dimensions.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0049
+    file_id: file_vocabularies__genre_types_yaml
+    selection_id: vocab_genre_types
+    path: vocabularies/genre-types.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: DSR genre vocabulary.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - genre standards crosswalk
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0050
+    file_id: file_vocabularies__responsible_design_values_yaml
+    selection_id: vocab_responsible_design_values
+    path: vocabularies/responsible-design-values.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Responsible-design values.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - responsible DSR docs
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0051
+    file_id: file_vocabularies__aesthetics_dimensions_yaml
+    selection_id: vocab_aesthetics_dimensions
+    path: vocabularies/aesthetics-dimensions.yaml
+    package_section: vocabularies
+    portion_type: vocabulary
+    output_format: yaml
+    purpose: Aesthetic value dimensions.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - aesthetics docs
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_vocabulary
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0052
+    file_id: file_schemas__artifact_profile_schema_json
+    selection_id: schema_artifact_profile
+    path: schemas/artifact-profile.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate artifact profile files.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - artifact-profile template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0053
+    file_id: file_schemas__package_inventory_schema_json
+    selection_id: schema_package_inventory
+    path: schemas/package-inventory.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate package inventory files.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - package-inventory template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0054
+    file_id: file_schemas__conformance_declaration_schema_json
+    selection_id: schema_conformance_declaration
+    path: schemas/conformance-declaration.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate conformance declaration.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - conformance declaration template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0055
+    file_id: file_schemas__dsr_project_schema_json
+    selection_id: schema_dsr_project
+    path: schemas/dsr-project.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate a full DSR project record.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - canonical model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0056
+    file_id: file_schemas__dsr_artifact_schema_json
+    selection_id: schema_dsr_artifact
+    path: schemas/dsr-artifact.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR artifact records.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - artifact ontology
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0057
+    file_id: file_schemas__dsr_evaluation_plan_schema_json
+    selection_id: schema_evaluation_plan
+    path: schemas/dsr-evaluation-plan.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR evaluation plans.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation plan template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0058
+    file_id: file_schemas__dsr_evaluation_report_schema_json
+    selection_id: schema_evaluation_report
+    path: schemas/dsr-evaluation-report.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR evaluation reports.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation report template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0059
+    file_id: file_schemas__dsr_contribution_claim_schema_json
+    selection_id: schema_contribution_claim
+    path: schemas/dsr-contribution-claim.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate contribution claims.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution claim template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0060
+    file_id: file_schemas__dsr_transparency_crosswalk_schema_json
+    selection_id: schema_transparency_crosswalk
+    path: schemas/dsr-transparency-crosswalk.schema.json
+    package_section: schemas
+    portion_type: schema
+    output_format: json_schema
+    purpose: Validate DSR transparency crosswalks.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency crosswalk template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0061
+    file_id: file_templates__artifact_profile_template_yaml
+    selection_id: template_artifact_profile
+    path: templates/artifact-profile-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Reusable artifact profile template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - artifact profile schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0062
+    file_id: file_templates__package_inventory_template_yaml
+    selection_id: template_package_inventory
+    path: templates/package-inventory-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Reusable package inventory template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - package inventory schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0063
+    file_id: file_templates__conformance_declaration_template_yaml
+    selection_id: template_conformance_declaration
+    path: templates/conformance-declaration-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Reusable conformance declaration template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - conformance schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0064
+    file_id: file_templates__dsr_project_charter_template_md
+    selection_id: template_project_charter
+    path: templates/dsr-project-charter-template.md
+    package_section: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Human-facing DSR project charter.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR lifecycle model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0065
+    file_id: file_templates__problem_and_objectives_template_md
+    selection_id: template_problem_objectives
+    path: templates/problem-and-objectives-template.md
+    package_section: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Problem context, objectives, requirements, success criteria.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - problem-space schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0066
+    file_id: file_templates__solution_space_record_template_yaml
+    selection_id: template_solution_space
+    path: templates/solution-space-record-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Solution-space grounding record.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - solution-space schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0067
+    file_id: file_templates__design_rationale_template_md
+    selection_id: template_design_rationale
+    path: templates/design-rationale-template.md
+    package_section: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Design decisions, alternatives, tradeoffs, rationale.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - design-rationale schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0068
+    file_id: file_templates__artifact_specification_template_md
+    selection_id: template_artifact_specification
+    path: templates/artifact-specification-template.md
+    package_section: templates
+    portion_type: template
+    output_format: markdown
+    purpose: Artifact components, use logic, boundary, version.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - artifact ontology
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0069
+    file_id: file_templates__build_transparency_record_template_yaml
+    selection_id: template_build_transparency
+    path: templates/build-transparency-record-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Build-process transparency record.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency dimensions
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0070
+    file_id: file_templates__demonstration_record_template_yaml
+    selection_id: template_demonstration_record
+    path: templates/demonstration-record-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Demonstration context and use scenario.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - lifecycle model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0071
+    file_id: file_templates__evaluation_plan_template_yaml
+    selection_id: template_evaluation_plan
+    path: templates/evaluation-plan-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Evaluation plan template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation plan schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0072
+    file_id: file_templates__evaluation_report_template_yaml
+    selection_id: template_evaluation_report
+    path: templates/evaluation-report-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Evaluation report template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation report schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0073
+    file_id: file_templates__contribution_claim_template_yaml
+    selection_id: template_contribution_claim
+    path: templates/contribution-claim-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Contribution claim template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution claim schema
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0074
+    file_id: file_templates__contribution_positioning_record_template_yaml
+    selection_id: template_contribution_positioning
+    path: templates/contribution-positioning-record-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Contribution positioning record template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0075
+    file_id: file_templates__dsr_transparency_crosswalk_template_yaml
+    selection_id: template_transparency_crosswalk
+    path: templates/dsr-transparency-crosswalk-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Six-part transparency crosswalk template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0076
+    file_id: file_templates__review_record_template_yaml
+    selection_id: template_review_record
+    path: templates/review-record-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Review record template.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - quality model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0077
+    file_id: file_checklists__dsr_minimum_viable_study_checklist_yaml
+    selection_id: checklist_minimum_dsr
+    path: checklists/dsr-minimum-viable-study-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Minimum DSR identity checklist.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR lifecycle model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0078
+    file_id: file_checklists__artifact_package_readiness_checklist_yaml
+    selection_id: checklist_package_readiness
+    path: checklists/artifact-package-readiness-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Artifact package readiness checklist.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - artifact package spec
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0079
+    file_id: file_checklists__dsr_transparency_crosswalk_checklist_yaml
+    selection_id: checklist_transparency
+    path: checklists/dsr-transparency-crosswalk-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: DSR transparency checklist.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0080
+    file_id: file_checklists__evaluation_readiness_checklist_yaml
+    selection_id: checklist_evaluation_readiness
+    path: checklists/evaluation-readiness-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Evaluation readiness checklist.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0081
+    file_id: file_checklists__contribution_positioning_checklist_yaml
+    selection_id: checklist_contribution_positioning
+    path: checklists/contribution-positioning-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Contribution positioning checklist.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0082
+    file_id: file_checklists__reliability_checklist_yaml
+    selection_id: checklist_reliability
+    path: checklists/reliability-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Reliability checklist.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - reliability model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0083
+    file_id: file_checklists__replication_projectability_checklist_yaml
+    selection_id: checklist_projectability
+    path: checklists/replication-projectability-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Replication and projectability checklist.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - projectability model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0084
+    file_id: file_checklists__publication_readiness_checklist_yaml
+    selection_id: checklist_publication_readiness
+    path: checklists/publication-readiness-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Publication readiness checklist.
+    default_conformance: l4
+    required_for_package_class: true
+    dependency_basis:
+    - publication readiness model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0085
+    file_id: file_docs__protocol__00_framework_overview_md
+    selection_id: docs_overview
+    path: docs/protocol/00-framework-overview.md
+    package_section: docs/protocol
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Human-facing framework overview.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - root README
+    - specs
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0086
+    file_id: file_docs__protocol__02_dsr_lifecycle_and_contribution_model_md
+    selection_id: docs_lifecycle_contribution
+    path: docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+    package_section: docs/protocol
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Human-facing lifecycle and contribution guidance.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - lifecycle spec
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0087
+    file_id: file_docs__protocol__05_artifact_ontology_md
+    selection_id: docs_artifact_ontology
+    path: docs/protocol/05-artifact-ontology.md
+    package_section: docs/protocol
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Artifact ontology guide.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - artifact ontology model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0088
+    file_id: file_docs__protocol__08_evaluation_framework_md
+    selection_id: docs_evaluation
+    path: docs/protocol/08-evaluation-framework.md
+    package_section: docs/protocol
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Evaluation framework guide.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation alignment model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0089
+    file_id: file_docs__protocol__09_validity_reliability_replication_projectability_md
+    selection_id: docs_validity_reliability
+    path: docs/protocol/09-validity-reliability-replication-projectability.md
+    package_section: docs/protocol
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Validity, reliability, replication, and projectability guide.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - reliability and projectability models
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0090
+    file_id: file_docs__protocol__10_transparency_and_reporting_md
+    selection_id: docs_transparency
+    path: docs/protocol/10-transparency-and-reporting.md
+    package_section: docs/protocol
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Transparency and reporting guide.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0091
+    file_id: file_docs__protocol__14_publication_and_review_guidance_md
+    selection_id: docs_publication_review
+    path: docs/protocol/14-publication-and-review-guidance.md
+    package_section: docs/protocol
+    portion_type: docs_page
+    output_format: markdown
+    purpose: Publication and review guidance.
+    default_conformance: l4
+    required_for_package_class: true
+    dependency_basis:
+    - publication readiness model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0092
+    file_id: file_records__source_basis__record_source_basis_0001_dsr_corpus_yaml
+    selection_id: record_source_basis
+    path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    package_section: records/source-basis
+    portion_type: record
+    output_format: yaml
+    purpose: Record DSR corpus and protocol source basis.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - DSR corpus
+    - documentation protocol
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0093
+    file_id: file_records__contributions__record_contribution_positioning_0001_yaml
+    selection_id: record_contribution_positioning
+    path: records/contributions/record-contribution-positioning-0001.yaml
+    package_section: records/contributions
+    portion_type: record
+    output_format: yaml
+    purpose: Position the DSR Framework contribution.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - contribution model
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0094
+    file_id: file_records__dsr_transparency__record_dsr_transparency_crosswalk_0001_yaml
+    selection_id: record_transparency_crosswalk
+    path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+    package_section: records/dsr-transparency
+    portion_type: record
+    output_format: yaml
+    purpose: Record six-dimension transparency evidence.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - transparency crosswalk template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0095
+    file_id: file_records__evaluations__record_evaluation_plan_0001_yaml
+    selection_id: record_evaluation_plan
+    path: records/evaluations/record-evaluation-plan-0001.yaml
+    package_section: records/evaluations
+    portion_type: record
+    output_format: yaml
+    purpose: Evaluation plan for the framework package.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - evaluation plan template
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0096
+    file_id: file_records__reviews__record_review_0001_self_review_yaml
+    selection_id: record_self_review
+    path: records/reviews/record-review-0001-self-review.yaml
+    package_section: records/reviews
+    portion_type: record
+    output_format: yaml
+    purpose: Initial self-review record.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - review checklist
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+  - inventory_entry_id: inv_0097
+    file_id: file_records__releases__record_release_0001_v0_1_0_yaml
+    selection_id: record_release_v0_1_0
+    path: records/releases/record-release-0001-v0-1-0.yaml
+    package_section: records/releases
+    portion_type: record
+    output_format: yaml
+    purpose: First release record.
+    default_conformance: l5
+    required_for_package_class: true
+    dependency_basis:
+    - release readiness checklist
+    inventory_status: present_at_declared_path
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists_or_planned_exception_recorded
+      - format_matches_declared_output_format
+      - required_metadata_present
+      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - quality_gate_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - conforms_to_repository_naming_rules
+    - has_stable_identifier_when_controlled
+    - declares_source_basis_or_not_applicable_rationale
+    - does_not_overclaim_evidence_or_conformance
+    exists: true
+    existence_audit_date: '2026-04-27'
+    publication_readiness_status: draft_not_publication_ready
+  - inventory_entry_id: inv_0098
+    file_id: file_records__reviews__record_literature_alignment_0001_yaml
+    selection_id: record_literature_alignment_review
+    path: records/reviews/record-literature-alignment-0001.yaml
+    package_section: records/reviews
+    portion_type: record
+    output_format: yaml
+    purpose: Second-pass literature alignment review using the repaired DSR extraction corpus.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - repaired extraction corpus
+    - source-basis record
+    - organized framework package
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-27'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - review_scope_declared
+      - findings_and_recommendations_recorded
+      - retention_rule_present
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - states_corpus_scope
+    - states_alignment_findings
+    - does_not_claim_publication_readiness
+  - inventory_entry_id: inv_0099
+    file_id: file_crosswalks__source_to_framework_alignment_yaml
+    selection_id: evaluator_remediation_source_to_framework_alignment
+    path: crosswalks/source-to-framework-alignment.yaml
+    package_section: crosswalks
+    portion_type: traceability_crosswalk
+    output_format: yaml
+    purpose: Map every repaired DSR corpus source to framework constructs, target file paths, grounding decisions, exclusions,
+      and evidence status.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - record-literature-alignment-0001
+    - evaluator_response
+    - source_trace_summary.tsv
+    - repaired extraction corpus
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-27'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - 71_source_mappings_present
+      - recommended_target_paths_present
+      - grounding_decisions_present
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - contains_71_source_mappings
+    - records_grounding_decision_for_each_source
+    - supports_trace_remediation_validation
+  - inventory_entry_id: inv_0100
+    file_id: file_reuse_toml
+    selection_id: publication_metadata_reuse_toml
+    path: REUSE.toml
+    package_section: root
+    portion_type: license_metadata
+    output_format: toml
+    purpose: Machine-readable license annotations following REUSE-style conventions.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - public_release_metadata
+    - documentation_protocol_precedent
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-27'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists
+      - valid_format
+      - metadata_consistent
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_or_is_plain_text
+    - aligns_with_root_metadata
+  - inventory_entry_id: inv_0101
+    file_id: file_codemeta_json
+    selection_id: publication_metadata_codemeta_json
+    path: codemeta.json
+    package_section: root
+    portion_type: citation_metadata
+    output_format: json
+    purpose: CodeMeta-compatible repository and citation metadata.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - public_release_metadata
+    - documentation_protocol_precedent
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-27'
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists
+      - valid_format
+      - metadata_consistent
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_or_is_plain_text
+    - aligns_with_root_metadata
+  - inventory_entry_id: inv_0102
+    file_id: file_licenses_cc0_1_0_txt
+    selection_id: publication_metadata_licenses_cc0_1_0_txt
+    path: LICENSES/CC0-1.0.txt
+    package_section: LICENSES
+    portion_type: license_text
+    output_format: text
+    purpose: Full CC0-1.0 license text.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - public_release_metadata
+    - documentation_protocol_precedent
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-27'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists
+      - valid_format
+      - metadata_consistent
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_or_is_plain_text
+    - aligns_with_root_metadata
+  - inventory_entry_id: inv_0103
+    file_id: file_licenses_apache_2_0_txt
+    selection_id: publication_metadata_licenses_apache_2_0_txt
+    path: LICENSES/Apache-2.0.txt
+    package_section: LICENSES
+    portion_type: license_text
+    output_format: text
+    purpose: Full Apache-2.0 license text for executable tooling if added.
+    default_conformance: l2
+    required_for_package_class: true
+    dependency_basis:
+    - public_release_metadata
+    - documentation_protocol_precedent
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-27'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow_when_available
+      evidence_expected:
+      - path_exists
+      - valid_format
+      - metadata_consistent
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_or_is_plain_text
+    - aligns_with_root_metadata
+  cross_file_validation_rules:
+  - rule_id: pkg_inv_rule_001
+    rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
+    severity: error
+    responsible_role: repository_quality_reviewer
+  - rule_id: pkg_inv_rule_002
+    rule: Every inventory entry must declare a validation_profile_id and validation_responsibility.
+    severity: error
+    responsible_role: framework_maintainer
+  - rule_id: pkg_inv_rule_003
+    rule: Every schema file should map to a corresponding template, record, or controlled item type.
+    severity: warning
+    responsible_role: schema_maintainer
+  - rule_id: pkg_inv_rule_004
+    rule: Every docs/protocol Markdown page should identify the structured source files it explains.
+    severity: warning
+    responsible_role: documentation_maintainer
+  - rule_id: pkg_inv_rule_005
+    rule: Release metadata files must not claim archival publication readiness until the release readiness checklist and release
+      record are complete.
+    severity: error
+    responsible_role: release_manager
+  - rule_id: pkg_inv_rule_006
+    rule: Files with evidence_status not_yet_mapped may remain draft but must not be used to claim verified DSR evidence coverage.
+    severity: warning
+    responsible_role: dsr_methodology_reviewer
+  acceptance_criteria:
+  - criterion_id: pkg_inv_ac_001
+    criterion: The inventory includes the selected package-inventory.yaml file with target path, item type, purpose, conformance
+      level, dependencies, and validation responsibility.
+    status: met
+  - criterion_id: pkg_inv_ac_002
+    criterion: The inventory includes all required root files from the repository architecture and all files listed in the
+      generation selection table.
+    status: met
+  - criterion_id: pkg_inv_ac_003
+    criterion: Each file entry has a validation profile and a primary responsible role.
+    status: met
+  - criterion_id: pkg_inv_ac_004
+    criterion: The inventory distinguishes verified present files from draft/publication-readiness status and auxiliary unmapped
+      files.
+    status: met
+  - criterion_id: pkg_inv_ac_005
+    criterion: The file can be parsed as YAML and is suitable for later validation by schemas/package-inventory.schema.json.
+    status: met
+  quality_gate_status:
+    qg_consistency:
+      status: pass
+      rationale: Uses lower-kebab-case target path, YAML format, controlled record metadata, and repository sections from
+        the specification.
+    qg_coherence:
+      status: pass
+      rationale: Links to manifest, artifact profile, repository architecture, artifact package specification, schema, template,
+        and readiness checklist dependencies.
+    qg_cogency:
+      status: pass
+      rationale: Separates directory inventory, validation profiles, file inventory, cross-file rules, and acceptance criteria.
+    qg_correspondence:
+      status: pass
+      rationale: The evaluator crosswalk is present in crosswalks/ and the remediated framework targets now ground every repaired
+        corpus source in non-source-basis framework files.
+    qg_dsr_transparency:
+      status: pass
+      rationale: All 71 repaired corpus sources now have substantive trace objects outside records/source-basis, with source_id,
+        evidence anchor, supported construct, grounding decision, evidence status, and target path.
+    qg_reviewability:
+      status: pass
+      rationale: Includes explicit validation responsibilities, cross-file rules, and acceptance criteria.
+    qg_schema_contract_alignment:
+      status: pass
+      rationale: Schemas validate their corresponding generated templates and retained records after authority reconciliation.
+  validation_status:
+    yaml_parse_status: passed_2026-04-27
+    json_parse_status: passed_2026-04-27
+    cff_parse_status: passed_2026-04-27
+    schema_meta_validation_status: passed_2026-04-27
+    schema_validation_status: passed_2026-04-27_against_schemas_package_inventory_schema_json
+    schema_template_record_validation_status: passed_2026-04-27_for_previously_failing_pairs
+    file_existence_audit_status: passed_2026-04-27_all_file_inventory_entries_present
+    missing_file_inventory_entries: []
+    link_validation_status: not_run_external_and_cross_document_links_pending
+    literature_alignment_review_status: source_traceability_remediation_completed_2026-04-27
+    source_traceability_validation_status: passed_2026-04-27_all_71_sources_multi_file_grounded
+    source_traceability_validation_counts: &id001
+      total_corpus_sources: 71
+      source_basis_only_or_no_substantive_hits: 0
+      minimally_mapped_single_substantive_hit: 0
+      substantively_mapped_multi_file: 71
+      trace_objects_with_required_pattern: 142
+      evidence_status_counts:
+        substantive: 142
+    publication_metadata_status: updated_for_public_draft_release_2026-04-27
+  assumptions:
+  - Inventory status present_at_declared_path means the file exists at the organized package path; it does not mean the content
+    is final or publication-ready.
+  - Draft root metadata files intentionally retain TODO values until public repository, creator, release, and archival details
+    are confirmed.
+  - Schema validation currently confirms structure compatibility with generated templates and records; stricter field-level
+    constraints should be added in later passes.
+  limitations:
+  - This inventory does not certify publication readiness, DOI readiness, or final citation metadata.
+  - External link validation and full cross-reference validation have not yet been run.
+  - Human bibliographic review and second-pass source-to-claim literature alignment remain pending.
+  - Auxiliary files are identified separately from controlled product-catalog files and need disposition before public release.
+  open_questions:
+  - question_id: pkg_inv_oq_001
+    question: Should examples/ contain one canonical worked example package in v0.1.0, or remain empty until the framework
+      is piloted?
+    owner: framework_maintainer
+    status: open
+  - question_id: pkg_inv_oq_002
+    question: Should crosswalks/ include a documentation-protocol-to-DSR-framework crosswalk before the first public release?
+    owner: repository_quality_reviewer
+    status: open
+  - question_id: pkg_inv_oq_003
+    question: Should CI treat missing L2+ planned files as warnings during early development and errors only at release-readiness
+      gates?
+    owner: automation_maintainer
+    status: open
+  - question_id: pkg_inv_oq_004
+    question: Should FRAMEWORK_AUDIT_2026-04-27.md become a retained review record under records/reviews before public release?
+    owner: repository_quality_reviewer
+    status: open
+  - question_id: pkg_inv_oq_005
+    question: Should the recommended source-to-framework alignment crosswalk be created before any GitHub publication, or
+      can it be a first post-publication hardening task?
+    owner: framework_maintainer
+    status: open
+  retention_rule:
+    retention_class: repository_lifecycle_record
+    minimum_retention: retain_for_life_of_repository
+    supersession_rule: Supersede with a new version rather than deleting historical inventory records after public release.
+  change_history:
+  - version: 0.1.0
+    date: '2026-04-27'
+    change: Initial package inventory generated for root_package_inventory selection.
+    responsible_party: GPT-5.5 Thinking
+    review_status: draft_not_human_reviewed
+  - version: 0.1.0
+    date: '2026-04-27'
+    change: Updated package inventory to reflect organized file paths, required root file presence, schema validation pass,
+      and auxiliary file disposition.
+    responsible_party: GPT-5.5 Thinking
+    review_status: draft_not_human_reviewed
+    change_type: normalization_update
+  - version: 0.1.0
+    date: '2026-04-27'
+    change: Registered record-literature-alignment-0001.yaml as a retained review record and updated reviews directory inventory.
+    responsible_party: GPT-5.5 Thinking
+    review_status: draft_not_human_reviewed
+    change_type: inventory_update
+  - version: 0.1.1
+    date: '2026-04-27'
+    change: Added evaluator source-to-framework crosswalk and remediated corpus source traceability.
+    responsible_party: framework_maintainer
+    review_status: validated_parse_schema_and_trace_counts
+  - version: 0.1.0
+    date: '2026-04-27'
+    change: Updated inventory for public draft release metadata, open license files, reserved Zenodo DOI, and exclusion of
+      internal audit/unmapped artifacts.
+    responsible_party: framework_maintainer
+    review_status: pending_final_github_and_zenodo_publication
+  normalization_status:
+    status: organized_literature_trace_remediated_draft
+    normalization_date: '2026-04-27'
+    organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
+    required_root_files: all_present_as_draft_or_controlled_files
+    controlled_file_inventory_entries: 103
+    auxiliary_files_not_in_product_catalog: 0
+    yaml_json_cff_parse_status: pass
+    schema_meta_validation_status: pass
+    schema_template_record_validation_status: pass
+    repaired_corpus_status: available_outside_package_root_for_next_literature_alignment_pass
+    publication_readiness_status: github_public_draft_prepared_zenodo_publish_pending_confirmation
+    latest_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
+    literature_alignment_status: pass_with_required_followup
+    source_traceability_status: passed_all_71_sources_multi_file_grounded
+    latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
+    source_traceability_validation_counts: *id001
+    reserved_zenodo_doi: 10.5281/zenodo.19835424
+    github_repository: https://github.com/dochabski/dsr-framework
+  auxiliary_file_inventory: []

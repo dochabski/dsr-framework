@@ -1,0 +1,553 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: validity_types
+  item_id: vocab_validity_types
+  item_type: vocabulary
+  title: DSR Validity Types Vocabulary
+  purpose: >
+    Provide controlled terms for classifying validity concerns, threats,
+    evidence, and review findings in Design Science Research artifact packages.
+    The vocabulary supports quality review by distinguishing artifact, process,
+    evaluation, context, and contribution-claim validity rather than treating
+    validity as a single undifferentiated judgment.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  target_path: vocabularies/validity-types.yaml
+  source_basis:
+    - source_id: user_current_request
+      role: immediate_task_definition
+      evidence_status: mapped
+      notes: "Selected vocab_validity_types for vocabularies/validity-types.yaml."
+    - source_id: dsr_framework_generation_spec
+      role: governing_generation_specification
+      evidence_status: mapped
+      notes: "Requires controlled YAML vocabulary entries with stable IDs, labels, definitions, allowed_use, boundary_notes, related_terms, and source_basis."
+    - source_id: dsr_framework_generation_prompt
+      role: governing_generation_prompt
+      evidence_status: mapped
+      notes: "Requires DSR-specific distinctions among validity, reliability, replication, projectability, evaluation, artifact quality, and contribution claims."
+    - source_id: dsr_extraction_corpus
+      role: scholarly_and_methodological_evidence_base
+      evidence_status: partially_mapped
+      notes: "Corpus records repeatedly normalize validity_types_addressed and validity_evidence using the controlled terms included here."
+  related_items:
+    upstream_dependencies:
+      - item_id: spec_quality_review
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relation: supplies_quality_model_dependency
+        evidence_status: not_yet_mapped
+      - item_id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relation: uses_validity_terms_for_evaluation_claim_alignment
+        evidence_status: not_yet_mapped
+      - item_id: model_reliability
+        path: models/dsr-reliability-model.yaml
+        relation: adjacent_quality_vocabulary_boundary
+        evidence_status: not_yet_mapped
+      - item_id: vocab_evaluation_methods
+        path: vocabularies/evaluation-method-families.yaml
+        relation: companion_vocabulary
+        evidence_status: not_yet_mapped
+    downstream_consumers:
+      - item_id: checklist_evaluation_readiness
+        path: checklists/evaluation-readiness-checklist.yaml
+        relation: may_use_for_validity_review_questions
+        evidence_status: not_yet_mapped
+      - item_id: checklist_reliability
+        path: checklists/reliability-checklist.yaml
+        relation: distinguishes_validity_from_reliability
+        evidence_status: not_yet_mapped
+      - item_id: docs_validity_reliability
+        path: docs/protocol/09-validity-reliability-replication-projectability.md
+        relation: human_facing_explanation
+        evidence_status: not_yet_mapped
+      - item_id: template_evaluation_plan
+        path: templates/evaluation-plan-template.yaml
+        relation: may_reference_validity_threats_and_mitigations
+        evidence_status: not_yet_mapped
+      - item_id: template_evaluation_report
+        path: templates/evaluation-report-template.yaml
+        relation: may_reference_validity_evidence
+        evidence_status: not_yet_mapped
+  scope:
+    includes:
+      - validity classifications for artifact claims
+      - validity classifications for design-process and procedural claims
+      - validity classifications for evaluation design and evidence claims
+      - validity classifications for contextual, ecological, and projectability claims
+      - status marker for records where no validity discussion is present
+    excludes:
+      - reliability classifications, except as related terms
+      - replication classifications, except as related terms
+      - projectability classifications, except as related terms
+      - full psychometric measurement validation procedures
+      - legal, ethical, or safety compliance determinations unless represented as DSR validity threats
+  usage_rules:
+    - rule_id: vr_use_most_specific_validity_type
+      statement: >
+        Use the most specific term that matches the threat, evidence, or review finding.
+        For example, use ecological_validity for field realism rather than the broader
+        evaluation_validity term.
+    - rule_id: vr_allow_multiple_validity_types
+      statement: >
+        Assign multiple validity types when a single issue affects more than one claim.
+        For example, an artificial lab test may affect evaluation_validity,
+        ecological_validity, and external_validity.
+    - rule_id: vr_separate_validity_from_reliability
+      statement: >
+        Use validity terms for the appropriateness, truth-support, representational fit,
+        and claim-evidence alignment of a study. Use reliability terms for repeatability,
+        consistency, stability, or inter-rater agreement.
+    - rule_id: vr_mark_absence_explicitly
+      statement: >
+        Use no_validity_discussion only as a controlled absence marker, not as a validity type.
+  entries:
+    - id: construct_validity
+      label: Construct validity
+      definition: >
+        The degree to which a DSR construct, classification, model element, measure,
+        or theoretical variable represents the concept it claims to represent.
+      allowed_use: >
+        Use when reviewing whether concepts, dimensions, categories, measures, or
+        operational definitions are adequately grounded and differentiated.
+      boundary_notes: >
+        Use semantic_validity when the primary issue is meaning, terminology, or
+        interpretive consistency. Use artifact_validity when the primary issue is the
+        designed artifact itself rather than a construct used to describe it.
+      related_terms:
+        - semantic_validity
+        - artifact_validity
+        - evaluation_validity
+        - measurement_quality
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped
+          evidence_role: corpus_validity_type
+          notes: "Used for adequacy and completeness of knowledge types and edge labels."
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: semantic_validity
+      label: Semantic validity
+      definition: >
+        The degree to which terms, labels, definitions, and interpretive categories
+        carry stable, unambiguous, and source-faithful meanings in a DSR artifact package.
+      allowed_use: >
+        Use when a validity issue concerns terminological ambiguity, inconsistent use
+        of a design-theory concept, label drift, or poor semantic fit between a term
+        and the phenomenon it denotes.
+      boundary_notes: >
+        Semantic validity is narrower than construct_validity. It concerns meaning and
+        interpretation, not the entire empirical or theoretical adequacy of a construct.
+      related_terms:
+        - construct_validity
+        - contribution_transparency
+        - vocabulary_control
+        - conceptual_coherence
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+          notes: "Used in corpus records where ambiguous DSR terminology weakens theory or artifact claims."
+
+    - id: artifact_validity
+      label: Artifact validity
+      definition: >
+        The degree to which the artifact's specified form, function, boundary,
+        capacities, and use logic support the artifact claims made for it.
+      allowed_use: >
+        Use when reviewing whether an artifact is sufficiently specified, coherent,
+        functional, bounded, and fit for the problem class or use scenario it claims
+        to address.
+      boundary_notes: >
+        Use artifact_quality for non-validity quality attributes such as usability or
+        maintainability when they are not being used to support a truth or contribution
+        claim. Use evaluation_validity when the issue is the adequacy of the evaluation
+        evidence about the artifact.
+      related_terms:
+        - artifact_quality
+        - evaluation_validity
+        - context_validity
+        - outcome_validity
+      source_basis:
+        - source_id: weigand_et_al_2021
+          evidence_status: mapped
+          evidence_role: artifact_boundary_and_specification_basis
+          notes: "Supports attention to artifact specification, make/use plans, capacities, and artifact boundaries."
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: procedural_validity
+      label: Procedural validity
+      definition: >
+        The degree to which the DSR process, method sequence, decision logic,
+        documentation, and execution procedures are appropriate for producing the
+        artifact and knowledge claims asserted.
+      allowed_use: >
+        Use when evaluating whether the project followed a defensible design,
+        build, demonstration, evaluation, review, or reporting procedure.
+      boundary_notes: >
+        Procedural validity concerns process appropriateness. Procedural reliability
+        concerns whether the process can be repeated or consistently applied.
+      related_terms:
+        - process_transparency
+        - method_reliability
+        - evaluation_validity
+        - build_transparency
+      source_basis:
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped
+          evidence_role: process_transparency_basis
+          notes: "Supports documenting activities, reasoning, decisions, and context to make the process assessable."
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: evaluation_validity
+      label: Evaluation validity
+      definition: >
+        The degree to which the evaluation design, methods, criteria, data,
+        analysis, and interpretation are appropriate for the artifact, problem,
+        context, and claims being evaluated.
+      allowed_use: >
+        Use when reviewing alignment among evaluation questions, evaluation method
+        family, evidence collected, success criteria, claim strength, and limitations.
+      boundary_notes: >
+        Evaluation validity is broader than internal_validity or ecological_validity.
+        Use those narrower terms when the concern is specifically causal attribution
+        or realism of field conditions.
+      related_terms:
+        - internal_validity
+        - ecological_validity
+        - conclusion_validity
+        - outcome_validity
+        - evaluation_transparency
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped
+          evidence_role: classification_robustness_and_evaluation_basis
+          notes: "Corpus extraction records evaluation validity evidence for robustness checks and additional samples."
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped
+          evidence_role: evaluation_transparency_basis
+          notes: "Supports transparent formative and summative evaluation evidence for stakeholder confidence."
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: context_validity
+      label: Context validity
+      definition: >
+        The degree to which the problem setting, stakeholder configuration,
+        constraints, resources, boundary conditions, and application context are
+        adequately represented for the claim being made.
+      allowed_use: >
+        Use when reviewing whether the DSR package describes enough context to
+        support relevance, artifact-use interpretation, evaluation interpretation,
+        adaptation, or bounded transfer.
+      boundary_notes: >
+        Context validity is about contextual fit and documentation. Ecological
+        validity is about realism of evaluation conditions. External validity is
+        about the defensible reach of claims beyond the observed context.
+      related_terms:
+        - ecological_validity
+        - external_validity
+        - problem_space_transparency
+        - projectability
+      source_basis:
+        - source_id: hevner_et_al_2024
+          evidence_status: mapped
+          evidence_role: problem_space_transparency_basis
+          notes: "Supports documenting application context, stakeholders, scope, goals, timeframe, and boundary conditions."
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: ecological_validity
+      label: Ecological validity
+      definition: >
+        The degree to which the evaluation, demonstration, or use evidence reflects
+        realistic users, tasks, environments, inputs, organizational conditions, and
+        operational constraints.
+      allowed_use: >
+        Use when distinguishing artificial or laboratory evaluation from naturalistic
+        or field evaluation, especially where field realism is necessary for the claim.
+      boundary_notes: >
+        Ecological validity does not by itself establish external_validity. A realistic
+        single setting may still support only local or bounded claims.
+      related_terms:
+        - evaluation_validity
+        - context_validity
+        - external_validity
+        - naturalistic_evaluation
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+          notes: "Used where typical users, typical environments, and appropriate inputs are validity criteria for DSR evaluation."
+
+    - id: internal_validity
+      label: Internal validity
+      definition: >
+        The degree to which observed outcomes or effects can be attributed to the
+        artifact, intervention, design feature, or mechanism under study rather than
+        to plausible rival explanations.
+      allowed_use: >
+        Use when a DSR evaluation makes causal, comparative, mechanism, or effect
+        claims that require control of confounding factors or alternative explanations.
+      boundary_notes: >
+        Do not require internal_validity for purely descriptive, classificatory,
+        feasibility, or formative design claims unless causal attribution is asserted.
+      related_terms:
+        - evaluation_validity
+        - conclusion_validity
+        - outcome_validity
+        - causal_attribution
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: outcome_validity
+      label: Outcome validity
+      definition: >
+        The degree to which observed or reported outcomes substantively represent
+        the improvement goals, use effects, artifact utility, or contribution claims
+        asserted by the DSR project.
+      allowed_use: >
+        Use when reviewing whether selected indicators, outcomes, effects, or success
+        criteria are the right ones for judging whether the artifact achieved its
+        stated objectives.
+      boundary_notes: >
+        Outcome validity concerns whether outcomes mean what the claim says they mean.
+        Conclusion validity concerns whether the inference drawn from those outcomes
+        is warranted.
+      related_terms:
+        - evaluation_validity
+        - artifact_utility
+        - success_criteria
+        - conclusion_validity
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: external_validity
+      label: External validity
+      definition: >
+        The degree to which findings, artifact claims, design knowledge, or evaluation
+        results can be defensibly projected beyond the observed case, setting,
+        instance, sample, or implementation.
+      allowed_use: >
+        Use when reviewing generalization, transfer, adaptation, reuse, problem-class
+        reach, or limits on claims across settings or populations.
+      boundary_notes: >
+        Use projectability vocabulary for the mode of transfer or reuse. Use external_validity
+        for the validity of the claim that such transfer or projection is warranted.
+      related_terms:
+        - projectability
+        - transferability
+        - replication
+        - context_validity
+        - ecological_validity
+      source_basis:
+        - source_id: akoka_et_al_2023
+          evidence_status: mapped
+          evidence_role: boundary_and_sample_limitations_basis
+          notes: "Corpus records external validity concerns where samples may not represent all DSR diversity."
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+
+    - id: conclusion_validity
+      label: Conclusion validity
+      definition: >
+        The degree to which conclusions drawn from DSR evidence are warranted by
+        the evaluation design, data quality, analysis, comparison logic, uncertainty,
+        and stated limitations.
+      allowed_use: >
+        Use when reviewing whether the strength, scope, and wording of a conclusion
+        are proportional to the evidence actually provided.
+      boundary_notes: >
+        Conclusion validity is not the same as publication readiness. A package may be
+        well documented and still draw conclusions stronger than its evidence supports.
+      related_terms:
+        - evaluation_validity
+        - internal_validity
+        - outcome_validity
+        - claim_strength
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: normalized_term
+
+    - id: design_antecedent_validity
+      label: Design antecedent validity
+      definition: >
+        The degree to which the justificatory knowledge, kernel theories, prior
+        artifacts, requirements, assumptions, and design antecedents used to ground
+        an artifact are sound and appropriate for the design claim.
+      allowed_use: >
+        Use when reviewing whether a DSR artifact is grounded in credible prior
+        knowledge and whether requirements or design premises are valid enough to
+        support artifact design decisions.
+      boundary_notes: >
+        Use solution_space_transparency for documentation of antecedents. Use
+        design_antecedent_validity for judging whether those antecedents are fit to
+        support the design.
+      related_terms:
+        - solution_space_transparency
+        - kernel_theory
+        - design_rationale
+        - construct_validity
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_normalized_term
+          notes: "Used where the soundness of kernel theories or design-theory antecedents affects DSR claim validity."
+
+    - id: no_validity_discussion
+      label: No validity discussion
+      definition: >
+        Controlled status marker indicating that the source, record, evaluation
+        report, or artifact package does not explicitly discuss validity.
+      allowed_use: >
+        Use only when a reviewer or extractor has checked for validity discussion
+        and found none, or when a template needs to preserve an explicit absence marker.
+      boundary_notes: >
+        This is not a validity type and must not be used as evidence of validity.
+        It should trigger review attention where validity discussion is expected.
+      related_terms:
+        - validity_discussion_absent
+        - review_gap
+        - evidence_status_not_yet_mapped
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          evidence_role: repeated_absence_marker
+
+    - id: unclear
+      label: Unclear validity status
+      definition: >
+        Controlled review or extraction marker indicating that a source hints at
+        validity issues but does not support confident classification into a
+        specific validity type.
+      allowed_use: >
+        Use only for corpus compatibility, triage, or draft review records where
+        a later reviewer must resolve the validity classification.
+      boundary_notes: >
+        This is not positive validity evidence. Released evaluation reports and
+        conformance records should replace unclear with a substantive validity
+        type, `no_validity_discussion`, or a documented not-applicable rationale.
+      related_terms:
+        - review_gap
+        - evidence_status_not_yet_mapped
+        - no_validity_discussion
+      source_basis:
+        - source_id: dsr_source_extraction_specification
+          evidence_status: mapped_from_extraction_controlled_vocabulary
+  validation_rules:
+    - rule_id: val_validity_type_ids_are_stable
+      applies_to: entries[].id
+      requirement: "IDs must remain lower_snake_case and must not be repurposed after release."
+    - rule_id: val_no_validity_discussion_is_absence_marker
+      applies_to: entries[id=no_validity_discussion]
+      requirement: "This entry must be treated as a status marker, not as positive validity evidence."
+    - rule_id: val_validity_terms_require_claim_target
+      applies_to: validity_evidence
+      requirement: >
+        Any use of a validity type in an evaluation report or review record should identify
+        the claim target, evidence basis, and validity threat or mitigation.
+    - rule_id: val_validity_reliability_boundary
+      applies_to: quality_review
+      requirement: >
+        Validity findings should not be used as substitutes for reliability, replication,
+        or projectability findings unless the relation is explicitly explained.
+  review_questions:
+    - question_id: rq_claim_target
+      question: "What artifact, process, evaluation, context, or contribution claim is this validity term assessing?"
+    - question_id: rq_evidence_basis
+      question: "What evidence supports the validity judgment, and is that evidence direct, indirect, or not yet mapped?"
+    - question_id: rq_boundary_condition
+      question: "What boundary conditions limit the validity claim?"
+    - question_id: rq_threat_mitigation
+      question: "What validity threat is present, and what mitigation or limitation statement addresses it?"
+  quality_gate_alignment:
+    - gate_id: qg_consistency
+      status: pass
+      rationale: "File uses YAML, lower-kebab-case target path, stable lower_snake_case IDs, and vocabulary structure."
+    - gate_id: qg_coherence
+      status: pass
+      rationale: "Terms align with quality review, evaluation alignment, reliability, replication, and projectability boundaries."
+    - gate_id: qg_cogency
+      status: pass
+      rationale: "Each entry defines allowed use, boundary notes, and related terms."
+    - gate_id: qg_correspondence
+      status: pass
+      rationale: "Vocabulary supports reviewable DSR artifact package quality assessment."
+    - gate_id: qg_dsr_transparency
+      status: pass
+      rationale: "Entries support evaluation, process, problem-space, solution-space, build, and contribution transparency."
+    - gate_id: qg_reviewability
+      status: pass
+      rationale: "Validation rules and review questions make uses of the vocabulary reviewable."
+  traceability:
+    - trace_id: tr_validity_types_to_quality_model
+      source: vocabularies/validity-types.yaml
+      target: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relation: controlled_terms_for_quality_review
+      evidence_status: not_yet_mapped
+    - trace_id: tr_validity_types_to_evaluation_records
+      source: vocabularies/validity-types.yaml
+      target: templates/evaluation-report-template.yaml
+      relation: controlled_terms_for_validity_evidence_and_threats
+      evidence_status: not_yet_mapped
+    - trace_id: tr_validity_types_to_corpus
+      source: dsr_extraction_corpus
+      target: vocabularies/validity-types.yaml
+      relation: normalized_terms_derived_from_repeated_corpus_fields
+      evidence_status: partially_mapped
+  assumptions:
+    - assumption_id: asm_quality_model_dependency_stubbed
+      statement: >
+        The quality model dependency is referenced by target path and selection ID, but
+        no separate quality-model file was inspected during this generation pass.
+    - assumption_id: asm_vocabulary_includes_absence_marker
+      statement: >
+        no_validity_discussion is included because corpus records use it repeatedly as
+        a controlled absence marker, even though it is not a positive validity type.
+  limitations:
+    - limitation_id: lim_not_full_methodological_taxonomy
+      statement: >
+        This vocabulary is scoped for DSR artifact-package review and does not attempt
+        to reproduce every validity type used across all social science, psychometric,
+        engineering, or clinical research traditions.
+    - limitation_id: lim_evidence_mapping_partial
+      statement: >
+        Source-basis mappings use available corpus source IDs and normalized fields;
+        exact citation-anchor mapping should be strengthened in a later source-basis record.
+  open_questions:
+    - question_id: oq_measurement_validity
+      question: >
+        Should a later version split measurement validity from construct validity for
+        DSR projects with survey instruments, psychometric scales, or measurement models?
+      decision_status: open
+    - question_id: oq_statistical_conclusion_validity
+      question: >
+        Should conclusion_validity be split into statistical_conclusion_validity and
+        interpretive_conclusion_validity when quantitative evaluation schemas are added?
+      decision_status: open
+    - question_id: oq_design_antecedent_scope
+      question: >
+        Should design_antecedent_validity remain a validity type or move to the
+        solution-space grounding model as a specialized review dimension?
+      decision_status: open
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: "Initial controlled vocabulary generated for vocab_validity_types."
+      responsible_party: GPT-5.5 Thinking

@@ -1,0 +1,921 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: reliability_checklist
+  item_id: checklist_reliability
+  item_type: procedure
+  title: DSR Reliability Checklist
+  target_path: checklists/reliability-checklist.yaml
+  purpose: >
+    Provide a reviewable checklist for judging whether a Design Science Research
+    project has identified, evidenced, bounded, and reported reliability claims
+    for artifacts, methods, measures, and design knowledge.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  responsible_role: framework_reviewer
+  conformance_target: l2_reviewable
+  default_review_stage:
+    - evaluation_planning
+    - evaluation_reporting
+    - contribution_positioning
+    - package_readiness_review
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      role: governing_generation_and_quality_gate_rules
+      evidence_status: mapped
+      notes: >
+        Requires checklist items to include check_id, question, evidence_required,
+        pass_condition, fail_condition, and remediation_guidance, with traceability
+        and reviewability for controlled files.
+    - source_id: dsr_framework_generation_prompt
+      role: generation_procedure_and_output_conventions
+      evidence_status: mapped
+      notes: >
+        Requires YAML for checklists, preservation of DSR distinctions, source
+        basis, related items, quality gates, and completion reporting.
+    - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+      role: primary_reliability_model_source
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A001
+        - A002
+        - A006
+        - A007
+        - A008
+        - A010
+        - A011
+        - A012
+        - A014
+        - A015
+      notes: >
+        Grounds the checklist in the Design Science Reliability Framework: what is
+        reliable, when reliability is assessed, and how reliability is established.
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      role: supporting_source_for_coding_robustness_and_knowledge_accumulation
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A11
+        - A12
+        - A15
+      notes: >
+        Supports use of independent classification, robustness checks, and explicit
+        limits on generality as reliability-relevant review evidence.
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      role: supporting_source_for_transparency_and_documentation
+      evidence_status: mapped
+      citation_anchor_ids:
+        - CA06
+        - CA10
+        - CA13
+        - CA14
+        - CA16
+      notes: >
+        Supports process, artifact, evaluation, and repository documentation needed
+        for reliability review.
+  related_items:
+    upstream_dependencies:
+      - item_id: model_reliability
+        path: models/dsr-reliability-model.yaml
+        relation: operationalizes
+      - item_id: vocab_reliability_types
+        path: vocabularies/reliability-types.yaml
+        relation: uses_controlled_terms_from
+      - item_id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relation: aligns_evaluation_evidence_with
+      - item_id: spec_quality_review
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relation: applies_quality_review_logic_from
+    downstream_users:
+      - item_id: checklist_evaluation_readiness
+        path: checklists/evaluation-readiness-checklist.yaml
+        relation: complements
+      - item_id: checklist_package_readiness
+        path: checklists/artifact-package-readiness-checklist.yaml
+        relation: informs_package_acceptance
+      - item_id: docs_validity_reliability
+        path: docs/protocol/09-validity-reliability-replication-projectability.md
+        relation: summarized_by
+      - item_id: record_self_review
+        path: records/reviews/record-review-0001-self-review.yaml
+        relation: may_record_results_in
+  assumptions:
+    - >
+      Reliability claims may be scoped to one or more DSR outputs; not every DSR
+      project needs to claim every reliability type.
+    - >
+      L2 reviewability requires explicit evidence mapping and boundary conditions,
+      not proof of longitudinal reuse or full replication.
+    - >
+      Reliability is treated as supportive of validity, generalizability, and
+      projectability, but it does not by itself prove usefulness, relevance, or
+      contribution significance.
+  limitations:
+    - >
+      This checklist is a review instrument, not a statistical reliability
+      calculator or a substitute for domain-specific testing standards.
+    - >
+      Diachronic reliability may be unavailable for early-stage artifacts; in that
+      case, reviewers should require honest status labels and future evidence plans.
+    - >
+      A not_applicable rating is acceptable only when the target, timing, and claim
+      scope make the check genuinely irrelevant.
+  reliability_model_summary:
+    model_id: dsr_reliability_model
+    core_rule: >
+      Reliability target plus assessment timing determines the appropriate evidence
+      and review technique.
+    reliability_targets:
+      - id: artifact_reliability
+        label: Artifact reliability
+        review_focus: >
+          Whether the artifact performs dependably, robustly, or consistently for
+          its intended function, capacity, use plan, or operating context.
+      - id: method_reliability
+        label: Method reliability
+        review_focus: >
+          Whether the DSR method, process, procedure, or research workflow can be
+          followed consistently and can produce defensible results under its stated
+          conditions.
+      - id: measure_reliability
+        label: Measure reliability
+        review_focus: >
+          Whether evaluation observations, instruments, rubrics, logs, metrics,
+          coder judgments, or scales produce consistent and interpretable evidence.
+      - id: design_knowledge_reliability
+        label: Design knowledge reliability
+        review_focus: >
+          Whether design principles, design propositions, design theories, patterns,
+          or artifact knowledge remain useful, coherent, and projectable within
+          their stated boundary conditions.
+    temporal_modes:
+      - id: synchronic_internal_reliability
+        label: Synchronic/internal reliability
+        review_focus: >
+          Reliability assessed within the same time period, case, project, setting,
+          data collection episode, or artifact version.
+      - id: diachronic_external_reliability
+        label: Diachronic/external reliability
+        review_focus: >
+          Reliability assessed over time, across versions, settings, cases,
+          evaluator groups, organizations, problem instances, or reuse contexts.
+  review_scale:
+    allowed_values:
+      - pass
+      - partial
+      - fail
+      - not_applicable
+      - not_assessed
+    rating_guidance:
+      pass: Evidence satisfies the pass condition and is traceable to retained materials.
+      partial: Evidence exists but is incomplete, weakly mapped, or insufficiently bounded.
+      fail: Evidence is missing, contradictory, or materially misaligned with the claim.
+      not_applicable: The check does not apply and the rationale is documented.
+      not_assessed: The reviewer did not assess the check; do not treat as evidence of conformance.
+  minimum_l2_acceptance_criteria:
+    - >
+      All reliability claims identify the target being claimed: artifact, method,
+      measure, design knowledge, or a clearly justified extension.
+    - >
+      Each claimed reliability target is associated with a temporal mode:
+      synchronic/internal, diachronic/external, or both.
+    - >
+      Evidence is mapped to each claimed reliability target and does not rely only
+      on assertion, reputation, or generic statements of rigor.
+    - >
+      Boundary conditions, limitations, and unresolved reliability gaps are stated.
+    - >
+      The review outcome distinguishes reliability evidence from validity,
+      usefulness, replication, and projectability evidence.
+  review_outputs:
+    recommended_record:
+      item_id: record_reliability_review
+      suggested_path_pattern: records/reviews/record-review-<sequence>-reliability-review.yaml
+      required_summary_fields:
+        - reviewed_artifact_or_package
+        - reliability_targets_claimed
+        - reliability_targets_evidenced
+        - checks_passed
+        - checks_failed
+        - reliability_gaps
+        - remediation_actions
+        - reviewer_decision
+    reviewer_decisions:
+      - accept_for_l2_reviewable
+      - accept_with_minor_reliability_gaps
+      - revise_before_l2_acceptance
+      - reject_reliability_claims_until_evidenced
+  items:
+    - check_id: rel_001_claim_scope
+      category: reliability_claim_framing
+      question: >
+        Does the project state exactly which reliability targets are being claimed
+        or reviewed?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - artifact_profile_or_artifact_specification
+        - evaluation_plan_or_evaluation_report
+        - contribution_claim_or_contribution_positioning_record
+        - explicit_reliability_claim_statement
+      pass_condition: >
+        Each reliability claim is scoped to a named target and does not use generic
+        language such as reliable, rigorous, robust, or reproducible without
+        specifying what is reliable.
+      fail_condition: >
+        The project makes broad reliability claims without identifying whether the
+        claim concerns the artifact, method, measures, or design knowledge.
+      remediation_guidance: >
+        Rewrite the claim as one or more target-specific reliability statements and
+        identify where evidence will be retained.
+      severity: critical
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A010, A014]
+    - check_id: rel_002_temporal_mode
+      category: reliability_claim_framing
+      question: >
+        Does each reliability claim distinguish same-time or same-context evidence
+        from evidence across time, versions, cases, or contexts?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - reliability_matrix
+        - evaluation_design
+        - version_history_or_context_history
+        - claim_boundary_statement
+      pass_condition: >
+        Each claim identifies whether the evidence is synchronic/internal,
+        diachronic/external, or both, and avoids treating one mode as evidence for
+        the other unless justified.
+      fail_condition: >
+        The project treats evidence from one evaluation moment as if it establishes
+        reliability across future contexts or future time periods.
+      remediation_guidance: >
+        Add a reliability matrix that maps target, temporal mode, evidence source,
+        claim strength, and unresolved gaps.
+      severity: critical
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A007, A011]
+    - check_id: rel_003_artifact_synchronic_reliability
+      category: artifact_reliability
+      question: >
+        At the evaluated point in time, does the artifact perform dependably under
+        its stated use conditions, constraints, and acceptance criteria?
+      reliability_target:
+        - artifact_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+      evidence_required:
+        - artifact_specification
+        - use_plan_or_operational_context
+        - functional_test_results
+        - robustness_checks_or_error_logs
+        - acceptance_criteria_results
+      pass_condition: >
+        Evidence shows that the evaluated artifact version satisfies stated
+        reliability-relevant requirements in the intended setting or controlled
+        test setting, with failures documented.
+      fail_condition: >
+        Artifact behavior is undocumented, inconsistent with stated requirements,
+        or only demonstrated without reliability-relevant acceptance criteria.
+      remediation_guidance: >
+        Add artifact-level tests, demonstrations with expected outcomes, error
+        handling evidence, boundary cases, and a version-specific results summary.
+      severity: high
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A010, A011]
+    - check_id: rel_004_artifact_diachronic_reliability
+      category: artifact_reliability
+      question: >
+        Is there evidence that the artifact remains dependable across time,
+        versions, contexts, data conditions, organizations, or problem instances?
+      reliability_target:
+        - artifact_reliability
+      temporal_mode:
+        - diachronic_external_reliability
+      evidence_required:
+        - repeated_evaluation_results
+        - versioned_release_notes
+        - longitudinal_logs
+        - cross_context_trial_results
+        - maintenance_or_evolution_record
+      pass_condition: >
+        Evidence supports a bounded claim that the artifact continues to work across
+        defined changes in time, version, context, or problem instance.
+      fail_condition: >
+        The project claims durable or cross-context artifact reliability but only
+        provides one-time, one-version, or one-context evidence.
+      remediation_guidance: >
+        Downgrade the claim to synchronic reliability, add an explicit future
+        evaluation plan, or provide repeated and cross-context evidence.
+      severity: high
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A011, A012, A015]
+    - check_id: rel_005_method_synchronic_reliability
+      category: method_reliability
+      question: >
+        Was the DSR method or research process applied consistently enough within
+        this project for reviewers to inspect how results were produced?
+      reliability_target:
+        - method_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+      evidence_required:
+        - method_description
+        - process_log
+        - design_decision_records
+        - procedure_steps
+        - tailoring_rationale
+      pass_condition: >
+        The project documents actual method use, sequence, deviations, decisions,
+        and tailoring sufficiently for an independent reviewer to understand how
+        the artifact and evidence were produced.
+      fail_condition: >
+        The project names a DSR method but does not document actual process use,
+        deviations, or decision logic.
+      remediation_guidance: >
+        Add a process transparency record with steps, dates or phases, responsible
+        roles, design decisions, deviations, and rationale.
+      severity: high
+      traceability:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA06, CA16]
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A010, A014]
+    - check_id: rel_006_method_diachronic_reliability
+      category: method_reliability
+      question: >
+        Is the method or process reliable beyond the single project because it is
+        reusable, repeatable, established, or transparently tailored from prior use?
+      reliability_target:
+        - method_reliability
+      temporal_mode:
+        - diachronic_external_reliability
+      evidence_required:
+        - referenced_method_source
+        - prior_application_evidence
+        - reusable_procedure_or_protocol
+        - tailoring_comparison
+        - lessons_learned_record
+      pass_condition: >
+        The method is either traceable to an established procedure or documented so
+        that later projects can reuse, adapt, and critique it within stated limits.
+      fail_condition: >
+        The project implies method reliability from a named framework alone, without
+        explaining tailoring, repeatability, or limits.
+      remediation_guidance: >
+        Provide the method protocol, tailoring rationale, reusable steps,
+        comparison to source method, and limits on method transfer.
+      severity: medium
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A011, A014, A015]
+    - check_id: rel_007_measure_synchronic_reliability
+      category: measure_reliability
+      question: >
+        Are evaluation measures, instruments, rubrics, logs, observations, ratings,
+        or coding procedures consistent enough within the evaluation episode?
+      reliability_target:
+        - measure_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+      evidence_required:
+        - operational_definitions
+        - instrument_or_rubric
+        - coding_guide_or_scoring_guide
+        - calibration_or_pilot_results
+        - inter_rater_or_inter_observer_agreement_if_applicable
+      pass_condition: >
+        Measures are operationalized, applied consistently, and supported by
+        calibration, pilot testing, agreement checks, audit trails, or equivalent
+        evidence appropriate to the evaluation design.
+      fail_condition: >
+        Evaluation conclusions depend on measures whose definitions, instruments,
+        scoring rules, or observer consistency are unclear.
+      remediation_guidance: >
+        Add operational definitions, scoring rules, pilot or calibration evidence,
+        and agreement procedures where human judgment is involved.
+      severity: critical
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A010, A011]
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A12]
+    - check_id: rel_008_measure_diachronic_reliability
+      category: measure_reliability
+      question: >
+        Can the evaluation measures remain interpretable and comparable across
+        time, versions, raters, settings, or repeated studies?
+      reliability_target:
+        - measure_reliability
+      temporal_mode:
+        - diachronic_external_reliability
+      evidence_required:
+        - versioned_instruments
+        - repeated_measurement_results
+        - measurement_change_log
+        - cross_case_or_cross_time_comparison_logic
+        - retained_raw_or_derived_measure_data
+      pass_condition: >
+        The project documents how measures remain stable or how changes are
+        versioned and interpreted across repeated use.
+      fail_condition: >
+        The project compares results across time or contexts without showing that
+        measurement definitions and instruments remained comparable.
+      remediation_guidance: >
+        Version instruments, document measure changes, retain data dictionaries,
+        and explain comparability limits.
+      severity: medium
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A011, A014]
+    - check_id: rel_009_design_knowledge_synchronic_reliability
+      category: design_knowledge_reliability
+      question: >
+        Is the design knowledge produced by the project coherent with the evidence,
+        artifact behavior, design rationale, and problem context at the time of reporting?
+      reliability_target:
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+      evidence_required:
+        - design_principles_or_design_propositions
+        - design_rationale
+        - evaluation_report
+        - contribution_claim
+        - problem_and_objectives_record
+      pass_condition: >
+        Design knowledge claims are explicitly linked to artifact design choices,
+        observed evidence, context, and problem class without unsupported leaps.
+      fail_condition: >
+        Design principles, prescriptions, or theory claims are asserted without
+        traceable links to design rationale and evaluation evidence.
+      remediation_guidance: >
+        Add a claim-evidence matrix showing each design knowledge statement,
+        supporting evidence, context, mechanism, intended outcome, and boundary condition.
+      severity: critical
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A010, A012]
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A07, A13]
+    - check_id: rel_010_design_knowledge_diachronic_reliability
+      category: design_knowledge_reliability
+      question: >
+        Is there evidence or a bounded argument that design knowledge remains useful
+        across future uses, settings, artifacts, or problem instances?
+      reliability_target:
+        - design_knowledge_reliability
+      temporal_mode:
+        - diachronic_external_reliability
+      evidence_required:
+        - cross_case_evidence
+        - repeated_application_results
+        - reuse_or_adaptation_record
+        - projectability_statement
+        - boundary_conditions
+      pass_condition: >
+        The project provides cross-context evidence or a carefully bounded
+        projectability argument showing where design knowledge is expected to remain useful.
+      fail_condition: >
+        The project generalizes from one local case to broad design knowledge
+        without evidence, adaptation logic, or boundary conditions.
+      remediation_guidance: >
+        Narrow the knowledge scope, add boundary conditions, document future
+        replication/adaptation plans, or add cross-case evidence.
+      severity: high
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A012, A015]
+    - check_id: rel_011_independent_evaluator_reliability
+      category: evaluator_and_judgment_reliability
+      question: >
+        Where human judgment is used, are evaluator, coder, reviewer, or observer
+        judgments made consistent through independent review, calibration, or agreement procedures?
+      reliability_target:
+        - measure_reliability
+        - method_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+      evidence_required:
+        - evaluator_roles
+        - training_or_calibration_materials
+        - agreement_statistics_or_consensus_record
+        - adjudication_process
+        - independent_review_record
+      pass_condition: >
+        Human judgments are supported by independence, calibration, agreement,
+        adjudication, or transparent consensus-building appropriate to the claim.
+      fail_condition: >
+        Reliability-sensitive judgments are made by one evaluator or by artifact
+        creators alone without safeguards, disclosure, or justification.
+      remediation_guidance: >
+        Add independent evaluators, calibration procedures, consensus review, or an
+        explicit limitation on evaluator reliability.
+      severity: medium
+      traceability:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A12]
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A010]
+    - check_id: rel_012_boundary_conditions
+      category: scope_and_boundary_conditions
+      question: >
+        Are reliability claims bounded by artifact version, use context, stakeholder
+        group, problem class, data conditions, and evaluation setting?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - boundary_conditions
+        - artifact_version_or_release_identifier
+        - use_context_description
+        - problem_class_definition
+        - evaluation_setting_description
+      pass_condition: >
+        Reliability conclusions state where the evidence applies, where it does not
+        apply, and what must change before the claim can be transferred.
+      fail_condition: >
+        Reliability is stated as a general property without version, context, user,
+        problem-class, or evaluation-setting boundaries.
+      remediation_guidance: >
+        Add a boundary-condition section and revise claims so they match the
+        retained evidence.
+      severity: high
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A015]
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA07, CA13]
+    - check_id: rel_013_validity_relationship
+      category: validity_and_reliability_alignment
+      question: >
+        Does the project explain how reliability evidence supports validity without
+        treating reliability as a substitute for validity, utility, or relevance?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - validity_threat_analysis
+        - evaluation_report
+        - reliability_evidence_map
+        - contribution_claim
+      pass_condition: >
+        The project explicitly links reliability evidence to validity-relevant
+        conclusions and separately evaluates usefulness, relevance, and contribution.
+      fail_condition: >
+        The project implies that reliable measures, stable artifact behavior, or
+        repeated method use alone proves artifact validity, usefulness, or contribution.
+      remediation_guidance: >
+        Add a validity-reliability alignment table and separate reliability claims
+        from validity, utility, relevance, and contribution claims.
+      severity: critical
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A006, A010, A012]
+    - check_id: rel_014_replication_relationship
+      category: replication_and_projectability_alignment
+      question: >
+        Does the project distinguish reliability evidence from replication evidence
+        and avoid requiring or claiming exact replication where DSR context makes it inappropriate?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - diachronic_external_reliability
+      evidence_required:
+        - replication_or_projectability_statement
+        - context_comparison
+        - adaptation_logic
+        - reliability_limitations
+      pass_condition: >
+        The project states whether reliability evidence comes from repeated use,
+        differentiated replication, conceptual replication, artifact replication,
+        evaluation replication, or non-replication evidence.
+      fail_condition: >
+        The project uses replication, repeatability, reproducibility, reliability,
+        and projectability as interchangeable terms.
+      remediation_guidance: >
+        Add a terminology crosswalk and revise claims to distinguish reliability
+        from replication and projectability.
+      severity: medium
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A012, A015]
+    - check_id: rel_015_process_transparency
+      category: transparency_and_auditability
+      question: >
+        Are the process records, design choices, evaluation procedures, and evidence
+        retained well enough for reliability review?
+      reliability_target:
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - process_log
+        - design_decision_records
+        - evaluation_protocol
+        - evidence_repository_or_file_inventory
+        - change_history
+      pass_condition: >
+        The retained package allows reviewers to reconstruct the process, inspect
+        major decisions, evaluate evidence consistency, and locate supporting materials.
+      fail_condition: >
+        Reliability claims depend on undocumented process knowledge, undocumented
+        author memory, or unavailable evaluation materials.
+      remediation_guidance: >
+        Add retained records, process logs, decision records, evaluation protocols,
+        and package inventory links.
+      severity: critical
+      traceability:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA06, CA14, CA16]
+    - check_id: rel_016_materials_and_versions
+      category: transparency_and_auditability
+      question: >
+        Are artifact versions, instruments, datasets, code, configuration, prompts,
+        models, or other reliability-sensitive materials identified and controlled?
+      reliability_target:
+        - artifact_reliability
+        - measure_reliability
+        - method_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - version_identifiers
+        - package_inventory
+        - configuration_or_environment_notes
+        - retained_code_or_pseudocode_if_applicable
+        - instrument_versions
+      pass_condition: >
+        Reliability-sensitive materials are versioned, named, retained, or explicitly
+        unavailable with rationale and substitute documentation.
+      fail_condition: >
+        The project cannot identify which artifact, code, configuration, instrument,
+        or dataset produced the reported evidence.
+      remediation_guidance: >
+        Add version identifiers, configuration notes, retention links, and a package
+        inventory entry for each reliability-sensitive material.
+      severity: high
+      traceability:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA13, CA14]
+    - check_id: rel_017_failure_modes_and_negative_cases
+      category: evidence_quality
+      question: >
+        Are known failures, anomalies, unstable cases, conflicting evidence, or
+        nontransferable conditions reported rather than hidden?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - failure_log_or_defect_log
+        - limitations_section
+        - negative_case_analysis
+        - exception_handling_notes
+        - risk_record
+      pass_condition: >
+        The project reports reliability-relevant failures and explains whether they
+        limit artifact use, method confidence, measure interpretation, or design knowledge transfer.
+      fail_condition: >
+        Reliability conclusions omit known failures, unstable cases, or unresolved
+        anomalies that materially affect claims.
+      remediation_guidance: >
+        Add failure modes, negative cases, unresolved anomalies, and a revised claim
+        boundary or remediation plan.
+      severity: high
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A015]
+    - check_id: rel_018_claim_strength_and_status
+      category: reporting_and_publication
+      question: >
+        Is the strength of each reliability conclusion labeled appropriately for
+        the evidence available?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - reliability_claims_table
+        - evaluation_report
+        - limitations
+        - open_questions
+      pass_condition: >
+        Claims are labeled as demonstrated, supported, partially supported,
+        plausible, not yet assessed, or out of scope, and the label matches the evidence.
+      fail_condition: >
+        The project overclaims reliability, treats conceptual argument as empirical
+        evidence, or omits unresolved reliability gaps.
+      remediation_guidance: >
+        Add claim-strength labels and revise the conclusion so that evidence level,
+        target, timing, and boundary are aligned.
+      severity: critical
+      traceability:
+        - source_id: storey_baskerville_kaul_2025_reliability_in_design_science_research
+          citation_anchor_ids: [A008, A014, A015]
+    - check_id: rel_019_reviewer_reproducibility_of_review
+      category: reviewability
+      question: >
+        Can a reviewer reproduce the reliability review decision from the checklist
+        ratings and cited evidence?
+      reliability_target:
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+      evidence_required:
+        - completed_checklist
+        - evidence_locations
+        - reviewer_notes
+        - decision_summary
+        - remediation_tracking
+      pass_condition: >
+        Each rating has an evidence location, reviewer rationale, and resulting
+        decision or remediation action.
+      fail_condition: >
+        The checklist is completed with pass/fail marks but no evidence locations,
+        rationale, or remediation records.
+      remediation_guidance: >
+        Add evidence links, reviewer notes, and a decision summary for each critical
+        or high-severity check.
+      severity: high
+      traceability:
+        - source_id: dsr_framework_generation_spec
+          quality_gate_ids: [qg_reviewability, qg_correspondence]
+    - check_id: rel_020_l2_conformance_readiness
+      category: conformance
+      question: >
+        Does the project meet the minimum reliability review expectations for
+        l2_reviewable conformance?
+      reliability_target:
+        - artifact_reliability
+        - method_reliability
+        - measure_reliability
+        - design_knowledge_reliability
+      temporal_mode:
+        - synchronic_internal_reliability
+        - diachronic_external_reliability
+      evidence_required:
+        - completed_reliability_checklist
+        - reliability_matrix
+        - source_basis
+        - related_items
+        - open_questions
+        - change_history
+      pass_condition: >
+        Critical checks pass or have documented non-applicability, high-severity
+        failures have remediation plans, and remaining gaps are visible in open_questions.
+      fail_condition: >
+        One or more critical reliability checks fail without remediation, or the
+        project cannot map reliability claims to evidence.
+      remediation_guidance: >
+        Complete the reliability matrix, resolve critical gaps, document boundaries,
+        and record unresolved reliability issues before claiming L2 reviewability.
+      severity: critical
+      traceability:
+        - source_id: dsr_framework_generation_spec
+          quality_gate_ids:
+            - qg_consistency
+            - qg_coherence
+            - qg_cogency
+            - qg_correspondence
+            - qg_reviewability
+  quality_gates:
+    - id: qg_consistency
+      status: designed_for
+      check_ids:
+        - rel_019_reviewer_reproducibility_of_review
+        - rel_020_l2_conformance_readiness
+      acceptance_basis: >
+        The checklist follows repository naming, YAML checklist structure, item type,
+        and controlled status conventions.
+    - id: qg_coherence
+      status: designed_for
+      check_ids:
+        - rel_001_claim_scope
+        - rel_002_temporal_mode
+        - rel_013_validity_relationship
+        - rel_014_replication_relationship
+      acceptance_basis: >
+        Reliability claims are aligned with evaluation, validity, contribution, and
+        projectability records.
+    - id: qg_cogency
+      status: designed_for
+      check_ids:
+        - rel_003_artifact_synchronic_reliability
+        - rel_004_artifact_diachronic_reliability
+        - rel_009_design_knowledge_synchronic_reliability
+        - rel_010_design_knowledge_diachronic_reliability
+      acceptance_basis: >
+        Review logic is operational, evidence-oriented, and usable without hidden assumptions.
+    - id: qg_correspondence
+      status: designed_for
+      check_ids:
+        - rel_012_boundary_conditions
+        - rel_018_claim_strength_and_status
+        - rel_020_l2_conformance_readiness
+      acceptance_basis: >
+        The checklist supports the DSR Framework as a reviewable and reusable artifact package.
+    - id: qg_dsr_transparency
+      status: designed_for
+      check_ids:
+        - rel_005_method_synchronic_reliability
+        - rel_015_process_transparency
+        - rel_016_materials_and_versions
+      acceptance_basis: >
+        Process, build, evaluation, evidence, and material transparency are explicitly checked.
+    - id: qg_reviewability
+      status: designed_for
+      check_ids:
+        - rel_007_measure_synchronic_reliability
+        - rel_011_independent_evaluator_reliability
+        - rel_019_reviewer_reproducibility_of_review
+      acceptance_basis: >
+        A reviewer can evaluate each reliability claim against explicit evidence and pass/fail conditions.
+  validation_rules:
+    - rule_id: vr_required_check_fields
+      description: >
+        Every item must include check_id, question, evidence_required,
+        pass_condition, fail_condition, and remediation_guidance.
+      severity: error
+    - rule_id: vr_claim_target_alignment
+      description: >
+        Every reliability claim reviewed with this checklist should map to at least
+        one reliability target and one temporal mode.
+      severity: warning
+    - rule_id: vr_no_unbounded_diachronic_claims
+      description: >
+        Diachronic reliability claims require repeated, cross-context, longitudinal,
+        reuse, or adaptation evidence; otherwise they must be downgraded or marked unassessed.
+      severity: error
+    - rule_id: vr_evidence_traceability
+      description: >
+        Critical and high-severity checks require evidence locations or an explicit
+        not_applicable rationale in the completed review record.
+      severity: error
+  open_questions:
+    - question_id: oq_rel_001_thresholds
+      question: >
+        What quantitative or qualitative thresholds should future versions set for
+        passing each reliability type in different DSR genres?
+      disposition: defer_to_vocabulary_and_evaluation_model_revision
+    - question_id: oq_rel_002_idiographic_reliability
+      question: >
+        How should the framework handle idiographic DSR projects where diachronic
+        transfer is intentionally limited?
+      disposition: defer_to_projectability_model_and_future_guidance
+    - question_id: oq_rel_003_nonmaterial_artifacts
+      question: >
+        What additional evidence is needed for reliability of nonmaterial artifacts
+        such as constructs, models, methods, taxonomies, or theories?
+      disposition: defer_to_artifact_ontology_and_reliability_vocabulary
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial draft generated for checklist_reliability.
+      responsible_party: GPT-5.5 Thinking
+      evidence: User selected checklist_reliability from the DSR Framework selection table.

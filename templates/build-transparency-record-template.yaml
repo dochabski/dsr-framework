@@ -1,0 +1,575 @@
+# SPDX-License-Identifier: CC0-1.0
+---
+template:
+  item_id: build_transparency_record_template
+  item_type: specification
+  title: Build Transparency Record Template
+  purpose: >
+    Provide a reusable YAML template for documenting how a Design Science Research
+    artifact was designed, constructed, revised, and prepared for demonstration or
+    evaluation. The template supports build transparency by capturing artifact
+    construction choices, design reasoning, creative search, collaboration,
+    version changes, evidence, constraints, and boundaries on what can be shared.
+  status: draft
+  version: "0.1.0"
+  owner: "TODO: responsible_role_or_team"
+  target_file_path: templates/build-transparency-record-template.yaml
+  conformance_target: l2_reviewable
+  intended_users:
+    - dsr_researcher
+    - artifact_designer
+    - reviewer
+    - repository_maintainer
+  related_items:
+    upstream_dependencies:
+      - item_id: model_transparency
+        path: models/dsr-transparency-model.yaml
+        relationship: operationalizes_build_transparency_dimension
+        evidence_status: not_yet_mapped
+      - item_id: vocab_transparency_dimensions
+        path: vocabularies/transparency-dimensions.yaml
+        relationship: uses_controlled_transparency_dimension_terms
+        evidence_status: not_yet_mapped
+      - item_id: template_design_rationale
+        path: templates/design-rationale-template.md
+        relationship: may_supply_or_receive_design_decision_detail
+        evidence_status: not_yet_mapped
+      - item_id: template_artifact_specification
+        path: templates/artifact-specification-template.md
+        relationship: supplies_artifact_boundary_components_and_use_logic
+        evidence_status: not_yet_mapped
+      - item_id: template_evaluation_plan
+        path: templates/evaluation-plan-template.yaml
+        relationship: receives_build_outputs_for_evaluation_planning
+        evidence_status: not_yet_mapped
+    downstream_uses:
+      - item_id: record_dsr_transparency_crosswalk
+        path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+        relationship: can_reference_completed_build_transparency_records
+        evidence_status: not_yet_mapped
+      - item_id: checklist_transparency
+        path: checklists/dsr-transparency-crosswalk-checklist.yaml
+        relationship: can_review_build_transparency_completeness
+        evidence_status: not_yet_mapped
+      - item_id: package_inventory
+        path: package-inventory.yaml
+        relationship: can inventory completed build transparency records as retained evidence
+        evidence_status: not_yet_mapped
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      source_type: project_governance
+      evidence_role: repository_structure_and_quality_gate_rules
+      evidence_status: mapped
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      source_type: dsr_corpus_source
+      evidence_role: build_transparency_and_six_dimension_transparency_framework
+      citation_anchor_ids:
+        - CA09
+        - CA16
+      evidence_status: mapped
+    - source_id: dsr_process_journaling_source
+      source_type: dsr_corpus_source
+      evidence_role: concurrent_documentation_of_design_processing_and_design_theorizing
+      citation_anchor_ids:
+        - A06
+        - A07
+        - A08
+      evidence_status: mapped_at_source_family_level
+    - source_id: documentation_protocol_repository
+      source_type: governing_protocol
+      evidence_role: repository_and_information_item_conventions
+      evidence_status: not_checked_in_this_generation
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change_summary: Initial reusable build transparency record template.
+      changed_by: GPT-5.5 Thinking
+
+usage_guidance:
+  when_to_use: >
+    Use this template whenever a DSR project needs a retained record of how an
+    artifact was constructed or revised. Complete one record for the artifact as
+    a whole, or one record per major build episode when the build process is long,
+    iterative, or materially affects evaluation and contribution claims.
+  when_not_to_use: >
+    Do not use this template as a substitute for an artifact specification,
+    design rationale record, demonstration record, or evaluation report. Link to
+    those files instead when the needed detail belongs there.
+  completion_level_guidance:
+    l0_draft: Capture only identity, artifact version, build summary, and open TODO items.
+    l1_documented: Add build inputs, build activities, outputs, and basic evidence links.
+    l2_reviewable: Add decision traceability, rationale, constraints, evidence sufficiency checks, and transparency limitations.
+    l3_exercisable: Add executable build steps, environment details, test outputs, and reproduction notes where relevant.
+    l4_reusable: Add adaptation guidance, reusable components, version compatibility, and maintenance implications.
+    l5_archival_publication_ready: Add preservation metadata, immutable artifact identifiers, repository links, and release evidence.
+  placeholder_rule: >
+    Replace TODO values with project-specific information. If information is not
+    available, keep the TODO value and explain the gap under open_questions or
+    transparency_limitations.
+
+build_transparency_record:
+  record_metadata:
+    record_id: "TODO: record-build-transparency-0001"
+    record_class: build_transparency_record
+    title: "TODO: Build Transparency Record for <artifact_name> <artifact_version>"
+    status: draft
+    version: "0.1.0"
+    date_created: "TODO: YYYY-MM-DD"
+    date_updated: "TODO: YYYY-MM-DD"
+    responsible_party:
+      name_or_role: "TODO: researcher_or_artifact_owner"
+      affiliation_or_unit: "TODO: organization_or_project_unit"
+      contact: "TODO: optional_contact_or_repository_handle"
+    retention_rule:
+      retention_period: retain_for_life_of_artifact_package
+      retention_location: "TODO: records/dsr-transparency/ or project-specific records path"
+      disposition: preserve_with_artifact_package
+    confidentiality_classification:
+      value: "TODO: public | internal | restricted | embargoed | mixed"
+      rationale: "TODO: explain privacy, security, intellectual-property, or proprietary constraints"
+
+  project_and_artifact_identity:
+    project_id: "TODO: dsr_project_id"
+    project_title: "TODO: DSR project title"
+    artifact_id: "TODO: artifact_id"
+    artifact_name: "TODO: artifact name"
+    artifact_type:
+      value: "TODO: construct | model | method | instantiation | framework | taxonomy | ontology | design_principle | software | dataset | documentation_protocol | other"
+      other_label: "TODO: null_or_custom_type"
+    artifact_version: "TODO: v0.1.0"
+    artifact_materiality:
+      value: "TODO: conceptual_only | textual_or_documentary | software | physical | socio_technical | mixed"
+      explanation: "TODO: short explanation of material form"
+    artifact_boundary_summary: >
+      TODO: Identify what is inside the artifact boundary, what is outside the
+      artifact boundary, and whether this record concerns the artifact type,
+      artifact instance, or both.
+    linked_artifact_specification:
+      path: "TODO: templates/artifact-specification-template.md or completed artifact specification path"
+      evidence_status: "TODO: mapped | not_yet_mapped | not_applicable"
+
+  build_context:
+    build_episode_id: "TODO: build-episode-001"
+    build_episode_type:
+      value: "TODO: initial_build | iteration | refactor | extension | repair | adaptation | release_preparation | other"
+      other_label: "TODO: null_or_custom_episode_type"
+    lifecycle_stage:
+      value: "TODO: problem_identification | objectives | design_and_development | demonstration | evaluation | communication | release | maintenance"
+      rationale: "TODO: why this stage applies"
+    time_window:
+      start_date: "TODO: YYYY-MM-DD"
+      end_date: "TODO: YYYY-MM-DD or ongoing"
+    triggering_need: >
+      TODO: Explain the problem, requirement, evaluation finding, stakeholder
+      need, opportunity, or defect that triggered this build episode.
+    build_goals:
+      - goal_id: build_goal_001
+        goal_statement: "TODO: intended build outcome"
+        goal_type: "TODO: functionality | usability | validity | reliability | maintainability | transparency | projectability | accessibility | security | other"
+        success_indicator: "TODO: observable indicator of goal attainment"
+        related_requirement_ids:
+          - "TODO: requirement_id"
+    constraints:
+      technical:
+        - "TODO: technical constraint or not_applicable"
+      methodological:
+        - "TODO: DSR method, evidence, or review constraint"
+      organizational:
+        - "TODO: timeline, personnel, governance, resource, or policy constraint"
+      ethical_legal_social:
+        - "TODO: privacy, security, accessibility, fairness, IP, or stakeholder constraint"
+      publication_or_repository:
+        - "TODO: file format, repository, license, review, or archival constraint"
+
+  build_inputs:
+    problem_space_inputs:
+      - input_id: problem_input_001
+        description: "TODO: problem-space fact, requirement, stakeholder need, or boundary condition"
+        source_or_path: "TODO: source file, interview, record, requirement, or citation anchor"
+        evidence_status: "TODO: mapped | not_yet_mapped | not_applicable"
+    solution_space_inputs:
+      - input_id: solution_input_001
+        description: "TODO: theory, prior artifact, design principle, technology, method, or precedent used"
+        source_or_path: "TODO: literature source, model file, vocabulary file, code library, or repository item"
+        evidence_status: "TODO: mapped | not_yet_mapped | not_applicable"
+    artifact_inputs:
+      - input_id: artifact_input_001
+        artifact_or_component: "TODO: existing component, prior version, dataset, code, prompt, model, or document"
+        version_or_state: "TODO: version, hash, date, or descriptive state"
+        role_in_build: "TODO: reused | modified | retired | compared | extended | generated | validated"
+    stakeholder_inputs:
+      - input_id: stakeholder_input_001
+        stakeholder_role: "TODO: user | practitioner | reviewer | sponsor | maintainer | evaluator | participant | other"
+        input_method: "TODO: interview | workshop | observation | review_comment | requirement | test_feedback | informal_feedback | other"
+        summary: "TODO: concise summary of input"
+        evidence_link: "TODO: path_or_reference_or_not_available"
+
+  build_process_summary:
+    short_summary: >
+      TODO: Summarize what was built or changed and why, in one concise paragraph.
+    build_strategy:
+      value: "TODO: design_search | theory_driven_design | requirements_driven_build | participatory_design | prototyping | refactoring | configuration | synthesis | other"
+      rationale: "TODO: why this strategy was appropriate"
+    process_model_reference:
+      value: "TODO: hevner_three_cycle_view | peffers_dsr_methodology | action_design_research | march_smith_build_evaluate | custom | not_specified"
+      citation_or_source: "TODO: source_id_or_project_file"
+    iteration_pattern:
+      value: "TODO: single_pass | iterative_cycles | agile_sprints | design_experiments | staged_release | emergent | other"
+      description: "TODO: describe iteration structure and decision points"
+    degree_of_emergence:
+      value: "TODO: low | moderate | high"
+      rationale: "TODO: explain how much the build diverged from the initial plan"
+
+  build_activity_log:
+    - activity_id: build_activity_001
+      sequence_number: 1
+      date_or_range: "TODO: YYYY-MM-DD or YYYY-MM-DD/YYYY-MM-DD"
+      activity_type: "TODO: design | construction | coding | modeling | writing | configuration | integration | testing | review | refactoring | documentation | other"
+      actor_roles:
+        - "TODO: designer | developer | researcher | user | maker | reviewer | evaluator | stakeholder"
+      activity_description: "TODO: what was done"
+      input_refs:
+        - "TODO: input_id_or_path"
+      output_refs:
+        - "TODO: component_id_or_path"
+      tools_or_methods_used:
+        - "TODO: tool, method, language, platform, design technique, or not_applicable"
+      rationale: "TODO: why this activity was performed"
+      evidence:
+        - evidence_id: build_evidence_001
+          evidence_type: "TODO: log | commit | screenshot | meeting_note | sketch | prototype | test_output | decision_record | file_diff | dataset | other"
+          location: "TODO: path, URL, repository reference, appendix, or not_available"
+          evidence_status: "TODO: available | unavailable | restricted | not_yet_mapped"
+      notes: "TODO: optional notes"
+
+  design_search_and_alternatives:
+    design_space_considered:
+      scope_statement: >
+        TODO: Describe the range of possible designs, features, methods,
+        configurations, or representations considered.
+      search_methods:
+        - "TODO: literature review | benchmarking | brainstorming | morphological analysis | prototyping | stakeholder workshop | expert review | exploratory coding | other"
+      search_limitations:
+        - "TODO: limits on time, data, expertise, access, feasibility, or evidence"
+    alternatives:
+      - alternative_id: alternative_001
+        alternative_name: "TODO: alternative design or implementation path"
+        description: "TODO: concise alternative description"
+        considered_for:
+          - "TODO: component, feature, method, architecture, interface, schema, or artifact boundary"
+        decision_status: "TODO: selected | rejected | deferred | partially_adopted | merged"
+        selection_or_rejection_rationale: "TODO: rationale using requirements, constraints, evidence, or stakeholder input"
+        tradeoffs:
+          benefits:
+            - "TODO: expected benefit"
+          costs_or_risks:
+            - "TODO: expected cost, risk, or limitation"
+        evidence_refs:
+          - "TODO: evidence_id_or_source"
+
+  creativity_reasoning_and_design_rationale:
+    creative_moves:
+      - creative_move_id: creative_move_001
+        description: "TODO: novel, abductive, analogical, synthesized, or reframed design move"
+        trigger: "TODO: what prompted the creative move"
+        reasoning_mode:
+          value: "TODO: deductive | inductive | abductive | analogical | heuristic | pragmatic | mixed | unspecified"
+          explanation: "TODO: explain reasoning mode"
+        expected_effect: "TODO: expected contribution to utility, quality, evaluation, or knowledge"
+        risk_or_uncertainty: "TODO: uncertainty introduced by this move"
+        evidence_refs:
+          - "TODO: evidence_id_or_source"
+    design_decisions:
+      - decision_id: build_decision_001
+        decision_statement: "TODO: decision made during build"
+        decision_date: "TODO: YYYY-MM-DD"
+        decision_owner: "TODO: role_or_name"
+        decision_type: "TODO: scope | architecture | component | interface | method | data | evaluation_preparation | documentation | release | other"
+        rationale: "TODO: why this decision was made"
+        alternatives_considered:
+          - "TODO: alternative_id"
+        requirements_addressed:
+          - "TODO: requirement_id"
+        consequences:
+          intended:
+            - "TODO: intended consequence"
+          unintended_or_possible:
+            - "TODO: possible side effect or uncertainty"
+        reversibility:
+          value: "TODO: reversible | partly_reversible | hard_to_reverse | unknown"
+          explanation: "TODO: explain reversibility"
+        evidence_refs:
+          - "TODO: evidence_id_or_source"
+        linked_design_rationale_record: "TODO: path_or_not_available"
+
+  collaboration_and_roles:
+    role_map:
+      - role_id: role_001
+        role_label: "TODO: designer | maker | user | evaluator | maintainer | reviewer | sponsor | subject_matter_expert | other"
+        person_or_group: "TODO: name, role, or anonymized group"
+        contribution_to_build: "TODO: specific contribution"
+        involvement_stage:
+          - "TODO: requirements | design | construction | testing | documentation | review | approval"
+        evidence_refs:
+          - "TODO: evidence_id_or_source"
+    collaboration_modes:
+      - mode_id: collaboration_mode_001
+        mode_type: "TODO: workshop | meeting | pair_design | code_review | document_review | interview | asynchronous_feedback | other"
+        purpose: "TODO: purpose of collaboration"
+        outcome: "TODO: result of collaboration"
+        evidence_refs:
+          - "TODO: evidence_id_or_source"
+    unresolved_role_or_authorship_questions:
+      - "TODO: question or not_applicable"
+
+  artifact_construction_outputs:
+    components_built_or_modified:
+      - component_id: component_001
+        component_name: "TODO: component name"
+        component_type: "TODO: construct | model | method | module | schema | interface | dataset | procedure | documentation | other"
+        change_type: "TODO: created | modified | removed | replaced | refactored | configured | documented"
+        pre_build_state: "TODO: prior state, version, or not_applicable"
+        post_build_state: "TODO: resulting state, version, or location"
+        build_method: "TODO: how component was constructed or changed"
+        dependencies:
+          - "TODO: dependency_id_or_path"
+        quality_controls_applied:
+          - "TODO: review | lint | validation | unit_test | expert_check | walkthrough | consistency_check | none | other"
+        evidence_refs:
+          - "TODO: evidence_id_or_source"
+    outputs_ready_for_demonstration:
+      - output_id: demo_output_001
+        description: "TODO: artifact or component prepared for demonstration"
+        location: "TODO: path_or_repository_reference"
+        demonstration_readiness: "TODO: not_ready | partially_ready | ready | demonstrated"
+        related_demonstration_record: "TODO: path_or_not_yet_created"
+    outputs_ready_for_evaluation:
+      - output_id: eval_output_001
+        description: "TODO: artifact or component prepared for evaluation"
+        location: "TODO: path_or_repository_reference"
+        evaluation_readiness: "TODO: not_ready | partially_ready | ready | evaluated"
+        related_evaluation_plan: "TODO: path_or_not_yet_created"
+
+  build_verification_and_checks:
+    verification_summary: >
+      TODO: Summarize checks performed to confirm the artifact was built as intended.
+    checks:
+      - check_id: build_check_001
+        check_type: "TODO: syntax_validation | schema_validation | unit_test | integration_test | walkthrough | expert_review | consistency_review | accessibility_review | security_review | other"
+        check_question: "TODO: what this check asked"
+        method: "TODO: how the check was performed"
+        result: "TODO: pass | fail | partial | inconclusive | not_performed"
+        evidence_ref: "TODO: evidence_id_or_source"
+        follow_up_required: "TODO: true | false"
+        follow_up_action: "TODO: action or not_applicable"
+    known_defects_or_limitations:
+      - defect_or_limitation_id: build_limitation_001
+        description: "TODO: known defect, gap, incomplete area, or uncertainty"
+        severity: "TODO: low | moderate | high | critical | unknown"
+        impact_on_demonstration_or_evaluation: "TODO: expected impact or not_applicable"
+        mitigation_or_plan: "TODO: mitigation, deferral rationale, or TODO"
+
+  transparency_evidence_inventory:
+    evidence_items:
+      - evidence_id: build_evidence_001
+        evidence_label: "TODO: evidence label"
+        evidence_type: "TODO: activity_log | design_rationale | commit_history | prototype | source_code | model_file | screenshot | dataset | test_result | meeting_note | issue | pull_request | other"
+        location: "TODO: relative path, repository reference, DOI, appendix, or restricted location note"
+        access_status: "TODO: public | internal | restricted | unavailable | not_yet_created"
+        retention_status: "TODO: retained | planned | not_retained | external_dependency"
+        supports_claims:
+          - "TODO: build_goal_id | decision_id | component_id | quality_check_id | contribution_claim_id"
+        sensitivity_notes: "TODO: privacy, security, IP, or not_applicable"
+    evidence_sufficiency_assessment:
+      value: "TODO: insufficient | minimally_sufficient | reviewable | strong | not_assessed"
+      rationale: "TODO: explain whether evidence is enough for L2 reviewability"
+
+  links_to_evaluation_and_contribution:
+    demonstration_vs_evaluation_boundary: >
+      TODO: Explain which build outputs have only been demonstrated and which
+      have been evaluated. Do not claim evaluation evidence from demonstration alone.
+    evaluation_dependencies:
+      - dependency_id: eval_dependency_001
+        evaluation_need: "TODO: what must be evaluated"
+        build_output_ref: "TODO: output_id_or_component_id"
+        evaluation_plan_ref: "TODO: path_or_not_yet_created"
+        evaluation_status: "TODO: not_planned | planned | in_progress | completed | not_applicable"
+    contribution_dependencies:
+      - dependency_id: contribution_dependency_001
+        potential_contribution_claim: "TODO: practice contribution, knowledge contribution, method contribution, artifact contribution, or not_yet_claimed"
+        build_evidence_needed: "TODO: evidence needed before claim can be made"
+        contribution_record_ref: "TODO: path_or_not_yet_created"
+        claim_status: "TODO: not_claimed | tentative | supported | unsupported | deferred"
+
+  responsible_transparency_and_disclosure_limits:
+    transparency_risks:
+      - risk_id: transparency_risk_001
+        risk_type: "TODO: privacy | security | intellectual_property | proprietary_information | participant_confidentiality | dual_use | information_overload | maintenance_burden | other"
+        description: "TODO: risk description"
+        affected_evidence_or_component_refs:
+          - "TODO: evidence_id_or_component_id"
+        mitigation: "TODO: redaction, pseudocode, summary, delayed release, license, access control, or other mitigation"
+        residual_risk: "TODO: low | moderate | high | unknown"
+    disclosure_decisions:
+      - disclosure_decision_id: disclosure_decision_001
+        item_ref: "TODO: evidence_id_or_component_id"
+        disclosure_status: "TODO: disclose_full | disclose_summary | disclose_redacted | disclose_metadata_only | withhold | embargo"
+        rationale: "TODO: why this disclosure level is appropriate"
+        reviewer_note: "TODO: how reviewers can assess transparency despite the limitation"
+    transparency_limitations:
+      - limitation_id: transparency_limitation_001
+        limitation: "TODO: what cannot be made transparent or what is not yet documented"
+        reason: "TODO: unavailable evidence, confidentiality, burden, immaturity, or other reason"
+        impact: "TODO: impact on reviewability, reproducibility, projectability, or trust"
+        mitigation_or_future_work: "TODO: mitigation or future work"
+
+  acceptance_criteria:
+    - criterion_id: bt_acceptance_001
+      criterion: Artifact identity, version, boundary, and build episode are clearly identified.
+      evidence_required:
+        - project_and_artifact_identity
+        - build_context
+      pass_condition: Required identity and boundary fields are complete or justified with TODO notes.
+      fail_condition: A reviewer cannot determine which artifact or build episode the record describes.
+    - criterion_id: bt_acceptance_002
+      criterion: Build activities, decisions, and outputs are traceable to inputs and evidence.
+      evidence_required:
+        - build_inputs
+        - build_activity_log
+        - design_decisions
+        - artifact_construction_outputs
+        - transparency_evidence_inventory
+      pass_condition: Major build outputs can be traced to inputs, activities, decisions, and evidence.
+      fail_condition: Major outputs appear without documented rationale, process, or evidence.
+    - criterion_id: bt_acceptance_003
+      criterion: Creative, abductive, or discretionary design moves are documented rather than hidden.
+      evidence_required:
+        - design_search_and_alternatives
+        - creativity_reasoning_and_design_rationale
+      pass_condition: Non-obvious design choices include reasoning, alternatives, and uncertainty.
+      fail_condition: The record presents the artifact as if it followed automatically from requirements.
+    - criterion_id: bt_acceptance_004
+      criterion: Demonstration, evaluation, and contribution claims are not conflated.
+      evidence_required:
+        - links_to_evaluation_and_contribution
+      pass_condition: Evaluation and contribution dependencies are stated separately from build completion.
+      fail_condition: The record overclaims utility, quality, or knowledge contribution from build evidence alone.
+    - criterion_id: bt_acceptance_005
+      criterion: Transparency limits and responsible disclosure decisions are explicit.
+      evidence_required:
+        - responsible_transparency_and_disclosure_limits
+      pass_condition: Withheld, redacted, or unavailable evidence is justified with reviewer-facing mitigation.
+      fail_condition: Sensitive or missing evidence is omitted without explanation.
+
+  validation_rules:
+    required_top_level_sections:
+      - record_metadata
+      - project_and_artifact_identity
+      - build_context
+      - build_inputs
+      - build_process_summary
+      - build_activity_log
+      - design_search_and_alternatives
+      - creativity_reasoning_and_design_rationale
+      - collaboration_and_roles
+      - artifact_construction_outputs
+      - build_verification_and_checks
+      - transparency_evidence_inventory
+      - links_to_evaluation_and_contribution
+      - responsible_transparency_and_disclosure_limits
+      - acceptance_criteria
+      - validation_rules
+      - traceability
+      - open_questions
+    controlled_value_notes:
+      - Field values shown with pipes are suggested controlled values until corresponding vocabularies or schemas stabilize.
+      - Use lower_snake_case for stable IDs.
+      - Use relative repository paths when referring to files within the artifact package.
+    review_checks:
+      - check_id: bt_review_consistency
+        question: Does the completed record use repository naming, version, and retained-record conventions?
+        expected_evidence:
+          - record_metadata
+          - project_and_artifact_identity
+          - retention_rule
+      - check_id: bt_review_traceability
+        question: Can the reviewer follow how inputs and decisions produced build outputs?
+        expected_evidence:
+          - build_inputs
+          - build_activity_log
+          - design_decisions
+          - artifact_construction_outputs
+      - check_id: bt_review_transparency_proportionality
+        question: Is transparency sufficient for review without imposing unreasonable risk or burden?
+        expected_evidence:
+          - transparency_evidence_inventory
+          - responsible_transparency_and_disclosure_limits
+      - check_id: bt_review_non_overclaiming
+        question: Are demonstration, evaluation, and contribution claims kept distinct?
+        expected_evidence:
+          - links_to_evaluation_and_contribution
+          - known_defects_or_limitations
+
+  traceability:
+    transparency_dimension_mapping:
+      primary_dimension: build_transparency
+      supporting_dimensions:
+        - process_transparency
+        - solution_space_transparency
+        - evaluation_transparency
+        - contribution_transparency
+      rationale: >
+        Build transparency is the primary dimension because the record documents
+        artifact creation, construction choices, reasoning, design search, and
+        collaboration. Process, solution-space, evaluation, and contribution
+        transparency are included only where they directly affect the build record.
+    trace_links:
+      - trace_id: bt_trace_001
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        source_anchor_id: CA09
+        supports: build_transparency_definition
+        evidence_status: mapped
+      - trace_id: bt_trace_002
+        source_id: hevner_et_al_2024_transparency_in_design_science_research
+        source_anchor_id: CA16
+        supports: six_transparency_feature_alignment
+        evidence_status: mapped
+      - trace_id: bt_trace_003
+        source_id: dsr_framework_generation_spec
+        source_anchor_id: qg_dsr_transparency
+        supports: quality_gate_alignment
+        evidence_status: mapped
+      - trace_id: bt_trace_004
+        source_id: dsr_process_journaling_source
+        source_anchor_id: A06
+        supports: concurrent_process_documentation
+        evidence_status: mapped_at_source_family_level
+    downstream_trace_targets:
+      - target_id: dsr_transparency_crosswalk
+        target_path: templates/dsr-transparency-crosswalk-template.yaml
+        expected_use: summarize or reference completed build transparency evidence
+      - target_id: evaluation_plan
+        target_path: templates/evaluation-plan-template.yaml
+        expected_use: identify build outputs requiring formative or summative evaluation
+      - target_id: contribution_claim
+        target_path: templates/contribution-claim-template.yaml
+        expected_use: prevent unsupported contribution claims based only on build completion
+
+  open_questions:
+    - question_id: bt_oq_001
+      question: "TODO: What evidence is still needed to make this build record reviewable?"
+      owner: "TODO: role_or_person"
+      due_date: "TODO: YYYY-MM-DD or not_set"
+      status: open
+    - question_id: bt_oq_002
+      question: "TODO: Which build details must be summarized or redacted for privacy, security, IP, or proprietary reasons?"
+      owner: "TODO: role_or_person"
+      due_date: "TODO: YYYY-MM-DD or not_set"
+      status: open
+
+  completion_status:
+    completed_by: "TODO: role_or_person"
+    completion_date: "TODO: YYYY-MM-DD"
+    review_status: "TODO: not_reviewed | self_reviewed | peer_reviewed | approved | needs_revision"
+    reviewer: "TODO: role_or_person_or_not_assigned"
+    reviewer_notes: "TODO: reviewer notes or not_applicable"

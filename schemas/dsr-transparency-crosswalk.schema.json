@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/dsr-transparency-crosswalk.schema.json",
+  "title": "DSR Transparency Crosswalk Schema",
+  "description": "Validates transparency crosswalk templates and retained transparency-crosswalk records. The template contract keeps dimension-level limitations and remediation actions as strings.",
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "transparency_crosswalk"
+      ]
+    },
+    {
+      "required": [
+        "record",
+        "scope",
+        "source_basis",
+        "evidence_crosswalk",
+        "quality_and_conformance",
+        "outcome",
+        "change_history"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "transparency_crosswalk": {
+      "type": "object",
+      "required": [
+        "item_id",
+        "item_type",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "owner",
+        "crosswalk_scope",
+        "dimensions",
+        "source_basis",
+        "related_items",
+        "traceability",
+        "change_history"
+      ],
+      "properties": {
+        "item_id": {},
+        "item_type": {},
+        "title": {},
+        "purpose": {},
+        "status": {},
+        "version": {},
+        "owner": {},
+        "conformance_target": {},
+        "crosswalk_scope": {},
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "dimension_id"
+            ],
+            "properties": {
+              "dimension_id": {
+                "type": "string"
+              },
+              "adequacy_assessment": {
+                "type": "object",
+                "properties": {
+                  "limitations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "remediation_actions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "acceptance_criteria": {},
+        "quality_gate_status": {},
+        "source_basis": {},
+        "related_items": {},
+        "traceability": {},
+        "open_questions": {},
+        "change_history": {}
+      },
+      "additionalProperties": true
+    },
+    "record": {},
+    "scope": {},
+    "source_basis": {},
+    "evidence_crosswalk": {},
+    "quality_and_conformance": {},
+    "outcome": {},
+    "change_history": {},
+    "completion_report": {},
+    "assumptions": {},
+    "open_questions": {},
+    "related_items": {},
+    "transparency_framework_reference": {},
+    "cross_dimension_findings": {}
+  }
+}

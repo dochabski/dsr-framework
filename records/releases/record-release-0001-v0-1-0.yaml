@@ -1,0 +1,527 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_0001_v0_1_0
+  record_class: release
+  item_type: record
+  title: 'Release Record: DSR Framework v0.1.0'
+  purpose: 'Preserve the first release record for the DSR Framework artifact package, including release identity, readiness
+    evidence, conformance posture, residual risks, retention obligations, and follow-up actions needed for archival and publication-ready
+    governance.
+
+    '
+  status: public_draft_release_prepared
+  version: 0.1.0
+  target_path: records/releases/record-release-0001-v0-1-0.yaml
+  selection_id: record_release_v0_1_0
+  conformance_target: l5_archival_publication_ready
+  event_or_action:
+    id: release_event_v0_1_0_record_creation
+    label: Create first release record for v0.1.0
+    event_type: release_record_creation
+    date: '2026-04-27'
+    release_tag: v0.1.0
+    release_name: DSR Framework v0.1.0
+    release_scope: 'Initial governed release of the DSR Framework package as a protocol-governed, reviewable, reusable, and
+      citable artifact package for planning, documenting, evaluating, reviewing, and publishing Design Science Research artifacts.
+
+      '
+    release_status: public_draft_release_prepared
+    release_status_rationale: The release is prepared for GitHub publication with open licensing, updated root metadata, source
+      traceability remediation, and a reserved Zenodo DOI. Final Zenodo publication remains pending explicit confirmation.
+  responsible_party:
+    role: repository_maintainer
+    name: David Ochabski
+    organization: null
+    github: dochabski
+    responsibility: Approve release tagging, preserve release records, and complete GitHub/Zenodo publication steps.
+  release_identity:
+    artifact_package_id: dsr_framework
+    artifact_package_title: DSR Framework
+    release_version: 0.1.0
+    semantic_versioning_assessment:
+      version_type: initial_minor_release
+      rationale: 'Version 0.1.0 indicates an initial public or pre-public governed release that may be reviewable and reusable
+        but is not yet declared stable as a mature 1.0.0 package.
+
+        '
+    intended_release_audiences:
+    - dsr_researchers
+    - artifact_authors
+    - reviewers
+    - editors
+    - repository_maintainers
+    - methodologists
+    - educators
+    release_artifact_class:
+      primary: compound_dsr_artifact
+      secondary:
+      - method_or_protocol_artifact
+      - model_or_taxonomy_artifact
+      - documentation_only
+      - data_or_information_artifact
+    repository_url: https://github.com/dochabski/dsr-framework
+    release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+    reserved_zenodo_doi: 10.5281/zenodo.19835424
+  release_basis:
+    governing_selection:
+      selection_id: record_release_v0_1_0
+      target_path: records/releases/record-release-0001-v0-1-0.yaml
+      portion_type: record
+      output_format: yaml
+      purpose: First release record.
+      default_conformance: L5
+      key_dependencies:
+      - release_readiness_checklist
+    source_basis:
+    - source_id: user_current_request
+      source_type: immediate_task_definition
+      use: Defines the selected record, target path, output format, and release-record purpose.
+      evidence_status: mapped_to_current_request
+    - source_id: dsr_framework_generation_prompt
+      source_type: project_generation_prompt
+      use: Provides generation procedure, record-file requirements, final response conventions, and quality expectations.
+      evidence_status: mapped_to_project_registry
+    - source_id: dsr_framework_generation_spec
+      source_type: generation_specification
+      use: Provides repository architecture, information item rules, record required fields, naming rules, quality gates,
+        and L5 conformance target vocabulary.
+      evidence_status: mapped_to_project_registry
+    - source_id: dsr_framework_selection_table
+      source_type: selection_registry
+      use: Confirms selected target path, record type, output format, purpose, conformance, and dependency.
+      evidence_status: mapped_to_project_registry
+    - source_id: release_readiness_checklist
+      source_type: checklist
+      use: Supplies readiness criteria that should be completed before final release approval.
+      evidence_status: not_yet_mapped
+    - source_id: dsr_corpus
+      source_type: scholarly_and_methodological_evidence_base
+      use: 'Supports the DSR Framework''s methodological basis, especially artifact transparency, contribution positioning,
+        evaluation, projectability, and publication/reporting norms.
+
+        '
+      evidence_status: referenced_indirectly
+    documentation_protocol_alignment:
+      repository_record_role: 'This file belongs in records/releases and functions as retained evidence of release identity,
+        release readiness assessment, release decision status, and post-release preservation obligations.
+
+        '
+      structured_source_of_truth: true
+  release_readiness_summary:
+    readiness_decision: go_for_public_draft_github_release
+    decision_label: Ready for v0.1.0 public draft GitHub release; Zenodo publication pending explicit confirmation.
+    decision_rationale: Root metadata, licensing, package inventory, crosswalk counts, citation metadata, and validation have
+      been updated. The release remains a draft under active validation and does not claim stable 1.0 maturity.
+    validation_counts:
+      total_corpus_sources: 71
+      source_basis_only_or_no_substantive_hits: 0
+      minimally_mapped_single_substantive_hit: 0
+      substantively_mapped_multi_file: 71
+      trace_objects_with_required_pattern: 142
+      evidence_status_counts:
+        substantive: 142
+  release_package_expectations:
+    expected_root_files:
+    - README.md
+    - LICENSE
+    - CITATION.cff
+    - CHANGELOG.md
+    - CONTRIBUTING.md
+    - GOVERNANCE.md
+    - SECURITY.md
+    - CODE_OF_CONDUCT.md
+    - .zenodo.json
+    - manifest.yaml
+    - metadata.yaml
+    - artifact-profile.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+    expected_canonical_directories:
+    - specs
+    - models
+    - vocabularies
+    - schemas
+    - templates
+    - checklists
+    - docs/protocol
+    - records/decisions
+    - records/design-decisions
+    - records/tailoring
+    - records/source-basis
+    - records/dsr-transparency
+    - records/contributions
+    - records/evaluations
+    - records/reviews
+    - records/releases
+    - records/preservation
+    - crosswalks
+    - examples
+    - .github/ISSUE_TEMPLATE
+    - .github/workflows
+    release_manifest_expectation: 'The release should be traceable from manifest.yaml, metadata.yaml, artifact-profile.yaml,
+      package-inventory.yaml, conformance-declaration.yaml, CHANGELOG.md, CITATION.cff, and any archive metadata files before
+      final public release declaration.
+
+      '
+  evidence:
+    evidence_items:
+    - evidence_id: ev_release_selection_row
+      evidence_type: selection_registry_entry
+      description: The selection table row identifies record_release_v0_1_0 as records/releases/record-release-0001-v0-1-0.yaml.
+      evidence_status: available
+      supports:
+      - qg_consistency
+      - qg_correspondence
+    - evidence_id: ev_generation_spec_record_rules
+      evidence_type: specification_rule
+      description: The generation specification requires records to include record identity, class, event/action, date, responsible
+        party, evidence, outcome, related items, and retention rule.
+      evidence_status: available
+      supports:
+      - qg_consistency
+      - qg_reviewability
+    - evidence_id: ev_generation_spec_l5_target
+      evidence_type: conformance_rule
+      description: The generation specification includes l5_archival_publication_ready as an allowed conformance target.
+      evidence_status: available
+      supports:
+      - qg_correspondence
+    - evidence_id: ev_release_readiness_checklist
+      evidence_type: checklist_result
+      description: Completed release-readiness checklist for v0.1.0.
+      evidence_status: not_yet_mapped
+      supports:
+      - qg_reviewability
+      - qg_coherence
+      - qg_dsr_transparency
+    - evidence_id: ev_repository_release_tag
+      evidence_type: repository_release
+      description: Repository release tag v0.1.0 and release notes.
+      evidence_status: TODO
+      supports:
+      - archival_publication_readiness
+    - evidence_id: ev_archive_or_registry_record
+      evidence_type: archive_or_registry_record
+      description: DOI, Zenodo, OSF, institutional repository, GitHub release archive, or equivalent archival record.
+      evidence_status: TODO
+      supports:
+      - archival_publication_readiness
+    - evidence_id: ev_package_validation_report
+      evidence_type: validation_report
+      description: Automated or manual validation report confirming schema, link, inventory, and metadata checks.
+      evidence_status: TODO
+      supports:
+      - qg_consistency
+      - qg_coherence
+      - qg_reviewability
+  outcome:
+    outcome_id: release_record_outcome_v0_1_0
+    result: release_record_created
+    decision: conditional_go
+    release_claim: 'The DSR Framework v0.1.0 release record has been created as a controlled release evidence record. Final
+      release approval remains conditional on package inventory alignment, release readiness checklist completion, repository
+      tag confirmation, archival metadata confirmation, and validation evidence attachment.
+
+      '
+    approved_actions:
+    - Add records/releases/record-release-0001-v0-1-0.yaml to the repository.
+    - Use this record as the release evidence spine for v0.1.0.
+    - Update package-inventory.yaml and release notes to reference this record.
+    - Complete or link the release readiness checklist before declaring final L5 release readiness.
+    deferred_actions:
+    - Assign final release approver.
+    - Verify archive or DOI metadata.
+    - Attach final package validation report.
+    - Finalize release tag and preservation record.
+  related_items:
+    upstream_dependencies:
+    - item_id: dsr_framework_generation_prompt
+      relationship: governed_by
+      path: dsr-framework-generation-prompt.md
+    - item_id: dsr_framework_generation_spec
+      relationship: governed_by
+      path: dsr-framework-generation-spec.yaml
+    - item_id: dsr_framework_selection_table
+      relationship: selected_from
+      path: dsr-framework-selection-table.md
+    - item_id: release_readiness_checklist
+      relationship: depends_on
+      path: checklists/publication-readiness-checklist.yaml
+      evidence_status: not_yet_mapped
+    package_control_files:
+    - item_id: root_manifest
+      relationship: should_reference_or_be_consistent_with
+      path: manifest.yaml
+    - item_id: root_metadata
+      relationship: should_reference_or_be_consistent_with
+      path: metadata.yaml
+    - item_id: root_artifact_profile
+      relationship: should_reference_or_be_consistent_with
+      path: artifact-profile.yaml
+    - item_id: root_package_inventory
+      relationship: should_include
+      path: package-inventory.yaml
+    - item_id: root_conformance_declaration
+      relationship: should_support_or_tailor
+      path: conformance-declaration.yaml
+    related_release_and_quality_records:
+    - item_id: record_source_basis
+      relationship: supports_source_basis
+      path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    - item_id: record_contribution_positioning
+      relationship: supports_contribution_claim
+      path: records/contributions/record-contribution-positioning-0001.yaml
+    - item_id: record_transparency_crosswalk
+      relationship: supports_transparency_evidence
+      path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+    - item_id: record_evaluation_plan
+      relationship: supports_evaluation_planning
+      path: records/evaluations/record-evaluation-plan-0001.yaml
+    - item_id: record_self_review
+      relationship: supports_quality_review
+      path: records/reviews/record-review-0001-self-review.yaml
+    - item_id: record_release_v0_1_0
+      relationship: is_this_record
+      path: records/releases/record-release-0001-v0-1-0.yaml
+  traceability:
+    trace_links:
+    - trace_id: tr_release_selection_to_file
+      source: record_release_v0_1_0
+      target: records/releases/record-release-0001-v0-1-0.yaml
+      relationship: generates
+      evidence_status: mapped
+    - trace_id: tr_release_record_to_quality_gates
+      source: record_release_0001_v0_1_0
+      target: quality_gates
+      relationship: records_release_review_status
+      evidence_status: mapped
+    - trace_id: tr_release_record_to_publication_readiness
+      source: record_release_0001_v0_1_0
+      target: checklists/publication-readiness-checklist.yaml
+      relationship: depends_on
+      evidence_status: not_yet_mapped
+    - trace_id: tr_release_record_to_package_inventory
+      source: record_release_0001_v0_1_0
+      target: package-inventory.yaml
+      relationship: must_be_listed_in
+      evidence_status: pending_verification
+    - trace_id: tr_release_record_to_preservation
+      source: record_release_0001_v0_1_0
+      target: records/preservation
+      relationship: should_be_followed_by
+      evidence_status: pending_creation_or_mapping
+  dsr_transparency_mapping:
+    process_transparency:
+      applicability: applicable
+      release_record_role: Records the release action, decision status, responsible party, and evidence trail.
+      evidence_status: mapped
+    problem_space_transparency:
+      applicability: applicable
+      release_record_role: Identifies the artifact package purpose, intended users, and release scope.
+      evidence_status: mapped
+    solution_space_transparency:
+      applicability: applicable
+      release_record_role: Links to the generation specification, selection table, DSR corpus, and documentation protocol
+        alignment.
+      evidence_status: mapped
+    build_transparency:
+      applicability: applicable
+      release_record_role: Identifies generated-file path, package placement, and unresolved build/package-validation evidence.
+      evidence_status: mapped
+    evaluation_transparency:
+      applicability: applicable
+      release_record_role: Requires release-readiness checklist, package validation, review records, and evaluation records.
+      evidence_status: partially_mapped
+    contribution_transparency:
+      applicability: applicable
+      release_record_role: Preserves the release claim, contribution posture, intended audiences, and limitations on the release
+        claim.
+      evidence_status: mapped
+  quality_gate_status:
+  - gate_id: qg_consistency
+    status: conditional_pass
+    rationale: 'The record uses the requested lower-kebab-case YAML path, controlled record metadata, release record class,
+      and canonical records/releases directory. Final consistency requires repository placement and inventory update.
+
+      '
+    evidence:
+    - ev_release_selection_row
+    - ev_generation_spec_record_rules
+    required_follow_up:
+    - Confirm file is committed at records/releases/record-release-0001-v0-1-0.yaml.
+    - Confirm package-inventory.yaml includes this record.
+  - gate_id: qg_coherence
+    status: conditional_pass
+    rationale: 'The record aligns with related release, review, evaluation, source-basis, transparency, and package-control
+      files by reference. Coherence remains conditional until those referenced files are verified as current.
+
+      '
+    evidence:
+    - ev_generation_spec_record_rules
+    required_follow_up:
+    - Review referenced files for exact IDs and version alignment.
+  - gate_id: qg_cogency
+    status: pass
+    rationale: 'The record distinguishes release identity, readiness basis, decision, outcome, evidence, follow-up actions,
+      limitations, and retention.
+
+      '
+    evidence:
+    - ev_release_selection_row
+  - gate_id: qg_correspondence
+    status: conditional_pass
+    rationale: 'The record corresponds to the selected first release record and the DSR Framework artifact package target.
+      Final L5 correspondence depends on archival and publication metadata confirmation.
+
+      '
+    evidence:
+    - ev_generation_spec_l5_target
+  - gate_id: qg_dsr_transparency
+    status: pass
+    rationale: 'The record explicitly maps release evidence to process, problem-space, solution-space, build, evaluation,
+      and contribution transparency.
+
+      '
+    evidence:
+    - ev_release_readiness_checklist
+  - gate_id: qg_reviewability
+    status: conditional_pass
+    rationale: 'The record includes acceptance criteria, validation requirements, evidence fields, and checklist dependencies.
+      Final reviewability requires completed checklist and validation artifacts.
+
+      '
+    evidence:
+    - ev_generation_spec_record_rules
+    - ev_release_readiness_checklist
+  validation_rules:
+    structural_validation:
+    - rule_id: val_release_record_required_fields
+      rule: The record must include record_id, record_class, event_or_action, date, responsible_party, evidence, outcome,
+        related_items, and retention_rule.
+      status: pass
+    - rule_id: val_release_path
+      rule: The file path must be records/releases/record-release-0001-v0-1-0.yaml.
+      status: pass
+    - rule_id: val_release_version
+      rule: The release version must be represented as v0.1.0 and 0.1.0 consistently.
+      status: pass
+    - rule_id: val_l5_not_overclaimed
+      rule: The record must distinguish L5 target conformance from confirmed L5 achievement when archival evidence is missing.
+      status: pass
+    content_validation:
+    - rule_id: val_evidence_status
+      rule: Unknown or unverified evidence must be marked TODO, pending_verification, or not_yet_mapped.
+      status: pass
+    - rule_id: val_release_decision
+      rule: The release decision must be explicit and must identify any conditions.
+      status: pass
+    - rule_id: val_traceability
+      rule: The release record must trace to selected row, governing sources, package inventory, quality gates, and preservation
+        obligations.
+      status: pass
+  acceptance_criteria:
+  - criterion_id: ac_release_identity_complete
+    criterion: Release identity includes package ID, version, release tag, release scope, audiences, and artifact class.
+    status: pass
+  - criterion_id: ac_release_evidence_preserved
+    criterion: Release evidence fields identify available, pending, and TODO evidence without inventing completion.
+    status: pass
+  - criterion_id: ac_release_quality_reviewable
+    criterion: Quality gates can be reviewed using explicit rationale, evidence, and required follow-up.
+    status: pass
+  - criterion_id: ac_release_archival_conditioned
+    criterion: Archival and publication readiness are not overclaimed without DOI, tag, repository, archive, and validation
+      evidence.
+    status: pass
+  - criterion_id: ac_release_inventory_linked
+    criterion: The record identifies package-inventory.yaml as a file that must include this release record.
+    status: pass
+  limitations:
+  - limitation_id: lim_no_repository_inspection
+    description: 'This record was created without inspecting the user''s Dropbox repository copy or confirming whether every
+      referenced framework file exists at the final repository path.
+
+      '
+    effect: Readiness status remains conditional rather than fully approved.
+  - limitation_id: lim_no_archive_confirmation
+    description: 'No DOI, Zenodo, GitHub release, OSF, institutional repository, or other archival publication metadata has
+      been confirmed in this record.
+
+      '
+    effect: L5 archival/publication-ready status remains a target posture, not a verified final state.
+  - limitation_id: lim_checklist_not_attached
+    description: 'The release readiness checklist is named as a dependency but its completed review results are not embedded
+      here.
+
+      '
+    effect: Release approval should remain conditional until checklist evidence is linked.
+  open_questions:
+  - question_id: oq_release_approver
+    question: Who is the named release approver or maintaining organization for v0.1.0?
+    resolution_status: open
+  - question_id: oq_release_tag
+    question: Has the v0.1.0 repository tag been created and linked to release notes?
+    resolution_status: open
+  - question_id: oq_archive_doi
+    question: Will v0.1.0 be deposited in Zenodo, OSF, an institutional repository, or another archival registry?
+    resolution_status: open
+  - question_id: oq_validation_report
+    question: Where is the package validation report for schema, inventory, link, and metadata checks?
+    resolution_status: open
+  - question_id: oq_release_checklist
+    question: Where is the completed release or publication readiness checklist evidence?
+    resolution_status: open
+  retention_rule:
+    retention_id: ret_release_records_permanent
+    retention_period: permanent
+    retention_rationale: 'Release records are retained as permanent governance, provenance, citation, preservation, and audit
+      evidence for the artifact package.
+
+      '
+    disposition: preserve_with_release_archive
+    minimum_preservation_targets:
+    - source_repository
+    - release_archive
+    - package_inventory
+    - citation_metadata
+    supersession_rule: 'Future release records may supersede v0.1.0 for current-use purposes, but this record should not be
+      deleted because it preserves release history.
+
+      '
+  change_history:
+  - version: 0.1.0
+    date: '2026-04-27'
+    change_type: created
+    changed_by: GPT-5.5 Thinking
+    description: Created first release record for DSR Framework v0.1.0.
+    related_request: record_release_v0_1_0
+  completion_report:
+    generated_selection_id: record_release_v0_1_0
+    generated_path: records/releases/record-release-0001-v0-1-0.yaml
+    item_type: record
+    output_format: yaml
+    conformance_target: l5_archival_publication_ready
+    dependencies_used:
+    - dsr_framework_generation_prompt
+    - dsr_framework_generation_spec
+    - dsr_framework_selection_table
+    - release_readiness_checklist_dependency
+    assumptions:
+    - The release record should be created as a conservative retained record rather than claiming final external archival
+      completion.
+    - The package version for the first release is v0.1.0.
+    - Unverified repository, archive, DOI, and validation facts should remain marked pending or TODO.
+    open_questions:
+    - oq_release_approver
+    - oq_release_tag
+    - oq_archive_doi
+    - oq_validation_report
+    - oq_release_checklist
+    quality_gate_status:
+      consistency: conditional_pass
+      coherence: conditional_pass
+      cogency: pass
+      correspondence: conditional_pass
+      dsr_transparency: pass
+      reviewability: conditional_pass
+    next_recommended_file: records/preservation/record-preservation-0001-v0-1-0.yaml

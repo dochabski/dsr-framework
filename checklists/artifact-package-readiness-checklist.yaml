@@ -1,0 +1,755 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: artifact_package_readiness_checklist
+  item_id: artifact_package_readiness_checklist
+  item_type: procedure
+  title: Artifact Package Readiness Checklist
+  purpose: >
+    Provide a reviewable L2 checklist for determining whether a Design Science
+    Research artifact package is ready for structured review, reuse, repository
+    integration, and later release-readiness assessment.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  target_path: checklists/artifact-package-readiness-checklist.yaml
+  selection_id: checklist_package_readiness
+  conformance_target: l2_reviewable
+  applies_to:
+    - compound_dsr_artifact_package
+    - method_or_protocol_artifact_package
+    - model_or_taxonomy_artifact_package
+    - documentation_only_artifact_package
+    - data_or_information_artifact_package
+  review_scope:
+    included:
+      - repository_structure
+      - package_identity
+      - controlled_information_items
+      - evidence_records
+      - artifact_profile
+      - conformance_declaration
+      - package_inventory
+      - source_basis
+      - transparency_coverage
+      - quality_reviewability
+      - reuse_constraints
+    excluded:
+      - archival_publication_release_approval
+      - doi_registration
+      - long_term_preservation_audit
+      - journal_submission_decision
+    exclusion_rationale: >
+      This checklist is scoped to L2 reviewability. Publication, DOI, archival,
+      and long-term preservation decisions should be handled by the publication
+      readiness and release checklists.
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      role: generation_and_quality_rules
+      evidence_status: mapped
+      notes: >
+        Establishes repository directories, naming rules, required metadata,
+        checklist item fields, traceability, and quality gates.
+    - source_id: dsr_framework_generation_prompt
+      role: generation_procedure_and_required_checklist_shape
+      evidence_status: mapped
+      notes: >
+        Requires checklist files to use stable check IDs, review questions,
+        evidence required, pass/fail conditions, and remediation guidance.
+    - source_id: spec_artifact_package
+      role: upstream_artifact_package_requirements
+      evidence_status: not_yet_mapped
+      notes: >
+        Expected upstream dependency for package contents, evidence, examples,
+        records, and conformance obligations.
+    - source_id: dsr_extraction_corpus
+      role: scholarly_and_methodological_evidence_base
+      evidence_status: partially_mapped
+      notes: >
+        Supports DSR distinctions among artifact utility, artifact quality,
+        knowledge contribution, transparency, evaluation, validity, reliability,
+        replication, and projectability.
+  related_items:
+    upstream_dependencies:
+      - id: spec_artifact_package
+        path: specs/product-dsr-artifact-package-specification.yaml
+        relationship: defines_package_content_and_obligations
+      - id: spec_repository_architecture
+        path: specs/product-dsr-repository-architecture.yaml
+        relationship: defines_repository_structure_and_file_responsibilities
+      - id: spec_quality_review
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relationship: defines_quality_gates_and_review_model
+      - id: model_transparency
+        path: models/dsr-transparency-model.yaml
+        relationship: defines_transparency_dimensions
+      - id: model_evaluation_alignment
+        path: models/dsr-evaluation-alignment-model.yaml
+        relationship: defines_evaluation_claim_alignment
+    downstream_uses:
+      - id: record_self_review
+        path: records/reviews/record-review-0001-self-review.yaml
+        relationship: may_record_results_from_this_checklist
+      - id: checklist_publication_readiness
+        path: checklists/publication-readiness-checklist.yaml
+        relationship: uses_package_readiness_as_input
+      - id: root_package_inventory
+        path: package-inventory.yaml
+        relationship: should_reference_this_checklist_as_a_validation_resource
+  scoring:
+    scale:
+      - value: pass
+        definition: Evidence is present, adequate for L2 review, and internally coherent.
+      - value: conditional_pass
+        definition: Evidence is present but minor remediation is needed before reuse or release.
+      - value: fail
+        definition: Required evidence is absent, contradictory, or not reviewable.
+      - value: not_applicable
+        definition: The check is outside the package scope and the rationale is documented.
+    readiness_rule: >
+      A package is L2 reviewable when all mandatory checks are pass or justified
+      not_applicable, and no blocking conditional_pass items remain unresolved.
+    blocking_failure_rule: >
+      Any fail on package identity, inventory, conformance declaration, artifact
+      profile, source basis, licensing, or evaluation/contribution separation blocks
+      package readiness.
+  review_workflow:
+    - step_id: collect_package_files
+      description: Confirm the repository files to be reviewed and the package boundary.
+      output: package_file_set
+    - step_id: verify_control_files
+      description: Review root metadata, artifact profile, package inventory, and conformance declaration.
+      output: package_control_status
+    - step_id: review_artifact_and_evidence
+      description: Review artifact description, source basis, evaluation evidence, contribution claims, and records.
+      output: evidence_review_status
+    - step_id: assess_quality_gates
+      description: Apply consistency, coherence, cogency, correspondence, DSR transparency, and reviewability checks.
+      output: quality_gate_status
+    - step_id: record_findings
+      description: Preserve findings in a review record and update package inventory if needed.
+      output: review_record
+  mandatory_checks:
+    - aprc_001_package_boundary
+    - aprc_002_repository_structure
+    - aprc_003_root_control_files
+    - aprc_004_package_inventory
+    - aprc_005_artifact_profile
+    - aprc_006_conformance_declaration
+    - aprc_007_source_basis
+    - aprc_008_traceability
+    - aprc_009_artifact_specification
+    - aprc_010_templates_and_examples
+    - aprc_011_demonstration_evaluation_separation
+    - aprc_012_evaluation_evidence
+    - aprc_013_contribution_claims
+    - aprc_014_transparency_coverage
+    - aprc_015_quality_gate_evidence
+    - aprc_016_validation_and_schema_alignment
+    - aprc_017_reuse_constraints
+    - aprc_018_records_retention
+    - aprc_019_accessibility_and_readability
+    - aprc_020_known_limitations
+  items:
+    - check_id: aprc_001_package_boundary
+      category: package_identity
+      question: Is the artifact package boundary explicitly defined?
+      mandatory: true
+      evidence_required:
+        - manifest.yaml or equivalent package manifest
+        - artifact-profile.yaml
+        - package-inventory.yaml
+        - statement of included and excluded package contents
+      pass_condition: >
+        The package identifies what is in scope, what is out of scope, and which
+        files constitute the reviewable artifact package.
+      fail_condition: >
+        The reviewer cannot determine whether a file, record, schema, template,
+        example, or evidence item belongs to the package.
+      remediation_guidance: >
+        Add or revise the manifest, artifact profile, and package inventory so
+        that the package boundary is explicit and file responsibilities are clear.
+      traceability:
+        - trace_id: aprc_001_to_root_manifest
+          related_item: manifest.yaml
+          relation: checks_package_identity
+        - trace_id: aprc_001_to_artifact_profile
+          related_item: artifact-profile.yaml
+          relation: checks_artifact_scope
+
+    - check_id: aprc_002_repository_structure
+      category: repository_architecture
+      question: Does the package follow the canonical repository directory structure and file naming rules?
+      mandatory: true
+      evidence_required:
+        - repository tree
+        - canonical directory list
+        - naming convention review
+        - package-inventory.yaml
+      pass_condition: >
+        Controlled files use the expected directories, lower-kebab-case filenames,
+        and appropriate file extensions for YAML, Markdown, and JSON Schema files.
+      fail_condition: >
+        Controlled files are placed in noncanonical directories, named inconsistently,
+        or stored in formats that conflict with their intended item type.
+      remediation_guidance: >
+        Rename and relocate files according to the repository architecture, then
+        update package inventory and links.
+      traceability:
+        - trace_id: aprc_002_to_repo_architecture
+          related_item: specs/product-dsr-repository-architecture.yaml
+          relation: checks_structure_conformance
+
+    - check_id: aprc_003_root_control_files
+      category: package_control
+      question: Are the root package-control files present or explicitly marked as not yet required for the current conformance level?
+      mandatory: true
+      evidence_required:
+        - README.md
+        - manifest.yaml
+        - metadata.yaml
+        - artifact-profile.yaml
+        - package-inventory.yaml
+        - conformance-declaration.yaml
+        - license or licensing statement
+        - citation metadata where available
+      pass_condition: >
+        Required root control files are present, internally consistent, and aligned
+        with the declared L2 reviewable package status; any deferred L4/L5 release
+        files are explicitly deferred.
+      fail_condition: >
+        Core control files are absent, inconsistent, or do not identify the same
+        package, version, owner, and conformance target.
+      remediation_guidance: >
+        Create or reconcile root control files before reviewing lower-level
+        templates, models, schemas, records, or examples.
+      traceability:
+        - trace_id: aprc_003_to_package_control
+          related_item: root_package_control_files
+          relation: verifies_control_file_presence
+
+    - check_id: aprc_004_package_inventory
+      category: package_inventory
+      question: Does the package inventory list all controlled files, their roles, and validation responsibilities?
+      mandatory: true
+      evidence_required:
+        - package-inventory.yaml
+        - repository file tree
+        - validation responsibility fields
+        - status fields for each listed file
+      pass_condition: >
+        Every controlled file is listed with a stable ID, path, item type, status,
+        owner or responsible role, validation responsibility, and relationship to
+        package readiness.
+      fail_condition: >
+        Controlled files are missing from the inventory, duplicated, unidentified,
+        or not linked to validation or review responsibilities.
+      remediation_guidance: >
+        Update the inventory and reconcile file IDs before marking the package as
+        ready for review.
+      traceability:
+        - trace_id: aprc_004_to_inventory_schema
+          related_item: schemas/package-inventory.schema.json
+          relation: checks_inventory_reviewability
+
+    - check_id: aprc_005_artifact_profile
+      category: artifact_identity
+      question: Does the artifact profile define the artifact identity, type, purpose, scope, claims, and reuse constraints?
+      mandatory: true
+      evidence_required:
+        - artifact-profile.yaml
+        - artifact type classification
+        - artifact purpose statement
+        - claim summary
+        - reuse or adaptation constraints
+      pass_condition: >
+        The artifact profile provides enough information for a reviewer to know
+        what artifact is being evaluated, what it claims to contribute, and how it
+        may be reused or adapted.
+      fail_condition: >
+        The package contains files but lacks a coherent artifact identity, artifact
+        type, artifact boundary, contribution claim, or reuse statement.
+      remediation_guidance: >
+        Revise the artifact profile to distinguish artifact type, artifact instance,
+        reusable design knowledge, expected users, and reuse constraints.
+      traceability:
+        - trace_id: aprc_005_to_artifact_ontology
+          related_item: models/dsr-artifact-ontology.yaml
+          relation: checks_artifact_identity
+
+    - check_id: aprc_006_conformance_declaration
+      category: conformance
+      question: Is the declared conformance level explicit, justified, and consistent with the package evidence?
+      mandatory: true
+      evidence_required:
+        - conformance-declaration.yaml
+        - conformance target
+        - tailoring statement
+        - evidence supporting current level
+        - unresolved gaps or exclusions
+      pass_condition: >
+        The package declares L2 reviewable status or another selected level, states
+        any tailoring, and does not claim a higher level than the evidence supports.
+      fail_condition: >
+        The package claims readiness, reusability, publication readiness, or archival
+        readiness without corresponding evidence, validation, or release records.
+      remediation_guidance: >
+        Revise the conformance declaration to match actual evidence and defer
+        higher-level claims until validation and release evidence exists.
+      traceability:
+        - trace_id: aprc_006_to_quality_model
+          related_item: specs/product-dsr-quality-conformance-and-review-model.yaml
+          relation: checks_conformance_claim
+
+    - check_id: aprc_007_source_basis
+      category: evidence_basis
+      question: Is the scholarly, methodological, and protocol source basis documented without invented evidence?
+      mandatory: true
+      evidence_required:
+        - source_basis entries
+        - citation anchors or source IDs
+        - evidence_status values
+        - record-source-basis file where available
+      pass_condition: >
+        Substantive DSR, protocol, quality, and artifact claims point to mapped
+        sources or are marked evidence_status: not_yet_mapped when evidence is not
+        yet available.
+      fail_condition: >
+        The package makes unsupported claims, uses uncited scholarly assertions, or
+        invents bibliographic evidence.
+      remediation_guidance: >
+        Add traceable source IDs, citation anchors, or evidence_status placeholders;
+        remove or qualify unsupported claims.
+      traceability:
+        - trace_id: aprc_007_to_source_basis_record
+          related_item: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+          relation: checks_evidence_grounding
+
+    - check_id: aprc_008_traceability
+      category: traceability
+      question: Are upstream dependencies, downstream uses, and evidence links traceable?
+      mandatory: true
+      evidence_required:
+        - related_items fields
+        - traceability objects
+        - dependency map
+        - links from templates/checklists/schemas to governing specs or models
+      pass_condition: >
+        A reviewer can follow each controlled item's relationship to upstream
+        requirements, source evidence, downstream use, and validation checks.
+      fail_condition: >
+        Files contain isolated assertions or reusable artifacts with no dependency,
+        evidence, or downstream-use mapping.
+      remediation_guidance: >
+        Add traceability objects with stable trace IDs and update related_items
+        across affected files.
+      traceability:
+        - trace_id: aprc_008_to_generation_spec
+          related_item: dsr_framework_generation_spec
+          relation: checks_traceability_rules
+
+    - check_id: aprc_009_artifact_specification
+      category: artifact_specification
+      question: Is there a usable artifact specification that describes components, use logic, boundary, and version?
+      mandatory: true
+      evidence_required:
+        - templates/artifact-specification-template.md or completed artifact specification
+        - component list
+        - use logic
+        - boundary conditions
+        - version identifier
+      pass_condition: >
+        The package includes a clear artifact specification or template that can be
+        completed without hidden assumptions and can support evaluation planning.
+      fail_condition: >
+        The artifact is described only narratively or generally, with no component,
+        use, boundary, or version information.
+      remediation_guidance: >
+        Add an artifact specification and align it with the artifact profile,
+        evaluation plan, contribution claim, and package inventory.
+      traceability:
+        - trace_id: aprc_009_to_artifact_spec_template
+          related_item: templates/artifact-specification-template.md
+          relation: checks_artifact_specification_presence
+
+    - check_id: aprc_010_templates_and_examples
+      category: operating_materials
+      question: Are reusable templates and examples identified without confusing examples for required package files?
+      mandatory: true
+      evidence_required:
+        - templates directory
+        - examples directory or example deferral statement
+        - package inventory role labels
+        - template usage notes
+      pass_condition: >
+        Templates are reusable operating materials; examples are clearly labeled as
+        demonstrations or optional support material and not treated as required
+        control files unless the package explicitly declares them required.
+      fail_condition: >
+        The package depends on examples as if they were controlled source-of-truth
+        files, or templates are incomplete without explanation.
+      remediation_guidance: >
+        Label files by role, move demonstration material to examples where
+        appropriate, and update inventory responsibilities.
+      traceability:
+        - trace_id: aprc_010_to_templates_spec
+          related_item: specs/product-dsr-templates-and-checklists.yaml
+          relation: checks_operating_materials
+
+    - check_id: aprc_011_demonstration_evaluation_separation
+      category: dsr_distinctions
+      question: Does the package distinguish demonstration from evaluation?
+      mandatory: true
+      evidence_required:
+        - demonstration record or template
+        - evaluation plan or report
+        - claim-to-evidence mapping
+        - explicit distinction between use scenario and evaluative evidence
+      pass_condition: >
+        Demonstration shows or records artifact use, while evaluation assesses
+        artifact utility, quality, effectiveness, validity, or contribution evidence
+        against explicit criteria.
+      fail_condition: >
+        Demonstration examples are used as evaluation evidence without criteria,
+        data, reviewer judgment, or method justification.
+      remediation_guidance: >
+        Separate demonstration records from evaluation plans/reports and add
+        evaluation criteria, methods, and evidence requirements.
+      traceability:
+        - trace_id: aprc_011_to_lifecycle_model
+          related_item: models/dsr-lifecycle-model.yaml
+          relation: checks_demonstration_evaluation_distinction
+
+    - check_id: aprc_012_evaluation_evidence
+      category: evaluation
+      question: Is evaluation evidence planned, recorded, or explicitly marked as not yet available?
+      mandatory: true
+      evidence_required:
+        - evaluation-plan-template.yaml or completed evaluation plan
+        - evaluation-report-template.yaml or completed evaluation report
+        - evaluation criteria
+        - evidence status
+        - limitations or threats to validity
+      pass_condition: >
+        The package contains planned or completed evaluation evidence sufficient
+        for the declared conformance level, and it avoids overclaiming when
+        evaluation has not yet occurred.
+      fail_condition: >
+        The package claims that the artifact works, is reusable, is valid, or is
+        publication-ready without evaluation planning or evidence.
+      remediation_guidance: >
+        Add an evaluation plan, map claims to evaluation methods and criteria, and
+        mark untested claims as not_yet_evaluated.
+      traceability:
+        - trace_id: aprc_012_to_evaluation_alignment
+          related_item: models/dsr-evaluation-alignment-model.yaml
+          relation: checks_evaluation_evidence
+
+    - check_id: aprc_013_contribution_claims
+      category: contribution
+      question: Are contribution claims explicit, bounded, and aligned with evidence?
+      mandatory: true
+      evidence_required:
+        - contribution claim template or completed contribution claim
+        - contribution positioning record
+        - knowledge goal and knowledge scope classification
+        - source basis for contribution claims
+      pass_condition: >
+        Contribution claims distinguish practice utility, artifact quality, design
+        knowledge, methodological contribution, and scholarly contribution without
+        overstating generality.
+      fail_condition: >
+        The package asserts contribution, novelty, projectability, or scholarly value
+        without a bounded claim, classification, or supporting evidence.
+      remediation_guidance: >
+        Add a contribution claim record and map each claim to evidence, evaluation,
+        source basis, and boundary conditions.
+      traceability:
+        - trace_id: aprc_013_to_contribution_model
+          related_item: models/dsr-contribution-model.yaml
+          relation: checks_contribution_claim_alignment
+
+    - check_id: aprc_014_transparency_coverage
+      category: transparency
+      question: Does the package address relevant DSR transparency dimensions?
+      mandatory: true
+      evidence_required:
+        - process transparency evidence
+        - problem-space transparency evidence
+        - solution-space transparency evidence
+        - build transparency evidence
+        - evaluation transparency evidence
+        - contribution transparency evidence
+        - not_applicable rationales where relevant
+      pass_condition: >
+        The package identifies how it supports process, problem-space, solution-space,
+        build, evaluation, and contribution transparency, or documents justified
+        exclusions.
+      fail_condition: >
+        The package cannot be reviewed for transparency because key DSR dimensions
+        are absent, hidden, or not mapped.
+      remediation_guidance: >
+        Add a DSR transparency crosswalk or checklist results and map package files
+        to each transparency dimension.
+      traceability:
+        - trace_id: aprc_014_to_transparency_model
+          related_item: models/dsr-transparency-model.yaml
+          relation: checks_transparency_coverage
+
+    - check_id: aprc_015_quality_gate_evidence
+      category: quality_and_conformance
+      question: Are consistency, coherence, cogency, correspondence, DSR transparency, and reviewability assessed?
+      mandatory: true
+      evidence_required:
+        - quality gate statuses
+        - acceptance criteria
+        - review notes
+        - unresolved issues
+      pass_condition: >
+        Each quality gate has a pass, conditional_pass, fail, or not_applicable
+        status with enough evidence for independent review.
+      fail_condition: >
+        The package claims readiness without explicit quality gate evidence or
+        review criteria.
+      remediation_guidance: >
+        Apply the quality gates, record results in a review record, and resolve
+        blocking failures before declaring readiness.
+      traceability:
+        - trace_id: aprc_015_to_quality_gates
+          related_item: dsr_framework_generation_spec.quality_gates
+          relation: checks_quality_gate_reviewability
+
+    - check_id: aprc_016_validation_and_schema_alignment
+      category: validation
+      question: Are schemas, templates, and structured records aligned for reviewable validation?
+      mandatory: true
+      evidence_required:
+        - schemas directory
+        - corresponding templates or records
+        - validation notes
+        - known schema gaps
+      pass_condition: >
+        Structured YAML/JSON files have corresponding schema or validation guidance
+        where stable, and known validation gaps are documented.
+      fail_condition: >
+        Templates, records, or package metadata cannot be validated because their
+        fields are unstable, undocumented, or inconsistent with schemas.
+      remediation_guidance: >
+        Add or revise schemas, document validation rules, and update templates to
+        match the current schema shape.
+      traceability:
+        - trace_id: aprc_016_to_automation_validation
+          related_item: specs/product-dsr-automation-and-validation-model.yaml
+          relation: checks_validation_alignment
+
+    - check_id: aprc_017_reuse_constraints
+      category: reuse_and_rights
+      question: Are reuse permissions, constraints, dependencies, and risks documented?
+      mandatory: true
+      evidence_required:
+        - license file or licensing statement
+        - reuse constraints in artifact profile
+        - dependency list
+        - security, privacy, proprietary, or ethical restrictions where applicable
+      pass_condition: >
+        A user can determine whether and how the artifact package may be reused,
+        adapted, redistributed, cited, or extended.
+      fail_condition: >
+        The package leaves reuse status ambiguous or omits material restrictions,
+        dependencies, privacy concerns, security concerns, or proprietary limits.
+      remediation_guidance: >
+        Add licensing and reuse notes, identify constraints in the artifact profile,
+        and document any restricted components or data.
+      traceability:
+        - trace_id: aprc_017_to_artifact_profile
+          related_item: artifact-profile.yaml
+          relation: checks_reuse_constraints
+
+    - check_id: aprc_018_records_retention
+      category: records
+      question: Are retained records present for decisions, reviews, evaluations, releases, tailoring, or preservation actions that have occurred?
+      mandatory: true
+      evidence_required:
+        - records directory
+        - review records
+        - evaluation records
+        - decision or tailoring records where applicable
+        - retention rules
+      pass_condition: >
+        Completed actions are preserved as records, and future or incomplete actions
+        are not misrepresented as completed evidence.
+      fail_condition: >
+        The package relies on undocumented decisions, missing reviews, unrecorded
+        evaluations, or future plans presented as completed records.
+      remediation_guidance: >
+        Add retained records for completed actions and create plans or TODO notes
+        for actions not yet performed.
+      traceability:
+        - trace_id: aprc_018_to_records_model
+          related_item: records/
+          relation: checks_retained_evidence
+
+    - check_id: aprc_019_accessibility_and_readability
+      category: accessibility
+      question: Is the package readable, navigable, and usable by its intended scholarly and practitioner audiences?
+      mandatory: true
+      evidence_required:
+        - README.md
+        - human-facing docs
+        - controlled vocabulary definitions
+        - plain-language summaries where appropriate
+        - navigation links or file map
+      pass_condition: >
+        A reviewer can navigate the package, understand controlled terms, and find
+        the relevant artifact, evidence, templates, schemas, and records without
+        hidden context.
+      fail_condition: >
+        The package is technically present but difficult to use because terms,
+        paths, file roles, or evidence relationships are unclear.
+      remediation_guidance: >
+        Add or revise README content, documentation pages, vocabulary definitions,
+        and inventory links.
+      traceability:
+        - trace_id: aprc_019_to_docs_overview
+          related_item: docs/protocol/00-framework-overview.md
+          relation: checks_package_usability
+
+    - check_id: aprc_020_known_limitations
+      category: limitations
+      question: Are limitations, non-goals, open questions, and deferred readiness claims explicit?
+      mandatory: true
+      evidence_required:
+        - limitations section
+        - open_questions fields
+        - non-goals
+        - deferred higher-conformance claims
+      pass_condition: >
+        The package clearly states what it does not yet support, which claims remain
+        unevaluated, and which higher-level readiness activities are deferred.
+      fail_condition: >
+        The package presents itself as complete, validated, reusable, or publication-ready
+        while known gaps or unevaluated claims remain implicit.
+      remediation_guidance: >
+        Add limitations, non-goals, open questions, and conformance-tailoring notes
+        to the relevant control files.
+      traceability:
+        - trace_id: aprc_020_to_conformance_declaration
+          related_item: conformance-declaration.yaml
+          relation: checks_limitations_and_tailoring
+
+  package_level_acceptance_criteria:
+    - criterion_id: aprc_accept_001_no_blocking_failures
+      statement: No mandatory checklist item has status fail.
+      evidence_required:
+        - completed checklist results
+        - review record
+    - criterion_id: aprc_accept_002_control_files_aligned
+      statement: Manifest, metadata, artifact profile, package inventory, and conformance declaration identify the same package and version.
+      evidence_required:
+        - root control files
+        - consistency review notes
+    - criterion_id: aprc_accept_003_claims_bounded
+      statement: Artifact utility, artifact quality, and knowledge contribution claims are bounded and evidence-aligned.
+      evidence_required:
+        - contribution claim record
+        - evaluation plan or report
+        - source_basis mapping
+    - criterion_id: aprc_accept_004_transparency_mapped
+      statement: Relevant DSR transparency dimensions are mapped to package files or justified as not applicable.
+      evidence_required:
+        - transparency crosswalk or checklist results
+    - criterion_id: aprc_accept_005_reuse_status_clear
+      statement: Reuse permissions and constraints are clear enough for a prospective adopter or reviewer.
+      evidence_required:
+        - license or reuse statement
+        - artifact profile reuse constraints
+  validation_rules:
+    - rule_id: aprc_val_001_required_fields
+      statement: >
+        Each checklist item must include check_id, question, evidence_required,
+        pass_condition, fail_condition, and remediation_guidance.
+      severity: error
+    - rule_id: aprc_val_002_stable_ids
+      statement: Checklist, item, trace, and criterion IDs must use lower_snake_case.
+      severity: error
+    - rule_id: aprc_val_003_mandatory_checks
+      statement: All mandatory check IDs must appear in the items list exactly once.
+      severity: error
+    - rule_id: aprc_val_004_no_overclaiming
+      statement: >
+        Conformance, evaluation, reusability, publication, or archival claims must
+        not exceed the evidence listed in source_basis, records, and evaluation files.
+      severity: error
+    - rule_id: aprc_val_005_not_applicable_rationale
+      statement: Any not_applicable result must include a rationale.
+      severity: warning
+  transparency_dimension_mapping:
+    process_transparency:
+      covered_by:
+        - aprc_008_traceability
+        - aprc_018_records_retention
+      role: Checks that process evidence and decisions are traceable and retained.
+    problem_space_transparency:
+      covered_by:
+        - aprc_005_artifact_profile
+        - aprc_020_known_limitations
+      role: Checks that artifact purpose, scope, boundaries, and limitations are explicit.
+    solution_space_transparency:
+      covered_by:
+        - aprc_007_source_basis
+        - aprc_009_artifact_specification
+      role: Checks that the artifact is grounded in source evidence and design specification.
+    build_transparency:
+      covered_by:
+        - aprc_009_artifact_specification
+        - aprc_018_records_retention
+      role: Checks that artifact construction choices and records can be reviewed.
+    evaluation_transparency:
+      covered_by:
+        - aprc_011_demonstration_evaluation_separation
+        - aprc_012_evaluation_evidence
+      role: Checks that evaluation is explicit and not conflated with demonstration.
+    contribution_transparency:
+      covered_by:
+        - aprc_013_contribution_claims
+        - aprc_015_quality_gate_evidence
+      role: Checks that contribution claims are bounded, reviewable, and evidence-aligned.
+  assumptions:
+    - assumption_id: aprc_assumption_001_l2_scope
+      statement: >
+        This checklist is designed for L2 reviewable package readiness, not final
+        L4 reuse approval or L5 archival publication readiness.
+    - assumption_id: aprc_assumption_002_package_spec_dependency
+      statement: >
+        The upstream artifact package specification will provide more detailed
+        package-content obligations when available or finalized.
+    - assumption_id: aprc_assumption_003_protocol_alignment
+      statement: >
+        The package follows the repository architecture and information item rules
+        defined by the DSR Framework Generation Specification and the Documentation
+        Protocol model.
+  limitations:
+    - limitation_id: aprc_limitation_001_no_release_approval
+      statement: This checklist does not approve a public release, DOI deposit, or archival preservation package.
+    - limitation_id: aprc_limitation_002_no_empirical_validation
+      statement: Passing this checklist does not mean the artifact itself has been empirically evaluated.
+    - limitation_id: aprc_limitation_003_schema_gaps_possible
+      statement: Some package files may remain reviewable before full schema validation exists.
+  open_questions:
+    - question_id: aprc_oq_001_thresholds
+      question: Should later conformance levels define numeric thresholds for conditional passes?
+      disposition: defer_to_quality_review_model
+    - question_id: aprc_oq_002_automation
+      question: Which checks should become automated once schemas and link validators are stable?
+      disposition: defer_to_automation_validation_model
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial draft generated for checklist_package_readiness.
+      responsible_party: GPT-5.5 Thinking

@@ -1,0 +1,1378 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_implementation_roadmap
+  item_id: product_dsr_implementation_roadmap
+  item_type: specification
+  selection_id: spec_implementation_roadmap
+  title: DSR Implementation Roadmap Product Specification
+  purpose: >
+    Specify the development phases, pilot structure, release path, backlog controls,
+    and review gates for implementing the DSR Framework as a protocol-governed,
+    GitHub-publishable artifact package.
+  status: draft
+  version: "0.1.0"
+  target_path: specs/product-dsr-implementation-roadmap.yaml
+  output_format: yaml
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+  responsible_roles:
+    - role_id: product_owner
+      responsibility: Own roadmap priorities, phase sequencing, and release scope.
+    - role_id: maintainer
+      responsibility: Maintain product catalog alignment, backlog records, and release readiness evidence.
+    - role_id: reviewer
+      responsibility: Review roadmap coherence, acceptance criteria, and evidence sufficiency before releases.
+    - role_id: pilot_user
+      responsibility: Apply the framework in representative DSR use cases and provide structured feedback.
+  related_items:
+    upstream_dependencies:
+      - item_id: product_catalog
+        path: specs/product-catalog.yaml
+        relationship: primary_dependency
+      - item_id: product_dsr_repository_architecture
+        path: specs/product-dsr-repository-architecture.yaml
+        relationship: repository_structure_dependency
+      - item_id: product_dsr_artifact_package_specification
+        path: specs/product-dsr-artifact-package-specification.yaml
+        relationship: package_scope_dependency
+      - item_id: product_dsr_quality_conformance_and_review_model
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relationship: quality_gate_dependency
+      - item_id: product_dsr_automation_and_validation_model
+        path: specs/product-dsr-automation-and-validation-model.yaml
+        relationship: validation_dependency
+    downstream_outputs:
+      - item_id: implementation_backlog_record
+        path: records/decisions/record-implementation-backlog-0001.yaml
+        relationship: recommended_record
+      - item_id: pilot_plan_record
+        path: records/evaluations/record-pilot-plan-0001.yaml
+        relationship: recommended_record
+      - item_id: release_record_v0_1_0
+        path: records/releases/record-release-0001-v0-1-0.yaml
+        relationship: release_evidence
+      - item_id: github_workflows
+        path: .github/workflows
+        relationship: automation_target
+  source_basis:
+    - source_id: user_current_request
+      role: authoritative_selection
+      evidence_status: mapped
+      evidence_summary: >
+        The user selected spec_implementation_roadmap with target path
+        specs/product-dsr-implementation-roadmap.yaml, product_spec type,
+        YAML format, L2 default conformance, and product catalog dependency.
+    - source_id: dsr_framework_generation_prompt
+      role: generation_rules
+      evidence_status: mapped
+      evidence_summary: >
+        Requires product specifications to contain identity and purpose,
+        conceptual model, normative requirements, information items, workflow,
+        quality and conformance, traceability, implementation guidance,
+        template or schema implications, and open questions/backlog.
+    - source_id: dsr_framework_generation_spec
+      role: repository_and_quality_rules
+      evidence_status: mapped
+      evidence_summary: >
+        Defines repository architecture, product file naming conventions,
+        controlled information item fields, traceability rules, and quality gates.
+    - source_id: dsr_extraction_corpus_hevner_et_al_2024_transparency
+      role: dsr_transparency_basis
+      evidence_status: mapped
+      evidence_summary: >
+        Supports roadmap requirements for process, problem-space, solution-space,
+        build, evaluation, and contribution transparency.
+    - source_id: dsr_extraction_corpus_akoka_et_al_2023_knowledge_paths
+      role: dsr_contribution_and_accumulation_basis
+      evidence_status: mapped
+      evidence_summary: >
+        Supports staged knowledge accumulation, strategy selection, and project
+        progression across DSR knowledge moments.
+    - source_id: dsr_extraction_corpus_weigand_et_al_2021_artifact_ontology
+      role: artifact_scope_basis
+      evidence_status: mapped
+      evidence_summary: >
+        Supports attention to artifact universals, make plans, use plans,
+        capacities, use contexts, and artifact lifecycle considerations.
+  assumptions:
+    - assumption_id: roadmap_assumption_001
+      statement: >
+        The DSR Framework will be implemented as a public GitHub repository with
+        structured YAML and JSON source-of-truth files, human-facing Markdown
+        documentation, retained records, and optional examples.
+      impact: Guides release sequencing and backlog categories.
+    - assumption_id: roadmap_assumption_002
+      statement: >
+        The first reviewable implementation target is a coherent L2 package rather
+        than an archival-publication-ready L5 package.
+      impact: Keeps the roadmap focused on reviewability, internal coherence, and pilot usability before publication claims.
+    - assumption_id: roadmap_assumption_003
+      statement: >
+        Product catalog entries may be revised as additional models, schemas,
+        templates, checklists, records, and docs are generated.
+      impact: Requires periodic roadmap-product-catalog reconciliation.
+  limitations:
+    - limitation_id: roadmap_limit_001
+      statement: >
+        This roadmap specifies implementation governance and phase logic; it does
+        not itself provide all downstream templates, schemas, examples, workflows,
+        or release records.
+    - limitation_id: roadmap_limit_002
+      statement: >
+        This roadmap does not claim that the framework has been empirically
+        evaluated or externally adopted; those claims require pilot and evaluation records.
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial product specification generated from selection_id spec_implementation_roadmap.
+      responsible_party: GPT-5.5 Thinking
+
+version: "0.1.0"
+status: draft
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: Define what the implementation roadmap controls and why it exists.
+    content:
+      product_scope:
+        controls:
+          - implementation phase sequencing
+          - product-catalog completion order
+          - pilot planning and evidence capture
+          - release path and release gates
+          - backlog intake, prioritization, and closure
+          - roadmap traceability to DSR transparency and quality obligations
+        does_not_control:
+          - final scholarly argument for the DSR Framework contribution
+          - external publication venue requirements
+          - repository hosting policy outside the DSR Framework package
+          - complete automation implementation details
+      intended_users:
+        - maintainer
+        - framework_author
+        - reviewer
+        - pilot_user
+        - contributor
+      use_cases:
+        - use_case_id: uc_plan_initial_repository_build
+          description: Plan the first coherent package build from root controls through specs, models, vocabularies, templates, checklists, records, and docs.
+        - use_case_id: uc_coordinate_pilots
+          description: Define representative pilots that exercise the framework without overclaiming empirical evaluation.
+        - use_case_id: uc_manage_release_scope
+          description: Determine which products and evidence are required for each draft, pilot-ready, reusable, and publication-ready release.
+        - use_case_id: uc_control_backlog
+          description: Capture, classify, prioritize, and close implementation work items with traceable rationale.
+      conformance_position:
+        declared_default_level: l2_reviewable
+        rationale: >
+          The file is intended to be complete enough for review and implementation
+          planning, but it does not by itself prove executable validation or archival
+          publication readiness.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: Define the entities and relationships used to control implementation progress.
+    content:
+      core_entities:
+        - entity_id: implementation_phase
+          definition: A bounded sequence of work with defined objectives, inputs, outputs, exit criteria, and evidence.
+          required_fields:
+            - phase_id
+            - title
+            - objective
+            - scope
+            - required_inputs
+            - expected_outputs
+            - exit_criteria
+            - evidence_required
+            - quality_gates
+        - entity_id: workstream
+          definition: A coherent line of implementation activity crossing one or more phases.
+          examples:
+            - package_control
+            - product_specs
+            - models_and_vocabularies
+            - schemas_and_validation
+            - templates_and_checklists
+            - records_and_evidence
+            - documentation
+            - examples_and_pilots
+            - release_and_preservation
+        - entity_id: milestone
+          definition: A reviewable checkpoint showing that a phase, workstream, or release condition has been satisfied.
+        - entity_id: pilot
+          definition: A bounded use scenario that demonstrates and/or evaluates framework usability, completeness, and reviewability.
+        - entity_id: release_candidate
+          definition: A named package state proposed for release after required review and validation evidence is retained.
+        - entity_id: backlog_item
+          definition: A discrete implementation task, defect, enhancement, documentation need, schema need, or evidence gap.
+        - entity_id: quality_gate
+          definition: A review rule that determines whether a phase, file, pilot, or release can proceed.
+        - entity_id: retained_record
+          definition: A controlled record documenting decisions, reviews, evaluations, releases, preservation events, or pilot outcomes.
+      relationships:
+        - relationship_id: product_catalog_defines_scope
+          source_entity: product_catalog
+          target_entity: implementation_phase
+          cardinality: one_to_many
+          description: The product catalog defines the universe of intended framework products that phases sequence and complete.
+        - relationship_id: phase_contains_workstreams
+          source_entity: implementation_phase
+          target_entity: workstream
+          cardinality: one_to_many
+          description: Each implementation phase may advance several workstreams.
+        - relationship_id: workstream_generates_outputs
+          source_entity: workstream
+          target_entity: controlled_file
+          cardinality: many_to_many
+          description: Workstreams produce controlled files, records, documentation, schemas, examples, and automation assets.
+        - relationship_id: milestone_requires_evidence
+          source_entity: milestone
+          target_entity: retained_record
+          cardinality: one_to_many
+          description: Milestones must be evidenced by retained records or controlled files.
+        - relationship_id: release_candidate_requires_quality_gates
+          source_entity: release_candidate
+          target_entity: quality_gate
+          cardinality: one_to_many
+          description: Releases require explicit pass, fail, deferred, or not-applicable gate outcomes.
+        - relationship_id: backlog_item_traces_to_product
+          source_entity: backlog_item
+          target_entity: product_catalog_entry
+          cardinality: many_to_one
+          description: Every backlog item should trace to a product, record, validation rule, documentation page, or explicit governance need.
+      lifecycle_view:
+        stages:
+          - stage_id: frame
+            description: Establish package identity, scope, source basis, and product universe.
+          - stage_id: assemble
+            description: Build the controlled files and repository architecture required for a coherent L2 package.
+          - stage_id: exercise
+            description: Use pilots and examples to demonstrate that framework products can be applied.
+          - stage_id: validate
+            description: Apply schemas, checklists, link checks, inventory checks, and review records.
+          - stage_id: release
+            description: Create versioned release candidates with documented scope, limitations, and evidence.
+          - stage_id: sustain
+            description: Maintain backlog, governance, issue triage, preservation records, and future-release planning.
+      boundary_conditions:
+        - boundary_id: demonstration_vs_evaluation
+          rule: >
+            Roadmap pilots may demonstrate usability before they provide evaluation evidence. Evaluation claims require explicit evaluation plans, criteria, data, and reports.
+        - boundary_id: reviewability_vs_publication_readiness
+          rule: >
+            L2 reviewability requires coherent criteria and evidence paths; L5 archival-publication readiness requires stronger release, DOI, preservation, citation, and publication records.
+        - boundary_id: internal_coherence_before_external_validation
+          rule: >
+            The package should first pass internal inventory, naming, traceability, and review checks before claiming external adoption or empirical effectiveness.
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: State mandatory, recommended, optional, and prohibited roadmap rules.
+    content:
+      must:
+        - requirement_id: impl_req_001
+          statement: The roadmap must sequence implementation work using named phases with objectives, outputs, exit criteria, and evidence requirements.
+          rationale: Enables reviewers to evaluate progress without relying on informal plans.
+        - requirement_id: impl_req_002
+          statement: Each phase must trace to product catalog items, package controls, quality gates, or retained records.
+          rationale: Prevents disconnected implementation activity.
+        - requirement_id: impl_req_003
+          statement: The roadmap must distinguish planned work, completed work, demonstration, evaluation, release, and preservation evidence.
+          rationale: Prevents overclaiming artifact maturity or empirical support.
+        - requirement_id: impl_req_004
+          statement: Pilot activities must identify scenario, user role, input package, task, evidence captured, success criteria, and limitations.
+          rationale: Makes pilot evidence reusable and reviewable.
+        - requirement_id: impl_req_005
+          statement: Release candidates must specify included files, excluded or deferred files, validation status, known limitations, and reviewer-facing acceptance criteria.
+          rationale: Supports controlled release decisions.
+        - requirement_id: impl_req_006
+          statement: Backlog items must include priority, type, affected product, rationale, status, owner role, and closure condition.
+          rationale: Makes implementation work auditable.
+        - requirement_id: impl_req_007
+          statement: The implementation path must preserve source-of-truth YAML, JSON Schema, and Markdown documentation separation.
+          rationale: Maintains compatibility with the documentation protocol repository architecture.
+        - requirement_id: impl_req_008
+          statement: Roadmap status must be reconciled with package inventory and product catalog status before any release record is approved.
+          rationale: Ensures release scope and inventory are not inconsistent.
+      should:
+        - requirement_id: impl_req_009
+          statement: The roadmap should define a minimum viable L2 package before adding L3 automation or L5 archival publication evidence.
+          rationale: Reduces scope risk and supports incremental review.
+        - requirement_id: impl_req_010
+          statement: The roadmap should maintain separate backlog lanes for content completion, evidence mapping, validation, examples, documentation, and governance.
+          rationale: Supports parallel implementation without conflating work types.
+        - requirement_id: impl_req_011
+          statement: The roadmap should use GitHub issues, labels, milestones, and release tags when the repository is public.
+          rationale: Aligns implementation control with common open repository practice.
+        - requirement_id: impl_req_012
+          statement: The roadmap should define pilot packages that represent both scholarly and practitioner-facing use cases.
+          rationale: Supports review of DSR contribution, utility, transparency, and application.
+      may:
+        - requirement_id: impl_req_013
+          statement: The roadmap may include automation maturity levels that exceed the selected L2 conformance target.
+          rationale: Allows future L3 and L4 implementation without blocking current reviewability.
+        - requirement_id: impl_req_014
+          statement: The roadmap may include optional external review, open issue triage, and community contribution workflows after the initial package is coherent.
+          rationale: Enables public reuse and improvement while protecting early coherence.
+      must_not:
+        - requirement_id: impl_req_015
+          statement: The roadmap must not assert that the framework is empirically validated without retained evaluation records.
+          rationale: Avoids unsupported evaluation claims.
+        - requirement_id: impl_req_016
+          statement: The roadmap must not treat example packages as required evidence for all users unless conformance rules explicitly require them.
+          rationale: Keeps examples demonstrative unless adopted into a higher conformance level.
+        - requirement_id: impl_req_017
+          statement: The roadmap must not hide unresolved dependencies or evidence gaps.
+          rationale: Supports transparent review and future work planning.
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: Identify controlled files and records needed to operate the roadmap.
+    content:
+      roadmap_control_items:
+        - item_id: product_dsr_implementation_roadmap
+          path: specs/product-dsr-implementation-roadmap.yaml
+          item_type: specification
+          function: Defines implementation roadmap governance, phases, pilots, release path, and backlog rules.
+          required: true
+        - item_id: product_catalog
+          path: specs/product-catalog.yaml
+          item_type: specification
+          function: Defines product universe, dependencies, and implementation status inputs.
+          required: true
+        - item_id: package_inventory
+          path: package-inventory.yaml
+          item_type: record
+          function: Lists package files and validation responsibility; used for release readiness reconciliation.
+          required: true
+        - item_id: conformance_declaration
+          path: conformance-declaration.yaml
+          item_type: record
+          function: Declares current conformance level and tailoring.
+          required: true
+      recommended_records:
+        - record_id: record_implementation_backlog_0001
+          path: records/decisions/record-implementation-backlog-0001.yaml
+          record_class: planning_record
+          purpose: Retain prioritized backlog for unresolved implementation work.
+          minimum_fields:
+            - backlog_item_id
+            - title
+            - type
+            - affected_product
+            - priority
+            - rationale
+            - owner_role
+            - status
+            - acceptance_criteria
+            - closure_condition
+        - record_id: record_pilot_plan_0001
+          path: records/evaluations/record-pilot-plan-0001.yaml
+          record_class: evaluation_plan
+          purpose: Define pilot scenarios, tasks, success criteria, evidence, and limitations.
+          minimum_fields:
+            - pilot_id
+            - scenario
+            - user_role
+            - inputs
+            - task_sequence
+            - evidence_to_capture
+            - success_criteria
+            - limitations
+        - record_id: record_pilot_report_0001
+          path: records/evaluations/record-pilot-report-0001.yaml
+          record_class: evaluation_report
+          purpose: Retain findings from pilot execution.
+          minimum_fields:
+            - pilot_id
+            - date
+            - execution_summary
+            - evidence_collected
+            - findings
+            - defects_or_gaps
+            - recommendations
+            - claim_boundary
+        - record_id: record_release_0001_v0_1_0
+          path: records/releases/record-release-0001-v0-1-0.yaml
+          record_class: release_record
+          purpose: Retain initial release scope, validation status, limitations, and preservation actions.
+          minimum_fields:
+            - release_id
+            - version
+            - included_files
+            - excluded_files
+            - validation_summary
+            - known_limitations
+            - quality_gate_results
+            - approval_status
+        - record_id: record_roadmap_review_0001
+          path: records/reviews/record-roadmap-review-0001.yaml
+          record_class: review_record
+          purpose: Retain review of roadmap coherence, assumptions, phase readiness, and backlog adequacy.
+          minimum_fields:
+            - review_id
+            - reviewed_item
+            - reviewer_role
+            - criteria
+            - findings
+            - required_actions
+            - disposition
+      issue_label_taxonomy:
+        - label: type_content
+          meaning: Work item creates or revises controlled framework content.
+        - label: type_schema
+          meaning: Work item creates or revises validation schemas.
+        - label: type_documentation
+          meaning: Work item creates or revises human-facing documentation.
+        - label: type_automation
+          meaning: Work item creates or revises validation, packaging, or release automation.
+        - label: type_evidence
+          meaning: Work item maps, verifies, or improves source-basis evidence.
+        - label: type_governance
+          meaning: Work item changes contribution, security, release, or maintenance governance.
+        - label: priority_p0_release_blocking
+          meaning: Must be resolved before the next declared release.
+        - label: priority_p1_high
+          meaning: Should be resolved in the current or next phase.
+        - label: priority_p2_normal
+          meaning: Important but not release blocking.
+        - label: priority_p3_deferred
+          meaning: Deferred until a later release without blocking current conformance.
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: Define implementation phases, pilot procedure, release path, and backlog control.
+    content:
+      phase_sequence:
+        - phase_id: phase_0_foundation_and_scope_control
+          title: Foundation and Scope Control
+          objective: Establish package identity, product universe, root controls, and source basis.
+          workstreams:
+            - package_control
+            - product_catalog
+            - repository_architecture
+            - source_basis
+          required_inputs:
+            - DSR framework selection table
+            - DSR framework generation specification
+            - DSR framework generation prompt
+            - internal DSR extraction corpus
+          expected_outputs:
+            - README.md
+            - manifest.yaml
+            - metadata.yaml
+            - artifact-profile.yaml
+            - package-inventory.yaml
+            - conformance-declaration.yaml
+            - specs/product-catalog.yaml
+          exit_criteria:
+            - Package identity is defined.
+            - Product catalog contains intended package contents and dependencies.
+            - Package inventory and conformance declaration are internally consistent.
+            - Source basis record exists or is explicitly planned.
+          evidence_required:
+            - root control files
+            - product catalog
+            - package inventory
+            - conformance declaration
+          quality_gates:
+            - qg_consistency
+            - qg_coherence
+            - qg_correspondence
+        - phase_id: phase_1_core_specification_build
+          title: Core Specification Build
+          objective: Generate and review the controlled product specifications that govern the framework package.
+          workstreams:
+            - product_specs
+            - quality_model
+            - repository_controls
+            - artifact_package_controls
+          required_inputs:
+            - specs/product-catalog.yaml
+            - specs/product-protocol-foundation.yaml
+            - specs/product-dsr-framework-foundation.yaml
+          expected_outputs:
+            - specs/product-dsr-lifecycle-and-contribution-model.yaml
+            - specs/product-dsr-information-item-architecture.yaml
+            - specs/product-dsr-repository-architecture.yaml
+            - specs/product-dsr-metadata-and-identifier-profile.yaml
+            - specs/product-dsr-artifact-package-specification.yaml
+            - specs/product-dsr-quality-conformance-and-review-model.yaml
+            - specs/product-dsr-templates-and-checklists.yaml
+            - specs/product-dsr-automation-and-validation-model.yaml
+            - specs/product-dsr-implementation-roadmap.yaml
+          exit_criteria:
+            - Product specifications use the required section structure or documented tailoring.
+            - Cross-references among specs do not conflict.
+            - Quality and conformance rules are explicit enough for review.
+          evidence_required:
+            - self-review record
+            - updated package inventory
+            - unresolved-dependency backlog entries
+          quality_gates:
+            - qg_consistency
+            - qg_coherence
+            - qg_reviewability
+        - phase_id: phase_2_models_vocabularies_and_operating_materials
+          title: Models, Vocabularies, and Operating Materials
+          objective: Convert specifications into reusable models, controlled vocabularies, templates, and checklists.
+          workstreams:
+            - models_and_vocabularies
+            - templates_and_checklists
+            - schema_alignment
+          required_inputs:
+            - core product specifications
+            - DSR extraction corpus source mappings
+          expected_outputs:
+            - models/dsr-framework-canonical-model.yaml
+            - models/dsr-lifecycle-model.yaml
+            - models/dsr-artifact-ontology.yaml
+            - models/dsr-contribution-model.yaml
+            - models/dsr-evaluation-alignment-model.yaml
+            - models/dsr-transparency-model.yaml
+            - models/dsr-reliability-model.yaml
+            - models/dsr-projectability-model.yaml
+            - vocabularies/*.yaml
+            - templates/*.yaml
+            - templates/*.md
+            - checklists/*.yaml
+          exit_criteria:
+            - Model entities and vocabulary terms have stable identifiers.
+            - Templates and checklists are usable by a researcher without hidden assumptions.
+            - DSR distinctions are preserved across models and operating materials.
+          evidence_required:
+            - model review notes
+            - vocabulary completeness notes
+            - template/checklist review findings
+          quality_gates:
+            - qg_cogency
+            - qg_dsr_transparency
+            - qg_reviewability
+        - phase_id: phase_3_validation_and_automation_hardening
+          title: Validation and Automation Hardening
+          objective: Add schema, inventory, link, metadata, and release validation sufficient for exercisable package checks.
+          workstreams:
+            - schemas_and_validation
+            - automation
+            - package_inventory_reconciliation
+          required_inputs:
+            - schemas planned in product catalog
+            - templates and records needing validation
+            - automation and validation model
+          expected_outputs:
+            - schemas/*.schema.json
+            - .github/workflows/validation.yaml
+            - validation scripts or documented commands
+            - validation results record
+          exit_criteria:
+            - Schemas validate corresponding templates or records.
+            - Package inventory identifies validation responsibility for controlled files.
+            - Release candidate can run baseline validation without undocumented manual steps.
+          evidence_required:
+            - validation log
+            - schema coverage matrix
+            - unresolved validation exceptions
+          quality_gates:
+            - qg_consistency
+            - qg_coherence
+            - qg_reviewability
+        - phase_id: phase_4_internal_pilot_demonstration
+          title: Internal Pilot Demonstration
+          objective: Exercise the framework using controlled sample DSR tasks before external release claims.
+          workstreams:
+            - examples_and_pilots
+            - evaluation_records
+            - usability_review
+          required_inputs:
+            - minimum L2 package draft
+            - pilot plan
+            - templates and checklists
+          expected_outputs:
+            - example package draft
+            - pilot report
+            - defect and improvement backlog
+            - revised templates or checklists where needed
+          exit_criteria:
+            - At least one pilot completes a framework-guided DSR planning or documentation task.
+            - Pilot evidence distinguishes demonstration findings from evaluation findings.
+            - Defects and gaps are captured in backlog with priorities.
+          evidence_required:
+            - pilot plan record
+            - pilot report record
+            - completed sample artifacts
+            - backlog updates
+          quality_gates:
+            - qg_cogency
+            - qg_dsr_transparency
+            - qg_reviewability
+        - phase_id: phase_5_release_candidate_review
+          title: Release Candidate Review
+          objective: Prepare a versioned package release candidate with explicit scope, validation, limitations, and review status.
+          workstreams:
+            - release_and_preservation
+            - quality_review
+            - publication_registry
+          required_inputs:
+            - validated package inventory
+            - conformance declaration
+            - self-review record
+            - release checklist
+          expected_outputs:
+            - release record
+            - changelog entry
+            - tagged release candidate
+            - known limitations list
+            - preservation or DOI preparation notes where applicable
+          exit_criteria:
+            - Release scope is reproducible from package inventory.
+            - Quality gates have disposition values.
+            - Known limitations and deferred items are not hidden.
+            - Release notes do not overclaim maturity.
+          evidence_required:
+            - release record
+            - review record
+            - validation summary
+            - backlog carryforward list
+          quality_gates:
+            - qg_consistency
+            - qg_coherence
+            - qg_correspondence
+            - qg_reviewability
+        - phase_id: phase_6_external_pilot_and_reuse_feedback
+          title: External Pilot and Reuse Feedback
+          objective: Collect structured feedback from users applying the package outside the initial authoring context.
+          workstreams:
+            - community_feedback
+            - external_review
+            - issue_triage
+            - improvement_planning
+          required_inputs:
+            - public or shared release candidate
+            - contribution and governance files
+            - pilot scenarios
+          expected_outputs:
+            - external feedback records
+            - issue triage decisions
+            - revised backlog priorities
+            - candidate v0.2.0 or later release plan
+          exit_criteria:
+            - Feedback is classified as defect, enhancement, clarification, evidence gap, or governance issue.
+            - Accepted feedback is translated into traceable backlog items.
+            - Rejected feedback has a recorded rationale.
+          evidence_required:
+            - feedback records
+            - issue log
+            - decision records
+          quality_gates:
+            - qg_cogency
+            - qg_reviewability
+        - phase_id: phase_7_sustainment_and_publication_readiness
+          title: Sustainment and Publication Readiness
+          objective: Mature the package toward reusable and archival-publication-ready status while preserving governance and review evidence.
+          workstreams:
+            - maintenance
+            - publication_registry
+            - preservation
+            - governance
+          required_inputs:
+            - release history
+            - external feedback
+            - publication readiness checklist
+            - preservation model
+          expected_outputs:
+            - publication readiness record
+            - DOI or archival metadata where applicable
+            - maintenance policy updates
+            - release roadmap update
+          exit_criteria:
+            - Publication claims are supported by release, citation, preservation, and review records.
+            - Maintenance responsibilities and issue triage process are defined.
+            - Archival metadata is synchronized with package metadata.
+          evidence_required:
+            - publication readiness checklist
+            - preservation record
+            - updated metadata
+            - release record
+          quality_gates:
+            - qg_correspondence
+            - qg_reviewability
+      pilot_portfolio:
+        - pilot_id: pilot_minimum_dsr_identity
+          title: Minimum DSR Identity Pilot
+          purpose: Test whether a user can classify a project as DSR, non-DSR, or insufficiently documented using the framework.
+          user_roles:
+            - researcher
+            - reviewer
+          required_inputs:
+            - checklist_minimum_dsr
+            - artifact_profile_template
+            - contribution_claim_template
+          outputs:
+            - completed artifact profile
+            - completed minimum DSR checklist
+            - contribution claim draft
+          success_criteria:
+            - User can distinguish artifact utility, artifact quality, and knowledge contribution.
+            - Missing evidence is captured without forcing unsupported claims.
+        - pilot_id: pilot_artifact_package_build
+          title: Artifact Package Build Pilot
+          purpose: Test whether templates and package rules are sufficient to assemble a small DSR artifact package.
+          user_roles:
+            - framework_author
+            - pilot_user
+          required_inputs:
+            - package_inventory_template
+            - artifact_specification_template
+            - design_rationale_template
+            - build_transparency_record_template
+          outputs:
+            - sample package inventory
+            - sample artifact specification
+            - design rationale record
+            - build transparency record
+          success_criteria:
+            - User can map files to package responsibilities and validation expectations.
+            - Build and use plans are described separately from evaluation results.
+        - pilot_id: pilot_evaluation_alignment
+          title: Evaluation Alignment Pilot
+          purpose: Test whether an evaluation plan can be generated from artifact claims and contribution claims.
+          user_roles:
+            - researcher
+            - reviewer
+          required_inputs:
+            - evaluation_plan_template
+            - evaluation_readiness_checklist
+            - contribution_positioning_record_template
+          outputs:
+            - evaluation plan
+            - readiness checklist result
+            - unresolved validity and reliability issues
+          success_criteria:
+            - Evaluation method families align to claims.
+            - Demonstration is not mislabeled as evaluation.
+            - Validity, reliability, and projectability risks are visible.
+        - pilot_id: pilot_release_readiness
+          title: Release Readiness Pilot
+          purpose: Test whether a release candidate can be reviewed using package inventory, validation evidence, and quality gates.
+          user_roles:
+            - maintainer
+            - reviewer
+          required_inputs:
+            - package_inventory
+            - conformance_declaration
+            - release_record_template
+            - publication_readiness_checklist
+          outputs:
+            - release readiness decision
+            - validation exception list
+            - release record draft
+          success_criteria:
+            - Included, excluded, and deferred package items are explicit.
+            - Conformance level is supported by evidence.
+            - Known limitations are release-visible.
+      release_path:
+        - release_id: v0_1_0
+          release_label: v0.1.0-reviewable-draft
+          intended_conformance: l2_reviewable
+          purpose: First coherent reviewable draft of package controls, core specs, initial models, and retained records.
+          required_conditions:
+            - root package controls present
+            - product catalog present
+            - core product specs present
+            - package inventory reconciled
+            - conformance declaration present
+            - initial self-review record present
+          deferred_allowed:
+            - executable validation workflows
+            - external pilot evidence
+            - archival DOI publication readiness
+        - release_id: v0_2_0
+          release_label: v0.2.0-pilot-ready
+          intended_conformance: l2_reviewable
+          purpose: Pilot-ready package with templates, checklists, sample records, and internal pilot plan.
+          required_conditions:
+            - minimum model and vocabulary set present
+            - templates and checklists sufficient for pilot tasks
+            - pilot plan approved
+            - known gaps transferred to backlog
+        - release_id: v0_3_0
+          release_label: v0.3.0-validation-hardened
+          intended_conformance: l3_exercisable
+          purpose: Package capable of running baseline schema, inventory, and link validation.
+          required_conditions:
+            - validation model implemented
+            - schema coverage for priority templates and records
+            - validation results retained
+        - release_id: v0_4_0
+          release_label: v0.4.0-reuse-candidate
+          intended_conformance: l4_reusable
+          purpose: Reuse-oriented package with examples, clearer documentation, and external feedback loops.
+          required_conditions:
+            - example package available
+            - external or independent feedback captured
+            - contribution and governance workflows usable
+        - release_id: v1_0_0
+          release_label: v1.0.0-stable-framework
+          intended_conformance: l4_reusable
+          purpose: Stable public framework release with coherent documentation, validation, examples, and governance.
+          required_conditions:
+            - high-priority defects resolved or transparently deferred
+            - release readiness checklist passed
+            - governance and contribution files stabilized
+        - release_id: archival_release
+          release_label: archival-publication-ready-release
+          intended_conformance: l5_archival_publication_ready
+          purpose: DOI-ready and publication-ready archival package.
+          required_conditions:
+            - publication registry complete
+            - preservation record complete
+            - CITATION.cff and .zenodo.json synchronized
+            - publication readiness checklist passed
+            - release record approved
+      backlog_control_procedure:
+        intake_steps:
+          - step_id: backlog_step_001
+            instruction: Capture the proposed work item with affected file, product, evidence gap, or user scenario.
+          - step_id: backlog_step_002
+            instruction: Classify the item by type, priority, workstream, conformance impact, and release impact.
+          - step_id: backlog_step_003
+            instruction: Add acceptance criteria and closure condition before work begins.
+          - step_id: backlog_step_004
+            instruction: Link the item to a product catalog entry, phase, quality gate, or retained record.
+          - step_id: backlog_step_005
+            instruction: Close only after evidence is added, validation is run where applicable, and package inventory is updated when affected.
+        priority_levels:
+          - priority: p0_release_blocking
+            definition: Blocks current release or invalidates declared conformance.
+          - priority: p1_high
+            definition: Important for current phase completion but not always release blocking.
+          - priority: p2_normal
+            definition: Needed for maturity, usability, or completeness but can move to later release.
+          - priority: p3_deferred
+            definition: Explicitly deferred future enhancement or research direction.
+        status_values:
+          - proposed
+          - accepted
+          - in_progress
+          - blocked
+          - review_needed
+          - complete
+          - deferred
+          - rejected
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: Define acceptance criteria and review gates for the roadmap and its implementation outputs.
+    content:
+      acceptance_criteria:
+        - criterion_id: ac_roadmap_001
+          statement: The roadmap identifies implementation phases from foundation through sustainment.
+          evidence_required:
+            - phase_sequence
+          pass_condition: Each phase has objective, inputs, outputs, exit criteria, evidence, and gates.
+        - criterion_id: ac_roadmap_002
+          statement: The roadmap includes pilot logic without conflating demonstration and evaluation.
+          evidence_required:
+            - pilot_portfolio
+            - pilot_success_criteria
+          pass_condition: Pilot success criteria include evidence boundaries and claim limitations.
+        - criterion_id: ac_roadmap_003
+          statement: The roadmap defines a staged release path with conformance implications.
+          evidence_required:
+            - release_path
+            - conformance_targets
+          pass_condition: Each release candidate has conditions and deferred items.
+        - criterion_id: ac_roadmap_004
+          statement: Backlog items can be governed consistently.
+          evidence_required:
+            - backlog_control_procedure
+            - issue_label_taxonomy
+          pass_condition: Backlog intake, classification, priority, status, and closure rules are explicit.
+        - criterion_id: ac_roadmap_005
+          statement: Roadmap traceability is sufficient for L2 review.
+          evidence_required:
+            - traceability section
+            - source_basis
+            - related_items
+          pass_condition: Dependencies and source basis are identified, with evidence status visible.
+      phase_gate_matrix:
+        - gate_id: gate_phase_0_scope_ready
+          applies_to: phase_0_foundation_and_scope_control
+          gate_question: Is the package scope defined and traceable to product catalog and package controls?
+          pass_evidence:
+            - product_catalog
+            - package_inventory
+            - conformance_declaration
+        - gate_id: gate_phase_1_specs_ready
+          applies_to: phase_1_core_specification_build
+          gate_question: Are core specs structured, cross-referenced, and reviewable?
+          pass_evidence:
+            - core_product_specs
+            - self_review_record
+        - gate_id: gate_phase_2_operating_material_ready
+          applies_to: phase_2_models_vocabularies_and_operating_materials
+          gate_question: Are models, vocabularies, templates, and checklists usable and stable enough for pilot work?
+          pass_evidence:
+            - model_set
+            - template_set
+            - checklist_set
+            - review_findings
+        - gate_id: gate_phase_3_validation_ready
+          applies_to: phase_3_validation_and_automation_hardening
+          gate_question: Can baseline validation be exercised and interpreted?
+          pass_evidence:
+            - schema_coverage_matrix
+            - validation_log
+            - exception_list
+        - gate_id: gate_phase_4_pilot_ready
+          applies_to: phase_4_internal_pilot_demonstration
+          gate_question: Has at least one pilot been planned, executed, and reported with claim boundaries?
+          pass_evidence:
+            - pilot_plan
+            - pilot_report
+            - backlog_updates
+        - gate_id: gate_phase_5_release_ready
+          applies_to: phase_5_release_candidate_review
+          gate_question: Is the release candidate scope validated, reviewed, and limitation-visible?
+          pass_evidence:
+            - release_record
+            - validation_summary
+            - review_record
+        - gate_id: gate_phase_7_publication_ready
+          applies_to: phase_7_sustainment_and_publication_readiness
+          gate_question: Are publication, archival, citation, preservation, and governance obligations satisfied?
+          pass_evidence:
+            - publication_readiness_checklist
+            - preservation_record
+            - citation_metadata
+            - release_record
+      quality_gate_status_rules:
+        allowed_status_values:
+          - pass
+          - pass_with_conditions
+          - fail
+          - deferred
+          - not_applicable
+        required_fields_for_gate_result:
+          - gate_id
+          - status
+          - evidence
+          - reviewer_or_responsible_role
+          - date
+          - rationale
+          - required_follow_up
+      conformance_alignment:
+        l2_reviewable:
+          required: true
+          roadmap_expectation: Complete structure, explicit dependencies, reviewable criteria, and visible limitations.
+        l3_exercisable:
+          required: false
+          roadmap_expectation: Baseline schemas, validation commands, and automation evidence are implemented.
+        l4_reusable:
+          required: false
+          roadmap_expectation: Examples, user-facing docs, governance, and reuse feedback are present.
+        l5_archival_publication_ready:
+          required: false
+          roadmap_expectation: DOI, citation, preservation, release, and publication readiness evidence are complete.
+      failure_modes:
+        - failure_id: fm_roadmap_unbounded_scope
+          description: Roadmap includes open-ended development goals without release criteria.
+          mitigation: Add release-specific required conditions, deferred items, and backlog links.
+        - failure_id: fm_untraceable_backlog
+          description: Work items cannot be traced to product catalog, quality gate, or user need.
+          mitigation: Require affected product and rationale fields before acceptance.
+        - failure_id: fm_overclaimed_evaluation
+          description: Demonstration or author inspection is described as empirical evaluation.
+          mitigation: Require pilot and evaluation records to classify evidence type explicitly.
+        - failure_id: fm_inventory_release_mismatch
+          description: Release record includes files not present in package inventory or omits required controlled files.
+          mitigation: Reconcile package inventory before release approval.
+
+  - id: traceability
+    title: Traceability
+    purpose: Link the roadmap to upstream dependencies, source basis, quality gates, and downstream implementation artifacts.
+    content:
+      upstream_trace_links:
+        - trace_id: tr_impl_001
+          source: user_current_request
+          target: product_dsr_implementation_roadmap
+          relationship: selected_generation_target
+          evidence_status: mapped
+        - trace_id: tr_impl_002
+          source: dsr_framework_generation_spec
+          target: repository_architecture_and_quality_gates
+          relationship: governs_structure_and_review
+          evidence_status: mapped
+        - trace_id: tr_impl_003
+          source: dsr_framework_generation_prompt
+          target: product_spec_section_structure
+          relationship: governs_output_shape
+          evidence_status: mapped
+        - trace_id: tr_impl_004
+          source: product_catalog
+          target: implementation_phase_sequence
+          relationship: supplies_product_universe
+          evidence_status: not_yet_verified_against_final_catalog
+        - trace_id: tr_impl_005
+          source: hevner_et_al_2024_transparency_in_design_science_research
+          target: transparency_dimension_mapping
+          relationship: supplies_transparency_basis
+          evidence_status: mapped_to_corpus_extraction
+        - trace_id: tr_impl_006
+          source: akoka_et_al_2023_knowledge_contributions_in_dsr
+          target: staged_knowledge_accumulation_logic
+          relationship: supports_progressive_development_and_contribution_traceability
+          evidence_status: mapped_to_corpus_extraction
+        - trace_id: tr_impl_007
+          source: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          target: artifact_build_use_and_lifecycle_controls
+          relationship: supports_artifact_scope_and_lifecycle_attention
+          evidence_status: mapped_to_corpus_extraction
+      downstream_trace_links:
+        - trace_id: tr_impl_101
+          source: product_dsr_implementation_roadmap
+          target: record_implementation_backlog_0001
+          relationship: requires_backlog_record_for_operation
+          evidence_status: planned
+        - trace_id: tr_impl_102
+          source: product_dsr_implementation_roadmap
+          target: record_pilot_plan_0001
+          relationship: requires_pilot_plan_for_phase_4
+          evidence_status: planned
+        - trace_id: tr_impl_103
+          source: product_dsr_implementation_roadmap
+          target: record_release_0001_v0_1_0
+          relationship: supplies_release_gate_logic
+          evidence_status: planned
+        - trace_id: tr_impl_104
+          source: product_dsr_implementation_roadmap
+          target: github_issue_milestones
+          relationship: informs_public_repository_execution
+          evidence_status: planned
+      transparency_dimension_mapping:
+        - dimension: process_transparency
+          roadmap_support: Phases, workstreams, milestones, backlog procedure, and retained records document implementation process.
+        - dimension: problem_space_transparency
+          roadmap_support: Scope, assumptions, limitations, intended users, and pilot use cases clarify the implementation problem.
+        - dimension: solution_space_transparency
+          roadmap_support: Source basis and upstream dependencies show where roadmap design logic comes from.
+        - dimension: build_transparency
+          roadmap_support: Workstreams, outputs, validation artifacts, and decision records document how the package is built.
+        - dimension: evaluation_transparency
+          roadmap_support: Pilot plan, pilot report, quality gates, and release review records distinguish demonstration from evaluation.
+        - dimension: contribution_transparency
+          roadmap_support: Release path and pilot portfolio create evidence needed to state contribution, utility, and reuse limits.
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: Provide operational guidance for maintainers executing the roadmap in a GitHub repository.
+    content:
+      recommended_repository_milestones:
+        - milestone_id: ms_l2_core_specs_complete
+          title: L2 core specs complete
+          close_when:
+            - all root control files exist
+            - all core product specs exist
+            - package inventory reconciled
+            - self-review complete
+        - milestone_id: ms_l2_operating_materials_complete
+          title: L2 operating materials complete
+          close_when:
+            - minimum models exist
+            - priority vocabularies exist
+            - priority templates and checklists exist
+            - docs identify controlled YAML sources
+        - milestone_id: ms_l3_validation_baseline
+          title: L3 validation baseline
+          close_when:
+            - priority schemas exist
+            - validation workflow exists
+            - validation exceptions are documented
+        - milestone_id: ms_pilot_ready
+          title: Pilot ready
+          close_when:
+            - pilot plan exists
+            - sample use cases are defined
+            - pilot evidence capture forms exist
+        - milestone_id: ms_release_candidate
+          title: Release candidate
+          close_when:
+            - release record drafted
+            - changelog updated
+            - known limitations published
+            - gate results retained
+      recommended_first_backlog_items:
+        - backlog_item_id: bl_001_reconcile_product_catalog
+          title: Reconcile product catalog with generated files
+          type: type_content
+          affected_product: product_catalog
+          priority: p0_release_blocking
+          acceptance_criteria: Product catalog status reflects generated files, planned files, and deferred files.
+        - backlog_item_id: bl_002_create_backlog_record_template
+          title: Create implementation backlog record
+          type: type_evidence
+          affected_product: product_dsr_implementation_roadmap
+          priority: p1_high
+          acceptance_criteria: A retained backlog record exists with required fields and initial items.
+        - backlog_item_id: bl_003_define_pilot_plan_record
+          title: Create initial pilot plan record
+          type: type_evidence
+          affected_product: product_dsr_implementation_roadmap
+          priority: p1_high
+          acceptance_criteria: Pilot plan specifies at least one scenario, input package, task sequence, evidence, and success criteria.
+        - backlog_item_id: bl_004_schema_coverage_matrix
+          title: Create schema coverage matrix
+          type: type_schema
+          affected_product: product_dsr_automation_and_validation_model
+          priority: p2_normal
+          acceptance_criteria: Matrix maps each template and record type to schema status and validation responsibility.
+        - backlog_item_id: bl_005_release_record_v0_1_0
+          title: Draft v0.1.0 release record
+          type: type_evidence
+          affected_product: product_dsr_publication_and_registry_model
+          priority: p1_high
+          acceptance_criteria: Release record identifies included files, deferred files, validation status, and limitations.
+      github_project_fields:
+        - field: affected_product
+          type: single_select_or_text
+          required: true
+        - field: workstream
+          type: single_select
+          required: true
+        - field: priority
+          type: single_select
+          required: true
+        - field: conformance_impact
+          type: single_select
+          required: true
+          allowed_values:
+            - l1_documented
+            - l2_reviewable
+            - l3_exercisable
+            - l4_reusable
+            - l5_archival_publication_ready
+        - field: release_target
+          type: single_select
+          required: false
+        - field: closure_condition
+          type: text
+          required: true
+      review_cadence:
+        - cadence_id: cadence_phase_close
+          trigger: Before closing each implementation phase.
+          review_focus:
+            - exit criteria
+            - evidence completeness
+            - backlog carryforward
+            - package inventory updates
+        - cadence_id: cadence_release_candidate
+          trigger: Before tagging a release candidate.
+          review_focus:
+            - release scope
+            - validation results
+            - limitations
+            - conformance declaration
+        - cadence_id: cadence_after_pilot
+          trigger: After each pilot report.
+          review_focus:
+            - pilot findings
+            - claim boundaries
+            - defects and improvements
+            - template or checklist revisions
+      minimum_review_packet:
+        - current package inventory
+        - current conformance declaration
+        - product catalog status excerpt
+        - relevant phase exit criteria
+        - quality gate result summary
+        - backlog items proposed for carryforward
+        - known limitations and open questions
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: Identify downstream templates, records, and schemas implied by the roadmap.
+    content:
+      recommended_templates:
+        - template_id: implementation_backlog_record_template
+          path: templates/implementation-backlog-record-template.yaml
+          purpose: Provide reusable structure for roadmap backlog records.
+          schema_implication: schemas/implementation-backlog-record.schema.json
+        - template_id: pilot_plan_template
+          path: templates/pilot-plan-template.yaml
+          purpose: Provide reusable structure for framework pilot plans.
+          schema_implication: schemas/pilot-plan.schema.json
+        - template_id: pilot_report_template
+          path: templates/pilot-report-template.yaml
+          purpose: Provide reusable structure for pilot findings and claim-boundary reports.
+          schema_implication: schemas/pilot-report.schema.json
+        - template_id: release_candidate_review_template
+          path: templates/release-candidate-review-template.yaml
+          purpose: Provide reusable structure for release gate review.
+          schema_implication: schemas/release-candidate-review.schema.json
+      validation_rules_to_consider:
+        - rule_id: val_impl_001
+          description: Every phase must have at least one exit criterion and one evidence requirement.
+          target_schema: implementation_roadmap_schema
+        - rule_id: val_impl_002
+          description: Every release path entry must identify intended conformance and required conditions.
+          target_schema: implementation_roadmap_schema
+        - rule_id: val_impl_003
+          description: Every backlog item must have priority, affected product, acceptance criteria, and closure condition.
+          target_schema: implementation_backlog_schema
+        - rule_id: val_impl_004
+          description: Every pilot must distinguish purpose, evidence, success criteria, and limitations.
+          target_schema: pilot_plan_schema
+        - rule_id: val_impl_005
+          description: Release records must reconcile included files with package inventory.
+          target_schema: release_record_schema
+      package_inventory_implications:
+        - implication_id: inv_impl_001
+          statement: Add this roadmap file as a controlled product specification with validation responsibility assigned to maintainers.
+        - implication_id: inv_impl_002
+          statement: Add recommended roadmap records when created, with retention rules and validation status.
+        - implication_id: inv_impl_003
+          statement: Mark future templates and schemas as planned until generated.
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: Preserve unresolved implementation choices without blocking the L2 roadmap specification.
+    content:
+      open_questions:
+        - question_id: oq_impl_001
+          question: Should roadmap progress be maintained only in YAML records, or mirrored in GitHub Projects for public repository operations?
+          decision_needed_by: phase_5_release_candidate_review
+          current_disposition: open
+        - question_id: oq_impl_002
+          question: Which pilot scenario should be treated as the first required release-blocking pilot for v0.2.0?
+          decision_needed_by: phase_4_internal_pilot_demonstration
+          current_disposition: open
+        - question_id: oq_impl_003
+          question: What minimum schema coverage is required before claiming L3 exercisable conformance?
+          decision_needed_by: phase_3_validation_and_automation_hardening
+          current_disposition: open
+        - question_id: oq_impl_004
+          question: Which files must be complete before DOI or archival publication readiness is pursued?
+          decision_needed_by: phase_7_sustainment_and_publication_readiness
+          current_disposition: open
+      initial_backlog:
+        - backlog_item_id: ib_impl_001
+          title: Create retained implementation backlog record
+          type: type_evidence
+          affected_product: product_dsr_implementation_roadmap
+          priority: p1_high
+          status: proposed
+          acceptance_criteria:
+            - record exists under records/decisions or records/design-decisions
+            - record includes required backlog fields
+            - initial roadmap open questions are represented or linked
+          closure_condition: Backlog record is created and referenced from package inventory.
+        - backlog_item_id: ib_impl_002
+          title: Add phase status fields to product catalog
+          type: type_content
+          affected_product: product_catalog
+          priority: p1_high
+          status: proposed
+          acceptance_criteria:
+            - product catalog can indicate planned, generated, reviewed, validated, released, or deferred status
+            - product catalog can identify release target and validation responsibility
+          closure_condition: Product catalog status model supports roadmap execution.
+        - backlog_item_id: ib_impl_003
+          title: Define pilot evidence templates
+          type: type_content
+          affected_product: templates
+          priority: p2_normal
+          status: proposed
+          acceptance_criteria:
+            - pilot plan and pilot report templates exist
+            - templates distinguish demonstration from evaluation
+            - templates include claim-boundary fields
+          closure_condition: Pilot templates are generated and pass review.
+        - backlog_item_id: ib_impl_004
+          title: Define validation coverage rules for L3
+          type: type_schema
+          affected_product: product_dsr_automation_and_validation_model
+          priority: p2_normal
+          status: proposed
+          acceptance_criteria:
+            - baseline validation coverage is defined
+            - schema coverage matrix is created
+            - exceptions can be recorded
+          closure_condition: L3 validation scope is explicit and reviewable.
+        - backlog_item_id: ib_impl_005
+          title: Prepare first release record
+          type: type_evidence
+          affected_product: product_dsr_publication_and_registry_model
+          priority: p1_high
+          status: proposed
+          acceptance_criteria:
+            - release record identifies included, excluded, and deferred files
+            - validation and review status are visible
+            - release limitations are clear
+          closure_condition: record-release-0001-v0-1-0.yaml exists and is package-inventory aligned.
+
+quality_gates:
+  - id: qg_consistency
+    status: pass
+    evidence:
+      - target_path uses specs/ directory
+      - filename follows lower-kebab-case and product file naming convention
+      - file uses YAML and controlled specification structure
+    reviewer_note: Ready for L2 review.
+  - id: qg_coherence
+    status: pass_with_conditions
+    evidence:
+      - upstream and downstream related items are identified
+      - product catalog dependency is explicit
+    condition: Reconcile this roadmap against the final generated product catalog before release.
+  - id: qg_cogency
+    status: pass
+    evidence:
+      - phases, pilots, release path, backlog procedure, and acceptance criteria are operationally defined
+    reviewer_note: Usable as an implementation planning control.
+  - id: qg_correspondence
+    status: pass
+    evidence:
+      - roadmap corresponds to selected purpose: development phases, pilots, release path, and backlog
+    reviewer_note: Supports the DSR Framework artifact package target.
+  - id: qg_dsr_transparency
+    status: pass
+    evidence:
+      - transparency_dimension_mapping covers process, problem space, solution space, build, evaluation, and contribution
+    reviewer_note: Transparency role is explicit.
+  - id: qg_reviewability
+    status: pass
+    evidence:
+      - acceptance criteria, phase gates, failure modes, and evidence requirements are present
+    reviewer_note: Reviewer can evaluate the file without hidden assumptions.
+
+traceability:
+  - trace_id: trace_file_identity
+    source: spec_implementation_roadmap_selection
+    target: specs/product-dsr-implementation-roadmap.yaml
+    relationship: defines_requested_file
+    evidence_status: mapped
+  - trace_id: trace_required_structure
+    source: dsr_framework_generation_prompt_product_spec_structure
+    target: sections
+    relationship: implements_required_product_spec_sections
+    evidence_status: mapped
+  - trace_id: trace_quality_gate_alignment
+    source: dsr_framework_generation_spec_quality_gates
+    target: quality_gates
+    relationship: implements_quality_review_expectations
+    evidence_status: mapped
+  - trace_id: trace_product_catalog_dependency
+    source: specs/product-catalog.yaml
+    target: workflow.phase_sequence
+    relationship: roadmap_sequences_catalog_products
+    evidence_status: not_yet_verified_against_final_catalog
+
+open_questions:
+  - question_id: oq_file_001
+    question: Should the implementation backlog be a standalone retained record, a GitHub Project export, or both?
+    status: open
+  - question_id: oq_file_002
+    question: What is the minimum external review evidence needed before moving from v0.4.0 reuse candidate to v1.0.0 stable framework?
+    status: open

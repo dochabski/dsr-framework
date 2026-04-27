@@ -1,0 +1,693 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: aesthetics_dimensions
+  item_id: vocab_aesthetics_dimensions
+  item_type: vocabulary
+  title: Aesthetic Value Dimensions Vocabulary
+  purpose: >
+    Provide a controlled vocabulary for describing, reporting, and reviewing
+    aesthetic value dimensions in Design Science Research artifacts, design
+    processes, demonstrations, evaluations, and contribution claims.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  target_path: vocabularies/aesthetics-dimensions.yaml
+  conformance_target: l2_reviewable
+  default_use_context: >
+    Use this vocabulary when aesthetic experience, artful design, hedonic value,
+    elegance, beauty, pleasure, creativity, or expressive quality is relevant to
+    the artifact purpose, stakeholder experience, evaluation plan, or contribution
+    claim. Do not treat these dimensions as mandatory for every DSR study.
+  governing_principles:
+    - id: aesthetic_value_is_complementary
+      statement: >
+        Aesthetic value complements but does not replace artifact utility,
+        artifact quality, rigor, validity, reliability, or contribution to
+        knowledge.
+    - id: aesthetic_relevance_is_contextual
+      statement: >
+        Aesthetic dimensions should be selected only when they are meaningful for
+        the artifact, use context, stakeholder experience, design process, or
+        stated contribution.
+    - id: shared_language_not_scoring_instrument
+      statement: >
+        The vocabulary provides reviewable descriptive terms; it is not, by
+        itself, an empirically validated psychometric instrument, rating scale,
+        or inter-rater reliability protocol.
+    - id: artifact_and_process_applicability
+      statement: >
+        Dimensions may apply to the artifact as experienced by users, to the
+        generative design process, or to both, depending on the claim being made.
+
+  source_basis:
+    - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+      short_citation: Baskerville, Kaul, and Storey (2018)
+      source_role: primary_aesthetics_framework
+      evidence_status: mapped
+      evidence_anchors:
+        - CA02
+        - CA03
+        - CA05
+        - CA11
+        - CA12
+        - CA13
+        - CA14
+        - CA15
+      evidence_summary: >
+        Source contributes a triad of synthetics, analytics, and aesthetics and
+        twelve aesthetic dimensions for articulating aesthetic value in DSR
+        artifacts and design processes.
+    - source_id: dsr_framework_generation_spec
+      source_role: generation_and_repository_convention
+      evidence_status: mapped
+      evidence_summary: >
+        Governs target path, vocabulary structure, source-basis fields,
+        traceability, quality gates, and L2 reviewable conformance expectations.
+    - source_id: dsr_framework_generation_prompt
+      source_role: generation_procedure
+      evidence_status: mapped
+      evidence_summary: >
+        Governs controlled vocabulary shape, required metadata, completion
+        expectations, and DSR distinctions.
+
+  related_items:
+    upstream_dependencies:
+      - id: aesthetics_docs
+        relationship: source_family
+        expected_path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      - id: model_evaluation_alignment
+        relationship: evaluation_alignment_dependency
+        expected_path: models/dsr-evaluation-alignment-model.yaml
+      - id: model_contribution
+        relationship: contribution_positioning_dependency
+        expected_path: models/dsr-contribution-model.yaml
+      - id: vocab_responsible_design_values
+        relationship: adjacent_value_vocabulary
+        expected_path: vocabularies/responsible-design-values.yaml
+    downstream_users:
+      - id: template_evaluation_plan
+        relationship: may_reference_for_aesthetic_criteria
+        expected_path: templates/evaluation-plan-template.yaml
+      - id: template_evaluation_report
+        relationship: may_reference_for_findings_and_interpretation
+        expected_path: templates/evaluation-report-template.yaml
+      - id: template_contribution_claim
+        relationship: may_reference_for_aesthetic_contribution_claims
+        expected_path: templates/contribution-claim-template.yaml
+      - id: checklist_evaluation_readiness
+        relationship: may_reference_for_evaluation_fit_review
+        expected_path: checklists/evaluation-readiness-checklist.yaml
+      - id: docs_evaluation
+        relationship: may_explain_human_facing_use
+        expected_path: docs/protocol/08-evaluation-framework.md
+
+  classification:
+    vocabulary_family: quality_and_value_dimensions
+    primary_domain: design_science_research
+    adjacent_domains:
+      - aesthetics
+      - design_theory
+      - human_computer_interaction
+      - user_experience
+      - artifact_evaluation
+    applies_to:
+      - artifact_specification
+      - artifact_design_rationale
+      - demonstration_record
+      - evaluation_plan
+      - evaluation_report
+      - contribution_claim
+      - reviewer_assessment
+    does_not_replace:
+      - utility_evaluation
+      - technical_quality_assessment
+      - validity_assessment
+      - reliability_assessment
+      - replication_assessment
+      - projectability_assessment
+
+  entries:
+    - id: skill_or_virtuosity
+      label: Skill or Virtuosity
+      definition: >
+        The perceived excellence, mastery, craft, competence, or technical-artistic
+        control evident in the artifact or in the design process that produced it.
+      allowed_use: >
+        Use when the contribution depends on evidence that the artifact or process
+        displays notable craft, disciplined execution, elegant engineering, or
+        expert design performance.
+      boundary_notes: >
+        Do not use merely because an artifact is functional. Distinguish from
+        reliability, maintainability, or performance unless the claim concerns the
+        experienced craft or virtuosity of the design.
+      artifact_or_process_focus:
+        - artifact
+        - generative_process
+      evaluation_mode:
+        - qualitative_judgment
+        - expert_review
+        - comparative_critique
+      related_terms:
+        - elegance
+        - craft
+        - technical_excellence
+        - design_mastery
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: direct_pleasure
+      label: Direct Pleasure
+      definition: >
+        Immediate enjoyment, delight, sensory satisfaction, or hedonic response
+        experienced through interaction with, observation of, or participation in
+        the artifact or design process.
+      allowed_use: >
+        Use for artifacts or contexts where enjoyment, pleasantness, delight,
+        perceived enjoyment, sensory appeal, or hedonic value is a meaningful
+        outcome.
+      boundary_notes: >
+        Do not equate pleasure with usefulness. A useful artifact may lack direct
+        pleasure, and a pleasurable artifact may still require separate evidence
+        of utility, safety, or effectiveness.
+      artifact_or_process_focus:
+        - artifact
+        - user_experience
+        - demonstration
+      evaluation_mode:
+        - user_feedback
+        - qualitative_observation
+        - survey
+        - experience_sampling
+      related_terms:
+        - enjoyment
+        - delight
+        - hedonic_value
+        - user_experience
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: style
+      label: Style
+      definition: >
+        A coherent and recognizable manner of form, interaction, representation,
+        interface, language, or design expression that gives the artifact or
+        process a distinctive aesthetic character.
+      allowed_use: >
+        Use when visual, interactional, architectural, procedural, narrative, or
+        representational coherence is important to how the artifact is perceived
+        or used.
+      boundary_notes: >
+        Do not use style as a synonym for branding, formatting, or decoration
+        unless those features affect the artifact's aesthetic experience or design
+        contribution.
+      artifact_or_process_focus:
+        - artifact
+        - documentation
+        - interface
+        - generative_process
+      evaluation_mode:
+        - design_critique
+        - heuristic_review
+        - user_feedback
+      related_terms:
+        - coherence
+        - form_language
+        - visual_identity
+        - interaction_style
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: criticism
+      label: Criticism
+      definition: >
+        The capacity of an artifact, design process, or design account to invite,
+        withstand, or productively structure interpretive critique and aesthetic
+        judgment by relevant communities.
+      allowed_use: >
+        Use when the artifact's aesthetic value is clarified through expert
+        critique, stakeholder interpretation, design review, peer review, or
+        reflective evaluation discourse.
+      boundary_notes: >
+        Do not use for generic negative feedback. This term concerns critical
+        interpretation and evaluative discourse, not merely defect reporting or
+        usability complaint logging.
+      artifact_or_process_focus:
+        - artifact
+        - generative_process
+        - publication_review
+      evaluation_mode:
+        - expert_critique
+        - peer_review
+        - reflective_analysis
+        - interpretive_evaluation
+      related_terms:
+        - critique
+        - interpretive_judgment
+        - reflective_review
+        - aesthetic_discourse
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: representation
+      label: Representation
+      definition: >
+        The artifact's or process account's ability to represent, symbolize,
+        model, evoke, or make perceivable a meaningful object, concept, practice,
+        setting, phenomenon, or experience.
+      allowed_use: >
+        Use when aesthetic value depends on how well the artifact represents a
+        domain, makes an abstract relation perceivable, evokes a context, or
+        presents information in a meaningful form.
+      boundary_notes: >
+        Distinguish from construct validity. Representation can be aesthetic and
+        experiential even when separate validity evidence is needed for whether a
+        model accurately captures its target phenomenon.
+      artifact_or_process_focus:
+        - artifact
+        - model
+        - visualization
+        - documentation
+        - demonstration
+      evaluation_mode:
+        - representational_analysis
+        - stakeholder_interpretation
+        - visual_or_symbolic_review
+      related_terms:
+        - symbolic_form
+        - modeling
+        - visualization
+        - evocation
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: special_focus
+      label: Special Focus
+      definition: >
+        The artifact's or process's ability to focus attention on selected
+        features, experiences, relationships, meanings, or moments in a way that
+        heightens aesthetic perception or interpretive salience.
+      allowed_use: >
+        Use when selective emphasis, attention guidance, framing, foregrounding,
+        or experiential focus is central to the artifact's intended aesthetic or
+        practical contribution.
+      boundary_notes: >
+        Do not use for ordinary scope limitation. The term is appropriate when
+        focus itself shapes the aesthetic or experiential value of the artifact.
+      artifact_or_process_focus:
+        - artifact
+        - interaction
+        - visualization
+        - user_experience
+      evaluation_mode:
+        - observational_study
+        - design_critique
+        - user_feedback
+      related_terms:
+        - attention
+        - salience
+        - foregrounding
+        - framing
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: imaginative_experience
+      label: Imaginative Experience
+      definition: >
+        The artifact's or process's capacity to stimulate imagination,
+        exploration, perspective-taking, alternative possibilities, narrative
+        engagement, or meaningful envisioning by users, designers, or reviewers.
+      allowed_use: >
+        Use for artifacts such as simulations, visualizations, augmented-reality
+        experiences, design games, exploratory models, or interpretive tools where
+        imaginative engagement is contribution-relevant.
+      boundary_notes: >
+        Do not use merely because the artifact is novel. Imaginative experience
+        concerns what the artifact enables people to envision, explore, or
+        mentally inhabit.
+      artifact_or_process_focus:
+        - artifact
+        - user_experience
+        - demonstration
+        - generative_process
+      evaluation_mode:
+        - qualitative_interview
+        - observation
+        - reflective_analysis
+        - scenario_evaluation
+      related_terms:
+        - exploration
+        - immersion
+        - perspective_taking
+        - envisioning
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: novelty_and_creativity
+      label: Novelty and Creativity
+      definition: >
+        The degree to which the artifact or design process exhibits original,
+        generative, surprising, inventive, or creatively recombined form,
+        function, interaction, representation, or design logic.
+      allowed_use: >
+        Use when aesthetic contribution depends on creative design, non-routine
+        artifact construction, unexpected synthesis, or original experiential
+        qualities.
+      boundary_notes: >
+        Distinguish aesthetic novelty from scholarly novelty. A contribution may
+        be aesthetically creative without being theoretically novel, and vice
+        versa.
+      artifact_or_process_focus:
+        - artifact
+        - generative_process
+        - contribution_claim
+      evaluation_mode:
+        - comparative_analysis
+        - expert_review
+        - design_rationale_review
+      related_terms:
+        - creativity
+        - originality
+        - invention
+        - generativity
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: expressive_individuality
+      label: Expressive Individuality
+      definition: >
+        The presence of distinctive human, organizational, cultural, designerly,
+        or community expression in the artifact or design process that contributes
+        to its aesthetic identity.
+      allowed_use: >
+        Use when the artifact or process intentionally expresses a designer's,
+        community's, user's, or organization's perspective, situated identity, or
+        recognizable design voice.
+      boundary_notes: >
+        Do not use to infer protected personal characteristics. Treat expression
+        as an artifact or process quality, and document only evidence relevant to
+        design contribution and stakeholder experience.
+      artifact_or_process_focus:
+        - artifact
+        - generative_process
+        - stakeholder_context
+      evaluation_mode:
+        - interpretive_analysis
+        - design_critique
+        - stakeholder_feedback
+      related_terms:
+        - design_voice
+        - situated_expression
+        - identity_expression
+        - authorship
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: emotional_saturation
+      label: Emotional Saturation
+      definition: >
+        The extent to which the artifact or design process evokes, carries,
+        organizes, or intensifies emotion as part of its experienced aesthetic
+        value.
+      allowed_use: >
+        Use when affective response, emotional resonance, mood, atmosphere,
+        empathy, attachment, or felt significance is relevant to artifact use or
+        contribution.
+      boundary_notes: >
+        Do not use as a substitute for affective-harm analysis, safety review, or
+        ethical assessment. Positive or intense emotion still requires responsible
+        evaluation when risk is possible.
+      artifact_or_process_focus:
+        - artifact
+        - user_experience
+        - stakeholder_context
+      evaluation_mode:
+        - qualitative_interview
+        - affective_response_survey
+        - observation
+        - reflective_analysis
+      related_terms:
+        - affect
+        - emotion
+        - resonance
+        - atmosphere
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: intellectual_challenge
+      label: Intellectual Challenge
+      definition: >
+        The artifact's or process's capacity to provoke curiosity, interpretation,
+        problem solving, reflection, cognitive engagement, or productive difficulty
+        as part of its aesthetic experience.
+      allowed_use: >
+        Use when the artifact's value includes stimulating thought, inviting
+        interpretation, making complexity engaging, or challenging users and
+        reviewers in a meaningful way.
+      boundary_notes: >
+        Do not equate intellectual challenge with poor usability, needless
+        complexity, or inaccessible design. The challenge should be purposeful and
+        appropriate to the user group and context.
+      artifact_or_process_focus:
+        - artifact
+        - user_experience
+        - documentation
+        - generative_process
+      evaluation_mode:
+        - cognitive_walkthrough
+        - user_feedback
+        - expert_review
+        - reflective_analysis
+      related_terms:
+        - cognitive_engagement
+        - reflection
+        - productive_difficulty
+        - curiosity
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+    - id: aesthetic_traditions_and_institutions
+      label: Aesthetic Traditions and Institutions
+      definition: >
+        The relation of the artifact or process to established or emerging design
+        traditions, aesthetic communities, disciplinary conventions, institutional
+        norms, genres, or critical practices that shape aesthetic interpretation.
+      allowed_use: >
+        Use when aesthetic value depends on recognizable traditions, genres,
+        standards, institutional expectations, design movements, disciplinary
+        practices, or community-based critical norms.
+      boundary_notes: >
+        Do not use to enforce a single tradition as universal. Document the
+        relevant community, institution, genre, or tradition and its boundary
+        conditions.
+      artifact_or_process_focus:
+        - artifact
+        - publication_context
+        - disciplinary_context
+        - community_context
+      evaluation_mode:
+        - genre_analysis
+        - expert_review
+        - historical_or_institutional_analysis
+        - community_review
+      related_terms:
+        - genre
+        - tradition
+        - institutional_norms
+        - design_community
+      source_basis:
+        - source_id: baskerville_kaul_storey_2018_aesthetics_design_science_research
+          evidence_anchor_id: CA12
+          evidence_status: mapped
+
+  usage_guidance:
+    selection_rules:
+      - id: select_by_claim_relevance
+        rule: >
+          Select only dimensions that are explicitly relevant to the artifact's
+          purpose, stakeholder experience, design rationale, demonstration,
+          evaluation question, or contribution claim.
+      - id: document_non_applicability
+        rule: >
+          When aesthetics is out of scope, document the reason rather than forcing
+          an aesthetic evaluation.
+      - id: pair_with_evaluation_method
+        rule: >
+          Pair each selected dimension with an evidence source and evaluation
+          method, such as design critique, expert review, user feedback,
+          qualitative interview, survey, observation, or reflective analysis.
+      - id: distinguish_description_from_score
+        rule: >
+          Treat entries as descriptive and interpretive vocabulary unless a
+          project-specific rubric, scale, or coding protocol has been separately
+          defined and reviewed.
+    recommended_fields_for_templates:
+      - aesthetic_dimension_id
+      - aesthetic_dimension_label
+      - artifact_or_process_focus
+      - relevance_rationale
+      - evidence_source
+      - evaluation_method
+      - interpretation
+      - limitations
+      - reviewer_notes
+
+  validation_rules:
+    - id: val_entry_shape
+      description: >
+        Every entry must include id, label, definition, allowed_use,
+        boundary_notes, related_terms, and source_basis.
+      severity: error
+    - id: val_lower_snake_case_ids
+      description: Entry IDs must use lower_snake_case.
+      severity: error
+    - id: val_source_basis_present
+      description: >
+        Each entry must trace to a mapped source basis or be marked
+        evidence_status: not_yet_mapped.
+      severity: error
+    - id: val_no_mandatory_aesthetic_overclaim
+      description: >
+        Vocabulary use must not imply that aesthetic dimensions are mandatory for
+        all DSR artifacts.
+      severity: warning
+    - id: val_no_unvalidated_scoring_claim
+      description: >
+        Vocabulary use must not claim validated scoring, measurement reliability,
+        or inter-rater reliability unless a separate validated rubric or protocol
+        is supplied.
+      severity: warning
+
+  acceptance_criteria:
+    - id: ac_repository_fit
+      criterion: >
+        File is valid YAML and follows the repository path and naming convention
+        vocabularies/aesthetics-dimensions.yaml.
+    - id: ac_vocabulary_completeness
+      criterion: >
+        File includes all twelve mapped aesthetic dimensions with definitions,
+        allowed uses, boundary notes, related terms, and source basis.
+    - id: ac_contextual_boundaries
+      criterion: >
+        File states that aesthetic evaluation is optional, context-sensitive, and
+        complementary to utility, rigor, validity, reliability, and contribution
+        evaluation.
+    - id: ac_reviewability
+      criterion: >
+        File includes validation rules and acceptance criteria sufficient for L2
+        review.
+    - id: ac_traceability
+      criterion: >
+        File includes upstream and downstream related items plus mapped source
+        basis.
+
+  quality_gate_status:
+    consistency:
+      status: pass
+      rationale: >
+        Uses controlled YAML vocabulary structure, lower-kebab-case path, and
+        lower_snake_case stable IDs.
+    coherence:
+      status: pass
+      rationale: >
+        Aligns with evaluation, contribution, responsible-design, and template
+        dependencies without replacing them.
+    cogency:
+      status: pass
+      rationale: >
+        Provides operational definitions, usage rules, boundary notes, and
+        validation rules.
+    correspondence:
+      status: pass
+      rationale: >
+        Supports the DSR Framework as a reviewable artifact package by providing
+        controlled terms for contribution-relevant aesthetic value.
+    dsr_transparency:
+      status: pass
+      rationale: >
+        Supports build, evaluation, contribution, and stakeholder-experience
+        transparency when aesthetics is relevant.
+    reviewability:
+      status: pass
+      rationale: >
+        Includes acceptance criteria, validation rules, source basis, and explicit
+        non-overclaim constraints.
+
+  limitations:
+    - id: lim_not_validated_rubric
+      statement: >
+        This vocabulary is not a validated scoring rubric and does not establish
+        psychometric reliability by itself.
+    - id: lim_context_sensitive
+      statement: >
+        The relevance of any dimension depends on artifact type, stakeholder
+        context, use setting, and contribution claim.
+    - id: lim_source_scope
+      statement: >
+        The initial vocabulary is primarily grounded in one DSR aesthetics source;
+        future corpus expansion may refine definitions or add crosswalks.
+
+  open_questions:
+    - id: oq_measurement_protocol
+      question: >
+        Should future versions define optional rating scales, evaluator guidance,
+        or inter-rater procedures for aesthetic review?
+      disposition: backlog
+    - id: oq_crosswalk_to_ux
+      question: >
+        Should the vocabulary be crosswalked to user-experience, hedonic quality,
+        usability, or human-computer interaction vocabularies?
+      disposition: backlog
+    - id: oq_artifact_type_fit
+      question: >
+        Which artifact types most commonly require aesthetic-value evaluation in
+        the DSR Framework package?
+      disposition: backlog
+
+  traceability:
+    - trace_id: trace_vocab_aesthetics_to_selection_table
+      source: dsr_framework_selection_table
+      source_selection_id: vocab_aesthetics_dimensions
+      target: vocabularies/aesthetics-dimensions.yaml
+      relationship: selected_generation_target
+      evidence_status: mapped
+    - trace_id: trace_vocab_aesthetics_to_generation_spec
+      source: dsr_framework_generation_spec
+      target: vocabulary_shape_and_l2_reviewability
+      relationship: conforms_to_generation_rules
+      evidence_status: mapped
+    - trace_id: trace_vocab_aesthetics_to_aesthetics_source
+      source: baskerville_kaul_storey_2018_aesthetics_design_science_research
+      target: twelve_aesthetic_dimensions
+      relationship: operationalizes_source_framework
+      evidence_status: mapped
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_generation
+    summary: >
+      Created L2 reviewable controlled vocabulary for DSR aesthetic value
+      dimensions based on the selected framework portion.
+    responsible_party: GPT-5.5 Thinking

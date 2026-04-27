@@ -1,0 +1,1106 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_projectability_model
+  selection_id: model_projectability
+  title: DSR Projectability Model
+  item_type: specification
+  output_format: yaml
+  target_path: models/dsr-projectability-model.yaml
+  purpose: 'Define a controlled model for calibrating Design Science Research claims about generalization, transfer, adaptation,
+    replication, and reuse without overclaiming exact reproducibility or universal applicability.
+
+    '
+  status: draft
+  version: 0.1.0
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+  license: CC0-1.0
+source_basis:
+- source_id: dsr_framework_generation_spec
+  role: governing_generation_and_quality_rules
+  evidence_status: mapped
+- source_id: dsr_framework_selection_table
+  role: selected_generation_target
+  evidence_status: mapped
+- source_id: documentation_protocol_repository
+  role: repository_structure_and_controlled_file_conventions
+  evidence_status: not_checked_in_current_generation
+- source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+  role: knowledge_path_accumulation_and_strategy_chaining_basis
+  evidence_status: mapped_from_dsr_extraction_corpus
+  citation_anchor_ids:
+  - A07
+  - A13
+  - A14
+  - A15
+  - A16
+- source_id: hevner_et_al_2024_transparency_in_design_science_research
+  role: transparency_boundary_condition_replication_and_repository_basis
+  evidence_status: mapped_from_dsr_extraction_corpus
+  citation_anchor_ids:
+  - CA07
+  - CA13
+  - CA14
+  - CA15
+  - CA17
+- source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+  role: artifact_universal_make_plan_use_plan_capacity_and_context_basis
+  evidence_status: mapped_from_dsr_extraction_corpus
+  citation_anchor_ids:
+  - A09
+  - A11
+  - A12
+  - A13
+  - A14
+  - A15
+  - A17
+- source_id: reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation_dsr
+  short_citation: Reining et al. (2022)
+  evidence_anchor_id: A10
+  supports_construct: replication_projectability.projectable_to_problem_class
+  evidence_role: boundary_condition
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-projectability-model.yaml
+  note: 'Reining et al. (2022) grounds replication_projectability.projectable_to_problem_class through extracted anchor A10:
+    Four quality criteria for cumulative Design Science Research mapped to an evolutionary scientific-progress process model:
+    relevance, balancing novelty and reuse, testability, and usefulness.'
+- source_id: siponen_klaavuniemi_2021_primary_scientific_contribution
+  short_citation: Siponen & Klaavuniemi (2021)
+  evidence_anchor_id: A14
+  supports_construct: replication_projectability.analytical_generalization
+  evidence_role: boundary_condition
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-projectability-model.yaml
+  note: 'Siponen & Klaavuniemi (2021) grounds replication_projectability.analytical_generalization through extracted anchor
+    A14: Challenges the consensus-like expectation that Design Science Research''s primary scientific contribution should
+    be new theory.'
+- source_id: storey_baskerville_2021_digital_science_field_dsr
+  short_citation: Storey & Baskerville, 2021
+  evidence_anchor_id: CA10
+  supports_construct: replication_projectability.transdisciplinary
+  evidence_role: boundary_condition
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-projectability-model.yaml
+  note: 'Storey & Baskerville, 2021 grounds replication_projectability.transdisciplinary through extracted anchor CA10: Extends
+    the DSR consensus paradigm into digital science by arguing that scientific digital artifact production should be treated
+    as theory-driven, verifiable design science.'
+- source_id: iivari_2020_critical_look_theories_dsr
+  short_citation: Iivari (2020)
+  evidence_anchor_id: A8
+  supports_construct: replication_projectability.analytical_generalization
+  evidence_role: boundary_condition
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-projectability-model.yaml
+  note: 'Iivari (2020) grounds replication_projectability.analytical_generalization through extracted anchor A8: Clarifies
+    and critiques design theory, kernel theory, and substantive technological theory in DSRIS.'
+- source_id: agerfalk_2018_whither_design_science_research
+  short_citation: Ågerfalk (2018)
+  evidence_anchor_id: CA14
+  supports_construct: replication_projectability.analytical_generalization
+  evidence_role: boundary_condition
+  grounding_decision: scoped
+  evidence_status: substantive
+  target_path: models/dsr-projectability-model.yaml
+  note: 'Ågerfalk (2018) grounds replication_projectability.analytical_generalization through extracted anchor CA14: Critiques
+    narrow or unified conceptions of Design Science Research and frames genre diversity, pragmatism, design-as-inquiry, and
+    publication expectations for DSR in information systems.'
+related_items:
+  upstream_dependencies:
+  - id: models/dsr-framework-canonical-model.yaml
+    relationship: uses_canonical_entities
+    expected_status: draft_or_later
+  - id: models/dsr-artifact-ontology.yaml
+    relationship: uses_artifact_boundary_make_plan_use_plan_and_capacity_model
+    expected_status: draft_or_later
+  - id: models/dsr-evaluation-alignment-model.yaml
+    relationship: uses_evaluation_claim_alignment_and_evidence_threads
+    expected_status: draft_or_later
+  - id: models/dsr-reliability-model.yaml
+    relationship: uses_reliability_evidence_as_input_to_reuse_confidence
+    expected_status: draft_or_later
+  - id: vocabularies/replication-types.yaml
+    relationship: expected_controlled_vocabulary
+    expected_status: draft_or_later
+  - id: vocabularies/projectability-types.yaml
+    relationship: expected_controlled_vocabulary
+    expected_status: draft_or_later
+  downstream_dependents:
+  - id: checklists/replication-projectability-checklist.yaml
+    relationship: operationalizes_review_questions
+  - id: docs/protocol/09-validity-reliability-replication-projectability.md
+    relationship: human_facing_guidance
+  - id: templates/evaluation-report-template.yaml
+    relationship: may_include_projectability_findings
+  - id: templates/contribution-claim-template.yaml
+    relationship: calibrates_scope_of_contribution_claims
+  - id: records/evaluations/record-evaluation-plan-0001.yaml
+    relationship: may_reference_projectability_strategy
+scope:
+  applies_to:
+  - dsr_artifact_packages
+  - artifact_universals
+  - artifact_instances
+  - design_principles
+  - design_theories
+  - make_plans
+  - use_plans
+  - evaluation_protocols
+  - templates_and_checklists
+  - repositories_and_reuse_packages
+  does_not_apply_to:
+  - unsupported_universal_claims
+  - claims_of_exact_reproducibility_without_context_trace
+  - casual_adoption_or_practice_transfer_without_documented_boundary_conditions
+  - mere_downloadability_without_reuse_instructions
+  core_distinctions:
+  - id: projectability_not_universal_generalization
+    statement: 'Projectability means a justified claim that design knowledge, artifact structure, use logic, or evaluation
+      findings can inform a specified class of future contexts. It is not a default claim of universal generality.
+
+      '
+  - id: replication_not_identical_reproduction
+    statement: 'Replication in DSR may involve re-performing, adapting, instantiating, or extending an artifact and its evidence
+      under changed conditions. Exact repetition is only one possible case and may be inappropriate when the original intervention
+      changes the environment.
+
+      '
+  - id: reuse_not_file_availability
+    statement: 'Reuse requires a documented unit of reuse, dependencies, license, boundary conditions, adaptation instructions,
+      and evidence sufficient for an adopter to make informed use.
+
+      '
+  - id: adaptation_not_uncontrolled_modification
+    statement: 'Adaptation is a justified transformation from source context to target context, guided by preserved design
+      rationale, make/use plans, constraints, and evaluation evidence.
+
+      '
+conceptual_model:
+  summary: 'The projectability model connects a source DSR outcome to a target use or research context through reusable units,
+    context descriptors, boundary conditions, adaptation rules, replication strategy, evidence strength, and claim calibration.
+
+    '
+  primary_flow:
+  - step_id: pm_step_01_define_source_outcome
+    name: Define source outcome
+    output_entities:
+    - source_artifact_or_design_knowledge
+    - source_context
+    - evaluated_claims
+  - step_id: pm_step_02_select_reuse_unit
+    name: Select reusable unit
+    output_entities:
+    - reuse_unit
+    - dependencies
+    - version_identifier
+  - step_id: pm_step_03_describe_target_context
+    name: Describe target context or problem class
+    output_entities:
+    - target_context
+    - intended_transfer_goal
+    - stakeholders
+  - step_id: pm_step_04_compare_contexts
+    name: Compare source and target contexts
+    output_entities:
+    - similarity_basis
+    - difference_basis
+    - boundary_conditions
+  - step_id: pm_step_05_define_adaptation_logic
+    name: Define adaptation logic
+    output_entities:
+    - adaptation_rule
+    - invariants
+    - allowed_variations
+    - prohibited_variations
+  - step_id: pm_step_06_select_replication_strategy
+    name: Select replication or reuse strategy
+    output_entities:
+    - replication_type
+    - evidence_plan
+    - evaluation_requirements
+  - step_id: pm_step_07_calibrate_projectability_claim
+    name: Calibrate projectability claim
+    output_entities:
+    - projectability_level
+    - claim_strength
+    - limitations
+    - residual_risks
+  - step_id: pm_step_08_package_for_reuse
+    name: Package for reuse and review
+    output_entities:
+    - reuse_package
+    - transparency_record
+    - citation_and_license_metadata
+controlled_entities:
+- id: projectability_claim
+  label: Projectability claim
+  definition: 'A bounded claim that a DSR artifact, design principle, method, model, evaluation finding, or other design-knowledge
+    unit can inform, transfer to, or be adapted for a specified problem class, context family, or future study.
+
+    '
+  required_fields:
+  - claim_id
+  - claim_text
+  - source_context_id
+  - target_context_or_problem_class_id
+  - reusable_unit_ids
+  - projectability_type
+  - claim_strength
+  - evidence_thread_ids
+  - boundary_condition_ids
+  - adaptation_rule_ids
+  - limitations
+  validation_notes:
+  - Must identify what is being projected.
+  - Must identify where projection is expected to hold.
+  - Must identify what evidence supports the claim.
+  - Must not imply universal generality unless explicitly supported by cumulative evidence.
+- id: source_context
+  label: Source context
+  definition: 'The application, organizational, technical, stakeholder, temporal, regulatory, resource, and evaluation setting
+    in which the DSR artifact or knowledge unit was built, demonstrated, evaluated, or derived.
+
+    '
+  required_fields:
+  - context_id
+  - domain
+  - problem_class
+  - stakeholders
+  - artifact_environment
+  - constraints
+  - assumptions
+  - evaluation_setting
+  - timeframe
+- id: target_context
+  label: Target context
+  definition: 'A proposed future setting, problem class, project, repository user, or research context in which the artifact
+    or design knowledge may be reused, adapted, instantiated, evaluated, or extended.
+
+    '
+  required_fields:
+  - context_id
+  - domain
+  - problem_class
+  - intended_use
+  - stakeholders
+  - known_differences_from_source
+  - minimum_conditions_for_use
+- id: reuse_unit
+  label: Reuse unit
+  definition: 'The discrete object of reuse, transfer, or adaptation, such as an artifact type, artifact instance, make plan,
+    use plan, design principle, design theory, algorithm, data structure, evaluation protocol, checklist, template, record
+    schema, or repository package.
+
+    '
+  required_fields:
+  - reuse_unit_id
+  - reuse_unit_type
+  - description
+  - version
+  - dependencies
+  - license_or_access_terms
+  - required_context_conditions
+  - excluded_uses
+- id: boundary_condition
+  label: Boundary condition
+  definition: 'A condition that limits, enables, or qualifies where the artifact, method, design principle, or evaluation
+    finding is expected to remain useful or valid.
+
+    '
+  required_fields:
+  - boundary_condition_id
+  - condition_text
+  - condition_type
+  - applies_to_claim_ids
+  - evidence_basis
+  - risk_if_violated
+- id: adaptation_rule
+  label: Adaptation rule
+  definition: 'A rule, rationale, or transformation procedure that explains how a reuse unit may be modified when moving from
+    one context to another while preserving its intended design logic or contribution claim.
+
+    '
+  required_fields:
+  - adaptation_rule_id
+  - source_condition
+  - target_condition
+  - permitted_change
+  - invariant_to_preserve
+  - evidence_or_rationale
+  - review_required
+- id: replication_strategy
+  label: Replication strategy
+  definition: 'The planned mode for re-performing, re-instantiating, adapting, extending, or testing a DSR result to examine
+    whether the design knowledge remains useful under specified conditions.
+
+    '
+  required_fields:
+  - replication_strategy_id
+  - replication_type
+  - unit_of_replication
+  - required_materials
+  - comparison_basis
+  - expected_variation
+  - evaluation_requirements
+- id: evidence_thread
+  label: Projectability evidence thread
+  definition: 'A linked chain of evidence that connects the original problem, design rationale, artifact specification, demonstration,
+    evaluation findings, limitations, and reuse or adaptation claim.
+
+    '
+  required_fields:
+  - evidence_thread_id
+  - linked_records
+  - evaluation_findings
+  - reliability_findings
+  - validity_findings
+  - transparency_materials
+  - unresolved_threats
+- id: reuse_package
+  label: Reuse package
+  definition: 'A packaged set of materials sufficient for reviewable reuse or adaptation, including artifact specification,
+    instructions, dependencies, example data or scenarios where appropriate, evaluation notes, limitations, and citation or
+    license metadata.
+
+    '
+  required_fields:
+  - package_id
+  - included_reuse_units
+  - installation_or_use_instructions
+  - required_context_conditions
+  - adaptation_guidance
+  - validation_or_smoke_test
+  - citation_metadata
+  - license
+- id: projectability_assessment
+  label: Projectability assessment
+  definition: 'A structured review of whether the claimed transfer, adaptation, generalization, replication, or reuse is warranted
+    by the available evidence and documentation.
+
+    '
+  required_fields:
+  - assessment_id
+  - reviewer_role
+  - claim_id
+  - criteria_results
+  - decision
+  - required_remediation
+  - residual_risk
+controlled_values:
+  projectability_types:
+  - id: no_projectability_claimed
+    label: No projectability claimed
+    definition: 'The output is intentionally limited to a single local case, artifact, demonstration, or record without a
+      claim of transfer or reuse.
+
+      '
+    allowed_use: Use when evidence does not support transfer beyond the source context.
+  - id: contextual_insight
+    label: Contextual insight
+    definition: 'The work provides a useful case-specific lesson that may sensitize future inquiry but is not yet a transferable
+      design rule.
+
+      '
+    allowed_use: Use for early idiographic evidence or exploratory demonstrations.
+  - id: bounded_transfer
+    label: Bounded transfer
+    definition: 'The artifact or design knowledge may transfer to a clearly bounded class of similar contexts when specified
+      boundary conditions are met.
+
+      '
+    allowed_use: Use when source and target contexts can be compared and limits are explicit.
+  - id: analytic_generalization
+    label: Analytic generalization
+    definition: 'The work supports general reasoning about a problem class or design mechanism through theory-grounded explanation
+      rather than statistical population inference.
+
+      '
+    allowed_use: Use when mechanism, theory, or design rationale justifies projection.
+  - id: design_principle_projectability
+    label: Design-principle projectability
+    definition: 'A design principle or prescriptive rule is sufficiently abstracted and bounded to guide future design work
+      across a problem class.
+
+      '
+    allowed_use: Use when the reusable output is a prescriptive design knowledge statement.
+  - id: reuse_ready_package
+    label: Reuse-ready package
+    definition: 'The work includes materials sufficient for informed reuse, adaptation, or re-evaluation by another researcher
+      or practitioner.
+
+      '
+    allowed_use: Use when package materials, dependencies, license, instructions, and tests are present.
+  - id: cumulative_research_path
+    label: Cumulative research path
+    definition: 'The output is positioned as part of a sequence of knowledge moments, replication studies, or strategy chaining
+      that supports cumulative DSR development.
+
+      '
+    allowed_use: Use when the claim depends on knowledge accumulation across studies or artifacts.
+  replication_types:
+  - id: exact_reproduction
+    label: Exact reproduction
+    definition: 'Attempt to re-run or reproduce the original artifact, method, or evaluation under the same documented conditions.
+
+      '
+    boundary_notes: Rarely sufficient for DSR projectability because source contexts may change.
+  - id: technical_reimplementation
+    label: Technical reimplementation
+    definition: 'Rebuild the artifact or method from its specification to test whether the make plan is complete and operational.
+
+      '
+    boundary_notes: Focuses on build adequacy rather than target-context usefulness.
+  - id: context_preserving_replication
+    label: Context-preserving replication
+    definition: 'Re-perform the design or evaluation in a highly similar context with intentional control of key contextual
+      variables.
+
+      '
+    boundary_notes: Useful for checking whether findings depend on hidden context details.
+  - id: differentiated_replication
+    label: Differentiated replication
+    definition: 'Re-perform or adapt the artifact, method, or evaluation in a changed context while documenting relevant similarities
+      and differences.
+
+      '
+    boundary_notes: Often the most realistic DSR replication mode for socio-technical artifacts.
+  - id: conceptual_replication
+    label: Conceptual replication
+    definition: 'Test the same design principle, mechanism, or contribution claim using a different artifact, method, or operationalization.
+
+      '
+    boundary_notes: Useful for developing design theory and analytic generalization.
+  - id: extension_replication
+    label: Extension replication
+    definition: 'Reuse or adapt the work while extending the problem class, artifact capability, stakeholder group, or evaluation
+      criterion.
+
+      '
+    boundary_notes: Must preserve a traceable link to the original claim.
+  - id: repository_reuse_test
+    label: Repository reuse test
+    definition: 'Assess whether a packaged artifact, template, codebase, schema, or checklist can be obtained, understood,
+      configured, executed, and adapted by a reviewer or adopter.
+
+      '
+    boundary_notes: Focuses on reuse readiness rather than substantive impact.
+  claim_strength_levels:
+  - id: unsupported
+    label: Unsupported
+    definition: Claim is asserted without adequate evidence or boundary conditions.
+  - id: plausible
+    label: Plausible
+    definition: Claim is theoretically or analogically reasonable but not yet directly evaluated.
+  - id: demonstrated
+    label: Demonstrated
+    definition: Claim is supported by one or more demonstrations in relevant settings.
+  - id: evaluated
+    label: Evaluated
+    definition: Claim is supported by explicit evaluation evidence aligned to the claim.
+  - id: corroborated
+    label: Corroborated
+    definition: Claim is supported by multiple evaluations, replications, or independent uses.
+  - id: mature
+    label: Mature
+    definition: Claim is supported by cumulative evidence across contexts with well-understood limits.
+  boundary_condition_types:
+  - technical_environment
+  - organizational_context
+  - stakeholder_capability
+  - data_or_content_assumption
+  - regulatory_or_policy_context
+  - resource_constraint
+  - time_or_lifecycle_phase
+  - artifact_version
+  - evaluation_setting
+  - cultural_or_social_context
+  reuse_unit_types:
+  - artifact_universal
+  - artifact_instance
+  - construct
+  - model
+  - method
+  - instantiation
+  - make_plan
+  - use_plan
+  - design_principle
+  - design_theory
+  - algorithm
+  - schema
+  - template
+  - checklist
+  - evaluation_protocol
+  - evidence_record
+  - repository_package
+relationship_model:
+  relationships:
+  - id: rel_claim_projects_unit_to_context
+    from_entity: projectability_claim
+    relationship: projects
+    to_entity: reuse_unit
+    through_entity: target_context
+    cardinality: many_to_many
+    validation_rule: Every projectability claim must identify at least one reuse unit and one target context or problem class.
+  - id: rel_source_context_bounds_claim
+    from_entity: source_context
+    relationship: bounds
+    to_entity: projectability_claim
+    cardinality: one_to_many
+    validation_rule: Every projectability claim must preserve source-context metadata.
+  - id: rel_boundary_condition_limits_claim
+    from_entity: boundary_condition
+    relationship: limits
+    to_entity: projectability_claim
+    cardinality: many_to_many
+    validation_rule: Boundary conditions must be explicit unless the claim type is no_projectability_claimed.
+  - id: rel_adaptation_rule_transforms_reuse_unit
+    from_entity: adaptation_rule
+    relationship: transforms
+    to_entity: reuse_unit
+    cardinality: many_to_many
+    validation_rule: Adaptation rules must state invariants and allowed variations.
+  - id: rel_replication_strategy_tests_claim
+    from_entity: replication_strategy
+    relationship: tests_or_extands
+    to_entity: projectability_claim
+    cardinality: many_to_many
+    validation_rule: Replication strategies must define comparison basis and expected variation.
+  - id: rel_evidence_thread_supports_claim_strength
+    from_entity: evidence_thread
+    relationship: supports
+    to_entity: claim_strength
+    cardinality: many_to_one
+    validation_rule: Claim strength cannot exceed available evidence and transparency materials.
+  - id: rel_reuse_package_contains_reuse_units
+    from_entity: reuse_package
+    relationship: contains
+    to_entity: reuse_unit
+    cardinality: one_to_many
+    validation_rule: Reuse packages must include instructions, license/access terms, dependencies, and validation or smoke-test
+      guidance.
+  - id: rel_projectability_assessment_reviews_claim
+    from_entity: projectability_assessment
+    relationship: reviews
+    to_entity: projectability_claim
+    cardinality: many_to_one
+    validation_rule: Every assessment must produce a decision and remediation guidance.
+claim_calibration_rules:
+- id: pcr_01_no_transfer_without_target
+  rule_type: must
+  statement: A projectability claim must identify a target context, target problem class, or intended reuse context.
+  failure_mode: Claim reads as vague generalization.
+  remediation: Add explicit target-context description or downgrade to contextual_insight.
+- id: pcr_02_no_reuse_without_unit
+  rule_type: must
+  statement: A projectability claim must specify the unit being reused or adapted.
+  failure_mode: Claim does not distinguish artifact, design principle, method, evaluation protocol, or package.
+  remediation: Add reuse_unit records and link them to the claim.
+- id: pcr_03_boundary_conditions_required
+  rule_type: must
+  statement: Bounded transfer, analytic generalization, and design-principle claims must state boundary conditions.
+  failure_mode: Claim appears universal or unqualified.
+  remediation: Add boundary_condition records and limitations.
+- id: pcr_04_claim_strength_follows_evidence
+  rule_type: must
+  statement: Claim strength must not exceed the strongest aligned evidence thread.
+  failure_mode: Demonstration-only evidence is described as evaluated or mature projectability.
+  remediation: Lower claim_strength or add evaluation/replication evidence.
+- id: pcr_05_replication_strategy_must_match_claim
+  rule_type: should
+  statement: The selected replication type should match the claimed projectability type and reuse unit.
+  failure_mode: Exact reproduction is requested where differentiated replication is more appropriate.
+  remediation: Reclassify replication type or clarify replication purpose.
+- id: pcr_06_adaptation_must_preserve_invariants
+  rule_type: must
+  statement: Adaptation rules must identify which design elements may vary and which invariants must be preserved.
+  failure_mode: Adaptation guidance allows arbitrary change that breaks the original design logic.
+  remediation: Define permitted changes, prohibited changes, and review triggers.
+- id: pcr_07_repository_reuse_requires_operational_materials
+  rule_type: must
+  statement: Reuse-ready package claims must include access, dependencies, instructions, version, license, and validation
+    guidance.
+  failure_mode: Materials are merely cited or downloadable but not usable.
+  remediation: Add package metadata, dependency list, setup instructions, and smoke test.
+- id: pcr_08_context_change_requires_trace
+  rule_type: must
+  statement: Differentiated or extension replication must trace source-to-target similarities, differences, and expected effects.
+  failure_mode: Replication result cannot be interpreted because contextual variation is undocumented.
+  remediation: Add context comparison and boundary-condition update.
+- id: pcr_09_negative_results_preserved
+  rule_type: should
+  statement: Failed transfer, weak reuse, or non-replication findings should be retained as projectability evidence.
+  failure_mode: Repository records only successful reuse and hides limits.
+  remediation: Add evaluation_report or review_record documenting failure and implications.
+- id: pcr_10_projectability_is_reviewable
+  rule_type: must
+  statement: Every projectability assessment must be reviewable against explicit criteria and evidence links.
+  failure_mode: Reviewer cannot determine why the claim was accepted or downgraded.
+  remediation: Add criteria results, evidence_required, and decision rationale.
+assessment_criteria:
+- criterion_id: pac_01_source_context_documented
+  question: Is the original source context sufficiently described for a reviewer to understand where the artifact or knowledge
+    came from?
+  evidence_required:
+  - source_context_record
+  - problem_and_objectives_record
+  - transparency_crosswalk
+  pass_condition: Domain, problem class, stakeholders, constraints, timeframe, and evaluation setting are explicit.
+  fail_condition: Context is generic, missing, or only implied.
+- criterion_id: pac_02_reuse_unit_identified
+  question: Is the unit of reuse, transfer, or adaptation explicitly identified and versioned?
+  evidence_required:
+  - artifact_specification
+  - design_rationale
+  - package_inventory_entry
+  pass_condition: Reuse unit type, version, dependencies, and access terms are clear.
+  fail_condition: The file only states that the project or artifact is reusable without specifying what is reusable.
+- criterion_id: pac_03_target_context_bounded
+  question: Is the target context or problem class bounded enough to judge applicability?
+  evidence_required:
+  - target_context_description
+  - boundary_conditions
+  - assumptions
+  pass_condition: Intended users, constraints, and minimum conditions are stated.
+  fail_condition: The claim says broadly applicable, general, or transferable without a defined target.
+- criterion_id: pac_04_context_comparison_present
+  question: Are source and target similarities and differences documented?
+  evidence_required:
+  - context_comparison_matrix
+  - risk_assessment
+  - adaptation_rules
+  pass_condition: Material differences are linked to expected adaptation or evaluation needs.
+  fail_condition: Context differences are ignored or treated as irrelevant without rationale.
+- criterion_id: pac_05_evidence_aligned_to_claim
+  question: Does evidence align with the specific projectability claim?
+  evidence_required:
+  - demonstration_record
+  - evaluation_report
+  - reliability_findings
+  - validity_findings
+  pass_condition: Evidence directly supports the claimed transfer, adaptation, or reuse level.
+  fail_condition: Evidence supports local utility but not projected use.
+- criterion_id: pac_06_boundary_conditions_clear
+  question: Are limits, non-goals, excluded contexts, and risks stated?
+  evidence_required:
+  - boundary_condition_records
+  - limitations
+  - residual_risks
+  pass_condition: A reviewer can tell where the claim should not be applied.
+  fail_condition: Limitations are absent, hidden, or generic.
+- criterion_id: pac_07_adaptation_guidance_operational
+  question: Are adaptation instructions sufficiently operational for a future user?
+  evidence_required:
+  - adaptation_rules
+  - make_plan
+  - use_plan
+  - design_rationale
+  pass_condition: Permitted changes, invariants, and review triggers are specified.
+  fail_condition: Adaptation guidance consists only of broad advice.
+- criterion_id: pac_08_replication_strategy_defined
+  question: Is the intended replication strategy defined and appropriate?
+  evidence_required:
+  - replication_strategy
+  - comparison_basis
+  - evaluation_requirements
+  pass_condition: Replication type, unit, expected variation, and evaluation criteria are explicit.
+  fail_condition: Replication is asserted without a plan or comparison basis.
+- criterion_id: pac_09_reuse_package_complete
+  question: Are materials sufficient for reviewable reuse where reuse-readiness is claimed?
+  evidence_required:
+  - package_inventory
+  - setup_or_use_instructions
+  - license
+  - dependency_list
+  - smoke_test_or_validation_rule
+  pass_condition: Another user can locate, configure, understand, and check the reusable materials.
+  fail_condition: Required materials, access terms, or usage instructions are missing.
+- criterion_id: pac_10_claim_strength_calibrated
+  question: Is the stated claim strength proportionate to evidence?
+  evidence_required:
+  - evidence_thread
+  - claim_strength_assignment
+  - review_record
+  pass_condition: Strong claims require aligned evaluation, replication, or cumulative evidence.
+  fail_condition: Demonstrated or evaluated language is used for unsupported or merely plausible claims.
+projectability_matrix:
+  columns:
+  - projectability_type
+  - minimum_evidence
+  - required_boundary_material
+  - allowed_claim_language
+  - disallowed_claim_language
+  rows:
+  - projectability_type: no_projectability_claimed
+    minimum_evidence:
+    - local_artifact_or_record_exists
+    required_boundary_material:
+    - statement_of_no_transfer_claim
+    allowed_claim_language:
+    - This result is documented for the source context only.
+    disallowed_claim_language:
+    - generalizable
+    - transferable
+    - reuse_ready
+  - projectability_type: contextual_insight
+    minimum_evidence:
+    - source_context_description
+    - demonstration_or_observation_record
+    required_boundary_material:
+    - local_conditions
+    - unresolved_questions
+    allowed_claim_language:
+    - may inform future inquiry
+    - suggests a candidate design consideration
+    disallowed_claim_language:
+    - validated principle
+    - broadly reusable
+  - projectability_type: bounded_transfer
+    minimum_evidence:
+    - source_context_description
+    - target_problem_class_description
+    - evaluation_or_demonstration_evidence
+    required_boundary_material:
+    - boundary_conditions
+    - context_comparison
+    allowed_claim_language:
+    - may transfer to similar contexts where stated conditions hold
+    disallowed_claim_language:
+    - applies anywhere
+    - universally generalizes
+  - projectability_type: analytic_generalization
+    minimum_evidence:
+    - theory_or_mechanism_rationale
+    - evidence_aligned_to_mechanism
+    - limitations
+    required_boundary_material:
+    - mechanism_boundary
+    - rival_explanations_or_threats
+    allowed_claim_language:
+    - supports analytic generalization to the stated problem class
+    disallowed_claim_language:
+    - statistically representative unless sampling evidence exists
+  - projectability_type: design_principle_projectability
+    minimum_evidence:
+    - explicit_design_principle
+    - source_context
+    - use_conditions
+    - evaluation_or_corroborating_argument
+    required_boundary_material:
+    - prescriptive_scope
+    - invariants
+    - prohibited_applications
+    allowed_claim_language:
+    - provides a bounded design principle for similar problems
+    disallowed_claim_language:
+    - proves best practice for all contexts
+  - projectability_type: reuse_ready_package
+    minimum_evidence:
+    - package_inventory
+    - artifact_specification
+    - instructions
+    - dependencies
+    - license
+    - validation_or_smoke_test
+    required_boundary_material:
+    - use_requirements
+    - adaptation_guidance
+    - known_failure_modes
+    allowed_claim_language:
+    - packaged for reviewable reuse and adaptation
+    disallowed_claim_language:
+    - guaranteed plug and play
+  - projectability_type: cumulative_research_path
+    minimum_evidence:
+    - prior_and_next_knowledge_moments
+    - contribution_positioning
+    - evidence_chain
+    required_boundary_material:
+    - path_limits
+    - strategy_or_genre_boundary
+    allowed_claim_language:
+    - contributes to cumulative DSR knowledge development
+    disallowed_claim_language:
+    - settles the design theory unless mature corroboration exists
+workflow:
+- step_id: pw_01_inventory_projectability_candidates
+  name: Inventory candidate reusable outputs
+  actor: researcher_or_package_maintainer
+  inputs:
+  - artifact_profile
+  - artifact_specification
+  - design_rationale
+  - evaluation_plan
+  outputs:
+  - candidate_reuse_units
+  acceptance_criteria:
+  - Each candidate has type, version, dependencies, and owner.
+- step_id: pw_02_select_claim_scope
+  name: Select claim scope
+  actor: researcher_or_reviewer
+  inputs:
+  - contribution_claim
+  - evaluation_report
+  - source_context
+  outputs:
+  - draft_projectability_claim
+  acceptance_criteria:
+  - Claim language distinguishes local utility, bounded transfer, analytic generalization, and reuse readiness.
+- step_id: pw_03_document_context_and_boundaries
+  name: Document context and boundaries
+  actor: researcher
+  inputs:
+  - problem_objectives_record
+  - stakeholder_record
+  - transparency_crosswalk
+  outputs:
+  - source_context
+  - boundary_conditions
+  - assumptions
+  acceptance_criteria:
+  - Boundary conditions are specific enough to judge excluded uses.
+- step_id: pw_04_define_adaptation_and_replication_path
+  name: Define adaptation and replication path
+  actor: researcher_or_reuser
+  inputs:
+  - target_context
+  - reuse_unit
+  - design_rationale
+  - make_plan
+  - use_plan
+  outputs:
+  - adaptation_rules
+  - replication_strategy
+  acceptance_criteria:
+  - Invariants, allowed variations, comparison basis, and evaluation criteria are explicit.
+- step_id: pw_05_align_evidence_and_claim_strength
+  name: Align evidence and claim strength
+  actor: reviewer
+  inputs:
+  - demonstration_record
+  - evaluation_report
+  - reliability_assessment
+  - validity_assessment
+  outputs:
+  - claim_strength_assignment
+  - residual_risks
+  acceptance_criteria:
+  - Claim strength is downgraded when evidence does not support the proposed scope.
+- step_id: pw_06_package_for_transfer_or_reuse
+  name: Package for transfer or reuse
+  actor: package_maintainer
+  inputs:
+  - reuse_units
+  - dependencies
+  - license
+  - instructions
+  - validation_rules
+  outputs:
+  - reuse_package
+  - package_inventory_update
+  acceptance_criteria:
+  - A reviewer or adopter can locate, understand, configure, and test the reusable material.
+- step_id: pw_07_record_projectability_assessment
+  name: Record projectability assessment
+  actor: reviewer_or_maintainer
+  inputs:
+  - projectability_claim
+  - assessment_criteria
+  - evidence_thread
+  outputs:
+  - projectability_assessment
+  - review_record
+  acceptance_criteria:
+  - Decision, remediation, and residual risks are retained as records.
+information_item_implications:
+  recommended_records:
+  - id: projectability_claim_record
+    item_type: record
+    purpose: Preserve each bounded projectability claim and supporting evidence.
+    minimum_fields:
+    - record_id
+    - claim_id
+    - claim_text
+    - projectability_type
+    - claim_strength
+    - source_context
+    - target_context_or_problem_class
+    - reuse_units
+    - evidence_threads
+    - boundary_conditions
+    - adaptation_rules
+    - replication_strategy
+    - limitations
+    - reviewer_decision
+  - id: context_comparison_record
+    item_type: record
+    purpose: Compare source and target contexts for transfer, adaptation, or replication.
+    minimum_fields:
+    - record_id
+    - source_context_id
+    - target_context_id
+    - material_similarities
+    - material_differences
+    - implication_for_claim
+    - required_adaptations
+    - residual_risks
+  - id: reuse_package_manifest
+    item_type: metadata_record
+    purpose: Identify reusable materials and package conditions.
+    minimum_fields:
+    - package_id
+    - included_files
+    - included_reuse_units
+    - dependencies
+    - license
+    - access_conditions
+    - setup_or_use_instructions
+    - validation_or_smoke_test
+    - citation_metadata
+  template_implications:
+  - templates/contribution-claim-template.yaml should include projectability_type, claim_strength, boundary_conditions, and
+    evidence_thread references.
+  - templates/evaluation-report-template.yaml should distinguish local utility findings from projectability findings.
+  - templates/artifact-specification-template.md should identify reuse units, dependencies, and use conditions.
+  - templates/dsr-transparency-crosswalk-template.yaml should capture source-context and target-context transparency where
+    transfer is claimed.
+  schema_implications:
+  - schemas/dsr-contribution-claim.schema.json should validate projectability_type and claim_strength controlled values.
+  - schemas/dsr-artifact.schema.json should validate reuse_unit metadata where reuse readiness is claimed.
+  - schemas/dsr-project.schema.json should allow linked projectability_assessment records.
+validation_rules:
+  structural_validation:
+  - id: pvr_01_required_metadata
+    description: Model file must include id, selection_id, title, purpose, status, version, owner, source_basis, related_items,
+      and change_history.
+    severity: error
+  - id: pvr_02_controlled_values_present
+    description: Model file must define projectability_types, replication_types, claim_strength_levels, boundary_condition_types,
+      and reuse_unit_types.
+    severity: error
+  - id: pvr_03_relationships_traceable
+    description: Relationship model must link projectability claims to reuse units, contexts, evidence, boundaries, and assessment
+      records.
+    severity: error
+  semantic_validation:
+  - id: pvr_04_no_unbounded_generalization
+    description: Claims must not use universal or generalizable language without explicit target class, boundary conditions,
+      and evidence.
+    severity: error
+  - id: pvr_05_no_reuse_ready_without_package
+    description: reuse_ready_package cannot be assigned unless package metadata, instructions, dependency, license, and validation
+      evidence exist.
+    severity: error
+  - id: pvr_06_no_evaluated_claim_without_evaluation
+    description: Claim strength evaluated, corroborated, or mature requires linked evaluation, replication, or cumulative
+      evidence records.
+    severity: error
+  - id: pvr_07_context_change_documented
+    description: Differentiated, conceptual, and extension replication must document material source-target differences.
+    severity: warning
+  review_validation:
+  - id: pvr_08_assessment_required_for_release
+    description: Release-ready packages should include a projectability assessment for each transfer, adaptation, replication,
+      or reuse claim.
+    severity: warning
+  - id: pvr_09_failed_transfer_retained
+    description: Failed or partially failed projectability tests should be retained as evidence rather than removed.
+    severity: warning
+quality_and_conformance:
+  quality_gates:
+  - id: qg_consistency
+    status: pass
+    rationale: File uses lower-kebab-case target path, YAML format, draft status, stable IDs, and model item conventions.
+  - id: qg_coherence
+    status: pass
+    rationale: Model links to artifact ontology, evaluation alignment, reliability, contribution claims, vocabularies, checklist,
+      and docs.
+  - id: qg_cogency
+    status: pass
+    rationale: The model defines an operational flow from source outcome to reusable unit, target context, adaptation, evidence,
+      and claim calibration.
+  - id: qg_correspondence
+    status: pass
+    rationale: The content supports a reviewable and reusable DSR artifact package without claiming archival publication readiness.
+  - id: qg_dsr_transparency
+    status: pass
+    rationale: Source context, target context, boundary conditions, adaptation rules, evidence threads, and reuse materials
+      support process, problem-space, build, evaluation, and contribution transparency.
+  - id: qg_reviewability
+    status: pass
+    rationale: Assessment criteria, validation rules, pass/fail conditions, and remediation expectations are explicit.
+  conformance_notes:
+  - This is an L2 reviewable model, not an L3 executable schema or L5 archival release artifact.
+  - Vocabulary files for replication and projectability are referenced as dependencies and should be generated separately
+    for stricter validation.
+  - The model is designed for repository governance and reviewer assessment, not as a substitute for empirical evaluation.
+traceability:
+- trace_id: trace_model_projectability_selection
+  source: dsr-framework-selection-table.md:model_projectability
+  target: models/dsr-projectability-model.yaml
+  relationship: selected_target
+  evidence_status: mapped
+- trace_id: trace_projectability_to_generation_spec
+  source: dsr-framework-generation-spec.yaml:models.model_projectability
+  target: model.id:dsr_projectability_model
+  relationship: governed_by
+  evidence_status: mapped
+- trace_id: trace_projectability_to_transparency
+  source: hevner_et_al_2024_transparency_in_design_science_research
+  target: controlled_entities.boundary_condition
+  relationship: supports_context_boundary_replication_and_repository_guidance
+  evidence_status: mapped_from_dsr_extraction_corpus
+- trace_id: trace_projectability_to_artifact_ontology
+  source: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+  target: controlled_entities.reuse_unit
+  relationship: supports_artifact_universal_make_plan_use_plan_and_contextual_effect_distinctions
+  evidence_status: mapped_from_dsr_extraction_corpus
+- trace_id: trace_projectability_to_knowledge_paths
+  source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+  target: controlled_values.projectability_types.cumulative_research_path
+  relationship: supports_cumulative_knowledge_path_and_strategy_chaining_logic
+  evidence_status: mapped_from_dsr_extraction_corpus
+limitations:
+- id: lim_01_not_statistical_generalization_model
+  statement: 'This model supports DSR projectability and analytic generalization logic; it does not provide a statistical
+    sampling framework for population inference.
+
+    '
+- id: lim_02_not_empirical_evidence_by_itself
+  statement: 'Completing this model does not create projectability evidence. Evidence must come from demonstration, evaluation,
+    reuse, adaptation, replication, or cumulative research records.
+
+    '
+- id: lim_03_vocabularies_still_required
+  statement: 'The controlled values included here should be split into vocabularies/replication-types.yaml and vocabularies/projectability-types.yaml
+    for stricter repository-level validation.
+
+    '
+- id: lim_04_exact_replication_may_be_inappropriate
+  statement: 'Exact reproduction is not treated as the default gold standard for DSR because artifacts and interventions may
+    alter their environment and require differentiated replication.
+
+    '
+open_questions:
+- id: oq_01_thresholds_for_claim_strength
+  question: What repository-level evidence thresholds should distinguish demonstrated, evaluated, corroborated, and mature
+    projectability?
+  disposition: defer_to_quality_review_and_checklist_generation
+- id: oq_02_repository_reuse_testing
+  question: Should reuse-ready packages require independent reviewer execution of a smoke test before release?
+  disposition: defer_to_publication_readiness_and_automation_validation_models
+- id: oq_03_negative_replication_records
+  question: What minimum fields should be required for failed transfer or failed reuse records?
+  disposition: defer_to_evaluation_report_and_review_record_templates
+- id: oq_04_vocabulary_alignment
+  question: Should projectability_types and replication_types remain embedded here or be fully normalized into vocabulary
+    files only?
+  disposition: defer_until_vocabulary_generation
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: created
+  description: Initial L2 reviewable model generated for model_projectability selection.
+  responsible_party: GPT-5.5 Thinking

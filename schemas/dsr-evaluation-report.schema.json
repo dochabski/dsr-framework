@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/dsr-evaluation-report.schema.json",
+  "title": "DSR Evaluation Report Schema",
+  "description": "Validates evaluation-report templates and future evaluation-report instances, retaining source basis, report body, validation rules, acceptance criteria, and quality-gate alignment.",
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "evaluation_report_template"
+      ]
+    },
+    {
+      "required": [
+        "evaluation_report",
+        "item_id",
+        "item_type",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "owner",
+        "source_basis",
+        "related_items"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "evaluation_report_template": {
+      "type": "object",
+      "required": [
+        "item_id",
+        "item_type",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "owner",
+        "source_basis",
+        "related_items",
+        "report"
+      ],
+      "properties": {
+        "item_id": {},
+        "item_type": {},
+        "title": {},
+        "purpose": {},
+        "status": {},
+        "version": {},
+        "owner": {},
+        "target_path": {},
+        "target_conformance": {},
+        "template_scope": {},
+        "source_basis": {},
+        "related_items": {},
+        "instructions_for_use": {},
+        "report": {},
+        "validation_rules": {},
+        "acceptance_criteria": {},
+        "quality_gate_alignment": {},
+        "open_questions": {},
+        "change_history": {},
+        "evaluation_report": {}
+      },
+      "additionalProperties": true
+    },
+    "evaluation_report": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "item_id": {},
+    "item_type": {},
+    "title": {},
+    "purpose": {},
+    "status": {},
+    "version": {},
+    "owner": {},
+    "source_basis": {},
+    "related_items": {},
+    "change_history": {}
+  }
+}

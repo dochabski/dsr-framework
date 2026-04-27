@@ -1,0 +1,1029 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: replication_projectability_checklist
+  item_id: replication_projectability_checklist
+  item_type: procedure
+  title: Replication and Projectability Checklist
+  purpose: >
+    Provide reviewable criteria for assessing whether a Design Science Research
+    project, artifact package, or design-knowledge claim is sufficiently
+    documented to support appropriate replication, differentiated replication,
+    transfer, adaptation, reuse, and cumulative knowledge development without
+    overclaiming exact reproducibility or unrestricted generalizability.
+  status: draft
+  version: "0.1.0"
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+  target_path: checklists/replication-projectability-checklist.yaml
+  selection_id: checklist_projectability
+  default_review_scope:
+    applies_to:
+      - dsr_project_record
+      - dsr_artifact_record
+      - artifact_package
+      - evaluation_plan
+      - evaluation_report
+      - contribution_claim
+      - transparency_crosswalk
+    does_not_require:
+      - exact_reproduction_of_situated_intervention
+      - executable_artifact_release_when_restricted_by_security_privacy_ip_or_maintenance_cost
+      - universal_generalization_beyond_stated_boundary_conditions
+  use_context:
+    primary_users:
+      - author
+      - reviewer
+      - editor
+      - repository_curator
+      - downstream_reuser
+    recommended_review_points:
+      - before_first_external_review
+      - before_artifact_package_release
+      - before_claiming_reuse_transfer_or_generalization
+      - when adapting an artifact to a new context
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      source_type: governing_specification
+      evidence_status: mapped
+      relevance: >
+        Requires controlled YAML outputs, stable identifiers, traceability,
+        explicit quality gates, reviewability, limitations, and distinctions
+        among demonstration, evaluation, artifact quality, utility, and
+        contribution to knowledge.
+    - source_id: dsr_framework_generation_prompt
+      source_type: governing_prompt
+      evidence_status: mapped
+      relevance: >
+        Requires generated checklist files to include stable metadata,
+        evidence requirements, pass/fail conditions, remediation guidance,
+        traceability, and a short completion report.
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      source_type: dsr_corpus_source
+      evidence_status: mapped
+      citation_anchor_ids:
+        - CA07
+        - CA13
+        - CA14
+        - CA15
+      relevance: >
+        Supports context, boundary-condition, repository, transparency,
+        differentiated replication, and projectability requirements.
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      source_type: dsr_corpus_source
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A07
+        - A13
+        - A14
+        - A15
+        - A16
+      relevance: >
+        Supports cumulative knowledge development through explicit knowledge
+        paths, strategy chaining, reusable contribution representations, and
+        stated limits of sampled DSR paths.
+    - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+      source_type: dsr_corpus_source
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A09
+        - A14
+        - A15
+        - A17
+        - A19
+      relevance: >
+        Supports artifact-universal, make-plan, use-plan, capacity,
+        artifact-network, and design-specification checks needed for reuse and
+        adaptation.
+  related_items:
+    upstream_dependencies:
+      - path: models/dsr-projectability-model.yaml
+        relationship: primary_conceptual_dependency
+      - path: vocabularies/replication-types.yaml
+        relationship: controlled_vocabulary_dependency
+      - path: vocabularies/projectability-types.yaml
+        relationship: controlled_vocabulary_dependency
+      - path: models/dsr-reliability-model.yaml
+        relationship: adjacent_quality_dependency
+      - path: models/dsr-evaluation-alignment-model.yaml
+        relationship: evaluation_claim_alignment_dependency
+      - path: models/dsr-transparency-model.yaml
+        relationship: transparency_dependency
+      - path: templates/evaluation-plan-template.yaml
+        relationship: evidence_source_template
+      - path: templates/evaluation-report-template.yaml
+        relationship: evidence_source_template
+      - path: templates/artifact-specification-template.md
+        relationship: artifact_documentation_dependency
+      - path: templates/contribution-claim-template.yaml
+        relationship: contribution_claim_dependency
+    downstream_uses:
+      - path: records/reviews/record-review-0001-self-review.yaml
+        relationship: review_evidence_input
+      - path: docs/protocol/09-validity-reliability-replication-projectability.md
+        relationship: human_facing_guidance_source
+      - path: package-inventory.yaml
+        relationship: package_quality_control_item
+  controlled_terms:
+    replication_review_terms:
+      - exact_replication
+      - differentiated_replication
+      - conceptual_replication
+      - reuse
+      - adaptation
+      - transfer
+      - projectability
+      - boundary_conditions
+      - artifact_universal
+      - artifact_instance
+      - make_plan
+      - use_plan
+      - capacity_specification
+      - evaluation_context
+      - claim_scope
+  review_scale:
+    pass: Evidence is explicit, sufficient, and traceable.
+    conditional_pass: Evidence is present but incomplete; remediation is bounded and feasible.
+    fail: Evidence is absent, contradictory, or insufficient for L2 reviewability.
+    not_applicable: The check is not relevant; the reviewer records a rationale.
+  minimum_l2_acceptance_rule: >
+    A package passes this checklist at L2 only if all critical checks pass or
+    receive conditional_pass with bounded remediation, no critical check fails,
+    and any non-critical failures are recorded as limitations rather than hidden
+    assumptions.
+  critical_check_ids:
+    - rp_01_replication_intent
+    - rp_02_claim_scope
+    - rp_03_artifact_identity
+    - rp_04_context_boundary
+    - rp_05_design_specification
+    - rp_08_evaluation_traceability
+    - rp_11_boundary_conditions
+    - rp_15_projectability_claim
+    - rp_20_limitations_and_non_goals
+  items:
+    - check_id: rp_01_replication_intent
+      category: replication_framing
+      criticality: critical
+      question: >
+        Is the intended replication or reuse posture explicitly named and
+        distinguished from stronger claims such as exact reproducibility or
+        universal generalization?
+      evidence_required:
+        - declared_replication_type
+        - declared_projectability_type
+        - contribution_claim_scope
+        - rationale_for_any_not_applicable_replication_claims
+      pass_condition: >
+        The file or package states the intended posture, such as exact,
+        differentiated, conceptual, reuse-oriented, or adaptation-oriented, and
+        constrains claims accordingly.
+      fail_condition: >
+        The package implies reproducibility, generalizability, reuse, or transfer
+        without naming the claim type or its evidentiary basis.
+      remediation_guidance: >
+        Add a replication/projectability declaration and revise contribution
+        language so it matches available evidence and context.
+      traceability:
+        - trace_id: rp_trace_hevner_differentiated_replication
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA07, CA13, CA15]
+        - trace_id: rp_trace_vocab_replication_types
+          related_item: vocabularies/replication-types.yaml
+
+    - check_id: rp_02_claim_scope
+      category: contribution_scope
+      criticality: critical
+      question: >
+        Does the project distinguish idiographic findings, projectable design
+        knowledge, nomothetic generalizations, and reusable artifact guidance?
+      evidence_required:
+        - contribution_claim_record
+        - knowledge_scope_declaration
+        - knowledge_goal_declaration
+        - evaluation_report_scope_statement
+      pass_condition: >
+        Claim scope is bounded and mapped to the evidence base, with clear
+        separation among local performance, design principles, artifact quality,
+        utility, and knowledge contribution.
+      fail_condition: >
+        The package uses generalization language that exceeds the documented
+        evaluation setting, sample, artifact version, or problem class.
+      remediation_guidance: >
+        Reclassify the claim scope, add boundary conditions, and revise claims
+        to distinguish local utility from projectable design knowledge.
+      traceability:
+        - trace_id: rp_trace_akoka_knowledge_scope_goal
+          source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A07, A14, A16]
+        - trace_id: rp_trace_contribution_model
+          related_item: models/dsr-contribution-model.yaml
+
+    - check_id: rp_03_artifact_identity
+      category: artifact_identity
+      criticality: critical
+      question: >
+        Is the artifact being replicated, reused, or adapted identified as an
+        artifact type or design specification rather than only as a one-off
+        artifact instance?
+      evidence_required:
+        - artifact_specification
+        - artifact_profile
+        - artifact_type
+        - version_or_release_identifier
+        - make_plan_or_design_specification
+        - use_plan_or_operating_model
+      pass_condition: >
+        The package identifies the artifact type, artifact boundary, artifact
+        version, and the reusable design specification that can guide future
+        instantiations.
+      fail_condition: >
+        The package documents only an instance, screenshot, prototype, or local
+        implementation with no reusable artifact specification.
+      remediation_guidance: >
+        Add an artifact specification that distinguishes artifact universal,
+        artifact instance, make plan, use plan, capacity specification, and
+        release/version identity.
+      traceability:
+        - trace_id: rp_trace_weigand_artifact_universal
+          source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          citation_anchor_ids: [A09, A17]
+
+    - check_id: rp_04_context_boundary
+      category: context_and_problem_space
+      criticality: critical
+      question: >
+        Are the original problem context, stakeholder environment, constraints,
+        resources, and timeframe documented sufficiently for later comparison?
+      evidence_required:
+        - problem_and_objectives_record
+        - stakeholder_record_or_section
+        - context_description
+        - constraints
+        - timeframe
+        - environment_or_setting_description
+      pass_condition: >
+        A downstream reviewer can compare the original setting with a target
+        setting and identify which contextual differences matter.
+      fail_condition: >
+        Context is described only generically, preventing assessment of whether
+        a later setting is similar, different, or materially incompatible.
+      remediation_guidance: >
+        Add problem-space transparency fields covering application context,
+        stakeholders, goals, constraints, resources, and timeframe.
+      traceability:
+        - trace_id: rp_trace_hevner_problem_space
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA07]
+
+    - check_id: rp_05_design_specification
+      category: design_specification
+      criticality: critical
+      question: >
+        Are make plans, use plans, intended capacities, operating conditions, and
+        intended effects documented enough to support reconstruction or informed
+        adaptation?
+      evidence_required:
+        - design_rationale
+        - make_plan
+        - use_plan
+        - capacity_specification
+        - operating_conditions
+        - intended_use_effects
+      pass_condition: >
+        The package gives enough structured detail for a competent downstream
+        user to understand how the artifact is made, configured, used, and
+        evaluated in relation to intended effects.
+      fail_condition: >
+        The artifact is described only narratively or aspirationally, with no
+        actionable design, make, use, or capacity specification.
+      remediation_guidance: >
+        Add make/use/capacity fields to the artifact specification and connect
+        them to evaluation criteria.
+      traceability:
+        - trace_id: rp_trace_weigand_make_use_capacity
+          source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          citation_anchor_ids: [A09, A15, A19]
+
+    - check_id: rp_06_materials_and_repository
+      category: reuse_materials
+      criticality: high
+      question: >
+        Are reusable materials, data, code, documentation, screenshots,
+        configurations, examples, or controlled omissions listed with access
+        conditions?
+      evidence_required:
+        - package_inventory
+        - repository_location_or_package_path
+        - license_or_access_rule
+        - omitted_materials_with_rationale
+        - replacement_materials_or_pseudocode_when_applicable
+      pass_condition: >
+        Reuse-supporting materials are inventoried, accessible where appropriate,
+        and omissions are justified by security, privacy, proprietary, or
+        maintenance constraints.
+      fail_condition: >
+        Essential materials are unavailable, unlisted, or omitted without a
+        rationale or substitute description.
+      remediation_guidance: >
+        Update the package inventory, add access notes, and provide substitutes
+        such as pseudocode, synthetic data, screenshots, configuration guides,
+        or controlled-access instructions.
+      traceability:
+        - trace_id: rp_trace_hevner_repositories
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA14]
+
+    - check_id: rp_07_provenance_and_versioning
+      category: provenance
+      criticality: high
+      question: >
+        Does the package preserve provenance, version, authorship, release, and
+        change-history information needed to identify what is being replicated or
+        reused?
+      evidence_required:
+        - metadata
+        - manifest
+        - artifact_profile
+        - change_history
+        - release_record_if_available
+        - identifier_or_citation_information
+      pass_condition: >
+        A reviewer can identify the exact artifact package, artifact version,
+        responsible parties, release state, and change history.
+      fail_condition: >
+        Materials are not versioned or provenance is unclear, making downstream
+        comparison unreliable.
+      remediation_guidance: >
+        Add or update metadata, manifest, artifact profile, change history, and
+        release identifiers before claiming reuse readiness.
+      traceability:
+        - trace_id: rp_trace_generation_spec_metadata
+          source_id: dsr_framework_generation_spec
+
+    - check_id: rp_08_evaluation_traceability
+      category: evaluation_alignment
+      criticality: critical
+      question: >
+        Are evaluation questions, methods, criteria, evidence, results, and
+        claims traceably connected to the artifact capacities and use goals they
+        are intended to support?
+      evidence_required:
+        - evaluation_plan
+        - evaluation_report
+        - evaluation_criteria
+        - artifact_capacity_map
+        - claim_evidence_traceability
+      pass_condition: >
+        Each major replication or projectability claim is backed by evaluation
+        evidence that maps to the artifact feature, capacity, context, and use
+        effect at issue.
+      fail_condition: >
+        Evaluation evidence is reported but not traceable to the artifact claims
+        or future reuse/adaptation conditions.
+      remediation_guidance: >
+        Add a claim-to-evidence matrix and revise evaluation reporting to map
+        methods, criteria, results, and limitations to specific claims.
+      traceability:
+        - trace_id: rp_trace_hevner_evaluation_confidence
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA15]
+        - trace_id: rp_trace_evaluation_model
+          related_item: models/dsr-evaluation-alignment-model.yaml
+
+    - check_id: rp_09_demonstration_evaluation_distinction
+      category: evidence_quality
+      criticality: high
+      question: >
+        Does the package distinguish demonstration of possible use from
+        evaluation evidence supporting quality, utility, effectiveness, or
+        projectability?
+      evidence_required:
+        - demonstration_record
+        - evaluation_plan
+        - evaluation_report
+        - claim_type_mapping
+      pass_condition: >
+        Demonstrations are reported as use illustrations or feasibility evidence
+        unless stronger evaluation evidence is actually present.
+      fail_condition: >
+        A demonstration scenario is treated as if it proves utility, validity,
+        reliability, or transferability without appropriate evaluation evidence.
+      remediation_guidance: >
+        Reclassify evidence as demonstration or evaluation and adjust claims to
+        match the evidence type.
+      traceability:
+        - trace_id: rp_trace_generation_spec_demonstration_evaluation
+          source_id: dsr_framework_generation_spec
+
+    - check_id: rp_10_measurement_and_data_reuse
+      category: data_and_measurement
+      criticality: high
+      question: >
+        Are measures, instruments, datasets, sampling frames, analytic steps, and
+        data transformations documented enough to support reanalysis or
+        differentiated replication when relevant?
+      evidence_required:
+        - data_dictionary_or_dataset_description
+        - measurement_instruments
+        - sampling_or_case_selection_description
+        - analysis_workflow
+        - transformation_log
+        - restrictions_or_data_access_conditions
+      pass_condition: >
+        Measurement and data procedures are sufficiently documented for a later
+        reviewer to understand, reanalyze, or adapt them within stated access and
+        ethical constraints.
+      fail_condition: >
+        Results depend on opaque data or measurement procedures that cannot be
+        inspected, repeated, or reasonably adapted.
+      remediation_guidance: >
+        Add a data and measurement appendix, synthetic or deidentified examples,
+        instrument descriptions, transformation notes, and access restrictions.
+      traceability:
+        - trace_id: rp_trace_hevner_transparency_materials
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA14, CA15]
+
+    - check_id: rp_11_boundary_conditions
+      category: boundary_conditions
+      criticality: critical
+      question: >
+        Are technical, organizational, social, temporal, regulatory, and
+        stakeholder boundary conditions explicitly stated?
+      evidence_required:
+        - boundary_conditions
+        - constraints
+        - non_goals
+        - assumptions
+        - risk_register_or_responsible_design_notes
+      pass_condition: >
+        Boundary conditions identify where the artifact, evaluation results, or
+        design knowledge should and should not be expected to hold.
+      fail_condition: >
+        Boundary conditions are missing, vague, or inconsistent with the scope of
+        the contribution claim.
+      remediation_guidance: >
+        Add boundary conditions by artifact component, use context, stakeholder
+        group, evaluation setting, and claim type.
+      traceability:
+        - trace_id: rp_trace_hevner_boundary_conditions
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA07, CA13, CA15]
+        - trace_id: rp_trace_akoka_limits
+          source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A15]
+
+    - check_id: rp_12_context_difference_logic
+      category: transfer_and_adaptation
+      criticality: high
+      question: >
+        Does the package explain which contextual differences are expected to be
+        tolerable, material, or disqualifying for reuse or adaptation?
+      evidence_required:
+        - transfer_conditions
+        - adaptation_guidance
+        - context_comparison_dimensions
+        - expected_sensitivity_to_context
+      pass_condition: >
+        The package gives enough context-difference logic for a downstream user
+        to judge whether a target setting is within the artifact's projectable
+        range.
+      fail_condition: >
+        The package lists the original context but provides no logic for
+        comparing it with possible future contexts.
+      remediation_guidance: >
+        Add transfer conditions, context-comparison factors, sensitivity notes,
+        and adaptation decision rules.
+      traceability:
+        - trace_id: rp_trace_hevner_projectability_context
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA07, CA15]
+
+    - check_id: rp_13_adaptation_guidance
+      category: transfer_and_adaptation
+      criticality: high
+      question: >
+        Are permissible, recommended, and prohibited adaptations described for
+        downstream users?
+      evidence_required:
+        - adaptation_guidance
+        - tailoring_rules
+        - required_invariant_components
+        - optional_or_configurable_components
+        - prohibited_changes_or_warnings
+      pass_condition: >
+        The package distinguishes invariant design features from configurable
+        features and warns users about adaptations likely to invalidate claims.
+      fail_condition: >
+        Users are invited to reuse or adapt the artifact without guidance on
+        which changes preserve or undermine the design logic.
+      remediation_guidance: >
+        Add a tailoring section with invariant components, configurable
+        parameters, required re-evaluation triggers, and prohibited changes.
+      traceability:
+        - trace_id: rp_trace_weigand_artifact_network_adaptation
+          source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          citation_anchor_ids: [A14, A19]
+
+    - check_id: rp_14_re_evaluation_triggers
+      category: transfer_and_adaptation
+      criticality: high
+      question: >
+        Does the package state when reuse or adaptation requires new formative,
+        summative, technical, behavioral, or contextual evaluation?
+      evidence_required:
+        - re_evaluation_triggers
+        - evaluation_plan_tailoring_guidance
+        - risk_based_review_rules
+        - acceptance_criteria_for_new_contexts
+      pass_condition: >
+        Re-evaluation triggers are defined for material changes in artifact
+        design, context, data, users, implementation environment, risk profile,
+        or contribution claim.
+      fail_condition: >
+        The package suggests reuse or transfer without specifying when new
+        evaluation is necessary.
+      remediation_guidance: >
+        Add re-evaluation triggers and connect them to the evaluation plan and
+        acceptance criteria.
+      traceability:
+        - trace_id: rp_trace_hevner_evaluation_transparency
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA15]
+
+    - check_id: rp_15_projectability_claim
+      category: projectability_claims
+      criticality: critical
+      question: >
+        Is each projectability claim supported by articulated mechanisms,
+        boundary conditions, and evidence rather than by similarity of surface
+        features alone?
+      evidence_required:
+        - projectability_claim
+        - mechanism_or_rationale
+        - boundary_conditions
+        - evaluation_evidence
+        - alternative_explanations_or_contextual_threats
+      pass_condition: >
+        The project explains why design knowledge is expected to travel across a
+        problem class, with traceable evidence and explicit limits.
+      fail_condition: >
+        The project claims transferability or general relevance based only on
+        successful local use, author assertion, or broad topic similarity.
+      remediation_guidance: >
+        Add mechanism-based projectability rationale, refine the target problem
+        class, and identify evidence still needed.
+      traceability:
+        - trace_id: rp_trace_akoka_projectability_knowledge_accumulation
+          source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A13, A14, A16]
+
+    - check_id: rp_16_accumulation_pathway
+      category: cumulative_knowledge
+      criticality: medium
+      question: >
+        Does the package explain how the artifact or claim can contribute to
+        cumulative DSR knowledge through extension, comparison, strategy
+        chaining, repository reuse, or follow-on studies?
+      evidence_required:
+        - contribution_positioning_record
+        - related_work_or_solution_space_record
+        - future_research_or_backlog
+        - repository_or_reuse_notes
+      pass_condition: >
+        The package identifies how later work can compare, extend, chain, reuse,
+        or challenge the artifact and its design knowledge.
+      fail_condition: >
+        The project is documented as an isolated case with no clear route for
+        cumulative knowledge development.
+      remediation_guidance: >
+        Add cumulative-use pathways, extension opportunities, and comparison
+        targets in the contribution positioning record.
+      traceability:
+        - trace_id: rp_trace_akoka_cumulative_paths
+          source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A13, A14, A16]
+
+    - check_id: rp_17_negative_or_mixed_results
+      category: evidence_quality
+      criticality: medium
+      question: >
+        Are failures, non-effects, partial effects, implementation difficulties,
+        and mixed results documented where they affect reuse or projectability?
+      evidence_required:
+        - evaluation_report
+        - limitations
+        - known_failure_modes
+        - unresolved_issues
+        - risk_register_or_review_record
+      pass_condition: >
+        The package records material negative or mixed evidence and explains how
+        it changes use, adaptation, or contribution claims.
+      fail_condition: >
+        The package reports only successful outcomes while omitting known
+        failures or difficulties relevant to future use.
+      remediation_guidance: >
+        Add known limitations, failure modes, mixed results, unresolved issues,
+        and updated claim boundaries.
+      traceability:
+        - trace_id: rp_trace_quality_review_limitations
+          related_item: specs/product-dsr-quality-conformance-and-review-model.yaml
+
+    - check_id: rp_18_responsible_reuse_constraints
+      category: responsible_design
+      criticality: high
+      question: >
+        Are privacy, security, intellectual property, accessibility, equity,
+        safety, and stakeholder-harm constraints on reuse or transparency stated?
+      evidence_required:
+        - responsible_design_notes
+        - risk_register
+        - access_conditions
+        - licensing_or_ip_notes
+        - security_privacy_limitations
+        - accessibility_notes
+      pass_condition: >
+        The package permits reuse only within stated responsible-design and risk
+        constraints, and identifies where openness must be limited or mediated.
+      fail_condition: >
+        The package encourages reuse or full transparency despite unresolved
+        privacy, security, proprietary, accessibility, or stakeholder-harm risks.
+      remediation_guidance: >
+        Add responsible reuse conditions, controlled access rules, redaction,
+        pseudocode, synthetic examples, or risk-specific warnings.
+      traceability:
+        - trace_id: rp_trace_hevner_transparency_risks
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA14, CA15]
+
+    - check_id: rp_19_implementation_support
+      category: implementation_support
+      criticality: medium
+      question: >
+        Does the package provide enough implementation support for a competent
+        adopter to configure, operate, test, and troubleshoot the artifact?
+      evidence_required:
+        - implementation_guidance
+        - setup_or_configuration_notes
+        - operating_procedure
+        - validation_or_smoke_test
+        - troubleshooting_or_known_issues
+      pass_condition: >
+        A downstream adopter can identify required skills, setup steps,
+        dependencies, operating procedures, expected outputs, and basic tests.
+      fail_condition: >
+        Reuse depends on tacit author knowledge or unlisted implementation
+        assumptions.
+      remediation_guidance: >
+        Add implementation guidance, minimal examples, validation steps, and
+        troubleshooting notes.
+      traceability:
+        - trace_id: rp_trace_hevner_materials_reuse
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA14]
+
+    - check_id: rp_20_limitations_and_non_goals
+      category: limitations
+      criticality: critical
+      question: >
+        Are limitations, non-goals, unresolved questions, and evidence gaps
+        explicit enough to prevent downstream overclaiming?
+      evidence_required:
+        - limitations
+        - non_goals
+        - open_questions
+        - evidence_gap_notes
+        - tailoring_notes
+      pass_condition: >
+        The package states what has not been shown, what should not be inferred,
+        and what evidence would be needed for stronger claims.
+      fail_condition: >
+        The package has no limitations section or limitations are too generic to
+        constrain reuse, replication, or projectability claims.
+      remediation_guidance: >
+        Add specific limitations by artifact component, context, data, method,
+        evaluation, claim scope, and reuse condition.
+      traceability:
+        - trace_id: rp_trace_akoka_limits_future_paths
+          source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A15]
+
+    - check_id: rp_21_review_record_retention
+      category: reviewability
+      criticality: medium
+      question: >
+        Are replication/projectability review findings retained as a record with
+        reviewer, date, evidence, outcome, and remediation status?
+      evidence_required:
+        - review_record
+        - checklist_results
+        - reviewer_identity_or_role
+        - date
+        - outcome
+        - remediation_status
+      pass_condition: >
+        Review outcomes are preserved in a controlled record and can be audited
+        later.
+      fail_condition: >
+        Checklist use is informal, unrecorded, or disconnected from package
+        quality status.
+      remediation_guidance: >
+        Complete a review record and link checklist findings to remediation
+        actions and package release decisions.
+      traceability:
+        - trace_id: rp_trace_generation_spec_records
+          source_id: dsr_framework_generation_spec
+
+    - check_id: rp_22_package_inventory_alignment
+      category: package_control
+      criticality: high
+      question: >
+        Does the package inventory identify all files needed to assess or support
+        replication, reuse, adaptation, and projectability?
+      evidence_required:
+        - package_inventory
+        - file_paths
+        - validation_responsibilities
+        - omitted_dependency_notes
+      pass_condition: >
+        Required and optional files relevant to projectability are listed, and
+        missing or intentionally omitted files are explained.
+      fail_condition: >
+        Important materials are referenced in narrative text but absent from the
+        inventory or repository structure.
+      remediation_guidance: >
+        Update the inventory with file paths, roles, validation status, and
+        omissions.
+      traceability:
+        - trace_id: rp_trace_repository_architecture
+          related_item: specs/product-dsr-repository-architecture.yaml
+
+    - check_id: rp_23_license_and_citation
+      category: reuse_governance
+      criticality: medium
+      question: >
+        Are license, citation, attribution, and reuse conditions documented for
+        the artifact package and any third-party materials?
+      evidence_required:
+        - license_file
+        - citation_file_or_metadata
+        - third_party_materials_inventory
+        - attribution_requirements
+        - reuse_conditions
+      pass_condition: >
+        Downstream users know how to cite, attribute, reuse, and redistribute the
+        artifact package and any included materials.
+      fail_condition: >
+        Reuse is invited but licensing, citation, or third-party restrictions are
+        unclear.
+      remediation_guidance: >
+        Add or update LICENSE, CITATION.cff, metadata, and third-party materials
+        notes before release.
+      traceability:
+        - trace_id: rp_trace_metadata_identifier_profile
+          related_item: specs/product-dsr-metadata-and-identifier-profile.yaml
+
+    - check_id: rp_24_lifecycle_and_maintenance
+      category: lifecycle_and_maintenance
+      criticality: medium
+      question: >
+        Does the package state lifecycle, maintenance, deprecation, and update
+        expectations relevant to future reuse?
+      evidence_required:
+        - lifecycle_status
+        - maintenance_notes
+        - deprecation_policy_or_notes
+        - change_history
+        - known_future_updates
+      pass_condition: >
+        Users can tell whether the artifact is active, stable, experimental,
+        deprecated, superseded, or archival, and what maintenance they should
+        expect.
+      fail_condition: >
+        Reuse expectations are unclear because maintenance status and change
+        policy are missing.
+      remediation_guidance: >
+        Add lifecycle status, maintenance expectations, change policy, and
+        deprecation notes.
+      traceability:
+        - trace_id: rp_trace_hevner_maintenance_costs
+          source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA14]
+
+    - check_id: rp_25_review_summary_decision
+      category: review_decision
+      criticality: high
+      question: >
+        Does the reviewer provide an overall replication/projectability decision
+        with conditions, unresolved issues, and next actions?
+      evidence_required:
+        - completed_checklist
+        - overall_decision
+        - condition_list
+        - unresolved_issues
+        - next_actions
+      pass_condition: >
+        The review concludes with pass, conditional_pass, fail, or
+        not_applicable-with-rationale and identifies required next actions.
+      fail_condition: >
+        Individual checks are recorded but no overall decision or action path is
+        stated.
+      remediation_guidance: >
+        Add an overall checklist decision and link any conditional or failed
+        items to remediation owners and target records.
+      traceability:
+        - trace_id: rp_trace_l2_reviewability
+          source_id: dsr_framework_generation_spec
+  scoring_guidance:
+    recommended_summary_fields:
+      - total_checks
+      - passed_checks
+      - conditional_pass_checks
+      - failed_checks
+      - not_applicable_checks
+      - failed_critical_checks
+      - overall_decision
+      - remediation_required
+    decision_rules:
+      - decision: pass
+        condition: >
+          No critical failures, all high-priority checks pass, and any medium
+          or low conditional items are recorded as minor limitations.
+      - decision: conditional_pass
+        condition: >
+          No critical failures, one or more high or medium checks require
+          bounded remediation, and release/reuse claims are constrained until
+          remediation is complete.
+      - decision: fail
+        condition: >
+          One or more critical checks fail, or evidence is insufficient to
+          assess claim scope, artifact identity, context, evaluation
+          traceability, boundary conditions, or limitations.
+      - decision: not_applicable
+        condition: >
+          The package does not make replication, reuse, adaptation, transfer, or
+          projectability claims; the reviewer records this rationale and ensures
+          no implicit claims remain.
+  validation_rules:
+    - rule_id: rp_val_01_required_fields
+      description: >
+        Every checklist item must include check_id, question,
+        evidence_required, pass_condition, fail_condition, and
+        remediation_guidance.
+      severity: error
+    - rule_id: rp_val_02_stable_ids
+      description: >
+        Checklist IDs and check IDs must use lower_snake_case and remain stable
+        across releases unless deprecated with a change-history entry.
+      severity: error
+    - rule_id: rp_val_03_critical_failure_rule
+      description: >
+        A failed critical check prevents an unconditional pass decision.
+      severity: error
+    - rule_id: rp_val_04_claim_scope_alignment
+      description: >
+        Replication and projectability decisions must not exceed documented
+        claim scope, evaluation evidence, and boundary conditions.
+      severity: error
+    - rule_id: rp_val_05_not_applicable_rationale
+      description: >
+        not_applicable decisions must include a rationale and must not conflict
+        with package language that implies reuse, transfer, adaptation, or
+        replication.
+      severity: warning
+  transparency_dimension_mapping:
+    process_transparency:
+      supported_by_check_ids:
+        - rp_07_provenance_and_versioning
+        - rp_21_review_record_retention
+        - rp_25_review_summary_decision
+    problem_space_transparency:
+      supported_by_check_ids:
+        - rp_04_context_boundary
+        - rp_11_boundary_conditions
+        - rp_12_context_difference_logic
+    solution_space_transparency:
+      supported_by_check_ids:
+        - rp_16_accumulation_pathway
+        - rp_23_license_and_citation
+    build_transparency:
+      supported_by_check_ids:
+        - rp_03_artifact_identity
+        - rp_05_design_specification
+        - rp_06_materials_and_repository
+        - rp_19_implementation_support
+    evaluation_transparency:
+      supported_by_check_ids:
+        - rp_08_evaluation_traceability
+        - rp_09_demonstration_evaluation_distinction
+        - rp_10_measurement_and_data_reuse
+        - rp_14_re_evaluation_triggers
+        - rp_17_negative_or_mixed_results
+    contribution_transparency:
+      supported_by_check_ids:
+        - rp_01_replication_intent
+        - rp_02_claim_scope
+        - rp_15_projectability_claim
+        - rp_16_accumulation_pathway
+        - rp_20_limitations_and_non_goals
+  quality_gate_alignment:
+    qg_consistency:
+      status: designed_for_pass
+      evidence:
+        - target_path
+        - item_type
+        - stable_identifier_style
+        - checklist_file_pattern
+    qg_coherence:
+      status: designed_for_pass
+      evidence:
+        - related_items
+        - upstream_dependencies
+        - traceability
+    qg_cogency:
+      status: designed_for_pass
+      evidence:
+        - categorized_review_items
+        - pass_fail_conditions
+        - scoring_guidance
+    qg_correspondence:
+      status: designed_for_pass
+      evidence:
+        - selected_checklist_purpose
+        - replication_projectability_scope
+        - conformance_target
+    qg_dsr_transparency:
+      status: designed_for_pass
+      evidence:
+        - transparency_dimension_mapping
+    qg_reviewability:
+      status: designed_for_pass
+      evidence:
+        - required_evidence_fields
+        - validation_rules
+        - review_scale
+  assumptions:
+    - assumption_id: rp_assumption_01
+      statement: >
+        The primary conceptual dependency, models/dsr-projectability-model.yaml,
+        either exists elsewhere in the package or will be generated separately;
+        this checklist is written to align with that dependency without requiring
+        its complete text in this file.
+      impact: >
+        Some vocabulary terms may need minor synchronization after the projectability
+        model and related vocabularies are finalized.
+  limitations:
+    - limitation_id: rp_limitation_01
+      statement: >
+        The checklist supports L2 reviewability but does not by itself validate
+        empirical replication, prove transferability, or guarantee adoption in a
+        new context.
+    - limitation_id: rp_limitation_02
+      statement: >
+        Exact evidence mappings should be reviewed after the final projectability
+        model, replication vocabulary, and projectability vocabulary are stable.
+  open_questions:
+    - question_id: rp_oq_01
+      question: >
+        Should future releases separate replication, reuse, adaptation, and
+        projectability into distinct scoring subscales?
+      evidence_status: not_yet_mapped
+    - question_id: rp_oq_02
+      question: >
+        Should L3 or higher conformance require executable examples, test
+        harnesses, synthetic datasets, or structured adaptation cases?
+      evidence_status: not_yet_mapped
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial L2 reviewable replication and projectability checklist.
+      responsible_party: GPT-5.5 Thinking
+completion_report:
+  generated_selection_id: checklist_projectability
+  generated_path: checklists/replication-projectability-checklist.yaml
+  item_type: procedure
+  output_format: yaml
+  conformance_target: l2_reviewable
+  dependencies_used:
+    - dsr-framework-generation-prompt.md
+    - dsr-framework-generation-spec.yaml
+    - dsr-framework-selection-table.md
+    - chunked_folder_conversion_extractions_20260427030321_part001.yaml
+  assumptions:
+    - >
+      The projectability model is treated as an upstream dependency and not
+      reproduced inside this checklist.
+    - >
+      Existing package files stored outside this chat were not required to create
+      this new checklist.
+  open_questions:
+    - rp_oq_01
+    - rp_oq_02
+  quality_gate_status:
+    consistency: pass
+    coherence: pass
+    cogency: pass
+    correspondence: pass
+    dsr_transparency: pass
+    reviewability: pass
+  next_recommended_file: docs/protocol/09-validity-reliability-replication-projectability.md

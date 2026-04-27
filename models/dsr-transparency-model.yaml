@@ -1,0 +1,1077 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_transparency_model
+  selection_id: model_transparency
+  target_path: models/dsr-transparency-model.yaml
+  item_type: specification
+  model_type: conceptual_operational_model
+  title: DSR Transparency Model
+  subtitle: Six-dimension model for planning, documenting, reviewing, and publishing transparent Design Science Research
+  purpose: 'Define a reviewable six-dimension transparency model for Design Science Research (DSR) artifact packages. The
+    model specifies controlled entities, relationships, evidence expectations, boundary conditions, validation implications,
+    and traceability needed to document process, problem-space, solution-space, build, evaluation, and contribution transparency
+    without overclaiming reproducibility, publication readiness, or empirical validation.
+
+    '
+  status: draft
+  version: 0.1.0
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+  created: '2026-04-27'
+  license: CC0-1.0
+source_basis:
+- source_id: dsr_framework_generation_spec
+  source_type: governing_specification
+  role: structure_conformance_and_quality_gates
+  evidence_status: mapped
+  notes: 'Requires YAML source-of-truth files for controlled models, stable identifiers, source_basis, related_items, traceability,
+    assumptions, open questions, and reviewable quality gates.
+
+    '
+- source_id: dsr_framework_selection_table
+  source_type: selection_registry
+  role: selected_target_and_dependency_basis
+  evidence_status: mapped
+  notes: 'Identifies model_transparency as models/dsr-transparency-model.yaml with L2 default conformance and transparency
+    dimensions as the key dependency.
+
+    '
+- source_id: hevner_et_al_2024_transparency_in_design_science_research
+  source_type: primary_dsr_source
+  role: six_dimension_transparency_framework
+  evidence_status: mapped
+  citation_anchor_ids:
+  - CA01
+  - CA05
+  - CA06
+  - CA07
+  - CA08
+  - CA09
+  - CA10
+  - CA11
+  - CA12
+  - CA14
+  - CA15
+  - CA16
+  - CA17
+  - CA18
+  notes: 'Provides the six transparency forms, DSR-specific transparency risks, purpose/audience/content mappings, and guidance
+    for process, problem-space, solution-space, build, evaluation, and contribution transparency.
+
+    '
+- source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+  source_type: primary_dsr_source
+  role: knowledge_contribution_and_reporting_alignment
+  evidence_status: mapped
+  citation_anchor_ids:
+  - A07
+  - A08
+  - A10
+  - A13
+  - A14
+  - A15
+  notes: 'Supports explicit documentation of knowledge moments, contribution paths, contribution claims, and reporting order
+    for DSR knowledge development.
+
+    '
+- source_id: dsr_process_journaling_source
+  source_type: primary_dsr_source
+  role: concurrent_process_documentation_support
+  evidence_status: partially_mapped
+  notes: 'Supports concurrent documentation of planning, performing, communicating, design processing, and design theorizing
+    where available in the DSR corpus. Exact bibliographic record should be verified when the source-basis record is finalized.
+
+    '
+- source_id: hevner_et_al_2024_transparency_in_design_science_research
+  short_citation: Hevner et al. (2024)
+  evidence_anchor_id: CA01
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'Hevner et al. (2024) grounds transparency_reporting.reporting_guidance through extracted anchor CA01: A six-feature
+    framework and reporting-guidance structure for transparent Design Science Research.'
+- source_id: zur_heiden_2020_considering_context_dsr
+  short_citation: zur Heiden (2020)
+  evidence_anchor_id: A10
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'zur Heiden (2020) grounds transparency_reporting.reporting_guidance through extracted anchor A10: Refines DSR reporting
+    and projectability by operationalizing context specification and context-to-design traceability.'
+- source_id: opdenakker_talmar_2021_slr_examples_dsr
+  short_citation: Opdenakker and Talmar (2021)
+  evidence_anchor_id: A09
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'Opdenakker and Talmar (2021) grounds transparency_reporting.reporting_guidance through extracted anchor A09: Operational
+    guidance for using systematic literature reviews to synthesize causal and prescriptive design knowledge through Context-Intervention-Mechanism-Outcome
+    or related structures.'
+- source_id: vom_brocke_gau_maedche_2021_journaling_dsr_process
+  short_citation: vom Brocke, Gau, and Mädche 2021
+  evidence_anchor_id: A06
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'vom Brocke, Gau, and Mädche 2021 grounds transparency_reporting.reporting_guidance through extracted anchor A06:
+    Introduces concurrent journaling of the Design Science Research process as a transparency and documentation protocol for
+    making design knowledge production more visible.'
+- source_id: vom_brocke_weber_grisold_2021_dsr_practical_relevance
+  short_citation: vom Brocke, Weber, and Grisold (2021)
+  evidence_anchor_id: A09
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'vom Brocke, Weber, and Grisold (2021) grounds transparency_reporting.reporting_guidance through extracted anchor
+    A09: A collaboration-centered framework and reporting criteria for increasing practical relevance and societal value in
+    Design Science Research.'
+- source_id: dickhaut_janson_leimeister_2022_design_knowledge_representation
+  short_citation: Dickhaut, Janson, and Leimeister (2022)
+  evidence_anchor_id: A10
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'Dickhaut, Janson, and Leimeister (2022) grounds transparency_reporting.reporting_guidance through extracted anchor
+    A10: Five codification recommendations for reusable and applicable DSR design knowledge.'
+- source_id: van_aken_chandrasekaran_halman_2016_jom_design_science_research
+  short_citation: van Aken et al. (2016)
+  evidence_anchor_id: A18
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'van Aken et al. (2016) grounds transparency_reporting.reporting_guidance through extracted anchor A18: Operationalizes
+    DSR for operations management publication through generic designs, design propositions, pragmatic validity, field testing,
+    generalization, and reviewer criteria.'
+- source_id: vom_brocke_maedche_2019_dsr_grid
+  short_citation: vom Brocke & Maedche, 2019
+  evidence_anchor_id: A03
+  supports_construct: transparency_reporting.reporting_guidance
+  evidence_role: transparency
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-transparency-model.yaml
+  note: 'vom Brocke & Maedche, 2019 grounds transparency_reporting.reporting_guidance through extracted anchor A03: Six-dimension
+    framework for planning, communicating, reviewing, and accumulating DSR project knowledge.'
+related_items:
+  upstream_dependencies:
+  - item_id: spec_dsr_lifecycle_contribution
+    path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+    relationship: supplies lifecycle and contribution context
+    evidence_status: expected
+  - item_id: model_lifecycle
+    path: models/dsr-lifecycle-model.yaml
+    relationship: supplies lifecycle stages for transparency placement
+    evidence_status: expected
+  - item_id: model_evaluation_alignment
+    path: models/dsr-evaluation-alignment-model.yaml
+    relationship: supplies evaluation-claim alignment used by evaluation transparency
+    evidence_status: expected
+  - item_id: vocab_transparency_dimensions
+    path: vocabularies/transparency-dimensions.yaml
+    relationship: controlled vocabulary dependency for the six dimensions
+    evidence_status: not_yet_generated
+  downstream_items:
+  - item_id: schema_transparency_crosswalk
+    path: schemas/dsr-transparency-crosswalk.schema.json
+    relationship: should validate records based on this model
+  - item_id: template_transparency_crosswalk
+    path: templates/dsr-transparency-crosswalk-template.yaml
+    relationship: should instantiate the model for project-level use
+  - item_id: template_build_transparency
+    path: templates/build-transparency-record-template.yaml
+    relationship: should specialize build-process transparency fields
+  - item_id: checklist_transparency
+    path: checklists/dsr-transparency-crosswalk-checklist.yaml
+    relationship: should convert this model into reviewer checks
+  - item_id: docs_transparency
+    path: docs/protocol/10-transparency-and-reporting.md
+    relationship: should render this model for human-facing protocol guidance
+  - item_id: record_transparency_crosswalk
+    path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+    relationship: should retain first applied transparency evidence
+assumptions:
+- id: asm_transparency_dimensions_source
+  statement: 'The six model dimensions are adopted as process, problem_space, solution_space, build, evaluation, and contribution
+    transparency.
+
+    '
+  rationale: 'This is the central structure of the DSR Transparency Framework in the internal corpus.
+
+    '
+- id: asm_l2_scope
+  statement: 'L2 reviewable conformance requires controlled definitions, evidence fields, validation logic, and traceability,
+    but does not require executable schema validation or empirical evaluation of the transparency model itself.
+
+    '
+  rationale: 'The selected row requests a model file at default L2 conformance, not a schema, checklist, or validation automation.
+
+    '
+- id: asm_no_forced_full_openness
+  statement: 'Transparency means proportionate, justified disclosure rather than mandatory full publication of every artifact,
+    dataset, source-code repository, or proprietary detail.
+
+    '
+  rationale: 'DSR transparency must account for privacy, security, intellectual property, maintenance burden, and publication-process
+    burden.
+
+    '
+controlled_entities:
+- id: transparency_profile
+  label: Transparency Profile
+  entity_type: aggregate_record
+  definition: 'Project-level declaration of what transparency dimensions apply to a DSR artifact package, what evidence is
+    available for each dimension, what disclosure level is used, and what limitations or withholding rationales are documented.
+
+    '
+  required_fields:
+  - profile_id
+  - artifact_or_project_id
+  - applicable_dimensions
+  - evidence_inventory
+  - disclosure_levels
+  - withholding_rationales
+  - reviewer_notes
+  boundary_notes: 'A transparency profile is not itself an evaluation report or contribution claim; it indexes evidence that
+    may reside in other package records.
+
+    '
+- id: transparency_dimension
+  label: Transparency Dimension
+  entity_type: controlled_class
+  definition: 'One of the six DSR-specific transparency areas that must be considered when planning, documenting, reviewing,
+    or publishing a DSR artifact package.
+
+    '
+  required_fields:
+  - dimension_id
+  - label
+  - definition
+  - purpose
+  - applicability_rule
+  - evidence_expectations
+  - review_questions
+  - failure_modes
+- id: transparency_evidence_item
+  label: Transparency Evidence Item
+  entity_type: evidence_object
+  definition: 'A retained document, record, file, log, table, model, diagram, dataset, design rationale, evaluation artifact,
+    or publication material used to substantiate a transparency claim.
+
+    '
+  required_fields:
+  - evidence_id
+  - evidence_type
+  - linked_dimension_id
+  - location_or_path
+  - access_status
+  - sensitivity_level
+  - evidence_summary
+  - limitations
+- id: disclosure_level
+  label: Disclosure Level
+  entity_type: controlled_value
+  definition: 'A proportionate access and detail level assigned to a transparency evidence item or dimension.
+
+    '
+  allowed_values:
+  - full_public
+  - public_summary
+  - repository_available
+  - controlled_access
+  - private_retained_record
+  - withheld_with_rationale
+  - not_applicable
+  boundary_notes: 'Disclosure level is not a quality rating. A private retained record may be appropriate when public disclosure
+    would create confidentiality, privacy, security, or intellectual-property risk.
+
+    '
+- id: withholding_rationale
+  label: Withholding Rationale
+  entity_type: justification_record
+  definition: 'A documented reason that a transparency evidence item is not publicly released or is released only at reduced
+    granularity.
+
+    '
+  required_fields:
+  - rationale_id
+  - affected_evidence_id
+  - reason_category
+  - explanation
+  - reviewer_access_option
+  - residual_risk
+  allowed_reason_categories:
+  - privacy_or_human_subjects
+  - proprietary_or_ip
+  - security_risk
+  - third_party_rights
+  - artifact_maintenance_burden
+  - context_sensitivity
+  - publication_space_or_format_constraint
+  - unavailable_or_not_collected
+- id: transparency_review_finding
+  label: Transparency Review Finding
+  entity_type: review_output
+  definition: 'A reviewer judgment about whether transparency evidence is sufficient, proportionate, coherent, and aligned
+    with the artifact package claims.
+
+    '
+  required_fields:
+  - finding_id
+  - dimension_id
+  - finding_status
+  - evidence_reviewed
+  - deficiency
+  - remediation
+  allowed_status_values:
+  - pass
+  - conditional_pass
+  - fail
+  - not_applicable
+  - deferred
+transparency_dimensions:
+- dimension_id: process_transparency
+  label: Process Transparency
+  definition: 'Transparency about the actual DSR process by which artifacts and design knowledge were generated, including
+    activities, reasoning, context, decisions, iteration, divergence from plans, and emergent changes.
+
+    '
+  purpose: 'Enable reviewers, readers, and future researchers to understand how the research unfolded, why activities were
+    performed, and how process choices shaped artifact and knowledge outcomes.
+
+    '
+  applicability_rule: 'Applies to all DSR artifact packages. Minimum evidence may be lighter for conceptual models than for
+    fielded instantiations, but some process account is always required.
+
+    '
+  lifecycle_stage_alignment:
+  - project_chartering
+  - problem_framing
+  - design_and_build
+  - demonstration
+  - evaluation
+  - communication
+  minimum_evidence:
+  - process_summary
+  - major_activity_sequence
+  - decision_log_or_design_rationale_links
+  - deviations_from_original_plan
+  - iteration_summary
+  recommended_evidence:
+  - dated_activity_log
+  - design_decision_records
+  - meeting_notes_or_workshop_records
+  - version_history
+  - process_diagram
+  - reflective_memos_on_design_theorizing
+  review_questions:
+  - question_id: rq_process_01
+    question: Does the package describe what was actually done, not only the idealized method sequence?
+  - question_id: rq_process_02
+    question: Are major design decisions, pivots, and iterations linked to rationale or evidence?
+  - question_id: rq_process_03
+    question: Can a reviewer distinguish planned activities from emergent or retrospective framing?
+  failure_modes:
+  - id: fm_process_ex_post_dsr_ification
+    description: Project is retrospectively framed as DSR without showing DSR reasoning during the work.
+  - id: fm_process_idealized_method_only
+    description: Reporting follows a generic method template but omits actual sequence, deviations, and rationale.
+  - id: fm_process_lost_design_reasoning
+    description: Important design reasoning is missing because process records were not kept concurrently.
+  validation_implications:
+    required_for_l2: true
+    schema_fields:
+    - process_summary
+    - process_records
+    - design_decisions
+    - iterations
+    - deviations
+    checklist_mapping:
+    - checklist_transparency.process_evidence
+    - checklist_minimum_dsr.process_identity
+  source_traceability:
+    primary_source_ids:
+    - hevner_et_al_2024_transparency_in_design_science_research
+    - dsr_process_journaling_source
+    citation_anchor_ids:
+    - CA06
+- dimension_id: problem_space_transparency
+  label: Problem-Space Transparency
+  definition: 'Transparency about the problem context, application domain, stakeholders, scope, improvement goals, timeframe,
+    resources, constraints, risks, and boundary conditions that make the artifact relevant.
+
+    '
+  purpose: 'Support relevance, acceptance criteria, evaluation design, transfer assessment, and interpretation of artifact
+    utility in context.
+
+    '
+  applicability_rule: 'Applies to all DSR projects, including conceptual and methodological artifacts, because each must state
+    the problem class or methodological gap it addresses.
+
+    '
+  lifecycle_stage_alignment:
+  - problem_framing
+  - objectives_and_requirements
+  - evaluation_planning
+  - communication
+  minimum_evidence:
+  - problem_statement
+  - problem_class
+  - stakeholder_map
+  - scope_and_boundary_conditions
+  - improvement_goals
+  - timeframe_or_project_phase
+  - constraints_and_assumptions
+  recommended_evidence:
+  - needs_assessment
+  - context_diagram
+  - stakeholder_interview_or_workshop_summary
+  - baseline_process_or_artifact_description
+  - acceptance_criteria
+  - risk_register
+  review_questions:
+  - question_id: rq_problem_01
+    question: Is the local problem instance linked to a broader problem class or research gap?
+  - question_id: rq_problem_02
+    question: Are stakeholders, constraints, and boundary conditions explicit enough to judge relevance?
+  - question_id: rq_problem_03
+    question: Are evaluation criteria traceable to problem-space goals?
+  failure_modes:
+  - id: fm_problem_context_free_claim
+    description: Artifact utility is claimed without specifying the problem context in which it matters.
+  - id: fm_problem_unbounded_scope
+    description: Problem scope is too broad or unstable to support coherent design requirements or evaluation.
+  - id: fm_problem_missing_stakeholders
+    description: Stakeholders affected by the artifact are unnamed or treated generically.
+  validation_implications:
+    required_for_l2: true
+    schema_fields:
+    - problem_statement
+    - problem_class
+    - stakeholders
+    - context
+    - goals
+    - constraints
+    - boundary_conditions
+    checklist_mapping:
+    - checklist_transparency.problem_space_evidence
+    - checklist_minimum_dsr.problem_relevance
+  source_traceability:
+    primary_source_ids:
+    - hevner_et_al_2024_transparency_in_design_science_research
+    citation_anchor_ids:
+    - CA07
+- dimension_id: solution_space_transparency
+  label: Solution-Space Transparency
+  definition: 'Transparency about the knowledge bases, theories, technologies, prior artifacts, design patterns, methods,
+    standards, alternatives, and solution candidates that ground or inform artifact design.
+
+    '
+  purpose: 'Support rigor, design search, novelty assessment, alternative comparison, reuse, and contribution positioning.
+
+    '
+  applicability_rule: 'Applies when the artifact depends on existing descriptive, explanatory, prescriptive, technical, methodological,
+    or domain knowledge. If the solution space is intentionally exploratory, the search boundary and uncertainty must still
+    be documented.
+
+    '
+  lifecycle_stage_alignment:
+  - solution_space_grounding
+  - objectives_and_requirements
+  - design_and_build
+  - contribution_positioning
+  - communication
+  minimum_evidence:
+  - knowledge_base_summary
+  - prior_artifact_or_method_review
+  - relevant_theories_or_design_knowledge
+  - alternatives_considered
+  - novelty_or_gap_statement
+  - search_or_selection_rationale
+  recommended_evidence:
+  - search_terms_and_sources
+  - comparison_matrix
+  - design_pattern_inventory
+  - reusable_component_list
+  - theory_or_design_principle_crosswalk
+  - excluded_alternatives_with_rationale
+  review_questions:
+  - question_id: rq_solution_01
+    question: Does the package explain what prior knowledge and prior artifacts shaped the design?
+  - question_id: rq_solution_02
+    question: Are alternatives, rejected options, and novelty claims traceable to evidence?
+  - question_id: rq_solution_03
+    question: Are knowledge-base limitations and unresolved uncertainties declared?
+  failure_modes:
+  - id: fm_solution_black_box_grounding
+    description: Artifact design appears as an unsupported creative leap without grounding in existing knowledge.
+  - id: fm_solution_novelty_overclaim
+    description: Novelty is asserted without comparing prior artifacts, theories, or methods.
+  - id: fm_solution_missing_search_boundary
+    description: Search coverage and inclusion boundaries are not documented.
+  validation_implications:
+    required_for_l2: true
+    schema_fields:
+    - knowledge_base_summary
+    - source_basis
+    - prior_artifacts
+    - alternatives
+    - novelty_claims
+    - exclusions
+    checklist_mapping:
+    - checklist_transparency.solution_space_evidence
+    - checklist_contribution_positioning.prior_knowledge_grounding
+  source_traceability:
+    primary_source_ids:
+    - hevner_et_al_2024_transparency_in_design_science_research
+    citation_anchor_ids:
+    - CA08
+- dimension_id: build_transparency
+  label: Build Transparency
+  definition: 'Transparency about how the artifact was designed, constructed, configured, encoded, assembled, prototyped,
+    or specified, including design search, creative reasoning, collaboration, make plans, use plans, components, dependencies,
+    and versioned changes.
+
+    '
+  purpose: 'Make artifact construction intelligible enough to assess artifact quality, design rationale, reuse potential,
+    and the relationship between artifact form and intended function.
+
+    '
+  applicability_rule: 'Applies to all artifact types. For conceptual models, build evidence may consist of modeling decisions,
+    entity selection, boundary decisions, and source synthesis. For software or technical instantiations, code, architecture,
+    configuration, and deployment evidence may be required or justified as withheld.
+
+    '
+  lifecycle_stage_alignment:
+  - design_and_build
+  - demonstration
+  - evaluation
+  - packaging
+  minimum_evidence:
+  - artifact_description
+  - artifact_boundary
+  - component_inventory
+  - design_rationale
+  - version_or_change_summary
+  - dependencies_or_inputs
+  - build_limitations
+  recommended_evidence:
+  - architecture_diagram
+  - make_plan
+  - use_plan
+  - source_code_or_pseudocode
+  - configuration_records
+  - design_decision_records
+  - screenshots_or_interaction_examples
+  - prototype_iteration_history
+  review_questions:
+  - question_id: rq_build_01
+    question: Can the reviewer understand what was built and where the artifact boundary lies?
+  - question_id: rq_build_02
+    question: Are component choices, design decisions, and dependencies documented?
+  - question_id: rq_build_03
+    question: Are withheld build details justified by privacy, security, IP, or maintenance constraints?
+  failure_modes:
+  - id: fm_build_artifact_boundary_blur
+    description: The artifact is conflated with the entire system, organization, project, or evaluation setting.
+  - id: fm_build_hidden_dependencies
+    description: Important dependencies, configuration choices, or assumptions are omitted.
+  - id: fm_build_unmaintainable_transparency_commitment
+    description: The package promises executable artifact availability without a feasible maintenance plan.
+  validation_implications:
+    required_for_l2: true
+    schema_fields:
+    - artifact_boundary
+    - components
+    - build_process
+    - design_rationale
+    - dependencies
+    - version_history
+    - withholding_rationales
+    checklist_mapping:
+    - checklist_transparency.build_evidence
+    - checklist_package_readiness.artifact_materials
+  source_traceability:
+    primary_source_ids:
+    - hevner_et_al_2024_transparency_in_design_science_research
+    - weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    citation_anchor_ids:
+    - CA09
+    - CA13
+    - CA14
+    - CA18
+- dimension_id: evaluation_transparency
+  label: Evaluation Transparency
+  definition: 'Transparency about how the artifact was, is, or will be evaluated, including evaluation purpose, timing, setting,
+    criteria, methods, units, data, results, limitations, and the alignment between evidence and claims.
+
+    '
+  purpose: 'Build stakeholder confidence by showing how artifact utility, artifact quality, fitness for use, fitness for evolution,
+    validity threats, limitations, and evaluation boundaries were assessed.
+
+    '
+  applicability_rule: 'Applies when evaluation has occurred or is planned. If no empirical evaluation has occurred, the package
+    must distinguish demonstration, conceptual argument, planned evaluation, and completed evaluation.
+
+    '
+  lifecycle_stage_alignment:
+  - evaluation_planning
+  - demonstration
+  - evaluation
+  - review
+  - communication
+  minimum_evidence:
+  - evaluation_status
+  - evaluation_questions_or_claims
+  - evaluation_criteria
+  - method_or_design
+  - evidence_or_data_summary
+  - findings_summary
+  - limitations_and_threats
+  - claim_alignment
+  recommended_evidence:
+  - evaluation_plan
+  - evaluation_report
+  - instruments_or_protocols
+  - data_dictionary_or_dataset_link
+  - analysis_script_or_pseudocode
+  - reviewer_or participant role summaries
+  - formative_and_summative_evaluation_crosswalk
+  review_questions:
+  - question_id: rq_evaluation_01
+    question: Are demonstration and evaluation clearly distinguished?
+  - question_id: rq_evaluation_02
+    question: Are evaluation methods and criteria aligned with stated artifact and contribution claims?
+  - question_id: rq_evaluation_03
+    question: Are limitations, threats to validity, and non-evaluated claims explicit?
+  failure_modes:
+  - id: fm_evaluation_demonstration_overclaim
+    description: A demonstration or example is presented as if it were empirical evaluation evidence.
+  - id: fm_evaluation_claim_evidence_gap
+    description: Contribution or utility claims exceed what evaluation evidence can support.
+  - id: fm_evaluation_context_opacity
+    description: Evaluation context, units, criteria, or data are insufficiently described.
+  validation_implications:
+    required_for_l2: true
+    schema_fields:
+    - evaluation_status
+    - evaluation_plan
+    - evaluation_report
+    - criteria
+    - methods
+    - findings
+    - limitations
+    - claim_alignment
+    checklist_mapping:
+    - checklist_transparency.evaluation_evidence
+    - checklist_evaluation_readiness.claim_alignment
+  source_traceability:
+    primary_source_ids:
+    - hevner_et_al_2024_transparency_in_design_science_research
+    - venable_et_al_2016_feds_if_available
+    citation_anchor_ids:
+    - CA10
+- dimension_id: contribution_transparency
+  label: Contribution Transparency
+  definition: 'Transparency about what the DSR project contributes to practice, design knowledge, methodology, theory, evaluation,
+    validity, reliability, publication practice, or other research and practitioner communities.
+
+    '
+  purpose: 'Clarify the difference between artifact utility, artifact quality, and contribution to knowledge; distinguish
+    descriptive and prescriptive knowledge; and support appropriate communication to scholarly and practitioner audiences.
+
+    '
+  applicability_rule: 'Applies to all DSR artifact packages. At minimum, the package must state the contribution claim, contribution
+    type, knowledge goal, knowledge scope, evidence basis, and limitations.
+
+    '
+  lifecycle_stage_alignment:
+  - contribution_positioning
+  - evaluation
+  - communication
+  - publication
+  - release
+  minimum_evidence:
+  - contribution_claims
+  - contribution_type
+  - knowledge_goal
+  - knowledge_scope
+  - practice_contribution
+  - scholarly_contribution
+  - evidence_basis
+  - limitations
+  recommended_evidence:
+  - contribution_positioning_record
+  - claim_evidence_matrix
+  - design_principles_or_design_theory_elements
+  - knowledge_path_or_contribution_sequence
+  - audience_specific_communication_plan
+  - practitioner_guidance_or_reuse_notes
+  review_questions:
+  - question_id: rq_contribution_01
+    question: Are artifact utility, artifact quality, and knowledge contribution separated?
+  - question_id: rq_contribution_02
+    question: Are contribution claims scoped as idiographic, nomothetic, mixed, or projectable?
+  - question_id: rq_contribution_03
+    question: Are practice and scholarly impacts both addressed when claimed?
+  failure_modes:
+  - id: fm_contribution_utility_equals_knowledge
+    description: The artifact is useful locally, but no distinct design knowledge or contribution is articulated.
+  - id: fm_contribution_overgeneralization
+    description: Context-specific findings are reported as broadly generalizable without projectability evidence.
+  - id: fm_contribution_audience_mismatch
+    description: Contribution is written only for scholars or only for practitioners despite claiming both audiences.
+  validation_implications:
+    required_for_l2: true
+    schema_fields:
+    - contribution_claims
+    - knowledge_goal
+    - knowledge_scope
+    - evidence_basis
+    - audience_mapping
+    - limitations
+    checklist_mapping:
+    - checklist_transparency.contribution_evidence
+    - checklist_contribution_positioning.claim_scope
+  source_traceability:
+    primary_source_ids:
+    - hevner_et_al_2024_transparency_in_design_science_research
+    - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+    citation_anchor_ids:
+    - CA11
+    - A07
+    - A08
+    - A13
+    - A14
+relationships:
+- relationship_id: rel_problem_sets_evaluation_criteria
+  from_dimension: problem_space_transparency
+  to_dimension: evaluation_transparency
+  relationship_type: constrains
+  description: 'Evaluation criteria must be traceable to the problem-space goals, stakeholders, constraints, and intended
+    improvements.
+
+    '
+- relationship_id: rel_solution_grounding_supports_build
+  from_dimension: solution_space_transparency
+  to_dimension: build_transparency
+  relationship_type: grounds
+  description: 'Build choices should be linked to relevant theories, prior artifacts, methods, technologies, design principles,
+    or justified alternatives.
+
+    '
+- relationship_id: rel_process_explains_build_and_evaluation
+  from_dimension: process_transparency
+  to_dimension: build_transparency
+  relationship_type: explains_sequence
+  description: 'Process records explain how artifact construction unfolded, including iterations and design decisions not
+    visible in the final artifact alone.
+
+    '
+- relationship_id: rel_build_supplies_evaluation_object
+  from_dimension: build_transparency
+  to_dimension: evaluation_transparency
+  relationship_type: supplies_object_of_evaluation
+  description: 'Evaluation must specify what artifact version, component, model, method, or use case is being evaluated.
+
+    '
+- relationship_id: rel_evaluation_bounds_contribution_claims
+  from_dimension: evaluation_transparency
+  to_dimension: contribution_transparency
+  relationship_type: bounds_claim_strength
+  description: 'The strength and scope of contribution claims must not exceed the evaluation and evidence basis, unless limitations
+    and evidence gaps are explicitly declared.
+
+    '
+- relationship_id: rel_solution_positions_contribution
+  from_dimension: solution_space_transparency
+  to_dimension: contribution_transparency
+  relationship_type: positions
+  description: 'Contribution novelty and type are judged against prior knowledge, prior artifacts, alternatives, and the declared
+    solution-space boundary.
+
+    '
+- relationship_id: rel_all_dimensions_support_profile
+  from_dimension: all_transparency_dimensions
+  to_dimension: transparency_profile
+  relationship_type: aggregates_into
+  description: 'The transparency profile aggregates dimension-level evidence, gaps, disclosure levels, withholding rationales,
+    and review findings.
+
+    '
+transparency_evidence_model:
+  evidence_types:
+  - id: activity_log
+    label: Activity log
+    typical_dimensions:
+    - process_transparency
+  - id: design_decision_record
+    label: Design decision record
+    typical_dimensions:
+    - process_transparency
+    - build_transparency
+    - solution_space_transparency
+  - id: problem_context_record
+    label: Problem context record
+    typical_dimensions:
+    - problem_space_transparency
+  - id: stakeholder_record
+    label: Stakeholder record
+    typical_dimensions:
+    - problem_space_transparency
+    - contribution_transparency
+  - id: literature_or_source_basis
+    label: Literature or source-basis record
+    typical_dimensions:
+    - solution_space_transparency
+    - contribution_transparency
+  - id: artifact_specification
+    label: Artifact specification
+    typical_dimensions:
+    - build_transparency
+  - id: architecture_or_component_diagram
+    label: Architecture or component diagram
+    typical_dimensions:
+    - build_transparency
+  - id: source_code_or_pseudocode
+    label: Source code or pseudocode
+    typical_dimensions:
+    - build_transparency
+  - id: evaluation_plan
+    label: Evaluation plan
+    typical_dimensions:
+    - evaluation_transparency
+  - id: evaluation_report
+    label: Evaluation report
+    typical_dimensions:
+    - evaluation_transparency
+  - id: claim_evidence_matrix
+    label: Claim-evidence matrix
+    typical_dimensions:
+    - evaluation_transparency
+    - contribution_transparency
+  - id: contribution_positioning_record
+    label: Contribution positioning record
+    typical_dimensions:
+    - contribution_transparency
+  - id: repository_or_archive_link
+    label: Repository or archive link
+    typical_dimensions:
+    - process_transparency
+    - build_transparency
+    - evaluation_transparency
+    - contribution_transparency
+  sensitivity_levels:
+  - public
+  - low_risk_internal
+  - confidential
+  - restricted
+  - security_sensitive
+  - third_party_controlled
+  access_status_values:
+  - included_in_repository
+  - linked_external_repository
+  - retained_private_record
+  - available_on_request
+  - withheld_with_rationale
+  - not_collected
+  - not_applicable
+transparency_profile_schema_implications:
+  required_profile_fields:
+  - profile_id
+  - artifact_or_project_id
+  - date
+  - responsible_party
+  - dimensions
+  - evidence_inventory
+  - disclosure_summary
+  - review_status
+  - limitations
+  required_dimension_fields:
+  - dimension_id
+  - applicability
+  - evidence_status
+  - evidence_items
+  - disclosure_level
+  - sufficiency_assessment
+  - gaps
+  - remediation
+  evidence_status_values:
+  - complete
+  - partial
+  - planned
+  - unavailable
+  - not_applicable
+  sufficiency_assessment_values:
+  - sufficient_for_l1_documented
+  - sufficient_for_l2_reviewable
+  - sufficient_for_l3_exercisable
+  - insufficient
+  - not_applicable
+  validation_rules:
+  - rule_id: vr_dimensions_declared
+    rule: 'A transparency profile must include an applicability decision for all six dimensions.
+
+      '
+    severity: error
+  - rule_id: vr_na_requires_rationale
+    rule: 'Any dimension marked not_applicable must include a rationale.
+
+      '
+    severity: error
+  - rule_id: vr_withheld_requires_reason
+    rule: 'Any evidence item marked withheld_with_rationale must include a withholding_rationale.
+
+      '
+    severity: error
+  - rule_id: vr_evaluation_distinguishes_demonstration
+    rule: 'If evaluation_status is not_evaluated or planned_only, the profile must not state completed empirical evaluation
+      findings.
+
+      '
+    severity: error
+  - rule_id: vr_claims_bound_to_evidence
+    rule: 'Contribution claims must link to evidence items or explicitly state evidence_status: not_yet_mapped.
+
+      '
+    severity: warning
+  - rule_id: vr_disclosure_proportionality
+    rule: 'Public release is preferred for low-risk evidence, but controlled access, private retained records, or withholding
+      are valid when justified by documented risk.
+
+      '
+    severity: warning
+quality_and_conformance:
+  conformance_level: l2_reviewable
+  acceptance_criteria:
+  - criterion_id: ac_model_complete_dimensions
+    statement: The model defines all six transparency dimensions with definitions, evidence expectations, review questions,
+      and failure modes.
+    evidence: transparency_dimensions
+  - criterion_id: ac_relationships_explicit
+    statement: The model defines relationships among transparency dimensions and explains how evidence constrains claims.
+    evidence: relationships
+  - criterion_id: ac_traceability_present
+    statement: The model contains source_basis and source_traceability entries tied to DSR corpus source IDs and citation
+      anchors where available.
+    evidence: source_basis and dimension-level source_traceability
+  - criterion_id: ac_reviewable
+    statement: The model includes validation rules, acceptance criteria, and checklist/schema implications sufficient for
+      reviewer assessment.
+    evidence: transparency_profile_schema_implications and quality_gates
+  - criterion_id: ac_no_overclaim
+    statement: The model explicitly distinguishes demonstration from evaluation and proportionate transparency from full openness.
+    evidence: evaluation_transparency and limitations_and_non_goals
+  quality_gates:
+  - gate_id: qg_consistency
+    status: pass
+    rationale: Uses lower-kebab-case target path, YAML source-of-truth format, stable lower_snake_case identifiers, and controlled
+      item metadata.
+  - gate_id: qg_coherence
+    status: pass
+    rationale: Aligns with lifecycle, evaluation, contribution, schema, template, checklist, and documentation items through
+      related_items.
+  - gate_id: qg_cogency
+    status: pass
+    rationale: Organizes the model from identity to dimensions, relationships, evidence model, validation implications, and
+      limitations.
+  - gate_id: qg_correspondence
+    status: pass
+    rationale: Corresponds to the selected model_transparency target and supports the DSR Framework artifact package.
+  - gate_id: qg_dsr_transparency
+    status: pass
+    rationale: The entire file operationalizes process, problem-space, solution-space, build, evaluation, and contribution
+      transparency.
+  - gate_id: qg_reviewability
+    status: pass
+    rationale: Includes acceptance criteria, review questions, validation rules, evidence fields, and failure modes.
+limitations_and_non_goals:
+  limitations:
+  - id: lim_no_empirical_validation_claim
+    statement: 'This file does not claim that the DSR Transparency Model has been empirically validated. It is a reviewable
+      model derived from internal corpus synthesis and governing protocol rules.
+
+      '
+  - id: lim_no_complete_checklist
+    statement: 'This file is not a full transparency checklist; checklist conversion belongs in checklists/dsr-transparency-crosswalk-checklist.yaml.
+
+      '
+  - id: lim_no_schema_execution
+    statement: 'This file is not a JSON Schema and does not itself execute validation.
+
+      '
+  - id: lim_not_full_open_science_mandate
+    statement: 'The model does not mandate unrestricted public disclosure of all evidence; it permits proportionate disclosure
+      with justified withholding.
+
+      '
+  non_goals:
+  - id: ng_replace_evaluation_model
+    statement: This model does not replace the DSR evaluation alignment model.
+  - id: ng_replace_artifact_ontology
+    statement: This model does not define the full DSR artifact ontology.
+  - id: ng_journal_policy
+    statement: This model does not prescribe journal editorial policy or universal publication requirements.
+traceability:
+- trace_id: tr_selection_to_file
+  source: dsr_framework_selection_table.model_transparency
+  target: models/dsr-transparency-model.yaml
+  relationship: defines_selected_target
+  evidence_status: mapped
+- trace_id: tr_generation_spec_to_model_requirements
+  source: dsr_framework_generation_spec.content_generation_rules
+  target: model.metadata_and_reviewability
+  relationship: governs_structure
+  evidence_status: mapped
+- trace_id: tr_hevner_six_dimensions
+  source: hevner_et_al_2024_transparency_in_design_science_research.CA01
+  target: transparency_dimensions
+  relationship: supplies_dimension_set
+  evidence_status: mapped
+- trace_id: tr_hevner_table4_guidance
+  source: hevner_et_al_2024_transparency_in_design_science_research.CA16
+  target: transparency_profile_schema_implications.validation_rules
+  relationship: informs_operational_guidance
+  evidence_status: mapped
+- trace_id: tr_akoka_contribution_paths
+  source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr.A07
+  target: transparency_dimensions.contribution_transparency
+  relationship: informs_knowledge_contribution_documentation
+  evidence_status: mapped
+- trace_id: tr_future_vocab_dependency
+  source: vocabularies/transparency-dimensions.yaml
+  target: transparency_dimensions.dimension_id
+  relationship: should_normalize_controlled_terms
+  evidence_status: not_yet_generated
+open_questions:
+- question_id: oq_metric_scale
+  question: Should future versions assign ordinal sufficiency ratings to each transparency dimension?
+  disposition: defer_to_checklist_or_schema_work
+- question_id: oq_public_private_boundary
+  question: What repository policy will govern private retained records versus public release materials?
+  disposition: defer_to_publication_and_registry_model
+- question_id: oq_journal_alignment
+  question: Should the framework include journal-specific transparency crosswalks for DSR venues?
+  disposition: future_backlog
+- question_id: oq_tooling
+  question: Should process transparency be supported through a structured design journal template or automated activity capture?
+  disposition: future_template_and_tooling_work
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: initial_creation
+  summary: Created the L2 reviewable DSR Transparency Model for the selected model_transparency target.
+  responsible_party: GPT-5.5 Thinking

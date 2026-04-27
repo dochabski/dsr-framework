@@ -1,0 +1,575 @@
+# SPDX-License-Identifier: CC0-1.0
+self_review_record:
+  record_id: record_review_0001_self_review
+  record_class: self_review
+  selection_id: record_self_review
+  target_path: records/reviews/record-review-0001-self-review.yaml
+  title: Initial Self-Review Record for the DSR Framework Package
+  purpose: >
+    Preserve the first structured self-review of the DSR Framework artifact package
+    against the generation specification, selected repository conventions, DSR
+    reviewability expectations, and L2 conformance obligations.
+  status: draft
+  version: "0.1.0"
+  date: "2026-04-27"
+  event_or_action: initial_framework_self_review
+  responsible_party:
+    role: framework_author_or_maintainer
+    name: "TODO: identify responsible maintainer"
+    assisted_by: GPT-5.5 Thinking
+  conformance_target: l2_reviewable
+
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      source_type: governing_specification
+      evidence_status: used
+      relevance: >
+        Supplies repository architecture, record-required fields, common information
+        item rules, content generation rules, and quality-gate expectations.
+    - source_id: dsr_framework_generation_prompt
+      source_type: generation_prompt
+      evidence_status: used
+      relevance: >
+        Supplies generation procedure, required record behavior, traceability
+        expectations, DSR-specific distinctions, and final completion-report rules.
+    - source_id: dsr_framework_selection_table
+      source_type: selection_registry
+      evidence_status: used
+      relevance: >
+        Identifies record_self_review as a retained YAML record at
+        records/reviews/record-review-0001-self-review.yaml with L2 default
+        conformance and review checklist dependency.
+    - source_id: documentation_protocol_repository_model
+      source_type: repository_protocol
+      evidence_status: not_yet_mapped
+      relevance: >
+        Provides the broader documentation-protocol repository logic referenced by
+        the generation specification. Current record uses the declared local
+        specification alignment rather than a live external verification.
+    - source_id: dsr_extraction_corpus
+      source_type: scholarly_methodological_evidence_base
+      evidence_status: indirectly_used
+      relevance: >
+        Provides methodological grounding for DSR transparency, contribution,
+        evaluation, reliability, replication, and projectability constructs used
+        by the framework. This self-review does not introduce new bibliographic
+        claims beyond the framework's already declared corpus basis.
+
+  related_items:
+    upstream_dependencies:
+      - item_id: template_review_record
+        path: templates/review-record-template.yaml
+        relationship: provides_expected_review_record_shape
+        dependency_status: expected_existing_or_planned
+      - item_id: spec_quality_review
+        path: specs/product-dsr-quality-conformance-and-review-model.yaml
+        relationship: defines_quality_dimensions_review_workflow_and_acceptance_criteria
+        dependency_status: expected_existing_or_planned
+      - item_id: checklist_minimum_dsr
+        path: checklists/dsr-minimum-viable-study-checklist.yaml
+        relationship: supports_minimum_dsr_identity_review
+        dependency_status: expected_existing_or_planned
+      - item_id: checklist_package_readiness
+        path: checklists/artifact-package-readiness-checklist.yaml
+        relationship: supports_repository_package_readiness_review
+        dependency_status: expected_existing_or_planned
+      - item_id: checklist_transparency
+        path: checklists/dsr-transparency-crosswalk-checklist.yaml
+        relationship: supports_dsr_transparency_review
+        dependency_status: expected_existing_or_planned
+      - item_id: checklist_evaluation_readiness
+        path: checklists/evaluation-readiness-checklist.yaml
+        relationship: supports_evaluation_readiness_review
+        dependency_status: expected_existing_or_planned
+      - item_id: checklist_contribution_positioning
+        path: checklists/contribution-positioning-checklist.yaml
+        relationship: supports_contribution_positioning_review
+        dependency_status: expected_existing_or_planned
+      - item_id: checklist_reliability
+        path: checklists/reliability-checklist.yaml
+        relationship: supports_reliability_review
+        dependency_status: expected_existing_or_planned
+      - item_id: checklist_projectability
+        path: checklists/replication-projectability-checklist.yaml
+        relationship: supports_replication_and_projectability_review
+        dependency_status: expected_existing_or_planned
+    downstream_dependencies:
+      - item_id: root_package_inventory
+        path: package-inventory.yaml
+        relationship: should_list_this_record_as_retained_review_evidence
+      - item_id: root_conformance_declaration
+        path: conformance-declaration.yaml
+        relationship: may_reference_this_record_as_l2_review_evidence
+      - item_id: record_release_v0_1_0
+        path: records/releases/record-release-0001-v0-1-0.yaml
+        relationship: should_consider_this_record_before_release_approval
+
+  review_scope:
+    scope_id: initial_self_review_scope_0001
+    scope_statement: >
+      Review the DSR Framework package structure and generated-file conventions at
+      the package level, using the selected generation specification and known
+      selection registry rather than a direct repository scan of the user's
+      Dropbox folder.
+    included:
+      - repository_architecture_alignment
+      - naming_and_path_conventions
+      - common_record_required_fields
+      - source_basis_and_traceability_presence
+      - L2_reviewability_expectations
+      - DSR_specific_distinctions
+      - quality_gate_readiness
+    excluded:
+      - full_dropbox_repository_inventory_scan
+      - external_GitHub_documentation_protocol_verification
+      - executable_schema_validation_against_all_generated_files
+      - empirical_user_review
+      - publication_release_approval
+    exclusion_rationale: >
+      The current generation request asked for a new record file and explicitly
+      stated that the file had not yet been created. Prior generated files are
+      saved by the maintainer outside this session; this self-review therefore
+      records review status without claiming a complete filesystem audit.
+
+  review_method:
+    method_id: initial_specification_based_self_review
+    method_type: structured_self_review
+    reviewer_role: author_self_review
+    evidence_collection:
+      - compare_selected_target_to_selection_registry
+      - check_required_record_fields_against_generation_specification
+      - map_review_findings_to_quality_gates
+      - record_open_questions_and_follow_up_actions
+      - avoid_unverified_claims_about_files_not_directly_inspected
+    judgment_scale:
+      - pass
+      - pass_with_reservations
+      - partial
+      - fail
+      - not_applicable
+    review_limitations:
+      - limitation_id: limitation_no_repository_scan
+        statement: >
+          The review does not confirm that every previously generated file is
+          present in the Dropbox target folder or that file contents are mutually
+          synchronized.
+      - limitation_id: limitation_no_independent_reviewer
+        statement: >
+          The review is a self-review and should not be treated as an independent
+          quality review, peer review, or release approval.
+      - limitation_id: limitation_schema_execution_not_performed
+        statement: >
+          Machine validation, JSON Schema execution, link checking, and package
+          inventory reconciliation remain follow-up activities.
+
+  review_checklist_application:
+    checklist_status: derived_from_governing_quality_gates_and_expected_review_checklist
+    checklist_dependency_status: review_checklist_expected_but_not_attached_to_this_record
+    checks:
+      - check_id: sr_001_repository_path_and_name
+        question: >
+          Does the record use the selected target path and lower-kebab-case file
+          naming convention?
+        evidence_required:
+          - target_path
+          - selection_id
+          - file_name
+        evidence_observed:
+          - records/reviews/record-review-0001-self-review.yaml
+          - record_self_review
+        result: pass
+        rationale: >
+          The generated record path and filename match the selected registry row.
+        remediation_guidance: none
+
+      - check_id: sr_002_record_required_fields
+        question: >
+          Does the retained record contain required record fields for action,
+          date, responsible party, evidence, outcome, related items, and retention?
+        evidence_required:
+          - record_id
+          - record_class
+          - event_or_action
+          - date
+          - responsible_party
+          - evidence
+          - outcome
+          - related_items
+          - retention_rule
+        evidence_observed:
+          - record_id
+          - record_class
+          - event_or_action
+          - date
+          - responsible_party
+          - review_evidence
+          - outcome
+          - related_items
+          - retention_rule
+        result: pass
+        rationale: >
+          Required record elements are represented directly or through explicitly
+          named review-evidence structures.
+        remediation_guidance: none
+
+      - check_id: sr_003_source_basis_and_traceability
+        question: >
+          Does the record identify its source basis and preserve trace links to
+          governing specifications, dependencies, and downstream package controls?
+        evidence_required:
+          - source_basis
+          - related_items
+          - traceability
+        evidence_observed:
+          - dsr_framework_generation_spec
+          - dsr_framework_generation_prompt
+          - dsr_framework_selection_table
+          - traceability
+        result: pass_with_reservations
+        rationale: >
+          Source basis and traceability are explicit, but live documentation-protocol
+          verification and complete package cross-linking are deferred.
+        remediation_guidance: >
+          Reconcile trace links against the final package inventory and any live
+          documentation-protocol updates before release.
+
+      - check_id: sr_004_l2_reviewability
+        question: >
+          Can a reviewer evaluate the file against explicit criteria without
+          requiring hidden assumptions?
+        evidence_required:
+          - review_scope
+          - review_method
+          - review_checklist_application
+          - quality_gate_status
+          - outcome
+        evidence_observed:
+          - structured_review_scope
+          - structured_review_method
+          - applied_self_review_checks
+          - quality_gate_status
+          - follow_up_actions
+        result: pass
+        rationale: >
+          The record exposes review scope, method, checks, quality gates, and
+          limitations in reviewable form.
+        remediation_guidance: none
+
+      - check_id: sr_005_dsr_distinctions
+        question: >
+          Does the review preserve DSR distinctions among utility, quality,
+          contribution, demonstration, evaluation, transparency, reliability,
+          replication, and projectability?
+        evidence_required:
+          - dsr_review_dimensions
+          - quality_gate_status
+          - findings
+        evidence_observed:
+          - dsr_review_dimensions
+          - findings_by_dimension
+        result: pass
+        rationale: >
+          The record evaluates those dimensions at the package-review level and
+          avoids treating demonstration, evaluation, publication readiness, or
+          release approval as interchangeable.
+        remediation_guidance: none
+
+      - check_id: sr_006_package_inventory_alignment
+        question: >
+          Has this record been reconciled with package inventory and final
+          repository state?
+        evidence_required:
+          - package_inventory_entry
+          - repository_file_presence
+          - validation_responsibility
+        evidence_observed:
+          - package_inventory_alignment_status_pending
+        result: partial
+        rationale: >
+          The record is ready to be added to the package inventory, but the
+          inventory was not directly updated or audited in this action.
+        remediation_guidance: >
+          Add this file to package-inventory.yaml and confirm validation ownership
+          during the next package-control update.
+
+      - check_id: sr_007_publication_release_readiness
+        question: >
+          Does this self-review approve the framework for publication or archival
+          release?
+        evidence_required:
+          - release_readiness_checklist
+          - independent_review
+          - final_package_inventory
+          - release_record
+        evidence_observed:
+          - not_applicable_to_initial_l2_self_review
+        result: not_applicable
+        rationale: >
+          This is an initial L2 self-review record, not an L4/L5 publication or
+          release-approval record.
+        remediation_guidance: >
+          Use the publication-readiness checklist and release record before any
+          public archival release.
+
+  dsr_review_dimensions:
+    artifact_utility:
+      status: provisionally_reviewable
+      assessment: >
+        The framework package is structured to support researchers planning,
+        documenting, evaluating, reviewing, and publishing DSR artifacts. Actual
+        utility should be tested through example-package use and reviewer feedback.
+    artifact_quality:
+      status: partially_supported
+      assessment: >
+        Quality expectations are expressed through repository conventions,
+        metadata, traceability, checklists, records, and quality gates. Full
+        quality assurance requires inventory reconciliation and machine validation.
+    knowledge_contribution:
+      status: provisionally_reviewable
+      assessment: >
+        The package is positioned as a reusable DSR framework artifact. Contribution
+        claims should remain tied to the contribution-positioning record and source
+        basis rather than being overclaimed in this self-review.
+    demonstration_vs_evaluation:
+      status: distinction_preserved
+      assessment: >
+        This record distinguishes demonstration materials, evaluation records, and
+        self-review evidence. It does not treat self-review as empirical evaluation.
+    transparency:
+      status: supported
+      dimensions_addressed:
+        - process_transparency
+        - problem_space_transparency
+        - solution_space_transparency
+        - build_transparency
+        - evaluation_transparency
+        - contribution_transparency
+      assessment: >
+        The record makes the review process, scope boundaries, source basis,
+        evidence limitations, and follow-up actions explicit.
+    validity_reliability_replication_projectability:
+      status: partially_supported
+      assessment: >
+        The record flags the need for validation, reliability, replication, and
+        projectability checks but does not itself complete those specialized reviews.
+
+  findings:
+    summary_result: conditionally_passes_initial_l2_self_review
+    strengths:
+      - finding_id: strength_001
+        statement: >
+          The selected record has a clear repository location, stable identifier,
+          record class, event, date, responsible role, source basis, and retention rule.
+      - finding_id: strength_002
+        statement: >
+          The record directly maps review findings to quality gates and DSR-specific
+          review dimensions rather than providing only narrative approval.
+      - finding_id: strength_003
+        statement: >
+          The record preserves transparent limitations about what was not inspected,
+          avoiding unsupported claims about Dropbox contents or release readiness.
+    reservations:
+      - finding_id: reservation_001
+        severity: moderate
+        statement: >
+          Package inventory alignment remains pending because the full repository
+          tree and previously saved files were not scanned in this action.
+      - finding_id: reservation_002
+        severity: moderate
+        statement: >
+          Independent review has not been performed; this record should not serve as
+          the final review evidence for publication or release.
+      - finding_id: reservation_003
+        severity: low
+        statement: >
+          Some checklist dependencies may be generated or updated separately and
+          should be linked once the package inventory is reconciled.
+    no_findings_of:
+      - final_release_approval
+      - empirical_evaluation_completion
+      - complete_repository_validation
+      - independent_peer_review
+
+  quality_gate_status:
+    - gate_id: qg_consistency
+      result: pass
+      evidence:
+        - selected_path_matches_registry
+        - yaml_record_structure_used
+        - lower_kebab_case_filename_used
+      notes: >
+        The file can be placed in the declared records/reviews directory without
+        violating naming conventions.
+    - gate_id: qg_coherence
+      result: pass_with_reservations
+      evidence:
+        - related_items_listed
+        - dependencies_declared
+        - traceability_entries_present
+      notes: >
+        Coherence is sufficient for L2 review, but final coherence depends on
+        updating package inventory and confirming generated dependencies.
+    - gate_id: qg_cogency
+      result: pass
+      evidence:
+        - review_scope_defined
+        - review_method_defined
+        - findings_and_outcome_present
+      notes: >
+        The record explains what was reviewed, what was not reviewed, and how
+        conclusions should be interpreted.
+    - gate_id: qg_correspondence
+      result: pass
+      evidence:
+        - record_supports_artifact_package_reviewability
+        - conformance_target_declared
+      notes: >
+        The record supports the DSR Framework as a reviewable artifact package and
+        avoids claiming higher conformance than selected.
+    - gate_id: qg_dsr_transparency
+      result: pass
+      evidence:
+        - transparency_dimensions_mapped
+        - review_limitations_disclosed
+        - source_basis_declared
+      notes: >
+        The record contributes directly to process and evaluation transparency.
+    - gate_id: qg_reviewability
+      result: pass
+      evidence:
+        - checklist_application_present
+        - pass_conditions_and_remediation_present
+        - follow_up_actions_present
+      notes: >
+        Review criteria and remediation actions are explicit.
+
+  review_evidence:
+    evidence_items:
+      - evidence_id: ev_001_selection_registry_alignment
+        evidence_type: registry_alignment
+        evidence_status: observed
+        statement: >
+          record_self_review is selected as a YAML record at
+          records/reviews/record-review-0001-self-review.yaml.
+      - evidence_id: ev_002_record_field_alignment
+        evidence_type: specification_alignment
+        evidence_status: observed
+        statement: >
+          The record includes required retained-record fields and common controlled
+          item metadata.
+      - evidence_id: ev_003_quality_gate_alignment
+        evidence_type: review_judgment
+        evidence_status: observed
+        statement: >
+          The self-review maps findings to consistency, coherence, cogency,
+          correspondence, DSR transparency, and reviewability gates.
+      - evidence_id: ev_004_repository_inventory_status
+        evidence_type: limitation
+        evidence_status: not_observed
+        statement: >
+          Full package inventory reconciliation was not performed in this action.
+
+  outcome:
+    disposition: conditionally_pass_l2_reviewable
+    outcome_statement: >
+      The generated record is suitable as an initial L2 self-review record for the
+      DSR Framework package, with explicit reservations regarding package inventory
+      reconciliation, independent review, and release readiness.
+    accepted_for_repository_inclusion: true
+    release_approval_granted: false
+    required_remediation_before_release:
+      - action_id: action_001_update_package_inventory
+        action: >
+          Add records/reviews/record-review-0001-self-review.yaml to package-inventory.yaml
+          with owner, validation method, and review responsibility.
+      - action_id: action_002_confirm_dependency_links
+        action: >
+          Confirm links to the review-record template, quality review model, and
+          relevant checklists after all package files are saved.
+      - action_id: action_003_run_validation
+        action: >
+          Run YAML parsing, schema validation where available, link checking, and
+          repository-path checks during the next validation pass.
+      - action_id: action_004_obtain_independent_review
+        action: >
+          Obtain reviewer feedback or independent review before treating the package
+          as reusable, publication-ready, or release-ready.
+    next_recommended_file: records/releases/record-release-0001-v0-1-0.yaml
+
+  retention_rule:
+    retention_id: retain_for_life_of_framework_package
+    retention_period: life_of_repository_plus_archival_release_lifecycle
+    retention_rationale: >
+      Retain self-review records as historical evidence of review actions,
+      reservations, remediation decisions, and package-quality progression.
+    disposition_rule: >
+      Do not delete when findings are resolved. Supersede with later review records
+      and reference supersession in change history.
+
+  traceability:
+    - trace_id: trace_self_review_selection
+      source: dsr_framework_selection_table.record_self_review
+      target: records/reviews/record-review-0001-self-review.yaml
+      relationship: selects_and_names_record
+      evidence_status: mapped
+    - trace_id: trace_self_review_record_requirements
+      source: dsr_framework_generation_spec.information_item_rules.record_required_fields
+      target: self_review_record
+      relationship: governs_required_record_fields
+      evidence_status: mapped
+    - trace_id: trace_self_review_quality_gates
+      source: dsr_framework_generation_spec.quality_gates
+      target: self_review_record.quality_gate_status
+      relationship: provides_review_gate_framework
+      evidence_status: mapped
+    - trace_id: trace_self_review_prompt_rules
+      source: dsr_framework_generation_prompt.required_structures_by_portion_type.records
+      target: self_review_record.review_method
+      relationship: governs_record_generation_behavior
+      evidence_status: mapped
+    - trace_id: trace_self_review_package_inventory
+      source: self_review_record.outcome.required_remediation_before_release.action_001_update_package_inventory
+      target: package-inventory.yaml
+      relationship: requires_inventory_update
+      evidence_status: pending
+
+  assumptions:
+    - assumption_id: assumption_001
+      statement: >
+        The record is generated for inclusion in a repository managed by the
+        framework maintainer and will be saved manually into the stated Dropbox
+        framework-files location.
+    - assumption_id: assumption_002
+      statement: >
+        Existing generated files will be reconciled by package inventory and
+        validation processes outside this single file-generation action.
+    - assumption_id: assumption_003
+      statement: >
+        L2 reviewable conformance is the correct target because the selection row
+        declares default conformance L2.
+
+  open_questions:
+    - question_id: oq_001
+      question: >
+        Which individual or role should be named as the formal responsible maintainer
+        for this self-review record?
+      resolution_status: open
+    - question_id: oq_002
+      question: >
+        Should future self-review records use the same quality-gate mapping or a
+        more detailed checklist-specific scoring rubric?
+      resolution_status: open
+    - question_id: oq_003
+      question: >
+        Which validation toolchain will be authoritative for YAML parsing, schema
+        validation, link checking, and package inventory reconciliation?
+      resolution_status: open
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change_type: created
+      description: >
+        Created initial self-review record for the DSR Framework package at L2
+        reviewable conformance.
+      responsible_party: GPT-5.5 Thinking

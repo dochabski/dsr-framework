@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/dsr-contribution-claim.schema.json",
+  "title": "DSR Contribution Claim Schema",
+  "description": "Validates rich contribution-claim templates and flat retained claim records. The rich template is authoritative where it preserves artifact utility, artifact quality, knowledge contribution, evidence, validity, projectability, and transparency distinctions.",
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "template_metadata",
+        "contribution_claim"
+      ]
+    },
+    {
+      "required": [
+        "item_id",
+        "item_type",
+        "record_id",
+        "record_class",
+        "title",
+        "purpose",
+        "status",
+        "version",
+        "owner",
+        "event_or_action",
+        "date",
+        "responsible_party",
+        "evidence",
+        "outcome",
+        "related_items",
+        "source_basis",
+        "change_history",
+        "retention_rule",
+        "claim"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "template_metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "contribution_claim": {
+      "type": "object",
+      "required": [
+        "claim_metadata",
+        "project_context",
+        "claim_statement",
+        "contribution_positioning",
+        "novelty_and_significance",
+        "artifact_utility_quality_and_knowledge_distinctions",
+        "demonstration_and_evaluation_basis",
+        "evidence_basis",
+        "validity_reliability_and_projectability",
+        "transparency_alignment",
+        "review_and_acceptance",
+        "traceability",
+        "change_history"
+      ],
+      "properties": {
+        "claim_metadata": {},
+        "project_context": {},
+        "claim_statement": {},
+        "contribution_positioning": {},
+        "novelty_and_significance": {},
+        "artifact_utility_quality_and_knowledge_distinctions": {},
+        "demonstration_and_evaluation_basis": {},
+        "evidence_basis": {},
+        "validity_reliability_and_projectability": {},
+        "transparency_alignment": {},
+        "limitations_and_open_questions": {},
+        "review_and_acceptance": {},
+        "traceability": {},
+        "conformance_and_quality_gate_mapping": {},
+        "change_history": {}
+      },
+      "additionalProperties": true
+    },
+    "item_id": {},
+    "item_type": {},
+    "record_id": {},
+    "record_class": {},
+    "title": {},
+    "purpose": {},
+    "status": {},
+    "version": {},
+    "owner": {},
+    "event_or_action": {},
+    "date": {},
+    "responsible_party": {},
+    "evidence": {},
+    "outcome": {},
+    "related_items": {},
+    "source_basis": {},
+    "change_history": {},
+    "retention_rule": {},
+    "claim": {}
+  }
+}

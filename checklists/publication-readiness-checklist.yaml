@@ -1,0 +1,1103 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: publication_readiness_checklist
+  item_id: publication_readiness_checklist
+  item_type: procedure
+  title: DSR Publication Readiness Checklist
+  target_path: checklists/publication-readiness-checklist.yaml
+  purpose: >
+    Determine whether a Design Science Research artifact package is ready for
+    scholarly communication, public repository release, citation, registry or
+    archival deposit, and reuse by researchers, reviewers, practitioners, and
+    maintainers.
+  status: draft
+  version: "0.1.0"
+  conformance_target: l4_reusable
+  owner: dsr_framework_maintainer
+  intended_users:
+    - author
+    - maintainer
+    - reviewer
+    - release_manager
+    - repository_curator
+  use_when:
+    - Before submitting a DSR manuscript or artifact paper.
+    - Before tagging a reusable public release of the DSR Framework or a DSR project package.
+    - Before depositing a package in a registry, archive, institutional repository, or DOI-minting service.
+    - Before declaring that a package is reusable beyond its originating project team.
+  not_for:
+    - Certifying that a study has reached archival or long-term preservation maturity.
+    - Replacing journal peer review, editorial review, legal review, or institutional approval.
+    - Claiming exact replication, generalization, or field-validated utility unless supporting evidence is present.
+  readiness_outcomes:
+    - id: ready_for_publication_review
+      label: Ready for publication review
+      definition: >
+        The package is sufficiently coherent, transparent, citable, and reviewed
+        for submission or external scholarly review, but may still require
+        journal-specific formatting.
+    - id: ready_for_reusable_release
+      label: Ready for reusable release
+      definition: >
+        The package includes the controlled files, metadata, evidence records,
+        licensing, and boundary statements needed for independent reuse.
+    - id: needs_remediation
+      label: Needs remediation
+      definition: >
+        One or more blocking checks have failed and must be corrected before
+        public release or publication submission.
+    - id: out_of_scope
+      label: Out of scope
+      definition: >
+        The artifact package is not yet mature enough for this checklist and
+        should be reviewed with a lower-level quality, package, or evaluation checklist first.
+
+source_basis:
+  - source_id: user_current_request
+    role: immediate_task_definition
+    evidence_status: mapped
+    notes: >
+      User selected checklist_publication_readiness with target path
+      checklists/publication-readiness-checklist.yaml, output format YAML,
+      default conformance L4, and dependency on the publication readiness model.
+  - source_id: dsr_framework_generation_spec
+    role: governing_generation_and_repository_convention
+    evidence_status: mapped
+    notes: >
+      Requires YAML for checklists, stable identifiers, source_basis,
+      related_items, traceability, reviewability, quality gates, and checklist
+      items with check_id, question, evidence_required, pass_condition,
+      fail_condition, and remediation_guidance.
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure_and_output_convention
+    evidence_status: mapped
+    notes: >
+      Requires preservation of DSR distinctions, traceability, quality and
+      conformance material, and a completion report after file generation.
+  - source_id: dsr_framework_selection_table
+    role: selected_file_registry
+    evidence_status: mapped
+    notes: >
+      Confirms the target path, portion type, output format, purpose, L4 default
+      conformance, and dependency on the publication readiness model.
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    role: dsr_transparency_and_publication_guidance
+    evidence_status: mapped_to_extraction_anchor
+    citation_anchor_ids:
+      - CA01
+      - CA06
+      - CA07
+      - CA08
+      - CA10
+      - CA11
+      - CA14
+      - CA15
+      - CA16
+      - CA17
+      - CA18
+    notes: >
+      Supports publication-readiness checks for process, problem-space,
+      solution-space, build, evaluation, and contribution transparency; repository
+      use; proportionality of transparency requirements; and privacy, security,
+      intellectual-property, maintenance, and publication-burden risks.
+  - source_id: gregor_zwikael_2024_ijpm_102584
+    role: dsr_publication_rigor_relevance_and_contribution_guidance
+    evidence_status: mapped_to_extraction_anchor
+    citation_anchor_ids:
+      - A06
+      - A08
+      - A09
+      - A16
+      - A26
+      - A27
+      - A28
+    notes: >
+      Supports checks for rigor-relevance balance, structured DSR process,
+      problem-class specification, abstraction beyond a local artifact, evidence
+      of co-creation where applicable, and clear design knowledge contribution.
+  - source_id: weber_2018_design_science_research
+    role: dsr_quality_and_evaluation_guidance
+    evidence_status: mapped_to_extraction_anchor
+    citation_anchor_ids:
+      - A06
+      - A09
+      - A10
+      - A11
+      - A12
+      - A13
+      - A14
+      - A15
+    notes: >
+      Supports checks for viable artifacts, relevance, rigorous evaluation,
+      contribution, rigorous construction, design search, communication, process
+      quality, product quality, problem specification, and artifact-specific evaluation.
+
+related_items:
+  upstream_dependencies:
+    - path: models/dsr-publication-readiness-model.yaml
+      relationship: primary_model_dependency
+      expected_status: draft_or_later
+    - path: specs/product-dsr-publication-and-registry-model.yaml
+      relationship: release_and_registry_dependency
+      expected_status: draft_or_later
+    - path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relationship: quality_gate_dependency
+      expected_status: draft_or_later
+    - path: specs/product-dsr-artifact-package-specification.yaml
+      relationship: package_content_dependency
+      expected_status: draft_or_later
+    - path: specs/product-dsr-metadata-and-identifier-profile.yaml
+      relationship: metadata_identifier_dependency
+      expected_status: draft_or_later
+    - path: models/dsr-transparency-model.yaml
+      relationship: transparency_dependency
+      expected_status: draft_or_later
+    - path: models/dsr-evaluation-alignment-model.yaml
+      relationship: evaluation_dependency
+      expected_status: draft_or_later
+  downstream_uses:
+    - path: docs/protocol/14-publication-and-review-guidance.md
+      relationship: human_facing_guidance_render
+    - path: records/releases/record-release-0001-v0-1-0.yaml
+      relationship: release_record_input
+    - path: records/reviews/record-review-0001-self-review.yaml
+      relationship: review_record_input
+    - path: package-inventory.yaml
+      relationship: package_inventory_alignment
+    - path: conformance-declaration.yaml
+      relationship: conformance_claim_alignment
+
+review_protocol:
+  review_mode: gate_review
+  recommended_reviewers:
+    - role: author_or_maintainer
+      responsibility: Complete the evidence references and remediate failed checks.
+    - role: independent_reviewer
+      responsibility: Verify that pass conditions are supported by package evidence rather than assertion.
+    - role: release_manager
+      responsibility: Verify repository, version, license, citation, archival, and registry readiness.
+  severity_levels:
+    - id: blocking
+      definition: Failure prevents L4 reusable release or publication-readiness declaration.
+    - id: major
+      definition: Failure should be remediated before external submission unless explicitly waived.
+    - id: minor
+      definition: Failure should be tracked but does not normally block readiness.
+  allowed_results:
+    - pass
+    - fail
+    - not_applicable
+    - deferred_with_rationale
+  evidence_rules:
+    - Evidence must reference repository files, records, schemas, validation reports, review records, or release artifacts.
+    - Assertions by the author are not sufficient unless captured in a controlled record with rationale.
+    - Deferred checks must include a responsible party, remediation target, and reason for deferral.
+    - Any waiver of a blocking check must be recorded in a review or release decision record.
+  scoring_and_gate_logic:
+    l4_reusable_minimum:
+      blocking_checks_allowed_failed: 0
+      major_checks_allowed_failed: 0
+      minor_checks_allowed_failed: 3
+      deferred_blocking_checks_allowed: 0
+      required_evidence_status: present_or_not_applicable_with_rationale
+    release_recommendation_rules:
+      - outcome: ready_for_reusable_release
+        condition: >
+          All blocking and major checks pass or are not applicable with rationale;
+          no critical metadata, license, citation, evidence, repository, or review
+          gaps remain; release record can be completed.
+      - outcome: ready_for_publication_review
+        condition: >
+          All scholarly-argument, contribution, evaluation, transparency, and
+          manuscript-submission checks pass; some registry or archival steps may
+          remain pending if documented.
+      - outcome: needs_remediation
+        condition: >
+          Any blocking or major check fails, or required evidence is absent.
+      - outcome: out_of_scope
+        condition: >
+          Minimum DSR identity, package readiness, transparency, contribution,
+          or evaluation readiness has not yet been established.
+
+sections:
+  - id: package_identity_and_scope
+    title: Package Identity and Scope
+    purpose: Verify that the publication candidate is identifiable, bounded, and aligned with the declared DSR artifact package.
+  - id: scholarly_argument_and_contribution
+    title: Scholarly Argument and Contribution
+    purpose: Verify that the work makes a publishable DSR contribution beyond local artifact construction.
+  - id: evidence_evaluation_and_claim_alignment
+    title: Evidence, Evaluation, and Claim Alignment
+    purpose: Verify that evidence supports the claims made in the manuscript and package records.
+  - id: transparency_and_reuse
+    title: Transparency and Reuse
+    purpose: Verify that the package exposes enough process, problem, solution, build, evaluation, and contribution information for review and reuse.
+  - id: metadata_citation_and_attribution
+    title: Metadata, Citation, and Attribution
+    purpose: Verify that identifiers, citation metadata, authorship, provenance, and credit information are publication-ready.
+  - id: repository_release_and_archival_readiness
+    title: Repository, Release, and Archival Readiness
+    purpose: Verify that the repository can be released, archived, and linked from scholarly communication channels.
+  - id: governance_legal_and_risk_controls
+    title: Governance, Legal, and Risk Controls
+    purpose: Verify that licensing, security, privacy, proprietary, and maintenance risks have been addressed.
+  - id: reviewer_and_practitioner_usability
+    title: Reviewer and Practitioner Usability
+    purpose: Verify that scholarly and practitioner audiences can understand, inspect, and reuse the package.
+
+items:
+  - check_id: prc_identity_001
+    section_id: package_identity_and_scope
+    severity: blocking
+    question: Is the publication candidate associated with a stable package identity and declared version?
+    evidence_required:
+      - manifest.yaml with package identifier and version
+      - metadata.yaml or artifact-profile.yaml with artifact identity
+      - release or candidate tag naming convention
+    pass_condition: >
+      The artifact package has a stable name, version, canonical repository path,
+      and candidate release identifier that match across manifest, metadata, and release materials.
+    fail_condition: >
+      Package identity, version, repository path, or release candidate identifier is missing,
+      inconsistent, or not traceable across controlled files.
+    remediation_guidance: >
+      Update manifest.yaml, metadata.yaml, artifact-profile.yaml, and release materials so
+      the same package identity and version are used throughout.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: repository_architecture.required_root_files
+
+  - check_id: prc_identity_002
+    section_id: package_identity_and_scope
+    severity: blocking
+    question: Is the publication candidate clearly bounded as a DSR artifact package rather than an unbounded project folder?
+    evidence_required:
+      - artifact-profile.yaml scope and non-goals
+      - package-inventory.yaml
+      - README.md repository boundary statement
+    pass_condition: >
+      The included files, excluded files, non-goals, required records, examples, and controlled artifacts
+      are explicitly bounded and consistent with the package inventory.
+    fail_condition: >
+      The repository contains ambiguous, unmanaged, or undocumented files that make the publication boundary unclear.
+    remediation_guidance: >
+      Classify files as required package contents, examples, evidence records, generated artifacts,
+      working materials, or excluded materials; update package-inventory.yaml accordingly.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: repository_architecture.canonical_directories
+
+  - check_id: prc_identity_003
+    section_id: package_identity_and_scope
+    severity: major
+    question: Does the candidate release declare its conformance level and tailoring rationale?
+    evidence_required:
+      - conformance-declaration.yaml
+      - review record documenting tailoring decisions
+      - list of waived or deferred checks, if any
+    pass_condition: >
+      Conformance level, tailoring decisions, exclusions, waivers, and open issues are explicit,
+      internally consistent, and supported by review evidence.
+    fail_condition: >
+      The package claims L4 reusable readiness without a conformance declaration or without rationale for tailored requirements.
+    remediation_guidance: >
+      Complete or update conformance-declaration.yaml and link any tailoring decisions to a retained review or decision record.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: content_generation_rules.universal_rules
+
+  - check_id: prc_identity_004
+    section_id: package_identity_and_scope
+    severity: major
+    question: Are all required root and controlled repository files present or explicitly marked not applicable?
+    evidence_required:
+      - package-inventory.yaml
+      - repository tree listing
+      - validation report or manual file audit
+    pass_condition: >
+      Required root files, controlled directories, specifications, models, vocabularies,
+      schemas, templates, checklists, records, docs, and release materials are present or
+      have documented not-applicable rationales.
+    fail_condition: >
+      Required files or directories are missing without documented rationale.
+    remediation_guidance: >
+      Add missing controlled files, generate approved stubs, or document exclusions in package-inventory.yaml and conformance-declaration.yaml.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: repository_architecture.required_root_files
+
+  - check_id: prc_scholarly_001
+    section_id: scholarly_argument_and_contribution
+    severity: blocking
+    question: Does the publication candidate state a clear DSR problem class and not merely a local implementation problem?
+    evidence_required:
+      - problem-and-objectives record or template instance
+      - artifact-profile.yaml problem-class field
+      - manuscript or README problem statement
+    pass_condition: >
+      The problem is stated at a projectable level, identifies the affected stakeholders,
+      defines the desired improvement, and distinguishes the problem class from a single local case.
+    fail_condition: >
+      The work only describes a local activity, implementation, or tool without articulating a broader DSR problem class.
+    remediation_guidance: >
+      Rewrite the problem statement to identify the class of problems, stakeholders, undesired current state,
+      desired end state, and relevance beyond the immediate case.
+    traceability:
+      - source_id: gregor_zwikael_2024_ijpm_102584
+        citation_anchor_ids: [A26]
+      - source_id: weber_2018_design_science_research
+        citation_anchor_ids: [A11]
+
+  - check_id: prc_scholarly_002
+    section_id: scholarly_argument_and_contribution
+    severity: blocking
+    question: Does the candidate identify the artifact type, artifact boundary, and artifact contribution level?
+    evidence_required:
+      - artifact-profile.yaml
+      - artifact specification or artifact ontology record
+      - contribution claim or contribution positioning record
+    pass_condition: >
+      The candidate distinguishes artifact type, artifact instance, design knowledge, artifact boundary,
+      contribution type, and contribution scope without conflating demonstration with contribution.
+    fail_condition: >
+      The candidate presents an artifact but does not clarify what kind of artifact it is, what its reusable boundary is,
+      or what knowledge contribution it makes.
+    remediation_guidance: >
+      Complete artifact profile and contribution-positioning materials; classify the artifact and map it to contribution claims.
+    traceability:
+      - source_id: gregor_zwikael_2024_ijpm_102584
+        citation_anchor_ids: [A08, A09]
+      - source_id: weber_2018_design_science_research
+        citation_anchor_ids: [A12, A14]
+
+  - check_id: prc_scholarly_003
+    section_id: scholarly_argument_and_contribution
+    severity: blocking
+    question: Is the contribution positioned against prior knowledge rather than asserted as novel without comparison?
+    evidence_required:
+      - solution-space record
+      - contribution-positioning record
+      - source-basis record or literature grounding section
+    pass_condition: >
+      Prior artifacts, theories, methods, standards, or frameworks are identified; the candidate explains whether
+      the contribution is improvement, exaptation, invention, method extension, evaluation contribution, or another controlled type.
+    fail_condition: >
+      Novelty, usefulness, or significance is asserted without a comparison set or contribution-positioning rationale.
+    remediation_guidance: >
+      Add a solution-space review and contribution-positioning crosswalk that identifies what is reused,
+      extended, replaced, or newly introduced.
+    traceability:
+      - source_id: gregor_zwikael_2024_ijpm_102584
+        citation_anchor_ids: [A27]
+      - source_id: weber_2018_design_science_research
+        citation_anchor_ids: [A12]
+
+  - check_id: prc_scholarly_004
+    section_id: scholarly_argument_and_contribution
+    severity: major
+    question: Does the candidate balance practical utility and scientific legitimacy?
+    evidence_required:
+      - artifact utility claim
+      - evaluation report or evaluation plan
+      - contribution claim
+      - stakeholder or use-context description
+    pass_condition: >
+      The candidate explains both how the artifact can be useful in practice and how the work contributes
+      to transferable, reviewable, or reusable design knowledge.
+    fail_condition: >
+      The candidate emphasizes either local practical utility or abstract theory while neglecting the other.
+    remediation_guidance: >
+      Add paired claims for practical utility and knowledge contribution, each linked to evidence and boundary conditions.
+    traceability:
+      - source_id: gregor_zwikael_2024_ijpm_102584
+        citation_anchor_ids: [A06, A28]
+
+  - check_id: prc_scholarly_005
+    section_id: scholarly_argument_and_contribution
+    severity: major
+    question: Is the manuscript or public documentation organized around a structured DSR process?
+    evidence_required:
+      - lifecycle model mapping
+      - project charter or process record
+      - manuscript methods section or protocol documentation
+    pass_condition: >
+      The documentation explains problem identification, objectives, design/development, demonstration,
+      evaluation, communication, and iteration or tailoring where applicable.
+    fail_condition: >
+      The documentation presents results without reconstructable process logic or without distinguishing lifecycle stages.
+    remediation_guidance: >
+      Add a lifecycle crosswalk or process narrative that maps package evidence to DSR lifecycle stages.
+    traceability:
+      - source_id: weber_2018_design_science_research
+        citation_anchor_ids: [A09]
+      - source_id: gregor_zwikael_2024_ijpm_102584
+        citation_anchor_ids: [A16, A28]
+
+  - check_id: prc_evidence_001
+    section_id: evidence_evaluation_and_claim_alignment
+    severity: blocking
+    question: Are all publication claims traceable to package evidence?
+    evidence_required:
+      - contribution claim template instance
+      - evaluation report
+      - transparency crosswalk
+      - source-basis record
+    pass_condition: >
+      Claims about utility, artifact quality, contribution, rigor, reuse, transparency, and readiness
+      each link to specific evidence records, files, or validation results.
+    fail_condition: >
+      Claims rely on unsupported assertion, unreferenced evidence, or evidence not included in the package.
+    remediation_guidance: >
+      Create a claim-evidence matrix and revise unsupported claims to match available evidence.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: citation_and_traceability_rules
+
+  - check_id: prc_evidence_002
+    section_id: evidence_evaluation_and_claim_alignment
+    severity: blocking
+    question: Does the candidate distinguish demonstration evidence from evaluation evidence?
+    evidence_required:
+      - demonstration record
+      - evaluation plan
+      - evaluation report
+      - contribution claim
+    pass_condition: >
+      Demonstrations are labeled as use scenarios, walkthroughs, examples, or instantiations;
+      evaluations are labeled by method, criteria, data, findings, limitations, and claims supported.
+    fail_condition: >
+      A demonstration is presented as if it were an evaluation, or evaluation claims lack method and criteria.
+    remediation_guidance: >
+      Separate demonstration records from evaluation records and revise claims to reflect the actual evidence type.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: content_generation_rules.universal_rules
+
+  - check_id: prc_evidence_003
+    section_id: evidence_evaluation_and_claim_alignment
+    severity: blocking
+    question: Is the evaluation evidence sufficient for the stated readiness and contribution claims?
+    evidence_required:
+      - evaluation plan
+      - evaluation report
+      - acceptance criteria
+      - evaluation limitations
+    pass_condition: >
+      Evaluation criteria, method, data, results, and limitations support the strength of claims made about artifact utility,
+      artifact quality, and design knowledge contribution.
+    fail_condition: >
+      The candidate claims effectiveness, validity, reliability, reuse, or broad applicability beyond what the evaluation evidence supports.
+    remediation_guidance: >
+      Strengthen evaluation evidence or narrow the publication claims and boundary conditions.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA10]
+      - source_id: weber_2018_design_science_research
+        citation_anchor_ids: [A10, A14, A15]
+
+  - check_id: prc_evidence_004
+    section_id: evidence_evaluation_and_claim_alignment
+    severity: major
+    question: Are validity, reliability, replication, and projectability limitations explicitly stated?
+    evidence_required:
+      - validity or quality review record
+      - reliability checklist result, if applicable
+      - replication/projectability checklist result
+      - limitations section
+    pass_condition: >
+      The candidate states known threats, boundaries, failed or deferred checks, reuse constraints,
+      and confidence limits in a way that prevents overclaiming.
+    fail_condition: >
+      Limitations are absent, generic, or inconsistent with evaluation findings and package maturity.
+    remediation_guidance: >
+      Add a limitations and boundary-conditions section linked to quality, evaluation, reliability, and projectability records.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA13, CA17]
+
+  - check_id: prc_evidence_005
+    section_id: evidence_evaluation_and_claim_alignment
+    severity: major
+    question: Have failed checks, unresolved issues, and known defects been retained as review evidence?
+    evidence_required:
+      - review record
+      - issue list or backlog
+      - release record risk section
+      - change history
+    pass_condition: >
+      Known defects and unresolved issues are documented with severity, disposition, owner, and rationale for release or deferral.
+    fail_condition: >
+      Known issues are hidden, undocumented, or not connected to release and review decisions.
+    remediation_guidance: >
+      Add a review record or release decision record that names unresolved issues and justifies disposition.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: information_item_rules.record_required_fields
+
+  - check_id: prc_transparency_001
+    section_id: transparency_and_reuse
+    severity: blocking
+    question: Does the package provide process transparency sufficient for a reviewer to reconstruct the work?
+    evidence_required:
+      - project charter or lifecycle record
+      - design rationale
+      - review records
+      - change history
+    pass_condition: >
+      The package records major activities, design decisions, reasoning, changes, review actions,
+      and context sufficient to understand how the artifact and knowledge claims were produced.
+    fail_condition: >
+      The package lacks process evidence or presents only final outputs without decisions and rationale.
+    remediation_guidance: >
+      Add or complete process records, design rationale, review records, and change history.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA06]
+
+  - check_id: prc_transparency_002
+    section_id: transparency_and_reuse
+    severity: blocking
+    question: Does the package provide problem-space and solution-space transparency?
+    evidence_required:
+      - problem-and-objectives template instance
+      - solution-space record
+      - source-basis record
+      - requirements or acceptance criteria
+    pass_condition: >
+      The package describes application context, stakeholders, improvement goals, timeframe,
+      prior knowledge, existing artifacts, grounding theories, and design constraints.
+    fail_condition: >
+      The package omits context, stakeholder problem, prior knowledge, or grounding evidence needed to interpret the artifact.
+    remediation_guidance: >
+      Complete problem-space and solution-space records and link them to objectives, requirements, and evaluation criteria.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA07, CA08]
+
+  - check_id: prc_transparency_003
+    section_id: transparency_and_reuse
+    severity: blocking
+    question: Does the package provide build transparency without exposing inappropriate sensitive material?
+    evidence_required:
+      - design rationale
+      - build transparency record
+      - artifact specification
+      - risk or security review
+    pass_condition: >
+      The package documents design search, artifact construction, assumptions, alternatives, decisions,
+      and implementation boundaries while protecting privacy, security, proprietary, or restricted information.
+    fail_condition: >
+      Build evidence is absent, or the package exposes sensitive material without controls.
+    remediation_guidance: >
+      Add build records and redact, summarize, obfuscate, or restrict sensitive material with explicit rationale.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA09, CA18]
+
+  - check_id: prc_transparency_004
+    section_id: transparency_and_reuse
+    severity: major
+    question: Does the package provide contribution transparency for both scholarly and practitioner audiences?
+    evidence_required:
+      - contribution claim
+      - README.md or documentation page
+      - practitioner-facing summary, if applicable
+      - contribution-positioning record
+    pass_condition: >
+      The package distinguishes practical impact, scientific contribution, descriptive knowledge,
+      prescriptive knowledge, reusable artifact value, and audience-specific communication needs.
+    fail_condition: >
+      The candidate states a contribution without clarifying who can use it, how, and what kind of knowledge is contributed.
+    remediation_guidance: >
+      Add separate scholarly and practitioner contribution statements and link each to artifact and evidence records.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA11, CA15]
+
+  - check_id: prc_transparency_005
+    section_id: transparency_and_reuse
+    severity: major
+    question: Are reuse instructions and boundary conditions sufficient for independent users?
+    evidence_required:
+      - README.md reuse section
+      - artifact specification
+      - examples or templates
+      - license and citation instructions
+    pass_condition: >
+      Independent users can identify what may be reused, under what conditions, with what limitations,
+      and with what citation or attribution requirements.
+    fail_condition: >
+      Reuse instructions are absent, ambiguous, or inconsistent with license, artifact boundary, or evaluation limitations.
+    remediation_guidance: >
+      Add a reuse guide covering scope, prerequisites, limitations, examples, attribution, and support boundaries.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA14, CA15]
+
+  - check_id: prc_metadata_001
+    section_id: metadata_citation_and_attribution
+    severity: blocking
+    question: Are citation metadata and recommended citation instructions present and internally consistent?
+    evidence_required:
+      - CITATION.cff
+      - metadata.yaml
+      - README.md citation section
+      - .zenodo.json, if archival deposit is planned
+    pass_condition: >
+      Title, authors, version, release date or planned release date, repository URL, license,
+      identifiers, and recommended citation agree across citation files and public documentation.
+    fail_condition: >
+      Citation files are missing or contain conflicting metadata.
+    remediation_guidance: >
+      Normalize citation metadata across CITATION.cff, metadata.yaml, README.md, and archival metadata.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: repository_architecture.required_root_files
+
+  - check_id: prc_metadata_002
+    section_id: metadata_citation_and_attribution
+    severity: blocking
+    question: Are authorship, contributor roles, ownership, and maintenance responsibilities declared?
+    evidence_required:
+      - metadata.yaml contributor section
+      - CONTRIBUTING.md
+      - GOVERNANCE.md
+      - artifact-profile.yaml owner field
+    pass_condition: >
+      The package identifies authors, maintainers, contributors, owner role, governance route,
+      and contribution process at a level suitable for public release and citation.
+    fail_condition: >
+      Authorship, maintenance, or contribution responsibilities are ambiguous or missing.
+    remediation_guidance: >
+      Add contributor metadata, governance instructions, maintainer role, and contribution process documentation.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: information_item_rules.common_required_fields
+
+  - check_id: prc_metadata_003
+    section_id: metadata_citation_and_attribution
+    severity: major
+    question: Are provenance, source basis, and evidence lineage documented?
+    evidence_required:
+      - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      - source_basis fields in controlled files
+      - extraction corpus references where applicable
+      - change_history fields
+    pass_condition: >
+      Controlled files identify their source basis, evidence status, upstream dependencies, and change history.
+    fail_condition: >
+      Content appears in controlled files without provenance or source-basis records.
+    remediation_guidance: >
+      Add source_basis and traceability entries to affected controlled files and update source-basis records.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: citation_and_traceability_rules
+
+  - check_id: prc_metadata_004
+    section_id: metadata_citation_and_attribution
+    severity: major
+    question: Are machine-readable metadata and human-readable metadata aligned?
+    evidence_required:
+      - metadata.yaml
+      - artifact-profile.yaml
+      - README.md
+      - manifest.yaml
+      - CITATION.cff
+    pass_condition: >
+      Human-facing descriptions and structured metadata present the same title, scope, version,
+      purpose, status, license, contributors, and repository identity.
+    fail_condition: >
+      README or docs conflict with structured package metadata.
+    remediation_guidance: >
+      Reconcile structured and human-facing metadata and designate structured metadata as the source of truth.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: source_authority.documentation_protocol_alignment
+
+  - check_id: prc_repository_001
+    section_id: repository_release_and_archival_readiness
+    severity: blocking
+    question: Is the repository structure publication-ready according to the package architecture?
+    evidence_required:
+      - repository tree
+      - package-inventory.yaml
+      - validation report or manual audit
+    pass_condition: >
+      Root files, controlled directories, records, docs, examples, schemas, and release materials are organized
+      using the canonical repository architecture and naming conventions.
+    fail_condition: >
+      Files are misplaced, inconsistently named, or not represented in the inventory.
+    remediation_guidance: >
+      Reorganize files using canonical directories and lower-kebab-case naming; update the package inventory.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: repository_architecture.naming_rules
+
+  - check_id: prc_repository_002
+    section_id: repository_release_and_archival_readiness
+    severity: blocking
+    question: Has a release record been prepared for the publication candidate?
+    evidence_required:
+      - records/releases/record-release-0001-v0-1-0.yaml or equivalent
+      - changelog entry
+      - release notes
+      - review evidence summary
+    pass_condition: >
+      The release record documents release identity, date or planned date, responsible party,
+      evidence, outcome, known limitations, conformance status, and retention rule.
+    fail_condition: >
+      No release record exists or the record omits evidence, outcome, limitations, or responsible party.
+    remediation_guidance: >
+      Create or complete the release record and link it to review, validation, inventory, and conformance evidence.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: information_item_rules.record_required_fields
+
+  - check_id: prc_repository_003
+    section_id: repository_release_and_archival_readiness
+    severity: major
+    question: Has the candidate release passed validation checks appropriate to its file types?
+    evidence_required:
+      - YAML validation results
+      - JSON Schema validation results, where schemas exist
+      - link or inventory validation results
+      - manual review record for non-automated checks
+    pass_condition: >
+      Structured files parse successfully, schemas validate where applicable, links and references are checked,
+      and manual exceptions are documented.
+    fail_condition: >
+      Validation has not been run, validation fails, or failures are not recorded with disposition.
+    remediation_guidance: >
+      Run available validation checks, correct file errors, and record residual exceptions in a review record.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: quality_gates.qg_reviewability
+
+  - check_id: prc_repository_004
+    section_id: repository_release_and_archival_readiness
+    severity: major
+    question: Is archival or registry deposit readiness addressed without overclaiming completed deposit?
+    evidence_required:
+      - .zenodo.json or archival metadata
+      - registry or DOI plan
+      - release record
+      - README badge or citation instructions, if applicable
+    pass_condition: >
+      The package identifies planned or completed registry and archival steps, distinguishes candidate release
+      from completed deposit, and avoids claiming a DOI or archive record before it exists.
+    fail_condition: >
+      The package claims archival, registry, or DOI status that is not evidenced, or lacks a plan where deposit is expected.
+    remediation_guidance: >
+      Add deposit plan or completed deposit evidence; revise language to separate readiness from completed archival publication.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: content_generation_rules.universal_rules
+
+  - check_id: prc_repository_005
+    section_id: repository_release_and_archival_readiness
+    severity: minor
+    question: Are examples, templates, and schemas synchronized with the release candidate?
+    evidence_required:
+      - templates directory audit
+      - schemas directory audit
+      - examples directory audit, if present
+      - package inventory
+    pass_condition: >
+      Examples use current template and schema conventions, and templates or schemas referenced in docs actually exist.
+    fail_condition: >
+      Examples are stale, schemas do not validate templates, or docs reference missing operating materials.
+    remediation_guidance: >
+      Update examples, templates, schemas, or documentation references before release.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: coherence_rules
+
+  - check_id: prc_governance_001
+    section_id: governance_legal_and_risk_controls
+    severity: blocking
+    question: Is the license declared consistently and compatible with intended reuse?
+    evidence_required:
+      - LICENSE
+      - README.md license section
+      - metadata.yaml license field
+      - CITATION.cff license field, if applicable
+    pass_condition: >
+      The license is present, consistently identified, and compatible with public reuse of the framework materials.
+    fail_condition: >
+      License is missing, inconsistent, or incompatible with the package's reuse claims.
+    remediation_guidance: >
+      Add or correct the license declaration and update metadata, README, and citation files.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: repository_architecture.required_root_files
+
+  - check_id: prc_governance_002
+    section_id: governance_legal_and_risk_controls
+    severity: blocking
+    question: Have privacy, security, proprietary, and restricted-information risks been reviewed?
+    evidence_required:
+      - SECURITY.md
+      - risk section in release record
+      - transparency or build record redaction notes
+      - review record
+    pass_condition: >
+      The package contains no inappropriate private, proprietary, restricted, or security-sensitive material,
+      or any necessary exclusions are documented with rationale.
+    fail_condition: >
+      Sensitive material is present without authorization, redaction, access control, or risk disposition.
+    remediation_guidance: >
+      Remove, redact, summarize, obfuscate, or restrict sensitive content and document the disposition in a release or review record.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA18]
+
+  - check_id: prc_governance_003
+    section_id: governance_legal_and_risk_controls
+    severity: major
+    question: Are governance, contribution, conduct, and security channels documented for public users?
+    evidence_required:
+      - GOVERNANCE.md
+      - CONTRIBUTING.md
+      - CODE_OF_CONDUCT.md
+      - SECURITY.md
+    pass_condition: >
+      Public users can identify how to contribute, report issues, report security concerns,
+      understand governance, and follow conduct expectations.
+    fail_condition: >
+      Public-facing governance or support channels are absent or contradictory.
+    remediation_guidance: >
+      Complete governance, contribution, conduct, and security documentation before public release.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: repository_architecture.required_root_files
+
+  - check_id: prc_governance_004
+    section_id: governance_legal_and_risk_controls
+    severity: major
+    question: Are maintenance expectations and artifact evolution boundaries stated?
+    evidence_required:
+      - README maintenance section
+      - GOVERNANCE.md
+      - release record
+      - artifact-profile.yaml lifecycle or maintenance notes
+    pass_condition: >
+      The package states what will be maintained, what is static, how updates are handled,
+      and what support or compatibility users should not expect.
+    fail_condition: >
+      The package implies continuing maintenance or executable reliability without defining support boundaries.
+    remediation_guidance: >
+      Add maintenance policy, support boundaries, compatibility notes, and release process documentation.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA14, CA18]
+
+  - check_id: prc_usability_001
+    section_id: reviewer_and_practitioner_usability
+    severity: blocking
+    question: Can an external reviewer determine what to inspect and how to evaluate the package?
+    evidence_required:
+      - README.md navigation section
+      - package-inventory.yaml
+      - review checklist references
+      - docs/protocol index or overview
+    pass_condition: >
+      A reviewer can locate the artifact profile, package inventory, conformance declaration,
+      evidence records, evaluation materials, contribution claims, and release materials without hidden instructions.
+    fail_condition: >
+      The package is difficult to navigate or lacks clear review entry points.
+    remediation_guidance: >
+      Add a reviewer navigation guide in README.md or docs/protocol and link it to package inventory and review records.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: quality_gates.qg_cogency
+
+  - check_id: prc_usability_002
+    section_id: reviewer_and_practitioner_usability
+    severity: major
+    question: Is the artifact understandable to both scholarly and practitioner audiences where applicable?
+    evidence_required:
+      - README.md plain-language summary
+      - docs/protocol guidance
+      - artifact specification
+      - practitioner or user-facing examples, if applicable
+    pass_condition: >
+      The package explains purpose, use, boundaries, and contribution in language appropriate to intended audiences,
+      while preserving controlled structured files for validation.
+    fail_condition: >
+      Documentation is too abstract, too technical, or too sparse for intended audiences to understand or reuse the artifact.
+    remediation_guidance: >
+      Add plain-language summaries, examples, diagrams, and practitioner-oriented instructions while preserving formal source-of-truth files.
+    traceability:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        citation_anchor_ids: [CA15]
+
+  - check_id: prc_usability_003
+    section_id: reviewer_and_practitioner_usability
+    severity: major
+    question: Are examples or usage scenarios sufficient to support reuse without being overstated as validation?
+    evidence_required:
+      - examples directory, if included
+      - demonstration record
+      - README usage section
+      - evaluation report distinction
+    pass_condition: >
+      Examples or scenarios show how to apply the package and are explicitly labeled as examples or demonstrations
+      unless they are supported by evaluation evidence.
+    fail_condition: >
+      Examples are absent where needed for reuse, or examples are presented as if they prove effectiveness.
+    remediation_guidance: >
+      Add examples or usage scenarios and label them correctly; revise validation claims to match evaluation evidence.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: content_generation_rules.universal_rules
+
+  - check_id: prc_usability_004
+    section_id: reviewer_and_practitioner_usability
+    severity: minor
+    question: Are common failure modes and remediation routes visible to users?
+    evidence_required:
+      - checklists directory
+      - README troubleshooting or review section
+      - issue template, if public repository support is planned
+    pass_condition: >
+      Users can identify how to diagnose incomplete metadata, failed validation, missing evidence, outdated examples,
+      or unsupported contribution claims.
+    fail_condition: >
+      Users lack guidance for interpreting failed checks or repairing package defects.
+    remediation_guidance: >
+      Add troubleshooting notes, issue templates, or checklist usage instructions.
+    traceability:
+      - source_id: dsr_framework_generation_spec
+        trace_id: quality_gates.qg_reviewability
+
+acceptance_criteria:
+  - id: ac_l4_no_blocking_failures
+    criterion: No blocking check may fail for an L4 reusable publication-readiness declaration.
+  - id: ac_l4_claims_evidence_alignment
+    criterion: All utility, quality, contribution, readiness, reuse, and publication claims must be traceable to evidence or narrowed.
+  - id: ac_l4_publication_boundary
+    criterion: Publication readiness must distinguish manuscript readiness, repository release readiness, registry readiness, and archival deposit completion.
+  - id: ac_l4_reuse_and_risk_balance
+    criterion: The package must provide enough transparency for reuse and review while managing privacy, security, proprietary, and maintenance risks.
+  - id: ac_l4_review_record
+    criterion: A retained review or release record must document checklist result, unresolved issues, waivers, and final disposition.
+
+validation_rules:
+  - id: vr_yaml_parse
+    rule: The checklist file must parse as valid YAML.
+    validation_method: yaml_parser
+  - id: vr_required_item_fields
+    rule: Every checklist item must include check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
+    validation_method: structural_review
+  - id: vr_unique_check_ids
+    rule: Every check_id must be unique and stable.
+    validation_method: automated_or_manual_uniqueness_check
+  - id: vr_traceability_present
+    rule: Blocking and major checks should include traceability to source basis or governing specification.
+    validation_method: structural_review
+  - id: vr_no_unbounded_overclaiming
+    rule: The checklist must require evidence before publication, reuse, archival, replication, or generalization claims are made.
+    validation_method: manual_review
+
+quality_gate_mapping:
+  qg_consistency:
+    covered_by:
+      - prc_identity_001
+      - prc_identity_004
+      - prc_repository_001
+      - prc_metadata_004
+  qg_coherence:
+    covered_by:
+      - prc_identity_002
+      - prc_scholarly_002
+      - prc_evidence_001
+      - prc_repository_005
+  qg_cogency:
+    covered_by:
+      - prc_scholarly_001
+      - prc_scholarly_005
+      - prc_usability_001
+      - prc_usability_002
+  qg_correspondence:
+    covered_by:
+      - prc_identity_003
+      - prc_scholarly_003
+      - prc_scholarly_004
+      - prc_evidence_003
+  qg_dsr_transparency:
+    covered_by:
+      - prc_transparency_001
+      - prc_transparency_002
+      - prc_transparency_003
+      - prc_transparency_004
+      - prc_transparency_005
+  qg_reviewability:
+    covered_by:
+      - prc_evidence_005
+      - prc_repository_002
+      - prc_repository_003
+      - prc_usability_004
+
+traceability:
+  - trace_id: tr_selection_to_file
+    source: dsr_framework_selection_table.checklist_publication_readiness
+    target: checklists/publication-readiness-checklist.yaml
+    relationship: selects_generation_target
+  - trace_id: tr_file_to_generation_spec
+    source: dsr_framework_generation_spec.coherence_rules.checklist_required_fields
+    target: publication_readiness_checklist.items
+    relationship: implements_required_checklist_structure
+  - trace_id: tr_file_to_prompt
+    source: dsr_framework_generation_prompt.checklists
+    target: publication_readiness_checklist
+    relationship: follows_generation_prompt
+  - trace_id: tr_file_to_publication_model
+    source: models/dsr-publication-readiness-model.yaml
+    target: publication_readiness_checklist
+    relationship: operationalizes_model_as_review_gate
+  - trace_id: tr_file_to_quality_model
+    source: specs/product-dsr-quality-conformance-and-review-model.yaml
+    target: publication_readiness_checklist.quality_gate_mapping
+    relationship: operationalizes_quality_gates
+  - trace_id: tr_file_to_transparency_model
+    source: models/dsr-transparency-model.yaml
+    target: publication_readiness_checklist.items
+    relationship: includes_six_dimension_transparency_readiness
+
+assumptions:
+  - id: asm_l4_scope
+    statement: >
+      L4 reusable publication readiness means a public, citable, reusable release candidate;
+      it does not imply final archival preservation maturity unless a separate L5 release or preservation checklist passes.
+  - id: asm_registry_pending
+    statement: >
+      DOI, registry, or archive fields may be planned rather than completed at review time, but claims must distinguish readiness from completed deposit.
+  - id: asm_prior_files_exist_or_are_stubbed
+    statement: >
+      Related models, specs, records, and templates may still be draft or stub files during early framework construction,
+      but publication readiness cannot be declared until required dependencies exist or are explicitly tailored.
+
+limitations:
+  - id: lim_not_peer_review
+    statement: This checklist supports internal and pre-submission readiness review; it does not replace external peer review.
+  - id: lim_not_legal_review
+    statement: This checklist does not provide legal advice about license, privacy, security, or intellectual-property exposure.
+  - id: lim_not_archival_certification
+    statement: This checklist does not certify long-term preservation, DOI registration, or archival deposit completion.
+
+open_questions:
+  - id: oq_publication_model_alignment
+    question: Should the publication readiness model distinguish separate gates for manuscript submission, repository release, DOI deposit, and archival preservation?
+    disposition: track_for_model_publication_readiness
+  - id: oq_journal_specific_variants
+    question: Should journal- or venue-specific submission appendices be added as optional profiles?
+    disposition: track_for_docs_publication_review
+  - id: oq_automation
+    question: Which publication readiness checks should become automated repository validation checks in the automation model?
+    disposition: track_for_automation_validation_model
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change: Initial draft generated for checklist_publication_readiness.
+    responsible_party: GPT-5.5 Thinking

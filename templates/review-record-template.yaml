@@ -1,0 +1,506 @@
+# SPDX-License-Identifier: CC0-1.0
+template:
+  id: template_review_record
+  title: DSR Review Record Template
+  template_type: record_template
+  target_path: templates/review-record-template.yaml
+  target_instance_path_pattern: records/reviews/record-review-<sequence>-<review-slug>.yaml
+  instantiates:
+    information_item_type: record
+    record_class: review_record
+  purpose: >
+    Provide a reusable YAML template for recording review events, quality-gate
+    judgments, findings, decisions, evidence, and follow-up actions for DSR
+    Framework files, artifact packages, records, examples, releases, or other
+    reviewable information items.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  intended_users:
+    - artifact_author
+    - self_reviewer
+    - internal_reviewer
+    - external_reviewer
+    - release_manager
+    - repository_maintainer
+  use_when:
+    - Record a self-review, peer review, package-readiness review, release review, or post-release review.
+    - Preserve evidence that a framework item has been checked against explicit quality and conformance criteria.
+    - Document required revisions, reviewer judgments, and acceptance or rejection decisions.
+  do_not_use_when:
+    - A future review is only being planned; use an evaluation or review plan instead.
+    - The item needs a checklist-only working document with no retained record obligation.
+    - The event is a release, preservation, or design decision record with a more specific record template.
+
+source_basis:
+  - source_id: user_current_request
+    role: immediate_task_definition
+    evidence_status: provided
+    notes: "Selected template_review_record for templates/review-record-template.yaml."
+  - source_id: dsr_framework_generation_spec
+    role: governing_generation_rules
+    evidence_status: provided
+    notes: "Defines repository conventions, record required fields, quality gates, and completion-report expectations."
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure
+    evidence_status: provided
+    notes: "Requires controlled metadata, traceability, quality/conformance material, and DSR-specific distinctions."
+  - source_id: dsr_quality_model
+    role: substantive_dependency
+    evidence_status: not_yet_mapped
+    notes: "Expected upstream quality model; retain traceability placeholder until the controlled model file is finalized or linked."
+
+related_items:
+  upstream_dependencies:
+    - item_id: spec_quality_review
+      path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      relationship: governs_review_workflow_and_acceptance_criteria
+      evidence_status: not_yet_mapped
+    - item_id: model_lifecycle
+      path: models/dsr-lifecycle-model.yaml
+      relationship: supplies_lifecycle_stage_context
+      evidence_status: not_yet_mapped
+    - item_id: model_evaluation_alignment
+      path: models/dsr-evaluation-alignment-model.yaml
+      relationship: distinguishes_evaluation_evidence_from_review_judgment
+      evidence_status: not_yet_mapped
+    - item_id: model_transparency
+      path: models/dsr-transparency-model.yaml
+      relationship: supplies_transparency_dimension_mapping
+      evidence_status: not_yet_mapped
+    - item_id: checklist_package_readiness
+      path: checklists/artifact-package-readiness-checklist.yaml
+      relationship: may_supply_review_questions_and_evidence_requirements
+      evidence_status: not_yet_mapped
+    - item_id: checklist_publication_readiness
+      path: checklists/publication-readiness-checklist.yaml
+      relationship: may_supply_release_or_publication_review_questions
+      evidence_status: not_yet_mapped
+  downstream_instances:
+    - item_id: record_self_review
+      path: records/reviews/record-review-0001-self-review.yaml
+      relationship: example_or_initial_instance_of_this_template
+      evidence_status: not_yet_mapped
+  companion_outputs:
+    - item_id: review_findings
+      path: records/reviews/
+      relationship: retained_review_evidence
+      evidence_status: not_yet_mapped
+
+field_conventions:
+  identifier_style: lower_snake_case_or_lower_kebab_case_by_context
+  date_format: YYYY-MM-DD
+  timestamp_format: ISO-8601
+  todo_marker: "TODO:"
+  allowed_record_status_values:
+    - draft
+    - in_review
+    - approved
+    - released
+    - superseded
+    - deprecated
+    - archived
+  allowed_review_types:
+    - self_review
+    - internal_peer_review
+    - external_peer_review
+    - schema_validation_review
+    - checklist_review
+    - artifact_package_readiness_review
+    - publication_readiness_review
+    - release_review
+    - post_release_review
+    - corrective_action_review
+  allowed_review_outcomes:
+    - accepted_without_revision
+    - accepted_with_minor_revision
+    - revision_required
+    - major_revision_required
+    - rejected
+    - deferred
+    - not_applicable
+  allowed_gate_status_values:
+    - pass
+    - pass_with_notes
+    - partial
+    - fail
+    - not_applicable
+    - not_checked
+  allowed_finding_severity_values:
+    - blocking
+    - major
+    - minor
+    - advisory
+    - observation
+  allowed_finding_status_values:
+    - open
+    - accepted_risk
+    - remediated
+    - deferred
+    - not_applicable
+
+review_record:
+  record_id: "TODO: record-review-0000-short-slug"
+  record_class: review_record
+  title: "TODO: Review of <review subject>"
+  event_or_action: "TODO: Concise description of the review event or action."
+  date: "TODO: YYYY-MM-DD"
+  status: draft
+  version: "0.1.0"
+
+  responsible_party:
+    role: "TODO: reviewer | author | maintainer | release_manager"
+    name_or_identifier: "TODO: reviewer name or identifier"
+    affiliation_or_unit: "TODO: organization, team, project, or independent reviewer"
+    contact: "TODO: optional contact or not_applicable"
+
+  review_subject:
+    subject_id: "TODO: stable id of reviewed item"
+    subject_title: "TODO: title of reviewed item"
+    subject_type: "TODO: specification | model | vocabulary | schema | template | checklist | record | docs_page | package | release | example"
+    subject_path: "TODO: repository/path/to/reviewed-item.yaml"
+    subject_version: "TODO: version or commit/tag if known"
+    subject_status_at_review: "TODO: draft | in_review | approved | released | superseded | deprecated | archived"
+    conformance_target: l2_reviewable
+    review_scope:
+      included:
+        - "TODO: files, sections, records, or package areas included in this review"
+      excluded:
+        - "TODO: explicit exclusions, or none"
+      scope_rationale: "TODO: why this scope is appropriate"
+
+  review_context:
+    review_type: "TODO: self_review | internal_peer_review | external_peer_review | schema_validation_review | checklist_review | artifact_package_readiness_review | publication_readiness_review | release_review | post_release_review | corrective_action_review"
+    lifecycle_stage: "TODO: planning | design | build | demonstration | evaluation | review | release | preservation | maintenance"
+    triggering_condition: "TODO: why the review occurred"
+    review_basis:
+      governing_files:
+        - file_id: dsr_framework_generation_spec
+          path: dsr-framework-generation-spec.yaml
+          role: generation_and_quality_rules
+        - file_id: dsr_framework_generation_prompt
+          path: dsr-framework-generation-prompt.md
+          role: generation_procedure_and_output_expectations
+      criteria_sources:
+        - source_id: quality_model
+          path: specs/product-dsr-quality-conformance-and-review-model.yaml
+          evidence_status: not_yet_mapped
+        - source_id: applicable_checklist
+          path: "TODO: checklists/<applicable-checklist>.yaml or not_applicable"
+          evidence_status: not_yet_mapped
+      evidence_expectation: use_internal_corpus_and_protocol
+    reviewer_independence:
+      independence_level: "TODO: self_review | same_team | independent_internal | independent_external | not_applicable"
+      conflict_of_interest_statement: "TODO: disclose relevant conflicts or state none_known"
+    review_limitations:
+      - limitation_id: limitation_001
+        description: "TODO: limitation on review depth, evidence, authority, or scope"
+        expected_effect: "TODO: how this limitation may affect confidence in the review"
+
+  evidence:
+    evidence_items:
+      - evidence_id: ev_001
+        evidence_type: "TODO: file_inspection | schema_validation | checklist_result | citation_anchor | test_output | reviewer_observation | repository_metadata | external_review"
+        evidence_source: "TODO: path, citation anchor, command output, checklist item, or reviewer note"
+        evidence_summary: "TODO: concise description of evidence considered"
+        evidence_location: "TODO: line range, section id, file path, URL, command log, or not_applicable"
+        supports_or_challenges:
+          - "TODO: quality gate, requirement, or finding id"
+        evidence_status: "TODO: available | unavailable | not_yet_mapped | not_applicable"
+    evidence_gaps:
+      - gap_id: gap_001
+        description: "TODO: missing evidence or none"
+        consequence: "TODO: effect on review confidence"
+        proposed_resolution: "TODO: how to resolve the gap"
+
+  quality_gate_review:
+    gates:
+      - gate_id: qg_consistency
+        question: "Does the item use the naming, item type, status, and directory conventions required by the protocol?"
+        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        evidence_required:
+          - file_path
+          - item_type
+          - package_inventory_alignment
+        evidence_refs:
+          - "TODO: ev_001"
+        reviewer_notes: "TODO: consistency assessment"
+        required_actions:
+          - action_id: act_consistency_001
+            action: "TODO: required action or none"
+            owner: "TODO: responsible role"
+            due_date: "TODO: YYYY-MM-DD or not_applicable"
+            status: "TODO: open | remediated | deferred | not_applicable"
+
+      - gate_id: qg_coherence
+        question: "Does the item align with related products, schemas, templates, records, and docs?"
+        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        evidence_required:
+          - related_items
+          - traceability
+          - dependencies
+        evidence_refs:
+          - "TODO: ev_002"
+        reviewer_notes: "TODO: coherence assessment"
+        required_actions:
+          - action_id: act_coherence_001
+            action: "TODO: required action or none"
+            owner: "TODO: responsible role"
+            due_date: "TODO: YYYY-MM-DD or not_applicable"
+            status: "TODO: open | remediated | deferred | not_applicable"
+
+      - gate_id: qg_cogency
+        question: "Is the item logically ordered, usable, and free from unsupported leaps?"
+        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        evidence_required:
+          - purpose
+          - workflow
+          - acceptance_criteria
+          - limitations
+        evidence_refs:
+          - "TODO: ev_003"
+        reviewer_notes: "TODO: cogency assessment"
+        required_actions:
+          - action_id: act_cogency_001
+            action: "TODO: required action or none"
+            owner: "TODO: responsible role"
+            due_date: "TODO: YYYY-MM-DD or not_applicable"
+            status: "TODO: open | remediated | deferred | not_applicable"
+
+      - gate_id: qg_correspondence
+        question: "Does the item correspond to the declared end product and DSR artifact package target?"
+        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        evidence_required:
+          - artifact_profile_alignment
+          - conformance_alignment
+          - source_basis
+        evidence_refs:
+          - "TODO: ev_004"
+        reviewer_notes: "TODO: correspondence assessment"
+        required_actions:
+          - action_id: act_correspondence_001
+            action: "TODO: required action or none"
+            owner: "TODO: responsible role"
+            due_date: "TODO: YYYY-MM-DD or not_applicable"
+            status: "TODO: open | remediated | deferred | not_applicable"
+
+      - gate_id: qg_dsr_transparency
+        question: "Does the item support process, problem-space, solution-space, build, evaluation, or contribution transparency as applicable?"
+        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        evidence_required:
+          - transparency_dimension_mapping
+        evidence_refs:
+          - "TODO: ev_005"
+        transparency_dimensions_checked:
+          process: "TODO: pass | partial | fail | not_applicable | not_checked"
+          problem_space: "TODO: pass | partial | fail | not_applicable | not_checked"
+          solution_space: "TODO: pass | partial | fail | not_applicable | not_checked"
+          build: "TODO: pass | partial | fail | not_applicable | not_checked"
+          evaluation: "TODO: pass | partial | fail | not_applicable | not_checked"
+          contribution: "TODO: pass | partial | fail | not_applicable | not_checked"
+        reviewer_notes: "TODO: DSR transparency assessment"
+        required_actions:
+          - action_id: act_transparency_001
+            action: "TODO: required action or none"
+            owner: "TODO: responsible role"
+            due_date: "TODO: YYYY-MM-DD or not_applicable"
+            status: "TODO: open | remediated | deferred | not_applicable"
+
+      - gate_id: qg_reviewability
+        question: "Can a reviewer evaluate the item against explicit criteria?"
+        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        evidence_required:
+          - acceptance_criteria
+          - validation_rules
+          - checklist_or_schema_mapping
+        evidence_refs:
+          - "TODO: ev_006"
+        reviewer_notes: "TODO: reviewability assessment"
+        required_actions:
+          - action_id: act_reviewability_001
+            action: "TODO: required action or none"
+            owner: "TODO: responsible role"
+            due_date: "TODO: YYYY-MM-DD or not_applicable"
+            status: "TODO: open | remediated | deferred | not_applicable"
+
+  dsr_quality_dimensions:
+    artifact_utility:
+      reviewed: true
+      assessment: "TODO: whether the artifact or item is useful for its intended use"
+      evidence_refs:
+        - "TODO: ev_utility_001"
+    artifact_quality:
+      reviewed: true
+      assessment: "TODO: whether the artifact or item has adequate internal quality, structure, maintainability, and correctness"
+      evidence_refs:
+        - "TODO: ev_quality_001"
+    contribution_to_knowledge:
+      reviewed: true
+      assessment: "TODO: whether and how the item supports design knowledge, methodological knowledge, or repository-level contribution claims"
+      evidence_refs:
+        - "TODO: ev_contribution_001"
+    demonstration_vs_evaluation_distinction:
+      reviewed: true
+      assessment: "TODO: confirm demonstration evidence is not overclaimed as evaluation evidence"
+      evidence_refs:
+        - "TODO: ev_demonstration_evaluation_001"
+    validity:
+      reviewed: "TODO: true | false | not_applicable"
+      assessment: "TODO: validity assessment, threats, or not_applicable rationale"
+      evidence_refs:
+        - "TODO: ev_validity_001"
+    reliability:
+      reviewed: "TODO: true | false | not_applicable"
+      assessment: "TODO: reliability assessment, repeatability concerns, or not_applicable rationale"
+      evidence_refs:
+        - "TODO: ev_reliability_001"
+    replication_and_projectability:
+      reviewed: "TODO: true | false | not_applicable"
+      assessment: "TODO: replication, transfer, reuse, and boundary-condition assessment"
+      evidence_refs:
+        - "TODO: ev_projectability_001"
+    responsible_design:
+      reviewed: "TODO: true | false | not_applicable"
+      assessment: "TODO: privacy, security, accessibility, fairness, safety, stakeholder, or governance considerations"
+      evidence_refs:
+        - "TODO: ev_responsible_design_001"
+
+  findings:
+    - finding_id: finding_001
+      severity: "TODO: blocking | major | minor | advisory | observation"
+      related_gate_ids:
+        - "TODO: qg_consistency"
+      related_requirement_ids:
+        - "TODO: requirement id, checklist check_id, schema keyword, or not_applicable"
+      summary: "TODO: concise finding summary"
+      details: "TODO: evidence-based explanation of the finding"
+      evidence_refs:
+        - "TODO: ev_001"
+      recommendation: "TODO: recommended remediation, acceptance rationale, or no_action_needed"
+      disposition: "TODO: open | accepted_risk | remediated | deferred | not_applicable"
+      owner: "TODO: responsible role or person"
+      target_resolution_date: "TODO: YYYY-MM-DD or not_applicable"
+
+  decision:
+    outcome: "TODO: accepted_without_revision | accepted_with_minor_revision | revision_required | major_revision_required | rejected | deferred | not_applicable"
+    decision_summary: "TODO: concise decision statement"
+    conditions_of_acceptance:
+      - condition_id: condition_001
+        condition: "TODO: condition or none"
+        required_before: "TODO: merge | release | publication | next_review | not_applicable"
+    residual_risks:
+      - risk_id: residual_risk_001
+        risk: "TODO: residual risk or none"
+        accepted_by: "TODO: responsible party or not_applicable"
+        rationale: "TODO: rationale for acceptance or mitigation"
+    reviewer_confidence:
+      level: "TODO: high | moderate | low"
+      rationale: "TODO: basis for confidence level"
+
+  outcome:
+    result: "TODO: same as decision.outcome or more specific retained outcome"
+    required_revisions:
+      - revision_id: rev_001
+        description: "TODO: required revision or none"
+        linked_findings:
+          - "TODO: finding_001"
+        verification_method: "TODO: reviewer re-check | schema validation | checklist re-run | author attestation | not_applicable"
+        status: "TODO: open | remediated | deferred | not_applicable"
+    accepted_without_change:
+      rationale: "TODO: rationale if no revisions are required, otherwise not_applicable"
+    follow_up_review_required: "TODO: true | false"
+    follow_up_review_type: "TODO: review type or not_applicable"
+
+  traceability:
+    upstream_trace_links:
+      - trace_id: trace_review_001
+        source_item: "TODO: governing product, model, checklist, schema, or source corpus anchor"
+        target_field: "TODO: field or section in this record"
+        relationship: "TODO: governs | supports | validates | constrains | documents"
+        evidence_status: "TODO: provided | not_yet_mapped | not_applicable"
+    downstream_trace_links:
+      - trace_id: trace_review_002
+        source_field: "TODO: finding, decision, or required revision"
+        target_item: "TODO: corrected file, release record, issue, changelog entry, or not_applicable"
+        relationship: "TODO: triggers | closes | verifies | informs"
+        evidence_status: "TODO: provided | not_yet_mapped | not_applicable"
+
+  retention_rule:
+    retention_class: retained_project_record
+    minimum_retention: "TODO: project_lifetime | release_lifetime | permanent | local_policy_defined"
+    retention_rationale: >
+      Review records preserve evidence of quality judgments, reviewer decisions,
+      unresolved risks, accepted limitations, and conformance status for the DSR
+      artifact package.
+    disposition: "TODO: retain | archive | supersede | delete_under_policy"
+
+  change_history:
+    - version: "0.1.0"
+      date: "TODO: YYYY-MM-DD"
+      change: "Initial review record created from template."
+      changed_by: "TODO: responsible party"
+
+validation_guidance:
+  minimum_required_fields_for_instance:
+    - review_record.record_id
+    - review_record.record_class
+    - review_record.event_or_action
+    - review_record.date
+    - review_record.responsible_party
+    - review_record.review_subject
+    - review_record.evidence
+    - review_record.outcome
+    - review_record.related_items
+    - review_record.retention_rule
+  recommended_pre_release_checks:
+    - Confirm all TODO placeholders are resolved or explicitly marked not_applicable with rationale.
+    - Confirm every finding has at least one evidence reference or an evidence gap.
+    - Confirm every failed or partial quality gate has a required action, accepted risk, or deferral rationale.
+    - Confirm decision.outcome and outcome.result are consistent.
+    - Confirm retained review evidence does not overclaim demonstration, evaluation, reproducibility, or publication readiness.
+    - Confirm the record path follows records/reviews/record-review-<sequence>-<review-slug>.yaml.
+  common_failure_modes:
+    - failure_id: fm_review_without_evidence
+      description: "Reviewer judgment is recorded without evidence references or evidence-gap disclosure."
+      remediation: "Add evidence_items, citation anchors, validation outputs, or reviewer observations."
+    - failure_id: fm_unresolved_todo
+      description: "A retained record contains unresolved TODO placeholders."
+      remediation: "Complete the field or mark it not_applicable with rationale."
+    - failure_id: fm_demo_eval_conflation
+      description: "A demonstration or example is treated as evaluation evidence without justification."
+      remediation: "Separate demonstration evidence from evaluation evidence and revise the claim."
+    - failure_id: fm_no_disposition
+      description: "Findings are listed but not assigned a disposition, owner, or follow-up rule."
+      remediation: "Add finding disposition, owner, and resolution or risk-acceptance details."
+
+acceptance_criteria:
+  - criterion_id: ac_review_template_required_fields
+    statement: "The template includes all required record fields for a retained review record."
+    verification_method: manual_inspection_or_schema_validation
+  - criterion_id: ac_review_template_quality_gates
+    statement: "The template operationalizes the six default generation-spec quality gates."
+    verification_method: manual_inspection
+  - criterion_id: ac_review_template_dsr_distinctions
+    statement: "The template prompts reviewers to distinguish artifact utility, artifact quality, contribution to knowledge, demonstration, evaluation, validity, reliability, replication, and projectability."
+    verification_method: manual_inspection
+  - criterion_id: ac_review_template_traceability
+    statement: "The template supports evidence, findings, decisions, actions, and upstream/downstream trace links."
+    verification_method: manual_inspection
+  - criterion_id: ac_review_template_reusability
+    statement: "The template can be reused for self-review, peer review, package readiness, publication readiness, release review, and post-release review without structural changes."
+    verification_method: example_instance_or_reviewer_walkthrough
+
+open_questions:
+  - question_id: oq_review_schema_alignment
+    question: "Should a dedicated JSON Schema be created for review records, or should review records be governed through a broader record schema?"
+    owner: dsr_framework_maintainers
+    status: open
+  - question_id: oq_quality_model_enumerations
+    question: "Should severity, outcome, independence, and quality-gate status values be centralized in a controlled vocabulary?"
+    owner: dsr_framework_maintainers
+    status: open
+  - question_id: oq_review_independence_levels
+    question: "Should publication-readiness review require an independent reviewer distinct from the artifact author?"
+    owner: dsr_framework_maintainers
+    status: open

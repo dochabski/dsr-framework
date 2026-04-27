@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dochabski.github.io/dsr-framework/schemas/conformance-declaration.schema.json",
+  "title": "DSR Framework Conformance Declaration Schema",
+  "description": "Validates conformance declaration records and templates. The schema follows the record/template structure because it preserves conformance evidence, tailoring, transparency, quality gates, and retention.",
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "conformance_declaration"
+      ]
+    },
+    {
+      "required": [
+        "template",
+        "conformance_declaration"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "template": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "conformance_declaration": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "record_class",
+        "event_or_action",
+        "date",
+        "responsible_party",
+        "evidence",
+        "outcome",
+        "retention_rule",
+        "related_items",
+        "traceability",
+        "change_history"
+      ],
+      "properties": {
+        "item_id": {},
+        "record_id": {},
+        "record_class": {},
+        "item_type": {},
+        "title": {},
+        "purpose": {},
+        "status": {},
+        "version": {},
+        "date": {},
+        "responsible_party": {},
+        "owner": {},
+        "event_or_action": {},
+        "file_identity": {},
+        "declaration": {},
+        "conformance_level_catalog": {},
+        "tailoring": {},
+        "source_basis": {},
+        "related_items": {},
+        "evidence": {},
+        "conformance_obligations": {},
+        "acceptance_criteria": {},
+        "validation_rules": {},
+        "transparency_dimension_mapping": {},
+        "quality_gate_mapping": {},
+        "failure_modes": {},
+        "outcome": {},
+        "limitations": {},
+        "open_questions": {},
+        "retention_rule": {},
+        "traceability": {},
+        "assumptions": {},
+        "change_history": {},
+        "artifact_identity": {},
+        "declaration_scope": {},
+        "conformance_level_scale": {},
+        "declared_conformance": {},
+        "dependency_status": {},
+        "quality_gate_summary": {},
+        "validation": {},
+        "transparency_alignment": {},
+        "review": {}
+      },
+      "additionalProperties": true
+    }
+  }
+}

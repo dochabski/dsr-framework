@@ -1,0 +1,1252 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: vocab_artifact_types
+  title: Controlled Artifact Taxonomy
+  target_path: vocabularies/artifact-types.yaml
+  item_type: vocabulary
+  purpose: >
+    Provide a controlled vocabulary for classifying Design Science Research artifacts
+    in the DSR Framework. The vocabulary supports artifact profiles, artifact
+    specifications, contribution claims, evaluation plans, schemas, templates,
+    checklists, and publication-readiness review.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  selection:
+    selection_id: vocab_artifact_types
+    portion_type: vocabulary
+    output_format: yaml
+    default_conformance: L2
+    key_dependencies:
+      - DSR lifecycle spec
+  scope:
+    includes:
+      - controlled labels for conceptual, procedural, technical, evaluative, and package-level DSR artifact forms
+      - boundary notes for distinguishing artifact type from contribution type, evidence type, and lifecycle stage
+      - validation implications for downstream schemas and review checklists
+    excludes:
+      - domain-specific taxonomies of every possible information system or technology
+      - contribution-significance levels such as routine design, improvement, invention, or exaptation
+      - evaluation-method families, validity types, reliability types, replication types, and projectability types
+    governing_distinctions:
+      - id: artifact_type_vs_contribution_type
+        statement: >
+          Artifact type classifies what kind of designed object, specification, representation,
+          procedure, or package is being produced. Contribution type classifies how the work
+          advances knowledge or practice.
+      - id: artifact_universal_vs_instance
+        statement: >
+          A reusable artifact kind, design specification, or design knowledge object should be
+          distinguished from a local implementation, prototype, deployment, or evidence instance.
+      - id: demonstration_vs_evaluation
+        statement: >
+          A demonstration shows use or feasibility; an evaluation makes a warranted quality,
+          utility, outcome, validity, or contribution claim.
+      - id: artifact_quality_vs_utility
+        statement: >
+          Artifact quality concerns properties of the artifact or specification. Artifact utility
+          concerns usefulness in a context of use. Both should be traceable but not collapsed.
+
+source_basis:
+  - source_id: dsr_framework_generation_spec
+    source_type: project_specification
+    evidence_status: mapped
+    role: >
+      Governs repository architecture, vocabulary file conventions, common metadata,
+      traceability expectations, and reviewability requirements.
+  - source_id: dsr_framework_generation_prompt
+    source_type: project_prompt
+    evidence_status: mapped
+    role: >
+      Governs the generation procedure, vocabulary entry shape, and final quality expectations.
+  - source_id: dsr_framework_selection_table
+    source_type: project_selection_registry
+    evidence_status: mapped
+    role: >
+      Identifies vocab_artifact_types as vocabularies/artifact-types.yaml with L2 default
+      conformance and DSR lifecycle specification dependency.
+  - source_id: march_smith_1995_artifact_typology_via_dsr_corpus
+    source_type: scholarly_source_family
+    evidence_status: mapped
+    role: >
+      Supports the canonical DSR artifact-family baseline of constructs, models, methods,
+      and instantiations.
+  - source_id: hevner_et_al_2004_and_gregor_hevner_2013_via_dsr_corpus
+    source_type: scholarly_source_family
+    evidence_status: mapped
+    role: >
+      Supports DSR artifact creation, evaluation, utility, design knowledge, and contribution
+      positioning across constructs, models, methods, instantiations, and design theories.
+  - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    source_type: scholarly_source
+    evidence_status: mapped
+    role: >
+      Supports artifact ontology distinctions among artifact universals, artifact instances,
+      make plans, use plans, capacities, technical objects, symbolic artifacts, and IS artifacts.
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    source_type: scholarly_source
+    evidence_status: mapped
+    role: >
+      Supports classification of artifacts and artifact packages in relation to process,
+      problem-space, solution-space, build, evaluation, and contribution transparency.
+  - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+    source_type: scholarly_source
+    evidence_status: mapped
+    role: >
+      Supports graph-based and strategy-based DSR knowledge artifacts, including constructs,
+      taxonomies, guidelines, and process models for cumulative design knowledge.
+
+related_items:
+  upstream:
+    - id: spec_dsr_lifecycle_contribution
+      path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+      relationship: dependency
+    - id: model_artifact_ontology
+      path: models/dsr-artifact-ontology.yaml
+      relationship: downstream_consumer_and_refiner
+    - id: model_canonical
+      path: models/dsr-framework-canonical-model.yaml
+      relationship: downstream_consumer
+  downstream:
+    - id: schema_dsr_artifact
+      path: schemas/dsr-artifact.schema.json
+      relationship: should_enumerate_or_reference_entries
+    - id: template_artifact_specification
+      path: templates/artifact-specification-template.md
+      relationship: should_use_entries_for_artifact_classification
+    - id: template_artifact_profile
+      path: templates/artifact-profile-template.yaml
+      relationship: should_use_entries_for_primary_and_secondary_artifact_types
+    - id: checklist_minimum_dsr
+      path: checklists/dsr-minimum-viable-study-checklist.yaml
+      relationship: should_check_minimum_artifact_identity
+    - id: docs_artifact_ontology
+      path: docs/protocol/05-artifact-ontology.md
+      relationship: should_explain_entries_for_human_users
+
+classification_scheme:
+  primary_use_fields:
+    - primary_artifact_type
+    - secondary_artifact_types
+    - artifact_family
+    - artifact_materiality
+    - artifact_role_in_study
+  artifact_families:
+    - id: conceptual_artifact
+      label: Conceptual artifact
+      definition: >
+        An artifact whose primary form is conceptual, representational, classificatory,
+        theoretical, or semantic.
+    - id: procedural_artifact
+      label: Procedural artifact
+      definition: >
+        An artifact whose primary form is an ordered procedure, method, workflow,
+        methodology, or decision logic.
+    - id: technical_artifact
+      label: Technical artifact
+      definition: >
+        An artifact embodied in software, computation, system architecture, technical
+        implementation, algorithmic procedure, or configured information system.
+    - id: evaluative_artifact
+      label: Evaluative artifact
+      definition: >
+        An artifact used to assess, measure, score, validate, review, or compare another
+        artifact, method, claim, or implementation.
+    - id: documentary_artifact
+      label: Documentary artifact
+      definition: >
+        A protocol, template, checklist, schema, package, or record structure that enables
+        transparent documentation, reuse, governance, and review.
+    - id: empirical_or_evidence_artifact
+      label: Empirical or evidence artifact
+      definition: >
+        A curated body of evidence, examples, records, traces, cases, or datasets that is
+        itself intentionally structured for DSR use or reuse.
+  materiality_values:
+    - conceptual_only
+    - symbolic_or_documentary
+    - computational
+    - socio_technical
+    - physical_or_embodied
+    - mixed
+  artifact_role_values:
+    - primary_artifact
+    - secondary_artifact
+    - evaluation_artifact
+    - demonstration_artifact
+    - documentation_artifact
+    - evidence_artifact
+    - packaging_artifact
+
+entries:
+  - id: construct
+    label: Construct
+    family: conceptual_artifact
+    definition: >
+      A controlled concept, term, variable, category, representation primitive, or semantic
+      unit used to describe, analyze, design, evaluate, or communicate a DSR problem,
+      artifact, context, or contribution.
+    allowed_use: >
+      Use when the artifact's main contribution is a new or refined concept system, term set,
+      semantic distinction, or representation primitive.
+    boundary_notes: >
+      Do not use for a full relationship structure; use model, framework, taxonomy, or ontology
+      when constructs are organized into explicit relations, classes, or formal semantics.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [model, taxonomy, ontology, vocabulary]
+    source_basis:
+      - source_id: march_smith_1995_artifact_typology_via_dsr_corpus
+        evidence_status: mapped
+    validation_implications:
+      - require clear definition, allowed use, boundary notes, and examples
+      - require relation to existing terminology or explanation of novelty
+
+  - id: model
+    label: Model
+    family: conceptual_artifact
+    definition: >
+      A structured representation of entities, relationships, processes, mechanisms,
+      states, variables, or constraints that explains, specifies, predicts, analyzes,
+      or guides design or use.
+    allowed_use: >
+      Use when the artifact provides an explicit representation of relationships or dynamics
+      and is more structured than a list of constructs but not necessarily a complete method.
+    boundary_notes: >
+      Use framework when the artifact primarily organizes dimensions or concepts without
+      strong formal relation semantics. Use process_model when sequencing is central.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: [process_model, reference_architecture]
+      adjacent: [framework, ontology, design_theory]
+    source_basis:
+      - source_id: march_smith_1995_artifact_typology_via_dsr_corpus
+        evidence_status: mapped
+    validation_implications:
+      - require named entities or variables
+      - require explicit relationships, constraints, or explanatory logic
+
+  - id: method
+    label: Method
+    family: procedural_artifact
+    definition: >
+      A repeatable procedure, technique, rule set, analytic operation, or design operation
+      that specifies how to perform a bounded DSR-relevant task.
+    allowed_use: >
+      Use when the artifact is a task-level or activity-level procedure for design,
+      analysis, evaluation, implementation, documentation, or review.
+    boundary_notes: >
+      Use methodology for an integrated inquiry or lifecycle approach. Use algorithm when
+      the procedure is computationally specified. Use checklist when the procedure is a
+      review-question sequence rather than an action procedure.
+    related_terms:
+      broader: [procedural_artifact]
+      narrower: [algorithm, checklist]
+      adjacent: [methodology, process_model, guideline]
+    source_basis:
+      - source_id: march_smith_1995_artifact_typology_via_dsr_corpus
+        evidence_status: mapped
+    validation_implications:
+      - require procedural steps or decision rules
+      - require inputs, outputs, users, and boundary conditions
+
+  - id: instantiation
+    label: Instantiation
+    family: technical_artifact
+    definition: >
+      A concrete implementation, prototype, deployed artifact, configured system,
+      executable representation, or localized realization of an artifact specification.
+    allowed_use: >
+      Use when the reported DSR output includes a working implementation or concrete local
+      realization used for demonstration, evaluation, or operational deployment.
+    boundary_notes: >
+      An instantiation alone should not be treated as reusable design knowledge unless it is
+      linked to a design specification, make plan, use plan, evaluation evidence, and
+      contribution claim.
+    related_terms:
+      broader: [technical_artifact]
+      narrower: [prototype, application_system]
+      adjacent: [artifact_specification, demonstration_record, evaluation_report]
+    source_basis:
+      - source_id: march_smith_1995_artifact_typology_via_dsr_corpus
+        evidence_status: mapped
+      - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require implementation boundary and version
+      - require link to artifact type or artifact universal where available
+      - require demonstration or evaluation status to be explicit
+
+  - id: design_theory
+    label: Design theory
+    family: conceptual_artifact
+    definition: >
+      A generalized body of prescriptive and explanatory design knowledge that connects
+      purpose, scope, constructs, form-and-function principles, implementation principles,
+      justificatory knowledge, and expected outcomes.
+    allowed_use: >
+      Use when the artifact intentionally proposes transferable design knowledge rather
+      than only a local artifact, method, or implementation.
+    boundary_notes: >
+      Do not use for every set of design implications. Use design_principle for a smaller
+      conditional rule and framework for a less theory-complete organizing structure.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: [design_principle]
+      adjacent: [model, framework, contribution_claim]
+    source_basis:
+      - source_id: hevner_et_al_2004_and_gregor_hevner_2013_via_dsr_corpus
+        evidence_status: mapped
+    validation_implications:
+      - require purpose and scope
+      - require constructs and principles of form, function, and implementation
+      - require boundary conditions and justificatory knowledge
+
+  - id: design_principle
+    label: Design principle
+    family: conceptual_artifact
+    definition: >
+      A conditional prescriptive statement that links a design action, context, mechanism,
+      and intended outcome.
+    allowed_use: >
+      Use when the artifact is a reusable prescriptive rule or principle extracted from,
+      guiding, or summarizing DSR work.
+    boundary_notes: >
+      Do not use for generic advice without context, mechanism, intended outcome, or boundary
+      condition. Use guideline for broader recommendations that are not framed as conditional
+      design knowledge.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [guideline, design_theory, pattern]
+    source_basis:
+      - source_id: hevner_et_al_2004_and_gregor_hevner_2013_via_dsr_corpus
+        evidence_status: mapped
+    validation_implications:
+      - require context, action, mechanism or rationale, outcome, and boundary conditions
+
+  - id: framework
+    label: Framework
+    family: conceptual_artifact
+    definition: >
+      An organized structure of dimensions, components, constructs, relationships, or
+      viewpoints used to make a DSR phenomenon, problem, artifact, or evaluation space
+      intelligible and actionable.
+    allowed_use: >
+      Use when the artifact organizes a domain or problem space into coherent dimensions or
+      components but is not primarily a procedure, formal ontology, or complete design theory.
+    boundary_notes: >
+      Use taxonomy when classification is primary. Use ontology when formal entities,
+      relations, and constraints are primary. Use model when relation semantics are stronger
+      than dimensional organization.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [model, taxonomy, ontology, methodology]
+    source_basis:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        evidence_status: mapped
+    validation_implications:
+      - require dimensions or components
+      - require purpose, intended users, and application rules
+
+  - id: taxonomy
+    label: Taxonomy
+    family: conceptual_artifact
+    definition: >
+      A controlled classification structure that groups phenomena, artifacts, methods,
+      contexts, contributions, or evidence into named classes using explicit criteria.
+    allowed_use: >
+      Use when the artifact's main function is classification, typology construction,
+      categorization, or controlled grouping.
+    boundary_notes: >
+      Use vocabulary when the artifact is a controlled term list without hierarchical or
+      classificatory logic. Use ontology when relation semantics exceed classification.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: [vocabulary]
+      adjacent: [ontology, framework, construct]
+    source_basis:
+      - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+        evidence_status: mapped
+      - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require classification criteria
+      - require classes, boundaries, and examples or counterexamples
+
+  - id: ontology
+    label: Ontology
+    family: conceptual_artifact
+    definition: >
+      A formal or semi-formal specification of entities, relations, constraints, identity
+      conditions, and boundary rules for a domain or artifact space.
+    allowed_use: >
+      Use when the artifact defines what exists in the modeled domain and how entities relate,
+      especially when semantic precision or machine-actionable reasoning is intended.
+    boundary_notes: >
+      Use taxonomy for classification without relation semantics. Use model for less formal
+      representational structures.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [model, taxonomy, schema, vocabulary]
+    source_basis:
+      - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require entities, relationships, constraints, and scope conditions
+      - require conformance criteria for terms and relations
+
+  - id: vocabulary
+    label: Vocabulary
+    family: documentary_artifact
+    definition: >
+      A controlled list of terms, identifiers, labels, definitions, allowed uses, boundary
+      notes, and related terms for consistent documentation and validation.
+    allowed_use: >
+      Use when the artifact standardizes language and identifiers across DSR records,
+      schemas, templates, checklists, or documentation.
+    boundary_notes: >
+      Use taxonomy if classification logic or hierarchy is central. Use ontology if formal
+      relations and constraints are central.
+    related_terms:
+      broader: [documentary_artifact]
+      narrower: []
+      adjacent: [taxonomy, ontology, schema]
+    source_basis:
+      - source_id: dsr_framework_generation_prompt
+        evidence_status: mapped
+    validation_implications:
+      - require stable IDs and definitions
+      - require allowed use and boundary notes for each entry
+
+  - id: guideline
+    label: Guideline
+    family: procedural_artifact
+    definition: >
+      A structured recommendation or set of recommendations that guides judgment, action,
+      documentation, review, or design without necessarily specifying a complete procedure.
+    allowed_use: >
+      Use when the artifact provides actionable but flexible guidance for researchers,
+      practitioners, reviewers, designers, or maintainers.
+    boundary_notes: >
+      Use method when procedural steps are required. Use design_principle when the statement
+      is a conditional prescriptive knowledge claim. Use checklist when formatted as review
+      questions with pass/fail logic.
+    related_terms:
+      broader: [procedural_artifact]
+      narrower: []
+      adjacent: [method, checklist, design_principle]
+    source_basis:
+      - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require audience, action context, and application boundary
+
+  - id: process_model
+    label: Process model
+    family: procedural_artifact
+    definition: >
+      A sequenced representation of activities, phases, decisions, feedback loops,
+      transitions, inputs, and outputs used to conduct or explain DSR work.
+    allowed_use: >
+      Use when lifecycle, workflow, stage-gate logic, build-evaluate cycles, or decision
+      sequences are central to the artifact.
+    boundary_notes: >
+      Use method when the artifact prescribes how to perform a bounded task. Use methodology
+      when the process model is embedded in a full research approach.
+    related_terms:
+      broader: [procedural_artifact]
+      narrower: [decision_flow]
+      adjacent: [model, method, methodology]
+    source_basis:
+      - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require stages or nodes, transitions, inputs, outputs, and iteration logic where applicable
+
+  - id: decision_flow
+    label: Decision flow
+    family: procedural_artifact
+    definition: >
+      A process model that represents conditional branching, decision criteria, routing
+      logic, and recommended next actions.
+    allowed_use: >
+      Use when the artifact helps users select artifact types, contribution types, evaluation
+      paths, conformance levels, or workflow branches.
+    boundary_notes: >
+      Do not use for merely linear process descriptions. Use process_model when branching
+      logic is not central.
+    related_terms:
+      broader: [process_model]
+      narrower: []
+      adjacent: [method, checklist, guideline]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require decision criteria, branches, default paths, and fallback rules
+
+  - id: methodology
+    label: Methodology
+    family: procedural_artifact
+    definition: >
+      An integrated research, design, evaluation, or implementation approach that coordinates
+      multiple methods, roles, stages, outputs, and quality expectations.
+    allowed_use: >
+      Use when the artifact governs a complete or substantial DSR inquiry process rather
+      than a single technique or activity.
+    boundary_notes: >
+      Use method for a bounded technique. Use process_model for a representation of stages
+      when the normative method system is not fully specified.
+    related_terms:
+      broader: [procedural_artifact]
+      narrower: []
+      adjacent: [method, process_model, framework]
+    source_basis:
+      - source_id: hevner_et_al_2004_and_gregor_hevner_2013_via_dsr_corpus
+        evidence_status: mapped
+    validation_implications:
+      - require lifecycle scope, method components, roles, outputs, and quality gates
+
+  - id: algorithm
+    label: Algorithm
+    family: technical_artifact
+    definition: >
+      A computationally precise procedure or rule sequence intended to transform inputs into
+      outputs under defined conditions.
+    allowed_use: >
+      Use when the artifact is specified as executable or implementable computational logic,
+      including analytic, optimization, search, classification, or transformation logic.
+    boundary_notes: >
+      Use method for non-computational procedures. Use application_system for a larger
+      implemented system that contains algorithms.
+    related_terms:
+      broader: [technical_artifact]
+      narrower: []
+      adjacent: [method, instantiation, application_system]
+    source_basis:
+      - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require inputs, outputs, assumptions, computational steps, and performance criteria
+
+  - id: language_or_notation
+    label: Language or notation
+    family: conceptual_artifact
+    definition: >
+      A symbolic representation system, grammar, notation, modeling language, markup,
+      syntax, or formal expression system for representing DSR-relevant objects or relations.
+    allowed_use: >
+      Use when the artifact creates or refines how users express models, processes, evidence,
+      requirements, artifacts, or design knowledge.
+    boundary_notes: >
+      Use vocabulary when the contribution is only a controlled term list. Use schema when
+      validation structure is primary.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [construct, model, schema, ontology]
+    source_basis:
+      - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require syntax or notation rules and intended representational domain
+
+  - id: schema
+    label: Schema
+    family: documentary_artifact
+    definition: >
+      A machine-actionable or formally structured specification of fields, datatypes,
+      required properties, enumerations, validation rules, and permitted relationships.
+    allowed_use: >
+      Use when the artifact validates or constrains structured DSR records, metadata,
+      templates, inventories, or evidence packages.
+    boundary_notes: >
+      Use ontology when semantic entities and relations are the main artifact. Use template
+      when the artifact is a fillable form rather than a validation specification.
+    related_terms:
+      broader: [documentary_artifact]
+      narrower: [json_schema]
+      adjacent: [template, ontology, vocabulary]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require declared target item, required properties, constraints, and additional-properties policy
+
+  - id: template
+    label: Template
+    family: documentary_artifact
+    definition: >
+      A reusable document, record, or data-entry structure that prompts users to provide
+      expected DSR information in a consistent form.
+    allowed_use: >
+      Use when the artifact provides a fillable structure for artifact profiles, evaluation
+      plans, contribution claims, transparency records, design rationales, or reviews.
+    boundary_notes: >
+      Use schema when validation rules are primary. Use checklist when the structure is a
+      review-question sequence.
+    related_terms:
+      broader: [documentary_artifact]
+      narrower: []
+      adjacent: [schema, checklist, documentation_protocol]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require intended user, target record type, required fields, and TODO policy
+
+  - id: checklist
+    label: Checklist
+    family: evaluative_artifact
+    definition: >
+      A structured list of review questions, evidence requirements, pass conditions, fail
+      conditions, and remediation guidance.
+    allowed_use: >
+      Use when the artifact is designed for self-review, peer review, readiness review,
+      quality control, conformance checking, or release assessment.
+    boundary_notes: >
+      Use guideline for flexible guidance without pass/fail logic. Use evaluation_instrument
+      when scoring, measurement, rating scales, or psychometric qualities are central.
+    related_terms:
+      broader: [evaluative_artifact]
+      narrower: []
+      adjacent: [guideline, evaluation_instrument, template]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance
+
+  - id: evaluation_instrument
+    label: Evaluation instrument
+    family: evaluative_artifact
+    definition: >
+      A rubric, measure, test protocol, scoring guide, assessment battery, survey instrument,
+      inspection protocol, or benchmark used to evaluate artifact quality, utility, effects,
+      validity, reliability, or contribution claims.
+    allowed_use: >
+      Use when the artifact is principally for measurement, scoring, comparison, validation,
+      or structured evaluation.
+    boundary_notes: >
+      Use checklist when binary readiness or review logic is primary. Use method when the
+      focus is a broader evaluation procedure rather than an instrument.
+    related_terms:
+      broader: [evaluative_artifact]
+      narrower: [rubric, benchmark]
+      adjacent: [checklist, method, evaluation_plan]
+    source_basis:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        evidence_status: mapped
+    validation_implications:
+      - require evaluation criteria, scale or evidence logic, target claims, and interpretation guidance
+
+  - id: prototype
+    label: Prototype
+    family: technical_artifact
+    definition: >
+      A preliminary, partial, exploratory, or experimental instantiation created to test,
+      demonstrate, refine, or communicate an artifact idea before full release or deployment.
+    allowed_use: >
+      Use when the implementation is intentionally provisional or exploratory and is used
+      for formative learning, demonstration, or early evaluation.
+    boundary_notes: >
+      Use instantiation for any concrete realization. Use application_system when a deployed
+      operational system is central.
+    related_terms:
+      broader: [instantiation]
+      narrower: []
+      adjacent: [demonstration_record, evaluation_report, application_system]
+    source_basis:
+      - source_id: march_smith_1995_artifact_typology_via_dsr_corpus
+        evidence_status: mapped
+    validation_implications:
+      - require prototype scope, maturity, limitations, and intended learning purpose
+
+  - id: application_system
+    label: Application system
+    family: technical_artifact
+    definition: >
+      A software, information technology, or information system artifact configured or built
+      to support tasks, workflows, decisions, data processing, interaction, or organizational
+      capabilities.
+    allowed_use: >
+      Use when the artifact is an implemented system or application rather than a model,
+      method, algorithm, or isolated prototype.
+    boundary_notes: >
+      Use socio_technical_intervention if the artifact includes inseparable organizational,
+      behavioral, governance, or human-practice change elements.
+    related_terms:
+      broader: [technical_artifact]
+      narrower: []
+      adjacent: [instantiation, algorithm, socio_technical_intervention]
+    source_basis:
+      - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require system boundary, users, context, dependencies, use plan, and evaluation criteria
+
+  - id: socio_technical_intervention
+    label: Socio-technical intervention
+    family: technical_artifact
+    definition: >
+      A designed configuration of technical components, human roles, organizational processes,
+      governance rules, practices, and context-specific implementation arrangements.
+    allowed_use: >
+      Use when the artifact cannot be adequately classified as only a technical object because
+      human and organizational arrangements are part of its designed form and function.
+    boundary_notes: >
+      Do not use for every system with users. Use only when social, organizational, or
+      governance components are part of the designed artifact boundary.
+    related_terms:
+      broader: [technical_artifact]
+      narrower: []
+      adjacent: [application_system, process_model, governance_model]
+    source_basis:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        evidence_status: mapped
+      - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+        evidence_status: mapped
+    validation_implications:
+      - require technical, human, organizational, and contextual components to be explicit
+      - require problem-space and use-context transparency
+
+  - id: reference_architecture
+    label: Reference architecture
+    family: conceptual_artifact
+    definition: >
+      A reusable architectural model that defines components, responsibilities, interfaces,
+      constraints, integration points, and variation points for a class of systems or packages.
+    allowed_use: >
+      Use when the artifact specifies structural design guidance for a family of technical,
+      documentary, or socio-technical artifacts.
+    boundary_notes: >
+      Use model for less architectural representations. Use application_system for a concrete
+      implemented system.
+    related_terms:
+      broader: [model]
+      narrower: []
+      adjacent: [framework, application_system, schema]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require components, interfaces, constraints, and variation points
+
+  - id: pattern
+    label: Pattern
+    family: conceptual_artifact
+    definition: >
+      A reusable problem-solution configuration that identifies a recurring context, forces
+      or tensions, solution structure, consequences, and known uses.
+    allowed_use: >
+      Use when the artifact captures repeatable design knowledge for a recurring class of
+      situations without claiming a complete theory or method.
+    boundary_notes: >
+      Use design_principle for single conditional prescriptions. Use framework or model for
+      broader representational systems.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [design_principle, guideline, reference_architecture]
+    source_basis:
+      - source_id: hevner_et_al_2004_and_gregor_hevner_2013_via_dsr_corpus
+        evidence_status: not_yet_mapped
+    validation_implications:
+      - require context, problem, forces, solution, consequences, and examples or known uses
+
+  - id: documentation_protocol
+    label: Documentation protocol
+    family: documentary_artifact
+    definition: >
+      A controlled system of documentation rules, required information items, records,
+      naming conventions, traceability expectations, and quality controls.
+    allowed_use: >
+      Use when the artifact governs how DSR work is documented, reviewed, retained,
+      published, or reused.
+    boundary_notes: >
+      Use methodology if the artifact governs the full research/design method rather than
+      documentation controls. Use template or schema for individual protocol instruments.
+    related_terms:
+      broader: [documentary_artifact]
+      narrower: [template, checklist, schema]
+      adjacent: [methodology, artifact_package]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+      - source_id: dsr_framework_generation_prompt
+        evidence_status: mapped
+    validation_implications:
+      - require governed item types, repository structure, roles, traceability rules, and review controls
+
+  - id: artifact_package
+    label: Artifact package
+    family: documentary_artifact
+    definition: >
+      A curated, versioned, reviewable, and reusable set of artifacts, metadata, evidence,
+      records, templates, schemas, documentation, and release materials.
+    allowed_use: >
+      Use when the unit of classification is the packaged DSR output rather than a single
+      artifact component inside it.
+    boundary_notes: >
+      Do not use for a single file unless the file is itself a package manifest or packaging
+      specification. Use repository_or_knowledge_base when ongoing accumulation is central.
+    related_terms:
+      broader: [documentary_artifact]
+      narrower: []
+      adjacent: [documentation_protocol, repository_or_knowledge_base, manifest]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require manifest, metadata, inventory, conformance declaration, source basis, and release status
+
+  - id: repository_or_knowledge_base
+    label: Repository or knowledge base
+    family: empirical_or_evidence_artifact
+    definition: >
+      A curated store of artifacts, evidence, source records, design knowledge, examples,
+      reusable paths, cases, or structured content intended to support accumulation, reuse,
+      search, validation, or publication.
+    allowed_use: >
+      Use when the artifact is primarily a maintained corpus, registry, index, library, or
+      evidence base rather than one document, model, or system.
+    boundary_notes: >
+      Use artifact_package for a bounded release package. Use dataset_or_corpus when the
+      main content is empirical data rather than reusable design knowledge or artifacts.
+    related_terms:
+      broader: [empirical_or_evidence_artifact]
+      narrower: [dataset_or_corpus, registry]
+      adjacent: [artifact_package, documentation_protocol]
+    source_basis:
+      - source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+        evidence_status: mapped
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        evidence_status: mapped
+    validation_implications:
+      - require scope, curation rules, metadata model, access rules, versioning, and update policy
+
+  - id: dataset_or_corpus
+    label: Dataset or corpus
+    family: empirical_or_evidence_artifact
+    definition: >
+      A curated set of data, documents, cases, observations, examples, extraction records,
+      traces, or evidence units structured for analysis, evaluation, replication,
+      projectability assessment, or reuse.
+    allowed_use: >
+      Use when the evidence base itself is intentionally designed, structured, documented,
+      and reusable as a DSR artifact or supporting artifact.
+    boundary_notes: >
+      Do not use for incidental raw data without curation, documentation, or intended reuse.
+      Use repository_or_knowledge_base when the artifact includes broader retrieval,
+      governance, accumulation, or registry functionality.
+    related_terms:
+      broader: [empirical_or_evidence_artifact]
+      narrower: []
+      adjacent: [repository_or_knowledge_base, evaluation_instrument, artifact_package]
+    source_basis:
+      - source_id: hevner_et_al_2024_transparency_in_design_science_research
+        evidence_status: mapped
+    validation_implications:
+      - require provenance, inclusion criteria, structure, licensing, quality notes, and reuse limits
+
+  - id: governance_model
+    label: Governance model
+    family: conceptual_artifact
+    definition: >
+      A structured model of roles, responsibilities, decision rights, review controls,
+      escalation paths, maintenance obligations, and accountability mechanisms.
+    allowed_use: >
+      Use when the artifact designs or specifies governance for a DSR artifact, package,
+      repository, method, or socio-technical intervention.
+    boundary_notes: >
+      Use process_model when sequencing is primary. Use policy when normative obligations
+      rather than design structure are primary.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [process_model, documentation_protocol, socio_technical_intervention]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require roles, decision rights, controls, review cadence, and accountability rules
+
+  - id: policy
+    label: Policy
+    family: documentary_artifact
+    definition: >
+      A normative rule document that states obligations, permissions, prohibitions,
+      responsibilities, and enforcement or review expectations.
+    allowed_use: >
+      Use when the artifact establishes rules for use, contribution, security, licensing,
+      governance, access, preservation, or publication.
+    boundary_notes: >
+      Use governance_model when relationships among roles and decision rights are the main
+      artifact. Use procedure or method when stepwise action instructions are central.
+    related_terms:
+      broader: [documentary_artifact]
+      narrower: []
+      adjacent: [governance_model, documentation_protocol, procedure]
+    source_basis:
+      - source_id: dsr_framework_generation_spec
+        evidence_status: mapped
+    validation_implications:
+      - require scope, rule statements, responsible roles, exceptions, and review cycle
+
+  - id: architecture
+    label: Architecture
+    family: technical_artifact
+    definition: >
+      A structured arrangement of components, interfaces, dependencies, layers,
+      deployment units, responsibilities, or design decisions for a system,
+      organization, repository, or artifact package.
+    allowed_use: >
+      Use when the artifact primarily specifies structure and relations among
+      components rather than a stepwise procedure or implementation instance.
+    boundary_notes: >
+      Use reference_architecture when the architecture is intended as a reusable
+      class-level model. Use instantiation when the focus is a concrete deployed
+      system.
+    related_terms:
+      broader: [technical_artifact]
+      narrower: [reference_architecture]
+      adjacent: [model, framework, application_system]
+    source_basis:
+      - source_id: dsr_source_extraction_specification
+        evidence_status: mapped_from_extraction_controlled_vocabulary
+    validation_implications:
+      - require component boundaries, relationships, and intended reuse scope
+
+  - id: reference_model
+    label: Reference Model
+    family: conceptual_artifact
+    definition: >
+      A reusable model that identifies common entities, relationships, concepts,
+      or structures for a class of systems, artifacts, processes, or problem
+      contexts.
+    allowed_use: >
+      Use when the artifact provides a class-level conceptual model intended to
+      orient design, comparison, documentation, or evaluation across cases.
+    boundary_notes: >
+      Use model for a more general representation. Use reference_architecture
+      when architectural layers, components, or interfaces are central.
+    related_terms:
+      broader: [model]
+      narrower: []
+      adjacent: [reference_architecture, framework, taxonomy]
+    source_basis:
+      - source_id: dsr_source_extraction_specification
+        evidence_status: mapped_from_extraction_controlled_vocabulary
+    validation_implications:
+      - require target class, entities, relationships, and boundary conditions
+
+  - id: governance_regime
+    label: Governance Regime
+    family: documentary_artifact
+    definition: >
+      A coordinated set of governance roles, decision rights, policies,
+      procedures, records, review rhythms, and accountability mechanisms.
+    allowed_use: >
+      Use when the artifact is broader than one governance model or policy and
+      specifies an operational governance arrangement.
+    boundary_notes: >
+      Use governance_model for a model of roles and decision rights. Use policy
+      for a single normative rule document.
+    related_terms:
+      broader: [documentary_artifact]
+      narrower: [governance_model, policy, procedure]
+      adjacent: [documentation_protocol]
+    source_basis:
+      - source_id: dsr_source_extraction_specification
+        evidence_status: mapped_from_extraction_controlled_vocabulary
+    validation_implications:
+      - require governed scope, roles, controls, records, and review process
+
+  - id: metric_or_measure
+    label: Metric or Measure
+    family: evaluative_artifact
+    definition: >
+      A defined measure, metric, indicator, scale, score, or operationalized
+      variable used to assess an artifact, process, outcome, quality, utility, or
+      contribution claim.
+    allowed_use: >
+      Use when the designed artifact is the measurement construct or metric
+      itself rather than a full evaluation instrument.
+    boundary_notes: >
+      Use evaluation_instrument when the artifact contains a broader set of
+      measures, criteria, procedures, and interpretation rules.
+    related_terms:
+      broader: [evaluative_artifact]
+      narrower: []
+      adjacent: [evaluation_instrument, rubric, checklist]
+    source_basis:
+      - source_id: dsr_source_extraction_specification
+        evidence_status: mapped_from_extraction_controlled_vocabulary
+    validation_implications:
+      - require measurement target, scale or coding rule, and interpretation guidance
+
+  - id: rubric
+    label: Rubric
+    family: evaluative_artifact
+    definition: >
+      A structured scoring or judgment artifact that defines criteria, levels,
+      evidence expectations, and interpretation guidance for review or
+      assessment.
+    allowed_use: >
+      Use when the artifact supports qualitative or mixed judgment across
+      explicit criteria and performance/readiness levels.
+    boundary_notes: >
+      Use checklist when items are mainly pass/fail or completion-oriented. Use
+      evaluation_instrument when the artifact includes a full evaluation protocol.
+    related_terms:
+      broader: [evaluative_artifact]
+      narrower: []
+      adjacent: [checklist, evaluation_instrument, metric_or_measure]
+    source_basis:
+      - source_id: dsr_source_extraction_specification
+        evidence_status: mapped_from_extraction_controlled_vocabulary
+    validation_implications:
+      - require criteria, levels, evidence expectations, and scoring interpretation
+
+  - id: design_knowledge_synthesis
+    label: Design Knowledge Synthesis
+    family: conceptual_artifact
+    definition: >
+      A synthesized body of design knowledge organized for reuse, comparison, or
+      contribution positioning across DSR sources, cases, artifacts, or
+      principles.
+    allowed_use: >
+      Use for extraction-corpus compatibility when a source treats synthesis
+      itself as the focal artifact or output.
+    boundary_notes: >
+      Prefer genre classification when design_knowledge_synthesis describes the
+      publication genre rather than an artifact. Use framework, taxonomy, model,
+      or dataset_or_corpus when one of those more specific artifact forms applies.
+    related_terms:
+      broader: [conceptual_artifact]
+      narrower: []
+      adjacent: [framework, taxonomy, model, dataset_or_corpus]
+    source_basis:
+      - source_id: dsr_extraction_corpus
+        evidence_status: mapped_from_actual_corpus_value
+    validation_implications:
+      - require rationale for treating synthesis as an artifact rather than only a genre
+
+  - id: no_artifact
+    label: No Artifact
+    family: classification_marker
+    definition: >
+      Controlled extraction marker indicating that the source does not present a
+      focal DSR artifact.
+    allowed_use: >
+      Use only for extraction compatibility, review triage, or explicit
+      non-artifact cases.
+    boundary_notes: >
+      This is not an artifact type. Released DSR project records should identify
+      an artifact or explain why the record is not claiming DSR artifact status.
+    related_terms:
+      broader: []
+      narrower: []
+      adjacent: [unclear]
+    source_basis:
+      - source_id: dsr_source_extraction_specification
+        evidence_status: mapped_from_extraction_controlled_vocabulary
+    validation_implications:
+      - require non-artifact rationale and review disposition
+
+  - id: unclear
+    label: Unclear Artifact Type
+    family: classification_marker
+    definition: >
+      Temporary extraction or review value used when a source hints at an
+      artifact but does not support confident artifact-type classification.
+    allowed_use: >
+      Use only for corpus compatibility, triage, or draft review records that
+      require later human resolution.
+    boundary_notes: >
+      Do not use in release-ready artifact profiles or contribution claims
+      without an open question and remediation action.
+    related_terms:
+      broader: []
+      narrower: []
+      adjacent: [no_artifact]
+    source_basis:
+      - source_id: dsr_source_extraction_specification
+        evidence_status: mapped_from_extraction_controlled_vocabulary
+    validation_implications:
+      - require reason classification is unclear and follow-up review action
+
+composition_rules:
+  - id: cr_primary_and_secondary_types
+    rule: >
+      Each DSR artifact record should declare exactly one primary_artifact_type and may
+      declare multiple secondary_artifact_types when the artifact is composite.
+  - id: cr_instantiation_requires_specification
+    rule: >
+      If primary_artifact_type or secondary_artifact_types includes instantiation, prototype,
+      or application_system, the record should link to artifact specification, use context,
+      version, and demonstration or evaluation evidence.
+  - id: cr_conceptual_artifacts_require_boundaries
+    rule: >
+      Conceptual artifacts should state what they include, what they exclude, and how they
+      differ from adjacent types.
+  - id: cr_evaluative_artifacts_require_target_claims
+    rule: >
+      Evaluation instruments and checklists should identify the target artifact, target claim,
+      evidence required, and interpretation rules.
+  - id: cr_documentary_artifacts_require_repository_alignment
+    rule: >
+      Documentary artifacts should state the repository location, governed item type,
+      downstream validation role, and package-inventory alignment.
+  - id: cr_composite_artifact_packages
+    rule: >
+      Artifact packages may contain many artifact types, but the package-level record should
+      distinguish package identity from the artifact types of contained files.
+
+validation_rules:
+  - id: vr_required_entry_fields
+    applies_to: all_entries
+    rule: >
+      Every vocabulary entry must include id, label, family, definition, allowed_use,
+      boundary_notes, related_terms, source_basis, and validation_implications.
+  - id: vr_stable_identifier_style
+    applies_to: entry_ids
+    rule: >
+      Entry IDs must use lower_snake_case and remain stable after publication unless formally
+      deprecated and superseded.
+  - id: vr_no_unmapped_evidence_overclaim
+    applies_to: source_basis
+    rule: >
+      Entries may cite not_yet_mapped evidence only for provisional internal classification;
+      they must not claim strong scholarly grounding until mapped to corpus anchors or sources.
+  - id: vr_artifact_type_not_contribution_type
+    applies_to: artifact_records
+    rule: >
+      Artifact type fields must not contain contribution types, knowledge goals, evaluation
+      methods, lifecycle stages, or conformance levels.
+  - id: vr_deprecation_required_for_removed_terms
+    applies_to: vocabulary_updates
+    rule: >
+      Published entry IDs should be deprecated rather than deleted when downstream files may
+      reference them.
+
+acceptance_criteria:
+  - id: ac_vocabulary_completeness
+    criterion: >
+      The vocabulary covers canonical DSR artifact families and DSR Framework-specific
+      documentary, evaluative, and package artifacts.
+    evidence_required:
+      - entries
+      - classification_scheme
+      - related_items
+  - id: ac_boundary_reviewability
+    criterion: >
+      Each entry includes enough boundary information for a reviewer to distinguish it from
+      adjacent entries.
+    evidence_required:
+      - boundary_notes
+      - related_terms
+  - id: ac_schema_ready
+    criterion: >
+      Entry IDs are stable enough to be reused in artifact-profile and DSR-artifact schemas.
+    evidence_required:
+      - stable entry ids
+      - validation_rules
+  - id: ac_dsr_correspondence
+    criterion: >
+      The vocabulary preserves DSR distinctions among artifact, artifact instance, design
+      knowledge, demonstration, evaluation, and contribution.
+    evidence_required:
+      - scope.governing_distinctions
+      - composition_rules
+  - id: ac_traceability
+    criterion: >
+      The vocabulary identifies upstream project files and corpus source families without
+      inventing unsupported bibliographic evidence.
+    evidence_required:
+      - source_basis
+      - traceability
+
+quality_gates:
+  - id: qg_consistency
+    status: pass
+    rationale: >
+      The file uses the requested target path, YAML format, lower-kebab-case filename, and
+      controlled-vocabulary structure.
+  - id: qg_coherence
+    status: pass
+    rationale: >
+      The vocabulary is aligned with the artifact ontology model, DSR lifecycle/contribution
+      specification, schemas, templates, checklists, and documentation pages.
+  - id: qg_cogency
+    status: pass
+    rationale: >
+      Entries are operationally defined with allowed use, boundary notes, related terms, and
+      validation implications.
+  - id: qg_correspondence
+    status: pass
+    rationale: >
+      The file supports the DSR Framework as a reviewable and reusable artifact package.
+  - id: qg_dsr_transparency
+    status: pass
+    rationale: >
+      The vocabulary supports build, evaluation, contribution, and package transparency by
+      forcing explicit artifact-type classification and boundary reporting.
+  - id: qg_reviewability
+    status: pass
+    rationale: >
+      Acceptance criteria, validation rules, and composition rules make the file reviewable.
+
+traceability:
+  - trace_id: tr_vocab_artifact_types_to_selection
+    source: dsr_framework_selection_table.vocab_artifact_types
+    target: vocabulary.id
+    relationship: implements_selected_portion
+    evidence_status: mapped
+  - trace_id: tr_vocab_artifact_types_to_generation_spec
+    source: dsr_framework_generation_spec.vocabulary_rules
+    target: entries
+    relationship: conforms_to_required_vocabulary_shape
+    evidence_status: mapped
+  - trace_id: tr_vocab_artifact_types_to_artifact_ontology
+    source: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    target: entries.instantiation.boundary_notes
+    relationship: supports_artifact_instance_boundary
+    evidence_status: mapped
+  - trace_id: tr_vocab_artifact_types_to_canonical_typology
+    source: march_smith_1995_artifact_typology_via_dsr_corpus
+    target:
+      - entries.construct
+      - entries.model
+      - entries.method
+      - entries.instantiation
+    relationship: supports_canonical_artifact_families
+    evidence_status: mapped
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change: Initial generated draft for vocab_artifact_types.
+    responsible_party: GPT-5.5 Thinking
+
+open_questions:
+  - id: oq_artifact_type_granularity
+    question: >
+      Should later releases split technical artifact types into separate software, hardware,
+      data, information-system, and AI-system sub-vocabularies?
+    disposition: defer_until_schema_and_artifact_ontology_review
+  - id: oq_symbolic_and_nontechnical_artifacts
+    question: >
+      Should symbolic, legal, policy, educational, and organizational artifacts receive a
+      separate cross-domain extension vocabulary?
+    disposition: defer_until_responsible_design_and_transdisciplinary_review
+  - id: oq_pattern_mapping
+    question: >
+      Should pattern be retained as a first-class artifact type or treated as a design-principle
+      subtype after source mapping is completed?
+    disposition: evidence_status_not_yet_mapped

@@ -1,0 +1,581 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: knowledge_scopes
+  selection_id: vocab_knowledge_scopes
+  title: DSR Knowledge Scopes Vocabulary
+  item_type: vocabulary
+  status: draft
+  version: "0.1.0"
+  target_path: vocabularies/knowledge-scopes.yaml
+  purpose: >
+    Provide controlled terms for classifying the generality, transferability,
+    and contextual boundedness of knowledge contributions in Design Science
+    Research artifact packages.
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+
+  source_basis:
+    - source_id: dsr_framework_generation_spec
+      role: governing_generation_and_repository_rules
+      evidence_status: mapped
+    - source_id: dsr_framework_selection_table
+      role: selected_generation_target
+      evidence_status: mapped
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      role: primary_dsr_knowledge_scope_basis
+      evidence_status: mapped
+      citation_anchor_ids:
+        - A05
+        - A07
+        - A08
+        - A15
+    - source_id: dsr_extraction_corpus
+      role: supporting_normalized_scope_values
+      evidence_status: partially_mapped
+
+  related_items:
+    upstream_dependencies:
+      - id: model_contribution
+        path: models/dsr-contribution-model.yaml
+        relationship: consumes_vocabulary
+      - id: vocab_knowledge_goals
+        path: vocabularies/knowledge-goals.yaml
+        relationship: complementary_axis
+      - id: vocab_contribution_types
+        path: vocabularies/contribution-types.yaml
+        relationship: contribution_positioning_dependency
+    downstream_consumers:
+      - id: schema_contribution_claim
+        path: schemas/dsr-contribution-claim.schema.json
+        relationship: should_restrict_scope_values
+      - id: template_contribution_claim
+        path: templates/contribution-claim-template.yaml
+        relationship: should_prompt_for_scope_classification
+      - id: checklist_contribution_positioning
+        path: checklists/contribution-positioning-checklist.yaml
+        relationship: should_review_scope_claim_support
+      - id: model_projectability
+        path: models/dsr-projectability-model.yaml
+        relationship: should_use_for_transfer_and_reuse_claims
+
+  governance:
+    naming_style: lower_snake_case
+    canonical_field_name: knowledge_scope
+    recommended_schema_type: string
+    recommended_schema_enum:
+      - idiographic_specific
+      - idiographic_context_specific
+      - local_practice_or_case
+      - nomothetic_general
+      - mixed_projectable
+      - projectable_to_problem_class
+      - analytical_generalization
+      - transdisciplinary
+      - not_applicable
+      - undetermined
+      - unclear
+    deprecation_policy: >
+      Do not rename existing entry IDs after release. Add aliases or replacement
+      terms instead, and mark deprecated entries explicitly.
+    tailoring_rule: >
+      Projects may use narrower local terms only if each local term maps to one
+      canonical entry in this vocabulary.
+
+  entries:
+    - id: idiographic_specific
+      label: Idiographic / Context-Specific Knowledge
+      definition: >
+        Knowledge whose warranted meaning, usefulness, or evidentiary support is
+        tied primarily to a particular case, organization, artifact instance,
+        implementation setting, stakeholder group, or bounded intervention.
+      allowed_use: >
+        Use when a contribution explains, evaluates, demonstrates, or documents
+        knowledge about a specific situated artifact or context without claiming
+        general applicability across a class of problems.
+      boundary_notes: >
+        Do not use merely because the study has an empirical site. Use only when
+        the contribution claim itself remains local or case-bounded. If the study
+        uses a local case to derive reusable guidance, classify as
+        projectable_to_problem_class or analytical_generalization instead.
+      related_terms:
+        broader:
+          - mixed_projectable
+        narrower: []
+        contrasts_with:
+          - nomothetic_general
+          - projectable_to_problem_class
+      aliases:
+        - idiographic
+        - context_specific
+        - situated
+        - local_case
+      example_uses:
+        - "Evaluation of one deployed artifact in one organizational unit."
+        - "Description of stakeholder acceptance in a single implementation setting."
+      validation_expectations:
+        evidence_required:
+          - bounded_context_description
+          - artifact_or_case_identifier
+          - scope_limitations
+        unacceptable_evidence:
+          - unsupported generalization from one case to all contexts
+
+    - id: nomothetic_general
+      label: Nomothetic / General Knowledge
+      definition: >
+        Knowledge intended and warranted as general across a class of situations,
+        artifacts, problem types, or design contexts, rather than confined to one
+        artifact instance or local setting.
+      allowed_use: >
+        Use when the contribution asserts general design knowledge, a general
+        taxonomy, broadly applicable method, class-level explanatory account,
+        reusable evaluation framework, or contribution intended to apply beyond
+        the originating case.
+      boundary_notes: >
+        Do not use for broad-sounding claims that lack evidence, argument, or
+        boundary-condition analysis. If generality is plausible but conditional
+        on adaptation, use mixed_projectable or projectable_to_problem_class.
+      related_terms:
+        broader: []
+        narrower:
+          - projectable_to_problem_class
+          - analytical_generalization
+        contrasts_with:
+          - idiographic_specific
+      aliases:
+        - nomothetic
+        - general
+        - class_general
+        - generalized
+      example_uses:
+        - "A DSR artifact taxonomy intended for multiple information-system contexts."
+        - "A contribution model for classifying DSR knowledge contributions generally."
+      validation_expectations:
+        evidence_required:
+          - stated_problem_class_or_artifact_class
+          - reasoning_for_general_applicability
+          - boundary_conditions
+          - supporting_corpus_or_cross_case_basis
+        unacceptable_evidence:
+          - unbounded universal claims without evaluation or justificatory knowledge
+
+    - id: mixed_projectable
+      label: Mixed / Projectable Knowledge
+      definition: >
+        Knowledge that originates in or is demonstrated through situated
+        contexts but is articulated so that future users can assess whether and
+        how it may transfer, adapt, or project to other contexts.
+      allowed_use: >
+        Use when a contribution combines local empirical or design evidence with
+        explicit boundary conditions, adaptation logic, reusable design
+        rationale, or implementation guidance for other settings.
+      boundary_notes: >
+        This is the preferred middle category when the work is neither purely
+        local nor fully general. It should not be used as a vague compromise;
+        the file or claim should state what is projectable and what remains
+        context-bound.
+      related_terms:
+        broader: []
+        narrower:
+          - projectable_to_problem_class
+          - analytical_generalization
+        contrasts_with:
+          - idiographic_specific
+          - nomothetic_general
+      aliases:
+        - mixed
+        - projectable
+        - transferable
+        - adaptable
+      example_uses:
+        - "A design principle derived from one setting with stated boundary conditions for reuse."
+        - "A method demonstrated in a case but packaged for adaptation by future projects."
+      validation_expectations:
+        evidence_required:
+          - source_context
+          - target_problem_class_or_reuse_context
+          - boundary_conditions
+          - adaptation_or_tailoring_guidance
+        unacceptable_evidence:
+          - reuse claims that omit contextual constraints
+
+    - id: projectable_to_problem_class
+      label: Projectable to Problem Class
+      definition: >
+        Knowledge whose contribution claim is explicitly framed for a defined
+        problem class, artifact class, stakeholder context, or family of use
+        situations, with transfer depending on fit between the original and
+        target conditions.
+      allowed_use: >
+        Use when the intended scope is broader than one instance but narrower
+        than general nomothetic knowledge. This entry is especially appropriate
+        for DSR patterns, design principles, methods, and artifact package
+        guidance that require contextual fit assessment before reuse.
+      boundary_notes: >
+        Distinguish this from nomothetic_general by checking whether the
+        contribution depends on a bounded problem class rather than broad
+        cross-context generality. Distinguish it from idiographic_specific by
+        requiring explicit reuse or adaptation logic.
+      related_terms:
+        broader:
+          - mixed_projectable
+        narrower:
+          - analytical_generalization
+        contrasts_with:
+          - idiographic_specific
+          - nomothetic_general
+      aliases:
+        - problem_class_projectable
+        - class_projectable
+        - bounded_projectability
+      example_uses:
+        - "A framework for DSR transparency in information systems research."
+        - "An artifact package method intended for similar DSR documentation contexts."
+      validation_expectations:
+        evidence_required:
+          - problem_class_definition
+          - transfer_conditions
+          - non_transfer_conditions
+          - adaptation_guidance
+        unacceptable_evidence:
+          - unspecified problem class
+
+    - id: analytical_generalization
+      label: Analytical Generalization
+      definition: >
+        Knowledge generalized through explicit theoretical, conceptual, or
+        analytical reasoning from one or more cases to a construct, model,
+        mechanism, design principle, or problem class, rather than through
+        statistical representativeness.
+      allowed_use: >
+        Use when the contribution derives broader design knowledge from cases,
+        literature synthesis, theory grounding, or structured comparison, and
+        the reasoning pathway is documented.
+      boundary_notes: >
+        Use as a narrower projectability term when the generalization mechanism
+        is analytic rather than statistical. Do not use when the file merely
+        reports a local result without extracting a transferable construct or
+        principle.
+      related_terms:
+        broader:
+          - mixed_projectable
+          - projectable_to_problem_class
+        narrower: []
+        contrasts_with:
+          - nomothetic_general
+          - idiographic_specific
+      aliases:
+        - analytic_generalization
+        - theory_based_generalization
+        - conceptual_generalization
+      example_uses:
+        - "A model derived from selected DSR publications and positioned as reusable guidance."
+        - "A design principle inferred from case evidence and grounded in justificatory knowledge."
+      validation_expectations:
+        evidence_required:
+          - analytic_reasoning_path
+          - construct_or_principle_extracted
+          - boundary_conditions
+          - source_basis
+        unacceptable_evidence:
+          - statistical-sounding generalization without sample design
+
+    - id: not_applicable
+      label: Not Applicable
+      definition: >
+        The knowledge-scope field does not apply because the item is not making
+        a DSR knowledge contribution claim.
+      allowed_use: >
+        Use for purely administrative records, package metadata, or repository
+        files where contribution-scope classification would be misleading.
+      boundary_notes: >
+        Do not use for contribution claims, evaluation plans, artifact profiles,
+        or review records that should classify scope.
+      related_terms:
+        broader: []
+        narrower: []
+        contrasts_with:
+          - idiographic_specific
+          - nomothetic_general
+          - mixed_projectable
+      aliases:
+        - n/a
+        - not_relevant
+      example_uses:
+        - "Repository housekeeping metadata that does not assert design knowledge."
+      validation_expectations:
+        evidence_required:
+          - rationale_for_non_applicability
+        unacceptable_evidence:
+          - missing classification for a file that makes contribution claims
+
+    - id: undetermined
+      label: Undetermined Knowledge Scope
+      definition: >
+        The item appears to make or support a knowledge contribution claim, but
+        the available evidence is insufficient to classify the scope.
+      allowed_use: >
+        Use during draft, extraction, or review when the scope cannot yet be
+        assigned without additional evidence, author clarification, or review.
+      boundary_notes: >
+        This is a temporary review state, not a stable final classification.
+        Released contribution claims should replace this value with a substantive
+        scope entry or provide an explicit unresolved issue.
+      related_terms:
+        broader: []
+        narrower: []
+        contrasts_with:
+          - not_applicable
+      aliases:
+        - unknown
+        - to_be_classified
+        - evidence_insufficient
+      example_uses:
+        - "A draft contribution claim whose intended transfer scope has not yet been stated."
+      validation_expectations:
+        evidence_required:
+          - reason_scope_is_undetermined
+          - review_action_needed
+        unacceptable_evidence:
+          - use in released files without an open question or review task
+
+    - id: idiographic_context_specific
+      label: Idiographic / Context-Specific Knowledge
+      definition: >
+        Compatibility entry for corpus records that use the extraction
+        specification value `idiographic_context_specific`.
+      allowed_use: >
+        Use when preserving or validating extraction records that distinguish
+        local, situated, case-specific knowledge from broader projectable claims.
+      boundary_notes: >
+        This value is semantically equivalent to `idiographic_specific` for
+        framework review purposes. New framework records should prefer
+        `idiographic_specific` unless alignment with extraction data is required.
+      replacement_or_equivalent: idiographic_specific
+      related_terms:
+        broader:
+          - idiographic_specific
+      aliases:
+        - context_specific
+      validation_expectations:
+        evidence_required:
+          - bounded_context_description
+          - scope_limitations
+
+    - id: local_practice_or_case
+      label: Local Practice or Case
+      definition: >
+        Knowledge primarily warranted for a local practice setting, teaching
+        context, organization, project, or case, without a strong reusable
+        problem-class claim.
+      allowed_use: >
+        Use for extraction-corpus or project records where the source explicitly
+        frames the claim around a local practice context or bounded case.
+      boundary_notes: >
+        Use `idiographic_specific` when the local boundedness is a general
+        methodological classification. Use this value when the local practice
+        or case context is material to the claim.
+      related_terms:
+        broader:
+          - idiographic_specific
+        adjacent:
+          - projectable_to_problem_class
+      aliases:
+        - local_case
+        - local_practice
+      validation_expectations:
+        evidence_required:
+          - case_or_practice_context
+          - transfer_limitations
+
+    - id: transdisciplinary
+      label: Transdisciplinary Knowledge
+      definition: >
+        Knowledge intended to operate across disciplinary boundaries, often by
+        integrating DSR with adjacent design, management, policy, education, or
+        professional-practice traditions.
+      allowed_use: >
+        Use when the contribution's intended scope is explicitly cross-domain or
+        transdisciplinary rather than confined to one DSR discipline.
+      boundary_notes: >
+        Do not use merely because a source cites multiple disciplines. The
+        contribution claim itself should require or support cross-disciplinary
+        use, translation, or synthesis.
+      related_terms:
+        broader:
+          - mixed_projectable
+        adjacent:
+          - nomothetic_general
+          - projectable_to_problem_class
+      aliases:
+        - cross_disciplinary
+        - interdisciplinary
+      validation_expectations:
+        evidence_required:
+          - disciplines_or_practice_domains
+          - translation_or_integration_rationale
+
+    - id: unclear
+      label: Unclear
+      definition: >
+        Temporary value for extraction or review records where the source hints
+        at a scope but does not support a defensible normalized classification.
+      allowed_use: >
+        Use only for corpus extraction compatibility, triage, or review states
+        that require later human resolution.
+      boundary_notes: >
+        Released contribution claims should not use unclear without an open
+        question, limitation, and remediation action.
+      related_terms:
+        adjacent:
+          - undetermined
+      validation_expectations:
+        evidence_required:
+          - reason_scope_is_unclear
+          - review_action_needed
+
+  usage_guidance:
+    classification_questions:
+      - question_id: kscope_q1
+        question: "Is the claim limited to one case, site, artifact instance, or implementation?"
+        if_yes_preferred_entry: idiographic_specific
+      - question_id: kscope_q2
+        question: "Does the claim assert general applicability across a broad class of situations?"
+        if_yes_preferred_entry: nomothetic_general
+      - question_id: kscope_q3
+        question: "Does the claim originate locally but include boundary conditions and adaptation logic?"
+        if_yes_preferred_entry: mixed_projectable
+      - question_id: kscope_q4
+        question: "Is the claim bounded to a defined problem class or artifact class?"
+        if_yes_preferred_entry: projectable_to_problem_class
+      - question_id: kscope_q5
+        question: "Is the generalization made through explicit theoretical or conceptual reasoning rather than statistical inference?"
+        if_yes_preferred_entry: analytical_generalization
+    minimum_required_context_fields:
+      - knowledge_scope
+      - scope_rationale
+      - boundary_conditions
+      - evidence_basis
+    recommended_claim_pattern: >
+      This contribution is classified as <knowledge_scope> because <scope_rationale>,
+      with boundary conditions <boundary_conditions> and evidence basis <evidence_basis>.
+
+  validation_rules:
+    - rule_id: kscope_val_001
+      severity: error
+      rule: >
+        knowledge_scope values in contribution records should use an entry ID
+        from vocabulary.recommended_schema_enum.
+      failure_message: "Knowledge scope is not a controlled value."
+    - rule_id: kscope_val_002
+      severity: warning
+      rule: >
+        idiographic_specific claims should include a bounded context description.
+      failure_message: "Idiographic scope requires context boundary evidence."
+    - rule_id: kscope_val_003
+      severity: warning
+      rule: >
+        nomothetic_general claims should include a problem class, artifact class,
+        corpus basis, cross-case basis, or explicit theoretical warrant.
+      failure_message: "Nomothetic scope requires generality warrant."
+    - rule_id: kscope_val_004
+      severity: warning
+      rule: >
+        mixed_projectable and projectable_to_problem_class claims should include
+        transfer conditions, non-transfer conditions, and adaptation guidance.
+      failure_message: "Projectable scope requires transfer and boundary logic."
+    - rule_id: kscope_val_005
+      severity: info
+      rule: >
+        undetermined should be replaced before release unless retained with an
+        explicit open question.
+      failure_message: "Undetermined scope remains unresolved."
+
+  traceability:
+    - trace_id: trace_kscope_selection
+      source: dsr_framework_selection_table
+      source_detail: "vocab_knowledge_scopes -> vocabularies/knowledge-scopes.yaml"
+      supports:
+        - vocabulary.id
+        - vocabulary.target_path
+        - vocabulary.purpose
+        - vocabulary.conformance_target
+    - trace_id: trace_kscope_generation_rules
+      source: dsr_framework_generation_spec
+      source_detail: "Vocabulary entries require id, label, definition, allowed_use, boundary_notes, related_terms, and source_basis where useful."
+      supports:
+        - vocabulary.entries
+        - vocabulary.validation_rules
+        - vocabulary.related_items
+    - trace_id: trace_kscope_dsr_corpus
+      source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      source_detail: "Knowledge scope and knowledge goal jointly characterize DSR knowledge types; idiographic and nomothetic are core scope distinctions."
+      supports:
+        - idiographic_specific
+        - nomothetic_general
+        - mixed_projectable
+        - projectable_to_problem_class
+
+  quality_and_conformance:
+    quality_gates:
+      - gate_id: qg_consistency
+        status: pass
+        rationale: "File path, extension, vocabulary structure, and stable IDs follow repository conventions."
+      - gate_id: qg_coherence
+        status: pass
+        rationale: "Entries align with the contribution model, knowledge-goals vocabulary, and projectability model."
+      - gate_id: qg_cogency
+        status: pass
+        rationale: "Each entry includes definition, allowed use, boundary notes, related terms, and validation expectations."
+      - gate_id: qg_correspondence
+        status: pass
+        rationale: "The vocabulary supports contribution-scope classification in the DSR Framework artifact package."
+      - gate_id: qg_dsr_transparency
+        status: pass
+        rationale: "The vocabulary makes contribution scope, boundary conditions, and generalization claims explicit."
+      - gate_id: qg_reviewability
+        status: pass
+        rationale: "Validation rules and evidence expectations allow reviewer assessment."
+
+  assumptions:
+    - assumption_id: kscope_assumption_001
+      statement: >
+        The vocabulary should support both the strict idiographic/nomothetic
+        distinction and DSR-specific middle cases where knowledge is reusable
+        only through projectability, adaptation, or analytical generalization.
+      review_status: reviewable
+    - assumption_id: kscope_assumption_002
+      statement: >
+        projectable_to_problem_class and analytical_generalization are included
+        as narrower operational values under mixed/projectable scope because
+        downstream schemas and checklists may need more precise review states.
+      review_status: reviewable
+
+  limitations:
+    - limitation_id: kscope_limitation_001
+      statement: >
+        The vocabulary defines scope terms but does not itself determine whether
+        a particular contribution has sufficient evidence for the claimed scope.
+    - limitation_id: kscope_limitation_002
+      statement: >
+        Empirical DSR studies may require reviewer judgment when local
+        demonstration evidence and broader design-knowledge claims diverge.
+
+  open_questions:
+    - question_id: kscope_open_001
+      question: >
+        Should future schema versions separate contribution_scope,
+        evidence_scope, and intended_reuse_scope into distinct fields?
+      status: open
+    - question_id: kscope_open_002
+      question: >
+        Should statistical generalization be added as a separate term if the
+        corpus later includes quantitatively sampled DSR evaluation claims?
+      status: open
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change_type: create_new
+      summary: "Initial L2 reviewable vocabulary generated for knowledge-scope classification."
+      responsible_party: GPT-5.5 Thinking

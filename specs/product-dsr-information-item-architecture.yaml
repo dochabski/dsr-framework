@@ -1,0 +1,1570 @@
+# SPDX-License-Identifier: CC0-1.0
+product:
+  id: product_dsr_information_item_architecture
+  selection_id: spec_information_item_architecture
+  title: DSR Information Item Architecture
+  purpose: >
+    Specify the DSR Framework information item architecture: the controlled
+    information items, retained records, evidence objects, traceability links,
+    and validation responsibilities needed to plan, document, evaluate,
+    review, publish, and maintain Design Science Research artifact packages.
+  status: draft
+  version: "0.1.0"
+  item_type: specification
+  target_path: specs/product-dsr-information-item-architecture.yaml
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  package_role: product_specification
+  generation_context:
+    generated_from_selection_id: spec_information_item_architecture
+    generated_on: "2026-04-27"
+    generation_mode: create_new
+    deliverable_style: downloadable_file
+
+source_basis:
+  - id: user_current_request
+    role: immediate_task_definition
+    evidence_status: mapped
+    notes: >
+      User selected spec_information_item_architecture with target path
+      specs/product-dsr-information-item-architecture.yaml.
+  - id: dsr_framework_generation_spec
+    role: governing_generation_specification
+    evidence_status: mapped
+    notes: >
+      Provides repository architecture, information item rules, product-spec
+      structure, quality gates, traceability expectations, and output
+      conventions.
+  - id: dsr_framework_generation_prompt
+    role: governing_generation_prompt
+    evidence_status: mapped
+    notes: >
+      Provides product-spec skeleton and DSR-specific distinctions to preserve
+      in generated framework files.
+  - id: documentation_protocol_information_item_architecture
+    role: governing_protocol_dependency
+    evidence_status: partially_mapped
+    notes: >
+      Dependency named in the selection table. This draft uses the information
+      item conventions available in the local generation specification and
+      preserves traceability for later cross-checking against the upstream
+      documentation protocol repository.
+  - id: hevner_et_al_2024_transparency_in_design_science_research
+    role: dsr_transparency_evidence
+    evidence_status: mapped_to_source_family
+    notes: >
+      Supports the six transparency dimensions: process, problem space,
+      solution space, build, evaluation, and contribution transparency.
+  - id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    role: dsr_artifact_ontology_evidence
+    evidence_status: mapped_to_source_family
+    notes: >
+      Supports artifact boundary, artifact universal, make plan, use plan,
+      capacity, use context, and design specification distinctions.
+  - id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+    role: dsr_contribution_typology_evidence
+    evidence_status: mapped_to_source_family
+    notes: >
+      Supports knowledge-goal, knowledge-scope, knowledge-moment, and
+      contribution-path distinctions.
+
+dependencies:
+  upstream:
+    - id: product_protocol_foundation
+      path: specs/product-protocol-foundation.yaml
+      dependency_type: protocol_foundation
+      required: true
+      status: expected
+    - id: product_dsr_framework_foundation
+      path: specs/product-dsr-framework-foundation.yaml
+      dependency_type: framework_scope
+      required: true
+      status: expected
+    - id: product_dsr_lifecycle_and_contribution_model
+      path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+      dependency_type: dsr_lifecycle_and_contribution_logic
+      required: true
+      status: expected
+    - id: documentation_protocol_information_item_architecture
+      path: external:documentation-protocol
+      dependency_type: documentation_protocol_information_architecture
+      required: true
+      status: partially_mapped
+  downstream:
+    - id: product_dsr_repository_architecture
+      path: specs/product-dsr-repository-architecture.yaml
+      dependency_type: repository_placement_rules
+      required: false
+      status: expected
+    - id: product_dsr_artifact_package_specification
+      path: specs/product-dsr-artifact-package-specification.yaml
+      dependency_type: package_content_rules
+      required: false
+      status: expected
+    - id: product_dsr_quality_conformance_and_review_model
+      path: specs/product-dsr-quality-conformance-and-review-model.yaml
+      dependency_type: review_and_quality_rules
+      required: false
+      status: expected
+    - id: product_dsr_templates_and_checklists
+      path: specs/product-dsr-templates-and-checklists.yaml
+      dependency_type: operating_material_specification
+      required: false
+      status: expected
+    - id: schemas_and_templates
+      path: schemas/, templates/, checklists/
+      dependency_type: implementation_outputs
+      required: false
+      status: expected
+
+related_items:
+  root_control_files:
+    - manifest.yaml
+    - metadata.yaml
+    - artifact-profile.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+  specifications:
+    - specs/product-protocol-foundation.yaml
+    - specs/product-dsr-framework-foundation.yaml
+    - specs/product-dsr-lifecycle-and-contribution-model.yaml
+    - specs/product-dsr-repository-architecture.yaml
+    - specs/product-dsr-artifact-package-specification.yaml
+    - specs/product-dsr-quality-conformance-and-review-model.yaml
+    - specs/product-dsr-templates-and-checklists.yaml
+  models:
+    - models/dsr-framework-canonical-model.yaml
+    - models/dsr-lifecycle-model.yaml
+    - models/dsr-artifact-ontology.yaml
+    - models/dsr-contribution-model.yaml
+    - models/dsr-evaluation-alignment-model.yaml
+    - models/dsr-transparency-model.yaml
+  templates:
+    - templates/dsr-project-charter-template.md
+    - templates/problem-and-objectives-template.md
+    - templates/solution-space-record-template.yaml
+    - templates/design-rationale-template.md
+    - templates/artifact-specification-template.md
+    - templates/build-transparency-record-template.yaml
+    - templates/demonstration-record-template.yaml
+    - templates/evaluation-plan-template.yaml
+    - templates/evaluation-report-template.yaml
+    - templates/contribution-claim-template.yaml
+    - templates/contribution-positioning-record-template.yaml
+    - templates/dsr-transparency-crosswalk-template.yaml
+    - templates/review-record-template.yaml
+  schemas:
+    - schemas/dsr-project.schema.json
+    - schemas/dsr-artifact.schema.json
+    - schemas/dsr-evaluation-plan.schema.json
+    - schemas/dsr-evaluation-report.schema.json
+    - schemas/dsr-contribution-claim.schema.json
+    - schemas/dsr-transparency-crosswalk.schema.json
+
+sections:
+  - id: identity_and_purpose
+    title: Identity and Purpose
+    purpose: >
+      Define the product identity, scope, users, and architectural role of the
+      information item architecture.
+    content:
+      product_statement: >
+        The DSR Information Item Architecture is the controlled specification
+        that tells framework users what kinds of information must be produced,
+        retained, reviewed, validated, and linked when creating a DSR artifact
+        package.
+      scope:
+        includes:
+          - Controlled information item classes used in DSR artifact packages.
+          - Retained record classes used to preserve evidence of decisions,
+            reviews, evaluations, releases, tailoring, and preservation actions.
+          - Required common fields for controlled items and records.
+          - DSR-specific evidence distinctions for problem, solution, build,
+            demonstration, evaluation, contribution, transparency, validity,
+            reliability, replication, and projectability.
+          - Traceability and validation expectations for templates, schemas,
+            checklists, models, and records.
+        excludes:
+          - Full JSON Schema definitions for every item class.
+          - Final human-facing documentation for each item class.
+          - Domain-specific DSR project content for any single study.
+          - Publication-readiness certification.
+      intended_users:
+        - role_id: dsr_researcher
+          role_label: DSR researcher
+          use_context: Select and complete the records needed for a DSR artifact package.
+        - role_id: framework_maintainer
+          role_label: Framework maintainer
+          use_context: Maintain templates, schemas, and package inventory entries.
+        - role_id: reviewer
+          role_label: Reviewer or editor
+          use_context: Verify that evidence, claims, and records are complete and reviewable.
+        - role_id: practitioner_reuser
+          role_label: Practitioner or downstream user
+          use_context: Locate the information needed to understand, adapt, reuse, or audit an artifact.
+      governing_principles:
+        - id: ii_principle_source_of_truth
+          statement: >
+            Controlled information that affects validation, reuse, or
+            conformance should live in YAML or JSON-compatible structured files;
+            Markdown should explain, render, or guide use of structured sources.
+        - id: ii_principle_evidence_before_claim
+          statement: >
+            A DSR claim should not be treated as reviewable until the related
+            evidence item, evaluation record, source basis, or limitation is
+            identified.
+        - id: ii_principle_distinction_preservation
+          statement: >
+            The architecture must preserve DSR distinctions between artifact
+            utility, artifact quality, contribution to knowledge, demonstration,
+            evaluation, artifact instance, artifact type, and reusable design
+            knowledge.
+        - id: ii_principle_traceable_minimality
+          statement: >
+            Each information item should be only as detailed as needed for its
+            conformance level, but it must be traceable to upstream sources,
+            downstream claims, and review criteria.
+      non_goals:
+        - id: non_goal_replace_scholarly_report
+          statement: >
+            This architecture does not replace a journal article, dissertation,
+            technical report, or other narrative publication.
+        - id: non_goal_force_full_transparency
+          statement: >
+            This architecture does not require exposing proprietary, private,
+            security-sensitive, or ethically restricted materials when a safe
+            transparency substitute can be recorded.
+        - id: non_goal_claim_universal_dsr_consensus
+          statement: >
+            This architecture does not claim that all DSR traditions use the
+            same item names or reporting sequence.
+
+  - id: conceptual_model
+    title: Conceptual Model
+    purpose: >
+      Define the entities, relationships, controlled item families, and boundary
+      distinctions used by the information item architecture.
+    content:
+      core_entities:
+        - id: information_item
+          label: Information Item
+          definition: >
+            A controlled unit of authored information used to plan, specify,
+            document, evaluate, review, publish, or preserve a DSR artifact
+            package.
+          required_fields:
+            - item_id
+            - item_type
+            - title
+            - purpose
+            - status
+            - version
+            - owner
+            - related_items
+            - source_basis
+            - change_history
+          examples:
+            - artifact_profile
+            - product_specification
+            - model
+            - template
+            - checklist
+            - documentation_page
+        - id: record
+          label: Record
+          definition: >
+            A retained evidence-bearing information item that documents an event,
+            decision, review, evaluation, release, tailoring action, or
+            preservation action that has occurred.
+          required_fields:
+            - record_id
+            - record_class
+            - event_or_action
+            - date
+            - responsible_party
+            - evidence
+            - outcome
+            - related_items
+            - retention_rule
+          examples:
+            - source_basis_record
+            - evaluation_record
+            - review_record
+            - release_record
+        - id: evidence_object
+          label: Evidence Object
+          definition: >
+            A cited source, dataset, log, evaluation result, design rationale,
+            artifact output, demonstration output, or other support used to
+            substantiate a DSR claim or review finding.
+          required_fields:
+            - evidence_id
+            - evidence_type
+            - evidence_location
+            - evidence_status
+            - access_or_restriction
+            - related_claims
+        - id: trace_link
+          label: Trace Link
+          definition: >
+            A structured relationship connecting an information item, source,
+            claim, requirement, artifact component, evaluation criterion, record,
+            or downstream output.
+          required_fields:
+            - trace_id
+            - source_item
+            - target_item
+            - relationship_type
+            - evidence_status
+        - id: claim
+          label: Claim
+          definition: >
+            A bounded assertion about artifact identity, problem relevance,
+            solution logic, utility, quality, contribution, transparency,
+            validity, reliability, projectability, or publication readiness.
+          required_fields:
+            - claim_id
+            - claim_type
+            - claim_statement
+            - scope
+            - evidence_required
+            - evidence_status
+            - limitations
+        - id: review_gate
+          label: Review Gate
+          definition: >
+            A quality-control checkpoint that determines whether an item or
+            package satisfies explicit criteria for consistency, coherence,
+            cogency, correspondence, DSR transparency, and reviewability.
+          required_fields:
+            - gate_id
+            - review_question
+            - evidence_required
+            - pass_condition
+            - fail_condition
+            - remediation_guidance
+      permitted_common_item_types:
+        - id: description
+          use: Human-readable explanation, overview, guide, or profile.
+        - id: plan
+          use: Prospective statement of intended work, evaluation, release, or preservation.
+        - id: policy
+          use: Normative rule for behavior, governance, review, or reuse.
+        - id: procedure
+          use: Ordered method for performing an activity or review.
+        - id: report
+          use: Account of completed analysis, evaluation, demonstration, or review.
+        - id: request
+          use: Controlled request for change, review, release, issue resolution, or decision.
+        - id: specification
+          use: Controlled source-of-truth definition of product, model, template, schema, or package requirements.
+        - id: record
+          use: Retained evidence of an event, action, decision, review, release, or preservation outcome.
+      dsr_information_item_families:
+        - family_id: package_control
+          label: Package Control Items
+          function: Identify and govern the artifact package as a reusable/citable unit.
+          representative_items:
+            - manifest
+            - metadata
+            - artifact_profile
+            - package_inventory
+            - conformance_declaration
+        - family_id: project_definition
+          label: Project Definition Items
+          function: Establish DSR project identity, purpose, problem, objectives, requirements, and scope.
+          representative_items:
+            - dsr_project_charter
+            - problem_and_objectives_record
+            - stakeholder_context_record
+            - requirements_record
+        - family_id: source_and_solution_grounding
+          label: Source and Solution Grounding Items
+          function: Document source basis, literature grounding, prior artifacts, theories, technologies, and alternative solution paths.
+          representative_items:
+            - source_basis_record
+            - solution_space_record
+            - evidence_synthesis_record
+            - alternatives_record
+        - family_id: artifact_definition
+          label: Artifact Definition Items
+          function: Define artifact boundary, type, components, design specification, make logic, use logic, capacities, and version.
+          representative_items:
+            - artifact_specification
+            - artifact_ontology_record
+            - design_rationale
+            - build_transparency_record
+        - family_id: lifecycle_and_use
+          label: Lifecycle and Use Items
+          function: Preserve demonstration, implementation, use-context, maintenance, adaptation, and disposal information.
+          representative_items:
+            - demonstration_record
+            - implementation_record
+            - use_context_record
+            - maintenance_record
+            - preservation_record
+        - family_id: evaluation_and_quality
+          label: Evaluation and Quality Items
+          function: Plan, report, and review evaluation evidence for artifact utility, artifact quality, validity, reliability, and claim alignment.
+          representative_items:
+            - evaluation_plan
+            - evaluation_report
+            - evaluation_readiness_checklist
+            - reliability_record
+            - validity_record
+            - review_record
+        - family_id: contribution_and_publication
+          label: Contribution and Publication Items
+          function: Position contribution to practice and knowledge, support review, and prepare releases, registries, and publication outputs.
+          representative_items:
+            - contribution_claim
+            - contribution_positioning_record
+            - transparency_crosswalk
+            - publication_readiness_record
+            - release_record
+      dsr_specific_boundary_distinctions:
+        - distinction_id: demonstration_vs_evaluation
+          rule: >
+            Demonstration shows that an artifact can be used in a scenario or context;
+            evaluation judges artifact utility, quality, or claim adequacy against explicit criteria.
+          information_item_implication: >
+            Demonstration records and evaluation records must be separate or explicitly marked when combined.
+        - distinction_id: artifact_utility_vs_artifact_quality
+          rule: >
+            Utility concerns whether an artifact helps address the problem or achieve use goals;
+            quality concerns properties such as correctness, usability, reliability, maintainability,
+            transparency, security, or fitness for evolution.
+          information_item_implication: >
+            Evaluation plans must identify which criteria address utility and which address quality.
+        - distinction_id: artifact_instance_vs_artifact_type
+          rule: >
+            An artifact instance is a particular implementation or use occurrence; an artifact type,
+            universal, model, method, template, or design principle is the reusable knowledge object.
+          information_item_implication: >
+            Artifact specifications must identify what is being claimed as reusable and what is merely an instance or example.
+        - distinction_id: local_effect_vs_projectable_knowledge
+          rule: >
+            A local effect is evidence from a bounded setting; projectable knowledge explains what can be reused,
+            transferred, adapted, replicated, or generalized beyond that setting.
+          information_item_implication: >
+            Contribution claims must include scope, boundary conditions, and projectability limitations.
+        - distinction_id: source_basis_vs_author_assertion
+          rule: >
+            Source basis records identify evidence, traditions, literature, protocol rules, or data used to ground a claim;
+            author assertion alone is not evidence.
+          information_item_implication: >
+            Claims without mapped evidence must use evidence_status: not_yet_mapped.
+      relationship_types:
+        - id: specifies
+          definition: Source item defines requirements for target item.
+        - id: instantiates
+          definition: Target item is a concrete use of a template, schema, model, or specification.
+        - id: validates
+          definition: Source item provides validation criteria or evidence for target item.
+        - id: evidences
+          definition: Source object supports a claim, decision, review finding, or evaluation result.
+        - id: constrains
+          definition: Source item limits allowed content, form, scope, or behavior of target item.
+        - id: supersedes
+          definition: Source item replaces an earlier item or version.
+        - id: derives_from
+          definition: Source item was generated from, abstracted from, or synthesized from target item.
+
+  - id: normative_requirements
+    title: Normative Requirements
+    purpose: >
+      State mandatory, recommended, optional, and prohibited requirements for
+      DSR Framework information items and records.
+    content:
+      must:
+        - requirement_id: ii_must_common_fields
+          statement: >
+            Every controlled information item MUST include item_id, item_type,
+            title, purpose, status, version, owner, related_items, source_basis,
+            and change_history unless a schema-specific exception is declared.
+          verification: schema_or_manual_review
+        - requirement_id: ii_must_record_fields
+          statement: >
+            Every retained record MUST include record_id, record_class,
+            event_or_action, date, responsible_party, evidence, outcome,
+            related_items, and retention_rule.
+          verification: schema_or_manual_review
+        - requirement_id: ii_must_stable_ids
+          statement: >
+            Controlled items, records, claims, requirements, checks, quality gates,
+            and trace links MUST use stable lower_snake_case identifiers.
+          verification: naming_review
+        - requirement_id: ii_must_status_control
+          statement: >
+            Information item status MUST use controlled values unless the item
+            defines a narrower local enumeration.
+          allowed_values:
+            - draft
+            - in_review
+            - approved
+            - released
+            - superseded
+            - deprecated
+            - archived
+          verification: schema_or_manual_review
+        - requirement_id: ii_must_evidence_status
+          statement: >
+            Any substantive DSR claim, review finding, source-basis assertion,
+            or evaluation result MUST declare evidence_status.
+          allowed_values:
+            - mapped
+            - mapped_to_source_family
+            - partially_mapped
+            - not_yet_mapped
+            - restricted
+            - not_applicable
+          verification: traceability_review
+        - requirement_id: ii_must_separate_demonstration_and_evaluation
+          statement: >
+            Information items MUST distinguish demonstration evidence from
+            evaluation evidence, even when both occur in the same study phase.
+          verification: content_review
+        - requirement_id: ii_must_claim_scope
+          statement: >
+            Contribution, utility, quality, validity, reliability, replication,
+            projectability, and publication-readiness claims MUST state their
+            scope and limitations.
+          verification: claim_review
+        - requirement_id: ii_must_retention_rule
+          statement: >
+            Retained records MUST include a retention_rule that states why the
+            record is kept and whether it is expected to be permanent,
+            release-bound, review-bound, or supersedable.
+          verification: record_review
+        - requirement_id: ii_must_repository_placement
+          statement: >
+            Each controlled item MUST have an intended repository path or
+            path pattern aligned with the package inventory and repository
+            architecture.
+          verification: package_inventory_review
+      should:
+        - requirement_id: ii_should_template_schema_pairing
+          statement: >
+            Reusable YAML templates SHOULD have corresponding JSON Schema
+            validators when they affect conformance or review gates.
+        - requirement_id: ii_should_quality_gate_mapping
+          statement: >
+            Items that support review SHOULD map their content to explicit
+            quality gates, acceptance criteria, or checklist items.
+        - requirement_id: ii_should_plain_language_summary
+          statement: >
+            Complex technical records SHOULD include a concise plain-language
+            summary to support accessibility and interdisciplinary review.
+        - requirement_id: ii_should_trace_to_dsr_dimensions
+          statement: >
+            DSR project records SHOULD map relevant fields to process,
+            problem-space, solution-space, build, evaluation, and contribution
+            transparency dimensions.
+        - requirement_id: ii_should_preserve_boundary_conditions
+          statement: >
+            Evidence-bearing records SHOULD identify boundary conditions,
+            contextual limits, reuse conditions, and known threats to validity
+            or projectability.
+      may:
+        - requirement_id: ii_may_combine_rendered_docs
+          statement: >
+            A Markdown documentation page MAY render or explain a controlled
+            YAML item when the YAML remains the source of truth.
+        - requirement_id: ii_may_restrict_sensitive_evidence
+          statement: >
+            Restricted, proprietary, private, or security-sensitive evidence MAY
+            be represented by a metadata record, abstracted summary, or access
+            restriction note instead of full disclosure.
+        - requirement_id: ii_may_extend_item_class
+          statement: >
+            A project MAY define a local subtype of an information item if the
+            subtype preserves required fields, traceability, and conformance
+            rules.
+      must_not:
+        - requirement_id: ii_must_not_overclaim_evaluation
+          statement: >
+            An item MUST NOT label demonstration, expert opinion, or conceptual
+            argument as empirical evaluation unless explicit evaluation criteria,
+            method, and findings are present.
+        - requirement_id: ii_must_not_hide_open_questions
+          statement: >
+            An item MUST NOT present unresolved dependencies, missing evidence,
+            or unmapped source basis as settled.
+        - requirement_id: ii_must_not_make_markdown_source_of_truth
+          statement: >
+            A Markdown explanation MUST NOT be the only source of controlled
+            conformance data when validation or automation depends on that data.
+        - requirement_id: ii_must_not_break_inventory_alignment
+          statement: >
+            A generated file MUST NOT introduce paths, identifiers, or record
+            classes that cannot be represented in the package inventory.
+
+  - id: information_items
+    title: Information Items and Records
+    purpose: >
+      Define the DSR-specific controlled information item and record classes
+      governed by this architecture.
+    content:
+      common_required_fields:
+        item:
+          - item_id
+          - item_type
+          - title
+          - purpose
+          - status
+          - version
+          - owner
+          - related_items
+          - source_basis
+          - change_history
+        record:
+          - record_id
+          - record_class
+          - event_or_action
+          - date
+          - responsible_party
+          - evidence
+          - outcome
+          - related_items
+          - retention_rule
+      common_optional_fields:
+        - assumptions
+        - limitations
+        - open_questions
+        - validation_rules
+        - acceptance_criteria
+        - conformance_level
+        - evidence_status
+        - transparency_dimension_mapping
+        - responsible_design_considerations
+        - accessibility_metadata
+      controlled_information_item_classes:
+        - class_id: product_specification
+          item_type: specification
+          path_pattern: specs/product-<product-id>.yaml
+          purpose: Define a controlled product, model family, package component, or framework subsystem.
+          minimum_sections:
+            - identity_and_purpose
+            - conceptual_model
+            - normative_requirements
+            - information_items
+            - workflow
+            - quality_and_conformance
+            - traceability
+            - implementation_guidance
+            - template_or_schema_implications
+            - open_questions_and_backlog
+          primary_review_gates:
+            - qg_consistency
+            - qg_coherence
+            - qg_reviewability
+        - class_id: model
+          item_type: specification
+          path_pattern: models/<model-name>.yaml
+          purpose: Define entities, relationships, boundaries, and validation implications.
+          minimum_sections:
+            - identity
+            - entities
+            - relationships
+            - boundary_conditions
+            - validation_implications
+            - traceability
+        - class_id: vocabulary
+          item_type: specification
+          path_pattern: vocabularies/<vocabulary-name>.yaml
+          purpose: Define controlled terms, labels, definitions, allowed uses, and related terms.
+          minimum_fields:
+            - id
+            - label
+            - definition
+            - allowed_use
+            - boundary_notes
+            - related_terms
+            - source_basis
+        - class_id: schema
+          item_type: specification
+          path_pattern: schemas/<target-name>.schema.json
+          purpose: Validate corresponding YAML or JSON-compatible item types.
+          minimum_fields:
+            - $schema
+            - $id
+            - title
+            - type
+            - required
+            - properties
+            - additionalProperties
+        - class_id: template
+          item_type: specification
+          path_pattern: templates/<target-name>-template.<extension>
+          purpose: Provide reusable researcher-facing structures for producing controlled items or records.
+          minimum_fields:
+            - item_or_record_identity
+            - instructions
+            - required_fields
+            - TODO_placeholders_when_needed
+        - class_id: checklist
+          item_type: procedure
+          path_pattern: checklists/<target-name>-checklist.yaml
+          purpose: Provide reviewable pass/fail or maturity-oriented questions.
+          minimum_fields:
+            - check_id
+            - question
+            - evidence_required
+            - pass_condition
+            - fail_condition
+            - remediation_guidance
+        - class_id: documentation_page
+          item_type: description
+          path_pattern: docs/protocol/<sequence>-<topic>.md
+          purpose: Explain controlled YAML or JSON-compatible files to human users.
+          minimum_fields_or_sections:
+            - source_yaml_or_controlled_file
+            - intended_audience
+            - how_to_use
+            - related_templates
+            - review_or_conformance_notes
+      dsr_record_classes:
+        - record_class: source_basis
+          path_pattern: records/source-basis/record-source-basis-<sequence>-<slug>.yaml
+          event_or_action: corpus_or_source_basis_declared
+          purpose: Preserve the evidence base, source families, extraction corpus, and protocol sources used by the package.
+          required_evidence:
+            - source_list
+            - evidence_status
+            - citation_or_anchor_when_available
+            - scope_or_exclusion_notes
+        - record_class: design_decision
+          path_pattern: records/design-decisions/record-design-decision-<sequence>-<slug>.yaml
+          event_or_action: design_decision_made
+          purpose: Preserve design choices, alternatives, rationales, tradeoffs, and consequences.
+          required_evidence:
+            - decision_statement
+            - options_considered
+            - rationale
+            - affected_items
+            - outcome
+        - record_class: tailoring
+          path_pattern: records/tailoring/record-tailoring-<sequence>-<slug>.yaml
+          event_or_action: protocol_tailoring_declared
+          purpose: Preserve deviations, scoped exclusions, or conformance-level adaptations.
+          required_evidence:
+            - tailored_requirement
+            - rationale
+            - risk_assessment
+            - compensating_control
+        - record_class: dsr_transparency
+          path_pattern: records/dsr-transparency/record-dsr-transparency-crosswalk-<sequence>.yaml
+          event_or_action: transparency_evidence_mapped
+          purpose: Map evidence to process, problem-space, solution-space, build, evaluation, and contribution transparency.
+          required_evidence:
+            - transparency_dimension
+            - evidence_item
+            - evidence_status
+            - limitation_or_restriction
+        - record_class: contribution_positioning
+          path_pattern: records/contributions/record-contribution-positioning-<sequence>.yaml
+          event_or_action: contribution_positioned
+          purpose: Preserve contribution type, knowledge goal, knowledge scope, novelty, audience, and boundary conditions.
+          required_evidence:
+            - contribution_claims
+            - source_basis
+            - knowledge_goal
+            - knowledge_scope
+            - limitation
+        - record_class: evaluation_plan
+          path_pattern: records/evaluations/record-evaluation-plan-<sequence>.yaml
+          event_or_action: evaluation_planned
+          purpose: Preserve intended evaluation criteria, methods, evidence sources, and claim alignment.
+          required_evidence:
+            - evaluation_questions
+            - criteria
+            - methods
+            - data_or_observations
+            - claim_alignment
+        - record_class: evaluation_report
+          path_pattern: records/evaluations/record-evaluation-report-<sequence>.yaml
+          event_or_action: evaluation_completed
+          purpose: Preserve completed evaluation evidence, findings, limitations, and decisions.
+          required_evidence:
+            - evaluation_plan_reference
+            - observed_results
+            - interpretation
+            - limitations
+            - resulting_decisions
+        - record_class: review
+          path_pattern: records/reviews/record-review-<sequence>-<slug>.yaml
+          event_or_action: review_completed
+          purpose: Preserve review findings, quality gate status, remediation, and acceptance decisions.
+          required_evidence:
+            - reviewed_items
+            - gate_results
+            - reviewer
+            - findings
+            - outcome
+        - record_class: release
+          path_pattern: records/releases/record-release-<sequence>-<version>.yaml
+          event_or_action: release_declared
+          purpose: Preserve package version, contents, checksums or inventory state, release notes, and archival status.
+          required_evidence:
+            - release_version
+            - included_items
+            - package_inventory_reference
+            - review_status
+            - archival_status
+        - record_class: preservation
+          path_pattern: records/preservation/record-preservation-<sequence>-<slug>.yaml
+          event_or_action: preservation_action_completed
+          purpose: Preserve archival, DOI, registry, fixity, migration, or retention actions.
+          required_evidence:
+            - preserved_item
+            - preservation_action
+            - fixity_or_identifier
+            - retention_rule
+      dsr_project_level_items:
+        - item_id: dsr_project_charter
+          item_type: description
+          default_path: templates/dsr-project-charter-template.md
+          purpose: State the project purpose, context, artifact intent, stakeholders, and DSR identity.
+          required_trace_links:
+            - problem_and_objectives
+            - artifact_profile
+            - evaluation_plan
+        - item_id: problem_and_objectives
+          item_type: description
+          default_path: templates/problem-and-objectives-template.md
+          purpose: Define the problem context, objectives, requirements, success criteria, stakeholders, and boundary conditions.
+          required_trace_links:
+            - solution_space_record
+            - evaluation_plan
+        - item_id: solution_space_record
+          item_type: record
+          default_path: templates/solution-space-record-template.yaml
+          purpose: Record literature, prior artifacts, theories, technologies, alternatives, and grounding assumptions.
+          required_trace_links:
+            - source_basis_record
+            - design_rationale
+        - item_id: design_rationale
+          item_type: description
+          default_path: templates/design-rationale-template.md
+          purpose: Explain design decisions, alternatives, tradeoffs, and rationale.
+          required_trace_links:
+            - design_decision_records
+            - artifact_specification
+        - item_id: artifact_specification
+          item_type: description
+          default_path: templates/artifact-specification-template.md
+          purpose: Define artifact type, boundary, components, make/use logic, version, and reuse constraints.
+          required_trace_links:
+            - artifact_profile
+            - evaluation_plan
+            - contribution_claim
+        - item_id: build_transparency_record
+          item_type: record
+          default_path: templates/build-transparency-record-template.yaml
+          purpose: Record build process, design search, implementation choices, materials, and restrictions.
+          required_trace_links:
+            - design_rationale
+            - artifact_specification
+        - item_id: demonstration_record
+          item_type: record
+          default_path: templates/demonstration-record-template.yaml
+          purpose: Document artifact use in a scenario, example, prototype context, or implemented setting.
+          required_trace_links:
+            - artifact_specification
+            - evaluation_plan
+        - item_id: evaluation_plan
+          item_type: plan
+          default_path: templates/evaluation-plan-template.yaml
+          purpose: Define evaluation questions, criteria, methods, evidence, claim alignment, and limitations before evaluation.
+          required_trace_links:
+            - problem_and_objectives
+            - artifact_specification
+            - contribution_claim
+        - item_id: evaluation_report
+          item_type: report
+          default_path: templates/evaluation-report-template.yaml
+          purpose: Report evaluation results, findings, interpretation, limitations, and resulting decisions.
+          required_trace_links:
+            - evaluation_plan
+            - contribution_claim
+        - item_id: contribution_claim
+          item_type: record
+          default_path: templates/contribution-claim-template.yaml
+          purpose: State claim type, knowledge goal, knowledge scope, audience, novelty, significance, and evidence.
+          required_trace_links:
+            - artifact_specification
+            - evaluation_report
+            - contribution_positioning_record
+        - item_id: transparency_crosswalk
+          item_type: record
+          default_path: templates/dsr-transparency-crosswalk-template.yaml
+          purpose: Map each applicable DSR transparency dimension to evidence, restriction, and review status.
+          required_trace_links:
+            - source_basis_record
+            - build_transparency_record
+            - evaluation_report
+            - contribution_claim
+
+  - id: workflow
+    title: Workflow and Operating Procedure
+    purpose: >
+      Define the operating workflow for selecting, producing, reviewing, and
+      maintaining DSR information items.
+    content:
+      lifecycle:
+        - step_id: wf_01_select_conformance_level
+          step_name: Select conformance level
+          actor: dsr_researcher
+          input:
+            - intended_package_use
+            - artifact_maturity
+            - publication_or_review_need
+          output:
+            - conformance_target
+            - tailoring_record_if_needed
+        - step_id: wf_02_identify_information_items
+          step_name: Identify required information items
+          actor: dsr_researcher
+          input:
+            - artifact_profile
+            - product_catalog
+            - package_inventory
+            - conformance_declaration
+          output:
+            - selected_item_set
+            - missing_item_list
+        - step_id: wf_03_instantiate_templates
+          step_name: Instantiate templates or controlled structures
+          actor: dsr_researcher
+          input:
+            - selected_item_set
+            - template_files
+          output:
+            - draft_information_items
+            - draft_records
+        - step_id: wf_04_map_source_basis
+          step_name: Map source basis and evidence
+          actor: dsr_researcher
+          input:
+            - literature_or_corpus_sources
+            - protocol_sources
+            - project_artifacts
+            - evaluation_data
+          output:
+            - source_basis_records
+            - evidence_objects
+            - evidence_status_values
+        - step_id: wf_05_create_trace_links
+          step_name: Create trace links
+          actor: dsr_researcher
+          input:
+            - claims
+            - requirements
+            - artifact_components
+            - evidence_objects
+            - records
+          output:
+            - traceability_matrix_or_embedded_trace_links
+        - step_id: wf_06_review_quality_gates
+          step_name: Review against quality gates
+          actor: reviewer
+          input:
+            - draft_information_items
+            - traceability
+            - package_inventory
+            - conformance_declaration
+          output:
+            - review_record
+            - remediation_actions
+        - step_id: wf_07_release_or_retain
+          step_name: Release or retain records
+          actor: framework_maintainer
+          input:
+            - approved_information_items
+            - review_record
+            - package_inventory
+          output:
+            - release_record_when_applicable
+            - updated_package_inventory
+      minimum_l2_reviewable_workflow:
+        description: >
+          At L2, the architecture requires enough information for a reviewer to
+          inspect identity, scope, evidence status, traceability, quality gates,
+          and limitations without requiring full automation.
+        required_steps:
+          - wf_01_select_conformance_level
+          - wf_02_identify_information_items
+          - wf_04_map_source_basis
+          - wf_05_create_trace_links
+          - wf_06_review_quality_gates
+      change_control:
+        - rule_id: change_01_version_changes
+          rule: >
+            Any modification that changes item meaning, validation, evidence,
+            or review status must update version and change_history.
+        - rule_id: change_02_supersession
+          rule: >
+            Superseded records must remain retained unless a retention rule
+            explicitly permits replacement or removal.
+        - rule_id: change_03_identifier_stability
+          rule: >
+            Stable identifiers should not be renamed after release; use
+            supersedes or replaces trace links instead.
+
+  - id: quality_and_conformance
+    title: Quality and Conformance
+    purpose: >
+      Define acceptance criteria, validation rules, failure modes, and quality
+      gate mapping for the information item architecture.
+    content:
+      conformance_levels:
+        - level: l0_draft
+          expectation: Basic item identity and purpose are present; evidence may be unmapped.
+        - level: l1_documented
+          expectation: Required fields are present and repository placement is clear.
+        - level: l2_reviewable
+          expectation: >
+            Items include source_basis, related_items, traceability, acceptance
+            criteria, limitations, and enough evidence status for human review.
+        - level: l3_exercisable
+          expectation: >
+            Core YAML/JSON-compatible items are schema-validatable and checklists
+            can be applied reproducibly.
+        - level: l4_reusable
+          expectation: >
+            Templates, schemas, examples, and records support use across multiple
+            DSR projects with clear adaptation guidance.
+        - level: l5_archival_publication_ready
+          expectation: >
+            Release, registry, DOI, citation, preservation, fixity, and archival
+            records are complete and externally reviewable.
+      acceptance_criteria:
+        - id: ac_ii_01_structure
+          criterion: Product specification contains all standard product-spec sections.
+          evidence_required:
+            - sections.identity_and_purpose
+            - sections.conceptual_model
+            - sections.normative_requirements
+            - sections.information_items
+            - sections.workflow
+            - sections.quality_and_conformance
+            - sections.traceability
+            - sections.implementation_guidance
+            - sections.template_or_schema_implications
+            - sections.open_questions_and_backlog
+        - id: ac_ii_02_item_rules
+          criterion: Common item and record required fields are explicitly declared.
+          evidence_required:
+            - common_required_fields.item
+            - common_required_fields.record
+        - id: ac_ii_03_dsr_distinctions
+          criterion: DSR-specific distinctions are preserved in information-item rules.
+          evidence_required:
+            - demonstration_vs_evaluation
+            - artifact_utility_vs_artifact_quality
+            - artifact_instance_vs_artifact_type
+            - local_effect_vs_projectable_knowledge
+        - id: ac_ii_04_traceability
+          criterion: Trace links identify upstream dependencies and downstream implementation outputs.
+          evidence_required:
+            - traceability
+            - dependencies
+            - related_items
+        - id: ac_ii_05_reviewability
+          criterion: Quality gates and failure modes allow human review at L2.
+          evidence_required:
+            - quality_gates
+            - failure_modes
+            - remediation_guidance
+      validation_rules:
+        - rule_id: val_ii_01_yaml_parse
+          rule: File must parse as YAML 1.2-compatible structured data.
+          validation_method: automated_yaml_parser
+        - rule_id: val_ii_02_required_sections
+          rule: Required product-spec sections must be present exactly once.
+          validation_method: schema_or_manual_review
+        - rule_id: val_ii_03_identifier_style
+          rule: IDs must use lower_snake_case.
+          validation_method: regex_or_manual_review
+        - rule_id: val_ii_04_path_alignment
+          rule: Path patterns must align with repository architecture and package inventory.
+          validation_method: package_inventory_review
+        - rule_id: val_ii_05_claim_evidence_status
+          rule: Claims must not omit evidence_status or limitations.
+          validation_method: traceability_review
+      failure_modes:
+        - failure_id: fm_ii_01_uncontrolled_item
+          description: Information item lacks required identity, owner, version, or source_basis.
+          severity: high
+          remediation_guidance: Add missing common fields and validate against applicable template or schema.
+        - failure_id: fm_ii_02_record_without_retention
+          description: Retained record lacks retention_rule or outcome.
+          severity: high
+          remediation_guidance: Add retention rationale, retention duration/class, and outcome.
+        - failure_id: fm_ii_03_demonstration_evaluation_conflation
+          description: Demonstration evidence is presented as evaluation evidence.
+          severity: high
+          remediation_guidance: Separate demonstration_record and evaluation_report, or relabel evidence accurately.
+        - failure_id: fm_ii_04_unbounded_claim
+          description: Contribution or utility claim lacks scope, limitation, or boundary condition.
+          severity: medium
+          remediation_guidance: Add claim scope, evidence_status, assumptions, limitations, and projectability notes.
+        - failure_id: fm_ii_05_markdown_only_control_data
+          description: Controlled conformance data exists only in Markdown prose.
+          severity: medium
+          remediation_guidance: Move controlled data to YAML or JSON-compatible source and render it in Markdown.
+
+  - id: traceability
+    title: Traceability
+    purpose: >
+      Define source, dependency, evidence, and downstream implementation traceability
+      for the information item architecture.
+    content:
+      traceability_strategy: >
+        Traceability is embedded directly in controlled files using trace_id,
+        source_item, target_item, relationship_type, and evidence_status fields.
+        Cross-file traceability may later be extracted into crosswalks or a
+        canonical model.
+      required_trace_categories:
+        - category_id: source_trace
+          description: Links a generated item to user request, generation spec, protocol source, and DSR corpus sources.
+          required_for:
+            - product_specification
+            - model
+            - vocabulary
+            - schema
+            - checklist
+            - record
+        - category_id: claim_trace
+          description: Links DSR claims to evidence, evaluation criteria, limitations, and contribution records.
+          required_for:
+            - contribution_claim
+            - evaluation_report
+            - transparency_crosswalk
+        - category_id: requirement_trace
+          description: Links requirements to source basis, validation rules, checklists, and templates.
+          required_for:
+            - product_specification
+            - schema
+            - checklist
+        - category_id: lifecycle_trace
+          description: Links problem, objectives, artifact, build, demonstration, evaluation, contribution, review, and release records.
+          required_for:
+            - dsr_project_charter
+            - artifact_specification
+            - evaluation_plan
+            - release_record
+      trace_links:
+        - trace_id: tr_ii_001
+          source_item: dsr_framework_generation_spec.information_item_rules
+          target_item: product_dsr_information_item_architecture.information_items.common_required_fields
+          relationship_type: specifies
+          evidence_status: mapped
+        - trace_id: tr_ii_002
+          source_item: dsr_framework_generation_spec.coherence_rules.product_spec
+          target_item: product_dsr_information_item_architecture.sections
+          relationship_type: constrains
+          evidence_status: mapped
+        - trace_id: tr_ii_003
+          source_item: dsr_framework_generation_prompt.required_structures.product_spec
+          target_item: product_dsr_information_item_architecture
+          relationship_type: constrains
+          evidence_status: mapped
+        - trace_id: tr_ii_004
+          source_item: hevner_et_al_2024_transparency_in_design_science_research
+          target_item: product_dsr_information_item_architecture.dsr_transparency_records
+          relationship_type: evidences
+          evidence_status: mapped_to_source_family
+        - trace_id: tr_ii_005
+          source_item: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+          target_item: product_dsr_information_item_architecture.artifact_definition_items
+          relationship_type: evidences
+          evidence_status: mapped_to_source_family
+        - trace_id: tr_ii_006
+          source_item: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+          target_item: product_dsr_information_item_architecture.contribution_positioning_records
+          relationship_type: evidences
+          evidence_status: mapped_to_source_family
+      evidence_status_policy:
+        - status: mapped
+          meaning: Specific source, rule, or evidence object has been identified.
+        - status: mapped_to_source_family
+          meaning: Source family is identified, but exact citation anchor or line-level mapping may remain pending.
+        - status: partially_mapped
+          meaning: Some source basis is available, but dependency review is incomplete.
+        - status: not_yet_mapped
+          meaning: Evidence is required but has not yet been identified.
+        - status: restricted
+          meaning: Evidence exists but cannot be fully disclosed due to privacy, security, proprietary, or ethical constraints.
+        - status: not_applicable
+          meaning: Evidence is not applicable, with rationale required.
+
+  - id: implementation_guidance
+    title: Implementation Guidance
+    purpose: >
+      Provide practical authoring, naming, placement, validation, and maintenance
+      guidance for implementing the information item architecture in the repository.
+    content:
+      file_authoring_rules:
+        - id: impl_01_yaml_for_controlled_data
+          guidance: >
+            Use YAML for product specifications, models, vocabularies, templates,
+            checklists, records, package inventory, conformance declarations,
+            and metadata unless JSON Schema or Markdown is explicitly required.
+        - id: impl_02_markdown_for_human_guides
+          guidance: >
+            Use Markdown for explanatory protocol pages and researcher-facing
+            narrative templates where prose, tables, and instructions are the
+            primary user interface.
+        - id: impl_03_json_schema_for_validation
+          guidance: >
+            Use JSON Schema for machine-validating YAML/JSON-compatible records
+            and templates that support package conformance.
+      naming_and_identifier_rules:
+        file_names: lower-kebab-case
+        stable_ids: lower_snake_case
+        product_file_pattern: product-<product-id>.yaml
+        record_file_pattern: record-<record-class>-<sequence-or-date>.yaml
+        template_file_pattern: <target-name>-template.<extension>
+        checklist_file_pattern: <target-name>-checklist.yaml
+        sequence_guidance: >
+          Use zero-padded sequence numbers when records are ordered artifacts of
+          package development, release, review, or preservation history.
+      path_guidance:
+        specs: Controlled product specifications.
+        models: Conceptual, operational, and relationship models.
+        vocabularies: Controlled term lists.
+        schemas: JSON Schema validators.
+        templates: Reusable item and record templates.
+        checklists: Review and readiness procedures.
+        records: Retained evidence of decisions, reviews, evaluations, releases, tailoring, source basis, and preservation.
+        docs_protocol: Human-facing protocol documentation.
+        examples: Demonstration packages, not required package files.
+        crosswalks: Mappings among source traditions, protocol products, and framework constructs.
+      minimum_metadata_block:
+        required_for:
+          - product_specification
+          - model
+          - vocabulary
+          - template
+          - checklist
+          - record
+        fields:
+          - id_or_record_id
+          - title
+          - purpose
+          - status
+          - version
+          - owner_or_responsible_party
+          - source_basis
+          - related_items
+          - change_history
+      authoring_guidance_by_audience:
+        dsr_researcher:
+          - Start with artifact_profile, problem_and_objectives, solution_space_record, artifact_specification, and evaluation_plan.
+          - Add contribution_claim and transparency_crosswalk before requesting review.
+          - Use not_yet_mapped for missing evidence instead of omitting evidence fields.
+        reviewer:
+          - Check whether claims are scoped and traceable before judging contribution significance.
+          - Treat missing evidence, conflated demonstration/evaluation, and unmapped limitations as review findings.
+        maintainer:
+          - Keep templates, schemas, and checklists synchronized.
+          - Preserve backward-compatible IDs after release; use supersession links for replaced items.
+      accessibility_guidance:
+        - Include plain-language summaries for complex conceptual or technical items.
+        - Expand abbreviations on first use in documentation pages and major records.
+        - Avoid using citation anchors as the only explanation of a field.
+        - Keep YAML keys semantically meaningful for screen reader and search use.
+
+  - id: template_or_schema_implications
+    title: Template or Schema Implications
+    purpose: >
+      Identify templates, schemas, checklists, and package inventory implications
+      that should follow from this product specification.
+    content:
+      required_or_expected_templates:
+        - path: templates/solution-space-record-template.yaml
+          item_class: record
+          record_class: source_or_solution_grounding
+          priority: high
+        - path: templates/build-transparency-record-template.yaml
+          item_class: record
+          record_class: build_transparency
+          priority: high
+        - path: templates/demonstration-record-template.yaml
+          item_class: record
+          record_class: demonstration
+          priority: high
+        - path: templates/evaluation-plan-template.yaml
+          item_class: plan
+          record_class: evaluation_plan
+          priority: high
+        - path: templates/evaluation-report-template.yaml
+          item_class: report
+          record_class: evaluation_report
+          priority: high
+        - path: templates/contribution-claim-template.yaml
+          item_class: record
+          record_class: contribution_claim
+          priority: high
+        - path: templates/contribution-positioning-record-template.yaml
+          item_class: record
+          record_class: contribution_positioning
+          priority: high
+        - path: templates/dsr-transparency-crosswalk-template.yaml
+          item_class: record
+          record_class: dsr_transparency
+          priority: high
+        - path: templates/review-record-template.yaml
+          item_class: record
+          record_class: review
+          priority: medium
+      required_or_expected_schemas:
+        - path: schemas/dsr-project.schema.json
+          validates:
+            - dsr_project_record
+            - project_charter_structured_fields
+          priority: medium
+        - path: schemas/dsr-artifact.schema.json
+          validates:
+            - artifact_specification
+            - artifact_profile
+          priority: high
+        - path: schemas/dsr-evaluation-plan.schema.json
+          validates:
+            - evaluation_plan
+          priority: high
+        - path: schemas/dsr-evaluation-report.schema.json
+          validates:
+            - evaluation_report
+          priority: high
+        - path: schemas/dsr-contribution-claim.schema.json
+          validates:
+            - contribution_claim
+          priority: high
+        - path: schemas/dsr-transparency-crosswalk.schema.json
+          validates:
+            - transparency_crosswalk
+          priority: high
+      checklist_implications:
+        - path: checklists/dsr-minimum-viable-study-checklist.yaml
+          should_check:
+            - artifact identity
+            - practical problem
+            - artifact boundary
+            - build/evaluate logic
+            - contribution claim
+        - path: checklists/evaluation-readiness-checklist.yaml
+          should_check:
+            - evaluation criteria
+            - method alignment
+            - evidence availability
+            - claim alignment
+        - path: checklists/contribution-positioning-checklist.yaml
+          should_check:
+            - knowledge goal
+            - knowledge scope
+            - novelty
+            - significance
+            - boundary conditions
+        - path: checklists/dsr-transparency-crosswalk-checklist.yaml
+          should_check:
+            - process transparency
+            - problem-space transparency
+            - solution-space transparency
+            - build transparency
+            - evaluation transparency
+            - contribution transparency
+      package_inventory_implications:
+        - implication_id: inv_ii_01
+          statement: >
+            The package inventory should list each controlled information item
+            with path, item_class, required_for_conformance_level, validation
+            method, owner, and review status.
+        - implication_id: inv_ii_02
+          statement: >
+            The package inventory should distinguish required package files from
+            examples, derived documentation, optional crosswalks, and release records.
+      automation_implications:
+        - implication_id: auto_ii_01
+          statement: >
+            Automated validation should first check YAML/JSON parsing, required
+            fields, identifier patterns, allowed status values, and broken related_items.
+        - implication_id: auto_ii_02
+          statement: >
+            Higher conformance automation should check traceability completeness,
+            schema-template synchronization, and package inventory alignment.
+
+  - id: open_questions_and_backlog
+    title: Open Questions and Backlog
+    purpose: >
+      Preserve unsettled issues and future work for improving the information
+      item architecture.
+    content:
+      assumptions:
+        - assumption_id: assump_ii_01
+          statement: >
+            The local DSR Framework generation specification is sufficient for an
+            L2 reviewable draft of the information item architecture.
+          risk: >
+            The upstream documentation protocol repository may contain more
+            specific information-item requirements that should be reconciled in a
+            later revision.
+        - assumption_id: assump_ii_02
+          statement: >
+            The framework should initially use embedded traceability structures
+            rather than requiring a separate graph database or traceability tool.
+          risk: >
+            Larger packages may eventually require automated trace extraction.
+      open_questions:
+        - question_id: oq_ii_01
+          question: >
+            Which information item classes should become formal JSON Schema
+            validation targets in the first public release?
+          status: open
+          disposition_needed_by: before_l3_exercisable
+        - question_id: oq_ii_02
+          question: >
+            Should contribution claims and evaluation reports be separate files
+            in every package, or may they be combined for small L1/L2 packages?
+          status: open
+          disposition_needed_by: before_template_freeze
+        - question_id: oq_ii_03
+          question: >
+            What controlled retention durations should apply to review records,
+            tailoring records, rejected decisions, and superseded records?
+          status: open
+          disposition_needed_by: before_l4_reusable
+        - question_id: oq_ii_04
+          question: >
+            How should restricted evidence be represented so that transparency is
+            maximized without exposing privacy, security, proprietary, or ethical risks?
+          status: open
+          disposition_needed_by: before_publication_readiness_model
+      backlog:
+        - backlog_id: bl_ii_01
+          item: Create JSON Schema for common information item header fields.
+          priority: high
+          target_selection_or_path: schemas/common-information-item.schema.json
+        - backlog_id: bl_ii_02
+          item: Create record header schema and reuse it across retained records.
+          priority: high
+          target_selection_or_path: schemas/common-record.schema.json
+        - backlog_id: bl_ii_03
+          item: Create crosswalk between documentation protocol item types and DSR Framework item classes.
+          priority: medium
+          target_selection_or_path: crosswalks/documentation-protocol-to-dsr-information-items.yaml
+        - backlog_id: bl_ii_04
+          item: Add examples of completed L2 DSR records for a small demonstration package.
+          priority: medium
+          target_selection_or_path: examples/
+
+quality_gates:
+  - gate_id: qg_consistency
+    question: Does this file use required naming, item type, status, and directory conventions?
+    evidence_required:
+      - product.target_path
+      - product.item_type
+      - product.status
+      - repository path pattern alignment
+    status: pass
+    notes: >
+      File path, product ID, YAML format, and specification item type align with
+      the selected row and generation specification.
+  - gate_id: qg_coherence
+    question: Does this file align with related products, schemas, templates, records, and docs?
+    evidence_required:
+      - dependencies
+      - related_items
+      - traceability
+    status: pass_with_open_questions
+    notes: >
+      The file is coherent for L2 but marks upstream documentation protocol
+      cross-checking as partially mapped.
+  - gate_id: qg_cogency
+    question: Is this file logically ordered, usable, and free from unsupported leaps?
+    evidence_required:
+      - workflow
+      - acceptance_criteria
+      - limitations
+      - failure_modes
+    status: pass
+    notes: >
+      The file defines conceptual model, requirements, workflow, quality gates,
+      and implementation guidance.
+  - gate_id: qg_correspondence
+    question: Does this file support the intended DSR Framework artifact package?
+    evidence_required:
+      - source_basis
+      - package role
+      - conformance target
+    status: pass
+    notes: >
+      The item architecture supports package control, DSR records, evidence,
+      traceability, and reviewability.
+  - gate_id: qg_dsr_transparency
+    question: Does this file support DSR transparency dimensions as applicable?
+    evidence_required:
+      - transparency_dimension_mapping
+      - dsr_transparency_record_class
+    status: pass
+    notes: >
+      The architecture explicitly requires process, problem-space,
+      solution-space, build, evaluation, and contribution transparency mapping.
+  - gate_id: qg_reviewability
+    question: Can a reviewer evaluate this file against explicit criteria?
+    evidence_required:
+      - acceptance_criteria
+      - validation_rules
+      - failure_modes
+      - remediation_guidance
+    status: pass
+    notes: >
+      Review criteria, validation rules, and remediation guidance are present.
+
+traceability:
+  - trace_id: tr_product_ii_selection
+    source_item: dsr_framework_selection_table.spec_information_item_architecture
+    target_item: specs/product-dsr-information-item-architecture.yaml
+    relationship_type: specifies
+    evidence_status: mapped
+  - trace_id: tr_product_ii_generation_spec
+    source_item: dsr_framework_generation_spec.product_spec_rules
+    target_item: product_dsr_information_item_architecture.sections
+    relationship_type: constrains
+    evidence_status: mapped
+  - trace_id: tr_product_ii_prompt
+    source_item: dsr_framework_generation_prompt.product_spec_structure
+    target_item: product_dsr_information_item_architecture
+    relationship_type: constrains
+    evidence_status: mapped
+  - trace_id: tr_product_ii_corpus_transparency
+    source_item: hevner_et_al_2024_transparency_in_design_science_research
+    target_item: product_dsr_information_item_architecture.transparency_requirements
+    relationship_type: evidences
+    evidence_status: mapped_to_source_family
+  - trace_id: tr_product_ii_corpus_artifact
+    source_item: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+    target_item: product_dsr_information_item_architecture.artifact_definition_items
+    relationship_type: evidences
+    evidence_status: mapped_to_source_family
+  - trace_id: tr_product_ii_corpus_contribution
+    source_item: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_paths
+    target_item: product_dsr_information_item_architecture.contribution_positioning_items
+    relationship_type: evidences
+    evidence_status: mapped_to_source_family
+
+open_questions:
+  - oq_ii_01
+  - oq_ii_02
+  - oq_ii_03
+  - oq_ii_04
+
+change_history:
+  - version: "0.1.0"
+    date: "2026-04-27"
+    change_type: initial_creation
+    responsible_party: GPT-5.5 Thinking
+    summary: >
+      Created initial L2 reviewable product specification for the DSR
+      information item architecture from the selected framework portion.

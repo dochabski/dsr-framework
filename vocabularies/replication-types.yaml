@@ -1,0 +1,750 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  id: dsr_replication_types
+  item_id: vocab_replication_types
+  item_type: vocabulary
+  title: DSR Replication Types Vocabulary
+  purpose: >
+    Provide controlled terms for classifying, documenting, and reviewing replication
+    in Design Science Research (DSR), including DSR-specific replication study
+    types, broader replication scopes, and coding-status values used when a source
+    does not contain replication evidence.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  target_path: vocabularies/replication-types.yaml
+  conformance_target: l2_reviewable
+
+  source_basis:
+    - source_id: user_current_request
+      role: immediate_task_definition
+      evidence_status: user_selected
+      note: "Selected vocab_replication_types for vocabularies/replication-types.yaml."
+    - source_id: dsr_framework_generation_spec
+      role: governing_generation_specification
+      evidence_status: mapped
+      note: "Requires YAML source-of-truth controlled files, stable IDs, related items, source_basis, traceability, assumptions, open questions, and quality gates."
+    - source_id: dsr_framework_generation_prompt
+      role: governing_generation_prompt
+      evidence_status: mapped
+      note: "Specifies vocabulary entry fields: id, label, definition, allowed_use, boundary_notes, related_terms, and source_basis."
+    - source_id: brendel_et_al_2021_replication_study_types_dsr
+      role: primary_dsr_replication_typology_source
+      evidence_status: mapped
+      citation_key: brendel_et_al_2021
+      note: "Defines DSR replication around utility, design theory completeness, contextual fit, eight replication study types, and a progression framework."
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      role: transparency_and_reuse_support
+      evidence_status: mapped
+      citation_key: hevner_et_al_2024
+      note: "Supports context, boundary-condition, repository, and transparency requirements for reuse, replication, and projectability."
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      role: knowledge_accumulation_support
+      evidence_status: mapped
+      citation_key: akoka_et_al_2023
+      note: "Supports cumulative DSR knowledge development through path-based knowledge contributions."
+
+  related_items:
+    upstream_dependencies:
+      - path: models/dsr-projectability-model.yaml
+        relationship: depends_on
+        status: expected
+      - path: vocabularies/projectability-types.yaml
+        relationship: adjacent_vocabulary
+        status: expected
+      - path: vocabularies/reliability-types.yaml
+        relationship: adjacent_vocabulary
+        status: expected
+      - path: vocabularies/validity-types.yaml
+        relationship: adjacent_vocabulary
+        status: expected
+    downstream_users:
+      - path: checklists/replication-projectability-checklist.yaml
+        relationship: uses_terms
+        status: expected
+      - path: docs/protocol/09-validity-reliability-replication-projectability.md
+        relationship: explains_terms
+        status: expected
+      - path: schemas/dsr-project.schema.json
+        relationship: may_enumerate_terms
+        status: expected
+      - path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+        relationship: may_reference_terms
+        status: expected
+
+  entry_classes:
+    - id: coding_status
+      label: Coding Status
+      description: "Used when classifying whether a source or project contains replication-relevant evidence."
+    - id: brendel_replication_study_type
+      label: Brendel DSR Replication Study Type
+      description: "DSR-specific study types derived from the replication-study-type framework."
+    - id: replication_scope
+      label: Replication Scope
+      description: "Broader terms for identifying the main object or scope being replicated."
+    - id: replication_outcome
+      label: Replication Outcome
+      description: "Terms for recording the result of a replication attempt."
+
+  entries:
+    - id: no_replication_discussion
+      label: No replication discussion
+      entry_class: coding_status
+      definition: >
+        The source, project, or record does not substantively discuss replication,
+        repeatability, reproducibility, reuse through repeated study, or confidence
+        building through re-examination.
+      allowed_use: >
+        Use for corpus coding, inventory review, or quality review when replication
+        is absent or only incidentally named without usable methodological content.
+      boundary_notes: >
+        Do not use when the source provides even a limited replication claim,
+        projectability claim, reusable artifact package, or repeated-study logic;
+        use conceptual_replication, artifact_replication, or another more specific
+        term instead.
+      related_terms:
+        - conceptual_replication
+        - projectability_not_assessed
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+          note: "Existing extraction records use this value when replication discussion is absent."
+
+    - id: replication_discussion_present
+      label: Replication discussion present
+      entry_class: coding_status
+      definition: >
+        The source, project, or record contains replication-relevant discussion,
+        even if it does not conduct a replication study.
+      allowed_use: >
+        Use as a coarse review flag before assigning a specific replication type,
+        scope, or outcome.
+      boundary_notes: >
+        This is a presence indicator, not a substantive replication type. Pair it
+        with a controlled type such as test_replication, conceptual_replication,
+        theory_replication, or differentiated_replication when possible.
+      related_terms:
+        - test_replication
+        - conceptual_replication
+        - theory_replication
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+
+    - id: test_replication
+      label: Test replication
+      entry_class: brendel_replication_study_type
+      replication_level: level_i
+      definition: >
+        A focused DSR replication study that introduces an existing artifact or
+        artifact-guided solution into a similar application environment to test
+        whether the reported utility can be reproduced.
+      allowed_use: >
+        Use when the main replication question is whether the prior artifact or
+        design theory still works for a similar problem class under comparable
+        conditions.
+      boundary_notes: >
+        Distinguish from adaptation_replication, which intentionally changes the
+        artifact or context to increase utility, and from exact_replication, which
+        attempts close procedural duplication.
+      related_terms:
+        - artifact_replication
+        - utility_reproduction
+        - adaptation_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A16
+          evidence_status: mapped
+
+    - id: redesign_replication
+      label: Redesign replication
+      entry_class: brendel_replication_study_type
+      replication_level: level_i
+      definition: >
+        A focused DSR replication study that investigates whether lack of utility
+        or limited utility can be addressed by ideating or testing additional
+        design alternatives.
+      allowed_use: >
+        Use when replication evidence prompts further design search while staying
+        close to the original problem class and artifact purpose.
+      boundary_notes: >
+        Distinguish from update_replication, which revises the design theory
+        based on broader rigor-cycle or justificatory knowledge, and from
+        recreation_replication, which redoes the entire study.
+      related_terms:
+        - update_replication
+        - adaptation_replication
+        - artifact_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+
+    - id: justification_replication
+      label: Justification replication
+      entry_class: brendel_replication_study_type
+      replication_level: level_i
+      definition: >
+        A focused DSR replication study that examines whether findings from a
+        prior DSR study can be justified or generalized through additional
+        reasoning, theory grounding, or contextual explanation.
+      allowed_use: >
+        Use when the main work is to strengthen the rationale connecting artifact,
+        design theory, utility, and problem context rather than to rebuild the
+        artifact.
+      boundary_notes: >
+        Distinguish from explanation_replication, which seeks to elucidate design
+        mechanisms, and from conceptual_replication, which may re-express the
+        core idea in a different artifact or setting.
+      related_terms:
+        - explanation_replication
+        - theory_replication
+        - design_knowledge_reliability
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+
+    - id: adaptation_replication
+      label: Adaptation replication
+      entry_class: brendel_replication_study_type
+      replication_level: level_ii
+      definition: >
+        A DSR replication study that changes an artifact, implementation, or
+        contextual fit to increase utility in a related but not identical setting.
+      allowed_use: >
+        Use when the study intentionally adapts the prior design to a modified
+        problem instance, user group, organization, technology stack, or operating
+        context.
+      boundary_notes: >
+        Distinguish from test_replication, which asks whether utility reproduces
+        without major change, and from transfer_replication, which emphasizes
+        movement across settings even when artifact changes are minor.
+      related_terms:
+        - transfer_replication
+        - differentiated_replication
+        - artifact_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A15
+          evidence_status: mapped
+
+    - id: explanation_replication
+      label: Explanation replication
+      entry_class: brendel_replication_study_type
+      replication_level: level_ii
+      definition: >
+        A DSR replication study that clarifies why and how a design works by
+        examining mechanisms, design principles, contextual conditions, or design
+        theory components.
+      allowed_use: >
+        Use when replication primarily elaborates causal, instrumental, or
+        justificatory logic rather than merely re-testing utility.
+      boundary_notes: >
+        Distinguish from justification_replication, which strengthens warrants
+        for prior claims, and from theory_replication, which is broader and may
+        concern replication of the design theory as a whole.
+      related_terms:
+        - justification_replication
+        - theory_replication
+        - design_principle_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+
+    - id: update_replication
+      label: Update replication
+      entry_class: brendel_replication_study_type
+      replication_level: level_ii
+      definition: >
+        A DSR replication study that revises or updates design knowledge, design
+        theory components, or artifact guidance in response to new evidence,
+        changed environments, or improved justificatory knowledge.
+      allowed_use: >
+        Use when repeated investigation leads to a revised design proposition,
+        updated design principle, refined boundary condition, or modified artifact
+        specification.
+      boundary_notes: >
+        Distinguish from redesign_replication, which emphasizes additional
+        artifact design alternatives, and from explanation_replication, which
+        emphasizes mechanism clarification.
+      related_terms:
+        - redesign_replication
+        - theory_replication
+        - projectability_revision
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+
+    - id: recreation_replication
+      label: Recreation replication
+      entry_class: brendel_replication_study_type
+      replication_level: level_iii
+      definition: >
+        A comprehensive DSR replication study that redoes the whole study or a
+        substantially complete research cycle to reassess artifact utility,
+        design theory completeness, and contextual fit.
+      allowed_use: >
+        Use when focused replication is insufficient and the project re-executes
+        a substantial combination of relevance, design, and rigor-cycle activities.
+      boundary_notes: >
+        Distinguish from exact_replication, which emphasizes procedural sameness,
+        and from meta_replication, which synthesizes multiple replication studies
+        rather than recreating one study.
+      related_terms:
+        - exact_replication
+        - differentiated_replication
+        - meta_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A15
+          evidence_status: mapped
+
+    - id: meta_replication
+      label: Meta-replication
+      entry_class: brendel_replication_study_type
+      replication_level: meta_level
+      definition: >
+        A synthesis-oriented replication study that reviews, compares, or
+        aggregates multiple DSR artifacts, design theories, or replication
+        attempts to assess accumulated confidence and reusable knowledge.
+      allowed_use: >
+        Use for literature-based, repository-based, or evidence-synthesis work
+        that evaluates patterns across multiple replication-relevant studies.
+      boundary_notes: >
+        Do not use for a single repeated implementation unless the study explicitly
+        synthesizes across multiple prior artifacts or replications.
+      related_terms:
+        - conceptual_replication
+        - evidence_synthesis
+        - cumulative_knowledge
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A14
+          evidence_status: mapped
+
+    - id: artifact_replication
+      label: Artifact replication
+      entry_class: replication_scope
+      definition: >
+        Replication whose primary object is an artifact, artifact instance,
+        artifact specification, or artifact universal, including whether the
+        artifact can be rebuilt, reused, re-instantiated, or re-evaluated.
+      allowed_use: >
+        Use when the replication target is primarily the artifact itself rather
+        than the design theory, research method, or evaluation instrument.
+      boundary_notes: >
+        In DSR, artifact replication rarely requires exact environmental identity;
+        record context, use plan, build materials, and evaluation setting as
+        boundary conditions.
+      related_terms:
+        - test_replication
+        - adaptation_replication
+        - implementation_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_id: CA13
+          evidence_status: mapped
+
+    - id: theory_replication
+      label: Design theory replication
+      entry_class: replication_scope
+      definition: >
+        Replication whose primary object is design theory, including purpose and
+        scope, constructs, principles of form and function, artifact mutability,
+        testable propositions, or justificatory knowledge.
+      allowed_use: >
+        Use when a study re-examines whether a design theory holds, requires
+        refinement, or fits a larger or different context.
+      boundary_notes: >
+        Distinguish from artifact_replication when the artifact is merely the
+        vehicle for examining broader design knowledge.
+      related_terms:
+        - justification_replication
+        - explanation_replication
+        - update_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A11
+          evidence_status: mapped
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A12
+          evidence_status: mapped
+
+    - id: method_replication
+      label: Method replication
+      entry_class: replication_scope
+      definition: >
+        Replication whose primary object is a DSR method, procedure, algorithm,
+        practice, or design process used to produce or evaluate an artifact.
+      allowed_use: >
+        Use when the study assesses whether a documented method can be followed
+        again with similar interpretability, reliability, or utility.
+      boundary_notes: >
+        Do not use merely because the study uses the same method; use only when
+        method repeatability or method reliability is itself part of the claim.
+      related_terms:
+        - process_reliability
+        - exact_replication
+        - conceptual_replication
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+
+    - id: evaluation_replication
+      label: Evaluation replication
+      entry_class: replication_scope
+      definition: >
+        Replication whose primary object is an evaluation design, measurement
+        procedure, test environment, benchmark, scenario, or assessment claim.
+      allowed_use: >
+        Use when the study repeats or adapts evaluation activities to assess
+        whether reported artifact quality, utility, or effects can be observed
+        again.
+      boundary_notes: >
+        Distinguish from test_replication when the emphasis is the evaluation
+        method or evidence claim rather than the artifact's utility itself.
+      related_terms:
+        - test_replication
+        - evaluation_validity
+        - measurement_reliability
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+
+    - id: exact_replication
+      label: Exact replication
+      entry_class: replication_scope
+      definition: >
+        A replication attempt that seeks to reproduce a prior DSR study as closely
+        as possible in artifact, procedure, data, evaluation, environment, and
+        analysis.
+      allowed_use: >
+        Use sparingly when the replication design explicitly seeks high procedural
+        and contextual sameness.
+      boundary_notes: >
+        Exact replication is often impractical in DSR because artifacts, users,
+        organizations, technologies, and environments change. Prefer
+        test_replication or differentiated_replication when contextual difference
+        is expected and documented.
+      related_terms:
+        - recreation_replication
+        - test_replication
+        - differentiated_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A13
+          evidence_status: mapped
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_id: CA13
+          evidence_status: mapped
+
+    - id: conceptual_replication
+      label: Conceptual replication
+      entry_class: replication_scope
+      definition: >
+        A replication or reuse-oriented study that re-examines the core concept,
+        design principle, model, or mechanism in a different implementation,
+        representation, or context rather than duplicating the original procedures.
+      allowed_use: >
+        Use when the research preserves the underlying design idea or theoretical
+        proposition while changing the artifact form, implementation detail,
+        population, domain, or operational context.
+      boundary_notes: >
+        Distinguish from transfer_replication when the main emphasis is conceptual
+        re-expression rather than movement to a new setting, and from exact_replication
+        when sameness is not the goal.
+      related_terms:
+        - theory_replication
+        - differentiated_replication
+        - projectability
+      source_basis:
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          evidence_status: mapped
+
+    - id: differentiated_replication
+      label: Differentiated replication
+      entry_class: replication_scope
+      definition: >
+        A replication study that intentionally preserves selected features of a
+        prior DSR study while varying other features to examine robustness,
+        contextual fit, limits, or projectability.
+      allowed_use: >
+        Use when the study documents both what is held constant and what is varied
+        across contexts, artifact versions, participants, settings, methods, or
+        evaluation designs.
+      boundary_notes: >
+        Distinguish from adaptation_replication when the controlled variation is
+        used primarily for evidence about transfer or robustness rather than for
+        design improvement alone.
+      related_terms:
+        - adaptation_replication
+        - transfer_replication
+        - exact_replication
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_status: mapped
+        - source_id: dsr_extraction_corpus
+          evidence_status: mapped
+
+    - id: transfer_replication
+      label: Transfer replication
+      entry_class: replication_scope
+      definition: >
+        A replication study that applies an artifact, method, or design theory to
+        a new setting to assess whether design knowledge transfers across domains,
+        organizations, populations, technologies, or problem instances.
+      allowed_use: >
+        Use when the main claim concerns transferability, cross-context applicability,
+        or projectability rather than local artifact utility alone.
+      boundary_notes: >
+        Pair with adaptation_replication when transfer requires material artifact
+        or design-theory modification.
+      related_terms:
+        - projectability
+        - adaptation_replication
+        - differentiated_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A12
+          evidence_status: mapped
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          evidence_status: mapped
+
+    - id: positive_replication
+      label: Positive replication
+      entry_class: replication_outcome
+      definition: >
+        A replication attempt whose evidence increases confidence that an artifact,
+        method, evaluation finding, or design theory has reusable utility or
+        theoretical soundness under the documented conditions.
+      allowed_use: >
+        Use when evidence supports the replicated claim while preserving explicit
+        boundary conditions and limitations.
+      boundary_notes: >
+        Positive replication does not by itself imply universal generalization or
+        publication readiness.
+      related_terms:
+        - test_replication
+        - theory_replication
+        - confidence_increase
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A18
+          evidence_status: mapped
+
+    - id: negative_replication
+      label: Negative replication
+      entry_class: replication_outcome
+      definition: >
+        A replication attempt whose evidence decreases confidence in the original
+        artifact, method, evaluation finding, or design theory under the documented
+        conditions.
+      allowed_use: >
+        Use when the repeated study fails to reproduce expected utility, reveals
+        flawed boundary assumptions, or weakens the original design knowledge claim.
+      boundary_notes: >
+        Do not treat negative replication as failure of the study itself; in DSR it
+        may motivate redesign, adaptation, update, explanation, or recreation.
+      related_terms:
+        - redesign_replication
+        - adaptation_replication
+        - update_replication
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A13
+          evidence_status: mapped
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A15
+          evidence_status: mapped
+
+    - id: inconclusive_replication
+      label: Inconclusive replication
+      entry_class: replication_outcome
+      definition: >
+        A replication attempt whose evidence is insufficient, ambiguous, confounded,
+        or underpowered for increasing or decreasing confidence in the original
+        artifact, method, evaluation finding, or design theory.
+      allowed_use: >
+        Use when results require additional evidence, stronger evaluation design,
+        clearer boundary conditions, or transition to another replication type.
+      boundary_notes: >
+        Pair with limitation records and open questions. Do not convert
+        inconclusive evidence into a positive or negative claim without further
+        support.
+      related_terms:
+        - recreation_replication
+        - explanation_replication
+        - evaluation_validity
+      source_basis:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          citation_anchor_id: A15
+          evidence_status: mapped
+
+  classification_rules:
+    - rule_id: repl_rule_001
+      rule: >
+        Assign the most specific DSR replication study type when the project aligns
+        with Test, Redesign, Justification, Adaptation, Explanation, Update,
+        Recreation, or Meta-Replication.
+      rationale: "Specific terms support reviewability and comparability across DSR projects."
+    - rule_id: repl_rule_002
+      rule: >
+        Pair a study type with a replication_scope term when the target of
+        replication matters for interpretation.
+      rationale: "A test may target an artifact, theory, method, or evaluation claim."
+    - rule_id: repl_rule_003
+      rule: >
+        Record boundary conditions, contextual differences, artifact version,
+        evaluation design, and evidence strength for every non-status replication
+        term.
+      rationale: "DSR replication depends on time, context, artifact form, and use environment."
+    - rule_id: repl_rule_004
+      rule: >
+        Do not claim generalization, reproducibility, or reuse beyond the evidence
+        generated by the replication study.
+      rationale: "Replication evidence supports projectability only when scope and limits are documented."
+
+  validation_rules:
+    - rule_id: repl_validation_001
+      requirement: "Every vocabulary entry must have id, label, entry_class, definition, allowed_use, boundary_notes, related_terms, and source_basis."
+      severity: error
+    - rule_id: repl_validation_002
+      requirement: "Entry ids must use lower_snake_case."
+      severity: error
+    - rule_id: repl_validation_003
+      requirement: "entry_class must be one of coding_status, brendel_replication_study_type, replication_scope, or replication_outcome."
+      severity: error
+    - rule_id: repl_validation_004
+      requirement: "Claims about source-backed DSR replication types must include a mapped source_basis entry or evidence_status: not_yet_mapped."
+      severity: warning
+    - rule_id: repl_validation_005
+      requirement: "Replication outcomes must not be used without evidence or a review record."
+      severity: warning
+
+  acceptance_criteria:
+    - criterion_id: repl_acceptance_001
+      criterion: "The vocabulary can normalize DSR replication discussion in source-basis records and project records."
+      evidence_required:
+        - "At least one coding-status term."
+        - "At least one DSR-specific replication typology source."
+        - "Boundary notes distinguishing exact, conceptual, differentiated, adaptation, and transfer replication."
+    - criterion_id: repl_acceptance_002
+      criterion: "The vocabulary supports the projectability model without overclaiming generalization."
+      evidence_required:
+        - "Explicit boundary-condition rules."
+        - "Outcome terms separated from study-type terms."
+        - "Related-items links to projectability vocabulary and checklist."
+    - criterion_id: repl_acceptance_003
+      criterion: "The vocabulary remains reviewable as an L2 controlled vocabulary."
+      evidence_required:
+        - "Stable IDs."
+        - "Traceability entries."
+        - "Validation rules."
+        - "Open questions."
+
+  traceability:
+    - trace_id: trace_vocab_replication_001
+      source: user_current_request
+      target: vocabularies/replication-types.yaml
+      relationship: selected_generation_target
+      evidence_status: user_selected
+    - trace_id: trace_vocab_replication_002
+      source: dsr_framework_selection_table
+      target: vocab_replication_types
+      relationship: defines_path_type_conformance_dependency
+      evidence_status: mapped
+    - trace_id: trace_vocab_replication_003
+      source: dsr_framework_generation_prompt
+      target: vocabulary.entries
+      relationship: defines_required_vocabulary_entry_shape
+      evidence_status: mapped
+    - trace_id: trace_vocab_replication_004
+      source: brendel_et_al_2021_replication_study_types_dsr
+      target: entries
+      relationship: supplies_core_replication_typology
+      evidence_status: mapped
+    - trace_id: trace_vocab_replication_005
+      source: models/dsr-projectability-model.yaml
+      target: entries
+      relationship: upstream_model_dependency
+      evidence_status: not_yet_mapped
+
+  quality_gate_alignment:
+    qg_consistency:
+      status: pass
+      evidence: "Uses lower-kebab-case target path and lower_snake_case stable identifiers."
+    qg_coherence:
+      status: pass
+      evidence: "Links to projectability, reliability, validity, documentation, checklist, and schema items."
+    qg_cogency:
+      status: pass
+      evidence: "Separates coding status, DSR study types, replication scopes, and replication outcomes."
+    qg_correspondence:
+      status: pass
+      evidence: "Supports a reviewable DSR Framework vocabulary for replication and projectability."
+    qg_dsr_transparency:
+      status: pass
+      evidence: "Requires boundary conditions, context, artifact versioning, evaluation design, and evidence limits."
+    qg_reviewability:
+      status: pass
+      evidence: "Includes acceptance criteria and validation rules."
+
+  assumptions:
+    - assumption_id: repl_assumption_001
+      statement: >
+        The projectability model will consume these terms directly or through a
+        future schema enumeration.
+      review_status: needs_confirmation_after_model_freeze
+    - assumption_id: repl_assumption_002
+      statement: >
+        Brendel et al.'s eight DSR replication study types should be treated as
+        the core DSR-specific typology while broader scope terms support corpus
+        coding and crosswalks.
+      review_status: reviewable
+
+  open_questions:
+    - question_id: repl_open_001
+      question: "Should exact_replication remain in the DSR vocabulary as a rare boundary case or be moved to an external replication crosswalk?"
+      disposition: unresolved
+    - question_id: repl_open_002
+      question: "Should future schemas require both a study_type and a replication_scope for every replication record?"
+      disposition: unresolved
+    - question_id: repl_open_003
+      question: "Should positive_replication, negative_replication, and inconclusive_replication be represented as outcome values in a separate vocabulary?"
+      disposition: unresolved
+
+  limitations:
+    - limitation_id: repl_limit_001
+      statement: >
+        This vocabulary is a controlled terminology artifact, not a complete
+        replication procedure or evaluation protocol.
+    - limitation_id: repl_limit_002
+      statement: >
+        Several terms are operational normalizations for the DSR Framework and
+        require further review against the finalized projectability model and schemas.
+    - limitation_id: repl_limit_003
+      statement: >
+        Source-backed evidence is mapped at the source and citation-anchor level,
+        not as a complete bibliographic systematic review in this file.
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: "Initial L2 reviewable draft generated for vocab_replication_types."
+      changed_by: "GPT-5.5 Thinking"

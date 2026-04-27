@@ -1,0 +1,1630 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_artifact_ontology_model
+  selection_id: model_artifact_ontology
+  title: DSR Artifact Ontology and Boundary Model
+  item_type: specification
+  output_format: yaml
+  status: draft
+  version: 0.1.0
+  conformance_target: l2_reviewable
+  file_path: models/dsr-artifact-ontology.yaml
+  purpose: 'Define the controlled artifact ontology for the DSR Framework, including artifact entities, abstraction levels,
+    make/use structure, boundary rules, artifact-instance treatment, artifact-network context, validation implications, and
+    traceability to the DSR corpus.
+
+    '
+  owner: dsr_framework_maintainers
+  responsible_roles:
+  - framework_author
+  - ontology_maintainer
+  - schema_maintainer
+  - reviewer
+  source_basis:
+  - source_id: dsr_framework_generation_prompt
+    role: generation_procedure_and_required_model_shape
+    evidence_status: mapped
+    relevant_requirements:
+    - infer selected path and output format from selection_id
+    - use YAML for models
+    - include metadata, traceability, quality and conformance material
+    - preserve DSR-specific distinctions
+  - source_id: dsr_framework_generation_spec
+    role: repository_rules_quality_gates_and_conformance
+    evidence_status: mapped
+    relevant_requirements:
+    - controlled files use YAML or JSON-compatible structured formats
+    - models reside in models
+    - controlled files include source_basis, related_items, and traceability
+    - models must be reviewable against explicit quality gates
+  - source_id: weigand_johannesson_andersson_2021_101878
+    role: primary_artifact_ontology_source
+    evidence_status: mapped
+    citation_anchor_ids:
+    - A01
+    - A03
+    - A08
+    - A09
+    - A10
+    - A11
+    - A12
+    - A13
+    - A14
+    - A15
+    - A16
+    - A17
+    - A18
+    - A19
+    - A20
+    - A21
+  - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+    role: knowledge_contribution_and_path_model_source
+    evidence_status: mapped
+    citation_anchor_ids:
+    - A02
+    - A05
+    - A07
+    - A08
+    - A09
+    - A10
+    - A13
+    - A14
+    - A15
+    - A16
+  - source_id: hevner_et_al_2024_transparency_in_design_science_research
+    role: transparency_and_reporting_alignment_source
+    evidence_status: mapped
+    citation_anchor_ids:
+    - CA01
+    - CA04
+    - CA05
+    - CA06
+    - CA07
+    - CA08
+    - CA09
+    - CA10
+    - CA11
+    - CA13
+    - CA16
+  dependencies:
+    upstream:
+    - id: vocab_artifact_types
+      path: vocabularies/artifact-types.yaml
+      dependency_type: controlled_vocabulary
+      expected_status: draft_or_later
+    - id: model_canonical
+      path: models/dsr-framework-canonical-model.yaml
+      dependency_type: entity_relationship_parent_model
+      expected_status: draft_or_later
+    - id: model_lifecycle
+      path: models/dsr-lifecycle-model.yaml
+      dependency_type: lifecycle_alignment_model
+      expected_status: draft_or_later
+    - id: spec_dsr_lifecycle_contribution
+      path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+      dependency_type: product_specification
+      expected_status: draft_or_later
+    downstream:
+    - id: schema_dsr_artifact
+      path: schemas/dsr-artifact.schema.json
+      dependency_type: schema_validation_target
+    - id: template_artifact_specification
+      path: templates/artifact-specification-template.md
+      dependency_type: human_facing_template
+    - id: docs_artifact_ontology
+      path: docs/protocol/05-artifact-ontology.md
+      dependency_type: documentation_render
+    - id: checklist_minimum_dsr
+      path: checklists/dsr-minimum-viable-study-checklist.yaml
+      dependency_type: checklist_consumer
+    - id: checklist_package_readiness
+      path: checklists/artifact-package-readiness-checklist.yaml
+      dependency_type: checklist_consumer
+  related_items:
+  - id: models/dsr-framework-canonical-model.yaml
+    relation: constrains_entity_definitions
+  - id: models/dsr-lifecycle-model.yaml
+    relation: aligns_artifact_entities_to_lifecycle_stages
+  - id: models/dsr-contribution-model.yaml
+    relation: connects_artifact_to_contribution_claims
+  - id: models/dsr-evaluation-alignment-model.yaml
+    relation: connects_artifact_claims_to_evaluation_evidence
+  - id: models/dsr-transparency-model.yaml
+    relation: connects_artifact_documentation_to_transparency_dimensions
+  - id: vocabularies/artifact-types.yaml
+    relation: supplies_controlled_artifact_type_labels
+  - id: schemas/dsr-artifact.schema.json
+    relation: validates_records_based_on_this_model
+  assumptions:
+  - id: asm_artifact_universal_as_canonical_object
+    statement: 'For reviewable DSR documentation, the canonical research artifact is treated as a reusable artifact universal
+      or design-knowledge object, while artifact instances, prototypes, deployments, and demonstrations are modeled as evidence-bearing
+      instantiations unless a vocabulary entry intentionally treats instantiation as the reported artifact type.
+
+      '
+    rationale: 'This reconciles the strict artifact-universal position with common DSR reporting practice that lists instantiations
+      as artifact types.
+
+      '
+  - id: asm_broader_dsr_vocabularies_allowed
+    statement: 'The ontology allows broader DSR artifact categories such as constructs, models, methods, instantiations, frameworks,
+      taxonomies, ontologies, templates, checklists, algorithms, software, and socio-technical systems, provided the artifact
+      record states its abstraction level and boundary.
+
+      '
+    rationale: 'DSR literature uses multiple artifact taxonomies; the framework should support classification while preserving
+      boundary clarity.
+
+      '
+  non_goals:
+  - id: ng_not_a_full_foundational_ontology
+    statement: 'This model does not fully reproduce Unified Foundational Ontology or OntoUML; it operationalizes DSR-relevant
+      distinctions for repository records, schemas, templates, and review.
+
+      '
+  - id: ng_not_an_empirical_evaluation_model
+    statement: 'This model does not replace the evaluation-alignment model; it only identifies what artifact claims require
+      evaluation evidence.
+
+      '
+  - id: ng_not_a_complete_ai_artifact_theory
+    statement: 'This model does not settle the ontology of artificial-intelligence systems, adaptive models, or generative
+      systems; these remain governed by explicit boundary records and future extensions.
+
+      '
+artifact_ontology:
+  governing_position:
+    id: artifact_ontology_governing_position
+    summary: 'A DSR artifact is a designed object of inquiry that must be documented at an explicit abstraction level, connected
+      to a practical problem and design knowledge contribution, described by a design specification where applicable, bounded
+      from its context, and evaluated or made evaluable through demonstration, testing, use, or other evidence.
+
+      '
+    strict_core: 'The strict core treats the DSR artifact as an artifact universal: a reusable artifact kind or type identified
+      by a design specification, make plan, use plan, and capacity specification.
+
+      '
+    pragmatic_extension: 'The pragmatic extension allows repository records to describe artifact instances, prototypes, deployments,
+      and documentary artifacts when these are the concrete evidence through which the artifact universal, design principle,
+      method, or design theory is demonstrated or evaluated.
+
+      '
+    review_implication: 'Reviewers must be able to tell whether the submission claims contribution from the artifact kind,
+      a particular instance, the evaluation evidence, or a resulting design-knowledge abstraction.
+
+      '
+  abstraction_levels:
+  - id: artifact_universal
+    label: Artifact universal
+    definition: 'A reusable artifact kind or type identified by its design specification, capacities, make plan, use plan,
+      and intended effect rather than by one physical or digital implementation.
+
+      '
+    allowed_use: 'Use for the main DSR artifact when the contribution is intended to be reusable, projectable, adaptable,
+      or generalizable beyond one local implementation.
+
+      '
+    boundary_notes: 'Do not use for a single deployment unless the record abstracts that deployment into a reusable artifact
+      specification.
+
+      '
+    required_fields:
+    - artifact_id
+    - artifact_type
+    - design_specification
+    - make_plan
+    - use_plan
+    - capacity_specification
+    - intended_use_effect
+    - boundary_conditions
+    - evidence_links
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A09
+    - weigand_johannesson_andersson_2021_101878:A17
+  - id: artifact_instance
+    label: Artifact instance
+    definition: 'A concrete realization, implementation, prototype, deployment, example, or material/digital object that instantiates
+      or evidences an artifact universal or design specification.
+
+      '
+    allowed_use: 'Use for prototypes, software builds, implemented procedures, deployment packages, demonstrations, or example
+      cases.
+
+      '
+    boundary_notes: 'An instance can be the object of demonstration or evaluation, but a DSR contribution claim should state
+      whether knowledge is claimed only about this instance or about a reusable artifact kind.
+
+      '
+    required_fields:
+    - instance_id
+    - instantiates_artifact_id
+    - environment
+    - version_or_build
+    - use_context
+    - evaluation_or_demonstration_records
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A17
+    - weigand_johannesson_andersson_2021_101878:A18
+  - id: design_knowledge_object
+    label: Design knowledge object
+    definition: 'A generalized knowledge product derived from artifact design, use, evaluation, abstraction, or comparison,
+      such as a design principle, design theory, rule, pattern, method, framework, or taxonomy.
+
+      '
+    allowed_use: 'Use when the contribution is primarily propositional, methodological, theoretical, or prescriptive rather
+      than an executable or material artifact alone.
+
+      '
+    boundary_notes: 'Do not confuse the design knowledge object with the artifact instance that helped generate or evaluate
+      it.
+
+      '
+    required_fields:
+    - knowledge_object_id
+    - knowledge_goal
+    - knowledge_scope
+    - associated_artifact_ids
+    - evidence_basis
+    source_basis:
+    - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A05
+    - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A08
+  - id: artifact_network
+    label: Artifact network
+    definition: 'A bounded network of interacting artifacts, components, infrastructures, users, organizational practices,
+      use plans, make plans, and contextual dependencies within which a focal artifact is designed, used, maintained, or evaluated.
+
+      '
+    allowed_use: 'Use when the artifact depends on surrounding systems, workflows, standards, institutional structures, data
+      pipelines, platforms, or complementary artifacts.
+
+      '
+    boundary_notes: 'The network is not automatically the artifact. The focal artifact and network context must be distinguished.
+
+      '
+    required_fields:
+    - focal_artifact_id
+    - network_boundary
+    - dependent_artifacts
+    - contextual_conditions
+    - integration_assumptions
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A14
+  controlled_entities:
+  - id: dsr_artifact
+    label: DSR artifact
+    entity_type: root_entity
+    definition: 'A designed object, specification, method, model, system, or design knowledge object produced or refined through
+      DSR to address a practical problem and contribute to reusable or reviewable knowledge.
+
+      '
+    required_attributes:
+    - artifact_id
+    - artifact_name
+    - artifact_type
+    - abstraction_level
+    - purpose
+    - problem_alignment
+    - design_specification_status
+    - evaluation_status
+    - contribution_claim_ids
+    - boundary_conditions
+    optional_attributes:
+    - materiality
+    - version
+    - artifact_network
+    - responsible_roles
+    - source_basis
+    - reuse_constraints
+    - maintenance_status
+    validation_rule_ids:
+    - vr_artifact_has_type
+    - vr_artifact_has_boundary
+    - vr_artifact_claims_are_evidence_linked
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A17
+    - hevner_et_al_2024_transparency_in_design_science_research:CA04
+  - id: design_specification
+    label: Design specification
+    entity_type: specification_entity
+    definition: 'The structured description that identifies the artifact universal by specifying what is to be made, how it
+      is made, how it is used, and what capacities or effects it is expected to have.
+
+      '
+    required_attributes:
+    - specification_id
+    - associated_artifact_id
+    - make_plan_id
+    - use_plan_id
+    - capacity_specification_id
+    - acceptance_criteria
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A09
+    - weigand_johannesson_andersson_2021_101878:A15
+  - id: make_plan
+    label: Make plan
+    entity_type: design_component
+    definition: 'The design component that specifies composition, structure, construction, assembly, configuration, production,
+      or generation logic for producing an artifact instance or implementation candidate.
+
+      '
+    required_attributes:
+    - make_plan_id
+    - associated_artifact_id
+    - inputs
+    - construction_steps
+    - resources_or_tools
+    - make_goal
+    - capacity_tests
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A09
+    - weigand_johannesson_andersson_2021_101878:A11
+  - id: use_plan
+    label: Use plan
+    entity_type: design_component
+    definition: 'The design component that specifies intended users, use conditions, practices, interaction logic, operating
+      context, and the intended use effect of an artifact.
+
+      '
+    required_attributes:
+    - use_plan_id
+    - associated_artifact_id
+    - intended_users
+    - use_conditions
+    - use_steps
+    - use_goal
+    - intended_use_effect
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A09
+    - weigand_johannesson_andersson_2021_101878:A12
+  - id: capacity_specification
+    label: Capacity specification
+    entity_type: design_component
+    definition: 'A structured statement of the capacities, dispositions, functions, affordances, or performance potentials
+      that the artifact is expected to possess and that can be tested, demonstrated, or evaluated.
+
+      '
+    required_attributes:
+    - capacity_specification_id
+    - associated_artifact_id
+    - capacity_statements
+    - observable_indicators
+    - test_or_evaluation_methods
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A08
+    - weigand_johannesson_andersson_2021_101878:A11
+  - id: make_context
+    label: Make context
+    entity_type: context_entity
+    definition: 'The context in which the artifact is constructed, configured, generated, tested for capacities, or otherwise
+      brought into a candidate state.
+
+      '
+    required_attributes:
+    - context_id
+    - resources
+    - constraints
+    - tools
+    - maker_roles
+    - capacity_testing_conditions
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A11
+    - weigand_johannesson_andersson_2021_101878:A12
+  - id: use_context
+    label: Use context
+    entity_type: context_entity
+    definition: 'The bounded situation in which an artifact is used by intended or actual users, including use conditions,
+      practices, organizational setting, complementary artifacts, and environmental constraints.
+
+      '
+    required_attributes:
+    - context_id
+    - users
+    - use_conditions
+    - practice_description
+    - environmental_conditions
+    - artifact_network_boundary
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A12
+    - weigand_johannesson_andersson_2021_101878:A13
+  - id: use_effect
+    label: Use effect
+    entity_type: outcome_entity
+    definition: 'The effect intended to follow from executing the use plan under specified use conditions.
+
+      '
+    required_attributes:
+    - effect_id
+    - associated_artifact_id
+    - use_plan_id
+    - expected_effect
+    - observed_effect
+    - evidence_id
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A13
+    - weigand_johannesson_andersson_2021_101878:A15
+  - id: usage_effect
+    label: Usage effect
+    entity_type: outcome_entity
+    definition: 'The broader effect that emerges from artifact use within actual practice, mediated by users, context, workflows,
+      organizational behavior, and artifact networks.
+
+      '
+    required_attributes:
+    - effect_id
+    - associated_artifact_id
+    - practice_context
+    - attribution_limits
+    - observed_outcomes
+    - evaluation_evidence
+    boundary_notes: 'Usage effects must not be attributed to the artifact alone unless the evaluation design justifies that
+      attribution.
+
+      '
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A13
+  - id: design_conversation
+    label: Design conversation
+    entity_type: process_entity
+    definition: 'The communicative and decision-making interaction among designers, users, makers, evaluators, and other stakeholders
+      through which requirements, design objects, make plans, use plans, and revisions are formed.
+
+      '
+    required_attributes:
+    - conversation_id
+    - participating_roles
+    - design_questions
+    - decisions
+    - requirements
+    - resulting_design_objects
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A10
+    - weigand_johannesson_andersson_2021_101878:A16
+  - id: artifact_boundary
+    label: Artifact boundary
+    entity_type: boundary_entity
+    definition: 'A structured declaration of what is inside the focal artifact, what is context, what is evidence, what is
+      excluded, and what remains ambiguous or future work.
+
+      '
+    required_attributes:
+    - boundary_id
+    - focal_artifact_id
+    - included_elements
+    - excluded_elements
+    - contextual_elements
+    - ambiguous_elements
+    - boundary_rationale
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A05
+    - weigand_johannesson_andersson_2021_101878:A06
+    - weigand_johannesson_andersson_2021_101878:A21
+  - id: evaluation_evidence
+    label: Evaluation evidence
+    entity_type: evidence_entity
+    definition: 'Evidence generated through testing, demonstration, analysis, expert review, field use, simulation, experiment,
+      comparison, or other methods that supports artifact quality, utility, capacity, use-effect, or contribution claims.
+
+      '
+    required_attributes:
+    - evidence_id
+    - associated_artifact_id
+    - evaluated_claim_id
+    - method_family
+    - setting
+    - result_summary
+    - limitations
+    source_basis:
+    - weigand_johannesson_andersson_2021_101878:A11
+    - hevner_et_al_2024_transparency_in_design_science_research:CA10
+  - id: contribution_claim
+    label: Contribution claim
+    entity_type: claim_entity
+    definition: 'A structured claim that identifies what knowledge contribution follows from the artifact, artifact instance,
+      design process, evaluation, or abstraction.
+
+      '
+    required_attributes:
+    - claim_id
+    - associated_artifact_id
+    - contribution_type
+    - knowledge_goal
+    - knowledge_scope
+    - evidence_links
+    - boundary_conditions
+    source_basis:
+    - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A05
+    - akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A14
+  artifact_type_classes:
+  - id: construct
+    label: Construct
+    parent_class: design_knowledge_object
+    definition: 'A concept, term, variable, category, or representation used to describe or reason about a problem, solution,
+      artifact, or design domain.
+
+      '
+    typical_evidence:
+    - definition
+    - boundary_notes
+    - examples
+    - coding_rules
+    boundary_notes: 'A construct is not the same as a complete model or method, but may be a component of either.
+
+      '
+  - id: model
+    label: Model
+    parent_class: design_knowledge_object
+    definition: 'A structured representation of entities, relationships, processes, states, variables, mechanisms, or design-relevant
+      phenomena.
+
+      '
+    typical_evidence:
+    - diagram_or_structured_schema
+    - entity_definitions
+    - relationship_definitions
+    - validation_notes
+    boundary_notes: 'A model may be explanatory, prescriptive, computational, conceptual, or operational; the record must
+      state its function.
+
+      '
+  - id: method
+    label: Method
+    parent_class: design_knowledge_object
+    definition: 'A procedural artifact specifying activities, sequencing, decision rules, inputs, outputs, roles, or techniques
+      for achieving a design or research purpose.
+
+      '
+    typical_evidence:
+    - procedure_steps
+    - inputs_outputs
+    - role_responsibilities
+    - demonstration_or_evaluation_records
+    boundary_notes: 'A method must be distinguished from one project workflow instance that applies the method.
+
+      '
+  - id: instantiation
+    label: Instantiation
+    parent_class: artifact_instance
+    definition: 'A concrete implementation, prototype, example, deployment, or realized instance of an artifact type, design
+      specification, method, model, or system.
+
+      '
+    typical_evidence:
+    - implementation_files
+    - screenshots_or_demo_records
+    - build_records
+    - use_records
+    - evaluation_results
+    boundary_notes: 'An instantiation can be essential evidence but should not be the only artifact description when the DSR
+      contribution is intended to be reusable or projectable.
+
+      '
+  - id: design_theory
+    label: Design theory
+    parent_class: design_knowledge_object
+    definition: 'A structured body of prescriptive and explanatory design knowledge that specifies constructs, principles,
+      mechanisms, scope, boundary conditions, and expected outcomes for a class of design problems.
+
+      '
+    typical_evidence:
+    - constructs
+    - principles
+    - scope_conditions
+    - justificatory_knowledge
+    - evaluation_evidence
+    boundary_notes: 'A design theory is not merely a scientific explanatory model; it should include prescriptive design guidance
+      or theory-for-design content.
+
+      '
+  - id: framework
+    label: Framework
+    parent_class: design_knowledge_object
+    definition: 'An organizing structure that defines major components, dimensions, relationships, decision points, or categories
+      for understanding or operating within a DSR problem or solution space.
+
+      '
+    typical_evidence:
+    - dimensions
+    - relationships
+    - operating_guidance
+    - example_application
+    boundary_notes: 'A framework should state whether it is classificatory, procedural, explanatory, evaluative, or integrative.
+
+      '
+  - id: taxonomy
+    label: Taxonomy
+    parent_class: design_knowledge_object
+    definition: 'A controlled classification system that partitions or organizes artifact types, contribution types, evaluation
+      methods, or related DSR entities.
+
+      '
+    typical_evidence:
+    - entries
+    - definitions
+    - allowed_use
+    - boundary_notes
+    - classification_rules
+    boundary_notes: 'A taxonomy should include decision rules sufficient for consistent classification.
+
+      '
+  - id: ontology
+    label: Ontology
+    parent_class: design_knowledge_object
+    definition: 'A formal or semi-formal representation of entity types, relationships, constraints, and meanings in a domain.
+
+      '
+    typical_evidence:
+    - entities
+    - relationships
+    - constraints
+    - competency_questions
+    - validation_rules
+    boundary_notes: 'An ontology is stronger than a loose glossary because it constrains relationships and intended interpretations.
+
+      '
+  - id: guideline
+    label: Guideline
+    parent_class: design_knowledge_object
+    definition: 'A prescriptive or advisory artifact that supports action selection, design decisions, evaluation preparation,
+      reporting, or review.
+
+      '
+    typical_evidence:
+    - guidance_statement
+    - use_context
+    - rationale
+    - limitations
+    boundary_notes: 'A guideline should not be treated as mandatory unless adopted as a normative requirement in a specification
+      or checklist.
+
+      '
+  - id: template
+    label: Template
+    parent_class: documentary_artifact
+    definition: 'A reusable document or structured file pattern that guides production of a recurring DSR information item.
+
+      '
+    typical_evidence:
+    - required_fields
+    - instructions
+    - TODO_placeholders
+    - validation_notes
+    boundary_notes: 'A template is an artifact when it encodes a reusable form of work, not merely when it is an empty file.
+
+      '
+  - id: checklist
+    label: Checklist
+    parent_class: documentary_artifact
+    definition: 'A review or readiness artifact containing ordered checks, evidence requirements, pass conditions, fail conditions,
+      and remediation guidance.
+
+      '
+    typical_evidence:
+    - check_id
+    - question
+    - evidence_required
+    - pass_condition
+    - remediation_guidance
+    boundary_notes: 'A checklist should have reviewable criteria, not only reminders.
+
+      '
+  - id: schema
+    label: Schema
+    parent_class: technical_symbolic_artifact
+    definition: 'A machine-readable validation artifact that constrains structure, field presence, allowed values, data types,
+      and additional-properties behavior.
+
+      '
+    typical_evidence:
+    - json_schema
+    - required_fields
+    - enumerations
+    - validation_examples
+    boundary_notes: 'A schema validates records; it does not itself prove artifact quality.
+
+      '
+  - id: software_or_code
+    label: Software or code
+    parent_class: technical_artifact
+    definition: 'Executable, interpretable, or machine-processable code that implements a method, model, algorithm, workflow,
+      interface, automation, or system.
+
+      '
+    typical_evidence:
+    - source_code
+    - build_or_runtime_environment
+    - tests
+    - documentation
+    - version_history
+    boundary_notes: 'Software must be distinguished from the design knowledge it embodies and from the organizational context
+      in which it is deployed.
+
+      '
+  - id: algorithm
+    label: Algorithm
+    parent_class: technical_symbolic_artifact
+    definition: 'A finite or otherwise specified procedure for transforming inputs into outputs according to rules or computational
+      logic.
+
+      '
+    typical_evidence:
+    - pseudocode_or_code
+    - input_output_contract
+    - complexity_or_performance_claims
+    - tests
+    boundary_notes: 'An algorithm may be a design artifact even when not packaged as an application.
+
+      '
+  - id: socio_technical_system
+    label: Socio-technical system
+    parent_class: mixed_artifact_or_artifact_network
+    definition: 'A designed arrangement involving technical components, human roles, practices, policies, workflows, data,
+      and organizational structures.
+
+      '
+    typical_evidence:
+    - system_boundary
+    - technical_components
+    - social_or_organizational_components
+    - use_context
+    - governance_or_operating_rules
+    boundary_notes: 'Use cautiously: the record must distinguish the focal designed artifact from the broader social system
+      or organizational environment.
+
+      '
+  - id: documentary_artifact
+    label: Documentary artifact
+    parent_class: symbolic_artifact
+    definition: 'A text, file, record, protocol, policy, report, or documentation object intentionally designed to support
+      research, design, review, governance, or reuse.
+
+      '
+    typical_evidence:
+    - structured_content
+    - intended_audience
+    - use_plan
+    - version_history
+    boundary_notes: 'A document is a DSR artifact only when it is intentionally designed and evaluated or positioned as part
+      of a design contribution.
+
+      '
+  materiality_classes:
+  - id: conceptual_only
+    label: Conceptual only
+    definition: 'The artifact exists as a conceptual, formal, or symbolic structure and does not require a specific physical
+      or deployed implementation.
+
+      '
+    examples:
+    - construct
+    - model
+    - taxonomy
+    - ontology
+    - design_theory
+  - id: documentary
+    label: Documentary
+    definition: 'The artifact is embodied in a human-readable or machine-readable document, template, record, schema, checklist,
+      or guide.
+
+      '
+    examples:
+    - protocol
+    - checklist
+    - template
+    - schema
+  - id: digital
+    label: Digital
+    definition: 'The artifact is embodied in software, code, data structures, applications, repositories, digital workflows,
+      or other digital forms.
+
+      '
+    examples:
+    - software_tool
+    - algorithm
+    - application
+    - database_schema
+  - id: physical
+    label: Physical
+    definition: 'The artifact has a physical material realization whose properties are central to its use or evaluation.
+
+      '
+    examples:
+    - device
+    - physical_prototype
+    - instrument
+  - id: socio_technical
+    label: Socio-technical
+    definition: 'The artifact is inseparable from a designed configuration of technical components, roles, routines, governance,
+      and human practices.
+
+      '
+    examples:
+    - operating_model
+    - workflow_system
+    - technology_enabled_process
+  - id: mixed
+    label: Mixed
+    definition: 'The artifact combines conceptual, documentary, digital, physical, or socio-technical dimensions.
+
+      '
+    examples:
+    - framework_with_templates_and_code
+    - method_with_software_support
+    - intervention_package
+  relationships:
+  - id: rel_identified_by
+    subject_entity: dsr_artifact
+    predicate: identified_by
+    object_entity: design_specification
+    cardinality: one_or_more_when_artifact_is_reusable
+    definition: 'A reusable DSR artifact is identified by one or more design specifications that make its form, function,
+      capacities, and use logic explicit.
+
+      '
+    validation_implication: 'If abstraction_level is artifact_universal, design_specification is required unless explicitly
+      waived with a boundary rationale.
+
+      '
+  - id: rel_has_make_plan
+    subject_entity: design_specification
+    predicate: has_make_plan
+    object_entity: make_plan
+    cardinality: one_or_more
+    definition: 'A design specification includes at least one make plan indicating how an artifact instance or implementation
+      candidate can be produced.
+
+      '
+    validation_implication: 'A missing make plan requires either artifact_type conceptual_only or an explicit rationale that
+      the artifact is purely classificatory or theoretical.
+
+      '
+  - id: rel_has_use_plan
+    subject_entity: design_specification
+    predicate: has_use_plan
+    object_entity: use_plan
+    cardinality: one_or_more
+    definition: 'A design specification includes at least one use plan indicating how the artifact is to be used to produce
+      an intended use effect.
+
+      '
+    validation_implication: 'A missing use plan blocks full artifact readiness unless the artifact is explicitly marked non-operational
+      or exploratory.
+
+      '
+  - id: rel_has_capacity_specification
+    subject_entity: design_specification
+    predicate: has_capacity_specification
+    object_entity: capacity_specification
+    cardinality: one_or_more
+    definition: 'A design specification identifies expected capacities, affordances, functions, or dispositions that link
+      make plan and use plan.
+
+      '
+    validation_implication: 'At least one capacity or intended function must be stated for artifact quality or utility claims.
+
+      '
+  - id: rel_instantiated_as
+    subject_entity: artifact_universal
+    predicate: instantiated_as
+    object_entity: artifact_instance
+    cardinality: zero_or_more
+    definition: 'An artifact universal may be realized as one or more artifact instances, prototypes, deployments, example
+      files, or implementations.
+
+      '
+    validation_implication: 'Evaluation based on an instance must link results back to the artifact universal or state that
+      findings are instance-specific.
+
+      '
+  - id: rel_conforms_to
+    subject_entity: artifact_instance
+    predicate: conforms_to
+    object_entity: design_specification
+    cardinality: zero_or_one_or_more
+    definition: 'An artifact instance can be checked against a design specification to determine whether the intended structure,
+      capacities, and use logic are present.
+
+      '
+    validation_implication: 'Conformance claims require evidence such as inspection, tests, schema validation, build records,
+      or review.
+
+      '
+  - id: rel_tested_in_make_context
+    subject_entity: artifact_instance
+    predicate: tested_in
+    object_entity: make_context
+    cardinality: zero_or_more
+    definition: 'The artifact candidate is tested in the make context to verify whether it possesses specified capacities.
+
+      '
+    validation_implication: 'Capacity claims should cite testing or verification evidence.
+
+      '
+  - id: rel_used_in_use_context
+    subject_entity: artifact_instance
+    predicate: used_in
+    object_entity: use_context
+    cardinality: zero_or_more
+    definition: 'The artifact instance is used or demonstrated under specified use conditions by intended or actual users.
+
+      '
+    validation_implication: 'Utility claims require use context or a justified artificial evaluation setting.
+
+      '
+  - id: rel_produces_use_effect
+    subject_entity: use_plan
+    predicate: produces_or_targets
+    object_entity: use_effect
+    cardinality: one_or_more
+    definition: 'Executing a use plan under specified conditions targets or produces a use effect that satisfies a use goal.
+
+      '
+    validation_implication: 'Use-effect claims must identify expected effect, observed effect, and evaluation evidence or
+      evidence_status.
+
+      '
+  - id: rel_usage_effect_mediated_by_practice
+    subject_entity: usage_effect
+    predicate: mediated_by
+    object_entity: use_context
+    cardinality: one_or_more
+    definition: 'Broader usage effects are mediated by practice, context, users, complementary artifacts, and organizational
+      routines.
+
+      '
+    validation_implication: 'Broader impact claims require explicit attribution limits and contextual boundary conditions.
+
+      '
+  - id: rel_embedded_in_network
+    subject_entity: dsr_artifact
+    predicate: embedded_in
+    object_entity: artifact_network
+    cardinality: zero_or_more
+    definition: 'Artifacts may be embedded in networks of other artifacts, infrastructures, standards, practices, and systems.
+
+      '
+    validation_implication: 'Socio-technical and information-system artifacts should identify their focal boundary and network
+      dependencies.
+
+      '
+  - id: rel_generates_design_knowledge
+    subject_entity: evaluation_evidence
+    predicate: supports
+    object_entity: contribution_claim
+    cardinality: zero_or_more
+    definition: 'Evaluation, demonstration, use, or analysis evidence supports claims about artifact utility, quality, or
+      contribution to design knowledge.
+
+      '
+    validation_implication: 'Contribution claims must not be accepted as reviewable without evidence links or an explicit
+      not_yet_evaluated status.
+
+      '
+  - id: rel_participates_in_design_conversation
+    subject_entity: designer_or_user_or_maker
+    predicate: participates_in
+    object_entity: design_conversation
+    cardinality: zero_or_more
+    definition: 'Designers, users, makers, evaluators, and reviewers may participate in design conversations that shape requirements,
+      make plans, use plans, and artifact revisions.
+
+      '
+    validation_implication: 'Stakeholder involvement claims must identify roles, stage, and evidence of participation.
+
+      '
+  boundary_model:
+    boundary_dimensions:
+    - id: human_intentionality
+      label: Human intentionality
+      boundary_question: 'Was the object intentionally designed, selected, configured, or constructed for a purpose relevant
+        to the DSR problem?
+
+        '
+      include_when:
+      - intentional_design_or_configuration_is_documented
+      - artifact_purpose_is_explicit
+      exclude_when:
+      - object_is_natural_or_accidental_without_design_role
+      - object_is_only_background_context
+    - id: practical_problem_alignment
+      label: Practical problem alignment
+      boundary_question: 'Does the artifact address, structure, evaluate, or improve a practical problem or class of problems?
+
+        '
+      include_when:
+      - artifact_is_mapped_to_problem_objectives
+      - artifact_has_stated_use_or_intervention_logic
+      exclude_when:
+      - artifact_has_no_link_to_problem_space_or_use
+    - id: design_specification_completeness
+      label: Design specification completeness
+      boundary_question: 'Is the artifact described sufficiently for review, reuse, adaptation, implementation, or evaluation?
+
+        '
+      include_when:
+      - make_plan_or_equivalent_structure_is_present
+      - use_plan_or_equivalent_operation_logic_is_present
+      - capacities_or_expected_effects_are_present
+      exclude_when:
+      - object_is_named_but_not_specified
+      - only_a_result_or_outcome_is_reported
+    - id: abstraction_and_projectability
+      label: Abstraction and projectability
+      boundary_question: 'Does the artifact record distinguish local instance, reusable type, design knowledge, and intended
+        scope of transfer or generalization?
+
+        '
+      include_when:
+      - abstraction_level_is_declared
+      - knowledge_scope_is_declared
+      - boundary_conditions_are_declared
+      exclude_when:
+      - contribution_claim_depends_on_hidden_generalization
+    - id: evaluation_linkage
+      label: Evaluation linkage
+      boundary_question: 'Are capacity, utility, quality, use-effect, or contribution claims connected to demonstration, testing,
+        evaluation, or evidence status?
+
+        '
+      include_when:
+      - claims_have_evidence_links
+      - unevaluated_claims_are_marked_with_status
+      exclude_when:
+      - strong_utility_or_quality_claims_have_no_evidence
+    - id: context_separation
+      label: Artifact-context separation
+      boundary_question: 'Does the artifact record distinguish focal artifact, artifact network, use context, stakeholder
+        practice, and environmental constraints?
+
+        '
+      include_when:
+      - focal_artifact_is_named
+      - surrounding_network_or_context_is_named
+      - attribution_limits_are_stated
+      exclude_when:
+      - organization_or_entire_system_is_called_artifact_without_boundary
+    inclusion_rules:
+    - id: br_include_reusable_design_specification
+      statement: 'Include a designed object as a DSR artifact when it has a stated artifact type, purpose, boundary, and design
+        specification sufficient for review or reuse.
+
+        '
+      severity: required
+    - id: br_include_instance_as_evidence
+      statement: 'Include prototypes, deployments, examples, and implementations as artifact instances when they provide demonstration,
+        testing, or evaluation evidence for a reusable artifact or design claim.
+
+        '
+      severity: required
+    - id: br_include_symbolic_artifacts
+      statement: 'Include textual, documentary, schema, model, method, and software objects when they are intentionally designed
+        and function as artifacts in the DSR package.
+
+        '
+      severity: allowed
+    - id: br_include_socio_technical_with_boundary
+      statement: 'Include socio-technical artifacts only when the focal designed arrangement is distinguished from its broader
+        organizational and environmental context.
+
+        '
+      severity: required_for_socio_technical_artifacts
+    exclusion_rules:
+    - id: br_exclude_natural_objects
+      statement: 'Do not classify natural objects as DSR artifacts unless the DSR object is the designed representation, intervention,
+        instrument, or use plan involving that object.
+
+        '
+      severity: required
+    - id: br_exclude_unspecified_local_solution
+      statement: 'Do not treat a one-off local solution as a reviewable DSR artifact if it lacks design specification, evaluation
+        trace, or contribution positioning.
+
+        '
+      severity: required
+    - id: br_exclude_theory_as_artifact_without_design_role
+      statement: 'Do not call a scientific theory itself the artifact unless the theory is explicitly designed as a prescriptive
+        design-theory artifact or is embodied in a designed model, method, or framework.
+
+        '
+      severity: required
+    - id: br_exclude_organization_as_artifact_by_default
+      statement: 'Do not treat an organization, social structure, belief, promise, or entire context as an artifact by default;
+        identify the designed artifact, artifact network, or socio-technical arrangement instead.
+
+        '
+      severity: required
+    - id: br_exclude_impact_claim_without_attribution
+      statement: 'Do not attribute broad usage effects or organizational outcomes to the artifact alone unless the evaluation
+        design supports that attribution.
+
+        '
+      severity: required
+    ambiguous_case_rules:
+    - id: ac_information_system
+      case_label: Information system
+      classification_guidance: 'Model the focal information-system artifact as a bounded technical or socio-technical artifact
+        and separately document users, practices, organizational structures, data, platforms, and neighboring artifacts as
+        use context or artifact network.
+
+        '
+    - id: ac_instantiation
+      case_label: Instantiation or prototype
+      classification_guidance: 'Model the prototype as artifact_instance and identify the artifact universal, design specification,
+        method, model, or design knowledge that it instantiates or evidences.
+
+        '
+    - id: ac_dataset
+      case_label: Dataset
+      classification_guidance: 'Treat a dataset as a DSR artifact only when intentionally designed as part of the solution,
+        evidence apparatus, benchmark, schema, or reusable information artifact. Otherwise treat it as input, evidence, or
+        context.
+
+        '
+    - id: ac_ai_or_adaptive_system
+      case_label: AI or adaptive system
+      classification_guidance: 'Identify model, training pipeline, prompting method, evaluation harness, interface, governance
+        rule, and deployment as separate or networked artifacts where necessary. State adaptation, versioning, reproducibility,
+        and monitoring boundaries.
+
+        '
+    - id: ac_text_or_protocol
+      case_label: Text, protocol, checklist, or template
+      classification_guidance: 'Treat as documentary or symbolic artifact if intentionally designed to structure action, validation,
+        communication, governance, or reuse.
+
+        '
+    - id: ac_law_policy_or_contract
+      case_label: Law, policy, or contract
+      classification_guidance: 'Treat as symbolic/documentary artifact only when it is the designed intervention or reusable
+        governance artifact under study; otherwise it is context, constraint, or source material.
+
+        '
+  lifecycle_alignment:
+  - lifecycle_stage: problem_framing
+    artifact_ontology_focus:
+    - identify_focal_artifact_candidate
+    - distinguish_problem_context_from_artifact
+    - declare intended users and stakeholders
+    required_outputs:
+    - artifact_boundary_preliminary
+    - practical_problem_alignment
+  - lifecycle_stage: solution_grounding
+    artifact_ontology_focus:
+    - identify prior artifact types
+    - locate artifact in existing artifact network
+    - identify design knowledge and justificatory knowledge
+    required_outputs:
+    - artifact_type_selection
+    - prior_artifact_crosswalk
+    - solution_space_boundary
+  - lifecycle_stage: design_specification
+    artifact_ontology_focus:
+    - specify make plan
+    - specify use plan
+    - specify capacities
+    - define artifact universal or artifact instance role
+    required_outputs:
+    - design_specification
+    - make_plan
+    - use_plan
+    - capacity_specification
+  - lifecycle_stage: build_or_instantiation
+    artifact_ontology_focus:
+    - produce implementation candidate
+    - record conformance to make plan
+    - record artifact instance metadata
+    required_outputs:
+    - build_record
+    - artifact_instance_record
+    - conformance_evidence
+  - lifecycle_stage: demonstration
+    artifact_ontology_focus:
+    - demonstrate artifact in artificial or naturalistic context
+    - distinguish demonstration from evaluation
+    - document scenario and users
+    required_outputs:
+    - demonstration_record
+    - use_context_record
+  - lifecycle_stage: evaluation
+    artifact_ontology_focus:
+    - test capacities
+    - assess use effects
+    - assess usage effects with attribution limits
+    - link evaluation evidence to claims
+    required_outputs:
+    - evaluation_plan
+    - evaluation_report
+    - claim_evidence_links
+  - lifecycle_stage: contribution_positioning
+    artifact_ontology_focus:
+    - distinguish artifact utility from artifact quality and knowledge contribution
+    - state knowledge goal and scope
+    - identify contribution type
+    required_outputs:
+    - contribution_claim
+    - contribution_positioning_record
+  - lifecycle_stage: release_and_reuse
+    artifact_ontology_focus:
+    - package artifact files
+    - state reuse constraints
+    - identify maintenance and lifecycle status
+    required_outputs:
+    - artifact_package_inventory
+    - reuse_guidance
+    - maintenance_status
+validation_implications:
+  schema_targets:
+  - schema_id: schema_dsr_artifact
+    path: schemas/dsr-artifact.schema.json
+    validation_purpose: 'Validate DSR artifact records against required identity, type, boundary, design-specification, evaluation,
+      and traceability fields.
+
+      '
+    required_top_level_fields:
+    - artifact_id
+    - artifact_name
+    - artifact_type
+    - abstraction_level
+    - materiality
+    - purpose
+    - problem_alignment
+    - design_specification
+    - artifact_boundary
+    - contribution_claims
+    - evaluation_status
+    - source_basis
+    - related_items
+    conditional_requirements:
+    - condition: abstraction_level == artifact_universal
+      required_fields:
+      - design_specification.make_plan
+      - design_specification.use_plan
+      - design_specification.capacity_specification
+      - artifact_boundary
+    - condition: abstraction_level == artifact_instance
+      required_fields:
+      - instantiates_or_evidences
+      - version_or_build
+      - use_context
+      - demonstration_or_evaluation_records
+    - condition: artifact_type == socio_technical_system
+      required_fields:
+      - focal_artifact_boundary
+      - artifact_network
+      - attribution_limits
+    - condition: contribution_claims not empty
+      required_fields:
+      - contribution_claims[].knowledge_goal
+      - contribution_claims[].knowledge_scope
+      - contribution_claims[].evidence_status
+  validation_rules:
+  - id: vr_artifact_has_type
+    title: Artifact type is controlled
+    rule_type: enumeration
+    statement: 'artifact_type must use a controlled entry from vocabularies/artifact-types.yaml or a documented extension
+      entry in the artifact record.
+
+      '
+    severity: error
+    remediation: 'Select a controlled artifact type or add an extension entry with label, definition, allowed use, boundary
+      notes, and source basis.
+
+      '
+  - id: vr_artifact_has_abstraction_level
+    title: Artifact abstraction level is declared
+    rule_type: required_field
+    statement: 'Every artifact record must state whether it describes an artifact universal, artifact instance, design knowledge
+      object, artifact network, or mixed/multi-level artifact.
+
+      '
+    severity: error
+    remediation: 'Add abstraction_level and explain whether the record''s claims concern a reusable artifact type, one implementation,
+      or design knowledge.
+
+      '
+  - id: vr_artifact_has_boundary
+    title: Artifact boundary is explicit
+    rule_type: required_field
+    statement: 'Every artifact record must identify included elements, excluded elements, contextual elements, and ambiguous
+      or future-work elements.
+
+      '
+    severity: error
+    remediation: 'Add artifact_boundary with included_elements, excluded_elements, contextual_elements, ambiguous_elements,
+      and boundary_rationale.
+
+      '
+  - id: vr_design_specification_complete_or_waived
+    title: Design specification is complete or waived
+    rule_type: conditional_required_field
+    statement: 'Reusable artifacts must include make plan, use plan, and capacity specification unless the artifact record
+      includes an explicit waiver and rationale.
+
+      '
+    severity: error
+    remediation: 'Add design specification components or record a justified exception for conceptual-only or exploratory artifacts.
+
+      '
+  - id: vr_instance_links_to_universal_or_claim
+    title: Artifact instance links to universal or claim
+    rule_type: relationship
+    statement: 'Every artifact instance must identify the artifact universal, design specification, method, model, or contribution
+      claim it instantiates or evidences.
+
+      '
+    severity: error
+    remediation: 'Add instantiates_artifact_id, evidences_claim_id, or boundary rationale.
+
+      '
+  - id: vr_claims_have_evidence_status
+    title: Claims have evidence status
+    rule_type: traceability
+    statement: 'Artifact utility, artifact quality, and contribution claims must include evidence links or evidence_status
+      values.
+
+      '
+    severity: error
+    remediation: 'Link to demonstration/evaluation evidence or mark the claim as not_yet_evaluated, evidence_status: not_yet_mapped,
+      or out_of_scope.
+
+      '
+  - id: vr_demonstration_distinguished_from_evaluation
+    title: Demonstration and evaluation are distinguished
+    rule_type: semantic_consistency
+    statement: 'Demonstration records must not be treated as evaluation evidence unless the record specifies evaluation criteria,
+      data, method, and result.
+
+      '
+    severity: warning
+    remediation: 'Separate demonstration_record from evaluation_report or add evaluation criteria and evidence.
+
+      '
+  - id: vr_usage_effect_attribution_limited
+    title: Usage-effect attribution is limited
+    rule_type: validity_guardrail
+    statement: 'Claims about organizational or practice-level usage effects must state attribution limits and contextual mediators.
+
+      '
+    severity: warning
+    remediation: 'Add use_context, artifact_network, confounders, and attribution_limits.
+
+      '
+  - id: vr_artifact_network_bounded
+    title: Artifact network is bounded
+    rule_type: boundary_rule
+    statement: 'If artifact_network is used, the focal artifact and network boundary must be declared.
+
+      '
+    severity: warning
+    remediation: 'Add focal_artifact_id, network_boundary, dependent_artifacts, and contextual_conditions.
+
+      '
+quality_and_conformance:
+  conformance_level: l2_reviewable
+  acceptance_criteria:
+  - id: ac_model_metadata_complete
+    criterion: 'The model contains stable identity, purpose, status, version, owner, source_basis, dependencies, related_items,
+      and change_history.
+
+      '
+    pass_condition: all_required_metadata_fields_present
+  - id: ac_entities_defined
+    criterion: 'The model defines controlled artifact entities and their required attributes.
+
+      '
+    pass_condition: controlled_entities_contains_root_and_component_entities
+  - id: ac_relationships_defined
+    criterion: 'The model defines relationships among artifact, design specification, make/use plans, instances, contexts,
+      effects, evaluation evidence, and contribution claims.
+
+      '
+    pass_condition: relationships_are_typed_and_have_validation_implications
+  - id: ac_boundaries_defined
+    criterion: 'The model provides inclusion, exclusion, and ambiguous-case boundary rules.
+
+      '
+    pass_condition: boundary_model_contains_dimensions_and_rules
+  - id: ac_validation_implications_defined
+    criterion: 'The model states schema targets, conditional requirements, and validation rules.
+
+      '
+    pass_condition: validation_implications_are_present_and_actionable
+  - id: ac_traceability_defined
+    criterion: 'The model links substantive ontology claims to source families and citation anchors where available.
+
+      '
+    pass_condition: traceability_contains_source_ids_and_evidence_status
+  review_questions:
+  - id: rq_artifact_instance_vs_universal
+    question: 'Can the reviewer distinguish artifact universal, artifact instance, design knowledge object, and artifact network
+      in the record?
+
+      '
+    evidence_required:
+    - abstraction_level
+    - artifact_boundary
+    - design_specification
+  - id: rq_make_use_capacity_trace
+    question: 'Are make plan, use plan, and capacity specification traceable to claims and evidence?
+
+      '
+    evidence_required:
+    - make_plan
+    - use_plan
+    - capacity_specification
+    - claim_evidence_links
+  - id: rq_context_attribution
+    question: 'Are use effects and broader usage effects distinguished with attribution limits?
+
+      '
+    evidence_required:
+    - use_context
+    - use_effect
+    - usage_effect
+    - attribution_limits
+  - id: rq_artifact_type_boundary
+    question: 'Does the artifact type fit the controlled vocabulary and boundary rules?
+
+      '
+    evidence_required:
+    - artifact_type
+    - allowed_use
+    - boundary_notes
+    - classification_rationale
+  quality_gate_status:
+    qg_consistency:
+      status: pass
+      rationale: 'The file uses the models directory, lower-kebab-case filename, YAML format, controlled status, and stable
+        lower_snake_case identifiers.
+
+        '
+    qg_coherence:
+      status: pass
+      rationale: 'The model links to canonical, lifecycle, contribution, evaluation, transparency, artifact-type vocabulary,
+        schema, template, and docs products without redefining their full scope.
+
+        '
+    qg_cogency:
+      status: pass
+      rationale: 'The model proceeds from governing position to entities, artifact types, relationships, boundaries, lifecycle
+        alignment, and validation rules.
+
+        '
+    qg_correspondence:
+      status: pass
+      rationale: 'The model corresponds to the selected artifact ontology and boundary model purpose and supports reviewable
+        DSR artifact packages.
+
+        '
+    qg_dsr_transparency:
+      status: pass
+      rationale: 'The model supports problem-space, solution-space, build, evaluation, contribution, and reporting transparency
+        through required artifact metadata, boundary records, design specifications, evaluation links, and contribution claims.
+
+        '
+    qg_reviewability:
+      status: pass
+      rationale: 'The model includes acceptance criteria, review questions, validation rules, and evidence requirements.
+
+        '
+traceability:
+- trace_id: tr_selection_to_model
+  from: dsr-framework-selection-table:model_artifact_ontology
+  to: models/dsr-artifact-ontology.yaml
+  relation: selected_generation_target
+  evidence_status: mapped
+- trace_id: tr_generation_prompt_to_model_shape
+  from: dsr_framework_generation_prompt:model_files
+  to: model:dsr_artifact_ontology_model
+  relation: governs_model_structure
+  evidence_status: mapped
+- trace_id: tr_generation_spec_to_repository_rules
+  from: dsr_framework_generation_spec:repository_architecture
+  to: model:file_path
+  relation: governs_repository_placement
+  evidence_status: mapped
+- trace_id: tr_weigand_to_artifact_universal
+  from: weigand_johannesson_andersson_2021_101878:A17
+  to: artifact_ontology.abstraction_levels.artifact_universal
+  relation: primary_evidence_for_strict_core
+  evidence_status: mapped
+- trace_id: tr_weigand_to_make_use_capacity
+  from: weigand_johannesson_andersson_2021_101878:A09
+  to: artifact_ontology.controlled_entities.design_specification
+  relation: supports_make_use_capacity_structure
+  evidence_status: mapped
+- trace_id: tr_weigand_to_capacity_testing
+  from: weigand_johannesson_andersson_2021_101878:A11
+  to: validation_implications.validation_rules.vr_design_specification_complete_or_waived
+  relation: supports_capacity_testing_requirement
+  evidence_status: mapped
+- trace_id: tr_weigand_to_use_context
+  from: weigand_johannesson_andersson_2021_101878:A13
+  to: artifact_ontology.controlled_entities.usage_effect
+  relation: supports_use_vs_usage_effect_distinction
+  evidence_status: mapped
+- trace_id: tr_weigand_to_network
+  from: weigand_johannesson_andersson_2021_101878:A14
+  to: artifact_ontology.abstraction_levels.artifact_network
+  relation: supports_artifact_network_model
+  evidence_status: mapped
+- trace_id: tr_akoka_to_design_knowledge
+  from: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr:A07
+  to: artifact_ontology.abstraction_levels.design_knowledge_object
+  relation: supports_knowledge_path_and_design_knowledge_modeling
+  evidence_status: mapped
+- trace_id: tr_hevner_transparency_to_reporting
+  from: hevner_et_al_2024_transparency_in_design_science_research:CA16
+  to: quality_and_conformance.qg_dsr_transparency
+  relation: supports_transparency_mapping
+  evidence_status: mapped
+open_questions:
+- id: oq_non_technical_artifacts
+  question: 'How broadly should the framework recognize non-technical artifacts such as laws, contracts, policies, organizational
+    structures, and social practices?
+
+    '
+  current_treatment: 'Allowed only when a focal designed symbolic, documentary, procedural, or socio-technical artifact boundary
+    is explicit.
+
+    '
+  evidence_status: partially_mapped
+- id: oq_ai_adaptive_artifacts
+  question: 'How should adaptive AI systems, generated artifacts, prompts, models, training pipelines, and monitoring systems
+    be decomposed into artifact records?
+
+    '
+  current_treatment: 'Treated as ambiguous cases requiring explicit versioning, boundaries, reproducibility notes, monitoring
+    assumptions, and artifact-network decomposition.
+
+    '
+  evidence_status: not_yet_mapped
+- id: oq_instantiation_vocabulary_alignment
+  question: 'Should instantiation remain a first-class artifact type in the artifact vocabulary or be represented only as
+    an artifact instance under this ontology?
+
+    '
+  current_treatment: 'Retain instantiation as a vocabulary entry for compatibility, but require records to distinguish instance
+    evidence from reusable artifact claims.
+
+    '
+  evidence_status: mapped
+- id: oq_formal_ontology_export
+  question: 'Should a future version export this YAML model to OWL, RDF, SHACL, or OntoUML-compatible formats?
+
+    '
+  current_treatment: 'Out of scope for L2 reviewable model, but compatible with future schema and knowledge-graph work.
+
+    '
+  evidence_status: not_yet_mapped
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: initial_creation
+  responsible_party: GPT-5.5 Thinking
+  summary: 'Created initial L2 reviewable DSR artifact ontology and boundary model for the requested model_artifact_ontology
+    selection.
+
+    '
+  source_request: user_current_request
+source_basis:
+- source_id: weigand_johannesson_andersson_2021_101878
+  short_citation: Weigand, Johannesson, and Andersson 2021
+  evidence_anchor_id: A17
+  supports_construct: artifact_ontology.ontology
+  evidence_role: typology
+  grounding_decision: adopted
+  evidence_status: substantive
+  target_path: models/dsr-artifact-ontology.yaml
+  note: 'Weigand, Johannesson, and Andersson 2021 grounds artifact_ontology.ontology through extracted anchor A17: Defines
+    the DSR artifact as an artifact universal with make plan, use plan, and capacity specification.'
+- source_id: bagni_godinho_filho_finne_thurer_2025_dsr_om_single_type
+  short_citation: Bagni et al. (2025)
+  evidence_anchor_id: A12
+  supports_construct: artifact_ontology.taxonomy
+  evidence_role: typology
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-artifact-ontology.yaml
+  note: 'Bagni et al. (2025) grounds artifact_ontology.taxonomy through extracted anchor A12: Refines Design Science Research
+    consensus for operations management by empirically distinguishing application-focused and application-plus-theory Design
+    Science Research types.'

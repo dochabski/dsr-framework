@@ -1,0 +1,642 @@
+# SPDX-License-Identifier: CC0-1.0
+package_inventory:
+  item_id: "TODO: package_inventory_<package_slug>_v0_1_0"
+  item_type: "record"
+  record_id: "TODO: record_package_inventory_<package_slug>_v0_1_0"
+  record_class: "package_inventory"
+  title: "TODO: Package Inventory for <package title>"
+  purpose: >
+    Inventory package files, directories, validation responsibilities, conformance
+    roles, and traceability obligations for a Design Science Research artifact
+    package or related documentation-protocol package.
+  status: "draft"
+  version: "0.1.0"
+  owner:
+    role: "TODO: package_owner"
+    name: "TODO: <owner name or team>"
+    contact: "TODO: <contact or repository issue URL>"
+  date_created: "TODO: YYYY-MM-DD"
+  date_last_reviewed: "TODO: YYYY-MM-DD"
+
+  template_guidance:
+    template_id: "template_package_inventory"
+    template_path: "templates/package-inventory-template.yaml"
+    intended_output_path: "package-inventory.yaml"
+    conformance_target: "l2_reviewable"
+    use_instructions:
+      - "Copy this template to package-inventory.yaml at the package root."
+      - "Replace every TODO value with package-specific information before release."
+      - "Keep inventory entries synchronized with repository changes."
+      - "For each file, identify the validation method, validation owner, schema or checklist if applicable, and conformance role."
+      - "Do not mark files as released until required validation evidence is present."
+    placeholder_policy:
+      required_placeholder_prefix: "TODO:"
+      release_rule: "No TODO placeholders may remain in a released package inventory unless the open question explicitly permits deferred completion."
+
+  package_identity:
+    package_id: "TODO: <stable_package_id>"
+    package_title: "TODO: <package title>"
+    package_version: "TODO: 0.1.0"
+    package_class:
+      primary: "TODO: compound_dsr_artifact"
+      secondary:
+        - "TODO: method_or_protocol_artifact"
+    repository_url: "TODO: <repository URL or not_yet_assigned>"
+    canonical_root: "."
+    release_id: "TODO: <release id or not_yet_released>"
+    license: "TODO: <license identifier>"
+    conformance_target: "l2_reviewable"
+    publication_status: "draft"
+
+  source_basis:
+    - source_id: "user_current_request"
+      relationship: "immediate_task_definition"
+      evidence_status: "mapped"
+      notes: "The user selected template_package_inventory for generation."
+    - source_id: "dsr_framework_generation_spec"
+      relationship: "generation_rules_and_repository_conventions"
+      evidence_status: "mapped"
+      notes: "Governs naming, controlled item metadata, traceability, quality gates, and completion reporting."
+    - source_id: "dsr_framework_generation_prompt"
+      relationship: "generation_procedure_and_template_rules"
+      evidence_status: "mapped"
+      notes: "Requires templates to be directly usable and to use TODO placeholders only when project-specific facts are required."
+    - source_id: "schema_package_inventory"
+      relationship: "validation_schema"
+      path: "schemas/package-inventory.schema.json"
+      evidence_status: "not_yet_mapped"
+      notes: "Update this record after the package inventory schema is generated or approved."
+    - source_id: "documentation_protocol_repository"
+      relationship: "governing_documentation_protocol"
+      evidence_status: "not_yet_mapped"
+      notes: "Map to exact protocol source once the repository-specific source-basis record is finalized."
+    - source_id: "dsr_extraction_corpus"
+      relationship: "scholarly_and_methodological_evidence_base"
+      evidence_status: "not_yet_mapped"
+      notes: "Use only for DSR-specific traceability claims; do not invent bibliographic evidence."
+
+  related_items:
+    upstream_dependencies:
+      - item_id: "spec_repository_architecture"
+        path: "specs/product-dsr-repository-architecture.yaml"
+        relationship: "defines repository tree, naming rules, and file responsibilities"
+        required: true
+      - item_id: "spec_artifact_package"
+        path: "specs/product-dsr-artifact-package-specification.yaml"
+        relationship: "defines required package contents and evidence obligations"
+        required: true
+      - item_id: "spec_quality_review"
+        path: "specs/product-dsr-quality-conformance-and-review-model.yaml"
+        relationship: "defines quality gates and review workflow"
+        required: true
+      - item_id: "schema_package_inventory"
+        path: "schemas/package-inventory.schema.json"
+        relationship: "validates this inventory record"
+        required: true
+    downstream_uses:
+      - item_id: "root_readme"
+        path: "README.md"
+        relationship: "README may summarize package contents from this inventory"
+      - item_id: "root_conformance_declaration"
+        path: "conformance-declaration.yaml"
+        relationship: "conformance declaration should reference inventory status"
+      - item_id: "checklist_package_readiness"
+        path: "checklists/artifact-package-readiness-checklist.yaml"
+        relationship: "readiness checklist should verify inventory completeness"
+      - item_id: "record_release"
+        path: "records/releases/"
+        relationship: "release records should cite the approved inventory snapshot"
+    companion_files:
+      - path: "manifest.yaml"
+        relationship: "canonical package manifest"
+      - path: "metadata.yaml"
+        relationship: "structured package metadata"
+      - path: "artifact-profile.yaml"
+        relationship: "artifact identity and contribution profile"
+      - path: "conformance-declaration.yaml"
+        relationship: "declared conformance and tailoring"
+
+  inventory_scope:
+    scope_statement: >
+      This inventory covers source-of-truth controlled files, human-facing documentation,
+      schemas, templates, checklists, retained records, examples, crosswalks, and automation
+      files included in the artifact package.
+    included_path_classes:
+      - root_control_files
+      - specs
+      - models
+      - vocabularies
+      - schemas
+      - templates
+      - checklists
+      - docs_protocol
+      - records
+      - crosswalks
+      - examples
+      - github_configuration
+    excluded_path_classes:
+      - local_working_notes
+      - unpublished_private_data
+      - transient_build_artifacts
+      - operating_system_metadata
+      - editor_cache_files
+    inclusion_rules:
+      - rule_id: "inv_rule_001"
+        rule: "Every controlled repository file should have exactly one inventory entry."
+      - rule_id: "inv_rule_002"
+        rule: "Every inventory entry should state whether the file is required, optional, example-only, or deprecated."
+      - rule_id: "inv_rule_003"
+        rule: "Every schema-validatable YAML or JSON file should identify its schema path."
+      - rule_id: "inv_rule_004"
+        rule: "Every checklist-governed file should identify the applicable checklist path."
+      - rule_id: "inv_rule_005"
+        rule: "Every release candidate should have no missing required inventory entries."
+    file_presence_status_values:
+      - "planned"
+      - "stubbed"
+      - "drafted"
+      - "in_review"
+      - "approved"
+      - "released"
+      - "superseded"
+      - "deprecated"
+      - "not_applicable"
+    requiredness_values:
+      - "required"
+      - "conditionally_required"
+      - "optional"
+      - "example_only"
+      - "deprecated"
+
+  validation_model:
+    validation_responsibilities:
+      - role_id: "package_owner"
+        responsibility: "Maintains inventory completeness, approves requiredness classifications, and resolves open questions."
+      - role_id: "content_reviewer"
+        responsibility: "Reviews file purpose, status, metadata, source basis, and traceability."
+      - role_id: "technical_validator"
+        responsibility: "Runs schema, link, naming, and repository-structure validation."
+      - role_id: "release_manager"
+        responsibility: "Confirms release-readiness status and archives the approved inventory snapshot."
+    validation_methods:
+      - method_id: "manual_review"
+        description: "Human review against acceptance criteria and related checklist items."
+      - method_id: "schema_validation"
+        description: "Validation against a JSON Schema or equivalent structured-file validator."
+      - method_id: "repository_structure_check"
+        description: "Check that path, directory, extension, and naming rules conform to the repository architecture."
+      - method_id: "link_and_trace_check"
+        description: "Check that related_items, source_basis, traceability links, and referenced paths resolve."
+      - method_id: "release_readiness_check"
+        description: "Check that status, open questions, and quality gates permit release."
+    quality_gate_alignment:
+      - gate_id: "qg_consistency"
+        evidence_required:
+          - "file_path"
+          - "item_type"
+          - "requiredness"
+          - "repository_area"
+        pass_condition: "Inventory entries use approved paths, item types, status values, and repository locations."
+      - gate_id: "qg_coherence"
+        evidence_required:
+          - "related_items"
+          - "dependencies"
+          - "traceability"
+        pass_condition: "No entry introduces conflicting dependencies or unsupported cross-references."
+      - gate_id: "qg_cogency"
+        evidence_required:
+          - "purpose"
+          - "validation_responsibility"
+          - "acceptance_criteria"
+        pass_condition: "A reviewer can understand why the file exists and how it is validated."
+      - gate_id: "qg_correspondence"
+        evidence_required:
+          - "conformance_role"
+          - "package_identity"
+          - "source_basis"
+        pass_condition: "Entries support the declared artifact package purpose and conformance target."
+      - gate_id: "qg_dsr_transparency"
+        evidence_required:
+          - "transparency_dimension_mapping"
+        pass_condition: "Entries either support DSR transparency dimensions or document why the mapping is not applicable."
+      - gate_id: "qg_reviewability"
+        evidence_required:
+          - "validation_method"
+          - "schema_or_checklist"
+          - "acceptance_criteria"
+        pass_condition: "Each controlled entry can be reviewed against explicit criteria."
+
+  inventory_entries:
+    - entry_id: "inv_root_readme"
+      path: "README.md"
+      repository_area: "root"
+      file_kind: "markdown"
+      item_type: "description"
+      requiredness: "required"
+      presence_status: "TODO: planned"
+      purpose: "Public repository entry point and human-facing package overview."
+      source_of_truth: false
+      generated_by_selection_id: "root_readme"
+      conformance_role:
+        supports_conformance: true
+        conformance_level: "l1_documented"
+        rationale: "Provides public discoverability and package orientation."
+      validation:
+        validation_owner_role: "content_reviewer"
+        validation_methods:
+          - "manual_review"
+          - "link_and_trace_check"
+        schema_path: null
+        checklist_paths:
+          - "checklists/artifact-package-readiness-checklist.yaml"
+        acceptance_criteria:
+          - "Describes package purpose, audience, basic use, license, citation, and repository layout."
+          - "Links to manifest, metadata, artifact profile, package inventory, and conformance declaration."
+      dependencies:
+        upstream:
+          - "artifact-profile.yaml"
+          - "package-inventory.yaml"
+        downstream: []
+      transparency_dimension_mapping:
+        - dimension: "contribution_transparency"
+          role: "summarizes package purpose and contribution"
+      evidence_status: "TODO: not_yet_mapped"
+      notes: "TODO: update after README is generated."
+
+    - entry_id: "inv_root_package_inventory"
+      path: "package-inventory.yaml"
+      repository_area: "root"
+      file_kind: "yaml"
+      item_type: "record"
+      requiredness: "required"
+      presence_status: "TODO: planned"
+      purpose: "Inventory all package files and validation responsibilities."
+      source_of_truth: true
+      generated_by_selection_id: "root_package_inventory"
+      conformance_role:
+        supports_conformance: true
+        conformance_level: "l1_documented"
+        rationale: "Provides package completeness evidence and release validation inputs."
+      validation:
+        validation_owner_role: "technical_validator"
+        validation_methods:
+          - "schema_validation"
+          - "repository_structure_check"
+          - "link_and_trace_check"
+        schema_path: "schemas/package-inventory.schema.json"
+        checklist_paths:
+          - "checklists/artifact-package-readiness-checklist.yaml"
+        acceptance_criteria:
+          - "Contains one entry for every controlled package file."
+          - "Marks requiredness, status, validation method, owner role, related items, and conformance role for each entry."
+          - "Identifies open questions and unresolved validation gaps."
+      dependencies:
+        upstream:
+          - "specs/product-dsr-repository-architecture.yaml"
+          - "specs/product-dsr-artifact-package-specification.yaml"
+          - "schemas/package-inventory.schema.json"
+        downstream:
+          - "conformance-declaration.yaml"
+          - "records/releases/"
+      transparency_dimension_mapping:
+        - dimension: "process_transparency"
+          role: "documents package construction and validation state"
+        - dimension: "evaluation_transparency"
+          role: "records validation responsibilities and evidence requirements"
+      evidence_status: "TODO: not_yet_mapped"
+      notes: "This entry describes the filled output created from this template, not the template itself."
+
+    - entry_id: "inv_template_package_inventory"
+      path: "templates/package-inventory-template.yaml"
+      repository_area: "templates"
+      file_kind: "yaml"
+      item_type: "specification"
+      requiredness: "required"
+      presence_status: "drafted"
+      purpose: "Reusable package inventory template."
+      source_of_truth: true
+      generated_by_selection_id: "template_package_inventory"
+      conformance_role:
+        supports_conformance: true
+        conformance_level: "l2_reviewable"
+        rationale: "Supplies repeatable inventory structure for reviewable artifact packages."
+      validation:
+        validation_owner_role: "technical_validator"
+        validation_methods:
+          - "manual_review"
+          - "repository_structure_check"
+          - "schema_validation"
+        schema_path: "schemas/package-inventory.schema.json"
+        checklist_paths:
+          - "checklists/artifact-package-readiness-checklist.yaml"
+        acceptance_criteria:
+          - "Can be copied to package-inventory.yaml and completed without hidden assumptions."
+          - "Contains stable metadata fields, validation responsibilities, inventory entry structure, quality-gate alignment, and traceability placeholders."
+          - "Uses TODO placeholders only where project-specific facts are required."
+      dependencies:
+        upstream:
+          - "schemas/package-inventory.schema.json"
+          - "specs/product-dsr-repository-architecture.yaml"
+          - "specs/product-dsr-artifact-package-specification.yaml"
+          - "specs/product-dsr-quality-conformance-and-review-model.yaml"
+        downstream:
+          - "package-inventory.yaml"
+      transparency_dimension_mapping:
+        - dimension: "process_transparency"
+          role: "standardizes inventory maintenance and review workflow"
+        - dimension: "evaluation_transparency"
+          role: "standardizes validation responsibility and acceptance criteria"
+      evidence_status: "mapped"
+      notes: "This entry may be retained in a filled package inventory to track the template file itself."
+
+    - entry_id: "inv_schema_package_inventory"
+      path: "schemas/package-inventory.schema.json"
+      repository_area: "schemas"
+      file_kind: "json_schema"
+      item_type: "specification"
+      requiredness: "required"
+      presence_status: "TODO: planned"
+      purpose: "Validate package inventory YAML or JSON records."
+      source_of_truth: true
+      generated_by_selection_id: "schema_package_inventory"
+      conformance_role:
+        supports_conformance: true
+        conformance_level: "l2_reviewable"
+        rationale: "Enables structured validation of package inventory records."
+      validation:
+        validation_owner_role: "technical_validator"
+        validation_methods:
+          - "manual_review"
+          - "schema_validation"
+        schema_path: null
+        checklist_paths:
+          - "checklists/artifact-package-readiness-checklist.yaml"
+        acceptance_criteria:
+          - "Declares required fields for package inventory records."
+          - "Validates inventory entries, validation responsibilities, source basis, related items, traceability, and change history."
+      dependencies:
+        upstream:
+          - "specs/product-dsr-automation-and-validation-model.yaml"
+          - "templates/package-inventory-template.yaml"
+        downstream:
+          - "package-inventory.yaml"
+      transparency_dimension_mapping:
+        - dimension: "evaluation_transparency"
+          role: "specifies validation rules for package inventory evidence"
+      evidence_status: "TODO: not_yet_mapped"
+      notes: "TODO: update after schema is generated."
+
+    - entry_id: "TODO: inv_<area>_<file_slug>"
+      path: "TODO: <relative/path/to/file.ext>"
+      repository_area: "TODO: root|specs|models|vocabularies|schemas|templates|checklists|docs_protocol|records|crosswalks|examples|github_configuration"
+      file_kind: "TODO: yaml|markdown|json_schema|json|text|other"
+      item_type: "TODO: description|plan|policy|procedure|report|request|specification|record"
+      requiredness: "TODO: required|conditionally_required|optional|example_only|deprecated"
+      presence_status: "TODO: planned|stubbed|drafted|in_review|approved|released|superseded|deprecated|not_applicable"
+      purpose: "TODO: state the file responsibility in one sentence."
+      source_of_truth: "TODO: true|false"
+      generated_by_selection_id: "TODO: <selection_id or not_applicable>"
+      conformance_role:
+        supports_conformance: "TODO: true|false"
+        conformance_level: "TODO: l0_draft|l1_documented|l2_reviewable|l3_exercisable|l4_reusable|l5_archival_publication_ready|not_applicable"
+        rationale: "TODO: explain how the file supports the declared conformance target."
+      validation:
+        validation_owner_role: "TODO: package_owner|content_reviewer|technical_validator|release_manager"
+        validation_methods:
+          - "TODO: manual_review|schema_validation|repository_structure_check|link_and_trace_check|release_readiness_check"
+        schema_path: "TODO: <schema path or null>"
+        checklist_paths:
+          - "TODO: <checklist path or null>"
+        acceptance_criteria:
+          - "TODO: first acceptance criterion"
+          - "TODO: second acceptance criterion"
+      dependencies:
+        upstream:
+          - "TODO: <path or item_id>"
+        downstream:
+          - "TODO: <path or item_id>"
+      transparency_dimension_mapping:
+        - dimension: "TODO: process_transparency|problem_space_transparency|solution_space_transparency|build_transparency|evaluation_transparency|contribution_transparency|not_applicable"
+          role: "TODO: explain transparency role or non-applicability rationale"
+      evidence_status: "TODO: mapped|partially_mapped|not_yet_mapped|not_applicable"
+      notes: "TODO: reviewer notes, tailoring notes, or deletion instructions for this template row."
+
+  directory_entries:
+    - directory_id: "dir_specs"
+      path: "specs/"
+      requiredness: "required"
+      purpose: "Controlled product specifications."
+      expected_contents: "product-*.yaml"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_models"
+      path: "models/"
+      requiredness: "required"
+      purpose: "Conceptual and operational models."
+      expected_contents: "*.yaml"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_vocabularies"
+      path: "vocabularies/"
+      requiredness: "required"
+      purpose: "Controlled vocabularies."
+      expected_contents: "*.yaml"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_schemas"
+      path: "schemas/"
+      requiredness: "required"
+      purpose: "JSON Schema validation files."
+      expected_contents: "*.schema.json"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_templates"
+      path: "templates/"
+      requiredness: "required"
+      purpose: "Reusable templates for package and DSR records."
+      expected_contents: "*-template.yaml or *-template.md"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_checklists"
+      path: "checklists/"
+      requiredness: "required"
+      purpose: "Quality, conformance, and readiness checklists."
+      expected_contents: "*-checklist.yaml"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_docs_protocol"
+      path: "docs/protocol/"
+      requiredness: "required"
+      purpose: "Human-facing protocol documentation."
+      expected_contents: "*.md"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_records"
+      path: "records/"
+      requiredness: "required"
+      purpose: "Retained evidence records for decisions, tailoring, source basis, transparency, contributions, evaluations, reviews, releases, and preservation."
+      expected_contents: "record-*.yaml in class-specific subdirectories"
+      validation_method: "repository_structure_check"
+      notes: "TODO: update status after files are added."
+    - directory_id: "dir_crosswalks"
+      path: "crosswalks/"
+      requiredness: "conditionally_required"
+      purpose: "Mappings among source traditions, protocol products, and framework constructs."
+      expected_contents: "*.yaml or *.md"
+      validation_method: "repository_structure_check"
+      notes: "Required when source-family or protocol crosswalks are included."
+    - directory_id: "dir_examples"
+      path: "examples/"
+      requiredness: "optional"
+      purpose: "Demonstration packages and worked examples."
+      expected_contents: "example-specific subdirectories"
+      validation_method: "repository_structure_check"
+      notes: "Examples are demonstration materials and should not be confused with evaluation evidence."
+
+  conformance_summary:
+    declared_conformance_target: "l2_reviewable"
+    current_inventory_status: "TODO: draft"
+    required_files_total: "TODO: <integer>"
+    required_files_present: "TODO: <integer>"
+    required_files_validated: "TODO: <integer>"
+    unresolved_required_entries:
+      - "TODO: <entry_id or none>"
+    release_blockers:
+      - blocker_id: "TODO: blocker_001"
+        description: "TODO: describe release blocker or write none"
+        affected_entries:
+          - "TODO: <entry_id>"
+        resolution_owner_role: "TODO: <role_id>"
+        target_resolution_status: "TODO: planned|in_progress|resolved|deferred"
+
+  traceability:
+    trace_links:
+      - trace_id: "trace_template_package_inventory_to_schema"
+        from_item: "templates/package-inventory-template.yaml"
+        to_item: "schemas/package-inventory.schema.json"
+        relationship: "should_be_validated_by"
+        evidence_status: "not_yet_mapped"
+      - trace_id: "trace_template_package_inventory_to_package_inventory"
+        from_item: "templates/package-inventory-template.yaml"
+        to_item: "package-inventory.yaml"
+        relationship: "template_for"
+        evidence_status: "mapped"
+      - trace_id: "trace_package_inventory_to_conformance"
+        from_item: "package-inventory.yaml"
+        to_item: "conformance-declaration.yaml"
+        relationship: "supports_conformance_claims"
+        evidence_status: "not_yet_mapped"
+      - trace_id: "TODO: trace_<source>_to_<target>"
+        from_item: "TODO: <source path or item_id>"
+        to_item: "TODO: <target path or item_id>"
+        relationship: "TODO: depends_on|validates|renders|summarizes|supersedes|evidences"
+        evidence_status: "TODO: mapped|partially_mapped|not_yet_mapped|not_applicable"
+    traceability_review:
+      reviewed_by: "TODO: <role or person>"
+      review_date: "TODO: YYYY-MM-DD"
+      findings:
+        - "TODO: traceability findings or none"
+
+  acceptance_criteria:
+    - criterion_id: "pkg_inv_ac_001"
+      criterion: "All controlled files in the package are listed exactly once."
+      evidence_required:
+        - "repository file list"
+        - "inventory_entries"
+      pass_condition: "No required controlled file is missing; no duplicate path appears in inventory_entries."
+    - criterion_id: "pkg_inv_ac_002"
+      criterion: "Every controlled file has validation responsibility assigned."
+      evidence_required:
+        - "validation.validation_owner_role"
+        - "validation.validation_methods"
+      pass_condition: "Each entry has at least one owner role and one validation method."
+    - criterion_id: "pkg_inv_ac_003"
+      criterion: "Schema-validatable files identify a schema or justify absence."
+      evidence_required:
+        - "validation.schema_path"
+        - "notes"
+      pass_condition: "YAML and JSON source-of-truth files either link a schema or record why schema validation is not yet available."
+    - criterion_id: "pkg_inv_ac_004"
+      criterion: "Inventory entries distinguish demonstration, evaluation, and release evidence."
+      evidence_required:
+        - "purpose"
+        - "transparency_dimension_mapping"
+        - "conformance_role"
+      pass_condition: "Examples are not mislabeled as evaluation evidence, and release records are distinct from readiness checklists."
+    - criterion_id: "pkg_inv_ac_005"
+      criterion: "Release candidates have no unresolved release blockers."
+      evidence_required:
+        - "release_blockers"
+        - "current_inventory_status"
+      pass_condition: "All blockers are resolved or formally deferred with rationale before status is released."
+
+  failure_modes:
+    - failure_mode_id: "pkg_inv_fm_001"
+      description: "A repository file exists without an inventory entry."
+      likely_effect: "Package completeness and release evidence are unreliable."
+      remediation: "Add an inventory entry or document why the file is excluded."
+    - failure_mode_id: "pkg_inv_fm_002"
+      description: "An inventory entry has no validation owner or method."
+      likely_effect: "Reviewability is weakened."
+      remediation: "Assign an owner role and at least one validation method."
+    - failure_mode_id: "pkg_inv_fm_003"
+      description: "The entry status overclaims approval or release readiness."
+      likely_effect: "Conformance declaration may be misleading."
+      remediation: "Downgrade status or attach validation evidence."
+    - failure_mode_id: "pkg_inv_fm_004"
+      description: "Schema, checklist, or related-item links do not resolve."
+      likely_effect: "Traceability and automation are compromised."
+      remediation: "Correct paths, generate missing dependencies, or mark evidence_status as not_yet_mapped with an open question."
+
+  review_and_maintenance:
+    review_cycle: "TODO: per release or at least before each public archive deposit"
+    inventory_update_triggers:
+      - "new file added"
+      - "file removed or renamed"
+      - "requiredness changed"
+      - "schema or checklist changed"
+      - "conformance target changed"
+      - "release candidate prepared"
+    review_record_path: "TODO: records/reviews/record-review-<sequence>-package-inventory.yaml"
+    release_snapshot_policy: "Archive the approved package-inventory.yaml in the release record or preservation record for each release."
+    retention_rule: "Retain package inventory records for the lifetime of the artifact package and archive release snapshots with release records."
+
+  assumptions:
+    - assumption_id: "pkg_inv_assumption_001"
+      statement: "The package follows the DSR Framework repository architecture and uses lower-kebab-case file names."
+      status: "active"
+    - assumption_id: "pkg_inv_assumption_002"
+      statement: "The package inventory schema will be generated or approved separately and may refine required fields."
+      status: "active"
+    - assumption_id: "pkg_inv_assumption_003"
+      statement: "This template supports L2 reviewability but does not itself prove release or archival publication readiness."
+      status: "active"
+
+  limitations:
+    - limitation_id: "pkg_inv_limitation_001"
+      statement: "This template does not replace schema validation, repository scanning, or release review."
+    - limitation_id: "pkg_inv_limitation_002"
+      statement: "Evidence mappings to the DSR corpus and documentation protocol must be completed in project-specific records."
+    - limitation_id: "pkg_inv_limitation_003"
+      statement: "The included entries are starter entries and patterns; a filled package inventory must enumerate the full repository contents."
+
+  open_questions:
+    - question_id: "pkg_inv_oq_001"
+      question: "Should the final package inventory schema require every optional example file to be listed, or may examples be inventoried by directory?"
+      owner_role: "package_owner"
+      status: "open"
+    - question_id: "pkg_inv_oq_002"
+      question: "Which automation workflow will provide the authoritative repository file list for completeness checks?"
+      owner_role: "technical_validator"
+      status: "open"
+    - question_id: "pkg_inv_oq_003"
+      question: "Which release record format will archive the approved inventory snapshot?"
+      owner_role: "release_manager"
+      status: "open"
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: "Initial reusable package inventory template generated for the DSR Framework."
+      changed_by: "GPT-5.5 Thinking"
+      review_status: "draft"

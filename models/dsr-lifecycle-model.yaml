@@ -1,0 +1,1803 @@
+# SPDX-License-Identifier: CC0-1.0
+model:
+  id: dsr_lifecycle_model
+  title: Operational DSR Lifecycle Model
+  item_type: specification
+  portion_type: model
+  selection_id: model_lifecycle
+  target_path: models/dsr-lifecycle-model.yaml
+  output_format: yaml
+  purpose: 'Define an operational lifecycle model for Design Science Research (DSR) projects and artifact packages, including
+    controlled lifecycle stages, decision gates, required outputs, iteration rules, evaluation touchpoints, transparency obligations,
+    and validation implications.
+
+    '
+  status: draft
+  version: 0.1.0
+  conformance_target: l2_reviewable
+  owner: dsr_framework_maintainers
+  responsible_roles:
+  - framework_author
+  - dsr_project_lead
+  - artifact_steward
+  - reviewer
+  generated_on: '2026-04-27'
+source_basis:
+- source_id: user_current_request
+  role: immediate_task_definition
+  evidence_status: mapped
+  notes: 'User selected model_lifecycle with target path models/dsr-lifecycle-model.yaml, portion type model, output format
+    YAML, and default conformance L2.
+
+    '
+- source_id: dsr_framework_generation_spec
+  role: governing_generation_specification
+  evidence_status: mapped
+  notes: 'Requires YAML source-of-truth files for models, stable identifiers, source_basis, related_items, traceability, quality
+    gates, validation implications, assumptions, and open questions.
+
+    '
+- source_id: dsr_framework_generation_prompt
+  role: generation_procedure
+  evidence_status: mapped
+  notes: 'Requires model files to define controlled entities, relationships, boundary conditions, validation implications,
+    and traceability.
+
+    '
+- source_id: vom_brocke_hevner_maedche_2020_intro_dsr
+  role: dsr_lifecycle_and_evaluation_basis
+  evidence_status: mapped_to_corpus_record
+  citation_anchor_ids:
+  - A02
+  - A05
+  - A08
+  - A09
+  - A13
+  notes: 'Supports relevance/rigor grounding, six-step DSRM process, concurrent evaluation, design knowledge components, contribution
+    types, and DSR Grid.
+
+    '
+- source_id: hevner_et_al_2024_transparency_in_design_science_research
+  role: transparency_basis
+  evidence_status: mapped_to_corpus_record
+  citation_anchor_ids:
+  - CA01
+  - CA05
+  - CA06
+  - CA07
+  - CA08
+  - CA09
+  - CA10
+  - CA11
+  - CA16
+  notes: 'Supports process, problem-space, solution-space, build, evaluation, and contribution transparency obligations.
+
+    '
+- source_id: akoka_et_al_2023_knowledge_contributions_in_dsr
+  role: contribution_path_and_knowledge_scope_basis
+  evidence_status: mapped_to_corpus_record
+  citation_anchor_ids:
+  - A07
+  - A08
+  - A10
+  - A13
+  notes: 'Supports representation of DSR projects as paths of knowledge moments, including knowledge goals, knowledge scope,
+    strategies, and contribution progression.
+
+    '
+- source_id: weigand_johannesson_andersson_2021_101878
+  role: artifact_ontology_and_make_use_basis
+  evidence_status: mapped_to_corpus_record
+  citation_anchor_ids:
+  - A09
+  - A11
+  - A12
+  - A15
+  - A16
+  - A17
+  - A18
+  notes: 'Supports artifact universal, design specification, make plan, use plan, capacity specification, make/use contexts,
+    and artifact outcome distinctions.
+
+    '
+- source_id: gregor_zwikael_2024_ijpm_102584
+  short_citation: Gregor & Zwikael, 2024
+  evidence_anchor_id: A28
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Gregor & Zwikael, 2024 grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A28: Domain-specific
+    operationalization and reporting guidance for applying Design Science Research in project management.'
+- source_id: bub_2018_integrated_method_digital_innovation_dsr
+  short_citation: Bub (2018)
+  evidence_anchor_id: CA-10
+  supports_construct: dsr_lifecycle.action_design_research
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Bub (2018) grounds dsr_lifecycle.action_design_research through extracted anchor CA-10: Operational integration of
+    stage-gate digital innovation management with Design Science Research stages in a situational method artifact.'
+- source_id: suero_montero_kapinga_2019_dsr_strengthened
+  short_citation: Suero Montero & Kapinga (2019)
+  evidence_anchor_id: A07
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Suero Montero & Kapinga (2019) grounds dsr_lifecycle.other through extracted anchor A07: Extension of Design Science
+    Research methodology by embedding co-creation and co-design throughout the design cycle for Information and Communication
+    Technologies for Development.'
+- source_id: baskerville_kaul_priesheje_storey_2019_inducing_creativity
+  short_citation: Baskerville et al. 2019
+  evidence_anchor_id: A8
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Baskerville et al. 2019 grounds dsr_lifecycle.other through extracted anchor A8: Provides operational iteration indicators
+    for Design Science Research based on bounded creativity and bounded rationality.'
+- source_id: baskerville_kaul_priesheje_storey_2019_inducing_creativity_dsr
+  short_citation: Baskerville et al. (2019)
+  evidence_anchor_id: A10
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Baskerville et al. (2019) grounds dsr_lifecycle.other through extracted anchor A10: >.'
+- source_id: mullarkey_hevner_gill_dutta_2019_citizen_data_scientist
+  short_citation: Mullarkey et al. (2019)
+  evidence_anchor_id: A16
+  supports_construct: dsr_lifecycle.action_design_research
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Mullarkey et al. (2019) grounds dsr_lifecycle.action_design_research through extracted anchor A16: Operationalizes
+    elaborated Action Design Research as a staged, iterative, artifact-centered method for citizen-led data science projects.'
+- source_id: maedche_gregor_morana_feine_2019_problem_space_dsr
+  short_citation: Maedche et al. (2019)
+  evidence_anchor_id: A09
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Maedche et al. (2019) grounds dsr_lifecycle.other through extracted anchor A09: Refines Design Science Research methodology
+    by operationalizing the problem space through stakeholders, needs, goals, and requirements.'
+- source_id: van_der_merwe_gerber_smuts_2020_guidelines_conducting_dsr
+  short_citation: van der Merwe et al. (2020)
+  evidence_anchor_id: CA04
+  supports_construct: dsr_lifecycle.vaishnavi_kuechler_dsr_process
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'van der Merwe et al. (2020) grounds dsr_lifecycle.vaishnavi_kuechler_dsr_process through extracted anchor CA04: Novice-oriented
+    synthesis of DSR themes, guidelines, seminal works, process models, evaluation references, and reporting guidance.'
+- source_id: vom_brocke_hevner_maedche_2020_design_science_research_cases
+  short_citation: vom Brocke, Hevner, and Maedche (2020)
+  evidence_anchor_id: A12
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'vom Brocke, Hevner, and Maedche (2020) grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A12:
+    Operational synthesis of DSR concepts and case documentation structure for planning, conducting, evaluating, and communicating
+    DSR projects.'
+- source_id: johannesson_perjons_2021_intro_design_science_2e
+  short_citation: Johannesson & Perjons (2021)
+  evidence_anchor_id: A12
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Johannesson & Perjons (2021) grounds dsr_lifecycle.other through extracted anchor A12: Operational five-activity
+    Design Science Research method framework with artifact, evaluation, reporting, and ethics guidance.'
+- source_id: johannesson_perjons_2021_ch11
+  short_citation: Johannesson and Perjons 2021
+  evidence_anchor_id: A04
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Johannesson and Perjons 2021 grounds dsr_lifecycle.other through extracted anchor A04: Clarifies that DSR framework
+    activities are logically ordered by input-output dependencies rather than temporally ordered like waterfall phases.'
+- source_id: '9783030821562'
+  short_citation: De Sordi 2021
+  evidence_anchor_id: A020
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'De Sordi 2021 grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A020: Operational synthesis
+    of DSR concepts, artifact types, process phases, evaluation criteria, and theory-development logic from artifacts.'
+- source_id: purao_2021_dsr_problems_where_do_they_come_from
+  short_citation: Purao (2021)
+  evidence_anchor_id: A20
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Purao (2021) grounds dsr_lifecycle.other through extracted anchor A20: A phase-based approach for identifying and
+    developing DSR research problems, with emphasis on practice-generated problems, problem-class abstraction, research-front
+    positioning....'
+- source_id: hevner_storey_2021_externalities_dsr
+  short_citation: Hevner & Storey, 2021
+  evidence_anchor_id: A18
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Hevner & Storey, 2021 grounds dsr_lifecycle.other through extracted anchor A18: Adds prerequisite space and four
+    externalities to DSR project preparation and governance.'
+- source_id: leimeister_dickhaut_janson_2021_design_pattern_bridge_problem_solution
+  short_citation: Leimeister, Dickhaut, and Janson (2021)
+  evidence_anchor_id: A03
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Leimeister, Dickhaut, and Janson (2021) grounds dsr_lifecycle.other through extracted anchor A03: Positions design
+    patterns as reusable design-knowledge artifacts that bridge problem-space and solution-space by combining context, requirements,
+    rationale, consequences, and solution....'
+- source_id: src_5a002849d9b3
+  short_citation: Drechsler, Gerber, and Hevner 2022
+  evidence_anchor_id: A05
+  supports_construct: dsr_lifecycle.action_design_research
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Drechsler, Gerber, and Hevner 2022 grounds dsr_lifecycle.action_design_research through extracted anchor A05: Positions
+    DSR as an epistemological and methodological foundation for transdisciplinary research on wicked problems while providing
+    a peer-reviewed corpus of artifacts, evaluations....'
+- source_id: smuts_winter_gerber_vandermerwe_2022_designing_dsr_taxonomy
+  short_citation: Smuts et al. (2022)
+  evidence_anchor_id: A11
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Smuts et al. (2022) grounds dsr_lifecycle.other through extracted anchor A11: Operational taxonomy of Design Science
+    Research study-design dimensions and characteristics.'
+- source_id: alismail_zhang_chatterjee_2017_dsr_objectives_framework
+  short_citation: Alismail, Zhang, and Chatterjee (2017)
+  evidence_anchor_id: A06
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Alismail, Zhang, and Chatterjee (2017) grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A06:
+    Operational framework for identifying DSR objectives that connect problem definition, artifact type, requirements, reasoning,
+    build activity, and evaluation.'
+- source_id: nagle_sammon_doyle_2017_insights_pdsr
+  short_citation: Nagle, Sammon, and Doyle (2017)
+  evidence_anchor_id: A1
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Nagle, Sammon, and Doyle (2017) grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A1: Practitioner-facing
+    operationalization of Design Science Research through a rigor/relevance/iteration canvas.'
+- source_id: contell_diaz_venable_2017_dscaffolding
+  short_citation: Contell, Díaz, and Venable 2017
+  evidence_anchor_id: A08
+  supports_construct: dsr_lifecycle.feds_evaluation_framework
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Contell, Díaz, and Venable 2017 grounds dsr_lifecycle.feds_evaluation_framework through extracted anchor A08: Operational
+    integration of multiple Design Science Research activities and frameworks into a MindMeister-based scaffolding tool.'
+- source_id: 978-3-658-26336-2_3
+  short_citation: Siedhoff 2019
+  evidence_anchor_id: A06
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Siedhoff 2019 grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A06: Operational synthesis of
+    DSRP, design thinking, design theory anatomy, case-study research, and action design research for business model innovation.'
+- source_id: hunziker_blankenagel_2021_design_science_research_design
+  short_citation: Hunziker & Blankenagel (2021)
+  evidence_anchor_id: A10
+  supports_construct: dsr_lifecycle.march_smith_build_evaluate
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Hunziker & Blankenagel (2021) grounds dsr_lifecycle.march_smith_build_evaluate through extracted anchor A10: Operational
+    guidance for business and management DSR, including artifact typology, process sequence, evaluation criteria, generalization,
+    and reporting structure.'
+- source_id: thuan_drechsler_antunes_2019_construction_dsr_questions
+  short_citation: Thuan, Drechsler, and Antunes (2019)
+  evidence_anchor_id: A21
+  supports_construct: dsr_lifecycle.hevner_three_cycle_view
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Thuan, Drechsler, and Antunes (2019) grounds dsr_lifecycle.hevner_three_cycle_view through extracted anchor A21:
+    Operational typology and artifact-specific templates for constructing and formulating Design Science Research questions.'
+- source_id: tuunanen_winter_vombrocke_2024_edsr_design_echelons
+  short_citation: Tuunanen et al. (2024)
+  evidence_anchor_id: A08
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Tuunanen et al. (2024) grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A08: Adds design echelons
+    as a self-contained, validation-linked organizing logic for complex Design Science Research projects.'
+- source_id: van_aken_chandrasekaran_halman_2016_jom_dsr
+  short_citation: van Aken et al. (2016)
+  evidence_anchor_id: A14
+  supports_construct: dsr_lifecycle.van_aken_management_design_science
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'van Aken et al. (2016) grounds dsr_lifecycle.van_aken_management_design_science through extracted anchor A14: Operationalizes
+    Design Science Research for operations management publication by defining generic design, design proposition, pragmatic
+    validity, field testing, generalization, and reviewer....'
+- source_id: ijmpb-01-2020-0015
+  short_citation: Henriques and O'Neill (2023)
+  evidence_anchor_id: A09
+  supports_construct: dsr_lifecycle.action_design_research
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Henriques and O''Neill (2023) grounds dsr_lifecycle.action_design_research through extracted anchor A09: Operational
+    process-and-data meta-model integrating DSR stages with focus-group activities and traceability documentation.'
+- source_id: trigo_2026_art_nlr
+  short_citation: Trigo (2026)
+  evidence_anchor_id: A18
+  supports_construct: dsr_lifecycle.art_nlr
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Trigo (2026) grounds dsr_lifecycle.art_nlr through extracted anchor A18: Provides an operational method for staged,
+    decision-driven narrative evidence synthesis across Design Science Research activities.'
+- source_id: proquest_ebookcentral_docid_5210703_chapter_c_page_119
+  short_citation: Applied Design Science Research, chapter C, p. 119
+  evidence_anchor_id: CA4
+  supports_construct: dsr_lifecycle.other
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Applied Design Science Research, chapter C, p. 119 grounds dsr_lifecycle.other through extracted anchor CA4: Methodological
+    synthesis into an Iterative Design Science Research framework centered on practitioner cooperation and internal/external
+    evaluation.'
+- source_id: tqm-01-2023-0017
+  short_citation: Antony et al. (2024)
+  evidence_anchor_id: A12
+  supports_construct: dsr_lifecycle.peffers_dsr_methodology
+  evidence_role: process_model
+  grounding_decision: adapted
+  evidence_status: substantive
+  target_path: models/dsr-lifecycle-model.yaml
+  note: 'Antony et al. (2024) grounds dsr_lifecycle.peffers_dsr_methodology through extracted anchor A12: Extends traditional
+    Design Science Research methodology for Operational Excellence-Environmental, Social, and Governance initiatives by adding
+    multidimensional evaluation, design thinking....'
+related_items:
+  upstream_dependencies:
+  - id: spec_dsr_lifecycle_contribution
+    path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+    relationship: governs_lifecycle_concepts
+    evidence_status: expected_dependency
+  - id: model_canonical
+    path: models/dsr-framework-canonical-model.yaml
+    relationship: should_reference_entities_and_relationships
+    evidence_status: expected_dependency
+  - id: vocab_lifecycle_stages
+    path: vocabularies/lifecycle-stages.yaml
+    relationship: should_reuse_or_render_controlled_stage_terms
+    evidence_status: future_or_separate_file
+  - id: vocab_artifact_types
+    path: vocabularies/artifact-types.yaml
+    relationship: should_control_artifact_type_values
+    evidence_status: future_or_separate_file
+  - id: vocab_evaluation_methods
+    path: vocabularies/evaluation-method-families.yaml
+    relationship: should_control_evaluation_method_values
+    evidence_status: future_or_separate_file
+  downstream_consumers:
+  - id: template_project_charter
+    path: templates/dsr-project-charter-template.md
+    relationship: uses_lifecycle_stage_structure
+  - id: template_problem_objectives
+    path: templates/problem-and-objectives-template.md
+    relationship: uses_problem_and_objective_stage_outputs
+  - id: template_solution_space
+    path: templates/solution-space-record-template.yaml
+    relationship: uses_solution_grounding_stage_outputs
+  - id: template_design_rationale
+    path: templates/design-rationale-template.md
+    relationship: uses_design_and_build_decision_records
+  - id: template_evaluation_plan
+    path: templates/evaluation-plan-template.yaml
+    relationship: uses_evaluation_planning_requirements
+  - id: template_evaluation_report
+    path: templates/evaluation-report-template.yaml
+    relationship: uses_evaluation_execution_and_reporting_requirements
+  - id: template_contribution_claim
+    path: templates/contribution-claim-template.yaml
+    relationship: uses_contribution_positioning_requirements
+  - id: checklist_minimum_dsr
+    path: checklists/dsr-minimum-viable-study-checklist.yaml
+    relationship: checks_minimum_lifecycle_identity
+  - id: docs_lifecycle_contribution
+    path: docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+    relationship: human_facing_render
+scope:
+  applies_to:
+  - dsr_project_planning
+  - dsr_artifact_development
+  - dsr_artifact_package_documentation
+  - dsr_evaluation_alignment
+  - dsr_contribution_positioning
+  - dsr_publication_and_release_preparation
+  does_not_apply_to:
+  - routine_design_projects_without_research_contribution
+  - general_software_development_lifecycle_management_without_dsr_claims
+  - empirical_behavioral_research_without_artifact_creation_or_design_knowledge_claims
+  - publication_readiness_certification_without_separate_review_evidence
+  lifecycle_granularity: 'The model defines stage-level operational requirements. It is not a task management system, work
+    breakdown structure, or project schedule. Local projects may decompose stages into sprints, work packages, or milestones.
+
+    '
+  lifecycle_status_values:
+  - not_started
+  - active
+  - blocked
+  - ready_for_review
+  - accepted
+  - requires_iteration
+  - deferred
+  - not_applicable_with_rationale
+conceptual_model:
+  summary: 'A DSR lifecycle is a controlled, iterative path by which a research team frames a relevant problem, grounds the
+    solution space, specifies and builds an artifact or artifact type, demonstrates use, evaluates artifact quality and utility,
+    positions the contribution to design knowledge, communicates evidence, and prepares the artifact package for review, reuse,
+    and release.
+
+    '
+  core_distinctions:
+  - id: distinction_demonstration_vs_evaluation
+    label: Demonstration versus evaluation
+    definition: 'Demonstration shows artifact use in a problem instance or scenario; evaluation assesses the artifact against
+      objectives, criteria, claims, and evidence standards.
+
+      '
+    validation_implication: 'A demonstrated artifact must not be marked evaluated unless evaluation questions, criteria, methods,
+      evidence, findings, and limitations are documented.
+
+      '
+  - id: distinction_artifact_quality_vs_utility_vs_contribution
+    label: Artifact quality, artifact utility, and knowledge contribution
+    definition: 'Artifact quality concerns properties of the artifact; utility concerns whether it helps solve or improve
+      the problem situation; contribution concerns reusable or projectable design knowledge.
+
+      '
+    validation_implication: 'Evaluation reports and contribution claims must identify which kind of claim is being made and
+      must not treat local utility as sufficient proof of general contribution.
+
+      '
+  - id: distinction_artifact_instance_vs_artifact_type
+    label: Artifact instance versus artifact type
+    definition: 'An instance is a concrete implementation or exemplar; an artifact type or artifact universal is the reusable
+      design object, specification, model, method, construct, or pattern intended to travel beyond one instance.
+
+      '
+    validation_implication: 'Artifact records must declare whether they describe an instance, a type, or both, and must explain
+      how instance evidence supports type-level claims.
+
+      '
+  - id: distinction_idiographic_vs_nomothetic_scope
+    label: Idiographic, projectable, and nomothetic scope
+    definition: 'Idiographic claims are tied to a case or setting; projectable claims are transferable to a problem class
+      with boundary conditions; nomothetic claims assert broader generality across contexts.
+
+      '
+    validation_implication: 'Contribution records must align the declared knowledge scope with the breadth of evidence and
+      boundary conditions.
+
+      '
+  - id: distinction_formative_vs_summative_evaluation
+    label: Formative versus summative evaluation
+    definition: 'Formative evaluation improves the artifact or design process during development; summative evaluation judges
+      the artifact against declared objectives after sufficient stabilization or use.
+
+      '
+    validation_implication: 'Evaluation plans must identify timing, decision use, and whether findings trigger iteration,
+      acceptance, or limitation statements.
+
+      '
+entities:
+- id: dsr_project
+  label: DSR Project
+  entity_type: lifecycle_container
+  definition: 'A bounded design science research effort that creates, evaluates, and communicates an artifact or design knowledge
+    contribution in response to a relevant problem.
+
+    '
+  required_attributes:
+  - project_id
+  - title
+  - problem_class
+  - artifact_scope
+  - lifecycle_status
+  - conformance_target
+  - responsible_roles
+  - source_basis
+- id: lifecycle_stage
+  label: Lifecycle Stage
+  entity_type: process_unit
+  definition: 'A controlled unit of lifecycle work with entry criteria, activities, required outputs, exit criteria, review
+    evidence, and iteration rules.
+
+    '
+  required_attributes:
+  - stage_id
+  - label
+  - stage_group
+  - purpose
+  - entry_criteria
+  - activities
+  - required_outputs
+  - exit_criteria
+  - transparency_dimensions
+- id: decision_gate
+  label: Decision Gate
+  entity_type: review_point
+  definition: 'A formal decision point where lifecycle evidence is reviewed and the project is accepted, iterated, re-scoped,
+    paused, or rejected as not meeting DSR criteria.
+
+    '
+  required_attributes:
+  - gate_id
+  - label
+  - applies_after_stage
+  - decision_options
+  - evidence_required
+  - pass_condition
+- id: information_item
+  label: Information Item
+  entity_type: controlled_output
+  definition: 'A specification, plan, record, report, template output, checklist output, or documentation artifact created
+    or updated during a lifecycle stage.
+
+    '
+  required_attributes:
+  - item_id
+  - item_type
+  - title
+  - status
+  - owner
+  - related_stage
+  - source_basis
+- id: artifact
+  label: DSR Artifact
+  entity_type: research_artifact
+  definition: 'A construct, model, method, instantiation, framework, taxonomy, ontology, protocol, software object, or other
+    designed object claimed as part of a DSR contribution.
+
+    '
+  required_attributes:
+  - artifact_id
+  - artifact_type
+  - artifact_scope
+  - design_specification
+  - make_or_build_logic
+  - use_logic
+  - evaluation_status
+  - contribution_claims
+- id: evaluation_activity
+  label: Evaluation Activity
+  entity_type: evidence_activity
+  definition: 'A planned or executed assessment of artifact quality, artifact utility, contribution plausibility, validity,
+    reliability, or projectability.
+
+    '
+  required_attributes:
+  - evaluation_id
+  - evaluation_timing
+  - evaluation_question
+  - criteria
+  - method_family
+  - evidence_required
+  - decision_use
+- id: contribution_claim
+  label: Contribution Claim
+  entity_type: knowledge_claim
+  definition: 'A structured statement about what the DSR project contributes to practice, design knowledge, theory, method,
+    evaluation, reporting, or artifact reuse.
+
+    '
+  required_attributes:
+  - claim_id
+  - claim_type
+  - knowledge_goal
+  - knowledge_scope
+  - evidence_basis
+  - boundary_conditions
+  - limitations
+- id: transparency_record
+  label: Transparency Record
+  entity_type: documentation_crosswalk
+  definition: 'A mapping from lifecycle evidence to process, problem-space, solution-space, build, evaluation, and contribution
+    transparency dimensions.
+
+    '
+  required_attributes:
+  - record_id
+  - dimensions_covered
+  - evidence_links
+  - omissions_with_rationale
+  - reviewer_notes
+stage_groups:
+- id: orient_and_frame
+  label: Orient and Frame
+  purpose: Establish DSR identity, problem relevance, objectives, and feasibility.
+- id: ground_and_specify
+  label: Ground and Specify
+  purpose: Connect the problem to prior knowledge, solution alternatives, requirements, and artifact specification.
+- id: build_and_demonstrate
+  label: Build and Demonstrate
+  purpose: Create or configure the artifact and show its use in a relevant problem instance or scenario.
+- id: evaluate_and_contribute
+  label: Evaluate and Contribute
+  purpose: Generate evaluation evidence and position the project contribution to practice and knowledge.
+- id: communicate_and_steward
+  label: Communicate and Steward
+  purpose: Package, communicate, review, release, preserve, and maintain reusable DSR outputs.
+lifecycle_stages:
+- stage_id: lc01_initiate_and_classify
+  label: Initiate and classify DSR effort
+  stage_group: orient_and_frame
+  purpose: 'Establish that the work is a candidate DSR project rather than routine design, consulting, ordinary software development,
+    or purely explanatory research.
+
+    '
+  entry_criteria:
+  - A problem, opportunity, or artifact concept has been identified.
+  - At least one responsible project role is assigned.
+  activities:
+  - Identify the motivating problem or opportunity.
+  - Identify intended artifact class or artifact uncertainty.
+  - State why an artifact-based intervention is appropriate.
+  - Classify the intended work as DSR, non-DSR, or DSR-candidate requiring clarification.
+  - Identify immediate stakeholders, intended users, reviewers, and artifact stewards.
+  required_outputs:
+  - item_id: project_charter
+    path: templates/dsr-project-charter-template.md
+    item_type: description
+    required: true
+  - item_id: initial_dsr_identity_statement
+    path: records/design-decisions/record-dsr-identity-decision.yaml
+    item_type: record
+    required: true
+    evidence_status: expected_future_record
+  transparency_dimensions:
+  - process
+  - problem_space
+  evaluation_role: screening
+  exit_criteria:
+  - The work has a documented DSR rationale or a documented reason for exclusion.
+  - Stakeholder and reviewer audiences are identified at a sufficient level for planning.
+  - The artifact is not merely assumed; its intended role is explicitly stated.
+  iteration_rules:
+  - If DSR identity is ambiguous, return to this stage after problem-space clarification.
+  - If the work is routine design only, stop the DSR lifecycle and record non-DSR classification.
+- stage_id: lc02_define_problem_space
+  label: Define problem space
+  stage_group: orient_and_frame
+  purpose: 'Define the application context, problem class, local problem instance, stakeholders, constraints, improvement
+    goals, and boundary conditions.
+
+    '
+  entry_criteria:
+  - lc01_initiate_and_classify has status accepted or requires_clarification.
+  - Candidate problem or opportunity is available for analysis.
+  activities:
+  - Describe the local problem instance and broader problem class.
+  - Identify stakeholders, users, beneficiaries, maintainers, and affected parties.
+  - Document practical relevance, severity, risks, constraints, and context volatility.
+  - Identify ethical, responsible-design, accessibility, or equity concerns where applicable.
+  - Define scope boundaries and exclusions.
+  required_outputs:
+  - item_id: problem_and_objectives_record
+    path: templates/problem-and-objectives-template.md
+    item_type: description
+    required: true
+  - item_id: stakeholder_context_map
+    path: records/design-decisions/record-stakeholder-context-map.yaml
+    item_type: record
+    required: recommended
+    evidence_status: expected_future_record
+  transparency_dimensions:
+  - problem_space
+  - process
+  evaluation_role: problem_relevance_assessment
+  exit_criteria:
+  - The problem class and local problem instance are distinguished.
+  - Stakeholder needs and constraints are documented.
+  - Boundary conditions are explicit enough to guide solution objectives and evaluation.
+  iteration_rules:
+  - If objectives cannot be derived, revise this stage before proceeding.
+  - If context changes materially, update the problem-space record and affected downstream records.
+- stage_id: lc03_define_objectives_and_requirements
+  label: Define objectives, requirements, and success criteria
+  stage_group: orient_and_frame
+  purpose: 'Translate the problem-space definition into artifact objectives, requirements, constraints, quality attributes,
+    contribution expectations, and measurable or reviewable success criteria.
+
+    '
+  entry_criteria:
+  - Problem-space record is complete enough to identify goals and constraints.
+  activities:
+  - Define solution objectives as qualitative or quantitative targets.
+  - Separate functional requirements, quality requirements, documentation requirements, and evaluation requirements.
+  - Define acceptance criteria for artifact utility, artifact quality, and contribution claims.
+  - Identify minimum viable DSR evidence needed for review.
+  - Link objectives to stakeholders, problem causes, and intended outcomes.
+  required_outputs:
+  - item_id: objectives_requirements_matrix
+    path: templates/problem-and-objectives-template.md
+    item_type: specification
+    required: true
+  - item_id: initial_acceptance_criteria
+    path: records/design-decisions/record-acceptance-criteria.yaml
+    item_type: record
+    required: true
+    evidence_status: expected_future_record
+  transparency_dimensions:
+  - problem_space
+  - evaluation
+  - contribution
+  evaluation_role: evaluation_design_basis
+  exit_criteria:
+  - Objectives and requirements are testable, reviewable, or explicitly marked as exploratory.
+  - Each major requirement has at least one planned verification, demonstration, or evaluation path.
+  - Success criteria distinguish local utility, artifact quality, and contribution to knowledge.
+  iteration_rules:
+  - If solution-space review shows objectives are infeasible or already solved, revise this stage.
+  - If evaluation evidence later shows unmet objectives, mark affected objectives as revised, deferred, or failed.
+- stage_id: lc04_ground_solution_space
+  label: Ground solution space
+  stage_group: ground_and_specify
+  purpose: 'Establish the knowledge base, prior artifacts, theories, methods, technologies, design principles, and alternatives
+    that justify and bound the proposed artifact design.
+
+    '
+  entry_criteria:
+  - Problem objectives and initial requirements are defined.
+  - At least one candidate solution family or artifact type has been identified.
+  activities:
+  - Review prior DSR, design knowledge, descriptive knowledge, prescriptive knowledge, and relevant technologies.
+  - Identify candidate artifact types, patterns, frameworks, models, methods, or instantiations.
+  - Document design alternatives and why they are adopted, adapted, deferred, or rejected.
+  - Identify source traditions and vocabulary dependencies.
+  - Map solution-space evidence to requirements and design choices.
+  required_outputs:
+  - item_id: solution_space_record
+    path: templates/solution-space-record-template.yaml
+    item_type: specification
+    required: true
+  - item_id: design_alternatives_log
+    path: templates/design-rationale-template.md
+    item_type: record
+    required: recommended
+  transparency_dimensions:
+  - solution_space
+  - process
+  - contribution
+  evaluation_role: rigor_and_grounding_assessment
+  exit_criteria:
+  - Major design choices are grounded in cited or documented knowledge.
+  - Known alternatives and non-adopted options are recorded with rationale.
+  - The project identifies what is novel, reused, adapted, or routine.
+  iteration_rules:
+  - If new evidence changes artifact assumptions, update solution-space and downstream design rationale.
+  - If no non-routine contribution remains, trigger the DSR identity decision gate.
+- stage_id: lc05_specify_artifact_and_design_rationale
+  label: Specify artifact and design rationale
+  stage_group: ground_and_specify
+  purpose: 'Define the artifact boundary, type, intended use, design specification, make or build plan, use plan, capacity
+    or function claims, and rationale.
+
+    '
+  entry_criteria:
+  - Solution-space grounding is sufficient to choose an artifact approach.
+  - Objectives, requirements, and acceptance criteria are available.
+  activities:
+  - Declare artifact type, artifact instance/type distinction, and artifact boundary.
+  - Specify components, interfaces, data structures, methods, procedures, or conceptual entities.
+  - Define make/build logic and use logic.
+  - Record design rationale, assumptions, tradeoffs, and expected mechanisms.
+  - Map artifact components to objectives and evaluation criteria.
+  required_outputs:
+  - item_id: artifact_specification
+    path: templates/artifact-specification-template.md
+    item_type: specification
+    required: true
+  - item_id: design_rationale_record
+    path: templates/design-rationale-template.md
+    item_type: record
+    required: true
+  - item_id: artifact_profile_update
+    path: artifact-profile.yaml
+    item_type: description
+    required: recommended
+  transparency_dimensions:
+  - build
+  - solution_space
+  - contribution
+  evaluation_role: ex_ante_design_review
+  exit_criteria:
+  - Artifact boundary and type are explicit.
+  - Build/use logic is specified enough for implementation, demonstration, or review.
+  - Design rationale links requirements, choices, and expected outcomes.
+  iteration_rules:
+  - If implementation reveals infeasible design assumptions, update this stage before re-building.
+  - If artifact scope changes, update contribution and evaluation records.
+- stage_id: lc06_build_or_configure_artifact
+  label: Build or configure artifact
+  stage_group: build_and_demonstrate
+  purpose: 'Produce the artifact instance, prototype, model, template, method, framework, package, or other implementation
+    needed for demonstration and evaluation.
+
+    '
+  entry_criteria:
+  - Artifact specification and design rationale are accepted for build.
+  - Required resources, skills, data, or tools are available or documented as constraints.
+  activities:
+  - Build, author, configure, implement, or instantiate the artifact.
+  - Record build steps, versions, decisions, deviations, and unresolved defects.
+  - Perform formative checks against specification and capacity/function claims.
+  - Maintain provenance for code, data, templates, models, examples, and records.
+  - Update artifact specification when build reality differs from design expectation.
+  required_outputs:
+  - item_id: build_transparency_record
+    path: templates/build-transparency-record-template.yaml
+    item_type: record
+    required: true
+  - item_id: artifact_instance_or_package
+    path: null
+    item_type: specification
+    required: true
+    notes: 'Path depends on artifact type. For the DSR Framework package, this may include models, specs, vocabularies, schemas,
+      templates, checklists, docs, and records.
+
+      '
+  - item_id: formative_build_check
+    path: records/reviews/record-build-review.yaml
+    item_type: record
+    required: recommended
+    evidence_status: expected_future_record
+  transparency_dimensions:
+  - build
+  - process
+  evaluation_role: formative_artifact_quality_check
+  exit_criteria:
+  - Artifact has a reviewable version identifier or snapshot.
+  - Deviations from design specification are recorded.
+  - Known defects, limitations, or incomplete elements are documented.
+  iteration_rules:
+  - If formative checks fail, iterate within build or return to artifact specification.
+  - If build produces unexpected design knowledge, update contribution positioning.
+- stage_id: lc07_demonstrate_artifact_use
+  label: Demonstrate artifact use
+  stage_group: build_and_demonstrate
+  purpose: 'Show that the artifact can be used in a relevant scenario, case, simulated context, example package, walkthrough,
+    pilot, or field setting.
+
+    '
+  entry_criteria:
+  - A demonstrable artifact version exists.
+  - A use scenario, task, case, or problem instance is available.
+  activities:
+  - Select demonstration context and justify fit to the problem class.
+  - Execute or describe artifact use in the chosen context.
+  - Record inputs, user roles, assumptions, outputs, and observed behavior.
+  - Identify whether the demonstration is illustrative, simulated, pilot, field, or exemplar-based.
+  - Record demonstration limitations and what it does not prove.
+  required_outputs:
+  - item_id: demonstration_record
+    path: templates/demonstration-record-template.yaml
+    item_type: record
+    required: true
+  - item_id: example_package_or_walkthrough
+    path: examples/
+    item_type: description
+    required: recommended
+  transparency_dimensions:
+  - process
+  - build
+  - evaluation
+  evaluation_role: demonstration_not_evaluation
+  exit_criteria:
+  - Demonstration context and artifact use are documented.
+  - Demonstration outputs are linked to artifact objectives.
+  - Claims remain limited to demonstrated use unless separately evaluated.
+  iteration_rules:
+  - If demonstration fails due to artifact defect, return to build.
+  - If demonstration reveals problem or requirement misfit, return to problem/objective stages.
+  - If demonstration is adequate, proceed to evaluation or contribution positioning with limitations.
+- stage_id: lc08_plan_and_execute_evaluation
+  label: Plan and execute evaluation
+  stage_group: evaluate_and_contribute
+  purpose: 'Assess artifact quality, artifact utility, contribution plausibility, validity, reliability, projectability, and
+    risk using methods aligned to objectives, claims, context, and conformance target.
+
+    '
+  entry_criteria:
+  - Artifact objectives and acceptance criteria are defined.
+  - Demonstration or evaluable artifact evidence is available.
+  - Evaluation questions and intended decision use can be stated.
+  activities:
+  - Define evaluation questions, criteria, method families, data needs, and decision thresholds.
+  - Distinguish formative, summative, ex ante, ex post, artificial, naturalistic, analytical, empirical, expert, or argument-based
+    evaluation.
+  - Execute planned evaluations or record why specific evaluations are deferred.
+  - Capture evidence, results, interpretation, threats to validity, and limitations.
+  - Decide whether to accept, revise, reject, narrow, or extend artifact claims.
+  required_outputs:
+  - item_id: evaluation_plan
+    path: templates/evaluation-plan-template.yaml
+    item_type: plan
+    required: true
+  - item_id: evaluation_report
+    path: templates/evaluation-report-template.yaml
+    item_type: report
+    required: true
+  - item_id: evaluation_evidence_archive
+    path: records/evaluations/
+    item_type: record
+    required: recommended
+  transparency_dimensions:
+  - evaluation
+  - process
+  - contribution
+  evaluation_role: primary_evaluation_stage
+  exit_criteria:
+  - Evaluation findings are linked to objectives, artifact qualities, utility claims, and contribution claims.
+  - Evidence limitations and validity threats are documented.
+  - Iteration or acceptance decision is recorded.
+  iteration_rules:
+  - If evaluation fails essential requirements, return to objectives, artifact specification, or build.
+  - If evidence supports local utility only, contribution scope must remain idiographic or projectable with stated conditions.
+  - If evaluation is deferred, record residual risk and release restrictions.
+- stage_id: lc09_position_contribution
+  label: Position contribution
+  stage_group: evaluate_and_contribute
+  purpose: 'Translate artifact, demonstration, and evaluation evidence into explicit claims about contribution to practice,
+    artifact reuse, design knowledge, method, theory, evaluation, reporting, or responsible design.
+
+    '
+  entry_criteria:
+  - Artifact specification, demonstration evidence, and evaluation status are documented.
+  - At least one candidate contribution claim is available.
+  activities:
+  - Identify contribution type, knowledge goal, knowledge scope, and audience.
+  - Distinguish practical contribution from scholarly contribution.
+  - Map contribution claims to evidence, limitations, and boundary conditions.
+  - Identify contribution path, strategy, or knowledge moment sequence when useful.
+  - Record open questions and future research directions.
+  required_outputs:
+  - item_id: contribution_claim
+    path: templates/contribution-claim-template.yaml
+    item_type: specification
+    required: true
+  - item_id: contribution_positioning_record
+    path: templates/contribution-positioning-record-template.yaml
+    item_type: record
+    required: true
+  - item_id: source_basis_record_update
+    path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    item_type: record
+    required: recommended
+  transparency_dimensions:
+  - contribution
+  - evaluation
+  - solution_space
+  evaluation_role: claim_evidence_alignment_review
+  exit_criteria:
+  - Each contribution claim has evidence, scope, boundary conditions, and limitations.
+  - Local artifact success is not overclaimed as general theory without adequate evidence.
+  - Contribution audiences and communication products are identified.
+  iteration_rules:
+  - If claims exceed evidence, narrow claims or return to evaluation.
+  - If contribution is unclear, return to solution grounding and artifact specification.
+- stage_id: lc10_communicate_and_package
+  label: Communicate and package
+  stage_group: communicate_and_steward
+  purpose: 'Prepare the DSR artifact package for review, reuse, citation, publication, and practitioner or scholarly communication.
+
+    '
+  entry_criteria:
+  - Contribution positioning is documented.
+  - Required controlled files and records are available or identified as omissions.
+  activities:
+  - Prepare scholarly, practitioner, and repository-facing communication materials.
+  - Update metadata, package inventory, conformance declaration, and traceability records.
+  - Ensure files use repository naming, directory, status, and version conventions.
+  - Link evidence, examples, schemas, templates, checklists, docs, and records.
+  - Perform package-readiness and transparency checks.
+  required_outputs:
+  - item_id: metadata
+    path: metadata.yaml
+    item_type: metadata_record
+    required: true
+  - item_id: package_inventory
+    path: package-inventory.yaml
+    item_type: record
+    required: true
+  - item_id: conformance_declaration
+    path: conformance-declaration.yaml
+    item_type: record
+    required: true
+  - item_id: transparency_crosswalk
+    path: templates/dsr-transparency-crosswalk-template.yaml
+    item_type: record
+    required: true
+  - item_id: readme_or_docs_update
+    path: README.md
+    item_type: description
+    required: recommended
+  transparency_dimensions:
+  - process
+  - problem_space
+  - solution_space
+  - build
+  - evaluation
+  - contribution
+  evaluation_role: reviewability_and_package_quality_check
+  exit_criteria:
+  - Package inventory matches actual controlled files.
+  - Conformance level and limitations are declared.
+  - Documentation is sufficient for reviewer navigation.
+  - Required omissions are documented with rationale.
+  iteration_rules:
+  - If packaging reveals missing evidence, return to the relevant lifecycle stage.
+  - If conformance cannot be supported, lower the conformance claim or create backlog items.
+- stage_id: lc11_review_release_and_steward
+  label: Review, release, and steward
+  stage_group: communicate_and_steward
+  purpose: 'Review the artifact package, record release decisions, preserve evidence, and define stewardship or maintenance
+    expectations.
+
+    '
+  entry_criteria:
+  - Package is ready for internal review, external review, pilot release, or public release.
+  - Review criteria and conformance target are declared.
+  activities:
+  - Conduct self-review, peer review, expert review, or maintainer review.
+  - Record review findings, dispositions, release decision, and known limitations.
+  - Create release record, changelog entry, citation metadata, and archival metadata where applicable.
+  - Define maintenance scope, issue-handling policy, deprecation rules, and preservation responsibilities.
+  - Identify post-release evaluation, replication, or projectability opportunities.
+  required_outputs:
+  - item_id: review_record
+    path: templates/review-record-template.yaml
+    item_type: record
+    required: true
+  - item_id: release_record
+    path: records/releases/record-release-0001-v0-1-0.yaml
+    item_type: record
+    required: recommended
+  - item_id: preservation_record
+    path: records/preservation/
+    item_type: record
+    required: recommended
+  - item_id: changelog_update
+    path: CHANGELOG.md
+    item_type: record
+    required: recommended
+  transparency_dimensions:
+  - process
+  - evaluation
+  - contribution
+  evaluation_role: release_readiness_review
+  exit_criteria:
+  - Release or non-release decision is recorded.
+  - Review findings are closed, deferred, or accepted as limitations.
+  - Maintenance and preservation expectations are explicit.
+  iteration_rules:
+  - If review fails essential criteria, return to the failed stage.
+  - If release occurs with limitations, attach limitations to metadata, inventory, and release record.
+stage_sequence:
+  canonical_forward_path:
+  - lc01_initiate_and_classify
+  - lc02_define_problem_space
+  - lc03_define_objectives_and_requirements
+  - lc04_ground_solution_space
+  - lc05_specify_artifact_and_design_rationale
+  - lc06_build_or_configure_artifact
+  - lc07_demonstrate_artifact_use
+  - lc08_plan_and_execute_evaluation
+  - lc09_position_contribution
+  - lc10_communicate_and_package
+  - lc11_review_release_and_steward
+  allowed_entry_points:
+  - entry_point_id: problem_centered_entry
+    allowed_first_stage: lc02_define_problem_space
+    condition: 'Use when the project begins from a clearly experienced problem, pain point, organizational need, or research
+      gap.
+
+      '
+  - entry_point_id: objective_centered_entry
+    allowed_first_stage: lc03_define_objectives_and_requirements
+    condition: 'Use when a sponsor, stakeholder, or research agenda already supplies a clear objective but problem context
+      still requires verification.
+
+      '
+  - entry_point_id: design_and_development_centered_entry
+    allowed_first_stage: lc05_specify_artifact_and_design_rationale
+    condition: 'Use when a candidate artifact already exists but DSR identity, grounding, evaluation, and contribution still
+      need documentation.
+
+      '
+  - entry_point_id: client_or_context_initiated_entry
+    allowed_first_stage: lc01_initiate_and_classify
+    condition: 'Use when a project originates from a client, organizational context, practitioner setting, or open artifact
+      need.
+
+      '
+  - entry_point_id: contribution_centered_entry
+    allowed_first_stage: lc09_position_contribution
+    condition: 'Use only for retrospective structuring, with explicit risk control against ex-post DSR-ification and unsupported
+      contribution claims.
+
+      '
+  mandatory_backfill_rule: 'Any non-canonical entry point must backfill skipped stages before the package may claim L2 reviewable
+    conformance or higher.
+
+    '
+relationships:
+- relationship_id: rel_problem_informs_objectives
+  from_entity: lc02_define_problem_space
+  to_entity: lc03_define_objectives_and_requirements
+  relationship_type: informs
+  cardinality: one_to_many
+  validation_rule: 'Each objective must trace to at least one problem-space element, stakeholder need, constraint, or improvement
+    goal.
+
+    '
+- relationship_id: rel_objectives_ground_evaluation
+  from_entity: lc03_define_objectives_and_requirements
+  to_entity: lc08_plan_and_execute_evaluation
+  relationship_type: establishes_criteria_for
+  cardinality: many_to_many
+  validation_rule: 'Each evaluation question or criterion must map to a requirement, objective, artifact quality, utility
+    claim, or contribution claim.
+
+    '
+- relationship_id: rel_solution_space_justifies_design
+  from_entity: lc04_ground_solution_space
+  to_entity: lc05_specify_artifact_and_design_rationale
+  relationship_type: justifies
+  cardinality: many_to_many
+  validation_rule: 'Major artifact design choices must identify grounding evidence, design rationale, or explicit exploratory
+    status.
+
+    '
+- relationship_id: rel_design_guides_build
+  from_entity: lc05_specify_artifact_and_design_rationale
+  to_entity: lc06_build_or_configure_artifact
+  relationship_type: constrains
+  cardinality: one_to_many
+  validation_rule: 'Build records must identify whether each material deviation from design specification was accepted, corrected,
+    or deferred.
+
+    '
+- relationship_id: rel_build_enables_demonstration
+  from_entity: lc06_build_or_configure_artifact
+  to_entity: lc07_demonstrate_artifact_use
+  relationship_type: enables
+  cardinality: one_to_many
+  validation_rule: 'Demonstration cannot be accepted unless it identifies the artifact version or specification snapshot used.
+
+    '
+- relationship_id: rel_demonstration_feeds_evaluation
+  from_entity: lc07_demonstrate_artifact_use
+  to_entity: lc08_plan_and_execute_evaluation
+  relationship_type: supplies_evidence_or_context_for
+  cardinality: zero_to_many
+  validation_rule: 'Demonstration evidence may support evaluation but must not be counted as evaluation unless evaluation
+    criteria and interpretation are documented.
+
+    '
+- relationship_id: rel_evaluation_supports_contribution
+  from_entity: lc08_plan_and_execute_evaluation
+  to_entity: lc09_position_contribution
+  relationship_type: supports_or_limits
+  cardinality: many_to_many
+  validation_rule: 'Contribution claims must cite evaluation status and must identify claims that are unevaluated, partially
+    evaluated, or evaluation-supported.
+
+    '
+- relationship_id: rel_contribution_guides_communication
+  from_entity: lc09_position_contribution
+  to_entity: lc10_communicate_and_package
+  relationship_type: guides
+  cardinality: one_to_many
+  validation_rule: 'Communication products must identify intended audience, contribution type, evidence basis, and limitations.
+
+    '
+- relationship_id: rel_package_enters_review
+  from_entity: lc10_communicate_and_package
+  to_entity: lc11_review_release_and_steward
+  relationship_type: submits_to
+  cardinality: one_to_many
+  validation_rule: 'Review cannot proceed without package inventory, conformance declaration, and traceability status.
+
+    '
+iteration_model:
+  iteration_principle: 'The lifecycle is sequential for reviewability but iterative in operation. Iteration must be documented
+    when it changes problem framing, objectives, artifact design, evaluation interpretation, contribution scope, or release
+    claims.
+
+    '
+  allowed_iteration_types:
+  - id: minor_revision
+    definition: 'A correction or improvement that does not change artifact boundary, objective meaning, evaluation interpretation,
+      or contribution scope.
+
+      '
+    required_record: change_history_entry
+  - id: design_iteration
+    definition: 'A change to artifact design, build logic, use logic, component structure, or implementation based on formative
+      evidence or design rationale.
+
+      '
+    required_record: design_rationale_record
+  - id: problem_reframing
+    definition: 'A change to the problem class, local problem instance, stakeholders, scope, or improvement goals.
+
+      '
+    required_record: problem_and_objectives_record_update
+  - id: evaluation_iteration
+    definition: 'A change to evaluation questions, criteria, methods, sampling, evidence, interpretation, or decision thresholds.
+
+      '
+    required_record: evaluation_plan_or_report_update
+  - id: contribution_rescoping
+    definition: 'A narrowing, broadening, or reclassification of contribution type, knowledge goal, knowledge scope, or audience.
+
+      '
+    required_record: contribution_positioning_record_update
+  - id: release_iteration
+    definition: 'A change required by review, release readiness, preservation, metadata, governance, or package inventory
+      checks.
+
+      '
+    required_record: review_or_release_record_update
+  iteration_controls:
+  - control_id: ic01_trace_revision_reason
+    rule: Every substantive iteration must state reason, affected stage, affected files, and decision outcome.
+  - control_id: ic02_preserve_superseded_claims
+    rule: Superseded claims should be retained in records or change history when needed for review traceability.
+  - control_id: ic03_prevent_evidence_drift
+    rule: Evaluation evidence must be rechecked when objectives, artifact design, or contribution scope changes.
+  - control_id: ic04_prevent_ex_post_dsr_ification
+    rule: Retrospective lifecycle documentation must explicitly distinguish actual process from reconstructed reporting logic.
+decision_gates:
+- gate_id: dg01_dsr_identity_gate
+  label: DSR identity gate
+  applies_after_stage: lc01_initiate_and_classify
+  decision_options:
+  - accept_as_dsr_candidate
+  - revise_problem_or_artifact_scope
+  - classify_as_non_dsr
+  - defer_until_more_evidence
+  evidence_required:
+  - project_charter
+  - initial_dsr_identity_statement
+  - problem_or_opportunity_description
+  - candidate_artifact_role
+  pass_condition: 'The project plausibly addresses a relevant problem by designing or studying an artifact and intends to
+    contribute beyond routine local delivery.
+
+    '
+  fail_condition: 'The project only applies existing knowledge to a local task with no research contribution, no artifact
+    uncertainty, and no evaluable design knowledge claim.
+
+    '
+- gate_id: dg02_problem_objective_gate
+  label: Problem and objectives gate
+  applies_after_stage: lc03_define_objectives_and_requirements
+  decision_options:
+  - accept_problem_and_objectives
+  - revise_problem_space
+  - revise_objectives
+  - suspend_project
+  evidence_required:
+  - problem_and_objectives_record
+  - objectives_requirements_matrix
+  - stakeholder_context_map
+  pass_condition: 'Problem context, objectives, requirements, constraints, and success criteria are coherent and evaluable.
+
+    '
+  fail_condition: 'Objectives are disconnected from the problem, infeasible, unreviewable, or too vague to guide artifact
+    design and evaluation.
+
+    '
+- gate_id: dg03_solution_grounding_gate
+  label: Solution grounding gate
+  applies_after_stage: lc04_ground_solution_space
+  decision_options:
+  - accept_solution_grounding
+  - expand_literature_or_artifact_review
+  - revise_objectives
+  - narrow_contribution_scope
+  evidence_required:
+  - solution_space_record
+  - design_alternatives_log
+  - source_basis_entries
+  pass_condition: 'The artifact approach is sufficiently grounded in prior knowledge, known alternatives, and design rationale.
+
+    '
+  fail_condition: 'The design approach is unsupported, duplicates prior work without adaptation, or lacks a clear basis for
+    non-routine contribution.
+
+    '
+- gate_id: dg04_design_readiness_gate
+  label: Design readiness gate
+  applies_after_stage: lc05_specify_artifact_and_design_rationale
+  decision_options:
+  - accept_for_build
+  - revise_artifact_specification
+  - revise_design_rationale
+  - return_to_solution_space
+  evidence_required:
+  - artifact_specification
+  - design_rationale_record
+  - requirements_traceability
+  pass_condition: 'Artifact type, boundary, components, build logic, use logic, and acceptance criteria are specified enough
+    to support build and review.
+
+    '
+  fail_condition: 'Artifact boundaries or design choices are too ambiguous to implement, demonstrate, evaluate, or review.
+
+    '
+- gate_id: dg05_demonstration_readiness_gate
+  label: Demonstration readiness gate
+  applies_after_stage: lc06_build_or_configure_artifact
+  decision_options:
+  - accept_for_demonstration
+  - revise_build
+  - revise_artifact_specification
+  - defer_demonstration
+  evidence_required:
+  - build_transparency_record
+  - artifact_version_or_snapshot
+  - known_defects_and_limitations
+  pass_condition: 'The artifact version is stable enough to use in the selected demonstration context with known limitations
+    recorded.
+
+    '
+  fail_condition: 'The artifact cannot be used, reviewed, or interpreted in a demonstration scenario.
+
+    '
+- gate_id: dg06_evaluation_claim_gate
+  label: Evaluation and claim gate
+  applies_after_stage: lc08_plan_and_execute_evaluation
+  decision_options:
+  - accept_evaluation_findings
+  - revise_artifact
+  - revise_evaluation
+  - narrow_claims
+  - reject_or_pause_claim
+  evidence_required:
+  - evaluation_plan
+  - evaluation_report
+  - evidence_archive_or_summary
+  - validity_and_limitation_notes
+  pass_condition: 'Evaluation evidence is sufficient for the declared artifact quality, utility, or contribution claims at
+    the selected conformance level.
+
+    '
+  fail_condition: 'Evaluation evidence is absent, uninterpretable, misaligned to claims, or materially weaker than declared
+    claim scope.
+
+    '
+- gate_id: dg07_contribution_positioning_gate
+  label: Contribution positioning gate
+  applies_after_stage: lc09_position_contribution
+  decision_options:
+  - accept_contribution_positioning
+  - narrow_claim_scope
+  - return_to_evaluation
+  - return_to_solution_grounding
+  evidence_required:
+  - contribution_claim
+  - contribution_positioning_record
+  - evaluation_status
+  - source_basis
+  pass_condition: 'Contribution claims are explicit, scoped, evidence-linked, limited, and audience-specific.
+
+    '
+  fail_condition: 'Contribution claims overstate evidence, confuse local utility with general knowledge, or lack boundary
+    conditions.
+
+    '
+- gate_id: dg08_package_review_gate
+  label: Package review gate
+  applies_after_stage: lc10_communicate_and_package
+  decision_options:
+  - accept_for_release_review
+  - revise_package
+  - lower_conformance_target
+  - defer_release
+  evidence_required:
+  - metadata
+  - package_inventory
+  - conformance_declaration
+  - transparency_crosswalk
+  - review_checklist_results
+  pass_condition: 'The package is navigable, internally coherent, traceable, and explicit about conformance, evidence, assumptions,
+    limitations, and omissions.
+
+    '
+  fail_condition: 'The package cannot be reviewed due to missing files, broken traceability, inconsistent claims, or unsupported
+    conformance assertions.
+
+    '
+minimum_l2_reviewable_requirements:
+- requirement_id: l2_req01_controlled_identity
+  statement: 'The project must have a project identity, artifact identity, lifecycle status, owner or responsible role, and
+    conformance target.
+
+    '
+  evidence_required:
+  - metadata
+  - artifact_profile
+  - project_charter
+- requirement_id: l2_req02_problem_and_objectives
+  statement: 'Problem space, objectives, requirements, and success criteria must be documented at a level sufficient for review.
+
+    '
+  evidence_required:
+  - problem_and_objectives_record
+  - objectives_requirements_matrix
+- requirement_id: l2_req03_solution_grounding
+  statement: 'Design choices must have solution-space grounding, design rationale, or explicit exploratory status.
+
+    '
+  evidence_required:
+  - solution_space_record
+  - design_rationale_record
+- requirement_id: l2_req04_artifact_specification
+  statement: 'Artifact boundary, type, components, build logic, and use logic must be described enough to support demonstration
+    and review.
+
+    '
+  evidence_required:
+  - artifact_specification
+  - artifact_profile
+- requirement_id: l2_req05_demonstration_or_evaluable_use
+  statement: 'The artifact must have a documented demonstration, use scenario, or rationale for why demonstration is deferred.
+
+    '
+  evidence_required:
+  - demonstration_record
+  - example_package_or_walkthrough
+- requirement_id: l2_req06_evaluation_status
+  statement: 'Evaluation plan and evaluation status must be documented, even if full evaluation is deferred or limited.
+
+    '
+  evidence_required:
+  - evaluation_plan
+  - evaluation_report_or_evaluation_status_record
+- requirement_id: l2_req07_contribution_scope
+  statement: 'Contribution claims must be scoped, evidence-linked, and limited.
+
+    '
+  evidence_required:
+  - contribution_claim
+  - contribution_positioning_record
+- requirement_id: l2_req08_transparency_crosswalk
+  statement: 'The package must map evidence to relevant DSR transparency dimensions or explain non-applicability.
+
+    '
+  evidence_required:
+  - transparency_crosswalk
+- requirement_id: l2_req09_reviewability
+  statement: 'A reviewer must be able to inspect stage outputs, decision gates, quality criteria, assumptions, limitations,
+    and open questions.
+
+    '
+  evidence_required:
+  - package_inventory
+  - review_record
+  - change_history
+validation_implications:
+  structural_validation:
+  - rule_id: val_stage_ids_unique
+    rule: lifecycle_stages.stage_id values must be unique lower_snake_case identifiers.
+    severity: error
+  - rule_id: val_gate_stage_references_exist
+    rule: each decision_gate.applies_after_stage must reference an existing lifecycle_stages.stage_id.
+    severity: error
+  - rule_id: val_required_outputs_have_item_ids
+    rule: each required output must have item_id, item_type, and required fields.
+    severity: error
+  - rule_id: val_transparency_dimensions_controlled
+    rule: transparency_dimensions must use process, problem_space, solution_space, build, evaluation, or contribution.
+    severity: error
+  - rule_id: val_entry_points_backfill
+    rule: any allowed non-canonical entry point must require backfill of skipped stages for L2 or higher.
+    severity: warning
+  semantic_validation:
+  - rule_id: val_no_demonstration_as_evaluation
+    rule: demonstration outputs must not satisfy evaluation requirements unless evaluation criteria and interpretation are
+      documented.
+    severity: error
+  - rule_id: val_no_unbounded_contribution_claim
+    rule: contribution claims must declare knowledge goal, scope, evidence basis, boundary conditions, and limitations.
+    severity: error
+  - rule_id: val_no_routine_design_overclaim
+    rule: projects classified as routine design must not claim DSR contribution without additional research contribution evidence.
+    severity: error
+  - rule_id: val_evaluation_alignment
+    rule: every evaluation report finding should map to objectives, requirements, artifact qualities, utility claims, or contribution
+      claims.
+    severity: warning
+  - rule_id: val_iteration_traceability
+    rule: any substantive iteration must identify affected stage, reason, changed outputs, and decision outcome.
+    severity: warning
+  package_validation:
+  - rule_id: val_inventory_alignment
+    rule: lifecycle-required files must be present in package-inventory.yaml or listed as deferred with rationale.
+    severity: error
+  - rule_id: val_conformance_alignment
+    rule: conformance-declaration.yaml must not claim a level unsupported by lifecycle evidence.
+    severity: error
+  - rule_id: val_source_basis_alignment
+    rule: scholarly or methodological claims must reference source_basis entries or evidence_status not_yet_mapped.
+    severity: warning
+boundary_conditions:
+- boundary_id: bc01_lifecycle_is_not_strict_waterfall
+  statement: 'The stage sequence supports reviewability, but DSR work may begin at different entry points and iterate across
+    stages.
+
+    '
+  implication: 'Records must distinguish actual process sequence from reporting sequence.
+
+    '
+- boundary_id: bc02_conceptual_artifacts_still_require_build_transparency
+  statement: 'Conceptual artifacts such as models, taxonomies, ontologies, templates, and protocols may not have software
+    builds, but they still require build transparency through authorship, design rationale, source basis, and revision history.
+
+    '
+  implication: 'Build records may describe authoring, modeling, extraction, synthesis, and validation activities rather than
+    code compilation or deployment.
+
+    '
+- boundary_id: bc03_local_utility_does_not_imply_general_contribution
+  statement: 'A useful artifact in one setting does not automatically support a broad design theory, nomothetic claim, or
+    reusable method.
+
+    '
+  implication: 'Contribution scope must be proportionate to evidence and boundary conditions.
+
+    '
+- boundary_id: bc04_evaluation_may_be_limited_but_must_be_declared
+  statement: 'Early-stage packages may have limited, formative, conceptual, or planned evaluation rather than full naturalistic
+    evidence.
+
+    '
+  implication: 'Evaluation status, residual risk, and deferred evidence must be explicit.
+
+    '
+- boundary_id: bc05_transparency_is_proportionate
+  statement: 'Transparency should support review, reuse, trust, and accountability without requiring unsafe, proprietary,
+    unnecessary, or burdensome disclosure.
+
+    '
+  implication: 'Omissions may be acceptable when justified by security, privacy, intellectual property, practicality, or relevance
+    constraints.
+
+    '
+quality_and_conformance:
+  quality_gates:
+  - gate_id: qg_consistency
+    status: pass
+    evidence:
+    - target_path: models/dsr-lifecycle-model.yaml
+    - item_type: specification
+    - naming_rule: lower-kebab-case
+  - gate_id: qg_coherence
+    status: pass
+    evidence:
+    - related_items
+    - lifecycle_stage_relationships
+    - validation_implications
+  - gate_id: qg_cogency
+    status: pass
+    evidence:
+    - stage_sequence
+    - decision_gates
+    - exit_criteria
+    - iteration_model
+  - gate_id: qg_correspondence
+    status: pass
+    evidence:
+    - selection_id: model_lifecycle
+    - purpose: Operational DSR lifecycle model
+    - conformance_target: l2_reviewable
+  - gate_id: qg_dsr_transparency
+    status: pass
+    evidence:
+    - process
+    - problem_space
+    - solution_space
+    - build
+    - evaluation
+    - contribution
+  - gate_id: qg_reviewability
+    status: pass
+    evidence:
+    - decision_gates
+    - minimum_l2_reviewable_requirements
+    - validation_implications
+    - boundary_conditions
+  acceptance_criteria:
+  - criterion_id: ac01_stage_operationality
+    statement: Each lifecycle stage includes purpose, entry criteria, activities, outputs, exit criteria, transparency dimensions,
+      and iteration rules.
+  - criterion_id: ac02_decision_gate_reviewability
+    statement: Decision gates include evidence required, pass condition, fail condition, and decision options.
+  - criterion_id: ac03_traceability
+    statement: The model traces to governing prompt, generation specification, selected row, and DSR corpus source families.
+  - criterion_id: ac04_validation_utility
+    statement: The file includes structural, semantic, and package validation implications that downstream schemas and checklists
+      can reuse.
+  - criterion_id: ac05_dsr_distinctions
+    statement: The model preserves distinctions among demonstration, evaluation, artifact quality, artifact utility, contribution,
+      artifact instance/type, and knowledge scope.
+traceability:
+- trace_id: tr_model_lifecycle_selection
+  from: user_current_request.model_lifecycle
+  to: model.id.dsr_lifecycle_model
+  relationship: authorizes_generation_target
+  evidence_status: mapped
+- trace_id: tr_model_file_path
+  from: dsr_framework_selection_table.model_lifecycle.target_path
+  to: model.target_path
+  relationship: sets_repository_location
+  evidence_status: mapped
+- trace_id: tr_generation_spec_model_requirement
+  from: dsr_framework_generation_spec.content_generation_rules
+  to: validation_implications
+  relationship: implements_controlled_file_requirements
+  evidence_status: mapped
+- trace_id: tr_generation_prompt_model_requirement
+  from: dsr_framework_generation_prompt.required_structures_by_portion_type.models
+  to:
+  - entities
+  - relationships
+  - boundary_conditions
+  - validation_implications
+  - traceability
+  relationship: implements_model_file_requirements
+  evidence_status: mapped
+- trace_id: tr_dsr_process_basis
+  from: vom_brocke_hevner_maedche_2020_intro_dsr.citation_anchor_ids
+  to:
+  - stage_sequence
+  - lifecycle_stages
+  - iteration_model
+  relationship: supports_operational_process_model
+  evidence_status: mapped_to_corpus_record
+- trace_id: tr_transparency_basis
+  from: hevner_et_al_2024_transparency_in_design_science_research.citation_anchor_ids
+  to:
+  - lifecycle_stages.transparency_dimensions
+  - boundary_conditions.bc05_lifecycle_transparency
+  relationship: supports_transparency_dimensions
+  evidence_status: mapped_to_corpus_record
+- trace_id: tr_artifact_ontology_basis
+  from: weigand_johannesson_andersson_2021_101878.citation_anchor_ids
+  to:
+  - conceptual_model.core_distinctions
+  - lifecycle_stages.lc05_specify_artifact_and_design_rationale
+  - lifecycle_stages.lc06_build_or_configure_artifact
+  relationship: supports_artifact_make_use_model
+  evidence_status: mapped_to_corpus_record
+- trace_id: tr_knowledge_path_basis
+  from: akoka_et_al_2023_knowledge_contributions_in_dsr.citation_anchor_ids
+  to:
+  - lifecycle_stages.lc09_position_contribution
+  - conceptual_model.core_distinctions.distinction_idiographic_vs_nomothetic_scope
+  relationship: supports_contribution_path_and_scope_model
+  evidence_status: mapped_to_corpus_record
+assumptions:
+- assumption_id: asm01_l2_reviewable_target
+  statement: 'The requested default conformance L2 is interpreted as reviewable rather than fully executable, reusable, or
+    archival-publication-ready.
+
+    '
+- assumption_id: asm02_no_existing_lifecycle_vocab_file_required
+  statement: 'This model anticipates vocabularies/lifecycle-stages.yaml but does not require that file to exist before this
+    model can be reviewed.
+
+    '
+- assumption_id: asm03_dsr_framework_package_as_conceptual_artifact
+  statement: 'The DSR Framework package may contain conceptual artifacts and structured documentation artifacts; build transparency
+    therefore includes authoring, synthesis, modeling, and file-generation activities.
+
+    '
+- assumption_id: asm04_internal_corpus_sufficient
+  statement: 'The model uses the internal DSR extraction corpus and uploaded generation files as its evidence basis; no external
+    web source was used.
+
+    '
+limitations:
+- limitation_id: lim01_not_a_schema
+  statement: 'This file is a model, not a JSON Schema. Validation implications require downstream implementation in schema
+    or checklist files.
+
+    '
+- limitation_id: lim02_not_project_specific
+  statement: 'The model is generic to DSR Framework packages and DSR projects; project- specific lifecycle records must still
+    be created for each artifact package.
+
+    '
+- limitation_id: lim03_evidence_anchor_granularity
+  statement: 'Source_basis uses corpus source IDs and citation anchor IDs rather than direct bibliographic quotations inside
+    this file.
+
+    '
+- limitation_id: lim04_release_readiness_not_claimed
+  statement: 'This model supports L2 reviewability but does not itself establish L4 reuse readiness or L5 archival/publication
+    readiness.
+
+    '
+open_questions:
+- question_id: oq01_stage_vocabulary_split
+  question: 'Should lifecycle stage identifiers remain embedded in this model, or should they be rendered into vocabularies/lifecycle-stages.yaml
+    as the controlled source?
+
+    '
+  decision_needed_by: before_schema_generation
+- question_id: oq02_evaluation_method_mapping_depth
+  question: 'How granular should the mapping be between lifecycle stages and evaluation method families in vocabularies/evaluation-method-families.yaml?
+
+    '
+  decision_needed_by: before_evaluation_model_finalization
+- question_id: oq03_release_stewardship_scope
+  question: 'Should post-release stewardship remain part of the lifecycle model or be split into publication/readiness and
+    governance models?
+
+    '
+  decision_needed_by: before_l4_or_l5_conformance
+change_history:
+- version: 0.1.0
+  date: '2026-04-27'
+  change_type: initial_creation
+  responsible_party: GPT-5.5 Thinking
+  summary: 'Created operational DSR lifecycle model for selection_id model_lifecycle at models/dsr-lifecycle-model.yaml.
+
+    '

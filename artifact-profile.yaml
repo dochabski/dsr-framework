@@ -1,0 +1,814 @@
+# SPDX-License-Identifier: CC0-1.0
+artifact_profile:
+  item_id: artifact_profile
+  item_type: artifact_profile
+  title: DSR Framework Artifact Profile
+  purpose: 'Identify the DSR Framework as a reusable Design Science Research artifact package, declare its artifact type,
+    scope, contribution claims, conformance posture, and reuse constraints, and provide root-level traceability for review
+    and publication preparation.
+
+    '
+  status: public_draft_release
+  version: 0.1.0
+  owner:
+    role: framework_maintainer
+    name: David Ochabski
+    github: dochabski
+  target_path: artifact-profile.yaml
+  selection_metadata:
+    selection_id: root_artifact_profile
+    portion_type: artifact_profile
+    output_format: yaml
+    default_conformance_from_selection_table: L1
+    conformance_target: l1_documented
+    key_dependencies:
+    - dsr_lifecycle_contribution_model
+    - dsr_corpus
+    - documentation_protocol_repository_model
+  package_context:
+    package_id: dsr_framework
+    package_title: Design Science Research Framework
+    package_class:
+      primary: compound_dsr_artifact
+      secondary:
+      - method_or_protocol_artifact
+      - model_or_taxonomy_artifact
+      - documentation_only
+      - data_or_information_artifact
+    repository_role: root_package_control_file
+    source_of_truth_status: controlled_root_metadata
+    intended_repository_location: repository_root
+    expected_sibling_root_files:
+    - README.md
+    - LICENSE
+    - CITATION.cff
+    - CHANGELOG.md
+    - CONTRIBUTING.md
+    - GOVERNANCE.md
+    - SECURITY.md
+    - CODE_OF_CONDUCT.md
+    - .zenodo.json
+    - manifest.yaml
+    - metadata.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+    repository_url: https://github.com/dochabski/dsr-framework
+    release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+    archive_doi: 10.5281/zenodo.19835424
+  artifact_identity:
+    artifact_id: dsr_framework
+    artifact_name: Design Science Research Framework
+    artifact_short_name: DSR Framework
+    artifact_version: 0.1.0
+    artifact_status: public_draft_release
+    artifact_family: open_research_artifact_framework
+    artifact_kind: compound_artifact_package
+    artifact_boundary_statement: 'The artifact is the framework package as a reusable artifact type: its root metadata, specifications,
+      models, vocabularies, schemas, templates, checklists, retained records, documentation pages, crosswalks, examples, and
+      validation logic. It is not limited to any single local instantiation of a DSR project, and it is not itself evidence
+      that any downstream project has been evaluated.
+
+      '
+    artifact_instance_statement: 'This repository is an instance of the DSR Framework artifact package. Downstream users may
+      instantiate the framework in project-specific documentation packages, but those instances remain separate DSR artifacts
+      with their own evidence, evaluation, and contribution claims.
+
+      '
+    canonical_description: 'A protocol-governed, GitHub-publishable framework for planning, documenting, evaluating, reviewing,
+      and publishing Design Science Research artifacts with structured attention to artifact identity, contribution positioning,
+      lifecycle traceability, transparency, evaluation, validity, reliability, replication, projectability, and reuse.
+
+      '
+    plain_language_description: 'The DSR Framework is a structured package of files that helps researchers describe what they
+      built, why it matters, how it was designed, how it was evaluated, what kind of knowledge it contributes, and how others
+      may review or reuse it.
+
+      '
+  artifact_typing:
+    primary_artifact_type:
+      id: framework
+      label: Framework
+      rationale: 'The package organizes concepts, required records, operating procedures, templates, checklists, and validation
+        responsibilities into a coherent system for DSR work.
+
+        '
+    secondary_artifact_types:
+    - id: method_or_protocol
+      label: Method or protocol artifact
+      rationale: 'The package prescribes repeatable procedures for documenting DSR projects and artifact packages.
+
+        '
+    - id: model
+      label: Model artifact
+      rationale: 'The package includes conceptual and operational models for DSR lifecycle, artifact ontology, contribution,
+        evaluation, transparency, reliability, and projectability.
+
+        '
+    - id: taxonomy
+      label: Taxonomy or vocabulary artifact
+      rationale: 'The package includes controlled vocabularies and classification structures for DSR constructs.
+
+        '
+    - id: template
+      label: Template artifact
+      rationale: 'The package includes reusable structured templates for project records and evidence documentation.
+
+        '
+    - id: checklist
+      label: Checklist artifact
+      rationale: 'The package includes review and readiness checklists for quality and conformance.
+
+        '
+    - id: information_artifact
+      label: Data or information artifact
+      rationale: 'The package stores retained records, source-basis records, inventories, and crosswalks as reusable structured
+        information items.
+
+        '
+    not_classified_as:
+    - id: software_application
+      rationale: 'The root package may support future automation but is not primarily a running software application.
+
+        '
+    - id: empirical_dataset_only
+      rationale: 'The package uses evidence records and extraction corpus references, but the framework is not merely a dataset.
+
+        '
+    - id: completed_evaluation_report
+      rationale: 'The package will include evaluation plans and reports, but this profile does not claim that the framework
+        has already undergone summative evaluation.
+
+        '
+    - id: universal_dsr_standard
+      rationale: 'The package is a reviewable open framework, not a disciplinary standard ratified by an external standards
+        body.
+
+        '
+  dsr_scope:
+    domain_scope:
+      primary_domain: Design Science Research
+      primary_discipline_contexts:
+      - information_systems
+      - design_science
+      - applied_research_methodology
+      adjacent_domain_contexts:
+      - software_engineering
+      - human_computer_interaction
+      - quality_management
+      - program_evaluation
+      - open_science
+      - responsible_design
+    use_contexts:
+    - id: dsr_project_planning
+      description: Plan a DSR project before or during artifact development.
+    - id: artifact_package_documentation
+      description: Assemble a structured, reviewable artifact package for GitHub or archival release.
+    - id: contribution_positioning
+      description: Position a DSR artifact relative to artifact types, knowledge goals, and contribution scope.
+    - id: evaluation_alignment
+      description: Align evaluation activities with artifact utility, artifact quality, and knowledge claims.
+    - id: transparency_review
+      description: Review process, problem-space, solution-space, build, evaluation, and contribution transparency.
+    - id: publication_readiness
+      description: Prepare artifact documentation for peer review, open repository release, or citation.
+    intended_users:
+    - role: researcher
+      use: Plan, document, evaluate, and communicate DSR artifacts.
+    - role: reviewer
+      use: Assess whether claims, evidence, and records support DSR contribution and reuse.
+    - role: maintainer
+      use: Govern repository contents, versioning, validation, and release readiness.
+    - role: educator
+      use: Teach DSR artifact documentation and evaluation practices.
+    - role: practitioner_or_partner
+      use: Understand intended utility, context, constraints, and reuse conditions of a DSR artifact.
+    out_of_scope:
+    - id: domain_specific_artifact_evaluation_substitute
+      statement: 'The framework does not replace domain-specific technical, ethical, safety, legal, usability, or performance
+        evaluation required for a particular artifact.
+
+        '
+    - id: automatic_publication_acceptance
+      statement: 'Completion of framework files does not guarantee publication, peer-review acceptance, archival acceptance,
+        or disciplinary consensus.
+
+        '
+    - id: evidence_fabrication
+      statement: 'The framework must not be used to create unsupported DSR claims; absent evidence must remain marked as not_yet_mapped,
+        planned, or unavailable.
+
+        '
+    - id: one_size_fits_all_methodology
+      statement: 'The framework supports tailoring by artifact type, project maturity, contribution scope, and evaluation
+        burden.
+
+        '
+  dsr_lifecycle_positioning:
+    lifecycle_model_status: dependency_not_yet_generated_in_this_file
+    expected_lifecycle_stages:
+    - stage_id: problem_and_objectives
+      relevance: Defines problem class, stakeholders, goals, requirements, constraints, and success criteria.
+    - stage_id: solution_space_grounding
+      relevance: Documents knowledge bases, prior artifacts, theories, patterns, and design alternatives.
+    - stage_id: artifact_design_and_build
+      relevance: Documents design decisions, make plans, use plans, components, and build transparency.
+    - stage_id: demonstration
+      relevance: Shows use or feasibility without overclaiming evaluation evidence.
+    - stage_id: evaluation
+      relevance: Tests artifact utility, quality, fitness, claim support, and context-bound performance.
+    - stage_id: contribution_positioning
+      relevance: States knowledge goals, knowledge scope, novelty, significance, and DSR contribution type.
+    - stage_id: packaging_and_publication
+      relevance: Prepares repository structure, metadata, licensing, citation, preservation, and release records.
+    demonstration_vs_evaluation_rule: 'Demonstration records show that an artifact can be used in a scenario; evaluation records
+      provide criteria, method, evidence, findings, and claim alignment. The framework must keep these evidence classes separate.
+
+      '
+    artifact_quality_vs_utility_rule: 'Artifact quality concerns properties of the artifact or package such as completeness,
+      validity, reliability, maintainability, transparency, and conformance. Artifact utility concerns usefulness or effectiveness
+      in a problem context. Contribution to knowledge concerns what reusable design knowledge, theory, method, model, vocabulary,
+      or evidence the work adds.
+
+      '
+  contribution_profile:
+    contribution_summary: 'The DSR Framework contributes a structured, reusable artifact package architecture and documentation
+      protocol for making DSR artifacts more reviewable, transparent, reusable, and publishable without treating documentation
+      completion as a substitute for artifact evaluation.
+
+      '
+    contribution_claims:
+    - claim_id: claim_documentation_protocolization
+      claim_type: methodological
+      claim_scope: projectable_to_problem_class
+      claim_statement: 'The framework operationalizes DSR artifact documentation into controlled root files, specifications,
+        models, vocabularies, schemas, templates, checklists, records, docs, and crosswalks.
+
+        '
+      claim_status: proposed
+      evidence_status: partially_mapped
+      evidence_needed:
+      - package_inventory
+      - repository_architecture_specification
+      - user_review_of_generated_files
+    - claim_id: claim_transparency_alignment
+      claim_type: reporting_guidance
+      claim_scope: projectable_to_problem_class
+      claim_statement: 'The framework aligns DSR documentation with process, problem-space, solution-space, build, evaluation,
+        and contribution transparency.
+
+        '
+      claim_status: proposed
+      evidence_status: partially_mapped
+      evidence_needed:
+      - dsr_transparency_model
+      - transparency_crosswalk_record
+      - transparency_checklist
+    - claim_id: claim_contribution_positioning
+      claim_type: classification_or_taxonomy
+      claim_scope: projectable_to_problem_class
+      claim_statement: 'The framework helps authors classify and justify artifact type, knowledge goal, knowledge scope, contribution
+        type, novelty, and significance.
+
+        '
+      claim_status: proposed
+      evidence_status: partially_mapped
+      evidence_needed:
+      - contribution_model
+      - contribution_types_vocabulary
+      - contribution_positioning_record
+    - claim_id: claim_evaluation_alignment
+      claim_type: evaluation_guidance
+      claim_scope: projectable_to_problem_class
+      claim_statement: 'The framework supports alignment among artifact claims, evaluation criteria, evaluation methods, findings,
+        limitations, and future reuse.
+
+        '
+      claim_status: proposed
+      evidence_status: not_yet_mapped
+      evidence_needed:
+      - evaluation_alignment_model
+      - evaluation_plan_template
+      - evaluation_report_template
+    - claim_id: claim_open_artifact_reuse
+      claim_type: reuse_and_publication_guidance
+      claim_scope: projectable_to_problem_class
+      claim_statement: 'The framework packages DSR documentation in a form suitable for GitHub-based reuse, review, citation,
+        and future archival publication.
+
+        '
+      claim_status: proposed
+      evidence_status: not_yet_mapped
+      evidence_needed:
+      - publication_registry_model
+      - release_record
+      - archival_metadata
+    non_claims:
+    - id: no_empirical_effectiveness_claim_yet
+      statement: 'This profile does not claim that the DSR Framework has empirically improved DSR project outcomes.
+
+        '
+    - id: no_universal_adoption_claim
+      statement: 'This profile does not claim disciplinary adoption or consensus beyond the cited DSR source basis.
+
+        '
+    - id: no_complete_validation_claim
+      statement: 'This profile does not claim L3, L4, or L5 conformance until schemas, examples, validation routines, evaluations,
+        reviews, and release records are complete.
+
+        '
+  knowledge_profile:
+    knowledge_goals:
+    - id: definitional
+      use_in_framework: Defines DSR artifact, package, record, contribution, transparency, evaluation, and conformance terms.
+    - id: methodological
+      use_in_framework: Provides procedures for creating, reviewing, and maintaining DSR artifact packages.
+    - id: prescriptive
+      use_in_framework: States what package files, evidence records, and review checks should be created.
+    - id: evaluative
+      use_in_framework: Provides criteria for assessing package quality, reviewability, and claim support.
+    knowledge_scope:
+      primary_scope: projectable_to_problem_class
+      scope_rationale: 'The framework is intended for a class of DSR artifact documentation and publication problems rather
+        than one local project instance, but it remains tailorable and requires contextual evaluation in each use case.
+
+        '
+    contribution_positioning:
+      primary_position: method_extension
+      secondary_positions:
+      - design_knowledge_synthesis
+      - reporting_guidance
+      - artifact_package_specification
+      - quality_and_conformance_model
+      maturity_position: early_reviewable_draft
+      novelty_position: 'The novelty claim is currently framed as an integrative operationalization of DSR documentation,
+        transparency, contribution, and package governance traditions rather than as an empirically validated new theory.
+
+        '
+  transparency_profile:
+    transparency_dimensions:
+    - dimension_id: process_transparency
+      required_support: true
+      package_mechanisms:
+      - lifecycle_stage_records
+      - design_decision_records
+      - change_history
+      - workflow_sections
+      current_status: planned_and_partially_supported
+    - dimension_id: problem_space_transparency
+      required_support: true
+      package_mechanisms:
+      - problem_and_objectives_template
+      - project_charter_template
+      - artifact_profile_scope
+      current_status: planned
+    - dimension_id: solution_space_transparency
+      required_support: true
+      package_mechanisms:
+      - solution_space_record_template
+      - source_basis_record
+      - crosswalks
+      current_status: planned
+    - dimension_id: build_transparency
+      required_support: true
+      package_mechanisms:
+      - build_transparency_record_template
+      - artifact_specification_template
+      - design_rationale_template
+      current_status: planned
+    - dimension_id: evaluation_transparency
+      required_support: true
+      package_mechanisms:
+      - evaluation_plan_template
+      - evaluation_report_template
+      - evaluation_alignment_model
+      - evaluation_readiness_checklist
+      current_status: planned
+    - dimension_id: contribution_transparency
+      required_support: true
+      package_mechanisms:
+      - contribution_claim_template
+      - contribution_positioning_record
+      - contribution_model
+      - contribution_positioning_checklist
+      current_status: planned_and_partially_supported
+    transparency_constraints:
+    - id: proportionality
+      statement: Transparency requirements should be proportionate to artifact risk, maturity, and reuse burden.
+    - id: confidentiality_and_security
+      statement: Sensitive, proprietary, private, or security-relevant information may require redaction or controlled disclosure.
+    - id: maintenance_burden
+      statement: The framework should not require artifact maintainers to keep executable examples or code indefinitely functional
+        unless a release explicitly claims that level of support.
+  quality_and_conformance_profile:
+    current_conformance_level:
+      id: l1_documented
+      label: L1 documented
+      rationale: 'The selected row declares default conformance L1. This file documents artifact identity, scope, claims,
+        conformance posture, reuse constraints, and traceability, but it does not assert executable validation or archival-publication
+        readiness.
+
+        '
+    target_future_conformance:
+    - id: l2_reviewable
+      required_before_claiming:
+      - package_inventory_complete
+      - conformance_declaration_complete
+      - core_specs_generated
+      - core_models_generated
+      - minimum_checklists_generated
+      - source_basis_record_generated
+      - initial_self_review_record_generated
+    - id: l3_exercisable
+      required_before_claiming:
+      - schemas_generated
+      - templates_generated
+      - example_package_generated
+      - automated_or_manual_validation_procedure_documented
+    - id: l4_reusable
+      required_before_claiming:
+      - external_or_independent_review_recorded
+      - reuse_guidance_complete
+      - versioned_release_candidate_prepared
+    - id: l5_archival_publication_ready
+      required_before_claiming:
+      - citation_metadata_complete
+      - release_record_complete
+      - preservation_record_complete
+      - publication_readiness_review_complete
+    acceptance_criteria:
+    - criterion_id: ac_identity_complete
+      statement: Artifact identity, package class, artifact type, intended users, and boundary statements are present.
+      evidence_required:
+      - artifact_identity
+      - artifact_typing
+      - dsr_scope
+    - criterion_id: ac_claims_bounded
+      statement: Contribution, utility, quality, and reuse claims are explicit and not overclaimed.
+      evidence_required:
+      - contribution_profile
+      - non_claims
+      - limitations
+    - criterion_id: ac_transparency_mapped
+      statement: All six DSR transparency dimensions are addressed or marked not applicable with rationale.
+      evidence_required:
+      - transparency_profile
+    - criterion_id: ac_conformance_declared
+      statement: Current conformance is declared separately from future conformance targets.
+      evidence_required:
+      - quality_and_conformance_profile.current_conformance_level
+      - quality_and_conformance_profile.target_future_conformance
+    - criterion_id: ac_reuse_constraints_stated
+      statement: License, citation, tailoring, validation, and non-substitution constraints are stated.
+      evidence_required:
+      - reuse_profile
+    - criterion_id: ac_traceability_present
+      statement: Upstream sources, dependencies, downstream files, and evidence status are traceable.
+      evidence_required:
+      - source_basis
+      - related_items
+      - traceability
+    quality_gate_status:
+    - gate_id: qg_consistency
+      status: pass
+      rationale: File path, YAML format, root control role, and stable identifiers follow repository conventions.
+    - gate_id: qg_coherence
+      status: pass_with_dependencies
+      rationale: Coherence is supported through explicit related_items and dependency placeholders; later generated files
+        must preserve these IDs.
+    - gate_id: qg_cogency
+      status: pass
+      rationale: Artifact scope, claims, constraints, and conformance posture are operationally distinguished.
+    - gate_id: qg_correspondence
+      status: pass
+      rationale: The file corresponds to the selected root artifact-profile purpose and supports the DSR Framework package
+        target.
+    - gate_id: qg_dsr_transparency
+      status: pass
+      rationale: The file explicitly maps all six DSR transparency dimensions to package mechanisms.
+    - gate_id: qg_reviewability
+      status: pass
+      rationale: Acceptance criteria, evidence requirements, limitations, and open questions are included.
+  reuse_profile:
+    license:
+      declared_license: CC0-1.0
+      license_scope: framework_text_and_structured_files_unless_otherwise_marked
+      attribution_expectation: citation_requested_even_where_not_legally_required
+    citation_guidance:
+      preferred_citation_file: CITATION.cff
+      citation_status: 'TODO: generate or verify CITATION.cff'
+      interim_citation_text: 'Cite the DSR Framework repository release, version, DOI if available, and relevant source files
+        used.
+
+        '
+    reuse_permissions:
+    - id: copy_adapt_remix
+      allowed: true
+      condition: Follow license and preserve notices where present.
+    - id: use_for_project_documentation
+      allowed: true
+      condition: Tailor templates to the project context and avoid unsupported claims.
+    - id: use_for_teaching
+      allowed: true
+      condition: Identify draft status when using unreleased versions.
+    - id: build_automation_or_schemas_from_files
+      allowed: true
+      condition: Validate generated automation against the authoritative schemas and package inventory when available.
+    reuse_constraints:
+    - id: preserve_claim_boundaries
+      rule: Do not treat framework completion as evidence of artifact utility or evaluation success.
+    - id: preserve_evidence_status
+      rule: Do not remove not_yet_mapped or TODO evidence markers without adding traceable evidence.
+    - id: retain_version_context
+      rule: Reuse should identify the framework version or commit used.
+    - id: tailor_for_risk
+      rule: Higher-risk artifacts require stronger evaluation, review, security, and responsible-design records.
+    - id: validate_before_publication
+      rule: Run available schema, link, inventory, and review checks before claiming reusable or archival readiness.
+    prohibited_or_discouraged_uses:
+    - id: unsupported_peer_review_claim
+      statement: Do not claim that a downstream artifact is peer-reviewed solely because it uses this framework.
+    - id: compliance_substitution
+      statement: Do not use the framework as a substitute for legal, regulatory, IRB, safety, cybersecurity, accessibility,
+        or institutional compliance review.
+    - id: evidence_backfilling
+      statement: Do not retrospectively frame undocumented practice activity as evaluated DSR without transparent limits and
+        evidence gaps.
+  responsible_design_profile:
+    relevant_values:
+    - transparency
+    - accountability
+    - accessibility
+    - maintainability
+    - reuse
+    - proportionality
+    - security_awareness
+    - stakeholder_clarity
+    risk_considerations:
+    - risk_id: documentation_burden
+      risk_statement: Overly complex documentation can discourage use or shift effort away from design and evaluation.
+      mitigation: Provide conformance levels, templates, examples, and minimal viable checklists.
+    - risk_id: false_confidence
+      risk_statement: Structured files may create a misleading impression of rigor if evidence is thin.
+      mitigation: Keep evidence_status, limitations, non_claims, and review records explicit.
+    - risk_id: confidentiality_exposure
+      risk_statement: Transparent artifact packages may expose proprietary, security-sensitive, or private information.
+      mitigation: Include redaction, sensitivity, and disclosure-control guidance in later governance and security files.
+    - risk_id: vocabulary_lock_in
+      risk_statement: Controlled vocabularies can freeze contested DSR concepts too early.
+      mitigation: Preserve open questions, versioned vocabularies, and crosswalks to alternative traditions.
+    accessibility_commitments:
+    - Use structured YAML/JSON where machines need to validate content.
+    - Use human-facing Markdown pages where explanation is needed.
+    - Prefer clear labels, definitions, and boundary notes for controlled terms.
+    - Provide plain-language summaries where scholarly terms may obstruct reuse.
+  related_items:
+    upstream_dependencies:
+    - item_id: dsr_framework_generation_prompt
+      path: dsr-framework-generation-prompt.md
+      relationship: governs_generation_procedure
+    - item_id: dsr_framework_generation_spec
+      path: dsr-framework-generation-spec.yaml
+      relationship: defines_rules_architecture_quality_gates_and_registry
+    - item_id: dsr_framework_selection_table
+      path: dsr-framework-selection-table.md
+      relationship: identifies_requested_selection_and_target_path
+    - item_id: dsr_extraction_corpus
+      path: chunked_folder_conversion_extractions_20260427030321_part001.yaml
+      relationship: provides_internal_dsr_scholarly_basis
+    expected_downstream_items:
+    - item_id: package_inventory
+      path: package-inventory.yaml
+      relationship: should_inventory_this_file_and_validation_responsibilities
+    - item_id: conformance_declaration
+      path: conformance-declaration.yaml
+      relationship: should_declare_package_level_conformance_and_tailoring
+    - item_id: product_dsr_lifecycle_and_contribution_model
+      path: specs/product-dsr-lifecycle-and-contribution-model.yaml
+      relationship: should_define_the_dependency_named_in_the_selection_row
+    - item_id: dsr_artifact_ontology_model
+      path: models/dsr-artifact-ontology.yaml
+      relationship: should_control_artifact_type_and_boundary_terms
+    - item_id: dsr_contribution_model
+      path: models/dsr-contribution-model.yaml
+      relationship: should_control_contribution_positioning_terms
+    - item_id: artifact_profile_schema
+      path: schemas/artifact-profile.schema.json
+      relationship: should_validate_this_file_when_generated
+    - item_id: artifact_profile_template
+      path: templates/artifact-profile-template.yaml
+      relationship: should provide reusable derivative template_for_project_instances
+    - item_id: record_contribution_positioning
+      path: records/contributions/record-contribution-positioning-0001.yaml
+      relationship: should provide retained evidence_for_contribution_claims
+    - item_id: record_source_basis
+      path: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      relationship: should provide retained source_basis_record_for_corpus_evidence
+    - item_id: record_dsr_transparency_crosswalk
+      path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+      relationship: should substantiate_transparency_profile_mapping
+  source_basis:
+    generation_sources:
+    - source_id: user_current_request
+      source_type: immediate_task_instruction
+      relevance: Selects root_artifact_profile and target path artifact-profile.yaml.
+      evidence_status: mapped
+    - source_id: dsr_framework_selection_table
+      source_type: project_registry
+      relevance: Defines selection_id, target_path, portion_type, output_format, purpose, conformance, and dependency.
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_spec
+      source_type: generation_specification
+      relevance: Defines repository root files, common required fields, quality gates, traceability, and content rules.
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_prompt
+      source_type: generation_prompt
+      relevance: Defines governing-source order, generation procedure, required metadata, DSR distinctions, and final reporting
+        expectations.
+      evidence_status: mapped
+    dsr_corpus_sources:
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      short_citation: Hevner et al. (2024)
+      mapped_constructs:
+      - dsr_transparency_framework
+      - process_transparency
+      - problem_space_transparency
+      - solution_space_transparency
+      - build_transparency
+      - evaluation_transparency
+      - contribution_transparency
+      evidence_status: mapped_at_source_id_level
+    - source_id: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+      short_citation: Weigand, Johannesson, and Andersson (2021)
+      mapped_constructs:
+      - artifact_universal
+      - make_plan
+      - use_plan
+      - artifact_instance_boundary
+      - dsr_artifact_boundary
+      evidence_status: mapped_at_source_id_level
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      short_citation: Akoka et al. (2023)
+      mapped_constructs:
+      - knowledge_goal
+      - knowledge_scope
+      - path_of_knowledge_types
+      - dsr_strategy
+      - contribution_positioning
+      evidence_status: mapped_at_source_id_level
+    unmapped_or_pending_sources:
+    - source_id: documentation_protocol_repository
+      status: not_checked_during_this_generation
+      rationale: 'Current request did not explicitly require an external current check; this draft relies on the uploaded
+        generation specification''s repository model and marks downstream validation as pending.
+
+        '
+  traceability:
+    trace_links:
+    - trace_id: tr_root_artifact_profile_selection
+      from: user_current_request.root_artifact_profile
+      to: artifact_profile.item_id
+      relationship: selected_generation_target
+      evidence_status: mapped
+    - trace_id: tr_root_file_architecture
+      from: dsr_framework_generation_spec.repository_architecture.required_root_files
+      to: artifact_profile.target_path
+      relationship: root_file_required_by_architecture
+      evidence_status: mapped
+    - trace_id: tr_common_required_fields
+      from: dsr_framework_generation_spec.information_item_rules.common_required_fields
+      to: artifact_profile
+      relationship: implements_common_control_metadata
+      evidence_status: mapped
+    - trace_id: tr_quality_gates
+      from: dsr_framework_generation_spec.quality_gates
+      to: artifact_profile.quality_and_conformance_profile.quality_gate_status
+      relationship: applies_quality_gate_review
+      evidence_status: mapped
+    - trace_id: tr_dsr_transparency
+      from: hevner_et_al_2024_transparency_in_design_science_research
+      to: artifact_profile.transparency_profile
+      relationship: informs_transparency_dimensions
+      evidence_status: mapped_at_source_id_level
+    - trace_id: tr_artifact_ontology
+      from: weigand_johannesson_andersson_2021_artifact_ontology_for_dsr
+      to: artifact_profile.artifact_identity.artifact_boundary_statement
+      relationship: informs_artifact_type_and_instance_boundary
+      evidence_status: mapped_at_source_id_level
+    - trace_id: tr_contribution_positioning
+      from: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      to: artifact_profile.knowledge_profile
+      relationship: informs_knowledge_goal_and_scope_positioning
+      evidence_status: mapped_at_source_id_level
+  validation_profile:
+    schema_validation:
+      schema_expected: schemas/artifact-profile.schema.json
+      schema_status: not_yet_generated
+      interim_validation: yaml_parse_and_manual_quality_gate_review
+    manual_review_checks:
+    - review_id: rv_identity_and_scope
+      question: Are artifact identity, type, instance boundary, and scope coherent?
+      evidence_required:
+      - artifact_identity
+      - artifact_typing
+      - dsr_scope
+    - review_id: rv_claim_boundaries
+      question: Are contribution and reuse claims stated with evidence status and limits?
+      evidence_required:
+      - contribution_profile
+      - knowledge_profile
+      - limitations
+    - review_id: rv_conformance_alignment
+      question: Does the profile avoid claiming higher conformance than supported?
+      evidence_required:
+      - quality_and_conformance_profile
+    - review_id: rv_source_basis
+      question: Are source-basis entries and trace links sufficient for a root profile?
+      evidence_required:
+      - source_basis
+      - traceability
+    - review_id: rv_reuse_constraints
+      question: Are license, citation, tailoring, and non-substitution constraints visible?
+      evidence_required:
+      - reuse_profile
+    machine_validation_expectations:
+    - YAML parses without syntax errors.
+    - Required top-level key artifact_profile is present.
+    - Stable identifiers use lower_snake_case where controlled.
+    - No field claims L2, L3, L4, or L5 as current conformance.
+    - TODO markers are limited to project facts not inferable from current sources.
+  limitations:
+  - limitation_id: lim_dependency_files_pending
+    statement: 'Several related models, schemas, templates, checklists, and records are referenced before they are generated.
+
+      '
+    impact: pass_with_dependencies
+    mitigation: Generate package-inventory.yaml, conformance-declaration.yaml, and core lifecycle/contribution files next.
+  - limitation_id: lim_documentation_protocol_not_live_checked
+    statement: 'The external Documentation Protocol repository was not live-checked during this generation.
+
+      '
+    impact: moderate
+    mitigation: Check the repository before claiming L2+ conformance if current protocol requirements may have changed.
+  - limitation_id: lim_corpus_mapping_source_level
+    statement: 'This profile maps DSR corpus evidence at source-id level, not at detailed citation-anchor level for every
+      field.
+
+      '
+    impact: moderate
+    mitigation: Generate source-basis and crosswalk records with citation-anchor mappings.
+  - limitation_id: lim_no_empirical_framework_evaluation_yet
+    statement: 'This profile documents the framework artifact but does not report empirical evaluation of the framework''s
+      utility.
+
+      '
+    impact: high_for_utility_claims
+    mitigation: Generate and execute an evaluation plan before stronger utility claims are made.
+  assumptions:
+  - assumption_id: asm_license
+    statement: The framework root files will use CC0-1.0 unless a later governance decision changes the license.
+  - assumption_id: asm_repository_name
+    statement: The canonical repository name will be dsr-framework or an equivalent lower-kebab-case name.
+  - assumption_id: asm_conformance_level
+    statement: The current selected file should use L1 documented conformance because the selection table declares L1.
+  - assumption_id: asm_evidence_policy
+    statement: Internal corpus evidence should be used without inventing additional bibliographic claims.
+  open_questions:
+  - question_id: oq_maintainer_identity
+    question: What maintainer name, ORCID, organization, and contact metadata should appear in root metadata and citation
+      files?
+    resolution_needed_for:
+    - metadata.yaml
+    - CITATION.cff
+    - .zenodo.json
+  - question_id: oq_license_confirmation
+    question: Should CC0-1.0 apply to every framework file, or should examples, generated schemas, or documentation use a
+      different license?
+    resolution_needed_for:
+    - LICENSE
+    - metadata.yaml
+    - reuse_profile
+  - question_id: oq_conformance_progression
+    question: Which files are required before claiming L2 reviewable conformance for version 0.1.0?
+    resolution_needed_for:
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+    - artifact-package-readiness-checklist.yaml
+  - question_id: oq_external_protocol_alignment
+    question: Should the Documentation Protocol repository be checked live before locking this artifact profile?
+    resolution_needed_for:
+    - l2_reviewable_release_candidate
+  - question_id: oq_evaluation_strategy
+    question: What pilot project or exemplar package will be used to evaluate the framework's utility and usability?
+    resolution_needed_for:
+    - records/evaluations/record-evaluation-plan-0001.yaml
+    - examples
+  change_history:
+  - version: 0.1.0
+    date: '2026-04-27'
+    change_type: initial_generation
+    changed_by: GPT-5.5 Thinking
+    description: 'Initial root artifact profile generated from selected root_artifact_profile row, generation prompt, generation
+      specification, and internal DSR corpus source IDs.
+
+      '
+    related_request: user_selected_root_artifact_profile

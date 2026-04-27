@@ -1,0 +1,449 @@
+# SPDX-License-Identifier: CC0-1.0
+vocabulary:
+  item_id: vocab_transparency_dimensions
+  item_type: vocabulary
+  id: dsr_transparency_dimensions
+  title: DSR Transparency Dimensions Vocabulary
+  purpose: >
+    Provide a controlled vocabulary for the six Design Science Research transparency
+    dimensions used to plan, document, review, and package DSR artifacts and design
+    knowledge claims.
+  status: draft
+  version: "0.1.0"
+  owner: dsr_framework_maintainers
+  conformance_target: l2_reviewable
+  target_path: vocabularies/transparency-dimensions.yaml
+  default_use_contexts:
+    - dsr_project_charter
+    - dsr_transparency_crosswalk
+    - build_transparency_record
+    - evaluation_plan
+    - evaluation_report
+    - contribution_claim
+    - artifact_package_review
+  source_basis:
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      source_type: dsr_corpus_source
+      role: primary_vocabulary_basis
+      evidence_anchors:
+        - CA01
+        - CA05
+        - CA06
+        - CA07
+        - CA08
+        - CA09
+        - CA10
+        - CA11
+        - CA16
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_spec
+      source_type: governing_specification
+      role: structure_and_conformance_basis
+      evidence_status: mapped
+    - source_id: dsr_framework_generation_prompt
+      source_type: generation_prompt
+      role: output_convention_basis
+      evidence_status: mapped
+  related_items:
+    upstream_dependencies:
+      - id: model_transparency
+        path: models/dsr-transparency-model.yaml
+        relationship: vocabulary_supports_model_or_is_derived_from_model
+      - id: template_transparency_crosswalk
+        path: templates/dsr-transparency-crosswalk-template.yaml
+        relationship: supplies_controlled_dimension_terms
+      - id: checklist_transparency
+        path: checklists/dsr-transparency-crosswalk-checklist.yaml
+        relationship: supplies_review_dimension_terms
+    downstream_users:
+      - id: schema_transparency_crosswalk
+        path: schemas/dsr-transparency-crosswalk.schema.json
+        relationship: expected_enum_source
+      - id: record_transparency_crosswalk
+        path: records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+        relationship: expected_record_vocabulary
+      - id: docs_transparency
+        path: docs/protocol/10-transparency-and-reporting.md
+        relationship: human_facing_explanation_source
+  entries:
+    - id: process_transparency
+      label: Process transparency
+      definition: >
+        Transparency about the actual Design Science Research process by which the
+        artifact and associated design knowledge were produced, including activities,
+        sequencing, decisions, reasoning, changes, deviations, and contextual factors
+        that shaped the project.
+      allowed_use: >
+        Use when documenting how the DSR project unfolded as a research process,
+        especially when the process was iterative, emergent, adaptive, or not fully
+        captured by an initial protocol.
+      boundary_notes: >
+        Do not use as a catch-all for all documentation. Use problem_space_transparency
+        for the application problem and boundary conditions, solution_space_transparency
+        for knowledge grounding, build_transparency for artifact construction details,
+        evaluation_transparency for evaluation evidence, and contribution_transparency
+        for claimed practice or knowledge contributions.
+      typical_evidence:
+        - activity_log
+        - design_decision_record
+        - process_timeline
+        - rationale_for_method_changes
+        - iteration_history
+        - meeting_or_work_session_record
+        - deviation_or_tailoring_record
+      review_prompts:
+        - Were the actual research activities and sequence made explicit?
+        - Were major pivots, tailoring decisions, and emergent changes explained?
+        - Can a reviewer distinguish planned process from enacted process?
+      related_terms:
+        narrower:
+          - activity_trace
+          - design_decision_record
+          - process_deviation
+        broader:
+          - dsr_transparency
+        compare_with:
+          - build_transparency
+          - evaluation_transparency
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_anchor: CA06
+          evidence_status: mapped
+
+    - id: problem_space_transparency
+      label: Problem-space transparency
+      definition: >
+        Transparency about the situated application problem addressed by the DSR project,
+        including research scope, stakeholders, application context, improvement goals,
+        constraints, resources, requirements, timeframe, assumptions, and boundary
+        conditions.
+      allowed_use: >
+        Use when documenting what problem or problem class motivated the artifact, why
+        improvement was needed, who was affected, and what contextual conditions should
+        bound interpretation, reuse, evaluation, or transfer.
+      boundary_notes: >
+        Do not use for the body of prior theories, artifacts, or technologies that ground
+        the solution; use solution_space_transparency for those. Do not use for evidence
+        that the artifact works; use evaluation_transparency. Do not treat a local problem
+        description as a generalizable claim unless contribution_transparency establishes
+        the intended scope.
+      typical_evidence:
+        - problem_statement
+        - stakeholder_map
+        - application_context_description
+        - improvement_goal_record
+        - requirements_or_objectives_record
+        - constraints_and_resources_record
+        - timeframe_and_scope_statement
+        - boundary_conditions
+      review_prompts:
+        - Are the application context and affected stakeholders identifiable?
+        - Are improvement goals, requirements, and constraints explicit?
+        - Are scope limits and boundary conditions sufficient for review and reuse?
+      related_terms:
+        narrower:
+          - stakeholder_context
+          - improvement_goal
+          - boundary_condition
+          - problem_class
+        broader:
+          - dsr_transparency
+        compare_with:
+          - solution_space_transparency
+          - contribution_transparency
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_anchor: CA07
+          evidence_status: mapped
+
+    - id: solution_space_transparency
+      label: Solution-space transparency
+      definition: >
+        Transparency about the knowledge base and candidate solution resources used to
+        ground the DSR project, including relevant theories, prior DSR artifacts,
+        descriptive and prescriptive knowledge, existing technologies, methods, design
+        principles, design theories, and competing solution approaches.
+      allowed_use: >
+        Use when documenting how the artifact design was informed by prior knowledge,
+        why specific theories or technologies were selected, and what alternatives or
+        precedent artifacts were considered.
+      boundary_notes: >
+        Do not use for the constructed artifact itself; use build_transparency for
+        construction details. Do not use for claims that the project made a contribution;
+        use contribution_transparency. Do not use merely to list references without
+        explaining their design relevance.
+      typical_evidence:
+        - literature_search_record
+        - knowledge_base_map
+        - prior_artifact_review
+        - theory_grounding_record
+        - alternative_solution_analysis
+        - technology_or_method_selection_rationale
+        - design_principle_source_trace
+      review_prompts:
+        - Is the design grounded in relevant descriptive and prescriptive knowledge?
+        - Are prior artifacts, theories, technologies, and alternatives identified?
+        - Is the relationship between source knowledge and design choices traceable?
+      related_terms:
+        narrower:
+          - knowledge_grounding
+          - prior_artifact_review
+          - design_theory_basis
+          - alternative_solution_analysis
+        broader:
+          - dsr_transparency
+        compare_with:
+          - problem_space_transparency
+          - build_transparency
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_anchor: CA08
+          evidence_status: mapped
+
+    - id: build_transparency
+      label: Build transparency
+      definition: >
+        Transparency about the artifact-building work of a DSR project, including design
+        search, creative reasoning, construction choices, prototypes, implementation
+        logic, collaboration, component decisions, design rationale, and make/use logic
+        where relevant.
+      allowed_use: >
+        Use when documenting how the artifact or artifact specification was constructed,
+        why its form and components were selected, how design alternatives were resolved,
+        and what implementation or construction details are needed for review, reuse, or
+        adaptation.
+      boundary_notes: >
+        Distinguish build_transparency from process_transparency: process_transparency
+        concerns the whole research process, while build_transparency concerns the design
+        and construction of the artifact. Distinguish it from evaluation_transparency,
+        which concerns how the artifact was assessed after or during construction.
+      typical_evidence:
+        - artifact_specification
+        - design_rationale
+        - prototype_record
+        - component_model
+        - make_plan
+        - use_plan
+        - implementation_notes
+        - screenshots_or_demonstration_materials
+        - code_or_pseudocode_when_shareable
+        - collaboration_record
+      review_prompts:
+        - Are artifact components, construction choices, and design rationale explicit?
+        - Are creative or inferential design steps documented sufficiently for review?
+        - Is enough build information available for reuse, adaptation, or critique without creating inappropriate disclosure risks?
+      related_terms:
+        narrower:
+          - artifact_specification
+          - design_rationale
+          - prototype_record
+          - make_plan
+          - use_plan
+        broader:
+          - dsr_transparency
+        compare_with:
+          - process_transparency
+          - evaluation_transparency
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_anchor: CA09
+          evidence_status: mapped
+
+    - id: evaluation_transparency
+      label: Evaluation transparency
+      definition: >
+        Transparency about how a DSR artifact, method, model, or design claim was
+        evaluated, including evaluation purpose, timing, criteria, methods, setting,
+        data, measures, participants or units, evidence, limitations, and interpretation
+        of formative or summative findings.
+      allowed_use: >
+        Use when documenting evidence for artifact utility, artifact quality, fitness for
+        use, fitness for evolution, stakeholder confidence, validity, reliability,
+        comparison, demonstration-to-evaluation distinctions, or evaluation limitations.
+      boundary_notes: >
+        Do not equate demonstration with evaluation unless explicit evaluation criteria,
+        evidence, and interpretation are present. Do not use as a substitute for contribution
+        transparency; evaluation evidence supports claims, while contribution transparency
+        states the knowledge or practice contribution and its scope.
+      typical_evidence:
+        - evaluation_plan
+        - evaluation_protocol
+        - evaluation_report
+        - evaluation_criteria
+        - formative_evaluation_record
+        - summative_evaluation_record
+        - metric_definition
+        - data_collection_instrument
+        - analysis_record
+        - validity_or_reliability_assessment
+        - limitations_statement
+      review_prompts:
+        - Are evaluation criteria and evidence aligned with the artifact claims?
+        - Is demonstration distinguished from evaluation?
+        - Are methods, data, interpretation, and limitations sufficiently documented for reviewer confidence?
+      related_terms:
+        narrower:
+          - formative_evaluation
+          - summative_evaluation
+          - artifact_quality_evidence
+          - artifact_utility_evidence
+          - stakeholder_confidence
+        broader:
+          - dsr_transparency
+        compare_with:
+          - contribution_transparency
+          - build_transparency
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_anchor: CA10
+          evidence_status: mapped
+
+    - id: contribution_transparency
+      label: Contribution transparency
+      definition: >
+        Transparency about what the DSR project contributes to practice, scientific
+        knowledge, design knowledge, methods, theories, artifacts, or stakeholder use,
+        including the contribution type, scope, evidence basis, audience, limitations,
+        and relationship between descriptive and prescriptive knowledge.
+      allowed_use: >
+        Use when documenting the nature, novelty, significance, scope, and evidence support
+        for a DSR contribution claim, including distinctions between local practice impact,
+        reusable design knowledge, methodological contribution, theory contribution, or
+        artifact contribution.
+      boundary_notes: >
+        Do not use merely to describe the artifact. A contribution claim requires positioning
+        relative to existing knowledge and a bounded statement of what has been learned or
+        made reusable. Evaluation evidence should be referenced but not confused with the
+        contribution itself.
+      typical_evidence:
+        - contribution_claim
+        - contribution_positioning_record
+        - novelty_assessment
+        - design_knowledge_statement
+        - practice_impact_statement
+        - scientific_impact_statement
+        - knowledge_scope_statement
+        - evidence_alignment_matrix
+        - limitations_and_non_goals
+        - audience_specific_communication_plan
+      review_prompts:
+        - Is the contribution type and intended scope explicit?
+        - Is the claimed contribution distinguished from the artifact, demonstration, and evaluation evidence?
+        - Are practice and scientific knowledge impacts both addressed where applicable?
+      related_terms:
+        narrower:
+          - artifact_contribution
+          - methodological_contribution
+          - design_theory_contribution
+          - practice_contribution
+          - design_knowledge_claim
+        broader:
+          - dsr_transparency
+        compare_with:
+          - evaluation_transparency
+          - solution_space_transparency
+      source_basis:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_anchor: CA11
+          evidence_status: mapped
+
+  usage_controls:
+    controlled_value_format: lower_snake_case
+    required_dimension_set:
+      - process_transparency
+      - problem_space_transparency
+      - solution_space_transparency
+      - build_transparency
+      - evaluation_transparency
+      - contribution_transparency
+    minimum_record_expectation: >
+      A DSR transparency crosswalk should address all six dimensions. A dimension may be
+      marked not_applicable only with an explicit rationale and reviewer-visible boundary note.
+    distinction_rules:
+      - id: distinguish_process_from_build
+        rule: >
+          Use process_transparency for research-process chronology and emergence; use
+          build_transparency for artifact construction, implementation, and design rationale.
+      - id: distinguish_solution_from_contribution
+        rule: >
+          Use solution_space_transparency for knowledge used to ground the design; use
+          contribution_transparency for what the project adds to knowledge or practice.
+      - id: distinguish_demonstration_from_evaluation
+        rule: >
+          Use evaluation_transparency only when evaluation criteria, evidence, and interpretation
+          are explicit. Demonstration-only evidence should be labeled as demonstration.
+      - id: distinguish_problem_scope_from_contribution_scope
+        rule: >
+          Use problem_space_transparency for the local or class-level problem context; use
+          contribution_transparency for the scope of the claim derived from the project.
+  validation_rules:
+    - rule_id: vr_transparency_dimensions_001
+      description: Vocabulary must retain exactly the six canonical top-level dimensions unless a later approved model revision supersedes this file.
+      severity: error
+    - rule_id: vr_transparency_dimensions_002
+      description: Every vocabulary entry must include id, label, definition, allowed_use, boundary_notes, related_terms, and source_basis.
+      severity: error
+    - rule_id: vr_transparency_dimensions_003
+      description: Entry IDs must be lower_snake_case and stable across releases once approved.
+      severity: error
+    - rule_id: vr_transparency_dimensions_004
+      description: Evidence anchors should cite DSR corpus source IDs when mapped; otherwise evidence_status must be not_yet_mapped.
+      severity: warning
+    - rule_id: vr_transparency_dimensions_005
+      description: Files using this vocabulary should distinguish artifact utility, artifact quality, contribution claim, demonstration, and evaluation where applicable.
+      severity: warning
+  quality_gates:
+    - id: qg_consistency
+      status: pass
+      rationale: Uses the requested repository path, YAML format, draft status, stable IDs, and vocabulary item type.
+    - id: qg_coherence
+      status: pass
+      rationale: Aligns with the six-dimension DSR transparency framework and downstream crosswalk, checklist, schema, and documentation products.
+    - id: qg_cogency
+      status: pass
+      rationale: Each entry includes operational definition, allowed use, boundary notes, evidence examples, and review prompts.
+    - id: qg_correspondence
+      status: pass
+      rationale: Supports a reviewable DSR artifact package by making transparency dimensions controlled and reusable.
+    - id: qg_dsr_transparency
+      status: pass
+      rationale: The file directly defines the six DSR transparency dimensions.
+    - id: qg_reviewability
+      status: pass
+      rationale: Includes validation rules, usage controls, typical evidence, and review prompts.
+  traceability:
+    - trace_id: tr_vocab_transparency_dimensions_selection
+      source: dsr_framework_selection_table
+      source_selection_id: vocab_transparency_dimensions
+      target_path: vocabularies/transparency-dimensions.yaml
+      relationship: selected_generation_target
+    - trace_id: tr_vocab_transparency_dimensions_spec
+      source: dsr_framework_generation_spec
+      relationship: conforms_to_vocabulary_generation_rules
+    - trace_id: tr_vocab_transparency_dimensions_primary_source
+      source: hevner_et_al_2024_transparency_in_design_science_research
+      relationship: operationalizes_six_transparency_features
+      evidence_anchors:
+        - CA01
+        - CA16
+  assumptions:
+    - >
+      The vocabulary uses Hevner et al. 2024 as the primary mapped DSR corpus basis for the
+      six transparency dimensions because the selected row names the six DSR transparency
+      dimensions and depends on the transparency model.
+    - >
+      This vocabulary is scoped to top-level DSR transparency dimensions, not to detailed
+      checklist criteria, which should be implemented in the transparency checklist and
+      crosswalk template.
+  open_questions:
+    - id: oq_transparency_dimensions_001
+      question: Should future versions add sub-vocabularies for transparency purposes, audiences, and transparency-material types?
+      status: open
+    - id: oq_transparency_dimensions_002
+      question: Should repository-specific confidentiality and security controls be expressed as a separate responsible-transparency vocabulary?
+      status: open
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-27"
+      change: Initial draft generated for vocab_transparency_dimensions.
+      responsible_party: GPT-5.5 Thinking
