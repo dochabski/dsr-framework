@@ -20,7 +20,9 @@ artifact_profile:
     portion_type: artifact_profile
     output_format: yaml
     default_conformance_from_selection_table: L1
-    conformance_target: l1_documented
+    file_conformance: l1_documented
+    package_conformance: l2_reviewable_qualified_public_draft
+    v1_target_package_conformance: l4_reusable_stable
     key_dependencies:
     - dsr_lifecycle_contribution_model
     - dsr_corpus
@@ -400,7 +402,11 @@ artifact_profile:
       statement: The framework should not require artifact maintainers to keep executable examples or code indefinitely functional
         unless a release explicitly claims that level of support.
   quality_and_conformance_profile:
-    current_conformance_level:
+    file_conformance:
+      id: l1_documented
+      label: L1 documented
+      rationale: The artifact profile file itself remains a root orientation/control file whose role is to describe package identity, scope, claims, and review boundaries.
+    current_package_conformance_level:
       id: l2_reviewable_qualified_public_draft
       label: L2 reviewable qualified public draft
       rationale: 'The public draft package has root controls, inventory, source-to-framework traceability, validation evidence,
@@ -408,16 +414,7 @@ artifact_profile:
         L4 external reuse validation, or L5 archival/publication-ready conformance.
 
         '
-    target_future_conformance:
-    - id: l2_reviewable
-      required_before_claiming:
-      - package_inventory_complete
-      - conformance_declaration_complete
-      - core_specs_generated
-      - core_models_generated
-      - minimum_checklists_generated
-      - source_basis_record_generated
-      - initial_self_review_record_generated
+    target_future_package_conformance:
     - id: l3_exercisable
       required_before_claiming:
       - schemas_generated
@@ -455,8 +452,9 @@ artifact_profile:
     - criterion_id: ac_conformance_declared
       statement: Current conformance is declared separately from future conformance targets.
       evidence_required:
-      - quality_and_conformance_profile.current_conformance_level
-      - quality_and_conformance_profile.target_future_conformance
+      - quality_and_conformance_profile.file_conformance
+      - quality_and_conformance_profile.current_package_conformance_level
+      - quality_and_conformance_profile.target_future_package_conformance
     - criterion_id: ac_reuse_constraints_stated
       statement: License, citation, tailoring, validation, and non-substitution constraints are stated.
       evidence_required:
@@ -495,8 +493,8 @@ artifact_profile:
       attribution_expectation: citation_requested_even_where_not_legally_required
     citation_guidance:
       preferred_citation_file: CITATION.cff
-      citation_status: 'TODO: generate or verify CITATION.cff'
-      interim_citation_text: 'Cite the DSR Framework repository release, version, DOI if available, and relevant source files
+      citation_status: confirmed_for_v0_1_0_public_draft
+      interim_citation_text: 'Cite the DSR Framework repository release v0.1.0, DOI 10.5281/zenodo.19835424, and relevant source files
         used.
 
         '
@@ -763,30 +761,42 @@ artifact_profile:
       '
     impact: high_for_utility_claims
     mitigation: Generate and execute an evaluation plan before stronger utility claims are made.
+  resolved_for_v0_1_0_public_draft:
+  - maintainer_name
+  - repository_url
+  - license_policy
+  - citation_file_exists
+  - zenodo_doi_recorded
+  still_open_for_v1_or_l5:
+  - orcid
+  - institutional_affiliation
+  - metadata_freeze
+  - preservation_record
+  - independent_review
+  - pilot_or_example_evaluation_strategy
   assumptions:
-  - assumption_id: asm_license
-    statement: The framework root files will use CC0-1.0 unless a later governance decision changes the license.
-  - assumption_id: asm_repository_name
-    statement: The canonical repository name will be dsr-framework or an equivalent lower-kebab-case name.
-  - assumption_id: asm_conformance_level
-    statement: The current selected file should use L1 documented conformance because the selection table declares L1.
+  - assumption_id: asm_file_and_package_conformance_scope
+    statement: File-level L1 conformance and package-level qualified L2 public-draft conformance are separate claims.
   - assumption_id: asm_evidence_policy
     statement: Internal corpus evidence should be used without inventing additional bibliographic claims.
   open_questions:
-  - question_id: oq_maintainer_identity
-    question: What maintainer name, ORCID, organization, and contact metadata should appear in root metadata and citation
-      files?
+  - question_id: oq_v1_orcid_affiliation
+    question: What ORCID and institutional affiliation metadata should be included before v1 metadata freeze?
     resolution_needed_for:
     - metadata.yaml
     - CITATION.cff
     - .zenodo.json
-  - question_id: oq_license_confirmation
-    question: Should CC0-1.0 apply to every framework file, or should examples, generated schemas, or documentation use a
-      different license?
+  - question_id: oq_v1_metadata_freeze
+    question: What exact metadata-freeze record should lock v1.0.0 release metadata?
     resolution_needed_for:
-    - LICENSE
     - metadata.yaml
-    - reuse_profile
+    - CITATION.cff
+    - .zenodo.json
+  - question_id: oq_l5_preservation_record
+    question: What preservation record and registry closure evidence are required before any L5 claim?
+    resolution_needed_for:
+    - records/preservation/
+    - records/releases/
   - question_id: oq_v1_conformance_progression
     question: Which records, examples, validation checks, and reviews are required before claiming L4 reusable stable for version 1.0.0?
     resolution_needed_for:
@@ -818,3 +828,9 @@ artifact_profile:
     changed_by: GPT-5.5 Thinking
     description: Normalized current profile status to qualified L2 public draft and reserved L4/L5 claims for later evidence gates.
     related_request: v1_readiness_audit_remediation
+  - version: 0.1.2
+    date: '2026-04-28'
+    change_type: artifact_profile_cleanup
+    changed_by: GPT-5.5 Thinking
+    description: Separated file and package conformance, resolved stale v0.1.0 citation/license/repository questions, and scoped remaining questions to v1 or L5 follow-up.
+    related_request: pr_1_cleanup_review

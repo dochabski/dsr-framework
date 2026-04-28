@@ -9,12 +9,16 @@
 - Added v1 readiness audit and conformance-target decision records.
 - Added package validation script and GitHub Actions workflow for public-draft validation.
 - Added retained machine-readable validation summary under `records/validation/`.
+- Added optional release-candidate validation mode and workflow dispatch input.
 
 ### Changed
 
 - Normalized v0.1.0 status as a citable public draft with qualified L2 reviewability evidence.
 - Set the v1.0.0 stable target to L4 reusable and deferred L5 archival/publication-ready claims until preservation, registry, metadata-freeze, and independent-review gates pass.
 - Updated package inventory to include validation automation and to mark empty public-draft areas as planned rather than silently complete.
+- Cleaned v0.1.0 release-record facts so confirmed GitHub/Zenodo details are separated from future v1/L5 follow-up.
+- Separated file-level and package-level conformance fields in root-facing metadata.
+- Hardened validation for release-record contradictions, conformance-scope ambiguity, Unicode control characters, documentation link coverage, and release-candidate gates.
 
 ## [0.1.0] - 2026-04-27
 

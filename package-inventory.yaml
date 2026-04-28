@@ -13,7 +13,8 @@ package_inventory:
   owner: framework_maintainer
   responsible_party: framework_maintainer
   event_or_action: package_inventory_updated_for_public_draft_release
-  conformance_target: l2_reviewable_qualified_public_draft
+  package_conformance: l2_reviewable_qualified_public_draft
+  v1_target_package_conformance: l4_reusable_stable
   inventory_policy:
     scope: root_repository_package
     file_existence_claim: All controlled files listed in file_inventory exist at their declared package paths in the organized
@@ -1430,6 +1431,7 @@ package_inventory:
     output_format: yaml
     purpose: Release, DOI, registry, archival, and publication-readiness model.
     default_conformance: l5
+    default_conformance_scope: product_specification_file_default_not_package_claim
     required_for_package_class: true
     dependency_basis:
     - metadata profile
@@ -4470,6 +4472,6 @@ package_inventory:
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424
     zenodo_record_url: https://zenodo.org/records/19835424
-    v1_stable_conformance_target: l4_reusable_stable
+    v1_target_package_conformance: l4_reusable_stable
     l5_status: deferred_until_preservation_registry_metadata_freeze_and_independent_review
   auxiliary_file_inventory: []

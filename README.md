@@ -5,7 +5,9 @@ item_type: description
 selection_id: root_readme
 status: 0.1.0_public_draft
 version: 0.1.0
-conformance_target: l2_reviewable_qualified_public_draft
+file_conformance: l1_documented
+package_conformance: l2_reviewable_qualified_public_draft
+v1_target_package_conformance: l4_reusable_stable
 -->
 
 # Design Science Research Framework

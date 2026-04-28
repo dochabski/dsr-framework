@@ -6,16 +6,25 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Validation mode
+        default: public_draft
+        type: choice
+        options:
+          - public_draft
+          - release_candidate
 
 jobs:
-  validate-package:
+  validate-public-draft:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -24,3 +33,21 @@ jobs:
 
       - name: Validate package
         run: python scripts/validate-package.py
+
+  validate-release-candidate:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'release_candidate'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade pyyaml jsonschema
+
+      - name: Validate release-candidate gates
+        run: python scripts/validate-package.py --release-candidate
