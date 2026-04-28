@@ -1,0 +1,131 @@
+name: Validation failure
+description: Report failures or expected-failure behavior from scripts/validate-package.py.
+title: "[validation-failure]: "
+labels:
+  - validation
+  - repo-hardening
+body:
+  - type: textarea
+    id: affected_paths
+    attributes:
+      label: Affected controlled file path(s)
+      placeholder: "scripts/validate-package.py; records/validation/validation-summary-latest.json"
+    validations:
+      required: true
+  - type: dropdown
+    id: package_area
+    attributes:
+      label: Affected package area
+      options:
+        - root_control
+        - specs
+        - models
+        - vocabularies
+        - schemas
+        - templates
+        - checklists
+        - docs_protocol
+        - records
+        - crosswalks
+        - examples
+        - automation
+        - governance
+    validations:
+      required: true
+  - type: input
+    id: requested_change
+    attributes:
+      label: Issue type / requested change
+      placeholder: "Fix public-draft validation failure or refine expected RC blocker."
+    validations:
+      required: true
+  - type: input
+    id: command_run
+    attributes:
+      label: Command run
+      placeholder: "python scripts/validate-package.py --release-candidate"
+    validations:
+      required: true
+  - type: textarea
+    id: observed_output
+    attributes:
+      label: Observed output
+      description: Paste the relevant error, warning, or summary lines.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_result
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: dropdown
+    id: validation_mode
+    attributes:
+      label: Validation mode
+      options:
+        - public_draft
+        - release_candidate
+    validations:
+      required: true
+  - type: dropdown
+    id: expected_failure
+    attributes:
+      label: Is the failure expected?
+      options:
+        - expected
+        - unexpected
+        - unclear
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_basis
+    attributes:
+      label: Source basis or evidence basis
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current behavior/gap
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: validation_expectation
+    attributes:
+      label: Validation expectation
+      placeholder: "Public-draft validation passes; release-candidate mode only fails for retained v1/RC blockers."
+    validations:
+      required: true
+  - type: dropdown
+    id: conformance_impact
+    attributes:
+      label: Conformance impact
+      options:
+        - no_conformance_change
+        - supports_l1_documented
+        - supports_l2_reviewable_public_draft
+        - supports_l3_exercisable_future
+        - supports_l4_reusable_future
+        - supports_l5_archival_future
+    validations:
+      required: true
+  - type: checkboxes
+    id: no_overclaim
+    attributes:
+      label: No-overclaim acknowledgement
+      options:
+        - label: This issue must not be used to claim stable v1, achieved L4, or L5 archival/publication-ready status without retained evidence.
+          required: true

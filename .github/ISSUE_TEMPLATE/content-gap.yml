@@ -1,0 +1,118 @@
+name: Content gap
+description: Report missing or weak framework content while preserving public-draft conformance boundaries.
+title: "[content-gap]: "
+labels:
+  - content-gap
+  - repo-hardening
+body:
+  - type: textarea
+    id: affected_paths
+    attributes:
+      label: Affected controlled file path(s)
+      description: List repository paths for the affected controlled files.
+      placeholder: "models/dsr-decision-flow.yaml; checklists/dsr-minimum-viable-study-checklist.yaml"
+    validations:
+      required: true
+  - type: dropdown
+    id: package_area
+    attributes:
+      label: Affected package area
+      options:
+        - root_control
+        - specs
+        - models
+        - vocabularies
+        - schemas
+        - templates
+        - checklists
+        - docs_protocol
+        - records
+        - crosswalks
+        - examples
+        - automation
+        - governance
+    validations:
+      required: true
+  - type: input
+    id: requested_change
+    attributes:
+      label: Issue type / requested change
+      placeholder: "Clarify an under-operationalized DSR construct."
+    validations:
+      required: true
+  - type: input
+    id: dsr_construct
+    attributes:
+      label: Affected DSR construct
+      placeholder: "problem framing, stakeholder externalities, projectability, evaluation alignment"
+    validations:
+      required: true
+  - type: input
+    id: user_affected
+    attributes:
+      label: User affected
+      placeholder: "researcher, reviewer, maintainer, instructor, adopter"
+    validations:
+      required: true
+  - type: input
+    id: quality_gate
+    attributes:
+      label: Quality gate affected
+      placeholder: "qg_reviewability, qg_dsr_transparency, qg_schema_contract_alignment"
+    validations:
+      required: false
+  - type: textarea
+    id: evidence_basis
+    attributes:
+      label: Source basis or evidence basis
+      description: Cite framework records, crosswalk entries, literature source IDs, or validation output.
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current behavior/gap
+      description: Explain the current weakness without overstating maturity.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+      description: Describe the bounded content change requested.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: List concrete evidence for closing this issue.
+    validations:
+      required: true
+  - type: textarea
+    id: validation_expectation
+    attributes:
+      label: Validation expectation
+      placeholder: "python scripts/validate-package.py should pass in public-draft mode."
+    validations:
+      required: true
+  - type: dropdown
+    id: conformance_impact
+    attributes:
+      label: Conformance impact
+      options:
+        - no_conformance_change
+        - supports_l1_documented
+        - supports_l2_reviewable_public_draft
+        - supports_l3_exercisable_future
+        - supports_l4_reusable_future
+        - supports_l5_archival_future
+    validations:
+      required: true
+  - type: checkboxes
+    id: no_overclaim
+    attributes:
+      label: No-overclaim acknowledgement
+      options:
+        - label: This issue must not be used to claim stable v1, achieved L4, or L5 archival/publication-ready status without retained evidence.
+          required: true
