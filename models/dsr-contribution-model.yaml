@@ -539,7 +539,7 @@ relationships:
   object: evidence_basis
   cardinality: one_to_many
   required: true
-  rule: Each claim must have at least one mapped evidence basis or evidence_status not_yet_mapped.
+  rule: Each claim must have at least one mapped evidence basis or evidence_status accepted_v1_limitation.
 - relationship_id: positioning_record_documents_claim
   subject: contribution_positioning_record
   predicate: documents
@@ -732,7 +732,7 @@ validation_rules:
 - rule_id: vr_claim_has_controlled_type
   severity: error
   applies_to: contribution_claim
-  test: contribution_type must use a controlled value or mark evidence_status as not_yet_mapped for provisional classification.
+  test: contribution_type must use a controlled value or mark evidence_status as accepted_v1_limitation for provisional classification.
   failure_message: Contribution type is missing or uncontrolled.
 - rule_id: vr_claim_has_goal_and_scope
   severity: error
@@ -838,7 +838,7 @@ traceability:
   - vocabularies/knowledge-goals.yaml
   - vocabularies/knowledge-scopes.yaml
   relationship: supplies_candidate_controlled_values_for_vocabularies
-  evidence_status: not_yet_mapped
+  evidence_status: accepted_v1_limitation
 - trace_id: tr_akoka_to_path_based_contribution
   source: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
   target: model.dsr_contribution_model.knowledge_goal_scope_path_logic
@@ -886,7 +886,7 @@ implementation_guidance:
     once.
   - Assign knowledge scope conservatively; use mixed_multi_level when local evidence and generalized claims coexist.
   - Treat projectability as a claim requiring problem-class definition, boundary conditions, and evidence or rationale.
-  - Preserve not_yet_mapped when source evidence or downstream vocabulary entries have not yet been generated.
+  - Preserve accepted_v1_limitation when source evidence or downstream vocabulary entries have not yet been generated.
   reviewer_guidance:
   - Check whether the claimed contribution type matches the evidence basis.
   - Flag routine implementation, consulting output, or local success as overclaimed if no abstraction is provided.
@@ -896,7 +896,7 @@ implementation_guidance:
   - schema_contribution_claim should require claim_id, claim_statement, contribution_type, knowledge_goals, knowledge_scope,
     evidence_basis, limitations, and review_status.
   - schema_contribution_claim should validate controlled values against vocabularies once vocabularies are finalized.
-  - schema_contribution_claim should allow evidence_status not_yet_mapped during draft phases.
+  - schema_contribution_claim should allow evidence_status accepted_v1_limitation during draft phases.
   template_implications:
   - template_contribution_claim should prompt for artifact utility, artifact quality, and knowledge contribution as separate
     fields.

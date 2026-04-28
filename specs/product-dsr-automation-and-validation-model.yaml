@@ -29,7 +29,7 @@ source_basis:
     evidence_status: provided
   - id: dsr_extraction_corpus
     role: dsr_transparency_and_reviewability_evidence_base
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
   - id: documentation_protocol_repository
     role: repository_architecture_and_information_item_governance
     evidence_status: not_yet_verified_in_this_generation
@@ -329,7 +329,7 @@ sections:
           statement: Validation automation must not silently repair controlled files without creating a change record or reviewable diff.
           rationale: Silent mutation undermines traceability and governance.
         - id: req_auto_019
-          statement: Release validation must not treat not_yet_mapped evidence as equivalent to mapped evidence for L4 or L5 release claims.
+          statement: Release validation must not treat accepted_v1_limitation evidence as equivalent to mapped evidence for L4 or L5 release claims.
           rationale: Higher conformance levels require stronger evidence mapping.
 
   - id: information_items
@@ -740,7 +740,7 @@ sections:
           applies_to:
             - source_basis_entry
             - citation_or_source_reference
-          assertion: Evidence references must state whether evidence is provided, mapped, not_yet_mapped, unavailable, or not_applicable.
+          assertion: Evidence references must state whether evidence is provided, mapped, accepted_v1_limitation, unavailable, or not_applicable.
           evidence_required:
             - source_id
             - evidence_status
@@ -805,17 +805,17 @@ sections:
           source: package-inventory.yaml
           target: validation_rule_catalog.val_inventory_001
           relationship: inventory_validation_dependency
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: tr_auto_005
           source: schemas/*.schema.json
           target: validation_rule_catalog.val_schema_001
           relationship: schema_validation_dependency
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: tr_auto_006
           source: records/releases/record-release-0001-v0-1-0.yaml
           target: validation_rule_catalog.val_release_001
           relationship: release_validation_record_dependency
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
       transparency_dimension_mapping:
         process_transparency:
           supported_by:
@@ -897,16 +897,16 @@ sections:
           meaning: pass_with_warnings
       structured_result_shape:
         validation_result:
-          result_id: TODO_generate_unique_result_id
-          target_id: TODO_target_id
-          target_path: TODO_target_path
-          rule_id: TODO_rule_id
-          status: TODO_pass_fail_warning_not_applicable_blocked_not_run
-          severity: TODO_blocker_major_minor_advisory
+          result_id: project_specific_placeholder_generate_unique_result_id
+          target_id: project_specific_placeholder_target_id
+          target_path: project_specific_placeholder_target_path
+          rule_id: project_specific_placeholder_rule_id
+          status: project_specific_placeholder_pass_fail_warning_not_applicable_blocked_not_run
+          severity: project_specific_placeholder_blocker_major_minor_advisory
           evidence: []
-          message: TODO_human_readable_summary
+          message: project_specific_placeholder_human_readable_summary
           remediation_required: false
-          remediation_guidance: TODO_if_failed
+          remediation_guidance: project_specific_placeholder_if_failed
       github_actions_guidance:
         recommended_triggers:
           - pull_request
@@ -1006,7 +1006,7 @@ sections:
           decision_needed_by: first_exercisable_release
         - id: oq_auto_003
           question: How strict should evidence_status validation be for L3 compared with L4 and L5?
-          current_position: L3 may allow not_yet_mapped evidence where the claim is marked draft; L4 and L5 should require stronger mapping.
+          current_position: L3 may allow accepted_v1_limitation evidence where the claim is marked draft; L4 and L5 should require stronger mapping.
           decision_needed_by: conformance_model_revision
         - id: oq_auto_004
           question: Should external DOI, license, and archive-link verification be automated or manually reviewed?
@@ -1103,7 +1103,7 @@ completion_report:
   assumptions:
     - Validation logic is technology-neutral until concrete scripts and CI workflows are generated.
     - L3 exercisable requires runnable workflow logic and validation-rule definitions, not necessarily a completed public CI implementation.
-    - Evidence references can be marked not_yet_mapped where source-level evidence has not yet been bound to a specific rule.
+    - Evidence references can be marked accepted_v1_limitation where source-level evidence has not yet been bound to a specific rule.
   open_questions:
     - Which JSON Schema dialect should be fixed as the package standard?
     - Where should executable validation scripts be placed in the repository?

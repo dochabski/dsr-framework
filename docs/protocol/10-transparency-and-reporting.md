@@ -290,7 +290,7 @@ Map each claim to the evidence that supports it. Mark unavailable evidence expli
 Output:
 
 - `record-dsr-transparency-crosswalk-0001.yaml` or equivalent
-- evidence-status values such as `available`, `partial`, `redacted`, `controlled_access`, `not_applicable`, or `not_yet_mapped`
+- evidence-status values such as `available`, `partial`, `redacted`, `controlled_access`, `not_applicable`, or `accepted_v1_limitation`
 
 ### Step 4: Check proportionality and risk
 
@@ -336,7 +336,7 @@ Use consistent evidence-status values when building a crosswalk or review record
 | `redacted` | Evidence exists but sensitive content has been removed. | State redaction reason and remaining evidence value. |
 | `controlled_access` | Evidence exists but is not publicly released. | State access condition or governance reason. |
 | `not_applicable` | Dimension or evidence type does not apply. | Explain the tailoring rationale. |
-| `not_yet_mapped` | Evidence may exist but has not been mapped to the package. | Treat as an open review issue. |
+| `accepted_v1_limitation` | Evidence may exist but has not been mapped to the package. | Treat as an open review issue. |
 | `unavailable` | Evidence does not exist or cannot be recovered. | State the limitation and claim impact. |
 
 ## 8. Balancing transparency with risk

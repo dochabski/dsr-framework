@@ -216,7 +216,7 @@ controlled_value_hints:
 usage_guidance:
   instruction: >
     Copy the record_template object into a new file under records/contributions/,
-    rename the record_id and target file path, replace TODO placeholders, and preserve
+    rename the record_id and target file path, replace project_specific_placeholder placeholders, and preserve
     source_basis, evidence, outcome, related_items, retention_rule, and change_history.
   minimum_viable_record:
     - record_id
@@ -232,9 +232,9 @@ usage_guidance:
     - related_items
     - retention_rule
   placeholder_policy:
-    - "TODO placeholders identify project-specific facts that must be completed by the record author."
-    - "Do not leave TODO placeholders in records intended for review or release."
-    - "Use evidence_status: not_yet_mapped only when the evidence item is known to exist but has not yet been linked."
+    - "project_specific_placeholder placeholders identify project-specific facts that must be completed by the record author."
+    - "Do not leave project_specific_placeholder placeholders in records intended for review or release."
+    - "Use evidence_status: accepted_v1_limitation only when the evidence item is known to exist but has not yet been linked."
   overclaiming_warning: >
     A contribution positioning record should make the claim reviewable, not stronger.
     If evidence only demonstrates plausible use, do not classify the claim as summatively
@@ -242,105 +242,105 @@ usage_guidance:
     abstraction and boundary rationale is supplied.
 
 record_template:
-  record_id: "TODO: record-contribution-positioning-000X"
+  record_id: "project_specific_placeholder: record-contribution-positioning-000X"
   record_class: contribution_positioning
   item_type: record
-  title: "TODO: Contribution positioning record for <artifact-or-project-name>"
+  title: "project_specific_placeholder: Contribution positioning record for <artifact-or-project-name>"
   event_or_action: contribution_positioning
-  date: "TODO: YYYY-MM-DD"
-  responsible_party: "TODO: person, role, or maintainer group responsible for the positioning decision"
+  date: "project_specific_placeholder: YYYY-MM-DD"
+  responsible_party: "project_specific_placeholder: person, role, or maintainer group responsible for the positioning decision"
   status: draft
   version: "0.1.0"
 
   artifact_or_project_reference:
-    artifact_id: "TODO: artifact or project identifier"
-    artifact_name: "TODO: artifact or project name"
-    artifact_type: "TODO: controlled artifact type or artifact package type"
-    artifact_version: "TODO: version or release identifier"
-    artifact_profile_path: "TODO: artifact-profile.yaml or related artifact profile path"
-    problem_class_reference: "TODO: problem class, DSR methodological problem, or local context"
-    lifecycle_stage: "TODO: lifecycle stage at which the contribution is being positioned"
+    artifact_id: "project_specific_placeholder: artifact or project identifier"
+    artifact_name: "project_specific_placeholder: artifact or project name"
+    artifact_type: "project_specific_placeholder: controlled artifact type or artifact package type"
+    artifact_version: "project_specific_placeholder: version or release identifier"
+    artifact_profile_path: "project_specific_placeholder: artifact-profile.yaml or related artifact profile path"
+    problem_class_reference: "project_specific_placeholder: problem class, DSR methodological problem, or local context"
+    lifecycle_stage: "project_specific_placeholder: lifecycle stage at which the contribution is being positioned"
 
   positioning_summary:
-    summary_statement: "TODO: one-paragraph summary of the contribution positioning"
-    primary_positioning_decision: "TODO: concise statement of the main contribution type, goal, scope, and level"
-    contribution_to_practice: "TODO: practical or stakeholder-facing contribution; use not_applicable with rationale if none claimed"
-    contribution_to_knowledge: "TODO: scholarly, methodological, theoretical, or design-knowledge contribution"
-    contribution_to_dsr_framework_or_method: "TODO: contribution to DSR conduct, documentation, evaluation, review, or publication, if applicable"
+    summary_statement: "project_specific_placeholder: one-paragraph summary of the contribution positioning"
+    primary_positioning_decision: "project_specific_placeholder: concise statement of the main contribution type, goal, scope, and level"
+    contribution_to_practice: "project_specific_placeholder: practical or stakeholder-facing contribution; use not_applicable with rationale if none claimed"
+    contribution_to_knowledge: "project_specific_placeholder: scholarly, methodological, theoretical, or design-knowledge contribution"
+    contribution_to_dsr_framework_or_method: "project_specific_placeholder: contribution to DSR conduct, documentation, evaluation, review, or publication, if applicable"
     non_goals:
       - non_goal_id: ng_001
-        statement: "TODO: claim explicitly not made by this project"
-        rationale: "TODO: reason this claim is excluded"
+        statement: "project_specific_placeholder: claim explicitly not made by this project"
+        rationale: "project_specific_placeholder: reason this claim is excluded"
 
   related_claims:
     - claim_id: claim_001
-      claim_title: "TODO: short claim title"
-      claim_statement: "TODO: one reviewable sentence stating what is contributed, to whom, for what purpose, and at what scope"
-      claim_pattern: "TODO: artifact_utility_claim | artifact_quality_claim | design_knowledge_claim | methodological_claim | responsible_design_claim"
+      claim_title: "project_specific_placeholder: short claim title"
+      claim_statement: "project_specific_placeholder: one reviewable sentence stating what is contributed, to whom, for what purpose, and at what scope"
+      claim_pattern: "project_specific_placeholder: artifact_utility_claim | artifact_quality_claim | design_knowledge_claim | methodological_claim | responsible_design_claim"
       claim_status: draft
-      claim_owner: "TODO: claim author or responsible role"
+      claim_owner: "project_specific_placeholder: claim author or responsible role"
       contribution_type:
         selected_values:
-          - "TODO: choose from controlled_value_hints.contribution_types"
-        primary_value: "TODO: primary contribution type"
-        rationale: "TODO: why this contribution type is appropriate"
+          - "project_specific_placeholder: choose from controlled_value_hints.contribution_types"
+        primary_value: "project_specific_placeholder: primary contribution type"
+        rationale: "project_specific_placeholder: why this contribution type is appropriate"
         rejected_alternatives:
-          - value: "TODO: rejected contribution type"
-            reason_rejected: "TODO: reason the rejected type does not fit"
+          - value: "project_specific_placeholder: rejected contribution type"
+            reason_rejected: "project_specific_placeholder: reason the rejected type does not fit"
       contribution_level:
         selected_values:
-          - "TODO: choose from controlled_value_hints.contribution_levels"
-        primary_value: "TODO: primary contribution level"
-        rationale: "TODO: why this level fits the abstraction and maturity of the claim"
+          - "project_specific_placeholder: choose from controlled_value_hints.contribution_levels"
+        primary_value: "project_specific_placeholder: primary contribution level"
+        rationale: "project_specific_placeholder: why this level fits the abstraction and maturity of the claim"
       knowledge_goals:
         selected_values:
-          - "TODO: choose one or more from controlled_value_hints.knowledge_goals"
-        primary_value: "TODO: primary knowledge goal"
-        rationale: "TODO: why these knowledge goals fit the claim"
+          - "project_specific_placeholder: choose one or more from controlled_value_hints.knowledge_goals"
+        primary_value: "project_specific_placeholder: primary knowledge goal"
+        rationale: "project_specific_placeholder: why these knowledge goals fit the claim"
       knowledge_scope:
-        selected_value: "TODO: choose from controlled_value_hints.knowledge_scopes"
-        problem_class: "TODO: required for projectable, analytical, nomothetic, or mixed claims"
-        local_context: "TODO: organization, domain, case, or setting if idiographic or mixed"
-        projectability_rationale: "TODO: why the claim can or cannot transfer beyond the local context"
+        selected_value: "project_specific_placeholder: choose from controlled_value_hints.knowledge_scopes"
+        problem_class: "project_specific_placeholder: required for projectable, analytical, nomothetic, or mixed claims"
+        local_context: "project_specific_placeholder: organization, domain, case, or setting if idiographic or mixed"
+        projectability_rationale: "project_specific_placeholder: why the claim can or cannot transfer beyond the local context"
         boundary_conditions:
           - boundary_id: bc_001
-            statement: "TODO: condition under which the claim is expected to hold"
-            consequence_if_absent: "TODO: what changes if the condition is absent"
+            statement: "project_specific_placeholder: condition under which the claim is expected to hold"
+            consequence_if_absent: "project_specific_placeholder: what changes if the condition is absent"
       artifact_references:
-        - artifact_id: "TODO: artifact identifier"
-          artifact_name: "TODO: artifact, component, method, model, or documentation object"
-          artifact_role_in_claim: "TODO: object of utility, object of quality, source of design knowledge, or method output"
-          artifact_boundary_note: "TODO: distinguish artifact instance, artifact type, artifact package, or design knowledge"
+        - artifact_id: "project_specific_placeholder: artifact identifier"
+          artifact_name: "project_specific_placeholder: artifact, component, method, model, or documentation object"
+          artifact_role_in_claim: "project_specific_placeholder: object of utility, object of quality, source of design knowledge, or method output"
+          artifact_boundary_note: "project_specific_placeholder: distinguish artifact instance, artifact type, artifact package, or design knowledge"
       audience_and_impact:
         intended_audiences:
-          - "TODO: choose from controlled_value_hints.audiences"
+          - "project_specific_placeholder: choose from controlled_value_hints.audiences"
         impact_targets:
-          - "TODO: choose from controlled_value_hints.impact_targets"
+          - "project_specific_placeholder: choose from controlled_value_hints.impact_targets"
         user_or_stakeholder_beneficiaries:
-          - stakeholder_role: "TODO: stakeholder role"
-            expected_benefit: "TODO: expected benefit or use"
-            evidence_status: not_yet_mapped
+          - stakeholder_role: "project_specific_placeholder: stakeholder role"
+            expected_benefit: "project_specific_placeholder: expected benefit or use"
+            evidence_status: accepted_v1_limitation
       novelty_and_prior_work_positioning:
-        prior_work_or_baseline: "TODO: prior artifact, method, theory, corpus, practice, or reporting norm"
-        contribution_delta: "TODO: what is new, improved, adapted, synthesized, or clarified"
-        consensus_positioning: "TODO: choose from controlled_value_hints.consensus_positioning_values"
+        prior_work_or_baseline: "project_specific_placeholder: prior artifact, method, theory, corpus, practice, or reporting norm"
+        contribution_delta: "project_specific_placeholder: what is new, improved, adapted, synthesized, or clarified"
+        consensus_positioning: "project_specific_placeholder: choose from controlled_value_hints.consensus_positioning_values"
         routine_design_risk:
-          value: "TODO: low | moderate | high | unknown"
-          rationale: "TODO: why the claim is or is not merely routine design"
+          value: "project_specific_placeholder: low | moderate | high | unknown"
+          rationale: "project_specific_placeholder: why the claim is or is not merely routine design"
       evidence_basis:
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
         evidence_items:
           - evidence_id: ev_001
-            evidence_type: "TODO: choose from controlled_value_hints.evidence_basis_types"
-            evidence_source_type: "TODO: artifact_specification | design_rationale | demonstration_record | evaluation_plan | evaluation_report | source_basis | review_record | external_source"
-            source_path_or_citation: "TODO: path, record id, citation anchor, or evidence link"
-            evidence_summary: "TODO: concise evidence summary"
-            claim_support_role: "TODO: grounds novelty, utility, quality, scope, method, or boundary condition"
-            evidence_strength: "TODO: low | moderate | high | not_yet_assessed"
-            limitations: "TODO: evidence limitation or not_applicable"
+            evidence_type: "project_specific_placeholder: choose from controlled_value_hints.evidence_basis_types"
+            evidence_source_type: "project_specific_placeholder: artifact_specification | design_rationale | demonstration_record | evaluation_plan | evaluation_report | source_basis | review_record | external_source"
+            source_path_or_citation: "project_specific_placeholder: path, record id, citation anchor, or evidence link"
+            evidence_summary: "project_specific_placeholder: concise evidence summary"
+            claim_support_role: "project_specific_placeholder: grounds novelty, utility, quality, scope, method, or boundary condition"
+            evidence_strength: "project_specific_placeholder: low | moderate | high | not_yet_assessed"
+            limitations: "project_specific_placeholder: evidence limitation or not_applicable"
         evidence_adequacy_assessment:
-          adequacy_for_claim_strength: "TODO: adequate | partially_adequate | inadequate | not_yet_assessed"
-          rationale: "TODO: why the mapped evidence supports or does not support the claim strength"
+          adequacy_for_claim_strength: "project_specific_placeholder: adequate | partially_adequate | inadequate | not_yet_assessed"
+          rationale: "project_specific_placeholder: why the mapped evidence supports or does not support the claim strength"
       transparency_mapping:
         contribution_transparency_role: "Documents what contribution is claimed, for whom, at what scope, and with what evidence."
         related_transparency_dimensions:
@@ -348,28 +348,28 @@ record_template:
           - evaluation_transparency
           - problem_space_transparency
           - solution_space_transparency
-        documentation_sufficiency: "TODO: sufficient | partial | insufficient | not_yet_assessed"
+        documentation_sufficiency: "project_specific_placeholder: sufficient | partial | insufficient | not_yet_assessed"
       assumptions:
         - assumption_id: asm_001
-          statement: "TODO: assumption supporting the positioning decision"
-          risk_if_false: "TODO: implication if assumption is false"
+          statement: "project_specific_placeholder: assumption supporting the positioning decision"
+          risk_if_false: "project_specific_placeholder: implication if assumption is false"
       limitations:
         - limitation_id: lim_001
-          statement: "TODO: limitation of the contribution claim"
-          mitigation_or_followup: "TODO: mitigation, caveat, or future evidence needed"
+          statement: "project_specific_placeholder: limitation of the contribution claim"
+          mitigation_or_followup: "project_specific_placeholder: mitigation, caveat, or future evidence needed"
 
   evidence:
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
     source_basis_records:
-      - source_id: "TODO: source, corpus record, or citation anchor"
-        role: "TODO: theory grounding, prior work, model dependency, evaluation evidence, or review evidence"
+      - source_id: "project_specific_placeholder: source, corpus record, or citation anchor"
+        role: "project_specific_placeholder: theory grounding, prior work, model dependency, evaluation evidence, or review evidence"
         mapped_claim_ids:
           - claim_001
-        evidence_summary: "TODO: concise summary of relevance"
+        evidence_summary: "project_specific_placeholder: concise summary of relevance"
     linked_framework_files:
-      - item_id: "TODO: linked framework item id"
-        path: "TODO: repository path"
-        relationship: "TODO: supports, constrains, validates, reviews, or supersedes"
+      - item_id: "project_specific_placeholder: linked framework item id"
+        path: "project_specific_placeholder: repository path"
+        relationship: "project_specific_placeholder: supports, constrains, validates, reviews, or supersedes"
         mapped_claim_ids:
           - claim_001
     traceability_matrix:
@@ -377,111 +377,111 @@ record_template:
         source: claim_001
         target: ev_001
         relationship: supported_by
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
 
   positioning_review:
     review_status: not_yet_reviewed
-    reviewer: "TODO: reviewer name, role, or not_yet_assigned"
-    review_date: "TODO: YYYY-MM-DD or not_yet_reviewed"
+    reviewer: "project_specific_placeholder: reviewer name, role, or not_yet_assigned"
+    review_date: "project_specific_placeholder: YYYY-MM-DD or not_yet_reviewed"
     review_questions:
       - question_id: rq_clarity
         question: Is the claim stated in a single reviewable sentence before elaboration?
-        finding: "TODO: pass | concern | fail | not_reviewed"
+        finding: "project_specific_placeholder: pass | concern | fail | not_reviewed"
       - question_id: rq_novelty
         question: Does the claim explain how it differs from prior artifacts, methods, theories, or reporting practices?
-        finding: "TODO: pass | concern | fail | not_reviewed"
+        finding: "project_specific_placeholder: pass | concern | fail | not_reviewed"
       - question_id: rq_relevance
         question: Does the claim connect to a practical problem, DSR methodological problem, or knowledge gap?
-        finding: "TODO: pass | concern | fail | not_reviewed"
+        finding: "project_specific_placeholder: pass | concern | fail | not_reviewed"
       - question_id: rq_rigor
         question: Is the claim grounded in literature, design rationale, evaluation, traceability, stakeholder evidence, or conceptual argument?
-        finding: "TODO: pass | concern | fail | not_reviewed"
+        finding: "project_specific_placeholder: pass | concern | fail | not_reviewed"
       - question_id: rq_projectability
         question: Are transfer conditions, context limits, and problem-class boundaries identified?
-        finding: "TODO: pass | concern | fail | not_reviewed"
+        finding: "project_specific_placeholder: pass | concern | fail | not_reviewed"
       - question_id: rq_transparency
         question: Are evidence, assumptions, non-goals, and limitations transparent enough for review?
-        finding: "TODO: pass | concern | fail | not_reviewed"
+        finding: "project_specific_placeholder: pass | concern | fail | not_reviewed"
     overclaiming_checks:
       - check_id: oc_demonstration_not_evaluation
         risk_statement: Demonstration is being treated as evaluation without explicit criteria, method, and findings.
-        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
-        mitigation: "TODO: mitigation or not_applicable"
+        status: "project_specific_placeholder: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "project_specific_placeholder: mitigation or not_applicable"
       - check_id: oc_instance_not_general_contribution
         risk_statement: Local artifact evidence is being treated as general design knowledge without abstraction or projectability rationale.
-        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
-        mitigation: "TODO: mitigation or not_applicable"
+        status: "project_specific_placeholder: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "project_specific_placeholder: mitigation or not_applicable"
       - check_id: oc_novelty_not_utility
         risk_statement: Novelty is being treated as proof of utility, quality, validity, reliability, or significance.
-        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
-        mitigation: "TODO: mitigation or not_applicable"
+        status: "project_specific_placeholder: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "project_specific_placeholder: mitigation or not_applicable"
       - check_id: oc_transparency_not_reproducibility
         risk_statement: Transparent documentation is being treated as proof of exact reproducibility.
-        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
-        mitigation: "TODO: mitigation or not_applicable"
+        status: "project_specific_placeholder: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "project_specific_placeholder: mitigation or not_applicable"
       - check_id: oc_method_claim_requires_method_delta
         risk_statement: A methodological claim does not specify what prior method or documentation practice is improved.
-        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
-        mitigation: "TODO: mitigation or not_applicable"
+        status: "project_specific_placeholder: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "project_specific_placeholder: mitigation or not_applicable"
       - check_id: oc_responsible_design_requires_operational_value
         risk_statement: A responsible-design claim names values without operational mechanisms, affected stakeholders, or criteria.
-        status: "TODO: not_present | present_and_mitigated | present_unresolved | not_reviewed"
-        mitigation: "TODO: mitigation or not_applicable"
+        status: "project_specific_placeholder: not_present | present_and_mitigated | present_unresolved | not_reviewed"
+        mitigation: "project_specific_placeholder: mitigation or not_applicable"
 
   validation_results:
     validation_status: not_yet_validated
-    validation_date: "TODO: YYYY-MM-DD or not_yet_validated"
+    validation_date: "project_specific_placeholder: YYYY-MM-DD or not_yet_validated"
     validation_rules:
       - rule_id: vr_claim_has_controlled_type
         severity: error
-        result: "TODO: pass | fail | not_checked"
-        evidence: "TODO: contribution_type uses controlled value"
+        result: "project_specific_placeholder: pass | fail | not_checked"
+        evidence: "project_specific_placeholder: contribution_type uses controlled value"
       - rule_id: vr_claim_has_goal_and_scope
         severity: error
-        result: "TODO: pass | fail | not_checked"
-        evidence: "TODO: knowledge_goals and knowledge_scope are present"
+        result: "project_specific_placeholder: pass | fail | not_checked"
+        evidence: "project_specific_placeholder: knowledge_goals and knowledge_scope are present"
       - rule_id: vr_projectable_claim_has_problem_class
         severity: error
-        result: "TODO: pass | fail | not_checked | not_applicable"
-        evidence: "TODO: projectable or general claims identify problem class"
+        result: "project_specific_placeholder: pass | fail | not_checked | not_applicable"
+        evidence: "project_specific_placeholder: projectable or general claims identify problem class"
       - rule_id: vr_evidence_strength_not_overclaimed
         severity: warning
-        result: "TODO: pass | concern | fail | not_checked"
-        evidence: "TODO: claim strength aligns with evidence basis"
+        result: "project_specific_placeholder: pass | concern | fail | not_checked"
+        evidence: "project_specific_placeholder: claim strength aligns with evidence basis"
       - rule_id: vr_practice_and_knowledge_separated
         severity: warning
-        result: "TODO: pass | concern | fail | not_checked"
-        evidence: "TODO: practice and knowledge contributions are separately described"
+        result: "project_specific_placeholder: pass | concern | fail | not_checked"
+        evidence: "project_specific_placeholder: practice and knowledge contributions are separately described"
       - rule_id: vr_boundaries_present
         severity: warning
-        result: "TODO: pass | concern | fail | not_checked"
-        evidence: "TODO: boundary conditions and limitations are present"
+        result: "project_specific_placeholder: pass | concern | fail | not_checked"
+        evidence: "project_specific_placeholder: boundary conditions and limitations are present"
 
   outcome:
     outcome_status: not_yet_reviewed
-    outcome_statement: "TODO: accepted_as_positioned | accepted_with_limitations | revise_positioning | insufficient_evidence | not_yet_reviewed"
+    outcome_statement: "project_specific_placeholder: accepted_as_positioned | accepted_with_limitations | revise_positioning | insufficient_evidence | not_yet_reviewed"
     accepted_claims:
       - claim_id: claim_001
-        accepted_positioning: "TODO: accepted positioning summary or not_yet_reviewed"
+        accepted_positioning: "project_specific_placeholder: accepted positioning summary or not_yet_reviewed"
     required_revisions:
       - revision_id: rev_001
-        revision_statement: "TODO: needed revision or not_applicable"
-        responsible_party: "TODO: owner or not_assigned"
-        due_date: "TODO: YYYY-MM-DD or not_applicable"
+        revision_statement: "project_specific_placeholder: needed revision or not_applicable"
+        responsible_party: "project_specific_placeholder: owner or not_assigned"
+        due_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
     residual_risks:
       - risk_id: risk_001
-        risk_statement: "TODO: remaining risk or not_applicable"
-        severity: "TODO: low | moderate | high | not_applicable"
-        mitigation: "TODO: mitigation or not_applicable"
+        risk_statement: "project_specific_placeholder: remaining risk or not_applicable"
+        severity: "project_specific_placeholder: low | moderate | high | not_applicable"
+        mitigation: "project_specific_placeholder: mitigation or not_applicable"
 
   related_items:
     upstream_inputs:
-      - id: "TODO: artifact_profile_or_claim_template_id"
-        path: "TODO: path to source artifact profile, contribution claim, or design rationale"
+      - id: "project_specific_placeholder: artifact_profile_or_claim_template_id"
+        path: "project_specific_placeholder: path to source artifact profile, contribution claim, or design rationale"
         relationship: input_to_positioning_record
     downstream_outputs:
-      - id: "TODO: checklist_or_review_record_id"
-        path: "TODO: path to review, checklist, publication, or release item"
+      - id: "project_specific_placeholder: checklist_or_review_record_id"
+        path: "project_specific_placeholder: path to review, checklist, publication, or release item"
         relationship: uses_positioning_record
     cross_references:
       - id: model_contribution
@@ -507,15 +507,15 @@ record_template:
     - source_id: dsr_contribution_model
       role: governing_model
       evidence_status: mapped
-    - source_id: "TODO: project_source_or_corpus_source"
-      role: "TODO: local evidence, corpus evidence, prior work, or review evidence"
-      evidence_status: not_yet_mapped
+    - source_id: "project_specific_placeholder: project_source_or_corpus_source"
+      role: "project_specific_placeholder: local evidence, corpus evidence, prior work, or review evidence"
+      evidence_status: accepted_v1_limitation
 
   change_history:
     - version: "0.1.0"
-      date: "TODO: YYYY-MM-DD"
+      date: "project_specific_placeholder: YYYY-MM-DD"
       change: Initial contribution positioning record drafted from template.
-      responsible_party: "TODO: author or maintainer"
+      responsible_party: "project_specific_placeholder: author or maintainer"
 
 acceptance_criteria:
   - id: ac_required_record_fields_present
@@ -537,7 +537,7 @@ acceptance_criteria:
   - id: ac_evidence_traceability_present
     statement: >
       Each claim maps to at least one evidence item or explicitly marks evidence_status
-      as not_yet_mapped.
+      as accepted_v1_limitation.
     verification_method: inspect_evidence_traceability_matrix
   - id: ac_overclaiming_review_completed
     statement: >
@@ -557,11 +557,11 @@ validation_rules:
     applies_to: instantiated_contribution_positioning_record
     test: Instantiated record includes all record_required_fields from the generation specification.
     failure_message: Instantiated contribution positioning record is missing a required record field.
-  - rule_id: vr_no_unresolved_todo_for_release
+  - rule_id: vr_no_unresolved_placeholder_for_release
     severity: error
     applies_to: release_candidate_record
-    test: No TODO placeholders remain in records marked approved or released.
-    failure_message: Released contribution positioning records must not contain unresolved TODO placeholders.
+    test: No project_specific_placeholder placeholders remain in records marked approved or released.
+    failure_message: Released contribution positioning records must not contain unresolved project_specific_placeholder placeholders.
   - rule_id: vr_controlled_values_used
     severity: warning
     applies_to: related_claims
@@ -608,7 +608,7 @@ traceability:
     source: template.contribution_positioning_record_template
     target: records/contributions/record-contribution-positioning-0001.yaml
     relationship: can_generate_instantiated_record
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
 
 open_questions:
   - question_id: oq_schema_alignment

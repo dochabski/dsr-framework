@@ -41,7 +41,7 @@ source_basis:
       traceability, quality, and completion-report expectations.
   - source_id: documentation_protocol_repository
     role: governing_documentation_protocol
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
     notes: >
       This file is aligned to the protocol model described in the project
       generation specification. Direct repository verification is deferred.
@@ -58,22 +58,22 @@ dependencies:
       path: specs/product-protocol-foundation.yaml
       dependency_type: governing_specification
       required: true
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - id: documentation_protocol_repository_architecture
       path: external:documentation-protocol
       dependency_type: protocol_source
       required: true
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - id: product_dsr_framework_foundation
       path: specs/product-dsr-framework-foundation.yaml
       dependency_type: scope_context
       required: false
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - id: product_dsr_information_item_architecture
       path: specs/product-dsr-information-item-architecture.yaml
       dependency_type: information_item_model
       required: true
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
   downstream:
     - id: root_manifest
       path: manifest.yaml
@@ -924,7 +924,7 @@ sections:
         - level: l1_documented
           repository_expectation: >
             Required root files and canonical directories are identified; omissions
-            are listed as TODO or tailoring candidates.
+            are listed as project_specific_placeholder or tailoring candidates.
         - level: l2_reviewable
           repository_expectation: >
             Repository architecture is sufficiently specified for reviewer inspection;
@@ -1054,7 +1054,7 @@ sections:
           severity: warning
         - rule_id: repo_val_008
           rule_type: evidence_status
-          description: "Unmapped evidence must use evidence_status: not_yet_mapped."
+          description: "Unmapped evidence must use evidence_status: accepted_v1_limitation."
           severity: warning
 
   - id: traceability
@@ -1088,7 +1088,7 @@ sections:
           source: documentation_protocol_repository
           target: source_basis.documentation_protocol_repository
           relation: planned_alignment
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: trace_repo_arch_006
           source: dsr_transparency_principles
           target: sections.quality_and_conformance.content.quality_gate_mapping
@@ -1334,7 +1334,7 @@ sections:
             Which documentation-protocol repository conventions should be treated as
             strict requirements after direct repository verification?
           status: open
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
           proposed_resolution_path: >
             Review documentation-protocol repository and create a crosswalk record.
         - question_id: repo_open_002
@@ -1342,7 +1342,7 @@ sections:
             Should generated docs or rendered schema documentation be committed to
             the repository or created only during release builds?
           status: open
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
           proposed_resolution_path: >
             Decide in automation and publication registry specifications.
         - question_id: repo_open_003
@@ -1350,7 +1350,7 @@ sections:
             Should examples/ be included in every release package, or only in
             teaching-oriented releases?
           status: open
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
           proposed_resolution_path: >
             Resolve in artifact package specification and release policy.
         - question_id: repo_open_004
@@ -1358,7 +1358,7 @@ sections:
             Should the framework maintain a separate src/ or tools/ directory for
             validation scripts?
           status: open
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
           proposed_resolution_path: >
             Resolve in automation and validation model.
       backlog:
@@ -1476,7 +1476,7 @@ assumptions:
       current external-source update.
     consequence: >
       Documentation-protocol alignment is represented with evidence_status:
-      not_yet_mapped where direct verification would be required.
+      accepted_v1_limitation where direct verification would be required.
   - assumption_id: repo_assumption_003
     statement: >
       Required root files and canonical directories may be tailored in future

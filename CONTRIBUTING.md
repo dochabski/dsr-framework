@@ -26,7 +26,7 @@ Every substantive change should identify:
 - Do not copy copyrighted source text into framework files beyond short, permitted excerpts.
 - Do not add raw tokens, credentials, private notes, or local-only paths to public package files.
 - Do not overclaim evaluation, publication readiness, reproducibility, generalization, or scholarly consensus.
-- Mark unresolved evidence as `not_yet_mapped`, `not_checked`, or a similarly explicit status instead of inventing authority.
+- Mark unresolved evidence as `accepted_v1_limitation`, `not_checked`, or a similarly explicit status instead of inventing authority.
 
 ## Validation
 

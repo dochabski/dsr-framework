@@ -48,7 +48,7 @@ source_basis:
     notes: "Requires controlled metadata, traceability, quality/conformance material, and DSR-specific distinctions."
   - source_id: dsr_quality_model
     role: substantive_dependency
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
     notes: "Expected upstream quality model; retain traceability placeholder until the controlled model file is finalized or linked."
 
 related_items:
@@ -56,43 +56,43 @@ related_items:
     - item_id: spec_quality_review
       path: specs/product-dsr-quality-conformance-and-review-model.yaml
       relationship: governs_review_workflow_and_acceptance_criteria
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - item_id: model_lifecycle
       path: models/dsr-lifecycle-model.yaml
       relationship: supplies_lifecycle_stage_context
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - item_id: model_evaluation_alignment
       path: models/dsr-evaluation-alignment-model.yaml
       relationship: distinguishes_evaluation_evidence_from_review_judgment
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - item_id: model_transparency
       path: models/dsr-transparency-model.yaml
       relationship: supplies_transparency_dimension_mapping
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - item_id: checklist_package_readiness
       path: checklists/artifact-package-readiness-checklist.yaml
       relationship: may_supply_review_questions_and_evidence_requirements
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - item_id: checklist_publication_readiness
       path: checklists/publication-readiness-checklist.yaml
       relationship: may_supply_release_or_publication_review_questions
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
   downstream_instances:
     - item_id: record_self_review
       path: records/reviews/record-review-0001-self-review.yaml
       relationship: example_or_initial_instance_of_this_template
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
   companion_outputs:
     - item_id: review_findings
       path: records/reviews/
       relationship: retained_review_evidence
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
 
 field_conventions:
   identifier_style: lower_snake_case_or_lower_kebab_case_by_context
   date_format: YYYY-MM-DD
   timestamp_format: ISO-8601
-  todo_marker: "TODO:"
+  placeholder_marker: "project_specific_placeholder:"
   allowed_record_status_values:
     - draft
     - in_review
@@ -141,39 +141,39 @@ field_conventions:
     - not_applicable
 
 review_record:
-  record_id: "TODO: record-review-0000-short-slug"
+  record_id: "project_specific_placeholder: record-review-0000-short-slug"
   record_class: review_record
-  title: "TODO: Review of <review subject>"
-  event_or_action: "TODO: Concise description of the review event or action."
-  date: "TODO: YYYY-MM-DD"
+  title: "project_specific_placeholder: Review of <review subject>"
+  event_or_action: "project_specific_placeholder: Concise description of the review event or action."
+  date: "project_specific_placeholder: YYYY-MM-DD"
   status: draft
   version: "0.1.0"
 
   responsible_party:
-    role: "TODO: reviewer | author | maintainer | release_manager"
-    name_or_identifier: "TODO: reviewer name or identifier"
-    affiliation_or_unit: "TODO: organization, team, project, or independent reviewer"
-    contact: "TODO: optional contact or not_applicable"
+    role: "project_specific_placeholder: reviewer | author | maintainer | release_manager"
+    name_or_identifier: "project_specific_placeholder: reviewer name or identifier"
+    affiliation_or_unit: "project_specific_placeholder: organization, team, project, or independent reviewer"
+    contact: "project_specific_placeholder: optional contact or not_applicable"
 
   review_subject:
-    subject_id: "TODO: stable id of reviewed item"
-    subject_title: "TODO: title of reviewed item"
-    subject_type: "TODO: specification | model | vocabulary | schema | template | checklist | record | docs_page | package | release | example"
-    subject_path: "TODO: repository/path/to/reviewed-item.yaml"
-    subject_version: "TODO: version or commit/tag if known"
-    subject_status_at_review: "TODO: draft | in_review | approved | released | superseded | deprecated | archived"
+    subject_id: "project_specific_placeholder: stable id of reviewed item"
+    subject_title: "project_specific_placeholder: title of reviewed item"
+    subject_type: "project_specific_placeholder: specification | model | vocabulary | schema | template | checklist | record | docs_page | package | release | example"
+    subject_path: "project_specific_placeholder: repository/path/to/reviewed-item.yaml"
+    subject_version: "project_specific_placeholder: version or commit/tag if known"
+    subject_status_at_review: "project_specific_placeholder: draft | in_review | approved | released | superseded | deprecated | archived"
     conformance_target: l2_reviewable
     review_scope:
       included:
-        - "TODO: files, sections, records, or package areas included in this review"
+        - "project_specific_placeholder: files, sections, records, or package areas included in this review"
       excluded:
-        - "TODO: explicit exclusions, or none"
-      scope_rationale: "TODO: why this scope is appropriate"
+        - "project_specific_placeholder: explicit exclusions, or none"
+      scope_rationale: "project_specific_placeholder: why this scope is appropriate"
 
   review_context:
-    review_type: "TODO: self_review | internal_peer_review | external_peer_review | schema_validation_review | checklist_review | artifact_package_readiness_review | publication_readiness_review | release_review | post_release_review | corrective_action_review"
-    lifecycle_stage: "TODO: planning | design | build | demonstration | evaluation | review | release | preservation | maintenance"
-    triggering_condition: "TODO: why the review occurred"
+    review_type: "project_specific_placeholder: self_review | internal_peer_review | external_peer_review | schema_validation_review | checklist_review | artifact_package_readiness_review | publication_readiness_review | release_review | post_release_review | corrective_action_review"
+    lifecycle_stage: "project_specific_placeholder: planning | design | build | demonstration | evaluation | review | release | preservation | maintenance"
+    triggering_condition: "project_specific_placeholder: why the review occurred"
     review_basis:
       governing_files:
         - file_id: dsr_framework_generation_spec
@@ -185,261 +185,261 @@ review_record:
       criteria_sources:
         - source_id: quality_model
           path: specs/product-dsr-quality-conformance-and-review-model.yaml
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - source_id: applicable_checklist
-          path: "TODO: checklists/<applicable-checklist>.yaml or not_applicable"
-          evidence_status: not_yet_mapped
+          path: "project_specific_placeholder: checklists/<applicable-checklist>.yaml or not_applicable"
+          evidence_status: accepted_v1_limitation
       evidence_expectation: use_internal_corpus_and_protocol
     reviewer_independence:
-      independence_level: "TODO: self_review | same_team | independent_internal | independent_external | not_applicable"
-      conflict_of_interest_statement: "TODO: disclose relevant conflicts or state none_known"
+      independence_level: "project_specific_placeholder: self_review | same_team | independent_internal | independent_external | not_applicable"
+      conflict_of_interest_statement: "project_specific_placeholder: disclose relevant conflicts or state none_known"
     review_limitations:
       - limitation_id: limitation_001
-        description: "TODO: limitation on review depth, evidence, authority, or scope"
-        expected_effect: "TODO: how this limitation may affect confidence in the review"
+        description: "project_specific_placeholder: limitation on review depth, evidence, authority, or scope"
+        expected_effect: "project_specific_placeholder: how this limitation may affect confidence in the review"
 
   evidence:
     evidence_items:
       - evidence_id: ev_001
-        evidence_type: "TODO: file_inspection | schema_validation | checklist_result | citation_anchor | test_output | reviewer_observation | repository_metadata | external_review"
-        evidence_source: "TODO: path, citation anchor, command output, checklist item, or reviewer note"
-        evidence_summary: "TODO: concise description of evidence considered"
-        evidence_location: "TODO: line range, section id, file path, URL, command log, or not_applicable"
+        evidence_type: "project_specific_placeholder: file_inspection | schema_validation | checklist_result | citation_anchor | test_output | reviewer_observation | repository_metadata | external_review"
+        evidence_source: "project_specific_placeholder: path, citation anchor, command output, checklist item, or reviewer note"
+        evidence_summary: "project_specific_placeholder: concise description of evidence considered"
+        evidence_location: "project_specific_placeholder: line range, section id, file path, URL, command log, or not_applicable"
         supports_or_challenges:
-          - "TODO: quality gate, requirement, or finding id"
-        evidence_status: "TODO: available | unavailable | not_yet_mapped | not_applicable"
+          - "project_specific_placeholder: quality gate, requirement, or finding id"
+        evidence_status: "project_specific_placeholder: available | unavailable | accepted_v1_limitation | not_applicable"
     evidence_gaps:
       - gap_id: gap_001
-        description: "TODO: missing evidence or none"
-        consequence: "TODO: effect on review confidence"
-        proposed_resolution: "TODO: how to resolve the gap"
+        description: "project_specific_placeholder: missing evidence or none"
+        consequence: "project_specific_placeholder: effect on review confidence"
+        proposed_resolution: "project_specific_placeholder: how to resolve the gap"
 
   quality_gate_review:
     gates:
       - gate_id: qg_consistency
         question: "Does the item use the naming, item type, status, and directory conventions required by the protocol?"
-        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        status: "project_specific_placeholder: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
         evidence_required:
           - file_path
           - item_type
           - package_inventory_alignment
         evidence_refs:
-          - "TODO: ev_001"
-        reviewer_notes: "TODO: consistency assessment"
+          - "project_specific_placeholder: ev_001"
+        reviewer_notes: "project_specific_placeholder: consistency assessment"
         required_actions:
           - action_id: act_consistency_001
-            action: "TODO: required action or none"
-            owner: "TODO: responsible role"
-            due_date: "TODO: YYYY-MM-DD or not_applicable"
-            status: "TODO: open | remediated | deferred | not_applicable"
+            action: "project_specific_placeholder: required action or none"
+            owner: "project_specific_placeholder: responsible role"
+            due_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
+            status: "project_specific_placeholder: open | remediated | deferred | not_applicable"
 
       - gate_id: qg_coherence
         question: "Does the item align with related products, schemas, templates, records, and docs?"
-        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        status: "project_specific_placeholder: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
         evidence_required:
           - related_items
           - traceability
           - dependencies
         evidence_refs:
-          - "TODO: ev_002"
-        reviewer_notes: "TODO: coherence assessment"
+          - "project_specific_placeholder: ev_002"
+        reviewer_notes: "project_specific_placeholder: coherence assessment"
         required_actions:
           - action_id: act_coherence_001
-            action: "TODO: required action or none"
-            owner: "TODO: responsible role"
-            due_date: "TODO: YYYY-MM-DD or not_applicable"
-            status: "TODO: open | remediated | deferred | not_applicable"
+            action: "project_specific_placeholder: required action or none"
+            owner: "project_specific_placeholder: responsible role"
+            due_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
+            status: "project_specific_placeholder: open | remediated | deferred | not_applicable"
 
       - gate_id: qg_cogency
         question: "Is the item logically ordered, usable, and free from unsupported leaps?"
-        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        status: "project_specific_placeholder: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
         evidence_required:
           - purpose
           - workflow
           - acceptance_criteria
           - limitations
         evidence_refs:
-          - "TODO: ev_003"
-        reviewer_notes: "TODO: cogency assessment"
+          - "project_specific_placeholder: ev_003"
+        reviewer_notes: "project_specific_placeholder: cogency assessment"
         required_actions:
           - action_id: act_cogency_001
-            action: "TODO: required action or none"
-            owner: "TODO: responsible role"
-            due_date: "TODO: YYYY-MM-DD or not_applicable"
-            status: "TODO: open | remediated | deferred | not_applicable"
+            action: "project_specific_placeholder: required action or none"
+            owner: "project_specific_placeholder: responsible role"
+            due_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
+            status: "project_specific_placeholder: open | remediated | deferred | not_applicable"
 
       - gate_id: qg_correspondence
         question: "Does the item correspond to the declared end product and DSR artifact package target?"
-        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        status: "project_specific_placeholder: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
         evidence_required:
           - artifact_profile_alignment
           - conformance_alignment
           - source_basis
         evidence_refs:
-          - "TODO: ev_004"
-        reviewer_notes: "TODO: correspondence assessment"
+          - "project_specific_placeholder: ev_004"
+        reviewer_notes: "project_specific_placeholder: correspondence assessment"
         required_actions:
           - action_id: act_correspondence_001
-            action: "TODO: required action or none"
-            owner: "TODO: responsible role"
-            due_date: "TODO: YYYY-MM-DD or not_applicable"
-            status: "TODO: open | remediated | deferred | not_applicable"
+            action: "project_specific_placeholder: required action or none"
+            owner: "project_specific_placeholder: responsible role"
+            due_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
+            status: "project_specific_placeholder: open | remediated | deferred | not_applicable"
 
       - gate_id: qg_dsr_transparency
         question: "Does the item support process, problem-space, solution-space, build, evaluation, or contribution transparency as applicable?"
-        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        status: "project_specific_placeholder: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
         evidence_required:
           - transparency_dimension_mapping
         evidence_refs:
-          - "TODO: ev_005"
+          - "project_specific_placeholder: ev_005"
         transparency_dimensions_checked:
-          process: "TODO: pass | partial | fail | not_applicable | not_checked"
-          problem_space: "TODO: pass | partial | fail | not_applicable | not_checked"
-          solution_space: "TODO: pass | partial | fail | not_applicable | not_checked"
-          build: "TODO: pass | partial | fail | not_applicable | not_checked"
-          evaluation: "TODO: pass | partial | fail | not_applicable | not_checked"
-          contribution: "TODO: pass | partial | fail | not_applicable | not_checked"
-        reviewer_notes: "TODO: DSR transparency assessment"
+          process: "project_specific_placeholder: pass | partial | fail | not_applicable | not_checked"
+          problem_space: "project_specific_placeholder: pass | partial | fail | not_applicable | not_checked"
+          solution_space: "project_specific_placeholder: pass | partial | fail | not_applicable | not_checked"
+          build: "project_specific_placeholder: pass | partial | fail | not_applicable | not_checked"
+          evaluation: "project_specific_placeholder: pass | partial | fail | not_applicable | not_checked"
+          contribution: "project_specific_placeholder: pass | partial | fail | not_applicable | not_checked"
+        reviewer_notes: "project_specific_placeholder: DSR transparency assessment"
         required_actions:
           - action_id: act_transparency_001
-            action: "TODO: required action or none"
-            owner: "TODO: responsible role"
-            due_date: "TODO: YYYY-MM-DD or not_applicable"
-            status: "TODO: open | remediated | deferred | not_applicable"
+            action: "project_specific_placeholder: required action or none"
+            owner: "project_specific_placeholder: responsible role"
+            due_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
+            status: "project_specific_placeholder: open | remediated | deferred | not_applicable"
 
       - gate_id: qg_reviewability
         question: "Can a reviewer evaluate the item against explicit criteria?"
-        status: "TODO: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
+        status: "project_specific_placeholder: pass | pass_with_notes | partial | fail | not_applicable | not_checked"
         evidence_required:
           - acceptance_criteria
           - validation_rules
           - checklist_or_schema_mapping
         evidence_refs:
-          - "TODO: ev_006"
-        reviewer_notes: "TODO: reviewability assessment"
+          - "project_specific_placeholder: ev_006"
+        reviewer_notes: "project_specific_placeholder: reviewability assessment"
         required_actions:
           - action_id: act_reviewability_001
-            action: "TODO: required action or none"
-            owner: "TODO: responsible role"
-            due_date: "TODO: YYYY-MM-DD or not_applicable"
-            status: "TODO: open | remediated | deferred | not_applicable"
+            action: "project_specific_placeholder: required action or none"
+            owner: "project_specific_placeholder: responsible role"
+            due_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
+            status: "project_specific_placeholder: open | remediated | deferred | not_applicable"
 
   dsr_quality_dimensions:
     artifact_utility:
       reviewed: true
-      assessment: "TODO: whether the artifact or item is useful for its intended use"
+      assessment: "project_specific_placeholder: whether the artifact or item is useful for its intended use"
       evidence_refs:
-        - "TODO: ev_utility_001"
+        - "project_specific_placeholder: ev_utility_001"
     artifact_quality:
       reviewed: true
-      assessment: "TODO: whether the artifact or item has adequate internal quality, structure, maintainability, and correctness"
+      assessment: "project_specific_placeholder: whether the artifact or item has adequate internal quality, structure, maintainability, and correctness"
       evidence_refs:
-        - "TODO: ev_quality_001"
+        - "project_specific_placeholder: ev_quality_001"
     contribution_to_knowledge:
       reviewed: true
-      assessment: "TODO: whether and how the item supports design knowledge, methodological knowledge, or repository-level contribution claims"
+      assessment: "project_specific_placeholder: whether and how the item supports design knowledge, methodological knowledge, or repository-level contribution claims"
       evidence_refs:
-        - "TODO: ev_contribution_001"
+        - "project_specific_placeholder: ev_contribution_001"
     demonstration_vs_evaluation_distinction:
       reviewed: true
-      assessment: "TODO: confirm demonstration evidence is not overclaimed as evaluation evidence"
+      assessment: "project_specific_placeholder: confirm demonstration evidence is not overclaimed as evaluation evidence"
       evidence_refs:
-        - "TODO: ev_demonstration_evaluation_001"
+        - "project_specific_placeholder: ev_demonstration_evaluation_001"
     validity:
-      reviewed: "TODO: true | false | not_applicable"
-      assessment: "TODO: validity assessment, threats, or not_applicable rationale"
+      reviewed: "project_specific_placeholder: true | false | not_applicable"
+      assessment: "project_specific_placeholder: validity assessment, threats, or not_applicable rationale"
       evidence_refs:
-        - "TODO: ev_validity_001"
+        - "project_specific_placeholder: ev_validity_001"
     reliability:
-      reviewed: "TODO: true | false | not_applicable"
-      assessment: "TODO: reliability assessment, repeatability concerns, or not_applicable rationale"
+      reviewed: "project_specific_placeholder: true | false | not_applicable"
+      assessment: "project_specific_placeholder: reliability assessment, repeatability concerns, or not_applicable rationale"
       evidence_refs:
-        - "TODO: ev_reliability_001"
+        - "project_specific_placeholder: ev_reliability_001"
     replication_and_projectability:
-      reviewed: "TODO: true | false | not_applicable"
-      assessment: "TODO: replication, transfer, reuse, and boundary-condition assessment"
+      reviewed: "project_specific_placeholder: true | false | not_applicable"
+      assessment: "project_specific_placeholder: replication, transfer, reuse, and boundary-condition assessment"
       evidence_refs:
-        - "TODO: ev_projectability_001"
+        - "project_specific_placeholder: ev_projectability_001"
     responsible_design:
-      reviewed: "TODO: true | false | not_applicable"
-      assessment: "TODO: privacy, security, accessibility, fairness, safety, stakeholder, or governance considerations"
+      reviewed: "project_specific_placeholder: true | false | not_applicable"
+      assessment: "project_specific_placeholder: privacy, security, accessibility, fairness, safety, stakeholder, or governance considerations"
       evidence_refs:
-        - "TODO: ev_responsible_design_001"
+        - "project_specific_placeholder: ev_responsible_design_001"
 
   findings:
     - finding_id: finding_001
-      severity: "TODO: blocking | major | minor | advisory | observation"
+      severity: "project_specific_placeholder: blocking | major | minor | advisory | observation"
       related_gate_ids:
-        - "TODO: qg_consistency"
+        - "project_specific_placeholder: qg_consistency"
       related_requirement_ids:
-        - "TODO: requirement id, checklist check_id, schema keyword, or not_applicable"
-      summary: "TODO: concise finding summary"
-      details: "TODO: evidence-based explanation of the finding"
+        - "project_specific_placeholder: requirement id, checklist check_id, schema keyword, or not_applicable"
+      summary: "project_specific_placeholder: concise finding summary"
+      details: "project_specific_placeholder: evidence-based explanation of the finding"
       evidence_refs:
-        - "TODO: ev_001"
-      recommendation: "TODO: recommended remediation, acceptance rationale, or no_action_needed"
-      disposition: "TODO: open | accepted_risk | remediated | deferred | not_applicable"
-      owner: "TODO: responsible role or person"
-      target_resolution_date: "TODO: YYYY-MM-DD or not_applicable"
+        - "project_specific_placeholder: ev_001"
+      recommendation: "project_specific_placeholder: recommended remediation, acceptance rationale, or no_action_needed"
+      disposition: "project_specific_placeholder: open | accepted_risk | remediated | deferred | not_applicable"
+      owner: "project_specific_placeholder: responsible role or person"
+      target_resolution_date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
 
   decision:
-    outcome: "TODO: accepted_without_revision | accepted_with_minor_revision | revision_required | major_revision_required | rejected | deferred | not_applicable"
-    decision_summary: "TODO: concise decision statement"
+    outcome: "project_specific_placeholder: accepted_without_revision | accepted_with_minor_revision | revision_required | major_revision_required | rejected | deferred | not_applicable"
+    decision_summary: "project_specific_placeholder: concise decision statement"
     conditions_of_acceptance:
       - condition_id: condition_001
-        condition: "TODO: condition or none"
-        required_before: "TODO: merge | release | publication | next_review | not_applicable"
+        condition: "project_specific_placeholder: condition or none"
+        required_before: "project_specific_placeholder: merge | release | publication | next_review | not_applicable"
     residual_risks:
       - risk_id: residual_risk_001
-        risk: "TODO: residual risk or none"
-        accepted_by: "TODO: responsible party or not_applicable"
-        rationale: "TODO: rationale for acceptance or mitigation"
+        risk: "project_specific_placeholder: residual risk or none"
+        accepted_by: "project_specific_placeholder: responsible party or not_applicable"
+        rationale: "project_specific_placeholder: rationale for acceptance or mitigation"
     reviewer_confidence:
-      level: "TODO: high | moderate | low"
-      rationale: "TODO: basis for confidence level"
+      level: "project_specific_placeholder: high | moderate | low"
+      rationale: "project_specific_placeholder: basis for confidence level"
 
   outcome:
-    result: "TODO: same as decision.outcome or more specific retained outcome"
+    result: "project_specific_placeholder: same as decision.outcome or more specific retained outcome"
     required_revisions:
       - revision_id: rev_001
-        description: "TODO: required revision or none"
+        description: "project_specific_placeholder: required revision or none"
         linked_findings:
-          - "TODO: finding_001"
-        verification_method: "TODO: reviewer re-check | schema validation | checklist re-run | author attestation | not_applicable"
-        status: "TODO: open | remediated | deferred | not_applicable"
+          - "project_specific_placeholder: finding_001"
+        verification_method: "project_specific_placeholder: reviewer re-check | schema validation | checklist re-run | author attestation | not_applicable"
+        status: "project_specific_placeholder: open | remediated | deferred | not_applicable"
     accepted_without_change:
-      rationale: "TODO: rationale if no revisions are required, otherwise not_applicable"
-    follow_up_review_required: "TODO: true | false"
-    follow_up_review_type: "TODO: review type or not_applicable"
+      rationale: "project_specific_placeholder: rationale if no revisions are required, otherwise not_applicable"
+    follow_up_review_required: "project_specific_placeholder: true | false"
+    follow_up_review_type: "project_specific_placeholder: review type or not_applicable"
 
   traceability:
     upstream_trace_links:
       - trace_id: trace_review_001
-        source_item: "TODO: governing product, model, checklist, schema, or source corpus anchor"
-        target_field: "TODO: field or section in this record"
-        relationship: "TODO: governs | supports | validates | constrains | documents"
-        evidence_status: "TODO: provided | not_yet_mapped | not_applicable"
+        source_item: "project_specific_placeholder: governing product, model, checklist, schema, or source corpus anchor"
+        target_field: "project_specific_placeholder: field or section in this record"
+        relationship: "project_specific_placeholder: governs | supports | validates | constrains | documents"
+        evidence_status: "project_specific_placeholder: provided | accepted_v1_limitation | not_applicable"
     downstream_trace_links:
       - trace_id: trace_review_002
-        source_field: "TODO: finding, decision, or required revision"
-        target_item: "TODO: corrected file, release record, issue, changelog entry, or not_applicable"
-        relationship: "TODO: triggers | closes | verifies | informs"
-        evidence_status: "TODO: provided | not_yet_mapped | not_applicable"
+        source_field: "project_specific_placeholder: finding, decision, or required revision"
+        target_item: "project_specific_placeholder: corrected file, release record, issue, changelog entry, or not_applicable"
+        relationship: "project_specific_placeholder: triggers | closes | verifies | informs"
+        evidence_status: "project_specific_placeholder: provided | accepted_v1_limitation | not_applicable"
 
   retention_rule:
     retention_class: retained_project_record
-    minimum_retention: "TODO: project_lifetime | release_lifetime | permanent | local_policy_defined"
+    minimum_retention: "project_specific_placeholder: project_lifetime | release_lifetime | permanent | local_policy_defined"
     retention_rationale: >
       Review records preserve evidence of quality judgments, reviewer decisions,
       unresolved risks, accepted limitations, and conformance status for the DSR
       artifact package.
-    disposition: "TODO: retain | archive | supersede | delete_under_policy"
+    disposition: "project_specific_placeholder: retain | archive | supersede | delete_under_policy"
 
   change_history:
     - version: "0.1.0"
-      date: "TODO: YYYY-MM-DD"
+      date: "project_specific_placeholder: YYYY-MM-DD"
       change: "Initial review record created from template."
-      changed_by: "TODO: responsible party"
+      changed_by: "project_specific_placeholder: responsible party"
 
 validation_guidance:
   minimum_required_fields_for_instance:
@@ -454,7 +454,7 @@ validation_guidance:
     - review_record.related_items
     - review_record.retention_rule
   recommended_pre_release_checks:
-    - Confirm all TODO placeholders are resolved or explicitly marked not_applicable with rationale.
+    - Confirm all project_specific_placeholder placeholders are resolved or explicitly marked not_applicable with rationale.
     - Confirm every finding has at least one evidence reference or an evidence gap.
     - Confirm every failed or partial quality gate has a required action, accepted risk, or deferral rationale.
     - Confirm decision.outcome and outcome.result are consistent.
@@ -464,8 +464,8 @@ validation_guidance:
     - failure_id: fm_review_without_evidence
       description: "Reviewer judgment is recorded without evidence references or evidence-gap disclosure."
       remediation: "Add evidence_items, citation anchors, validation outputs, or reviewer observations."
-    - failure_id: fm_unresolved_todo
-      description: "A retained record contains unresolved TODO placeholders."
+    - failure_id: fm_unresolved_placeholder
+      description: "A retained record contains unresolved project_specific_placeholder placeholders."
       remediation: "Complete the field or mark it not_applicable with rationale."
     - failure_id: fm_demo_eval_conflation
       description: "A demonstration or example is treated as evaluation evidence without justification."

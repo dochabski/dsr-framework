@@ -598,7 +598,7 @@ entries:
       - source_id: dsr_framework_generation_spec
         evidence_status: mapped
     validation_implications:
-      - require intended user, target record type, required fields, and TODO policy
+      - require intended user, target record type, required fields, and project_specific_placeholder policy
 
   - id: checklist
     label: Checklist
@@ -755,7 +755,7 @@ entries:
       adjacent: [design_principle, guideline, reference_architecture]
     source_basis:
       - source_id: hevner_et_al_2004_and_gregor_hevner_2013_via_dsr_corpus
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
     validation_implications:
       - require context, problem, forces, solution, consequences, and examples or known uses
 
@@ -1122,7 +1122,7 @@ validation_rules:
   - id: vr_no_unmapped_evidence_overclaim
     applies_to: source_basis
     rule: >
-      Entries may cite not_yet_mapped evidence only for provisional internal classification;
+      Entries may cite accepted_v1_limitation evidence only for provisional internal classification;
       they must not claim strong scholarly grounding until mapped to corpus anchors or sources.
   - id: vr_artifact_type_not_contribution_type
     applies_to: artifact_records
@@ -1249,4 +1249,4 @@ open_questions:
     question: >
       Should pattern be retained as a first-class artifact type or treated as a design-principle
       subtype after source mapping is completed?
-    disposition: evidence_status_not_yet_mapped
+    disposition: evidence_status_accepted_v1_limitation

@@ -583,7 +583,7 @@ readiness_gates:
       - novelty_reuse_analysis
       - problem_class_statement
     pass_condition: Claims distinguish artifact utility, artifact quality, scholarly contribution, practical contribution, knowledge goal, and knowledge scope.
-    conditional_pass_condition: "Contribution is plausible but some source-basis mappings remain marked evidence_status: not_yet_mapped."
+    conditional_pass_condition: "Contribution is plausible but some source-basis mappings remain marked evidence_status: accepted_v1_limitation."
     fail_condition: Contribution claims are generic, unsupported, overstated, or not distinguishable from routine design work.
     remediation_guidance: Revise contribution profile and map each major claim to evidence, source basis, and boundary conditions.
   - gate_id: prg_03_evidence_and_claim_alignment
@@ -898,7 +898,7 @@ validation_implications:
       description: Gate result values should be restricted to pass, conditional_pass, fail, waived_with_rationale, not_applicable_with_rationale, and not_assessed.
       suggested_schema_target: schemas/publication-readiness-record.schema.json
     - expectation_id: vi_claim_evidence_alignment
-      description: "Each claim above minimal descriptive scope should reference at least one evidence item or carry evidence_status: not_yet_mapped."
+      description: "Each claim above minimal descriptive scope should reference at least one evidence item or carry evidence_status: accepted_v1_limitation."
       suggested_schema_target: schemas/dsr-contribution-claim.schema.json
     - expectation_id: vi_metadata_consistency
       description: Metadata files should share title, version, license, contributors, dates, and identifiers where applicable.

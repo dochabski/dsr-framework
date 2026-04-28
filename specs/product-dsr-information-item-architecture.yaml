@@ -453,7 +453,7 @@ sections:
             Source basis records identify evidence, traditions, literature, protocol rules, or data used to ground a claim;
             author assertion alone is not evidence.
           information_item_implication: >
-            Claims without mapped evidence must use evidence_status: not_yet_mapped.
+            Claims without mapped evidence must use evidence_status: accepted_v1_limitation.
       relationship_types:
         - id: specifies
           definition: Source item defines requirements for target item.
@@ -515,7 +515,7 @@ sections:
             - mapped
             - mapped_to_source_family
             - partially_mapped
-            - not_yet_mapped
+            - accepted_v1_limitation
             - restricted
             - not_applicable
           verification: traceability_review
@@ -701,7 +701,7 @@ sections:
             - item_or_record_identity
             - instructions
             - required_fields
-            - TODO_placeholders_when_needed
+            - project_specific_placeholder_placeholders_when_needed
         - class_id: checklist
           item_type: procedure
           path_pattern: checklists/<target-name>-checklist.yaml
@@ -1192,7 +1192,7 @@ sections:
           meaning: Source family is identified, but exact citation anchor or line-level mapping may remain pending.
         - status: partially_mapped
           meaning: Some source basis is available, but dependency review is incomplete.
-        - status: not_yet_mapped
+        - status: accepted_v1_limitation
           meaning: Evidence is required but has not yet been identified.
         - status: restricted
           meaning: Evidence exists but cannot be fully disclosed due to privacy, security, proprietary, or ethical constraints.
@@ -1263,7 +1263,7 @@ sections:
         dsr_researcher:
           - Start with artifact_profile, problem_and_objectives, solution_space_record, artifact_specification, and evaluation_plan.
           - Add contribution_claim and transparency_crosswalk before requesting review.
-          - Use not_yet_mapped for missing evidence instead of omitting evidence fields.
+          - Use accepted_v1_limitation for missing evidence instead of omitting evidence fields.
         reviewer:
           - Check whether claims are scoped and traceable before judging contribution significance.
           - Treat missing evidence, conflated demonstration/evaluation, and unmapped limitations as review findings.

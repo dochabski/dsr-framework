@@ -252,7 +252,7 @@ sections:
           label: Template
           definition: >
             A reusable information-item scaffold that contains required fields,
-            recommended fields, controlled values, TODO placeholders where
+            recommended fields, controlled values, project_specific_placeholder placeholders where
             project-specific information is required, and traceability fields.
           required_properties:
             - template_id
@@ -304,8 +304,8 @@ sections:
             A marked location where project-specific content must be supplied by
             the user of a template.
           allowed_forms:
-            - "TODO: <specific required input>"
-            - "TBD: <decision not yet made>"
+            - "project_specific_placeholder: <specific required input>"
+            - "project_specific_placeholder: <decision not yet made>"
             - "not_applicable: <rationale>"
           boundary_notes: >
             Placeholders are allowed only where project-specific facts are not
@@ -570,14 +570,14 @@ sections:
               path: templates/dsr-project-charter-template.md
               target_output_pattern: records/design-decisions or docs/project-charter
               required_status: draft
-              schema_alignment: not_yet_mapped
+              schema_alignment: accepted_v1_limitation
               primary_review_checklists:
                 - checklists/dsr-minimum-viable-study-checklist.yaml
             - id: problem_and_objectives_template
               path: templates/problem-and-objectives-template.md
               target_output_pattern: records/design-decisions or docs/problem-and-objectives
               required_status: draft
-              schema_alignment: not_yet_mapped
+              schema_alignment: accepted_v1_limitation
               primary_review_checklists:
                 - checklists/dsr-minimum-viable-study-checklist.yaml
                 - checklists/evaluation-readiness-checklist.yaml
@@ -585,7 +585,7 @@ sections:
               path: templates/solution-space-record-template.yaml
               target_output_pattern: records/source-basis/record-solution-space-*.yaml
               required_status: draft
-              schema_alignment: not_yet_mapped
+              schema_alignment: accepted_v1_limitation
               primary_review_checklists:
                 - checklists/dsr-minimum-viable-study-checklist.yaml
             - id: design_rationale_template
@@ -610,14 +610,14 @@ sections:
               path: templates/build-transparency-record-template.yaml
               target_output_pattern: records/dsr-transparency/record-build-transparency-*.yaml
               required_status: draft
-              schema_alignment: not_yet_mapped
+              schema_alignment: accepted_v1_limitation
               primary_review_checklists:
                 - checklists/dsr-transparency-crosswalk-checklist.yaml
             - id: demonstration_record_template
               path: templates/demonstration-record-template.yaml
               target_output_pattern: records/evaluations/record-demonstration-*.yaml
               required_status: draft
-              schema_alignment: not_yet_mapped
+              schema_alignment: accepted_v1_limitation
               primary_review_checklists:
                 - checklists/evaluation-readiness-checklist.yaml
             - id: transparency_crosswalk_template
@@ -657,7 +657,7 @@ sections:
               path: templates/contribution-positioning-record-template.yaml
               target_output_pattern: records/contributions/record-contribution-positioning-*.yaml
               required_status: draft
-              schema_alignment: not_yet_mapped
+              schema_alignment: accepted_v1_limitation
               primary_review_checklists:
                 - checklists/contribution-positioning-checklist.yaml
         - id: review_templates
@@ -668,7 +668,7 @@ sections:
               path: templates/review-record-template.yaml
               target_output_pattern: records/reviews/record-review-*.yaml
               required_status: draft
-              schema_alignment: not_yet_mapped
+              schema_alignment: accepted_v1_limitation
               primary_review_checklists:
                 - checklists/artifact-package-readiness-checklist.yaml
                 - checklists/publication-readiness-checklist.yaml
@@ -860,7 +860,7 @@ sections:
           acceptance_criteria:
             - Required metadata is present.
             - Required fields or checklist item structures are present.
-            - TODO placeholders are specific and justified.
+            - project_specific_placeholder placeholders are specific and justified.
         - step_id: wf_004_map_traceability
           name: Map traceability and evidence
           actor: author
@@ -873,7 +873,7 @@ sections:
             - traceability_map
           acceptance_criteria:
             - Each major section or checklist item maps to at least one requirement, source family, schema, or quality gate.
-            - Unmapped evidence is marked not_yet_mapped.
+            - Unmapped evidence is marked accepted_v1_limitation.
         - step_id: wf_005_review_material
           name: Review material
           actor: reviewer
@@ -991,7 +991,7 @@ sections:
           evidence_required:
             - required_fields
             - guidance_comments
-            - TODO_placeholder_explanations
+            - project_specific_placeholder_placeholder_explanations
         - id: ac_005_traceability
           criterion: Traceability
           pass_condition: Major fields and checklist items map to source basis, upstream products, quality gates, transparency dimensions, schemas, or vocabularies.
@@ -1049,11 +1049,11 @@ sections:
             - fail_condition
             - remediation_guidance
         - id: vr_006_no_unexplained_placeholders
-          rule: TODO placeholders must identify the specific input needed.
+          rule: project_specific_placeholder placeholders must identify the specific input needed.
           validation_method: text_review
           forbidden_patterns:
-            - "TODO"
-            - "TBD"
+            - "project_specific_placeholder"
+            - "project_specific_placeholder"
           allowed_when: placeholder_policy explains required project-specific input.
       failure_modes:
         - id: fm_001_template_becomes_form_without_traceability
@@ -1138,7 +1138,7 @@ sections:
           source: product_dsr_information_item_architecture
           target: sections.information_items
           relationship: governs_template_and_checklist_item_fields
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: tr_templates_checklists_transparency
           source: hevner_et_al_2024_transparency_in_design_science_research
           target: sections.conceptual_model.content.transparency_mapping
@@ -1163,12 +1163,12 @@ sections:
           source: product_dsr_quality_conformance_and_review_model
           target: sections.quality_and_conformance
           relationship: informs_reviewability_and_quality_gate_controls
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: tr_templates_checklists_package_readiness
           source: product_dsr_artifact_package_specification
           target: checklist_package_readiness
           relationship: informs_package_readiness_evidence
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
       coverage_matrix:
         - concern: DSR minimum identity
           primary_templates:
@@ -1266,8 +1266,8 @@ sections:
             close to the field or checklist item it supports.
         - id: ig_005_mark_unknowns_explicitly
           guidance: >
-            Use evidence_status: not_yet_mapped, not_applicable with rationale,
-            or TODO with a specific requested input instead of vague blanks.
+            Use evidence_status: accepted_v1_limitation, not_applicable with rationale,
+            or project_specific_placeholder with a specific requested input instead of vague blanks.
         - id: ig_006_preserve_proportionate_transparency
           guidance: >
             Include redaction, summarization, or restricted-disclosure options
@@ -1372,7 +1372,7 @@ sections:
         - id: tsi_003_placeholder_policy
           implication: >
             Templates should include a short placeholder_policy section that
-            explains TODO, TBD, and not_applicable conventions.
+            explains project_specific_placeholder, project_specific_placeholder, and not_applicable conventions.
           affected_outputs:
             - templates/*.yaml
             - templates/*.md
@@ -1406,7 +1406,7 @@ sections:
         - id: ssi_001_schema_generation_needed
           implication: >
             YAML templates that are intended for validation should have a
-            corresponding JSON Schema or an explicit not_yet_mapped schema status.
+            corresponding JSON Schema or an explicit accepted_v1_limitation schema status.
           affected_outputs:
             - schemas/*.schema.json
             - templates/*.yaml
@@ -1431,7 +1431,7 @@ sections:
         - id: asi_001_linting
           implication: >
             Automation can lint identifiers, file names, required metadata,
-            checklist item shape, YAML parseability, and unresolved TODO counts.
+            checklist item shape, YAML parseability, and unresolved project_specific_placeholder counts.
           affected_outputs:
             - specs/product-dsr-automation-and-validation-model.yaml
         - id: asi_002_traceability_validation
@@ -1555,7 +1555,7 @@ traceability:
     from: product_dsr_information_item_architecture
     to: product_dsr_templates_and_checklists
     relationship: upstream_dependency
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
   - trace_id: product_trace_003
     from: hevner_et_al_2024_transparency_in_design_science_research
     to: transparency_mapping

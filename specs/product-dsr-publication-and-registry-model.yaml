@@ -45,7 +45,7 @@ source_basis:
   evidence_status: mapped_to_internal_corpus
 - source_id: documentation_protocol_repository
   role: governing_repository_protocol_alignment
-  evidence_status: not_yet_mapped
+  evidence_status: accepted_v1_limitation
 dependencies:
 - id: product_dsr_metadata_and_identifier_profile
   path: specs/product-dsr-metadata-and-identifier-profile.yaml
@@ -880,27 +880,27 @@ sections:
       from: specs/product-dsr-metadata-and-identifier-profile.yaml
       to: publication_metadata_bundle
       relationship: defines_required_metadata_fields
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - trace_id: pub_trace_002_quality_to_release_gate
       from: specs/product-dsr-quality-conformance-and-review-model.yaml
       to: publication_readiness_assessment
       relationship: supplies_quality_gate_logic
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - trace_id: pub_trace_003_package_to_archive
       from: specs/product-dsr-artifact-package-specification.yaml
       to: archival_deposit
       relationship: defines_files_and_evidence_to_deposit
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - trace_id: pub_trace_004_repository_to_registry
       from: specs/product-dsr-repository-architecture.yaml
       to: registry_entry
       relationship: defines_stable_paths_and_repository_surfaces
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - trace_id: pub_trace_005_automation_to_verification
       from: specs/product-dsr-automation-and-validation-model.yaml
       to: post_release_verification_result
       relationship: defines_machine_checks_for_release_validation
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - trace_id: pub_trace_006_transparency_to_registry
       from: Hevner et al. 2024 CA14-CA16
       to: publication_readiness_gates

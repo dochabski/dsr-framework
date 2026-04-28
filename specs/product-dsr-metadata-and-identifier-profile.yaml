@@ -51,7 +51,7 @@ source_basis:
       - A13
   - id: publication_identifier_standards
     role: external_identifier_and_citation_standards
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
     notes: >
       DOI, ORCID, ROR, CFF, SPDX, and archival-platform requirements should be
       verified against their current official specifications before an L5 release.
@@ -755,7 +755,7 @@ sections:
         evidence_status:
           - mapped
           - mapped_to_corpus_source
-          - not_yet_mapped
+          - accepted_v1_limitation
           - inferred
           - externally_pending_verification
           - not_applicable
@@ -872,7 +872,7 @@ sections:
           expectations:
             - local identifiers may be incomplete
             - DOI and archival metadata may be absent
-            - source_basis may include not_yet_mapped entries
+            - source_basis may include accepted_v1_limitation entries
         l1_documented:
           expectations:
             - root metadata files exist
@@ -1049,7 +1049,7 @@ sections:
         - id: mid_ig_005
           guidance: Use release records rather than root metadata files to preserve event-specific release evidence.
         - id: mid_ig_006
-          guidance: Add explicit TODO markers only when a field requires project-specific information or external verification.
+          guidance: Add explicit project_specific_placeholder markers only when a field requires project-specific information or external verification.
       yaml_patterns:
         minimal_identifier_object:
           id: example_identifier

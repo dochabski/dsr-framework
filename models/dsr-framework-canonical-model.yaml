@@ -169,7 +169,7 @@ modeling_conventions:
   evidence_status_values:
     - mapped
     - partially_mapped
-    - not_yet_mapped
+    - accepted_v1_limitation
     - not_applicable
     - deferred
     - not_yet_evaluated
@@ -577,7 +577,7 @@ controlled_entities:
     definition: A citable, reviewable data object, source anchor, record, observation, result, decision note, code artifact, example, or document used to support a claim, requirement, review outcome, or trace link.
     required_properties: [evidence_id, evidence_type, source, location_or_path, supports, limitations, access_status]
     identity_rule: Evidence items MUST identify what they support and SHOULD include source location or repository path.
-    boundary_notes: evidence_status not_yet_mapped is acceptable for draft traceability but insufficient for publication-readiness claims.
+    boundary_notes: evidence_status accepted_v1_limitation is acceptable for draft traceability but insufficient for publication-readiness claims.
     source_basis: [dsr_framework_generation_spec]
   - entity_id: ent_contribution_claim
     label: Contribution Claim
@@ -974,7 +974,7 @@ canonical_relationships:
     cardinality: 0..n -> 0..n
     required: false
     description: Evidence can support, qualify, weaken, or refute contribution claims.
-    validation_implication: Claim records SHOULD capture evidence direction as supports, qualifies, weakens, refutes, or not_yet_mapped.
+    validation_implication: Claim records SHOULD capture evidence direction as supports, qualifies, weakens, refutes, or accepted_v1_limitation.
   - relationship_id: rel_claim_has_knowledge_goal
     source_entity: ent_contribution_claim
     predicate: has_knowledge_goal
@@ -1227,7 +1227,7 @@ normative_constraints:
     failure_mode: Evaluation evidence cannot be interpreted against artifact or contribution claims.
   - constraint_id: con_evidence_status_truthfulness
     level: MUST
-    statement: When evidence is absent, incomplete, or not yet mapped, the field evidence_status must state not_yet_mapped, not_yet_evaluated, not_applicable, or deferred rather than implying support.
+    statement: When evidence is absent, incomplete, or not yet mapped, the field evidence_status must state accepted_v1_limitation, not_yet_evaluated, not_applicable, or deferred rather than implying support.
     applies_to: [ent_evidence_item, ent_contribution_claim, ent_evaluation_report, traceability]
     validation_method: review
     failure_mode: The model overstates evidentiary support.

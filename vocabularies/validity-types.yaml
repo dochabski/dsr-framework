@@ -37,40 +37,40 @@ vocabulary:
       - item_id: spec_quality_review
         path: specs/product-dsr-quality-conformance-and-review-model.yaml
         relation: supplies_quality_model_dependency
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
       - item_id: model_evaluation_alignment
         path: models/dsr-evaluation-alignment-model.yaml
         relation: uses_validity_terms_for_evaluation_claim_alignment
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
       - item_id: model_reliability
         path: models/dsr-reliability-model.yaml
         relation: adjacent_quality_vocabulary_boundary
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
       - item_id: vocab_evaluation_methods
         path: vocabularies/evaluation-method-families.yaml
         relation: companion_vocabulary
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
     downstream_consumers:
       - item_id: checklist_evaluation_readiness
         path: checklists/evaluation-readiness-checklist.yaml
         relation: may_use_for_validity_review_questions
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
       - item_id: checklist_reliability
         path: checklists/reliability-checklist.yaml
         relation: distinguishes_validity_from_reliability
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
       - item_id: docs_validity_reliability
         path: docs/protocol/09-validity-reliability-replication-projectability.md
         relation: human_facing_explanation
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
       - item_id: template_evaluation_plan
         path: templates/evaluation-plan-template.yaml
         relation: may_reference_validity_threats_and_mitigations
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
       - item_id: template_evaluation_report
         path: templates/evaluation-report-template.yaml
         relation: may_reference_validity_evidence
-        evidence_status: not_yet_mapped
+        evidence_status: accepted_v1_limitation
   scope:
     includes:
       - validity classifications for artifact claims
@@ -424,7 +424,7 @@ vocabulary:
       related_terms:
         - validity_discussion_absent
         - review_gap
-        - evidence_status_not_yet_mapped
+        - evidence_status_accepted_v1_limitation
       source_basis:
         - source_id: dsr_extraction_corpus
           evidence_status: mapped
@@ -445,7 +445,7 @@ vocabulary:
         type, `no_validity_discussion`, or a documented not-applicable rationale.
       related_terms:
         - review_gap
-        - evidence_status_not_yet_mapped
+        - evidence_status_accepted_v1_limitation
         - no_validity_discussion
       source_basis:
         - source_id: dsr_source_extraction_specification
@@ -500,12 +500,12 @@ vocabulary:
       source: vocabularies/validity-types.yaml
       target: specs/product-dsr-quality-conformance-and-review-model.yaml
       relation: controlled_terms_for_quality_review
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - trace_id: tr_validity_types_to_evaluation_records
       source: vocabularies/validity-types.yaml
       target: templates/evaluation-report-template.yaml
       relation: controlled_terms_for_validity_evidence_and_threats
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - trace_id: tr_validity_types_to_corpus
       source: dsr_extraction_corpus
       target: vocabularies/validity-types.yaml
