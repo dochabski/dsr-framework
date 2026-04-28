@@ -1,0 +1,163 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_claim_traceability_0001_v1_0_0
+  record_class: claim_traceability_review
+  item_type: record
+  title: v1.0.0 Claim-Level Traceability Review
+  status: in_review
+  version: 1.0.0-rc.1
+  review_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  event_or_action: review_v1_claim_to_source_traceability
+  target_release: v1.0.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  reviewed_files:
+    - crosswalks/claim-to-source-traceability.yaml
+    - crosswalks/source-to-framework-alignment.yaml
+    - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+  review_scope:
+    included:
+      - major public framework claims
+      - claim families for identity, ontology, lifecycle, contribution, transparency, evaluation, responsibility, and reuse
+      - controlled target paths for each claim
+      - primary source identifiers and citation-anchor IDs
+      - claim limitations and reviewer acceptance criteria
+    excluded:
+      - new literature search
+      - full-text PDF reinspection
+      - empirical external reuse validation
+      - L5 archival/publication-ready certification
+  corpus_context:
+    source_basis_record: records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    source_level_crosswalk: crosswalks/source-to-framework-alignment.yaml
+    total_repaired_corpus_sources: 71
+    failed_conversions: 0
+    source_level_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
+    trace_objects_with_required_pattern: 142
+    claim_level_crosswalk_created: crosswalks/claim-to-source-traceability.yaml
+  review_checks:
+    - check_id: claim_family_coverage
+      result: pass
+      evidence: The claim crosswalk defines eight claim families covering identity, artifact ontology, lifecycle/process, contribution, transparency, evaluation/reliability/projectability, stakeholder/context responsibility, and publication/reuse.
+    - check_id: major_claim_coverage
+      result: pass
+      evidence: Ten major claims are represented with controlled target paths, primary sources, limitations, and acceptance criteria.
+    - check_id: controlled_target_traceability
+      result: pass
+      evidence: Each claim maps to root controls, specs, models, vocabularies, templates, checklists, docs, records, or schemas as applicable.
+    - check_id: source_anchor_presence
+      result: pass_with_followup
+      evidence: Each claim has citation-anchor IDs; some anchors come from supplied source-registry context and need source-anomaly disposition before final v1 approval.
+    - check_id: source_level_vs_claim_level_separation
+      result: pass
+      evidence: The crosswalk states that source-level remediation does not itself prove a claim and carries evidence limitations on each claim.
+    - check_id: no_l5_or_empirical_reuse_overclaim
+      result: pass
+      evidence: The crosswalk and this review state that v1 L4 reuse readiness is distinct from L5 and empirical external reuse validation.
+  findings:
+    - finding_id: claim_trace_001
+      severity: nonblocking_for_this_branch
+      finding: Source-level remediation is now supplemented by a claim-level crosswalk for major v1 framework claims.
+      disposition: accepted_for_v1_review
+      rationale: >
+        The new crosswalk connects public framework claims to controlled targets and source support, which is the next required layer above the source-to-framework remediation pass.
+    - finding_id: claim_trace_002
+      severity: v1_followup_required
+      finding: Source-level mapping must not be represented as claim-level proof without the claim crosswalk and retained review evidence.
+      disposition: addressed_by_crosswalk_with_followup
+      rationale: >
+        The new crosswalk explicitly separates source-level coverage from claim-level support and states limitations for each claim.
+    - finding_id: claim_trace_003
+      severity: v1_followup_required
+      finding: Some claim-specific anchors are supplied by registry context rather than individually reverified from the source-level crosswalk view.
+      disposition: source_anomaly_disposition_required
+      rationale: >
+        The source-level crosswalk exposes strongest anchors, while the claim crosswalk uses more granular supplied anchor examples. The next source-anomaly review must confirm that anchor scope matches claim strength.
+    - finding_id: claim_trace_004
+      severity: nonblocking_for_this_branch
+      finding: Conceptual, typological, ontology, and reporting-guidance sources are used with explicit limitations.
+      disposition: accepted_with_limits
+      rationale: >
+        The claim crosswalk does not claim that conceptual sources empirically validate the DSR Framework; they support definitions, reporting structures, and review logic.
+    - finding_id: claim_trace_005
+      severity: v1_release_blocker_until_related_records_land
+      finding: v1 L4 reuse-readiness remains conditional on canonical example, schema, review, response, metadata, release, and approval records.
+      disposition: retained_as_v1_release_work
+      rationale: >
+        Claim traceability alone does not establish exercisability, full review closure, metadata freeze, or release approval.
+  anchor_review_items:
+    - item_id: anchor_review_001
+      source_id: hevner_et_al_2024_transparency_in_design_science_research
+      anchors_carried_forward:
+        - CA03
+        - CA04
+        - CA05
+        - CA07
+        - CA08
+        - CA10
+        - CA11
+        - CA12
+        - CA13
+        - CA14
+        - CA15
+        - CA16
+        - CA17
+        - CA18
+      next_review_action: confirm_claim_specific_anchor_scope_in_source_anomaly_disposition
+    - item_id: anchor_review_002
+      source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      anchors_carried_forward:
+        - A07
+        - A10
+        - A13
+        - A15
+      next_review_action: confirm_claim_specific_anchor_scope_in_source_anomaly_disposition
+    - item_id: anchor_review_003
+      source_id: weigand_johannesson_andersson_2021_101878
+      anchors_carried_forward:
+        - A09
+        - A11
+        - A13
+        - A15
+        - A17
+        - A18
+      next_review_action: confirm_claim_specific_anchor_scope_in_source_anomaly_disposition
+    - item_id: anchor_review_004
+      source_id: pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+      disposition: limited_use_background_only
+      next_review_action: retain as human-review-sensitive and do not use as primary support unless repaired.
+  supersession_and_continuity:
+    supersedes_for_v1_claim_traceability:
+      - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    preserves_as_source_level_evidence:
+      - crosswalks/source-to-framework-alignment.yaml
+      - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      - records/reviews/record-literature-alignment-0001.yaml
+      - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    continuity_note: >
+      The post-crosswalk literature alignment review remains the retained source-level remediation review.
+      This record adds claim-level review context for v1 and does not delete or replace historical evidence.
+  required_followup:
+    - create source anomaly disposition review before final v1 release approval
+    - create canonical worked example before claiming exercisability support
+    - complete schema and template/checklist stabilization before claiming L4 reuse readiness
+    - retain completeness, kick-the-tires, full-review, author-response, metadata-freeze, release-record, and approval evidence before v1.0.0 publication
+  outcome:
+    result: requires_revision_before_v1_release_candidate
+    supports:
+      - claim_level_traceability_workstream
+      - continued_l2_reviewability
+      - v1_l4_release_preparation
+    does_not_certify:
+      - final_v1_release
+      - achieved_l4_reuse_readiness
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede after source anomaly disposition and final v1 readiness review.
