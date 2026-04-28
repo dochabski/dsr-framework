@@ -1,0 +1,299 @@
+# SPDX-License-Identifier: CC0-1.0
+claim_to_source_traceability:
+  item_id: claim_to_source_traceability_v1_0_0
+  item_type: crosswalk
+  title: v1.0.0 Claim-to-Source Traceability Crosswalk
+  status: v1_release_candidate
+  version: 1.0.0-rc.1
+  date: '2026-04-28'
+  responsible_party: framework_maintainer
+  purpose: >
+    Map major DSR Framework claims to controlled repository targets, source identifiers,
+    citation anchors, evidence roles, limitations, and v1 review criteria.
+  release_scope:
+    target_release: v1.0.0
+    target_package_conformance: l4_reusable_stable
+    l5_claimed: false
+    traceability_level: claim_level
+    source_corpus_profile:
+      corpus_record_count: 71
+      failed_conversion_count: 0
+      source_level_crosswalk_status: remediated_for_all_repaired_corpus_sources
+      claim_level_status: established_for_major_v1_claims_with_source_anomaly_review_followup
+  source_anchor_policy:
+    - Each claim has at least one controlled target path.
+    - Each claim has primary source support with citation-anchor IDs drawn from the source crosswalk or supplied source registry context.
+    - Background sources may be listed separately from primary support.
+    - Weak, conceptual, or unevaluated sources must be marked with evidence limits.
+    - A source-level mapping does not by itself prove a claim.
+    - Anchors not independently rechecked in the repository crosswalk are carried into the source anomaly disposition review.
+  claim_families:
+    - family_id: dsr_identity_and_boundary
+      description: DSR identity, build/evaluate logic, and distinction from consulting or routine implementation.
+    - family_id: artifact_ontology
+      description: Artifact type, artifact boundary, artifact universal/instance distinction, make/use plans.
+    - family_id: lifecycle_and_process
+      description: Problem/objective definition, design/build, demonstration, evaluation, communication, iteration.
+    - family_id: contribution_positioning
+      description: Artifact utility, artifact quality, knowledge contribution, contribution type, and knowledge scope.
+    - family_id: transparency
+      description: Process, problem-space, solution-space, build, evaluation, and contribution transparency.
+    - family_id: evaluation_validity_reliability
+      description: Evaluation alignment, validity, reliability, replication, and projectability.
+    - family_id: stakeholder_context_responsibility
+      description: Stakeholder/context documentation, co-creation, responsible design, risks, and limitations.
+    - family_id: publication_review_reuse
+      description: Publication readiness, reviewer guidance, repository reuse, and v1 L4 reuse constraints.
+  anchor_basis:
+    source_crosswalk_verified_strongest_anchors:
+      akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr: A07
+      gregor_zwikael_2024_ijpm_102584: A28
+      hevner_et_al_2024_transparency_in_design_science_research: CA01
+      maedche_gregor_morana_feine_2019_problem_space_dsr: A09
+      weber_2018_design_science_research: A10
+      weigand_johannesson_andersson_2021_101878: A17
+    supplemental_anchor_basis: user_supplied_extraction_registry_summary_and_repaired_source_registry_context
+    review_limit: >
+      This crosswalk uses both locally visible source-crosswalk strongest anchors and supplied
+      extraction-registry anchor examples. The follow-on source anomaly disposition review must
+      confirm that no v1 claim depends on an anchor whose scope is weaker than the evidence role states.
+  claims:
+    - claim_id: claim_001_dsr_requires_artifact_development_and_design_knowledge
+      claim_family: dsr_identity_and_boundary
+      claim_statement: >
+        Design Science Research centers on purposeful artifact development, build-and-evaluate
+        reasoning, real-world problem relevance, rigorous grounding, and contribution to reusable design knowledge.
+      controlled_targets:
+        - README.md
+        - specs/product-protocol-foundation.yaml
+        - models/dsr-framework-canonical-model.yaml
+        - docs/protocol/00-framework-overview.md
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA03, CA04, CA05]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_dsr_identity_and_build_evaluate_framing
+        - source_id: weber_2018_design_science_research
+          citation_anchor_ids: [A10]
+          anchor_basis: source_crosswalk_strongest_anchor
+          evidence_role: supports_canonical_dsr_guideline_and_evaluation_synthesis
+      limitation: >
+        This claim defines the framework's DSR orientation; it does not assert that every DSR tradition uses identical terminology.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+      reviewer_acceptance_criterion: >
+        A reviewer can trace the DSR identity claim from public documentation to controlled models/specs and primary source anchors.
+    - claim_id: claim_002_dsr_is_not_routine_consulting_or_local_implementation_only
+      claim_family: dsr_identity_and_boundary
+      claim_statement: >
+        A local artifact implementation or consulting engagement is not sufficient as DSR unless it contributes to design knowledge.
+      controlled_targets:
+        - README.md
+        - checklists/contribution-positioning-checklist.yaml
+        - templates/contribution-claim-template.yaml
+        - docs/protocol/14-publication-and-review-guidance.md
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA12]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_ex_post_dsr_ification_risk
+        - source_id: weigand_johannesson_andersson_2021_101878
+          citation_anchor_ids: [A17, A18]
+          anchor_basis: source_crosswalk_and_supplied_source_registry_context
+          evidence_role: supports_artifact_universal_and_research_outcome_distinction
+      limitation: >
+        The framework can support practice-engaged DSR, but it must document the research contribution separately from local delivery.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_003_artifact_boundary_requires_type_instance_and_use_context_clarity
+      claim_family: artifact_ontology
+      claim_statement: >
+        DSR artifact reporting should distinguish artifact type, artifact instance, make plan, use plan, capacities, context, and evaluation boundary.
+      controlled_targets:
+        - models/dsr-artifact-ontology.yaml
+        - schemas/dsr-artifact.schema.json
+        - templates/artifact-specification-template.md
+        - docs/protocol/05-artifact-ontology.md
+      primary_sources:
+        - source_id: weigand_johannesson_andersson_2021_101878
+          citation_anchor_ids: [A09, A11, A13, A15, A17]
+          anchor_basis: source_crosswalk_and_supplied_source_registry_context
+          evidence_role: primary_artifact_ontology_support
+      limitation: >
+        The framework operationalizes artifact ontology for DSR documentation and review; it does not require adopting the full source ontology in every user project.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_004_problem_space_and_solution_space_are_distinct_documentation_needs
+      claim_family: lifecycle_and_process
+      claim_statement: >
+        DSR reviewability requires explicit problem-space framing and solution-space grounding.
+      controlled_targets:
+        - templates/problem-and-objectives-template.md
+        - templates/solution-space-record-template.yaml
+        - docs/protocol/02-dsr-lifecycle-and-contribution-model.md
+        - docs/protocol/10-transparency-and-reporting.md
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA07, CA08]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_problem_space_and_solution_space_transparency
+        - source_id: maedche_gregor_morana_feine_2019_problem_space_dsr
+          citation_anchor_ids: [A09]
+          anchor_basis: source_crosswalk_strongest_anchor
+          evidence_role: supports_problem_space_conceptualization
+      limitation: Problem-space and solution-space documentation may be proportionate to project scope.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_005_demonstration_and_evaluation_must_be_separated
+      claim_family: evaluation_validity_reliability
+      claim_statement: >
+        Showing that an artifact can be used is not the same as evaluating utility, quality, effects, or contribution claims.
+      controlled_targets:
+        - models/dsr-evaluation-alignment-model.yaml
+        - templates/evaluation-plan-template.yaml
+        - templates/evaluation-report-template.yaml
+        - checklists/evaluation-readiness-checklist.yaml
+        - docs/protocol/08-evaluation-framework.md
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA10, CA16]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_evaluation_transparency_and_formative_summative_distinction
+        - source_id: weigand_johannesson_andersson_2021_101878
+          citation_anchor_ids: [A11, A13, A15]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_capacity_testing_use_effect_usage_effect_distinctions
+      limitation: >
+        Demonstration evidence can support plausibility or exercise of templates but should not be overclaimed as full evaluation evidence.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_006_contribution_positioning_requires_knowledge_goal_scope_and_claim_type
+      claim_family: contribution_positioning
+      claim_statement: >
+        DSR contribution claims should identify knowledge goal, knowledge scope, contribution type, and limits on generalization or projectability.
+      controlled_targets:
+        - models/dsr-contribution-model.yaml
+        - vocabularies/contribution-types.yaml
+        - vocabularies/knowledge-goals.yaml
+        - templates/contribution-claim-template.yaml
+        - checklists/contribution-positioning-checklist.yaml
+      primary_sources:
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A07, A10, A13, A15]
+          anchor_basis: source_crosswalk_and_supplied_source_registry_context
+          evidence_role: primary_contribution_path_and_knowledge_type_support
+        - source_id: weber_2018_design_science_research
+          citation_anchor_ids: [A10]
+          anchor_basis: source_crosswalk_strongest_anchor
+          evidence_role: supports_contribution_and_evaluation_guidance_synthesis
+      limitation: Contribution typologies guide review and reporting; they do not mechanically determine publishability.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_007_transparency_has_process_problem_solution_build_evaluation_and_contribution_dimensions
+      claim_family: transparency
+      claim_statement: >
+        DSR transparency should cover process, problem space, solution space, build, evaluation, and contribution.
+      controlled_targets:
+        - models/dsr-transparency-model.yaml
+        - vocabularies/transparency-dimensions.yaml
+        - templates/dsr-transparency-crosswalk-template.yaml
+        - records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml
+        - docs/protocol/10-transparency-and-reporting.md
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA01, CA05, CA06, CA07, CA08, CA10, CA11, CA16]
+          anchor_basis: source_crosswalk_and_supplied_source_registry_context
+          evidence_role: primary_transparency_framework_support
+      limitation: >
+        The framework operationalizes transparency dimensions while retaining the source caution that overly burdensome transparency can create risks and costs.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_008_replication_and_projectability_need_boundary_conditions
+      claim_family: evaluation_validity_reliability
+      claim_statement: >
+        DSR often cannot rely on exact replication alone; projectability requires context, boundary conditions, use conditions, and adaptation logic.
+      controlled_targets:
+        - models/dsr-projectability-model.yaml
+        - models/dsr-reliability-model.yaml
+        - vocabularies/replication-types.yaml
+        - vocabularies/projectability-types.yaml
+        - checklists/replication-projectability-checklist.yaml
+        - docs/protocol/09-validity-reliability-replication-projectability.md
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA13, CA14, CA15]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_replication_transparency_and_context_difference
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          citation_anchor_ids: [A15]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_knowledge_accumulation_and_projectability
+      limitation: >
+        The framework supports replication/projectability reasoning but does not guarantee transfer across contexts.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_009_stakeholder_and_context_documentation_are_required_for_reviewability
+      claim_family: stakeholder_context_responsibility
+      claim_statement: >
+        Reviewable DSR packages should document stakeholders, context, constraints, risks, and responsible-design considerations proportionate to the artifact.
+      controlled_targets:
+        - templates/problem-and-objectives-template.md
+        - templates/design-rationale-template.md
+        - models/dsr-transparency-model.yaml
+        - checklists/dsr-minimum-viable-study-checklist.yaml
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA07, CA11, CA15, CA18]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_stakeholder_context_risk_and_responsibility
+        - source_id: gregor_zwikael_2024_ijpm_102584
+          citation_anchor_ids: [A28]
+          anchor_basis: source_crosswalk_strongest_anchor
+          evidence_role: supports_co_creation_and_practical_knowledge_context
+      limitation: >
+        The framework requires explicit documentation but does not prescribe a single stakeholder-engagement method for all DSR projects.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+    - claim_id: claim_010_v1_l4_reuse_readiness_is_not_l5_archival_publication_readiness
+      claim_family: publication_review_reuse
+      claim_statement: >
+        v1.0.0 can claim L4 reusable-stable only after examples, validation, claim traceability, review, response, metadata,
+        and release approval are retained; this does not imply L5 archival/publication-ready status.
+      controlled_targets:
+        - README.md
+        - conformance-declaration.yaml
+        - artifact-profile.yaml
+        - package-inventory.yaml
+        - records/releases/record-release-0002-v1-0-0.yaml
+      primary_sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          citation_anchor_ids: [CA14, CA16, CA17]
+          anchor_basis: supplied_source_registry_context
+          evidence_role: supports_repository_publication_transparency_and_burden_cautions
+      limitation: >
+        This is a package-governance claim about the DSR Framework release, not a source claim that v1 has been externally adopted.
+      evidence_status: accepted_for_v1_l4_with_source_anomaly_review_followup
+  source_review_sensitive_items:
+    - item_id: sri_001
+      source_id: pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+      disposition: limited_use_background_only
+      rationale: >
+        The post-crosswalk literature review identifies this source as human-review-sensitive because its strongest source-crosswalk anchor
+        and contribution summary are blank. It is not used as primary support for v1 claims in this crosswalk.
+    - item_id: sri_002
+      source_id: hevner_et_al_2024_transparency_in_design_science_research
+      disposition: accepted_primary_support_with_anchor_confirmation_followup
+      rationale: >
+        The source is central to transparency claims and has a verified strongest anchor in the source-level crosswalk. Supplemental
+        claim-specific anchors are retained for the source anomaly disposition review.
+    - item_id: sri_003
+      source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      disposition: accepted_primary_support_with_anchor_confirmation_followup
+      rationale: >
+        The source is central to contribution-positioning and knowledge-accumulation claims. Supplemental claim-specific anchors are
+        retained for the source anomaly disposition review.
+  review_requirements:
+    - Every major public README claim must map to at least one claim item.
+    - Every claim item must map to controlled targets and source support.
+    - Any anchor that was not locally visible as a strongest source-crosswalk anchor must be checked in the source anomaly disposition review.
+    - Crosswalk must not claim empirical external reuse of the DSR Framework.
+  outcome:
+    result: ready_for_v1_review_after_source_anomaly_disposition
+    supports:
+      - l2_reviewability
+      - l3_exercisability_when_example_lands
+      - l4_reusable_stable_release_when_full_v1_gate_passes
+    does_not_support:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
