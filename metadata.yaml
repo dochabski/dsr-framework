@@ -8,7 +8,7 @@ metadata_record:
     for reviewable reuse and future publication.
 
     '
-  status: public_draft_release
+  status: 0.1.0_public_draft
   version: 0.1.0
   owner:
     role: project_steward
@@ -233,9 +233,15 @@ versioning_and_release:
   - deprecated
   - archived
   release_readiness:
-    current_state: public_draft_release_published
-    release_candidate: true
-    archival_publication_ready: true
+    current_state: 0.1.0_public_draft
+    release_candidate: false
+    archival_publication_ready: false
+    controlled_progression:
+    - 0.1.0_public_draft
+    - 1.0.0_rc.N
+    - 1.0.0_stable
+    v1_target_conformance: l4_reusable_stable
+    l5_status: deferred_until_independent_review_preservation_registry_and_metadata_freeze
     required_before_release: []
     completed_for_public_draft:
     - citation_metadata_updated
@@ -247,10 +253,11 @@ versioning_and_release:
     - validation_passed
     - zenodo_deposition_published
 conformance_metadata:
-  declared_conformance_level: l2_reviewable_public_draft
+  declared_conformance_level: l2_reviewable_qualified_public_draft
   conformance_rationale: 'The package has root metadata, inventory, crosswalk traceability, validation evidence, and source
-    grounding sufficient for public draft review. It does not claim L3 exercisability, L4 external reuse validation, or L5
-    archival completion until Zenodo publication is complete.
+    grounding sufficient for qualified public draft review. It does not claim L3 exercisability, L4 external reuse validation,
+    or L5 archival/publication-ready conformance despite DOI publication; those levels require additional example, review,
+    preservation, registry, and metadata-freeze evidence.
 
     '
   conformance_dependencies:
@@ -263,7 +270,7 @@ conformance_metadata:
     applied: true
     rationale: 'The selected root_metadata row depends on a metadata profile that is not yet implemented as a dedicated metadata
       schema. This file therefore provides reviewable public-draft metadata while reserving stronger archival and stability
-      claims until final Zenodo publication and later independent review.
+      claims until later independent review, reuse evidence, preservation records, and release approval.
 
       '
 source_basis:
@@ -340,7 +347,7 @@ provenance:
     - dsr-framework-generation-prompt.md
     - dsr-framework-generation-spec.yaml
     - dsr-framework-selection-table.md
-    processing_notes: 'Root metadata updated for public GitHub draft release, open licensing, reserved Zenodo DOI, and source-traceability
+    processing_notes: 'Root metadata updated for public GitHub draft release, open licensing, published Zenodo DOI, and source-traceability
       remediation.
 
       '
@@ -348,7 +355,7 @@ provenance:
     method: controlled_generation_from_project_prompt_and_specification
     manual_review_required: true
     review_focus:
-    - confirm_final_zenodo_publication
+    - confirm_v1_metadata_freeze
     - verify_github_release_assets
     - complete_independent_review
     - evaluate_external_reuse
@@ -366,7 +373,7 @@ validation:
     description: Confirm project identity, repository metadata, citation, license, and provenance fields are present.
     current_status: pass
   - rule_id: no_unreviewed_publication_claims
-    description: Confirm public draft release metadata distinguishes reserved DOI and GitHub release from completed independent
+    description: Confirm public draft release metadata distinguishes published DOI and GitHub release from completed independent
       evaluation or stable 1.0 status.
     current_status: pass
   - rule_id: todo_values_marked
@@ -416,10 +423,11 @@ open_questions:
   question: What exact metadata schema should validate this file after the metadata profile is generated?
   resolution_needed_for: l2_reviewable_or_higher_conformance
 limitations:
-- This is a public draft release and remains under active validation.
+- This is a v0.1.0 public draft release and remains under active validation.
 - External utility evaluation, independent review, and reuse evidence remain future work.
 - The repaired extraction corpus and original source PDFs are not included in the public package.
 - The v0.1.0 Zenodo archive preserves the release package as uploaded at DOI publication time.
+- The v1.0.0 target is L4 reusable stable; L5 archival/publication-ready status is deferred until preservation, registry, metadata-freeze, and independent-review gates pass.
 acceptance_criteria:
 - criterion_id: ac_metadata_001
   criterion: The file parses as YAML.
@@ -457,3 +465,9 @@ change_history:
   description: Recorded publication of Zenodo DOI 10.5281/zenodo.19835424 at https://zenodo.org/records/19835424.
   responsible_party: GPT-5.5 Thinking
   related_request: confirm_zenodo_publish_deposition_19835424
+- version: 0.1.1
+  date: '2026-04-28'
+  change_type: v1_readiness_status_reconciliation
+  description: Normalized public-draft, release-candidate, stable, and L5 status language; set v1.0.0 target to L4 reusable stable and deferred L5.
+  responsible_party: GPT-5.5 Thinking
+  related_request: v1_readiness_audit_remediation

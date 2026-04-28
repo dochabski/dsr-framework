@@ -9,11 +9,11 @@ release_record:
     governance.
 
     '
-  status: public_draft_release_published
+  status: 0.1.0_public_draft
   version: 0.1.0
   target_path: records/releases/record-release-0001-v0-1-0.yaml
   selection_id: record_release_v0_1_0
-  conformance_target: l5_archival_publication_ready
+  conformance_target: l2_reviewable_qualified_public_draft
   event_or_action:
     id: release_event_v0_1_0_record_creation
     label: Create first release record for v0.1.0
@@ -25,7 +25,7 @@ release_record:
       citable artifact package for planning, documenting, evaluating, reviewing, and publishing Design Science Research artifacts.
 
       '
-    release_status: public_draft_release_published
+    release_status: 0.1.0_public_draft
     release_status_rationale: The v0.1.0 GitHub release and Zenodo deposition have been published. The release remains a public
       draft under active validation and does not claim stable 1.0 maturity.
   responsible_party:
@@ -109,7 +109,7 @@ release_record:
         '
       structured_source_of_truth: true
   release_readiness_summary:
-    readiness_decision: public_draft_release_published
+    readiness_decision: 0.1.0_public_draft_published
     decision_label: v0.1.0 public draft GitHub release and Zenodo DOI published.
     decision_rationale: Root metadata, licensing, package inventory, crosswalk counts, citation metadata, GitHub release,
       and Zenodo archival deposit are complete for the v0.1.0 public draft. The release remains under active validation and
@@ -229,7 +229,7 @@ release_record:
     - Add records/releases/record-release-0001-v0-1-0.yaml to the repository.
     - Use this record as the release evidence spine for v0.1.0.
     - Update package-inventory.yaml and release notes to reference this record.
-    - Complete or link the release readiness checklist before declaring final L5 release readiness.
+    - Complete or link the release readiness checklist before declaring L4 stable or any later L5 release readiness.
     deferred_actions:
     - Assign final release approver.
     - Verify archive or DOI metadata.
@@ -450,7 +450,7 @@ release_record:
       been confirmed in this record.
 
       '
-    effect: L5 archival/publication-ready status remains a target posture, not a verified final state.
+    effect: L5 archival/publication-ready status remains deferred, not a verified final state.
   - limitation_id: lim_checklist_not_attached
     description: 'The release readiness checklist is named as a dependency but its completed review results are not embedded
       here.
@@ -497,12 +497,18 @@ release_record:
     changed_by: GPT-5.5 Thinking
     description: Created first release record for DSR Framework v0.1.0.
     related_request: record_release_v0_1_0
+  - version: 0.1.1
+    date: '2026-04-28'
+    change_type: v1_readiness_status_reconciliation
+    changed_by: GPT-5.5 Thinking
+    description: Reclassified v0.1.0 release record from L5 target posture to qualified L2 public-draft evidence and deferred L5.
+    related_request: v1_readiness_audit_remediation
   completion_report:
     generated_selection_id: record_release_v0_1_0
     generated_path: records/releases/record-release-0001-v0-1-0.yaml
     item_type: record
     output_format: yaml
-    conformance_target: l5_archival_publication_ready
+    conformance_target: l2_reviewable_qualified_public_draft
     dependencies_used:
     - dsr_framework_generation_prompt
     - dsr_framework_generation_spec

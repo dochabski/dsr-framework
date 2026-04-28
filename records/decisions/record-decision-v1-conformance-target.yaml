@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: CC0-1.0
+decision_record:
+  record_id: record_decision_v1_conformance_target
+  record_class: conformance_target_decision
+  title: V1 Conformance Target Decision
+  date: "2026-04-28"
+  status: adopted_for_v1_readiness_branch
+  repository: dochabski/dsr-framework
+  decision:
+    selected_v1_target: l4_reusable_stable
+    current_release_status: 0.1.0_public_draft
+    current_conformance_status: l2_reviewable_qualified_public_draft
+    l5_status: deferred
+  rationale: >
+    The v0.1.0 release is public, citable, and reviewable as an organized DSR artifact package,
+    but it does not yet have the independent review, external reuse evidence, preserved
+    preservation records, metadata freeze, and registry closure needed to defend L5
+    archival/publication-ready status. A stable 1.0.0 should therefore target reusable
+    framework maturity rather than archival/publication-ready certification.
+  controlled_progression:
+    - id: 0.1.0_public_draft
+      meaning: Published public draft with DOI and internal validation evidence; active hardening remains open.
+    - id: 1.0.0_rc.N
+      meaning: Numbered release candidate with automated validation, review records, example package, and claim traceability.
+    - id: 1.0.0_stable
+      meaning: Stable framework release after release-blocking findings are closed.
+  conformance_implications:
+    - v0.1.0 may claim citable public-draft availability and qualified L2 reviewability evidence.
+    - v0.1.0 must not claim L3 exercisability, L4 reusable validation, or L5 archival/publication-ready conformance.
+    - v1.0.0 stable should target L4 reusable only after example, validation, traceability, and review gates pass.
+    - L5 requires a later explicit decision or release branch with preservation, metadata freeze, registry, and independent-review evidence.
+  rejected_options:
+    - option: make_1_0_0_l5_archival_publication_ready
+      reason: Too strong for the present evidence base and would conflate DOI publication with archival/publication-ready conformance.
+    - option: keep_v0_1_0_as_l1_only
+      reason: Too conservative after traceability repair, package inventory completion, parse/schema validation, and Zenodo publication.
+  affected_files:
+    - README.md
+    - metadata.yaml
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    - package-inventory.yaml
+    - manifest.yaml
+    - records/releases/record-release-0001-v0-1-0.yaml
+  retention_rule: retain_with_conformance_and_release_records

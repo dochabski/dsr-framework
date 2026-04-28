@@ -8,7 +8,7 @@ artifact_profile:
     and publication preparation.
 
     '
-  status: public_draft_release
+  status: 0.1.0_public_draft
   version: 0.1.0
   owner:
     role: framework_maintainer
@@ -60,7 +60,7 @@ artifact_profile:
     artifact_name: Design Science Research Framework
     artifact_short_name: DSR Framework
     artifact_version: 0.1.0
-    artifact_status: public_draft_release
+    artifact_status: 0.1.0_public_draft
     artifact_family: open_research_artifact_framework
     artifact_kind: compound_artifact_package
     artifact_boundary_statement: 'The artifact is the framework package as a reusable artifact type: its root metadata, specifications,
@@ -401,11 +401,11 @@ artifact_profile:
         unless a release explicitly claims that level of support.
   quality_and_conformance_profile:
     current_conformance_level:
-      id: l1_documented
-      label: L1 documented
-      rationale: 'The selected row declares default conformance L1. This file documents artifact identity, scope, claims,
-        conformance posture, reuse constraints, and traceability, but it does not assert executable validation or archival-publication
-        readiness.
+      id: l2_reviewable_qualified_public_draft
+      label: L2 reviewable qualified public draft
+      rationale: 'The public draft package has root controls, inventory, source-to-framework traceability, validation evidence,
+        and a retained release record sufficient for qualified review. This profile does not assert L3 exercisability,
+        L4 external reuse validation, or L5 archival/publication-ready conformance.
 
         '
     target_future_conformance:
@@ -702,8 +702,8 @@ artifact_profile:
   validation_profile:
     schema_validation:
       schema_expected: schemas/artifact-profile.schema.json
-      schema_status: not_yet_generated
-      interim_validation: yaml_parse_and_manual_quality_gate_review
+      schema_status: schema_available_public_draft_validation
+      interim_validation: yaml_parse_schema_validation_and_manual_quality_gate_review
     manual_review_checks:
     - review_id: rv_identity_and_scope
       question: Are artifact identity, type, instance boundary, and scope coherent?
@@ -734,7 +734,7 @@ artifact_profile:
     - YAML parses without syntax errors.
     - Required top-level key artifact_profile is present.
     - Stable identifiers use lower_snake_case where controlled.
-    - No field claims L2, L3, L4, or L5 as current conformance.
+    - No field claims L3, L4, or L5 as current conformance.
     - TODO markers are limited to project facts not inferable from current sources.
   limitations:
   - limitation_id: lim_dependency_files_pending
@@ -787,8 +787,8 @@ artifact_profile:
     - LICENSE
     - metadata.yaml
     - reuse_profile
-  - question_id: oq_conformance_progression
-    question: Which files are required before claiming L2 reviewable conformance for version 0.1.0?
+  - question_id: oq_v1_conformance_progression
+    question: Which records, examples, validation checks, and reviews are required before claiming L4 reusable stable for version 1.0.0?
     resolution_needed_for:
     - package-inventory.yaml
     - conformance-declaration.yaml
@@ -812,3 +812,9 @@ artifact_profile:
 
       '
     related_request: user_selected_root_artifact_profile
+  - version: 0.1.1
+    date: '2026-04-28'
+    change_type: v1_readiness_status_reconciliation
+    changed_by: GPT-5.5 Thinking
+    description: Normalized current profile status to qualified L2 public draft and reserved L4/L5 claims for later evidence gates.
+    related_request: v1_readiness_audit_remediation

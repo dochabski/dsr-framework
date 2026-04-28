@@ -2,6 +2,20 @@
 
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Added v1 readiness audit and conformance-target decision records.
+- Added package validation script and GitHub Actions workflow for public-draft validation.
+- Added retained machine-readable validation summary under `records/validation/`.
+
+### Changed
+
+- Normalized v0.1.0 status as a citable public draft with qualified L2 reviewability evidence.
+- Set the v1.0.0 stable target to L4 reusable and deferred L5 archival/publication-ready claims until preservation, registry, metadata-freeze, and independent-review gates pass.
+- Updated package inventory to include validation automation and to mark empty public-draft areas as planned rather than silently complete.
+
 ## [0.1.0] - 2026-04-27
 
 ### Added

@@ -9,12 +9,12 @@ conformance_declaration:
     Declare the initial conformance level, tailoring rationale, evidence basis,
     review obligations, and non-overclaiming constraints for the DSR Framework
     artifact package.
-  status: draft
+  status: 0.1.0_public_draft
   version: "0.1.0"
   date: "2026-04-27"
   responsible_party: framework_maintainer
   owner: framework_maintainer
-  event_or_action: declare_initial_l1_conformance_and_tailoring
+  event_or_action: declare_qualified_l2_public_draft_and_v1_target
 
   file_identity:
     selection_id: root_conformance_declaration
@@ -27,7 +27,7 @@ conformance_declaration:
       - quality_conformance_model
 
   declaration:
-    declaration_id: dsr_framework_initial_l1_declaration
+    declaration_id: dsr_framework_public_draft_l2_declaration
     applies_to:
       artifact_package_id: dsr_framework
       artifact_package_title: Design Science Research Framework
@@ -39,23 +39,25 @@ conformance_declaration:
           - documentation_only
           - data_or_information_artifact
     declared_current_conformance_level:
-      id: l1_documented
-      label: L1 documented
-      declaration_status: declared_for_initial_root_package_control
+      id: l2_reviewable_qualified_public_draft
+      label: L2 reviewable qualified public draft
+      declaration_status: declared_after_public_draft_traceability_and_validation_remediation
       rationale: >
-        The selected root conformance-declaration portion has a default L1
-        conformance expectation. This declaration documents package-level
-        conformance intent and tailoring but does not assert that the complete
-        repository has passed L2 review, schema validation, exercisable tests,
-        reuse validation, or archival/publication gates.
+        The package has root metadata, inventory, conformance controls,
+        schema/template validation evidence, a published public draft DOI, and
+        source-to-framework traceability for all 71 repaired corpus sources.
+        This supports qualified L2 reviewability for the public draft, but it
+        does not assert L3 exercisability, L4 external reuse validation, or L5
+        archival/publication-ready conformance.
     intended_next_conformance_level:
-      id: l2_reviewable
-      label: L2 reviewable
+      id: l4_reusable_stable
+      label: L4 reusable stable
       trigger_conditions:
-        - All root package control files are present and internally consistent.
-        - The package inventory maps required files, owners, validation responsibilities, and dependency relationships.
-        - The quality/conformance model, relevant schemas, and review records are generated or explicitly stubbed.
-        - A reviewer can evaluate claims against explicit acceptance criteria and evidence.
+        - Validation automation passes on pull requests and main-branch pushes.
+        - A canonical worked example package exists and passes validation.
+        - Major framework claims map to constructs, evidence anchors, limitations, or deferred status.
+        - Completeness, kick-the-tires, full review, author response, and release approval records are retained.
+        - No L5 archival/publication-ready claim is made without preservation, metadata-freeze, registry, and independent-review evidence.
     effective_date: "2026-04-27"
     review_cycle: per_release_or_material_change
 
@@ -410,22 +412,23 @@ conformance_declaration:
       remediation_guidance: Update either this file or the schema and retain the design decision.
 
   outcome:
-    outcome_id: outcome_initial_l1_conformance_declared
-    status: documented
+    outcome_id: outcome_qualified_l2_public_draft_declared
+    status: qualified_l2_public_draft_declared
     summary: >
-      Initial L1 documented conformance is declared for the DSR Framework root
-      conformance-declaration record. The declaration is conservative and does
-      not assert L2 reviewability or higher package maturity until related
-      dependencies and retained review evidence are available.
+      Qualified L2 reviewable public-draft conformance is declared for the DSR
+      Framework package. The declaration is conservative and does not assert L3
+      exercisability, L4 reusable validation, or L5 archival/publication
+      readiness until related examples, validation automation, review records,
+      preservation records, and release evidence are available.
     current_claims_allowed:
       - The root conformance declaration exists as a structured YAML record.
       - The declaration documents current conformance level, tailoring, evidence basis, limitations, and review obligations.
-      - The declaration is suitable for later schema and reviewer validation.
+      - The package is suitable for public-draft review against retained source-traceability, validation, and package-control evidence.
     current_claims_not_allowed:
       - The complete repository has passed independent review.
       - The framework has been empirically evaluated for utility.
       - The package is reusable by external users without further review.
-      - The package is publication-ready, DOI-ready, or archival-ready.
+      - The package is L3 exercisable, L4 reusable stable, or L5 archival/publication-ready.
 
   limitations:
     - limitation_id: lim_dependency_model_pending
@@ -436,14 +439,16 @@ conformance_declaration:
       statement: >
         YAML parseability has been checked, but validation against a formal
         conformance-declaration JSON Schema is pending schema generation.
-    - limitation_id: lim_no_repository_wide_audit
+    - limitation_id: lim_no_complete_v1_audit
       statement: >
-        This record does not audit the full repository tree or verify that every
-        required package file exists.
-    - limitation_id: lim_no_external_evidence_update
+        This record starts a v1 readiness audit but does not by itself complete
+        schema hardening, example validation, claim-level traceability,
+        independent review, or preservation checks.
+    - limitation_id: lim_l5_deferred
       statement: >
-        No external GitHub, DOI, registry, or license metadata was checked for
-        this file because the selected task did not require current external facts.
+        GitHub and Zenodo publication support public-draft citation, but L5
+        remains deferred until preservation, registry, metadata-freeze,
+        independent-review, and release-approval evidence is retained.
 
   open_questions:
     - question_id: oq_conformance_level_names
@@ -510,4 +515,9 @@ conformance_declaration:
       date: "2026-04-27"
       change_type: initial_creation
       description: Initial root conformance declaration generated from selected root_conformance_declaration row.
+      responsible_party: GPT-5.5 Thinking
+    - version: "0.1.1"
+      date: "2026-04-28"
+      change_type: v1_readiness_status_reconciliation
+      description: Updated declaration from initial L1 posture to qualified L2 public-draft status and set v1.0.0 target to L4 reusable stable.
       responsible_party: GPT-5.5 Thinking

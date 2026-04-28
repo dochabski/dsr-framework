@@ -9,7 +9,7 @@ manifest:
     target, validation obligations, and traceability expectations for the Design Science Research Framework repository.
 
     '
-  status: draft
+  status: 0.1.0_public_draft
   version: 0.1.0
   package:
     package_id: dsr_framework
@@ -28,7 +28,7 @@ manifest:
       '
     canonical_repository_role: source_of_truth_package
     repository_url: https://github.com/dochabski/dsr-framework
-    publication_status: public_draft_release_published
+    publication_status: 0.1.0_public_draft
     intended_release: v0.1.0
     license:
       spdx_id: CC0-1.0
@@ -43,7 +43,7 @@ manifest:
     - .zenodo.json
     - codemeta.json
     normalization_status:
-      status: public_draft_release_prepared
+      status: 0.1.0_public_draft_reconciled_for_v1_readiness
       normalized_at: '2026-04-27'
       structure_status: canonical_directories_populated_from_product_catalog
       required_root_file_status: all_required_root_files_present_as_draft_or_controlled_files
@@ -54,7 +54,7 @@ manifest:
         combined_yaml: ../Extractions_Combined_Repaired/dsr_extractions_repaired_20260427.yaml
         record_count: 71
         status: parseable_working_corpus_for_next_literature_alignment_pass
-      publication_readiness_status: github_release_and_zenodo_deposition_published_public_draft
+      publication_readiness_status: published_citable_public_draft_not_l5
       latest_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
       literature_alignment_status: source_traceability_remediated_and_validation_passed
       latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
@@ -78,7 +78,9 @@ manifest:
   conformance:
     selected_default_conformance: l1_documented
     generated_file_conformance_target: l1_documented
-    package_default_conformance_target: l2_reviewable
+    package_default_conformance_target: l2_reviewable_qualified_public_draft
+    v1_stable_conformance_target: l4_reusable_stable
+    l5_status: deferred_until_preservation_registry_metadata_freeze_and_independent_review
     conformance_declaration_file: conformance-declaration.yaml
     tailoring_status: preliminary_root_manifest
     conformance_rationale: 'The selected table row identifies root_manifest as an L1 root specification. The broader generation
@@ -419,7 +421,7 @@ manifest:
         conformance-declaration.yaml: conformance level, tailoring, and review status
         records/source-basis/record-source-basis-0001-dsr-corpus.yaml: retained scholarly source-basis evidence
   validation:
-    validation_status: organized_validated_draft
+    validation_status: organized_validated_public_draft
     validation_date: '2026-04-27'
     validation_rules:
     - validation_id: val_manifest_required_fields
@@ -469,7 +471,7 @@ manifest:
       json_schema_meta_validation: pass
       schema_template_record_validation: pass_previously_failing_pairs_now_validate
       repaired_corpus_parse: pass_71_records
-      publication_readiness: not_ready_metadata_and_review_pending
+      publication_readiness: public_draft_published_not_l5
       literature_alignment_review: completed_2026-04-27_pass_with_required_followup
   quality_gates:
   - gate_id: qg_consistency
@@ -675,3 +677,9 @@ manifest:
     description: Registered second-pass literature alignment review and recorded pass-with-required-followup status.
     responsible_party: GPT-5.5 Thinking
     related_request: second-pass literature alignment review using repaired corpus
+  - version: 0.1.1
+    date: '2026-04-28'
+    change_type: v1_readiness_status_reconciliation
+    description: Normalized release and conformance progression to v0.1.0 public draft, v1 release-candidate sequence, and L4 reusable stable target.
+    responsible_party: GPT-5.5 Thinking
+    related_request: v1_readiness_audit_remediation
