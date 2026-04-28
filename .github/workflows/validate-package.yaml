@@ -10,14 +10,16 @@ on:
     inputs:
       mode:
         description: Validation mode
-        default: public_draft
+        default: all
         type: choice
         options:
+          - all
           - public_draft
           - release_candidate
 
 jobs:
   validate-public-draft:
+    if: github.event_name != 'workflow_dispatch' || inputs.mode == 'all' || inputs.mode == 'public_draft'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -32,10 +34,10 @@ jobs:
         run: python -m pip install --upgrade pyyaml jsonschema
 
       - name: Validate package
-        run: python scripts/validate-package.py
+        run: python scripts/validate-package.py --mode public_draft
 
   validate-release-candidate:
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'release_candidate'
+    if: github.event_name != 'workflow_dispatch' || inputs.mode == 'all' || inputs.mode == 'release_candidate'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -50,4 +52,16 @@ jobs:
         run: python -m pip install --upgrade pyyaml jsonschema
 
       - name: Validate release-candidate gates
-        run: python scripts/validate-package.py --release-candidate
+        shell: bash
+        run: |
+          set +e
+          python scripts/validate-package.py --mode release_candidate
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            exit 0
+          fi
+          if [[ "$GITHUB_REF" == refs/heads/v1-release* || "$GITHUB_REF" == refs/tags/v1.* ]]; then
+            exit "$status"
+          fi
+          echo "::warning::Release-candidate validation failed as expected before v1 finalization. It will be required on v1-release* branches and v1.* tags."

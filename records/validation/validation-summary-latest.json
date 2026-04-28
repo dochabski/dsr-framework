@@ -1,14 +1,15 @@
 {
   "validation_summary": {
-    "generated_at": "2026-04-28T20:48:57+00:00",
+    "generated_at": "2026-04-28T20:56:03+00:00",
     "repository": "dochabski/dsr-framework",
     "latest_mode": "release_candidate",
     "public_draft_result": "pass",
     "release_candidate_result": "fail",
     "release_candidate_expected_failure": true,
+    "release_candidate_scope": "v1.0.0_l4_reusable_stable_not_l5",
     "validation_runs": {
       "public_draft": {
-        "generated_at": "2026-04-28T20:48:51+00:00",
+        "generated_at": "2026-04-28T20:55:35+00:00",
         "mode": "public_draft",
         "validation_scope": "public_draft",
         "result": "pass",
@@ -34,12 +35,12 @@
         "notes": []
       },
       "release_candidate": {
-        "generated_at": "2026-04-28T20:48:57+00:00",
+        "generated_at": "2026-04-28T20:56:03+00:00",
         "mode": "release_candidate",
         "validation_scope": "v1_l4_release_candidate",
         "result": "fail",
         "expected_failure": true,
-        "error_count": 6,
+        "error_count": 7,
         "warning_count": 0,
         "counts": {
           "yaml_or_cff_files_parsed": 96,
@@ -56,12 +57,13 @@
           "deferred_or_todo_markers": 0
         },
         "errors": [
-          "records/reviews/: missing retained completeness review record.",
-          "records/reviews/: missing retained kick-the-tires review record.",
-          "records/reviews/: missing retained full review record.",
-          "records/reviews/: missing retained author-response record.",
-          "records/decisions or records/releases: missing retained release approval record.",
-          "records/releases/record-release-0002-v1-0-0.yaml: missing v1.0.0 release record for L4 release-candidate validation."
+          "records/reviews/record-review-0002-completeness-v1-0-0.yaml: missing required v1 L4 release-candidate evidence (completeness review).",
+          "records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml: missing required v1 L4 release-candidate evidence (kick-the-tires review).",
+          "records/reviews/record-review-0004-full-review-v1-0-0.yaml: missing required v1 L4 release-candidate evidence (full review).",
+          "records/reviews/record-author-response-0001-v1-0-0.yaml: missing required v1 L4 release-candidate evidence (author response).",
+          "records/releases/record-metadata-freeze-0001-v1-0-0.yaml: missing required v1 L4 release-candidate evidence (metadata freeze).",
+          "records/releases/record-release-0002-v1-0-0.yaml: missing required v1 L4 release-candidate evidence (v1 release record).",
+          "records/releases/record-release-approval-0001-v1-0-0.yaml: missing required v1 L4 release-candidate evidence (release approval)."
         ],
         "warnings": [],
         "notes": [

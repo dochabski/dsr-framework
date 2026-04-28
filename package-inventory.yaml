@@ -5424,6 +5424,11 @@ package_inventory:
     change: Added retained v1 schema field-hardening review and canonical example schema-instance validation fixtures.
     responsible_party: framework_maintainer
     review_status: v1_schema_field_hardening_recorded
+  - version: 0.1.14
+    date: '2026-04-28'
+    change: Upgraded validation automation to run public-draft and v1 L4 release-candidate checks in CI while preserving allowed release-candidate failure before release finalization.
+    responsible_party: framework_maintainer
+    review_status: v1_validation_automation_upgraded
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
@@ -5450,6 +5455,7 @@ package_inventory:
     template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
     latest_schema_hardening_review: records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     schema_hardening_status: v1_field_hardening_pass_completed_with_canonical_example_fixtures
+    validation_automation_status: v1_l4_release_candidate_gate_runs_in_ci_with_allowed_failure_until_release_branch
     source_traceability_validation_counts: *id001
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424
