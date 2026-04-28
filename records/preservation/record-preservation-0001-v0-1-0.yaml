@@ -1,0 +1,94 @@
+# SPDX-License-Identifier: CC0-1.0
+preservation_record:
+  record_id: record_preservation_0001_v0_1_0
+  record_class: preservation
+  item_type: record
+  title: "Preservation Record: DSR Framework v0.1.0"
+  status: 0.1.0_public_draft_preservation_record
+  version: "0.1.0"
+  target_path: records/preservation/record-preservation-0001-v0-1-0.yaml
+  date: "2026-04-28"
+  related_release:
+    release_record: records/releases/record-release-0001-v0-1-0.yaml
+    release_tag: v0.1.0
+    release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+    zenodo_doi: 10.5281/zenodo.19835424
+    zenodo_record_url: https://zenodo.org/records/19835424
+  preservation_scope:
+    included:
+      - GitHub repository source for v0.1.0 public draft
+      - GitHub release archive and release notes
+      - Zenodo public-draft DOI metadata
+      - "root citation and metadata files: CITATION.cff, .zenodo.json, codemeta.json, metadata.yaml, manifest.yaml, package-inventory.yaml"
+      - "validation summary where present: records/validation/validation-summary-latest.json"
+    excluded:
+      - source PDFs
+      - copyrighted source documents
+      - local Dropbox-only extraction folders
+      - private or unmapped audit artifacts
+  package_scope_note: >
+    This preservation record applies to repository-governed public-draft package
+    files and metadata. It does not add original source PDFs, copyrighted source
+    documents, local Dropbox-only extraction folders, or private/unmapped audit
+    artifacts to the preserved public package.
+  checksum_status:
+    status: not_calculated_in_this_record
+    scope: repo_governed_files_only
+    note: >
+      No file-level checksum manifest is asserted here. The public GitHub commit,
+      release archive, and Zenodo record provide public-draft preservation
+      evidence; future L5 closure should add explicit checksum or fixity evidence
+      if required by the preservation policy.
+  current_preservation_claim:
+    claim_status: public_draft_preservation_evidence_retained
+    not_l5_reason: >
+      A public-draft DOI and release archive exist, but L5
+      archival/publication-ready status still requires retained preservation
+      closure, metadata-freeze, registry, independent-review, and
+      release-approval evidence.
+  evidence_items:
+    - evidence_id: ev_github_release_v0_1_0
+      evidence_type: github_release
+      status: confirmed_public_draft
+      reference: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+    - evidence_id: ev_zenodo_doi_v0_1_0
+      evidence_type: zenodo_record
+      status: confirmed_public_draft
+      reference: https://zenodo.org/records/19835424
+    - evidence_id: ev_validation_summary_latest
+      evidence_type: validation_summary
+      status: available_if_present_or_future_update
+      reference: records/validation/validation-summary-latest.json
+  l5_followup_required:
+    - metadata_freeze_record
+    - preservation_closure_check
+    - registry_metadata_closure
+    - independent_review_record
+    - release_approval_record
+  quality_gate_status:
+    consistency: pass
+    coherence: conditional_pass
+    cogency: pass
+    correspondence: conditional_pass
+    dsr_transparency: pass
+    reviewability: conditional_pass
+  related_items:
+    - item_id: release_record_v0_1_0
+      relationship: provides_preservation_evidence_for
+      path: records/releases/record-release-0001-v0-1-0.yaml
+    - item_id: package_inventory
+      relationship: must_list_preservation_record
+      path: package-inventory.yaml
+    - item_id: manifest
+      relationship: should_reference_latest_preservation_record
+      path: manifest.yaml
+  retention_rule:
+    retention_id: ret_preservation_records_permanent
+    retention_period: permanent
+    disposition: preserve_with_release_records
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-28"
+      change_type: created
+      changed_by: Codex
+      description: Created v0.1.0 public-draft preservation record without overclaiming L5.

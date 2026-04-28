@@ -368,13 +368,14 @@ package_inventory:
   - directory_id: dir_017
     path: records/preservation
     purpose: Preservation and archival records.
-    expected_file_count_from_selection_table: 0
-    listed_files: []
-    directory_status: planned_not_present_public_draft
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/preservation/record-preservation-0001-v0-1-0.yaml
+    directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 0
-      present_count: 0
+      listed_count: 1
+      present_count: 1
       missing_count: 0
   - directory_id: dir_018
     path: crosswalks
@@ -4321,6 +4322,42 @@ package_inventory:
     - exists_at_root
     - declares_lf_text_normalization
     - marks_common_binary_formats_binary
+  - inventory_entry_id: inv_0110
+    file_id: file_records__preservation__record_preservation_0001_v0_1_0_yaml
+    selection_id: record_preservation_v0_1_0
+    path: records/preservation/record-preservation-0001-v0-1-0.yaml
+    package_section: records/preservation
+    portion_type: preservation_record
+    output_format: yaml
+    purpose: Retain v0.1.0 public-draft preservation evidence without asserting L5 archival/publication-ready closure.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0001-v0-1-0.yaml
+    - manifest.yaml
+    - metadata.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: records_steward
+      review_roles:
+      - release_manager
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - release_record_linked
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_github_release_and_zenodo_doi
+    - excludes_source_pdfs_and_copyrighted_source_documents
+    - keeps_l5_deferred
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -4505,12 +4542,17 @@ package_inventory:
     change: Added .gitattributes to normalize text line endings and inventoried it as repository configuration.
     responsible_party: framework_maintainer
     review_status: final_public_draft_reconciliation
+  - version: 0.1.3
+    date: '2026-04-28'
+    change: Added v0.1.0 public-draft preservation record and updated records/preservation inventory.
+    responsible_party: framework_maintainer
+    review_status: public_draft_preservation_record_created_l5_deferred
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 109
+    controlled_file_inventory_entries: 110
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
