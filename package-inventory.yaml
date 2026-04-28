@@ -404,13 +404,20 @@ package_inventory:
   - directory_id: dir_020
     path: .github/ISSUE_TEMPLATE
     purpose: Issue templates for repository governance.
-    expected_file_count_from_selection_table: 0
-    listed_files: []
-    directory_status: planned_not_present_public_draft
+    expected_file_count_from_selection_table: 7
+    listed_files:
+    - .github/ISSUE_TEMPLATE/config.yml
+    - .github/ISSUE_TEMPLATE/content-gap.yml
+    - .github/ISSUE_TEMPLATE/literature-alignment.yml
+    - .github/ISSUE_TEMPLATE/schema-hardening.yml
+    - .github/ISSUE_TEMPLATE/validation-failure.yml
+    - .github/ISSUE_TEMPLATE/worked-example.yml
+    - .github/ISSUE_TEMPLATE/release-readiness.yml
+    directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 0
-      present_count: 0
+      listed_count: 7
+      present_count: 7
       missing_count: 0
   - directory_id: dir_021
     path: .github/workflows
@@ -4397,6 +4404,237 @@ package_inventory:
     - records_71_source_crosswalk_status
     - distinguishes_source_level_from_claim_level_traceability
     - keeps_stable_v1_l4_l5_deferred
+  - inventory_entry_id: inv_0112
+    file_id: file_github__issue_template__config_yml
+    selection_id: github_issue_template_config
+    path: .github/ISSUE_TEMPLATE/config.yml
+    package_section: .github/ISSUE_TEMPLATE
+    portion_type: issue_template_config
+    output_format: yaml
+    purpose: Configure GitHub issue form behavior for public-draft governance.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - package-inventory.yaml
+    - README.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: repository_governance_owner
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - disables_blank_issues
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - configures_issue_form_entry_points
+  - inventory_entry_id: inv_0113
+    file_id: file_github__issue_template__content_gap_yml
+    selection_id: github_issue_template_content_gap
+    path: .github/ISSUE_TEMPLATE/content-gap.yml
+    package_section: .github/ISSUE_TEMPLATE
+    portion_type: issue_template
+    output_format: yaml
+    purpose: Capture missing or weak framework content issues with evidence, quality-gate, validation, and conformance-impact fields.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - package-inventory.yaml
+    - records/reviews/record-review-v1-readiness-audit.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: repository_governance_owner
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - affected_controlled_paths_field
+      - no_overclaim_checkbox
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - captures_acceptance_criteria_and_validation_expectation
+    - keeps_stable_v1_l4_l5_deferred
+  - inventory_entry_id: inv_0114
+    file_id: file_github__issue_template__literature_alignment_yml
+    selection_id: github_issue_template_literature_alignment
+    path: .github/ISSUE_TEMPLATE/literature-alignment.yml
+    package_section: .github/ISSUE_TEMPLATE
+    portion_type: issue_template
+    output_format: yaml
+    purpose: Capture source-to-framework, claim-level traceability, corpus, and source-basis issues.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - crosswalks/source-to-framework-alignment.yaml
+    - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: dsr_methodology_reviewer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - source_id_or_anchor_fields
+      - source_or_claim_level_scope_field
+      - no_overclaim_checkbox
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - separates_source_level_from_claim_level_traceability
+    - keeps_stable_v1_l4_l5_deferred
+  - inventory_entry_id: inv_0115
+    file_id: file_github__issue_template__schema_hardening_yml
+    selection_id: github_issue_template_schema_hardening
+    path: .github/ISSUE_TEMPLATE/schema-hardening.yml
+    package_section: .github/ISSUE_TEMPLATE
+    portion_type: issue_template
+    output_format: yaml
+    purpose: Capture schema field-hardening and controlled-vocabulary alignment issues.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - schemas
+    - vocabularies
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: schema_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - schema_and_instance_path_fields
+      - compatibility_risk_field
+      - no_overclaim_checkbox
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - captures_schema_constraint_and_migration_expectation
+    - keeps_stable_v1_l4_l5_deferred
+  - inventory_entry_id: inv_0116
+    file_id: file_github__issue_template__validation_failure_yml
+    selection_id: github_issue_template_validation_failure
+    path: .github/ISSUE_TEMPLATE/validation-failure.yml
+    package_section: .github/ISSUE_TEMPLATE
+    portion_type: issue_template
+    output_format: yaml
+    purpose: Capture validation-script failures, expected release-candidate blockers, and remediation evidence.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - scripts/validate-package.py
+    - records/validation/validation-summary-latest.json
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: automation_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - validation_command_field
+      - public_draft_or_release_candidate_mode_field
+      - no_overclaim_checkbox
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - distinguishes_expected_from_unexpected_failures
+    - keeps_stable_v1_l4_l5_deferred
+  - inventory_entry_id: inv_0117
+    file_id: file_github__issue_template__worked_example_yml
+    selection_id: github_issue_template_worked_example
+    path: .github/ISSUE_TEMPLATE/worked-example.yml
+    package_section: .github/ISSUE_TEMPLATE
+    portion_type: issue_template
+    output_format: yaml
+    purpose: Capture canonical worked example package requests without treating examples as framework validation evidence.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - examples
+    - templates
+    - checklists
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - demonstration_or_evaluation_posture_field
+      - no_overclaim_checkbox
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - distinguishes_demonstration_from_evaluation_evidence
+    - keeps_stable_v1_l4_l5_deferred
+  - inventory_entry_id: inv_0118
+    file_id: file_github__issue_template__release_readiness_yml
+    selection_id: github_issue_template_release_readiness
+    path: .github/ISSUE_TEMPLATE/release-readiness.yml
+    package_section: .github/ISSUE_TEMPLATE
+    portion_type: issue_template
+    output_format: yaml
+    purpose: Capture metadata-freeze, release approval, preservation, registry, independent-review, author-response, and v1/L5 blocker issues.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0001-v0-1-0.yaml
+    - records/preservation/record-preservation-0001-v0-1-0.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: release_manager
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - retained_record_required_field
+      - no_overclaim_checkbox
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - captures_release_target_and_blocker_type
+    - keeps_stable_v1_l4_l5_deferred
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -4591,12 +4829,17 @@ package_inventory:
     change: Added post-crosswalk literature alignment review and updated records/reviews inventory.
     responsible_party: framework_maintainer
     review_status: public_draft_post_crosswalk_review_created
+  - version: 0.1.5
+    date: '2026-04-28'
+    change: Added structured GitHub issue templates for public-draft hardening, source alignment, schema hardening, validation failures, worked examples, and release readiness.
+    responsible_party: framework_maintainer
+    review_status: public_draft_issue_templates_created
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 111
+    controlled_file_inventory_entries: 118
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass

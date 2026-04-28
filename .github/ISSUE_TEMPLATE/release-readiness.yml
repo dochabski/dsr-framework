@@ -1,0 +1,122 @@
+name: Release readiness
+description: Track metadata freeze, release approval, preservation, registry, independent review, author response, and v1/L5 blockers.
+title: "[release-readiness]: "
+labels:
+  - release-readiness
+  - governance
+body:
+  - type: textarea
+    id: affected_paths
+    attributes:
+      label: Affected controlled file path(s)
+      placeholder: "records/releases/; records/preservation/; CITATION.cff; .zenodo.json"
+    validations:
+      required: true
+  - type: dropdown
+    id: package_area
+    attributes:
+      label: Affected package area
+      options:
+        - root_control
+        - specs
+        - models
+        - vocabularies
+        - schemas
+        - templates
+        - checklists
+        - docs_protocol
+        - records
+        - crosswalks
+        - examples
+        - automation
+        - governance
+    validations:
+      required: true
+  - type: input
+    id: requested_change
+    attributes:
+      label: Issue type / requested change
+      placeholder: "Add release approval record for a future stable v1 candidate."
+    validations:
+      required: true
+  - type: input
+    id: release_target
+    attributes:
+      label: Release target
+      placeholder: "1.0.0-rc.1, 1.0.0 stable, future L5 archival release"
+    validations:
+      required: true
+  - type: dropdown
+    id: blocker_type
+    attributes:
+      label: Blocker type
+      options:
+        - metadata_freeze
+        - release_approval
+        - preservation
+        - registry
+        - independent_review
+        - author_response
+        - v1_blocker
+        - l5_blocker
+        - other
+    validations:
+      required: true
+  - type: input
+    id: retained_record_required
+    attributes:
+      label: Retained record required
+      placeholder: "records/releases/metadata-freeze-record-1-0-0.yaml"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_basis
+    attributes:
+      label: Source basis or evidence basis
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current behavior/gap
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: validation_expectation
+    attributes:
+      label: Validation expectation
+      placeholder: "Public-draft validation passes; release-candidate mode only passes after retained v1/RC evidence exists."
+    validations:
+      required: true
+  - type: dropdown
+    id: conformance_impact
+    attributes:
+      label: Conformance impact
+      options:
+        - no_conformance_change
+        - supports_l1_documented
+        - supports_l2_reviewable_public_draft
+        - supports_l3_exercisable_future
+        - supports_l4_reusable_future
+        - supports_l5_archival_future
+    validations:
+      required: true
+  - type: checkboxes
+    id: no_overclaim
+    attributes:
+      label: No-overclaim acknowledgement
+      options:
+        - label: This issue must not be used to claim stable v1, achieved L4, or L5 archival/publication-ready status without retained evidence.
+          required: true

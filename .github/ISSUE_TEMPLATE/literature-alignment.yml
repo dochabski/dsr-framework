@@ -1,0 +1,141 @@
+name: Literature alignment
+description: Track source-to-framework, claim-level traceability, corpus, or source-basis issues.
+title: "[literature-alignment]: "
+labels:
+  - literature-alignment
+  - traceability
+body:
+  - type: textarea
+    id: affected_paths
+    attributes:
+      label: Affected controlled file path(s)
+      placeholder: "crosswalks/source-to-framework-alignment.yaml; templates/problem-and-objectives-template.md"
+    validations:
+      required: true
+  - type: dropdown
+    id: package_area
+    attributes:
+      label: Affected package area
+      options:
+        - root_control
+        - specs
+        - models
+        - vocabularies
+        - schemas
+        - templates
+        - checklists
+        - docs_protocol
+        - records
+        - crosswalks
+        - examples
+        - automation
+        - governance
+    validations:
+      required: true
+  - type: input
+    id: requested_change
+    attributes:
+      label: Issue type / requested change
+      placeholder: "Expand claim-level traceability for a mapped source."
+    validations:
+      required: true
+  - type: input
+    id: source_id
+    attributes:
+      label: Source ID
+      placeholder: "purao_2021_dsr_problems_where_do_they_come_from"
+    validations:
+      required: false
+  - type: input
+    id: citation_anchor_id
+    attributes:
+      label: Citation anchor ID
+      placeholder: "evidence_anchor_id from the extraction or crosswalk"
+    validations:
+      required: false
+  - type: dropdown
+    id: source_role
+    attributes:
+      label: Source role
+      options:
+        - definition
+        - typology
+        - process_model
+        - evaluation
+        - validity
+        - reliability
+        - transparency
+        - boundary_condition
+        - example
+        - other
+    validations:
+      required: true
+  - type: input
+    id: affected_target_path
+    attributes:
+      label: Affected target path
+      placeholder: "models/dsr-decision-flow.yaml"
+    validations:
+      required: true
+  - type: dropdown
+    id: mapping_level
+    attributes:
+      label: Mapping level
+      options:
+        - source_level
+        - claim_level
+        - source_and_claim_level
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_basis
+    attributes:
+      label: Source basis or evidence basis
+      description: Identify relevant crosswalk entries, source-basis records, or review records.
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current behavior/gap
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: validation_expectation
+    attributes:
+      label: Validation expectation
+      placeholder: "Public-draft validation passes; source-level mapping is not represented as claim-level proof."
+    validations:
+      required: true
+  - type: dropdown
+    id: conformance_impact
+    attributes:
+      label: Conformance impact
+      options:
+        - no_conformance_change
+        - supports_l1_documented
+        - supports_l2_reviewable_public_draft
+        - supports_l3_exercisable_future
+        - supports_l4_reusable_future
+        - supports_l5_archival_future
+    validations:
+      required: true
+  - type: checkboxes
+    id: no_overclaim
+    attributes:
+      label: No-overclaim acknowledgement
+      options:
+        - label: This issue must not be used to claim stable v1, achieved L4, or L5 archival/publication-ready status without retained evidence.
+          required: true

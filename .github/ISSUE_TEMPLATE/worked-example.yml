@@ -1,0 +1,123 @@
+name: Worked example
+description: Request or scope canonical worked example package development.
+title: "[worked-example]: "
+labels:
+  - worked-example
+  - v1-readiness
+body:
+  - type: textarea
+    id: affected_paths
+    attributes:
+      label: Affected controlled file path(s)
+      placeholder: "examples/canonical-minimal-dsr-package/; templates/evaluation-plan-template.yaml"
+    validations:
+      required: true
+  - type: dropdown
+    id: package_area
+    attributes:
+      label: Affected package area
+      options:
+        - root_control
+        - specs
+        - models
+        - vocabularies
+        - schemas
+        - templates
+        - checklists
+        - docs_protocol
+        - records
+        - crosswalks
+        - examples
+        - automation
+        - governance
+    validations:
+      required: true
+  - type: input
+    id: requested_change
+    attributes:
+      label: Issue type / requested change
+      placeholder: "Add a demonstration-only minimal DSR package."
+    validations:
+      required: true
+  - type: textarea
+    id: template_checklist_exercised
+    attributes:
+      label: Template/checklist exercised
+      description: List the templates, checklists, or schemas the example should exercise.
+    validations:
+      required: true
+  - type: textarea
+    id: example_scope
+    attributes:
+      label: Example scope
+      description: Define whether the example is synthetic, fictional, partial, or complete.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_record_needed
+    attributes:
+      label: Evidence record needed
+      description: Identify any demonstration, evaluation, review, or limitation record required.
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_posture
+    attributes:
+      label: Demonstration-only or evaluation evidence?
+      options:
+        - demonstration_only
+        - evaluation_evidence_with_record
+        - unclear_requires_review
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_basis
+    attributes:
+      label: Source basis or evidence basis
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current behavior/gap
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: validation_expectation
+    attributes:
+      label: Validation expectation
+      placeholder: "Public-draft validation passes; example claims remain demonstration-only unless evaluation evidence is retained."
+    validations:
+      required: true
+  - type: dropdown
+    id: conformance_impact
+    attributes:
+      label: Conformance impact
+      options:
+        - no_conformance_change
+        - supports_l1_documented
+        - supports_l2_reviewable_public_draft
+        - supports_l3_exercisable_future
+        - supports_l4_reusable_future
+        - supports_l5_archival_future
+    validations:
+      required: true
+  - type: checkboxes
+    id: no_overclaim
+    attributes:
+      label: No-overclaim acknowledgement
+      options:
+        - label: This issue must not be used to claim stable v1, achieved L4, or L5 archival/publication-ready status without retained evidence.
+          required: true

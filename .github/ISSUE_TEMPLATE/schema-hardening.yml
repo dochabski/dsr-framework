@@ -1,0 +1,137 @@
+name: Schema hardening
+description: Request stricter JSON Schema constraints or controlled-vocabulary alignment.
+title: "[schema-hardening]: "
+labels:
+  - schema-hardening
+  - validation
+body:
+  - type: textarea
+    id: affected_paths
+    attributes:
+      label: Affected controlled file path(s)
+      placeholder: "schemas/dsr-evaluation-plan.schema.json; templates/evaluation-plan-template.yaml"
+    validations:
+      required: true
+  - type: dropdown
+    id: package_area
+    attributes:
+      label: Affected package area
+      options:
+        - root_control
+        - specs
+        - models
+        - vocabularies
+        - schemas
+        - templates
+        - checklists
+        - docs_protocol
+        - records
+        - crosswalks
+        - examples
+        - automation
+        - governance
+    validations:
+      required: true
+  - type: input
+    id: requested_change
+    attributes:
+      label: Issue type / requested change
+      placeholder: "Add enum constraints for evaluation method family."
+    validations:
+      required: true
+  - type: input
+    id: schema_path
+    attributes:
+      label: Schema path
+      placeholder: "schemas/dsr-evaluation-plan.schema.json"
+    validations:
+      required: true
+  - type: input
+    id: instance_path
+    attributes:
+      label: Record/template instance path
+      placeholder: "templates/evaluation-plan-template.yaml"
+    validations:
+      required: true
+  - type: textarea
+    id: current_permissive_behavior
+    attributes:
+      label: Current permissive behavior
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_constraint
+    attributes:
+      label: Proposed constraint
+      description: Include allowed enum values, required field rules, or object-shape rules.
+    validations:
+      required: true
+  - type: dropdown
+    id: compatibility_risk
+    attributes:
+      label: Backward compatibility risk
+      options:
+        - low
+        - medium
+        - high
+        - unknown
+    validations:
+      required: true
+  - type: textarea
+    id: migration_expectation
+    attributes:
+      label: Migration expectation
+      description: Identify templates, records, or examples that must be updated with the schema.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_basis
+    attributes:
+      label: Source basis or evidence basis
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current behavior/gap
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: validation_expectation
+    attributes:
+      label: Validation expectation
+      placeholder: "Public-draft validation passes and affected schema-instance pairs still validate."
+    validations:
+      required: true
+  - type: dropdown
+    id: conformance_impact
+    attributes:
+      label: Conformance impact
+      options:
+        - no_conformance_change
+        - supports_l1_documented
+        - supports_l2_reviewable_public_draft
+        - supports_l3_exercisable_future
+        - supports_l4_reusable_future
+        - supports_l5_archival_future
+    validations:
+      required: true
+  - type: checkboxes
+    id: no_overclaim
+    attributes:
+      label: No-overclaim acknowledgement
+      options:
+        - label: This issue must not be used to claim stable v1, achieved L4, or L5 archival/publication-ready status without retained evidence.
+          required: true
