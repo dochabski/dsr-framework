@@ -44,15 +44,34 @@
         "version": {
           "type": "string"
         },
-        "owner": {},
+        "owner": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
         "artifact_identity": {
           "type": "object",
           "additionalProperties": true
         },
-        "related_items": {},
-        "source_basis": {},
-        "traceability": {},
-        "change_history": {},
+        "related_items": {
+          "type": "object"
+        },
+        "source_basis": {
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "traceability": {
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "change_history": {
+          "type": "array"
+        },
         "artifact_typing": {
           "type": "object",
           "additionalProperties": true

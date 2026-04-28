@@ -42,26 +42,75 @@
         "report"
       ],
       "properties": {
-        "item_id": {},
-        "item_type": {},
-        "title": {},
-        "purpose": {},
-        "status": {},
-        "version": {},
-        "owner": {},
-        "target_path": {},
-        "target_conformance": {},
-        "template_scope": {},
-        "source_basis": {},
-        "related_items": {},
-        "instructions_for_use": {},
-        "report": {},
-        "validation_rules": {},
-        "acceptance_criteria": {},
-        "quality_gate_alignment": {},
-        "open_questions": {},
-        "change_history": {},
-        "evaluation_report": {}
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner": {
+          "type": "object"
+        },
+        "target_path": {
+          "type": "string"
+        },
+        "target_conformance": {
+          "type": "string"
+        },
+        "template_scope": {
+          "type": "object"
+        },
+        "source_basis": {
+          "type": "array"
+        },
+        "related_items": {
+          "type": "object"
+        },
+        "instructions_for_use": {
+          "type": "array"
+        },
+        "report": {
+          "type": "object"
+        },
+        "validation_rules": {
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "acceptance_criteria": {
+          "type": "array"
+        },
+        "quality_gate_alignment": {
+          "type": "object"
+        },
+        "open_questions": {
+          "type": "array"
+        },
+        "change_history": {
+          "type": "array"
+        },
+        "evaluation_report": {
+          "type": "object"
+        }
       },
       "additionalProperties": true
     },
