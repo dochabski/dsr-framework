@@ -77,6 +77,7 @@ SCHEMA_INSTANCE_PAIRS = {
 class ValidationRun:
     def __init__(self, release_candidate: bool) -> None:
         self.release_candidate = release_candidate
+        self.validation_scope = "v1_l4_release_candidate" if release_candidate else "public_draft"
         self.errors: list[str] = []
         self.warnings: list[str] = []
         self.counts: dict[str, int] = {}
@@ -508,6 +509,9 @@ def validate_deferred_markers(run: ValidationRun) -> None:
 def validate_release_candidate_gates(run: ValidationRun) -> None:
     if not run.release_candidate:
         return
+    run.note(
+        "Release-candidate mode validates v1.0.0/L4 reusable-stable readiness; explicit L5 non-claims and post-v1 L5 work do not block this mode."
+    )
     required_record_dirs = [
         ("records/reviews", ("*.yaml",)),
         ("records/releases", ("*.yaml",)),
@@ -535,11 +539,26 @@ def validate_release_candidate_gates(run: ValidationRun) -> None:
         if marker not in tracked_names:
             run.error(message)
 
-    release_record = load_yaml_file(ROOT / "records/releases/record-release-0001-v0-1-0.yaml")["release_record"]
-    unresolved = release_record.get("future_l5_or_v1_followup", [])
-    if unresolved:
+    v1_release_record_path = ROOT / "records/releases/record-release-0002-v1-0-0.yaml"
+    if not v1_release_record_path.exists():
         run.error(
-            "release record: release-candidate mode cannot pass while future_l5_or_v1_followup items remain unresolved."
+            "records/releases/record-release-0002-v1-0-0.yaml: missing v1.0.0 release record for L4 release-candidate validation."
+        )
+        return
+
+    try:
+        v1_release_record = load_yaml_file(v1_release_record_path)["release_record"]
+    except Exception as exc:
+        run.error(f"records/releases/record-release-0002-v1-0-0.yaml: could not load release_record: {exc}")
+        return
+
+    blockers = v1_release_record.get("v1_release_blockers", [])
+    if blockers:
+        run.error("records/releases/record-release-0002-v1-0-0.yaml: unresolved v1_release_blockers remain.")
+
+    if v1_release_record.get("l5_claimed") is True:
+        run.error(
+            "records/releases/record-release-0002-v1-0-0.yaml: v1.0.0 release-candidate mode must not claim L5."
         )
 
 
@@ -557,6 +576,7 @@ def write_summary(run: ValidationRun, inventory: dict[str, Any]) -> None:
     run_summary = {
         "generated_at": dt.datetime.now(dt.UTC).isoformat(timespec="seconds"),
         "mode": mode,
+        "validation_scope": run.validation_scope,
         "result": "pass" if not run.errors else "fail",
         "expected_failure": bool(run.release_candidate and run.errors),
         "error_count": len(run.errors),
