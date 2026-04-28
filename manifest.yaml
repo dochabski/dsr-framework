@@ -71,6 +71,8 @@ manifest:
       claim_traceability_status: established_for_major_v1_claims_after_source_anomaly_disposition
       latest_canonical_example_package: examples/canonical-minimal-dsr-package/README.md
       canonical_example_status: synthetic_demonstration_package_present_for_v1_exercisability_work
+      latest_template_checklist_stabilization_review: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
+      template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -626,6 +628,11 @@ manifest:
     to: examples/canonical-minimal-dsr-package/README.md
     relation: supports_v1_exercisability_and_reuse_readiness_path
     evidence_status: synthetic_example_present_not_empirical_evaluation
+  - trace_id: tr_canonical_example_to_template_checklist_stabilization_review
+    from: examples/canonical-minimal-dsr-package/README.md
+    to: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
+    relation: supports_template_checklist_reuse_readiness_review
+    evidence_status: retained_review_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -655,6 +662,7 @@ manifest:
     - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
     - records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
     - examples/canonical-minimal-dsr-package/README.md
+    - records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
@@ -811,3 +819,9 @@ manifest:
     description: Added canonical minimal synthetic DSR package example as exercisability and reuse-readiness preparation evidence.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_canonical_worked_example
+  - version: 0.1.11
+    date: '2026-04-28'
+    change_type: v1_template_checklist_stabilization
+    description: Added retained review of template and checklist stabilization against the canonical example.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_template_checklist_stabilization

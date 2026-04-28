@@ -244,7 +244,7 @@ package_inventory:
   - directory_id: dir_007
     path: docs/protocol
     purpose: Human-facing protocol documentation generated from or aligned with controlled files.
-    expected_file_count_from_selection_table: 7
+    expected_file_count_from_selection_table: 8
     listed_files:
     - docs/protocol/00-framework-overview.md
     - docs/protocol/02-dsr-lifecycle-and-contribution-model.md
@@ -355,12 +355,13 @@ package_inventory:
     - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
+    - records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
     - records/reviews/record-review-v1-readiness-audit.yaml
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 7
-      present_count: 7
+      listed_count: 8
+      present_count: 8
       missing_count: 0
   - directory_id: dir_016
     path: records/releases
@@ -5105,6 +5106,44 @@ package_inventory:
     validation_profile_id: vp_markdown_protocol_doc
     validation_responsibility: *example_validation_responsibility
     minimum_acceptance_criteria: *example_acceptance_criteria
+  - inventory_entry_id: inv_0136
+    file_id: file_records__reviews__record_review_template_checklist_stabilization_0001_v1_0_0_yaml
+    selection_id: record_review_template_checklist_stabilization_0001_v1_0_0
+    path: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
+    package_section: records/reviews
+    portion_type: reuse_readiness_review_record
+    output_format: yaml
+    purpose: Retain v1 template and checklist stabilization review against the canonical worked example.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - templates
+    - checklists
+    - examples/canonical-minimal-dsr-package/README.md
+    - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - reviewed_template_directory
+      - reviewed_checklist_directory
+      - canonical_example_compatibility_recorded
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - documents_template_checklist_stabilization
+    - references_canonical_example_fixture
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -5334,12 +5373,17 @@ package_inventory:
     change: Added canonical minimal synthetic DSR worked example package.
     responsible_party: framework_maintainer
     review_status: v1_canonical_example_created
+  - version: 0.1.12
+    date: '2026-04-28'
+    change: Added retained v1 template and checklist stabilization review.
+    responsible_party: framework_maintainer
+    review_status: v1_template_checklist_stabilization_recorded
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 135
+    controlled_file_inventory_entries: 136
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -5356,6 +5400,8 @@ package_inventory:
     claim_traceability_status: established_for_major_v1_claims_after_source_anomaly_disposition
     latest_canonical_example_package: examples/canonical-minimal-dsr-package/README.md
     canonical_example_status: synthetic_demonstration_package_present
+    latest_template_checklist_stabilization_review: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
+    template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
     source_traceability_validation_counts: *id001
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424
