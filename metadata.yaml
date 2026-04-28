@@ -8,8 +8,8 @@ metadata_record:
     for reviewable reuse and future publication.
 
     '
-  status: 0.1.0_public_draft
-  version: 0.1.0
+  status: 1.0.0_stable
+  version: 1.0.0
   owner:
     role: project_steward
     name: David Ochabski
@@ -100,7 +100,7 @@ repository_metadata:
     markdown_extension: .md
     json_schema_extension: .schema.json
     stable_identifier_style: lower_snake_case
-  release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+  release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.0.0
   default_branch: main
   github:
     owner: dochabski
@@ -136,16 +136,16 @@ authorship_and_contribution:
     github: dochabski
     role: repository_maintainer
 citation_metadata:
-  preferred_citation_status: zenodo_doi_published
+  preferred_citation_status: github_v1_release
   title: DSR Framework
-  version: 0.1.0
-  release_date: '2026-04-27'
+  version: 1.0.0
+  release_date: '2026-04-28'
   publication_year: '2026'
   authors:
   - Ochabski, David
   citation_file: CITATION.cff
   doi:
-    status: published
+    status: historical_v0_1_0_public_draft_doi_not_v1_l5_claim
     value: 10.5281/zenodo.19835424
     provider: Zenodo
     record_url: https://zenodo.org/records/19835424
@@ -155,7 +155,7 @@ citation_metadata:
     value: null
     provider: Zenodo
     concept_recid: '19835423'
-  url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+  url: https://github.com/dochabski/dsr-framework/releases/tag/v1.0.0
   abstract: 'The DSR Framework is a structured artifact package for Design Science Research documentation, review, evaluation,
     transparency, contribution positioning, and publication preparation.
 
@@ -181,6 +181,8 @@ citation_metadata:
     status: evidence_base_reference
   repository_url: https://github.com/dochabski/dsr-framework
   archival_url: https://zenodo.org/records/19835424
+  v1_release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.0.0
+  l5_claimed: false
 license_and_reuse:
   default_license:
     spdx_id: CC0-1.0
@@ -219,7 +221,7 @@ license_and_reuse:
   - LICENSES/Apache-2.0.txt
   - REUSE.toml
 versioning_and_release:
-  current_version: 0.1.0
+  current_version: 1.0.0
   semantic_versioning_policy:
     major: incompatible structural changes to the framework package or schemas
     minor: backward-compatible additions to models, vocabularies, templates, or records
@@ -233,15 +235,15 @@ versioning_and_release:
   - deprecated
   - archived
   release_readiness:
-    current_state: 0.1.0_public_draft
+    current_state: 1.0.0_stable
     release_candidate: false
     archival_publication_ready: false
     controlled_progression:
     - 0.1.0_public_draft
     - 1.0.0_rc.N
     - 1.0.0_stable
-    v1_target_conformance: l4_reusable_stable
-    l5_status: deferred_until_independent_review_preservation_registry_and_metadata_freeze
+    current_package_conformance: l4_reusable_stable
+    l5_status: not_claimed_for_v1_0_0_post_v1_l5_work
     required_before_release: []
     completed_for_public_draft:
     - citation_metadata_updated
@@ -252,12 +254,20 @@ versioning_and_release:
     - source_traceability_remediated
     - validation_passed
     - zenodo_deposition_published
+    completed_for_v1_0_0:
+    - claim_level_traceability
+    - canonical_worked_example
+    - template_checklist_stabilization
+    - schema_hardening
+    - retained_review_packet
+    - metadata_freeze
+    - v1_release_record
 conformance_metadata:
-  declared_conformance_level: l2_reviewable_qualified_public_draft
-  conformance_rationale: 'The package has root metadata, inventory, crosswalk traceability, validation evidence, and source
-    grounding sufficient for qualified public draft review. It does not claim L3 exercisability, L4 external reuse validation,
-    or L5 archival/publication-ready conformance despite DOI publication; those levels require additional example, review,
-    preservation, registry, and metadata-freeze evidence.
+  declared_conformance_level: l4_reusable_stable
+  conformance_rationale: 'The package has root metadata, inventory, claim-level traceability, validation evidence, a canonical
+    worked example, retained v1 reviews, metadata freeze, and release record evidence sufficient for L4 reusable stable
+    release preparation. It does not claim L5 archival/publication-ready conformance; that level requires additional
+    preservation closure, registry publication, independent external review, and L5 approval evidence.
 
     '
   conformance_dependencies:
@@ -471,3 +481,9 @@ change_history:
   description: Normalized public-draft, release-candidate, stable, and L5 status language; set v1.0.0 target to L4 reusable stable and deferred L5.
   responsible_party: GPT-5.5 Thinking
   related_request: v1_readiness_audit_remediation
+- version: 1.0.0
+  date: '2026-04-28'
+  change_type: v1_metadata_freeze
+  description: Frozen current release metadata for v1.0.0 stable L4 reusable package conformance with L5 not claimed.
+  responsible_party: framework_maintainer
+  related_request: command_queue_v1_metadata_freeze_and_release_record

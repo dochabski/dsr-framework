@@ -1,0 +1,73 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_0002_v1_0_0
+  record_class: release_record
+  item_type: record
+  title: DSR Framework v1.0.0 Release Record
+  status: release_candidate
+  version: 1.0.0
+  release_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  release_tag: v1.0.0
+  release_status: 1.0.0_stable
+  package_conformance: l4_reusable_stable
+  l5_claimed: false
+  release_scope:
+    included:
+      - root_control_files
+      - specs
+      - models
+      - vocabularies
+      - schemas
+      - templates
+      - checklists
+      - protocol_docs
+      - records
+      - crosswalks
+      - canonical_worked_example
+      - validation_automation
+    excluded:
+      - l5_archival_publication_ready_claim
+      - empirical_external_reuse_validation
+      - production public-health or domain artifact validation
+      - copyrighted source PDFs
+  v1_release_blockers: []
+  post_v1_l5_work:
+    - preservation_closure
+    - registry_publication_closure
+    - independent_external_review
+    - archival_fixity_and_preservation_package
+    - l5_release_approval
+  retained_evidence:
+    claim_traceability: crosswalks/claim-to-source-traceability.yaml
+    canonical_example: examples/canonical-minimal-dsr-package/README.md
+    completeness_review: records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    kick_the_tires_review: records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    full_review: records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    author_response: records/reviews/record-author-response-0001-v1-0-0.yaml
+    metadata_freeze: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+  validation:
+    required_commands:
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass_after_release_approval_record_exists
+  release_notes_summary:
+    - v1.0.0 stabilizes the DSR Framework as an L4 reusable artifact package.
+    - Adds claim-level traceability for major framework claims.
+    - Adds canonical minimal worked example.
+    - Hardens schemas and validation automation.
+    - Retains v1 completeness, kick-the-tires, full-review, and author-response evidence.
+    - Does not claim L5 archival/publication-ready status.
+  known_limitations:
+    - L5 archival/publication-ready status is not claimed for v1.0.0.
+    - External empirical reuse validation is not claimed.
+    - The canonical example is synthetic and demonstrative.
+  outcome:
+    result: ready_for_release_approval_after_release_candidate_validation_passes
+    conformance_claim_supported: l4_reusable_stable
+    conformance_claim_not_supported: l5_archival_publication_ready
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained release record.

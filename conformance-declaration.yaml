@@ -9,12 +9,12 @@ conformance_declaration:
     Declare the initial conformance level, tailoring rationale, evidence basis,
     review obligations, and non-overclaiming constraints for the DSR Framework
     artifact package.
-  status: 0.1.0_public_draft
-  version: "0.1.0"
-  date: "2026-04-27"
+  status: 1.0.0_stable
+  version: "1.0.0"
+  date: "2026-04-28"
   responsible_party: framework_maintainer
   owner: framework_maintainer
-  event_or_action: declare_qualified_l2_public_draft_and_v1_target
+  event_or_action: declare_v1_l4_reusable_stable_conformance
 
   file_identity:
     selection_id: root_conformance_declaration
@@ -27,7 +27,7 @@ conformance_declaration:
       - quality_conformance_model
 
   declaration:
-    declaration_id: dsr_framework_public_draft_l2_declaration
+    declaration_id: dsr_framework_v1_l4_declaration
     applies_to:
       artifact_package_id: dsr_framework
       artifact_package_title: Design Science Research Framework
@@ -39,43 +39,36 @@ conformance_declaration:
           - documentation_only
           - data_or_information_artifact
     declared_current_conformance_level:
-      id: l2_reviewable_qualified_public_draft
-      label: L2 reviewable qualified public draft
-      declaration_status: declared_after_public_draft_traceability_and_validation_remediation
+      id: l4_reusable_stable
+      label: L4 reusable stable
+      declaration_status: declared_after_v1_traceability_example_validation_review_and_release_records
       rationale: >
         The package has root metadata, inventory, conformance controls,
-        schema/template validation evidence, a published public draft DOI, and
-        source-to-framework traceability for all 71 repaired corpus sources.
-        This supports qualified L2 reviewability for the public draft, but it
-        does not assert L3 exercisability, L4 external reuse validation, or L5
-        archival/publication-ready conformance.
+        schema/template/example validation evidence, claim-level traceability,
+        a canonical worked example, retained v1 reviews, metadata freeze, and
+        a v1 release record. This supports L4 reusable-stable conformance for
+        v1.0.0, but it does not assert L5 archival/publication-ready conformance.
     file_conformance:
       id: l1_documented
       label: L1 documented
       scope: conformance-declaration.yaml file-level control record
     current_package_conformance:
-      id: l2_reviewable_qualified_public_draft
-      label: L2 reviewable qualified public draft
-      maps_to_conformance_family: l2_reviewable
-      scope: DSR Framework v0.1.0 public-draft package
-    v1_target_package_conformance:
       id: l4_reusable_stable
       label: L4 reusable stable
-      scope: Future 1.0.0 stable package target after review, examples, validation, and traceability gates pass.
+      maps_to_conformance_family: l4_reusable
+      scope: DSR Framework v1.0.0 stable package
     not_claimed:
-      - l3_exercisable
-      - l4_reusable_stable
       - l5_archival_publication_ready
+      - empirical_external_reuse_validation
     intended_next_conformance_level:
-      id: l4_reusable_stable
-      label: L4 reusable stable
+      id: l5_archival_publication_ready
+      label: L5 archival publication ready
       trigger_conditions:
-        - Validation automation passes on pull requests and main-branch pushes.
-        - A canonical worked example package exists and passes validation.
-        - Major framework claims map to constructs, evidence anchors, limitations, or deferred status.
-        - Completeness, kick-the-tires, full review, author response, and release approval records are retained.
-        - No L5 archival/publication-ready claim is made without preservation, metadata-freeze, registry, and independent-review evidence.
-    effective_date: "2026-04-27"
+        - Preservation closure and archival fixity evidence are retained.
+        - Registry publication evidence is retained.
+        - Independent external review evidence is retained.
+        - L5 release approval is retained.
+    effective_date: "2026-04-28"
     review_cycle: per_release_or_material_change
 
   conformance_level_catalog:
@@ -116,7 +109,7 @@ conformance_declaration:
       minimum_condition: >
         The item has demonstrated reuse-readiness through examples, templates,
         portability guidance, stable interfaces, and documented boundary conditions.
-      package_claim_allowed: false
+      package_claim_allowed: true
     - level_id: l5_archival_publication_ready
       label: L5 archival publication ready
       minimum_condition: >

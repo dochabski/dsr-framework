@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: CC0-1.0
+metadata_freeze_record:
+  record_id: record_metadata_freeze_0001_v1_0_0
+  record_class: metadata_freeze
+  item_type: record
+  title: v1.0.0 Metadata Freeze Record
+  status: approved
+  version: 1.0.0
+  freeze_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  target_release: v1.0.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  frozen_fields:
+    release_version: 1.0.0
+    release_status: 1.0.0_stable
+    package_conformance: l4_reusable_stable
+    repository: https://github.com/dochabski/dsr-framework
+    license: CC0-1.0
+    archival_publication_ready: false
+  frozen_files:
+    - README.md
+    - CHANGELOG.md
+    - CITATION.cff
+    - .zenodo.json
+    - codemeta.json
+    - metadata.yaml
+    - manifest.yaml
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    - package-inventory.yaml
+    - records/releases/record-release-0002-v1-0-0.yaml
+  evidence_records:
+    - crosswalks/claim-to-source-traceability.yaml
+    - examples/canonical-minimal-dsr-package/README.md
+    - records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    - records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    - records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    - records/reviews/record-author-response-0001-v1-0-0.yaml
+    - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
+    - records/validation/validation-summary-latest.json
+  outcome:
+    result: metadata_frozen_for_v1_0_0_release_candidate
+    supports: release_approval
+    does_not_support: l5_archival_publication_ready
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained metadata-freeze record.

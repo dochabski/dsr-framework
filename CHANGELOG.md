@@ -4,24 +4,31 @@
 
 ## Unreleased
 
+- No unreleased changes.
+
+## [1.0.0] - 2026-04-28
+
 ### Added
 
-- Added v1 readiness audit and conformance-target decision records.
-- Added package validation script and GitHub Actions workflow for public-draft validation.
-- Added retained machine-readable validation summary under `records/validation/`.
-- Added optional release-candidate validation mode and workflow dispatch input.
-- Added `.gitattributes` to normalize repository text files to LF line endings.
+- Added v1 claim-level traceability for major framework claims.
+- Added canonical minimal DSR worked example package.
+- Added retained completeness, kick-the-tires, full-review, author-response, metadata-freeze, and v1 release records.
+- Added package validation automation for public-draft and v1 L4 release-candidate validation.
+- Added structured GitHub issue templates, public-draft decision/tailoring records, and LF normalization policy.
 
 ### Changed
 
-- Normalized v0.1.0 status as a citable public draft with qualified L2 reviewability evidence.
-- Set the v1.0.0 stable target to L4 reusable and deferred L5 archival/publication-ready claims until preservation, registry, metadata-freeze, and independent-review gates pass.
-- Updated package inventory to include validation automation and to mark empty public-draft areas as planned rather than silently complete.
-- Cleaned v0.1.0 release-record facts so confirmed GitHub/Zenodo details are separated from future v1/L5 follow-up.
-- Separated file-level and package-level conformance fields in root-facing metadata.
-- Hardened validation for release-record contradictions, conformance-scope ambiguity, Unicode control characters, documentation link coverage, and release-candidate gates.
-- Reconciled conformance declaration and package inventory wording so qualified L2 public-draft conformance is current, while L3/L4/L5 and v1 metadata freeze remain future work.
-- Reconciled manifest root metadata statuses and public-repository wording in governance/security files.
+- Promoted current package status to `1.0.0_stable` and package conformance to `l4_reusable_stable`.
+- Preserved `l5_claimed: false`; L5 archival/publication-ready work remains post-v1.
+- Hardened schemas and added canonical example schema-instance validation fixtures.
+- Stabilized templates and checklists against the canonical example.
+- Reconciled manifest, metadata, artifact profile, conformance declaration, package inventory, citation metadata, CodeMeta, and Zenodo metadata for v1.0.0.
+
+### Validation
+
+- Public validation passes with controlled inventory alignment.
+- Release-candidate validation is expected to pass after the release approval record is added.
+- v1.0.0 does not claim external empirical reuse validation or L5 archival/publication-ready status.
 
 ## [0.1.0] - 2026-04-27
 
