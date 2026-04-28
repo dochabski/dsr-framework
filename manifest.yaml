@@ -55,8 +55,9 @@ manifest:
         record_count: 71
         status: parseable_working_corpus_for_next_literature_alignment_pass
       publication_readiness_status: published_citable_public_draft_not_l5
-      latest_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
-      literature_alignment_status: source_traceability_remediated_and_validation_passed
+      latest_literature_alignment_review: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+      prior_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
+      literature_alignment_status: post_crosswalk_review_pass_with_required_followup
       latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
@@ -568,6 +569,11 @@ manifest:
     to: records/reviews/record-literature-alignment-0001.yaml
     relation: supports_second_pass_literature_alignment_review
     evidence_status: review_completed_pass_with_required_followup
+  - trace_id: tr_source_crosswalk_to_post_crosswalk_literature_review
+    from: crosswalks/source-to-framework-alignment.yaml
+    to: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    relation: supports_post_crosswalk_literature_alignment_review
+    evidence_status: review_completed_pass_with_required_followup
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -703,3 +709,9 @@ manifest:
     description: Linked the v0.1.0 public-draft preservation record while keeping L5 preservation closure deferred.
     responsible_party: framework_maintainer
     related_request: command_queue_preservation_record
+  - version: 0.1.4
+    date: '2026-04-28'
+    change_type: post_crosswalk_literature_alignment_review
+    description: Updated latest literature alignment review to the post-crosswalk review while preserving the earlier review as historical evidence.
+    responsible_party: framework_maintainer
+    related_request: command_queue_post_crosswalk_review

@@ -342,16 +342,17 @@ package_inventory:
   - directory_id: dir_015
     path: records/reviews
     purpose: Review and self-review records.
-    expected_file_count_from_selection_table: 3
+    expected_file_count_from_selection_table: 4
     listed_files:
     - records/reviews/record-review-0001-self-review.yaml
     - records/reviews/record-literature-alignment-0001.yaml
+    - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
     - records/reviews/record-review-v1-readiness-audit.yaml
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 3
-      present_count: 3
+      listed_count: 4
+      present_count: 4
       missing_count: 0
   - directory_id: dir_016
     path: records/releases
@@ -4358,6 +4359,44 @@ package_inventory:
     - records_github_release_and_zenodo_doi
     - excludes_source_pdfs_and_copyrighted_source_documents
     - keeps_l5_deferred
+  - inventory_entry_id: inv_0111
+    file_id: file_records__reviews__record_literature_alignment_0002_post_crosswalk_review_yaml
+    selection_id: record_literature_alignment_0002_post_crosswalk_review
+    path: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    package_section: records/reviews
+    portion_type: literature_alignment_review_record
+    output_format: yaml
+    purpose: Post-crosswalk literature alignment review assessing source-level remediation and remaining claim-level traceability work.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - crosswalks/source-to-framework-alignment.yaml
+    - records/reviews/record-literature-alignment-0001.yaml
+    - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: dsr_methodology_reviewer
+      review_roles:
+      - framework_maintainer
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - source_level_counts_reported
+      - claim_level_followup_preserved
+      - no_l4_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_71_source_crosswalk_status
+    - distinguishes_source_level_from_claim_level_traceability
+    - keeps_stable_v1_l4_l5_deferred
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -4547,20 +4586,25 @@ package_inventory:
     change: Added v0.1.0 public-draft preservation record and updated records/preservation inventory.
     responsible_party: framework_maintainer
     review_status: public_draft_preservation_record_created_l5_deferred
+  - version: 0.1.4
+    date: '2026-04-28'
+    change: Added post-crosswalk literature alignment review and updated records/reviews inventory.
+    responsible_party: framework_maintainer
+    review_status: public_draft_post_crosswalk_review_created
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 110
+    controlled_file_inventory_entries: 111
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
     schema_template_record_validation_status: pass
     repaired_corpus_status: available_outside_package_root_for_next_literature_alignment_pass
     publication_readiness_status: published_citable_public_draft_not_l5
-    latest_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
-    literature_alignment_status: pass_with_required_followup
+    latest_literature_alignment_review: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    literature_alignment_status: post_crosswalk_review_pass_with_required_followup
     source_traceability_status: passed_all_71_sources_multi_file_grounded
     latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
     source_traceability_validation_counts: *id001
