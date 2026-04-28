@@ -4,7 +4,7 @@ review_record:
   record_class: claim_traceability_review
   item_type: record
   title: v1.0.0 Claim-Level Traceability Review
-  status: in_review
+  status: approved
   version: 1.0.0-rc.1
   review_date: '2026-04-28'
   responsible_party: framework_maintainer
@@ -51,8 +51,8 @@ review_record:
       result: pass
       evidence: Each claim maps to root controls, specs, models, vocabularies, templates, checklists, docs, records, or schemas as applicable.
     - check_id: source_anchor_presence
-      result: pass_with_followup
-      evidence: Each claim has citation-anchor IDs; some anchors come from supplied source-registry context and need source-anomaly disposition before final v1 approval.
+      result: pass_with_minor_limitations
+      evidence: Each claim has citation-anchor IDs; supplied-registry anchors are dispositioned in records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml.
     - check_id: source_level_vs_claim_level_separation
       result: pass
       evidence: The crosswalk states that source-level remediation does not itself prove a claim and carries evidence limitations on each claim.
@@ -73,11 +73,11 @@ review_record:
       rationale: >
         The new crosswalk explicitly separates source-level coverage from claim-level support and states limitations for each claim.
     - finding_id: claim_trace_003
-      severity: v1_followup_required
+      severity: nonblocking_after_source_anomaly_disposition
       finding: Some claim-specific anchors are supplied by registry context rather than individually reverified from the source-level crosswalk view.
-      disposition: source_anomaly_disposition_required
+      disposition: source_anomaly_disposition_completed
       rationale: >
-        The source-level crosswalk exposes strongest anchors, while the claim crosswalk uses more granular supplied anchor examples. The next source-anomaly review must confirm that anchor scope matches claim strength.
+        The source-level crosswalk exposes strongest anchors, while the claim crosswalk uses more granular supplied anchor examples. The retained source anomaly disposition review accepts those sources for bounded claim support and identifies no unresolved source anomaly for v1 claim traceability.
     - finding_id: claim_trace_004
       severity: nonblocking_for_this_branch
       finding: Conceptual, typological, ontology, and reporting-guidance sources are used with explicit limitations.
@@ -108,7 +108,7 @@ review_record:
         - CA16
         - CA17
         - CA18
-      next_review_action: confirm_claim_specific_anchor_scope_in_source_anomaly_disposition
+      next_review_action: completed_in_records_reviews_record_review_source_anomaly_disposition_0001_v1_0_0_yaml
     - item_id: anchor_review_002
       source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
       anchors_carried_forward:
@@ -116,7 +116,7 @@ review_record:
         - A10
         - A13
         - A15
-      next_review_action: confirm_claim_specific_anchor_scope_in_source_anomaly_disposition
+      next_review_action: completed_in_records_reviews_record_review_source_anomaly_disposition_0001_v1_0_0_yaml
     - item_id: anchor_review_003
       source_id: weigand_johannesson_andersson_2021_101878
       anchors_carried_forward:
@@ -126,7 +126,7 @@ review_record:
         - A15
         - A17
         - A18
-      next_review_action: confirm_claim_specific_anchor_scope_in_source_anomaly_disposition
+      next_review_action: completed_in_records_reviews_record_review_source_anomaly_disposition_0001_v1_0_0_yaml
     - item_id: anchor_review_004
       source_id: pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
       disposition: limited_use_background_only
@@ -143,12 +143,11 @@ review_record:
       The post-crosswalk literature alignment review remains the retained source-level remediation review.
       This record adds claim-level review context for v1 and does not delete or replace historical evidence.
   required_followup:
-    - create source anomaly disposition review before final v1 release approval
     - create canonical worked example before claiming exercisability support
     - complete schema and template/checklist stabilization before claiming L4 reuse readiness
     - retain completeness, kick-the-tires, full-review, author-response, metadata-freeze, release-record, and approval evidence before v1.0.0 publication
   outcome:
-    result: requires_revision_before_v1_release_candidate
+    result: pass_with_minor_limitations
     supports:
       - claim_level_traceability_workstream
       - continued_l2_reviewability
