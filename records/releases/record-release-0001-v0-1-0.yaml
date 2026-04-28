@@ -9,11 +9,11 @@ release_record:
     governance.
 
     '
-  status: public_draft_release_published
+  status: 0.1.0_public_draft
   version: 0.1.0
   target_path: records/releases/record-release-0001-v0-1-0.yaml
   selection_id: record_release_v0_1_0
-  conformance_target: l5_archival_publication_ready
+  conformance_target: l2_reviewable_qualified_public_draft
   event_or_action:
     id: release_event_v0_1_0_record_creation
     label: Create first release record for v0.1.0
@@ -25,7 +25,7 @@ release_record:
       citable artifact package for planning, documenting, evaluating, reviewing, and publishing Design Science Research artifacts.
 
       '
-    release_status: public_draft_release_published
+    release_status: 0.1.0_public_draft
     release_status_rationale: The v0.1.0 GitHub release and Zenodo deposition have been published. The release remains a public
       draft under active validation and does not claim stable 1.0 maturity.
   responsible_party:
@@ -63,6 +63,31 @@ release_record:
     release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
     published_zenodo_doi: 10.5281/zenodo.19835424
     zenodo_record_url: https://zenodo.org/records/19835424
+  confirmed_public_draft_facts:
+    release_tag: v0.1.0
+    release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+    repository_url: https://github.com/dochabski/dsr-framework
+    zenodo_doi: 10.5281/zenodo.19835424
+    zenodo_record_url: https://zenodo.org/records/19835424
+    citation_file: CITATION.cff
+    license_policy: CC0-1.0 for framework text and structured files; Apache-2.0 reserved for executable tooling.
+    evidence_status: confirmed_for_v0_1_0_public_draft
+  future_l5_or_v1_followup:
+  - item_id: metadata_freeze_record
+    status: pending_for_v1_or_l5
+    rationale: v0.1.0 public-draft metadata exists, but stable v1 and any L5 claim need a retained metadata-freeze record.
+  - item_id: preservation_record
+    status: pending_for_l5
+    rationale: Zenodo publication exists for v0.1.0, but L5 requires explicit preservation evidence and preservation decision records.
+  - item_id: independent_review_record
+    status: pending_for_l4_or_higher
+    rationale: L4 reusable stable requires independent review or equivalent retained review evidence.
+  - item_id: release_approval_record
+    status: pending_for_v1_stable
+    rationale: Stable 1.0.0 should not be approved until release-blocking findings are closed.
+  - item_id: registry_closure
+    status: pending_for_l5
+    rationale: L5 requires registry and archival metadata closure beyond public-draft DOI availability.
   release_basis:
     governing_selection:
       selection_id: record_release_v0_1_0
@@ -70,7 +95,8 @@ release_record:
       portion_type: record
       output_format: yaml
       purpose: First release record.
-      default_conformance: L5
+      source_selection_default_conformance: L5
+      source_selection_default_conformance_interpretation: Original selected-row default only; superseded by current conformance_target l2_reviewable_qualified_public_draft for v0.1.0.
       key_dependencies:
       - release_readiness_checklist
     source_basis:
@@ -94,7 +120,7 @@ release_record:
     - source_id: release_readiness_checklist
       source_type: checklist
       use: Supplies readiness criteria that should be completed before final release approval.
-      evidence_status: not_yet_mapped
+      evidence_status: future_l5_or_v1_followup
     - source_id: dsr_corpus
       source_type: scholarly_and_methodological_evidence_base
       use: 'Supports the DSR Framework''s methodological basis, especially artifact transparency, contribution positioning,
@@ -109,7 +135,7 @@ release_record:
         '
       structured_source_of_truth: true
   release_readiness_summary:
-    readiness_decision: public_draft_release_published
+    readiness_decision: 0.1.0_public_draft_published
     decision_label: v0.1.0 public draft GitHub release and Zenodo DOI published.
     decision_rationale: Root metadata, licensing, package inventory, crosswalk counts, citation metadata, GitHub release,
       and Zenodo archival deposit are complete for the v0.1.0 public draft. The release remains under active validation and
@@ -184,14 +210,14 @@ release_record:
       - qg_reviewability
     - evidence_id: ev_generation_spec_l5_target
       evidence_type: conformance_rule
-      description: The generation specification includes l5_archival_publication_ready as an allowed conformance target.
-      evidence_status: available
+      description: The generation specification includes l5_archival_publication_ready as an allowed future target; it is not the current v0.1.0 conformance target.
+      evidence_status: source_selection_metadata_only
       supports:
-      - qg_correspondence
+      - l5_boundary_condition
     - evidence_id: ev_release_readiness_checklist
       evidence_type: checklist_result
-      description: Completed release-readiness checklist for v0.1.0.
-      evidence_status: not_yet_mapped
+      description: Release-readiness checklist evidence required before L4 stable or L5 claims.
+      evidence_status: future_l5_or_v1_followup
       supports:
       - qg_reviewability
       - qg_coherence
@@ -199,19 +225,19 @@ release_record:
     - evidence_id: ev_repository_release_tag
       evidence_type: repository_release
       description: Repository release tag v0.1.0 and release notes.
-      evidence_status: TODO
+      evidence_status: confirmed_for_v0_1_0_public_draft
       supports:
-      - archival_publication_readiness
+      - public_draft_release_identity
     - evidence_id: ev_archive_or_registry_record
       evidence_type: archive_or_registry_record
-      description: DOI, Zenodo, OSF, institutional repository, GitHub release archive, or equivalent archival record.
-      evidence_status: TODO
+      description: Zenodo DOI and record URL are confirmed for v0.1.0 public-draft citation; preservation and registry closure remain future L5 work.
+      evidence_status: confirmed_public_draft_archive_future_l5_pending
       supports:
-      - archival_publication_readiness
+      - public_draft_citation
     - evidence_id: ev_package_validation_report
       evidence_type: validation_report
       description: Automated or manual validation report confirming schema, link, inventory, and metadata checks.
-      evidence_status: TODO
+      evidence_status: available_public_draft_validation_summary
       supports:
       - qg_consistency
       - qg_coherence
@@ -220,21 +246,22 @@ release_record:
     outcome_id: release_record_outcome_v0_1_0
     result: release_record_created
     decision: conditional_go
-    release_claim: 'The DSR Framework v0.1.0 release record has been created as a controlled release evidence record. Final
-      release approval remains conditional on package inventory alignment, release readiness checklist completion, repository
-      tag confirmation, archival metadata confirmation, and validation evidence attachment.
+    release_claim: 'The DSR Framework v0.1.0 release record has been created as a controlled public-draft release evidence
+      record. The v0.1.0 GitHub tag, release URL, Zenodo DOI, Zenodo record URL, citation file, and license policy are confirmed
+      for public-draft citation. Stable v1, L4 reusable, and any L5 archival/publication-ready approval remain conditional
+      on future example, review, preservation, metadata-freeze, registry, and release-approval evidence.
 
       '
     approved_actions:
     - Add records/releases/record-release-0001-v0-1-0.yaml to the repository.
     - Use this record as the release evidence spine for v0.1.0.
     - Update package-inventory.yaml and release notes to reference this record.
-    - Complete or link the release readiness checklist before declaring final L5 release readiness.
+    - Complete or link the release readiness checklist before declaring L4 stable or any later L5 release readiness.
     deferred_actions:
-    - Assign final release approver.
-    - Verify archive or DOI metadata.
-    - Attach final package validation report.
-    - Finalize release tag and preservation record.
+    - Create v1 release approval record.
+    - Create v1 metadata-freeze record before stable release.
+    - Create preservation record before any L5 claim.
+    - Attach final package validation and review records before stable v1.
   related_items:
     upstream_dependencies:
     - item_id: dsr_framework_generation_prompt
@@ -249,7 +276,7 @@ release_record:
     - item_id: release_readiness_checklist
       relationship: depends_on
       path: checklists/publication-readiness-checklist.yaml
-      evidence_status: not_yet_mapped
+      evidence_status: future_l5_or_v1_followup
     package_control_files:
     - item_id: root_manifest
       relationship: should_reference_or_be_consistent_with
@@ -306,12 +333,12 @@ release_record:
       source: record_release_0001_v0_1_0
       target: package-inventory.yaml
       relationship: must_be_listed_in
-      evidence_status: pending_verification
+      evidence_status: mapped
     - trace_id: tr_release_record_to_preservation
       source: record_release_0001_v0_1_0
       target: records/preservation
       relationship: should_be_followed_by
-      evidence_status: pending_creation_or_mapping
+      evidence_status: future_l5_or_v1_followup
   dsr_transparency_mapping:
     process_transparency:
       applicability: applicable
@@ -373,7 +400,7 @@ release_record:
   - gate_id: qg_correspondence
     status: conditional_pass
     rationale: 'The record corresponds to the selected first release record and the DSR Framework artifact package target.
-      Final L5 correspondence depends on archival and publication metadata confirmation.
+      Final L5 correspondence depends on preservation, registry, metadata-freeze, release-approval, and independent-review evidence.
 
       '
     evidence:
@@ -412,7 +439,7 @@ release_record:
       status: pass
     content_validation:
     - rule_id: val_evidence_status
-      rule: Unknown or unverified evidence must be marked TODO, pending_verification, or not_yet_mapped.
+      rule: Unknown or unverified future evidence must be marked future_l5_or_v1_followup or pending_for_l5.
       status: pass
     - rule_id: val_release_decision
       rule: The release decision must be explicit and must identify any conditions.
@@ -426,31 +453,25 @@ release_record:
     criterion: Release identity includes package ID, version, release tag, release scope, audiences, and artifact class.
     status: pass
   - criterion_id: ac_release_evidence_preserved
-    criterion: Release evidence fields identify available, pending, and TODO evidence without inventing completion.
+    criterion: Release evidence fields identify available, future, and pending evidence without inventing completion.
     status: pass
   - criterion_id: ac_release_quality_reviewable
     criterion: Quality gates can be reviewed using explicit rationale, evidence, and required follow-up.
     status: pass
   - criterion_id: ac_release_archival_conditioned
-    criterion: Archival and publication readiness are not overclaimed without DOI, tag, repository, archive, and validation
-      evidence.
+    criterion: Archival and publication readiness are not overclaimed from public-draft DOI, tag, repository, archive, and
+      validation evidence alone.
     status: pass
   - criterion_id: ac_release_inventory_linked
     criterion: The record identifies package-inventory.yaml as a file that must include this release record.
     status: pass
   limitations:
-  - limitation_id: lim_no_repository_inspection
-    description: 'This record was created without inspecting the user''s Dropbox repository copy or confirming whether every
-      referenced framework file exists at the final repository path.
-
-      '
-    effect: Readiness status remains conditional rather than fully approved.
-  - limitation_id: lim_no_archive_confirmation
-    description: 'No DOI, Zenodo, GitHub release, OSF, institutional repository, or other archival publication metadata has
-      been confirmed in this record.
-
-      '
-    effect: L5 archival/publication-ready status remains a target posture, not a verified final state.
+  - limitation_id: lim_public_draft_not_stable_release
+    description: v0.1.0 has confirmed GitHub and Zenodo public-draft facts, but it is not a stable 1.0.0 framework release.
+    effect: L3/L4/L5 claims remain out of scope for v0.1.0.
+  - limitation_id: lim_l5_preservation_not_complete
+    description: Public-draft DOI availability is not equivalent to completed L5 preservation, registry, metadata-freeze, and release-approval evidence.
+    effect: L5 archival/publication-ready status remains deferred.
   - limitation_id: lim_checklist_not_attached
     description: 'The release readiness checklist is named as a dependency but its completed review results are not embedded
       here.
@@ -458,20 +479,20 @@ release_record:
       '
     effect: Release approval should remain conditional until checklist evidence is linked.
   open_questions:
-  - question_id: oq_release_approver
-    question: Who is the named release approver or maintaining organization for v0.1.0?
+  - question_id: oq_v1_metadata_freeze
+    question: What exact metadata-freeze record should govern a future 1.0.0 stable or L5 release?
     resolution_status: open
-  - question_id: oq_release_tag
-    question: Has the v0.1.0 repository tag been created and linked to release notes?
+  - question_id: oq_v1_release_approval
+    question: What retained approval record should authorize a future 1.0.0 stable release?
     resolution_status: open
-  - question_id: oq_archive_doi
-    question: Will v0.1.0 be deposited in Zenodo, OSF, an institutional repository, or another archival registry?
+  - question_id: oq_l5_preservation
+    question: What preservation evidence is required before any L5 archival/publication-ready claim?
     resolution_status: open
-  - question_id: oq_validation_report
-    question: Where is the package validation report for schema, inventory, link, and metadata checks?
+  - question_id: oq_independent_review
+    question: What independent review record is sufficient before L4 reusable stable status?
     resolution_status: open
-  - question_id: oq_release_checklist
-    question: Where is the completed release or publication readiness checklist evidence?
+  - question_id: oq_canonical_example
+    question: What canonical example package should be validated before 1.0.0?
     resolution_status: open
   retention_rule:
     retention_id: ret_release_records_permanent
@@ -497,28 +518,39 @@ release_record:
     changed_by: GPT-5.5 Thinking
     description: Created first release record for DSR Framework v0.1.0.
     related_request: record_release_v0_1_0
+  - version: 0.1.1
+    date: '2026-04-28'
+    change_type: v1_readiness_status_reconciliation
+    changed_by: GPT-5.5 Thinking
+    description: Reclassified v0.1.0 release record from L5 target posture to qualified L2 public-draft evidence and deferred L5.
+    related_request: v1_readiness_audit_remediation
+  - version: 0.1.2
+    date: '2026-04-28'
+    change_type: release_fact_cleanup
+    changed_by: GPT-5.5 Thinking
+    description: Split confirmed v0.1.0 public-draft facts from future v1/L5 follow-up and removed stale DOI/tag open questions.
+    related_request: pr_1_cleanup_review
   completion_report:
     generated_selection_id: record_release_v0_1_0
     generated_path: records/releases/record-release-0001-v0-1-0.yaml
     item_type: record
     output_format: yaml
-    conformance_target: l5_archival_publication_ready
+    conformance_target: l2_reviewable_qualified_public_draft
     dependencies_used:
     - dsr_framework_generation_prompt
     - dsr_framework_generation_spec
     - dsr_framework_selection_table
     - release_readiness_checklist_dependency
     assumptions:
-    - The release record should be created as a conservative retained record rather than claiming final external archival
-      completion.
+    - The release record should be retained as public-draft release evidence rather than stable or L5 release approval.
     - The package version for the first release is v0.1.0.
-    - Unverified repository, archive, DOI, and validation facts should remain marked pending or TODO.
+    - GitHub release and Zenodo DOI facts are confirmed for v0.1.0, while preservation and metadata-freeze evidence remains future work.
     open_questions:
-    - oq_release_approver
-    - oq_release_tag
-    - oq_archive_doi
-    - oq_validation_report
-    - oq_release_checklist
+    - oq_v1_metadata_freeze
+    - oq_v1_release_approval
+    - oq_l5_preservation
+    - oq_independent_review
+    - oq_canonical_example
     quality_gate_status:
       consistency: conditional_pass
       coherence: conditional_pass

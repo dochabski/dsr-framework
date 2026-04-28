@@ -3,9 +3,11 @@ SPDX-License-Identifier: CC0-1.0
 item_id: root_readme
 item_type: description
 selection_id: root_readme
-status: draft
+status: 0.1.0_public_draft
 version: 0.1.0
-conformance_target: l1_documented
+file_conformance: l1_documented
+package_conformance: l2_reviewable_qualified_public_draft
+v1_target_package_conformance: l4_reusable_stable
 -->
 
 # Design Science Research Framework
@@ -18,14 +20,20 @@ This repository treats DSR as a research tradition centered on purposeful artifa
 
 | Field | Value |
 |---|---|
-| Package status | Public draft release -- usable, citable, but still under active validation. |
+| Package status | `0.1.0_public_draft` -- usable, citable, but still under active validation. |
 | Current package version | `0.1.0` |
 | Default root README conformance | `L1 documented` |
 | Current organization state | Canonical directory structure populated from the product catalog |
-| Current validation state | YAML/JSON/CFF parsing passes; schema/template and schema/record validation pairs pass; all 71 repaired corpus sources are multi-file substantively grounded |
-| Intended package trajectory | Continue from public draft toward independently reviewed, exercisable, and reuse-tested releases |
+| Current validation state | Qualified `L2 reviewable` public-draft evidence: YAML/JSON/CFF parsing passes; schema/template and schema/record validation pairs pass; all 71 repaired corpus sources are multi-file substantively grounded |
+| Intended package trajectory | `1.0.0-rc.N` toward `1.0.0_stable` with an `L4 reusable` target; `L5 archival/publication-ready` is reserved for a later release with independent review, preservation, registry, and metadata-freeze evidence |
 | Primary audience | DSR researchers, doctoral supervisors, methods instructors, reviewers, editors, and artifact-package maintainers |
 | Primary use | Establish a public entry point for a reusable DSR documentation and review framework |
+
+## Release progression
+
+This repository uses a controlled status progression: `0.1.0_public_draft`, `1.0.0-rc.N`, and `1.0.0_stable`. The current release is published and citable as a public draft with qualified L2 reviewability evidence. It is not a stable 1.0 framework, not L3 exercisable, not L4 reuse-validated, and not L5 archival/publication-ready.
+
+The selected v1 target is `l4_reusable_stable`. L5 archival/publication-ready status requires a separate release decision with completed preservation, metadata-freeze, registry, independent-review, and release-approval records.
 
 ## What this framework provides
 
@@ -166,21 +174,21 @@ This repository is under active construction. Users should treat the framework a
 Known limitations at this stage:
 
 - The root README provides orientation but not a complete controlled specification.
-- Required root files are present as draft files, but public metadata such as repository URL, named creators, maintainer contact, release date, and DOI information still needs confirmation.
-- Source-to-claim traceability exists unevenly and needs a second-pass literature alignment review against the repaired corpus.
+- Required root files are present, and public repository, creator, maintainer, release, license, and DOI facts are recorded for v0.1.0; stable v1 metadata still needs a separate freeze record.
+- Source-to-framework traceability is repaired for all 71 corpus sources; claim-level traceability remains uneven and needs a dedicated v1 mapping pass.
 - Schemas validate the current templates and records, but they should be tightened field-by-field after structure and vocabulary decisions stabilize.
 - Example packages should not be treated as evaluation evidence unless a corresponding evaluation record exists.
-- Publication readiness should not be claimed until release, review, preservation, and citation records are complete.
+- L4/L5 readiness should not be claimed until validation automation, example use, review, preservation, and release records support those levels.
 
 ## Recommended next work
 
 For the repository to move beyond organized draft status, complete these work items next:
 
-1. Confirm public repository metadata, maintainership, creator information, license choice, citation metadata, and archival metadata.
-2. Run a second-pass literature alignment review using the repaired extraction corpus.
-3. Tighten schemas from permissive structure validation toward stricter field-level validation.
-4. Update release, preservation, and conformance records after metadata and review evidence are ready.
-5. Add worked examples only after templates and validation expectations stabilize.
+1. Finish the v1 readiness audit and keep root metadata, conformance, inventory, release records, and citation files consistent.
+2. Tighten schemas from permissive structure validation toward stricter field-level validation.
+3. Add a canonical worked example package after templates and validation expectations stabilize.
+4. Convert source-level grounding into claim-level traceability.
+5. Add retained review, preservation, metadata-freeze, and release-approval records before any stable v1 or L5 claim.
 
 ## Citation and reuse
 

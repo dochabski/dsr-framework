@@ -1,6 +1,6 @@
 # Governance
 
-The DSR Framework is governed as a maintained research-artifact package. Until a public repository and named maintainers are finalized, governance decisions are draft and should be recorded through retained records.
+The DSR Framework is governed as a maintained public-draft research-artifact package. David Ochabski is the current steward; role assignments, release authority, and independent-review expectations remain draft until v1 release records are approved.
 
 ## Roles
 

@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_v1_readiness_audit
+  record_class: readiness_audit
+  title: V1 Readiness Audit
+  date: "2026-04-28"
+  status: remediation_open
+  repository: dochabski/dsr-framework
+  branch: v1-readiness-audit
+  review_scope:
+    - repository_tree_vs_package_inventory
+    - root_metadata_consistency
+    - conformance_claim_consistency
+    - release_readiness_language
+    - validation_automation_presence
+  evidence_basis:
+    - README.md
+    - metadata.yaml
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    - package-inventory.yaml
+    - manifest.yaml
+    - CITATION.cff
+    - .zenodo.json
+    - codemeta.json
+    - records/releases/record-release-0001-v0-1-0.yaml
+  findings:
+    - finding_id: v1_audit_001
+      severity: high
+      status: remediated_in_branch
+      issue: Root metadata and release records mixed public-draft, release-candidate, and archival-publication-ready language.
+      decision: Normalize v0.1.0 as a public draft with qualified L2 reviewability evidence and no L3/L4/L5 claim.
+    - finding_id: v1_audit_002
+      severity: high
+      status: remediated_in_branch
+      issue: The v0.1.0 release record used l5_archival_publication_ready as its conformance target.
+      decision: Reclassify the release record as public-draft/L2 evidence and reserve L5 for a later release with preservation and independent-review gates.
+    - finding_id: v1_audit_003
+      severity: medium
+      status: remediated_in_branch
+      issue: GitHub validation automation was planned but not operationalized in the public repository.
+      decision: Add scripts/validate-package.py and .github/workflows/validate-package.yaml for parse, schema, inventory, link, and status checks.
+    - finding_id: v1_audit_004
+      severity: medium
+      status: deferred
+      issue: Empty or planned directories remain for examples, preservation, tailoring, design decisions, and issue templates.
+      decision: Mark empty required areas as public-draft planned work and require real records before L3/L4/L5 or 1.0.0 stable claims.
+  repository_tree_audit:
+    actual_controlled_file_count_before_remediation: 103
+    ignored_nonpackage_files:
+      - .gitignore
+      - FRAMEWORK_AUDIT_2026-04-27.md
+      - _unmapped/
+    inventory_alignment_before_remediation: controlled_inventory_entries_present
+    inventory_alignment_after_remediation: pending_validation_script_run
+  status_model:
+    current_release: 0.1.0_public_draft
+    current_conformance: l2_reviewable_qualified_public_draft
+    v1_release_candidate_pattern: 1.0.0_rc.N
+    v1_stable_target: l4_reusable_stable
+    l5_position: deferred_until_independent_review_preservation_registry_and_release_gates_pass
+  required_followup:
+    - Tighten JSON Schemas from structural validation to release-grade field validation.
+    - Add a canonical worked example package under examples/.
+    - Convert source-level grounding into claim-level traceability.
+    - Run retained completeness, kick-the-tires, and full review records before 1.0.0.
+    - Add preservation and metadata-freeze records before any L5 archival/publication-ready claim.
+  outcome_statement: "The repository is suitable for a reconciled public-draft hardening branch, not for immediate 1.0.0 or L5 claims."
+  retention_rule: retain_with_v1_readiness_records

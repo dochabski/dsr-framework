@@ -7,13 +7,14 @@ package_inventory:
   title: DSR Framework Package Inventory
   purpose: Inventory all required, planned, and controlled files in the DSR Framework package and assign validation responsibilities
     for each file class and file entry.
-  status: public_draft_release_published
+  status: 0.1.0_public_draft
   version: 0.1.0
   date: '2026-04-27'
   owner: framework_maintainer
   responsible_party: framework_maintainer
   event_or_action: package_inventory_updated_for_public_draft_release
-  conformance_target: l2_reviewable
+  package_conformance: l2_reviewable_qualified_public_draft
+  v1_target_package_conformance: l4_reusable_stable
   inventory_policy:
     scope: root_repository_package
     file_existence_claim: All controlled files listed in file_inventory exist at their declared package paths in the organized
@@ -23,6 +24,7 @@ package_inventory:
       responsibility, or moved between draft/review/release states.
     source_of_truth_rule: Use package-inventory.yaml as the structured package inventory; human-facing documentation may render
       or summarize it but should not override it.
+    release_progression_rule: The controlled release progression is 0.1.0_public_draft, 1.0.0_rc.N, and 1.0.0_stable; L5 archival/publication-ready status is deferred until preservation, registry, metadata-freeze, and independent-review evidence is retained.
   source_basis:
   - source_id: user_current_request
     role: immediate_task_definition
@@ -258,21 +260,22 @@ package_inventory:
   - directory_id: dir_008
     path: records/decisions
     purpose: Retained decision records.
-    expected_file_count_from_selection_table: 0
-    listed_files: []
-    directory_status: exists_empty_required
-    existence_audit_date: '2026-04-27'
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/decisions/record-decision-v1-conformance-target.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 0
-      present_count: 0
+      listed_count: 1
+      present_count: 1
       missing_count: 0
   - directory_id: dir_009
     path: records/design-decisions
     purpose: Retained artifact and protocol design decisions.
     expected_file_count_from_selection_table: 0
     listed_files: []
-    directory_status: exists_empty_required
-    existence_audit_date: '2026-04-27'
+    directory_status: planned_not_present_public_draft
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
       listed_count: 0
       present_count: 0
@@ -282,8 +285,8 @@ package_inventory:
     purpose: Tailoring and conformance adaptation records.
     expected_file_count_from_selection_table: 0
     listed_files: []
-    directory_status: exists_empty_required
-    existence_audit_date: '2026-04-27'
+    directory_status: planned_not_present_public_draft
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
       listed_count: 0
       present_count: 0
@@ -339,15 +342,16 @@ package_inventory:
   - directory_id: dir_015
     path: records/reviews
     purpose: Review and self-review records.
-    expected_file_count_from_selection_table: 2
+    expected_file_count_from_selection_table: 3
     listed_files:
     - records/reviews/record-review-0001-self-review.yaml
     - records/reviews/record-literature-alignment-0001.yaml
+    - records/reviews/record-review-v1-readiness-audit.yaml
     directory_status: exists_files_verified
-    existence_audit_date: '2026-04-27'
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 2
-      present_count: 2
+      listed_count: 3
+      present_count: 3
       missing_count: 0
   - directory_id: dir_016
     path: records/releases
@@ -366,8 +370,8 @@ package_inventory:
     purpose: Preservation and archival records.
     expected_file_count_from_selection_table: 0
     listed_files: []
-    directory_status: exists_empty_required
-    existence_audit_date: '2026-04-27'
+    directory_status: planned_not_present_public_draft
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
       listed_count: 0
       present_count: 0
@@ -389,8 +393,8 @@ package_inventory:
     purpose: Demonstration packages, not required package files.
     expected_file_count_from_selection_table: 0
     listed_files: []
-    directory_status: exists_empty_required
-    existence_audit_date: '2026-04-27'
+    directory_status: planned_not_present_public_draft
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
       listed_count: 0
       present_count: 0
@@ -400,8 +404,8 @@ package_inventory:
     purpose: Issue templates for repository governance.
     expected_file_count_from_selection_table: 0
     listed_files: []
-    directory_status: exists_empty_required
-    existence_audit_date: '2026-04-27'
+    directory_status: planned_not_present_public_draft
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
       listed_count: 0
       present_count: 0
@@ -409,13 +413,14 @@ package_inventory:
   - directory_id: dir_021
     path: .github/workflows
     purpose: Automation workflows for validation and release checks.
-    expected_file_count_from_selection_table: 0
-    listed_files: []
-    directory_status: exists_empty_required
-    existence_audit_date: '2026-04-27'
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - .github/workflows/validate-package.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 0
-      present_count: 0
+      listed_count: 1
+      present_count: 1
       missing_count: 0
   - directory_id: dir_022
     path: LICENSES
@@ -430,6 +435,30 @@ package_inventory:
       listed_count: 2
       present_count: 2
       missing_count: 0
+  - directory_id: dir_023
+    path: records/validation
+    purpose: Validation summaries and retained validation evidence.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - records/validation/validation-summary-latest.json
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-28'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
+  - directory_id: dir_024
+    path: scripts
+    purpose: Repository validation and maintenance tooling.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - scripts/validate-package.py
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-04-28'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
   root_file_inventory:
   - path: README.md
     listed: true
@@ -441,14 +470,14 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0002
     exists: true
-    current_status: present_draft_needs_final_license_confirmation
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_license_confirmed_v0_1_0_v1_freeze_pending
+    existence_audit_date: '2026-04-28'
   - path: CITATION.cff
     listed: true
     inventory_entry_id: inv_0003
     exists: true
-    current_status: present_draft_needs_creator_repository_and_release_metadata
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending
+    existence_audit_date: '2026-04-28'
   - path: CHANGELOG.md
     listed: true
     inventory_entry_id: inv_0004
@@ -465,14 +494,14 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0006
     exists: true
-    current_status: present_draft_needs_public_maintainer_confirmation
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_governance_policy_v1_role_confirmation_pending
+    existence_audit_date: '2026-04-28'
   - path: SECURITY.md
     listed: true
     inventory_entry_id: inv_0007
     exists: true
-    current_status: present_draft
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_security_policy_v1_support_policy_pending
+    existence_audit_date: '2026-04-28'
   - path: CODE_OF_CONDUCT.md
     listed: true
     inventory_entry_id: inv_0008
@@ -483,8 +512,8 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0009
     exists: true
-    current_status: present_draft_do_not_publish_until_metadata_confirmed
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending
+    existence_audit_date: '2026-04-28'
   - path: manifest.yaml
     listed: true
     inventory_entry_id: inv_0010
@@ -495,14 +524,14 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0011
     exists: true
-    current_status: present_draft_needs_public_metadata_confirmation
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending
+    existence_audit_date: '2026-04-28'
   - path: artifact-profile.yaml
     listed: true
     inventory_entry_id: inv_0012
     exists: true
-    current_status: present_draft_schema_validated
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_schema_validated_v1_followup_pending
+    existence_audit_date: '2026-04-28'
   - path: package-inventory.yaml
     listed: true
     inventory_entry_id: inv_0013
@@ -513,8 +542,8 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0014
     exists: true
-    current_status: present_draft_schema_validated
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_schema_validated_current_l2_qualified
+    existence_audit_date: '2026-04-28'
   - path: REUSE.toml
     listed: true
     inventory_entry_id: root_REUSE_toml
@@ -527,6 +556,12 @@ package_inventory:
     exists: true
     current_status: present_codemeta_metadata
     existence_audit_date: '2026-04-27'
+  - path: .gitattributes
+    listed: true
+    inventory_entry_id: root_gitattributes
+    exists: true
+    current_status: present_public_draft_lf_normalization_policy
+    existence_audit_date: '2026-04-28'
   validation_profiles:
   - validation_profile_id: vp_yaml_controlled_file
     applies_to: General controlled YAML files.
@@ -602,6 +637,13 @@ package_inventory:
     - Root governance file exists at declared path.
     - Content is consistent with repository license, contribution process, and community expectations.
     - No governance policy conflicts with conformance declaration or release process.
+  - validation_profile_id: vp_repository_configuration
+    applies_to: Repository configuration files such as .gitattributes.
+    primary_responsible_role: repository_quality_reviewer
+    required_checks:
+    - Configuration file exists at declared path.
+    - Text-file normalization policy is explicit.
+    - Binary file patterns are not normalized as text.
   - validation_profile_id: vp_release_metadata
     applies_to: CITATION.cff, .zenodo.json, CHANGELOG.md, and release records.
     primary_responsible_role: release_manager
@@ -1402,6 +1444,7 @@ package_inventory:
     output_format: yaml
     purpose: Release, DOI, registry, archival, and publication-readiness model.
     default_conformance: l5
+    default_conformance_scope: product_specification_file_default_not_package_claim
     required_for_package_class: true
     dependency_basis:
     - metadata profile
@@ -3875,7 +3918,7 @@ package_inventory:
     portion_type: record
     output_format: yaml
     purpose: First release record.
-    default_conformance: l5
+    default_conformance: l2
     required_for_package_class: true
     dependency_basis:
     - release readiness checklist
@@ -4096,6 +4139,188 @@ package_inventory:
     - uses_declared_path_and_extension
     - parses_or_is_plain_text
     - aligns_with_root_metadata
+  - inventory_entry_id: inv_0104
+    file_id: file_records__reviews__record_review_v1_readiness_audit_yaml
+    selection_id: record_review_v1_readiness_audit
+    path: records/reviews/record-review-v1-readiness-audit.yaml
+    package_section: records/reviews
+    portion_type: review_record
+    output_format: yaml
+    purpose: V1 readiness audit record for status, conformance, inventory, and validation-automation remediation.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - evaluator_v1_readiness_findings
+    - root_metadata_files
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - findings_and_decisions_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - states_status_conformance_findings
+    - does_not_overclaim_1_0_or_l5
+  - inventory_entry_id: inv_0105
+    file_id: file_records__decisions__record_decision_v1_conformance_target_yaml
+    selection_id: record_decision_v1_conformance_target
+    path: records/decisions/record-decision-v1-conformance-target.yaml
+    package_section: records/decisions
+    portion_type: decision_record
+    output_format: yaml
+    purpose: Retain the decision that v1.0.0 targets L4 reusable stable and defers L5.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - v1_readiness_audit
+    - documentation_protocol_conformance_levels
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - conformance_target_declared
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_selected_target_and_rejected_options
+    - does_not_claim_l5
+  - inventory_entry_id: inv_0106
+    file_id: file_scripts__validate_package_py
+    selection_id: validation_script_validate_package
+    path: scripts/validate-package.py
+    package_section: scripts
+    portion_type: validation_script
+    output_format: python
+    purpose: Operational repository validation for parse checks, schema checks, inventory alignment, internal links, and status consistency.
+    default_conformance: l3
+    required_for_package_class: false
+    dependency_basis:
+    - product-dsr-automation-and-validation-model
+    - v1_readiness_audit
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_executable_validation
+    validation_responsibility:
+      primary_role: automation_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: self_validating
+      evidence_expected:
+      - path_exists
+      - script_runs_successfully
+      - validation_summary_written_when_requested
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_python
+    - validates_core_package_controls
+    - fails_on_l5_overclaim
+  - inventory_entry_id: inv_0107
+    file_id: file_github__workflows__validate_package_yaml
+    selection_id: validation_workflow_validate_package
+    path: .github/workflows/validate-package.yaml
+    package_section: .github/workflows
+    portion_type: github_actions_workflow
+    output_format: yaml
+    purpose: Run package validation on pull requests and pushes to main.
+    default_conformance: l3
+    required_for_package_class: false
+    dependency_basis:
+    - scripts/validate-package.py
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_github_actions_workflow
+    validation_responsibility:
+      primary_role: automation_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: github_actions
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - invokes_validation_script
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - runs_on_pull_request_and_main_push
+    - installs_required_dependencies
+  - inventory_entry_id: inv_0108
+    file_id: file_records__validation__validation_summary_latest_json
+    selection_id: validation_summary_latest
+    path: records/validation/validation-summary-latest.json
+    package_section: records/validation
+    portion_type: validation_summary
+    output_format: json
+    purpose: Latest machine-readable validation summary produced by scripts/validate-package.py.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - scripts/validate-package.py
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_json_controlled_file
+    validation_responsibility:
+      primary_role: automation_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_json
+      - validation_result_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_json
+    - reports_result_counts
+  - inventory_entry_id: inv_0109
+    file_id: file_gitattributes
+    selection_id: repository_line_ending_policy
+    path: .gitattributes
+    package_section: root
+    portion_type: repository_configuration
+    output_format: gitattributes
+    purpose: Normalize repository text files to LF line endings and mark common binary artifacts as binary.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - v1_readiness_audit
+    - repository_quality_review
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_repository_configuration
+    validation_responsibility:
+      primary_role: repository_quality_reviewer
+      review_roles:
+      - framework_maintainer
+      automation_role: git_normalization
+      evidence_expected:
+      - path_exists
+      - git_diff_check_passes
+      - line_ending_churn_prevented
+    minimum_acceptance_criteria:
+    - exists_at_root
+    - declares_lf_text_normalization
+    - marks_common_binary_formats_binary
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -4188,15 +4413,17 @@ package_inventory:
       evidence_status_counts:
         substantive: 142
     publication_metadata_status: published_github_and_zenodo_public_draft_2026-04-27
+    v1_readiness_status_reconciliation: in_progress_2026-04-28
+    validation_automation_status: added_validate_package_script_and_github_actions_workflow
   assumptions:
   - Inventory status present_at_declared_path means the file exists at the organized package path; it does not mean the content
     is final or publication-ready.
-  - Draft root metadata files intentionally retain TODO values until public repository, creator, release, and archival details
-    are confirmed.
+  - Public-draft repository, creator, release, license, DOI, and Zenodo facts are confirmed for v0.1.0; v1 metadata freeze,
+    L5 preservation, independent review, and release approval remain future work.
   - Schema validation currently confirms structure compatibility with generated templates and records; stricter field-level
     constraints should be added in later passes.
   limitations:
-  - This inventory does not certify publication readiness, DOI readiness, or final citation metadata.
+  - This inventory does not certify L4 reusable or L5 archival/publication-ready conformance.
   - External link validation and full cross-reference validation have not yet been run.
   - Human bibliographic review and second-pass source-to-claim literature alignment remain pending.
   - Auxiliary files are identified separately from controlled product-catalog files and need disposition before public release.
@@ -4263,18 +4490,33 @@ package_inventory:
     change: Recorded publication of Zenodo DOI and archived v0.1.0 package.
     responsible_party: framework_maintainer
     review_status: zenodo_deposition_published
+  - version: 0.1.1
+    date: '2026-04-28'
+    change: Added v1 readiness audit records, validation automation, and normalized current status to qualified L2 public draft with L4 as the v1 stable target.
+    responsible_party: framework_maintainer
+    review_status: validation_automation_added_pending_full_v1_review
+  - version: 0.1.2
+    date: '2026-04-28'
+    change: Reconciled root-file metadata statuses to reflect confirmed v0.1.0 public-draft facts while reserving v1 freeze and L5 preservation work.
+    responsible_party: framework_maintainer
+    review_status: final_public_draft_reconciliation
+  - version: 0.1.2
+    date: '2026-04-28'
+    change: Added .gitattributes to normalize text line endings and inventoried it as repository configuration.
+    responsible_party: framework_maintainer
+    review_status: final_public_draft_reconciliation
   normalization_status:
-    status: organized_literature_trace_remediated_draft
+    status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 103
+    controlled_file_inventory_entries: 109
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
     schema_template_record_validation_status: pass
     repaired_corpus_status: available_outside_package_root_for_next_literature_alignment_pass
-    publication_readiness_status: github_release_and_zenodo_deposition_published_public_draft
+    publication_readiness_status: published_citable_public_draft_not_l5
     latest_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
     literature_alignment_status: pass_with_required_followup
     source_traceability_status: passed_all_71_sources_multi_file_grounded
@@ -4283,4 +4525,6 @@ package_inventory:
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424
     zenodo_record_url: https://zenodo.org/records/19835424
+    v1_target_package_conformance: l4_reusable_stable
+    l5_status: deferred_until_preservation_registry_metadata_freeze_and_independent_review
   auxiliary_file_inventory: []
