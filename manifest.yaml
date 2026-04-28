@@ -80,10 +80,12 @@ manifest:
       latest_v1_kick_the_tires_review: records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
       latest_v1_full_review: records/reviews/record-review-0004-full-review-v1-0-0.yaml
       latest_v1_author_response: records/reviews/record-author-response-0001-v1-0-0.yaml
-      v1_review_packet_status: retained_review_packet_present_pending_metadata_freeze_release_record_and_approval
+      v1_review_packet_status: retained_review_packet_present_release_approval_recorded
       latest_metadata_freeze_record: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
       latest_v1_release_record: records/releases/record-release-0002-v1-0-0.yaml
-      v1_release_record_status: ready_for_release_approval
+      latest_v1_release_approval: records/releases/record-release-approval-0001-v1-0-0.yaml
+      v1_release_record_status: approved_for_github_release
+      v1_release_approval_status: approved_for_github_release
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -678,6 +680,11 @@ manifest:
     to: records/releases/record-release-0002-v1-0-0.yaml
     relation: supports_v1_release_record
     evidence_status: retained_release_record
+  - trace_id: tr_v1_release_record_to_release_approval
+    from: records/releases/record-release-0002-v1-0-0.yaml
+    to: records/releases/record-release-approval-0001-v1-0-0.yaml
+    relation: supports_v1_release_approval
+    evidence_status: retained_release_approval_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -715,6 +722,7 @@ manifest:
     - records/reviews/record-author-response-0001-v1-0-0.yaml
     - records/releases/record-metadata-freeze-0001-v1-0-0.yaml
     - records/releases/record-release-0002-v1-0-0.yaml
+    - records/releases/record-release-approval-0001-v1-0-0.yaml
     - records/releases/github-release-notes-v1-0-0.md
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
@@ -902,3 +910,9 @@ manifest:
     description: Froze v1.0.0 metadata and added retained v1 release record and GitHub release notes.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_metadata_freeze_and_release_record
+  - version: 1.0.0
+    date: '2026-04-28'
+    change_type: v1_release_approval
+    description: Added retained v1.0.0 release approval record for the L4 reusable-stable GitHub release.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_release_approval

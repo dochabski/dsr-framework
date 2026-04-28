@@ -372,17 +372,18 @@ package_inventory:
   - directory_id: dir_016
     path: records/releases
     purpose: Release records.
-    expected_file_count_from_selection_table: 4
+    expected_file_count_from_selection_table: 5
     listed_files:
     - records/releases/record-release-0001-v0-1-0.yaml
     - records/releases/record-metadata-freeze-0001-v1-0-0.yaml
     - records/releases/record-release-0002-v1-0-0.yaml
+    - records/releases/record-release-approval-0001-v1-0-0.yaml
     - records/releases/github-release-notes-v1-0-0.md
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 4
-      present_count: 4
+      listed_count: 5
+      present_count: 5
       missing_count: 0
   - directory_id: dir_017
     path: records/preservation
@@ -5441,6 +5442,46 @@ package_inventory:
     - uses_declared_path_and_extension
     - documents_v1_release_notes
     - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0145
+    file_id: file_records__releases__record_release_approval_0001_v1_0_0_yaml
+    selection_id: record_release_approval_0001_v1_0_0
+    path: records/releases/record-release-approval-0001-v1-0-0.yaml
+    package_section: records/releases
+    portion_type: release_approval_record
+    output_format: yaml
+    purpose: Retain v1.0.0 release approval for the L4 reusable-stable GitHub release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0002-v1-0-0.yaml
+    - records/releases/record-metadata-freeze-0001-v1-0-0.yaml
+    - records/validation/validation-summary-latest.json
+    - records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    - records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    - records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    - records/reviews/record-author-response-0001-v1-0-0.yaml
+    - crosswalks/claim-to-source-traceability.yaml
+    - examples/canonical-minimal-dsr-package/README.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - release_manager
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - release_approval_recorded
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_v1_release_approval
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -5695,12 +5736,17 @@ package_inventory:
     change: Froze v1.0.0 release metadata and added v1 release record and GitHub release notes.
     responsible_party: framework_maintainer
     review_status: v1_metadata_freeze_and_release_record_created
+  - version: 1.0.0
+    date: '2026-04-28'
+    change: Added retained v1.0.0 release approval record.
+    responsible_party: framework_maintainer
+    review_status: v1_release_approval_recorded
   normalization_status:
     status: 1.0.0_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 144
+    controlled_file_inventory_entries: 145
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -5726,10 +5772,12 @@ package_inventory:
     latest_v1_kick_the_tires_review: records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
     latest_v1_full_review: records/reviews/record-review-0004-full-review-v1-0-0.yaml
     latest_v1_author_response: records/reviews/record-author-response-0001-v1-0-0.yaml
-    v1_review_packet_status: retained_review_packet_present_pending_metadata_freeze_release_record_and_approval
+    v1_review_packet_status: retained_review_packet_present_release_approval_recorded
     latest_metadata_freeze_record: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
     latest_v1_release_record: records/releases/record-release-0002-v1-0-0.yaml
-    v1_release_record_status: ready_for_release_approval
+    latest_v1_release_approval: records/releases/record-release-approval-0001-v1-0-0.yaml
+    v1_release_record_status: approved_for_github_release
+    v1_release_approval_status: approved_for_github_release
     source_traceability_validation_counts: *id001
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424
