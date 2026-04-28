@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: CC0-1.0
+tailoring_record:
+  record_id: record_tailoring_0001_public_draft_conformance_scope
+  record_class: tailoring
+  item_type: record
+  title: Public-Draft Conformance Scope Tailoring
+  status: approved
+  version: "0.1.0"
+  date: "2026-04-28"
+  responsible_party: framework_maintainer
+  event_or_action: public_draft_conformance_scope_tailoring
+  tailoring_subject:
+    current_package_status: 0.1.0_public_draft
+    current_package_conformance: l2_reviewable_qualified_public_draft
+    v1_target_package_conformance: l4_reusable_stable
+    l5_status: deferred
+  tailoring_decisions:
+    - decision_id: pd_tailoring_001
+      rule: TODO and deferred markers are allowed in public-draft mode but block release-candidate mode.
+      rationale: The repository is reviewable as a public draft while retained v1 evidence remains incomplete.
+    - decision_id: pd_tailoring_002
+      rule: Canonical examples are deferred until templates and checklists stabilize.
+      rationale: Examples should exercise settled authoring expectations and should not become premature evaluation evidence.
+    - decision_id: pd_tailoring_003
+      rule: Schema field hardening is deferred until example and template expectations stabilize.
+      rationale: Strict constraints should be introduced against known positive examples and migration expectations.
+    - decision_id: pd_tailoring_004
+      rule: Source-level crosswalk remediation supports public-draft reviewability, not claim-level v1 proof.
+      rationale: All 71 corpus sources are substantively grounded, but major framework claims still need claim-specific evidence mapping.
+    - decision_id: pd_tailoring_005
+      rule: L5 requires separate preservation closure, registry, metadata freeze, independent review, and release approval.
+      rationale: DOI publication and public-draft preservation evidence do not by themselves satisfy archival/publication-ready conformance.
+  evidence_basis:
+    - README.md
+    - conformance-declaration.yaml
+    - manifest.yaml
+    - package-inventory.yaml
+    - records/releases/record-release-0001-v0-1-0.yaml
+    - records/validation/validation-summary-latest.json
+    - records/preservation/record-preservation-0001-v0-1-0.yaml
+    - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+  outcome:
+    status: tailoring_accepted_for_public_draft
+    allowed_current_claims:
+      - citable_public_draft
+      - l2_reviewable_qualified_public_draft
+      - v1_target_l4_reusable_stable
+    prohibited_current_claims:
+      - stable_v1
+      - achieved_l4_reusable
+      - l5_archival_publication_ready
+    validation_implication: public_draft_validation_must_pass_release_candidate_validation_may_fail_for_retained_v1_blockers
+  related_items:
+    upstream:
+      - conformance-declaration.yaml
+      - records/decisions/record-decision-v1-conformance-target.yaml
+      - records/reviews/record-review-v1-readiness-audit.yaml
+    peer:
+      - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+      - package-inventory.yaml
+      - manifest.yaml
+    downstream:
+      - records/reviews/
+      - records/releases/
+      - records/preservation/
+  retention_rule:
+    retention_class: conformance_tailoring_record
+    minimum_retention: retain_for_life_of_repository
+    supersession_rule: Supersede only with a later conformance declaration or release-readiness tailoring record.

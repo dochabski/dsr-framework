@@ -58,6 +58,9 @@ manifest:
       latest_literature_alignment_review: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
       prior_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
       literature_alignment_status: post_crosswalk_review_pass_with_required_followup
+      latest_design_decision_record: records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+      latest_tailoring_record: records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
+      public_draft_tailoring_status: accepted_for_0_1_0_public_draft_l2_scope
       latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
@@ -574,6 +577,16 @@ manifest:
     to: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
     relation: supports_post_crosswalk_literature_alignment_review
     evidence_status: review_completed_pass_with_required_followup
+  - trace_id: tr_v1_readiness_to_public_draft_hardening_decision
+    from: records/reviews/record-review-v1-readiness-audit.yaml
+    to: records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+    relation: informs_public_draft_hardening_sequence
+    evidence_status: retained_governance_record
+  - trace_id: tr_conformance_to_public_draft_tailoring_record
+    from: conformance-declaration.yaml
+    to: records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
+    relation: documents_public_draft_conformance_tailoring
+    evidence_status: retained_governance_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -599,6 +612,8 @@ manifest:
     - schemas/package-inventory.schema.json
     - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
     - records/reviews/record-literature-alignment-0001.yaml
+    - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+    - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
   acceptance_criteria:
   - criterion_id: ac_manifest_identity
     criterion: Manifest declares a stable package identity and root repository role.
@@ -715,3 +730,9 @@ manifest:
     description: Updated latest literature alignment review to the post-crosswalk review while preserving the earlier review as historical evidence.
     responsible_party: framework_maintainer
     related_request: command_queue_post_crosswalk_review
+  - version: 0.1.5
+    date: '2026-04-28'
+    change_type: public_draft_decision_tailoring_records
+    description: Added retained design-decision and tailoring records for public-draft hardening sequence and conformance-scope governance.
+    responsible_party: framework_maintainer
+    related_request: command_queue_public_draft_decision_tailoring_records
