@@ -470,14 +470,14 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0002
     exists: true
-    current_status: present_draft_needs_final_license_confirmation
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_license_confirmed_v0_1_0_v1_freeze_pending
+    existence_audit_date: '2026-04-28'
   - path: CITATION.cff
     listed: true
     inventory_entry_id: inv_0003
     exists: true
-    current_status: present_draft_needs_creator_repository_and_release_metadata
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending
+    existence_audit_date: '2026-04-28'
   - path: CHANGELOG.md
     listed: true
     inventory_entry_id: inv_0004
@@ -512,8 +512,8 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0009
     exists: true
-    current_status: present_draft_do_not_publish_until_metadata_confirmed
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending
+    existence_audit_date: '2026-04-28'
   - path: manifest.yaml
     listed: true
     inventory_entry_id: inv_0010
@@ -524,14 +524,14 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0011
     exists: true
-    current_status: present_draft_needs_public_metadata_confirmation
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending
+    existence_audit_date: '2026-04-28'
   - path: artifact-profile.yaml
     listed: true
     inventory_entry_id: inv_0012
     exists: true
-    current_status: present_draft_schema_validated
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_schema_validated_v1_followup_pending
+    existence_audit_date: '2026-04-28'
   - path: package-inventory.yaml
     listed: true
     inventory_entry_id: inv_0013
@@ -542,8 +542,8 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0014
     exists: true
-    current_status: present_draft_schema_validated
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_schema_validated_current_l2_qualified
+    existence_audit_date: '2026-04-28'
   - path: REUSE.toml
     listed: true
     inventory_entry_id: root_REUSE_toml
@@ -4375,8 +4375,8 @@ package_inventory:
   assumptions:
   - Inventory status present_at_declared_path means the file exists at the organized package path; it does not mean the content
     is final or publication-ready.
-  - Draft root metadata files intentionally retain TODO values until public repository, creator, release, and archival details
-    are confirmed.
+  - Public-draft repository, creator, release, license, DOI, and Zenodo facts are confirmed for v0.1.0; v1 metadata freeze,
+    L5 preservation, independent review, and release approval remain future work.
   - Schema validation currently confirms structure compatibility with generated templates and records; stricter field-level
     constraints should be added in later passes.
   limitations:
@@ -4452,6 +4452,11 @@ package_inventory:
     change: Added v1 readiness audit records, validation automation, and normalized current status to qualified L2 public draft with L4 as the v1 stable target.
     responsible_party: framework_maintainer
     review_status: validation_automation_added_pending_full_v1_review
+  - version: 0.1.2
+    date: '2026-04-28'
+    change: Reconciled root-file metadata statuses to reflect confirmed v0.1.0 public-draft facts while reserving v1 freeze and L5 preservation work.
+    responsible_party: framework_maintainer
+    review_status: final_public_draft_reconciliation
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'

@@ -388,6 +388,63 @@ def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) ->
     if re.search(r"(?m)^\s+default_conformance:\s*", release_record_text):
         run.error("release record: default_conformance must be renamed or scoped so it cannot read as a current target.")
 
+    conformance_declaration = load_yaml_file(ROOT / "conformance-declaration.yaml")["conformance_declaration"]
+    declaration = conformance_declaration.get("declaration", {})
+    if declaration.get("current_package_conformance", {}).get("id") != "l2_reviewable_qualified_public_draft":
+        run.error("conformance-declaration.yaml: declaration.current_package_conformance.id must be l2_reviewable_qualified_public_draft.")
+    if declaration.get("file_conformance", {}).get("id") != "l1_documented":
+        run.error("conformance-declaration.yaml: declaration.file_conformance.id must be l1_documented.")
+    if declaration.get("v1_target_package_conformance", {}).get("id") != "l4_reusable_stable":
+        run.error("conformance-declaration.yaml: declaration.v1_target_package_conformance.id must be l4_reusable_stable.")
+
+    catalog_ids = {
+        item.get("level_id")
+        for item in conformance_declaration.get("conformance_level_catalog", [])
+        if isinstance(item, dict)
+    }
+    if "l2_reviewable_qualified_public_draft" not in catalog_ids:
+        run.error("conformance-declaration.yaml: conformance catalog must include l2_reviewable_qualified_public_draft or an explicit mapping.")
+
+    conformance_text = (ROOT / "conformance-declaration.yaml").read_text(encoding="utf-8")
+    stale_conformance_phrases = [
+        "must not claim L2 or higher",
+        "prevents_l2_or_higher_package_claim",
+        "L1 is declared and higher-level claims are explicitly reserved",
+        "claims L2 or higher conformance without",
+    ]
+    if declaration.get("current_package_conformance", {}).get("id") == "l2_reviewable_qualified_public_draft":
+        for phrase in stale_conformance_phrases:
+            if phrase in conformance_text:
+                run.error(f"conformance-declaration.yaml: stale L1-era conformance phrase remains: {phrase}")
+
+
+def validate_public_draft_metadata_status(run: ValidationRun) -> None:
+    inventory_text = (ROOT / "package-inventory.yaml").read_text(encoding="utf-8")
+    stale_inventory_phrases = [
+        "needs_creator_repository_and_release_metadata",
+        "do_not_publish_until_metadata_confirmed",
+        "needs_public_metadata_confirmation",
+        "retain " + "TO" + "DO" + " values until public repository, creator, release, and archival details are confirmed",
+    ]
+    for phrase in stale_inventory_phrases:
+        if phrase in inventory_text:
+            run.error(f"package-inventory.yaml: stale unconfirmed public-draft metadata status remains: {phrase}")
+
+    inventory = load_yaml_file(ROOT / "package-inventory.yaml")["package_inventory"]
+    root_status_by_path = {
+        entry.get("path"): entry.get("current_status")
+        for entry in inventory.get("root_file_inventory", [])
+        if isinstance(entry, dict)
+    }
+    expected_statuses = {
+        "CITATION.cff": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
+        ".zenodo.json": "present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending",
+        "metadata.yaml": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
+    }
+    for path, expected in expected_statuses.items():
+        if root_status_by_path.get(path) != expected:
+            run.error(f"package-inventory.yaml: root_file_inventory status for {path} must be {expected}.")
+
 
 DEFERRED_MARKER_RE = re.compile(
     r"\b("
@@ -529,6 +586,7 @@ def main() -> int:
     validate_unicode_controls(run)
     validate_release_status_consistency(run)
     validate_conformance_scope(run, inventory)
+    validate_public_draft_metadata_status(run)
     validate_deferred_markers(run)
     validate_release_candidate_gates(run)
 

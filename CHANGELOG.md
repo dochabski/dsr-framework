@@ -19,6 +19,7 @@
 - Cleaned v0.1.0 release-record facts so confirmed GitHub/Zenodo details are separated from future v1/L5 follow-up.
 - Separated file-level and package-level conformance fields in root-facing metadata.
 - Hardened validation for release-record contradictions, conformance-scope ambiguity, Unicode control characters, documentation link coverage, and release-candidate gates.
+- Reconciled conformance declaration and package inventory wording so qualified L2 public-draft conformance is current, while L3/L4/L5 and v1 metadata freeze remain future work.
 
 ## [0.1.0] - 2026-04-27
 

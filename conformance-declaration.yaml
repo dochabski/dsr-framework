@@ -49,6 +49,23 @@ conformance_declaration:
         This supports qualified L2 reviewability for the public draft, but it
         does not assert L3 exercisability, L4 external reuse validation, or L5
         archival/publication-ready conformance.
+    file_conformance:
+      id: l1_documented
+      label: L1 documented
+      scope: conformance-declaration.yaml file-level control record
+    current_package_conformance:
+      id: l2_reviewable_qualified_public_draft
+      label: L2 reviewable qualified public draft
+      maps_to_conformance_family: l2_reviewable
+      scope: DSR Framework v0.1.0 public-draft package
+    v1_target_package_conformance:
+      id: l4_reusable_stable
+      label: L4 reusable stable
+      scope: Future 1.0.0 stable package target after review, examples, validation, and traceability gates pass.
+    not_claimed:
+      - l3_exercisable
+      - l4_reusable_stable
+      - l5_archival_publication_ready
     intended_next_conformance_level:
       id: l4_reusable_stable
       label: L4 reusable stable
@@ -79,6 +96,15 @@ conformance_declaration:
         The item can be reviewed against explicit criteria, evidence requirements,
         dependency mappings, and validation expectations.
       package_claim_allowed: false
+    - level_id: l2_reviewable_qualified_public_draft
+      label: L2 reviewable qualified public draft
+      conformance_family: l2_reviewable
+      minimum_condition: >
+        The public-draft package has root controls, inventory, validation
+        evidence, and source-to-framework traceability sufficient for review,
+        while stronger exercisable, reusable, and archival claims remain reserved.
+      package_claim_allowed: true
+      claim_scope: v0_1_0_public_draft_only
     - level_id: l3_exercisable
       label: L3 exercisable
       minimum_condition: >
@@ -103,9 +129,10 @@ conformance_declaration:
     tailoring_status: active_for_initial_draft
     tailoring_rationale: >
       This declaration is intentionally conservative. It establishes L1
-      documented conformance for the root package control layer while reserving
-      stronger claims until related models, schemas, checklists, package inventory,
-      review records, and release records are available for inspection.
+      documented conformance for this root file and qualified L2 reviewable
+      public-draft conformance for the package, while reserving L3, L4, and L5
+      claims until examples, stricter validation, review records, release
+      approval, and preservation evidence are available for inspection.
     tailored_scope:
       included:
         - root package identity and governance alignment
@@ -116,13 +143,13 @@ conformance_declaration:
       excluded_from_current_claim:
         - empirical evaluation of framework utility
         - proof of artifact reuse by external users
-        - release, DOI, registry, or archival readiness
-        - automated schema validation beyond YAML parseability of this file
-        - complete repository inventory verification
+        - stable release, registry, or archival/publication-ready conformance
+        - L3 exercisable, L4 reusable stable, or L5 archival/publication-ready claims
+        - independent review or external reuse validation
     permitted_unresolved_items:
       - unresolved_item: full_quality_conformance_model
         treatment: dependency_pending_generation_or_review
-        impact_on_claim: prevents_l2_or_higher_package_claim
+        impact_on_claim: prevents_l3_l4_l5_or_release_candidate_claim
       - unresolved_item: conformance_schema
         treatment: expected_downstream_schema
         impact_on_claim: prevents_schema_validated_claim
@@ -241,8 +268,9 @@ conformance_declaration:
     must:
       - obligation_id: co_must_preserve_non_overclaiming
         statement: >
-          The package must not claim L2 or higher conformance until reviewability,
-          validation, and dependency evidence have been generated or mapped.
+          The package must not claim L3, L4, or L5 conformance until
+          exercisability, reusable-stability, preservation, release-approval,
+          and independent-review evidence have been generated or mapped.
       - obligation_id: co_must_keep_root_files_aligned
         statement: >
           The declaration must remain synchronized with manifest.yaml,
@@ -291,9 +319,12 @@ conformance_declaration:
       criterion: The file declares a current conformance level and limits the scope of the claim.
       evidence_required:
         - declared_current_conformance_level
+        - declaration.file_conformance
+        - declaration.current_package_conformance
+        - declaration.v1_target_package_conformance
         - tailoring
         - limitations
-      pass_condition: L1 is declared and higher-level claims are explicitly reserved.
+      pass_condition: File-level L1 and package-level qualified L2 public-draft conformance are declared, while L3/L4/L5 claims are explicitly reserved.
       current_status: pass
     - criterion_id: ac_traceability
       criterion: The file maps source basis, dependencies, related items, and downstream validation expectations.
@@ -338,7 +369,7 @@ conformance_declaration:
       current_status: pass
     - rule_id: vr_no_higher_level_overclaim
       rule_type: semantic
-      statement: Higher conformance levels must not be marked package_claim_allowed true unless evidence has been retained.
+      statement: L3, L4, and L5 conformance levels must not be marked package_claim_allowed true unless evidence has been retained.
       validation_method: reviewer_check
       current_status: pass
     - rule_id: vr_cross_file_consistency
@@ -399,9 +430,9 @@ conformance_declaration:
       consequence: L1 claim for the package control layer must be suspended until corrected.
       remediation_guidance: Reconcile manifest.yaml, metadata.yaml, artifact-profile.yaml, package-inventory.yaml, and this declaration.
     - failure_mode_id: fm_overclaimed_maturity
-      description: The package claims L2 or higher conformance without review records, schemas, inventory evidence, or validation outputs.
-      consequence: Higher-level conformance claim is invalid.
-      remediation_guidance: Downgrade claim to L1 or generate and retain the required evidence.
+      description: The package claims L3, L4, or L5 conformance without examples, review records, preservation evidence, release approval, or validation outputs.
+      consequence: Higher-level conformance claim is invalid; qualified L2 public-draft conformance remains the current package claim.
+      remediation_guidance: Remove the unsupported higher-level claim or generate and retain the required evidence.
     - failure_mode_id: fm_unrecorded_tailoring
       description: Required files, fields, evidence, or review obligations are omitted without a tailoring record.
       consequence: Conformance review cannot determine whether omission is intentional or accidental.
@@ -520,4 +551,9 @@ conformance_declaration:
       date: "2026-04-28"
       change_type: v1_readiness_status_reconciliation
       description: Updated declaration from initial L1 posture to qualified L2 public-draft status and set v1.0.0 target to L4 reusable stable.
+      responsible_party: GPT-5.5 Thinking
+    - version: "0.1.2"
+      date: "2026-04-28"
+      change_type: final_public_draft_reconciliation
+      description: Separated file-level L1 and package-level qualified L2 conformance, mapped qualified L2 into the catalog, and removed stale L2-prohibition language.
       responsible_party: GPT-5.5 Thinking
