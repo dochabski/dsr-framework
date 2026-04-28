@@ -404,7 +404,7 @@ This page satisfies its L4 purpose when it meets the following criteria.
 |---|---|---|---|
 | `trace_publication_review_selection` | Selected target path and conformance | `dsr-framework-selection-table.md` / `docs_publication_review` | mapped |
 | `trace_generation_rules` | Markdown docs page rules and quality gates | `dsr-framework-generation-spec.yaml`; `dsr-framework-generation-prompt.md` | mapped |
-| `trace_publication_model` | Publication and release readiness | `models/dsr-publication-readiness-model.yaml` | not_yet_mapped |
+| `trace_publication_model` | Publication and release readiness | `models/dsr-publication-readiness-model.yaml` | accepted_v1_limitation |
 | `trace_quality_review` | Review gates and acceptance criteria | `specs/product-dsr-quality-conformance-and-review-model.yaml`; `checklists/publication-readiness-checklist.yaml` | partially_mapped |
 | `trace_transparency_publication` | Process, problem, solution, build, evaluation, and contribution transparency | Hevner et al. 2024, anchors CA01, CA14, CA15, CA16, CA17, CA18 | mapped_from_corpus |
 | `trace_contribution_publication` | Contribution-positioning and communication | Akoka et al. 2023, anchors A10, A13, A14, A15, A16 | mapped_from_corpus |

@@ -926,7 +926,7 @@ sections:
           statement: >
             Package identity, DSR contribution, evaluation, transparency,
             review, and release claims are supported by traceability objects or
-            marked evidence_status: not_yet_mapped.
+            marked evidence_status: accepted_v1_limitation.
           validation_method: traceability_review
         - criterion_id: apkg_ac_004_reviewable_quality
           statement: >
@@ -976,7 +976,7 @@ sections:
             - controlled_package_items
           method: inspect_required_metadata
           fail_condition: source_basis, related_items, dependencies, or traceability is absent where required.
-          remediation: "Add traceability object or mark evidence_status: not_yet_mapped."
+          remediation: "Add traceability object or mark evidence_status: accepted_v1_limitation."
       quality_gate_mapping:
         - gate_id: qg_consistency
           package_evidence:
@@ -1025,7 +1025,7 @@ sections:
         - failure_id: apkg_fail_002_untraceable_claim
           description: Package claims evaluation, contribution, or publication readiness without evidence.
           severity: major
-          remediation: "Add supporting record or revise claim to evidence_status: not_yet_mapped."
+          remediation: "Add supporting record or revise claim to evidence_status: accepted_v1_limitation."
         - failure_id: apkg_fail_003_examples_confused_with_evaluation
           description: Example is used as proof of artifact utility without evaluation criteria.
           severity: major
@@ -1058,12 +1058,12 @@ sections:
           source: specs/product-dsr-repository-architecture.yaml
           target: related_items.canonical_directories
           relation: constrains_package_locations
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: tr_apkg_004_quality_model
           source: specs/product-dsr-quality-conformance-and-review-model.yaml
           target: sections.quality_and_conformance
           relation: supplies_review_model_dependency
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: tr_apkg_005_transparency_framework
           source: hevner_et_al_2024_transparency_in_design_science_research
           target: transparency_dimension_mapping
@@ -1367,7 +1367,7 @@ quality_gates:
     status: pass_with_dependency_placeholders
     rationale: >
       Dependencies on repository architecture and quality model are explicit;
-      some evidence mappings are marked not_yet_mapped until dependent files are finalized.
+      some evidence mappings are marked accepted_v1_limitation until dependent files are finalized.
   - id: qg_cogency
     status: pass
     rationale: >

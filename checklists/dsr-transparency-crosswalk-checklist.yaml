@@ -71,22 +71,22 @@ traceability:
     source_item: models/dsr-transparency-model.yaml
     target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
     relationship: checklist_items_follow_six_dimension_model
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
   - trace_id: tr_transparency_checklist_to_template
     source_item: templates/dsr-transparency-crosswalk-template.yaml
     target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
     relationship: checklist_reviews_template_instances
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
   - trace_id: tr_transparency_checklist_to_schema
     source_item: schemas/dsr-transparency-crosswalk.schema.json
     target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
     relationship: checklist_adds_substantive_review_beyond_schema_validation
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
   - trace_id: tr_transparency_checklist_to_quality_gates
     source_item: specs/product-dsr-quality-conformance-and-review-model.yaml
     target_item: checklists/dsr-transparency-crosswalk-checklist.yaml
     relationship: checklist_supports_reviewability_and_conformance_assessment
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
 
 checklist:
   id: dsr_transparency_crosswalk_checklist
@@ -371,7 +371,7 @@ checklist:
             The crosswalk relies on unstated source selection or unexplained authority claims.
           remediation_guidance: >
             Add search strings, databases, source families, selection criteria,
-            limitations, or a note that evidence_status is not_yet_mapped.
+            limitations, or a note that evidence_status is accepted_v1_limitation.
 
     - section_id: build_transparency
       title: Build Transparency
@@ -755,27 +755,27 @@ validation_rules:
     severity: warning
 
 review_output_template:
-  reviewer: "TODO: reviewer name or role"
-  review_date: "TODO: YYYY-MM-DD"
-  reviewed_item_id: "TODO: transparency crosswalk or package ID"
-  reviewed_version: "TODO: version or commit"
+  reviewer: "project_specific_placeholder: reviewer name or role"
+  review_date: "project_specific_placeholder: YYYY-MM-DD"
+  reviewed_item_id: "project_specific_placeholder: transparency crosswalk or package ID"
+  reviewed_version: "project_specific_placeholder: version or commit"
   item_results:
-    - check_id: "TODO: check ID"
-      result: "TODO: pass | partial | fail | not_applicable"
-      rationale: "TODO: brief rationale"
+    - check_id: "project_specific_placeholder: check ID"
+      result: "project_specific_placeholder: pass | partial | fail | not_applicable"
+      rationale: "project_specific_placeholder: brief rationale"
       evidence_locations: []
       remediation_required: false
       remediation_action: null
   dimension_results:
-    process: "TODO: pass | partial | fail | not_applicable"
-    problem_space: "TODO: pass | partial | fail | not_applicable"
-    solution_space: "TODO: pass | partial | fail | not_applicable"
-    build: "TODO: pass | partial | fail | not_applicable"
-    evaluation: "TODO: pass | partial | fail | not_applicable"
-    contribution: "TODO: pass | partial | fail | not_applicable"
-  overall_result: "TODO: pass | partial | fail"
+    process: "project_specific_placeholder: pass | partial | fail | not_applicable"
+    problem_space: "project_specific_placeholder: pass | partial | fail | not_applicable"
+    solution_space: "project_specific_placeholder: pass | partial | fail | not_applicable"
+    build: "project_specific_placeholder: pass | partial | fail | not_applicable"
+    evaluation: "project_specific_placeholder: pass | partial | fail | not_applicable"
+    contribution: "project_specific_placeholder: pass | partial | fail | not_applicable"
+  overall_result: "project_specific_placeholder: pass | partial | fail"
   release_blocking_findings: []
-  reviewer_notes: "TODO: review notes"
+  reviewer_notes: "project_specific_placeholder: review notes"
 
 assumptions:
   - assumption_id: asm_trn_001

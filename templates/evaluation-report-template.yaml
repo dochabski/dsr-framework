@@ -12,8 +12,8 @@ evaluation_report_template:
   status: draft
   version: "0.1.0"
   owner:
-    role: "TODO: responsible owner role"
-    name: "TODO: owner name or group"
+    role: "project_specific_placeholder: responsible owner role"
+    name: "project_specific_placeholder: owner name or group"
   target_path: templates/evaluation-report-template.yaml
   target_conformance: l2_reviewable
   template_scope:
@@ -48,10 +48,10 @@ evaluation_report_template:
       evidence_status: mapped
     - source_id: dsr_evaluation_report_schema
       role: validation_dependency
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - source_id: dsr_extraction_corpus
       role: dsr_methodological_evidence_base
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
 
   related_items:
     upstream:
@@ -82,8 +82,8 @@ evaluation_report_template:
         relationship: evidence_feeds_claim_support
 
   instructions_for_use:
-    - Replace every TODO value with project-specific information.
-    - Keep unknown evidence marked as evidence_status: not_yet_collected or not_yet_mapped.
+    - Replace every project_specific_placeholder value with project-specific information.
+    - Keep unknown evidence marked as evidence_status: not_yet_collected or accepted_v1_limitation.
     - Do not convert demonstrations into evaluation findings unless explicit evaluation criteria and evidence are present.
     - Report null, negative, contradictory, or inconclusive findings rather than omitting them.
     - Distinguish findings about artifact utility, artifact quality, and contribution to knowledge.
@@ -91,16 +91,16 @@ evaluation_report_template:
 
   report:
     record_metadata:
-      report_id: "TODO: evaluation_report_id"
+      report_id: "project_specific_placeholder: evaluation_report_id"
       report_type: evaluation_report
-      title: "TODO: evaluation report title"
+      title: "project_specific_placeholder: evaluation report title"
       status: draft
       version: "0.1.0"
-      report_date: "TODO: YYYY-MM-DD"
+      report_date: "project_specific_placeholder: YYYY-MM-DD"
       prepared_by:
-        - name: "TODO: evaluator or author name"
-          role: "TODO: evaluator role"
-          affiliation_or_unit: "TODO: affiliation or unit"
+        - name: "project_specific_placeholder: evaluator or author name"
+          role: "project_specific_placeholder: evaluator role"
+          affiliation_or_unit: "project_specific_placeholder: affiliation or unit"
       reviewed_by: []
       approved_by: []
       license: CC0-1.0
@@ -109,263 +109,263 @@ evaluation_report_template:
         archive with release records when the package is published or superseded.
       change_history:
         - version: "0.1.0"
-          date: "TODO: YYYY-MM-DD"
+          date: "project_specific_placeholder: YYYY-MM-DD"
           change: Initial evaluation report draft.
-          changed_by: "TODO: name or role"
+          changed_by: "project_specific_placeholder: name or role"
 
     evaluated_artifact:
-      artifact_id: "TODO: artifact_id"
-      artifact_name: "TODO: artifact name"
-      artifact_version: "TODO: version or commit hash"
-      artifact_type: "TODO: controlled artifact type"
-      artifact_instance_or_type: "TODO: artifact_instance | artifact_type | artifact_universal | mixed"
+      artifact_id: "project_specific_placeholder: artifact_id"
+      artifact_name: "project_specific_placeholder: artifact name"
+      artifact_version: "project_specific_placeholder: version or commit hash"
+      artifact_type: "project_specific_placeholder: controlled artifact type"
+      artifact_instance_or_type: "project_specific_placeholder: artifact_instance | artifact_type | artifact_universal | mixed"
       artifact_boundary: >
-        TODO: define what is inside and outside the evaluated artifact.
+        project_specific_placeholder: define what is inside and outside the evaluated artifact.
       intended_users:
-        - stakeholder_role: "TODO: stakeholder role"
-          use_context: "TODO: use context"
+        - stakeholder_role: "project_specific_placeholder: stakeholder role"
+          use_context: "project_specific_placeholder: use context"
       intended_use: >
-        TODO: intended artifact use or decision context.
+        project_specific_placeholder: intended artifact use or decision context.
       evaluated_components:
-        - component_id: "TODO: component_id"
-          component_name: "TODO: component name"
-          component_role: "TODO: component function in the artifact"
-          evaluation_scope: "TODO: what part of the component was evaluated"
+        - component_id: "project_specific_placeholder: component_id"
+          component_name: "project_specific_placeholder: component name"
+          component_role: "project_specific_placeholder: component function in the artifact"
+          evaluation_scope: "project_specific_placeholder: what part of the component was evaluated"
       unevaluated_components:
-        - component_id: "TODO: component_id_or_none"
-          component_name: "TODO: component name or none"
-          rationale: "TODO: why not evaluated in this report"
+        - component_id: "project_specific_placeholder: component_id_or_none"
+          component_name: "project_specific_placeholder: component name or none"
+          rationale: "project_specific_placeholder: why not evaluated in this report"
 
     evaluation_plan_trace:
-      evaluation_plan_id: "TODO: evaluation_plan_id"
-      evaluation_plan_path: "TODO: records/evaluations/record-evaluation-plan-0001.yaml"
+      evaluation_plan_id: "project_specific_placeholder: evaluation_plan_id"
+      evaluation_plan_path: "project_specific_placeholder: records/evaluations/record-evaluation-plan-0001.yaml"
       planned_evaluation_questions:
-        - question_id: "TODO: eq_001"
-          question: "TODO: planned evaluation question"
-          status: "TODO: addressed | partially_addressed | not_addressed | changed"
-          change_rationale: "TODO: reason if changed or not addressed"
+        - question_id: "project_specific_placeholder: eq_001"
+          question: "project_specific_placeholder: planned evaluation question"
+          status: "project_specific_placeholder: addressed | partially_addressed | not_addressed | changed"
+          change_rationale: "project_specific_placeholder: reason if changed or not addressed"
       deviations_from_plan:
-        - deviation_id: "TODO: dev_001"
-          planned_activity: "TODO: planned activity"
-          actual_activity: "TODO: actual activity"
-          reason: "TODO: reason for deviation"
-          effect_on_interpretation: "TODO: effect on confidence or scope"
-      traceability_status: "TODO: complete | partial | not_yet_mapped"
+        - deviation_id: "project_specific_placeholder: dev_001"
+          planned_activity: "project_specific_placeholder: planned activity"
+          actual_activity: "project_specific_placeholder: actual activity"
+          reason: "project_specific_placeholder: reason for deviation"
+          effect_on_interpretation: "project_specific_placeholder: effect on confidence or scope"
+      traceability_status: "project_specific_placeholder: complete | partial | accepted_v1_limitation"
 
     evaluation_context:
       evaluation_timing:
-        - "TODO: formative | summative | longitudinal | retrospective | concurrent"
+        - "project_specific_placeholder: formative | summative | longitudinal | retrospective | concurrent"
       evaluation_setting:
-        - "TODO: artificial_setting | naturalistic_field_setting | laboratory | simulation | expert_review | literature_based_argument | survey | interview | case_study | mixed_methods"
+        - "project_specific_placeholder: artificial_setting | naturalistic_field_setting | laboratory | simulation | expert_review | literature_based_argument | survey | interview | case_study | mixed_methods"
       context_description:
-        domain: "TODO: domain or problem class"
-        organizational_setting: "TODO: organization, unit, lab, field context, or not_applicable"
-        geographic_or_regulatory_context: "TODO: geographic or regulatory context, if relevant"
-        technological_context: "TODO: technical environment, platform, data, infrastructure, or not_applicable"
-        social_or_cultural_context: "TODO: stakeholder, organizational, or cultural context, if relevant"
+        domain: "project_specific_placeholder: domain or problem class"
+        organizational_setting: "project_specific_placeholder: organization, unit, lab, field context, or not_applicable"
+        geographic_or_regulatory_context: "project_specific_placeholder: geographic or regulatory context, if relevant"
+        technological_context: "project_specific_placeholder: technical environment, platform, data, infrastructure, or not_applicable"
+        social_or_cultural_context: "project_specific_placeholder: stakeholder, organizational, or cultural context, if relevant"
       participants_or_units:
-        - participant_or_unit_id: "TODO: p001"
-          type: "TODO: person | team | organization | case | artifact_instance | dataset | document | simulation_run | other"
-          recruitment_or_selection_method: "TODO: how selected"
+        - participant_or_unit_id: "project_specific_placeholder: p001"
+          type: "project_specific_placeholder: person | team | organization | case | artifact_instance | dataset | document | simulation_run | other"
+          recruitment_or_selection_method: "project_specific_placeholder: how selected"
           inclusion_criteria: []
           exclusion_criteria: []
-          count: "TODO: number or not_applicable"
+          count: "project_specific_placeholder: number or not_applicable"
       stakeholders_involved:
-        - stakeholder_role: "TODO: stakeholder role"
+        - stakeholder_role: "project_specific_placeholder: stakeholder role"
           involvement_stage:
-            - "TODO: design | demonstration | evaluation | review | dissemination"
-          contribution_to_evaluation: "TODO: role in evaluation"
+            - "project_specific_placeholder: design | demonstration | evaluation | review | dissemination"
+          contribution_to_evaluation: "project_specific_placeholder: role in evaluation"
       constraints:
-        - constraint_id: "TODO: constraint_id"
-          description: "TODO: evaluation constraint"
-          effect_on_evaluation: "TODO: how this limits evidence or interpretation"
+        - constraint_id: "project_specific_placeholder: constraint_id"
+          description: "project_specific_placeholder: evaluation constraint"
+          effect_on_evaluation: "project_specific_placeholder: how this limits evidence or interpretation"
 
     evaluation_questions_and_claims:
       evaluation_questions:
         - question_id: eq_001
-          question: "TODO: evaluation question"
-          question_type: "TODO: utility | quality | efficacy | usability | feasibility | safety | adoption | contribution_support | validity | reliability | projectability | other"
+          question: "project_specific_placeholder: evaluation question"
+          question_type: "project_specific_placeholder: utility | quality | efficacy | usability | feasibility | safety | adoption | contribution_support | validity | reliability | projectability | other"
           linked_claim_ids:
-            - "TODO: claim_id"
+            - "project_specific_placeholder: claim_id"
           linked_requirements:
-            - "TODO: requirement_id"
+            - "project_specific_placeholder: requirement_id"
           success_criteria:
-            - criterion_id: "TODO: criterion_id"
-              criterion_label: "TODO: criterion label"
-              operational_definition: "TODO: how the criterion is defined for this evaluation"
-              minimum_threshold: "TODO: pass threshold or not_applicable"
-              target_threshold: "TODO: desired threshold or not_applicable"
+            - criterion_id: "project_specific_placeholder: criterion_id"
+              criterion_label: "project_specific_placeholder: criterion label"
+              operational_definition: "project_specific_placeholder: how the criterion is defined for this evaluation"
+              minimum_threshold: "project_specific_placeholder: pass threshold or not_applicable"
+              target_threshold: "project_specific_placeholder: desired threshold or not_applicable"
       claims_under_evaluation:
-        - claim_id: "TODO: claim_id"
-          claim_text: "TODO: claim being evaluated"
-          claim_scope: "TODO: idiographic | nomothetic | projectable_to_problem_class | mixed | not_yet_classified"
-          claim_type: "TODO: artifact_utility | artifact_quality | contribution_to_knowledge | implementation_feasibility | adoption | other"
-          pre_evaluation_confidence: "TODO: low | moderate | high | not_assessed"
+        - claim_id: "project_specific_placeholder: claim_id"
+          claim_text: "project_specific_placeholder: claim being evaluated"
+          claim_scope: "project_specific_placeholder: idiographic | nomothetic | projectable_to_problem_class | mixed | not_yet_classified"
+          claim_type: "project_specific_placeholder: artifact_utility | artifact_quality | contribution_to_knowledge | implementation_feasibility | adoption | other"
+          pre_evaluation_confidence: "project_specific_placeholder: low | moderate | high | not_assessed"
 
     evaluation_methods:
       - method_id: method_001
-        method_name: "TODO: method name"
-        method_family: "TODO: analytical | observational | experimental | simulation | case_study | field_study | expert_review | survey | interview | usability_test | log_analysis | document_analysis | mixed_methods | other"
-        method_purpose: "TODO: what the method is intended to test or reveal"
-        timing: "TODO: formative | summative | longitudinal | concurrent | retrospective"
-        artificial_vs_naturalistic: "TODO: artificial | naturalistic | hybrid | not_applicable"
+        method_name: "project_specific_placeholder: method name"
+        method_family: "project_specific_placeholder: analytical | observational | experimental | simulation | case_study | field_study | expert_review | survey | interview | usability_test | log_analysis | document_analysis | mixed_methods | other"
+        method_purpose: "project_specific_placeholder: what the method is intended to test or reveal"
+        timing: "project_specific_placeholder: formative | summative | longitudinal | concurrent | retrospective"
+        artificial_vs_naturalistic: "project_specific_placeholder: artificial | naturalistic | hybrid | not_applicable"
         evaluation_criteria_addressed:
-          - "TODO: criterion_id"
+          - "project_specific_placeholder: criterion_id"
         data_sources:
-          - data_source_id: "TODO: data_source_id"
-            data_source_type: "TODO: dataset | observation | interview | survey | system_log | artifact_output | document | expert_rating | benchmark | other"
-            data_location_or_reference: "TODO: repository path, attachment, DOI, or controlled reference"
-            access_status: "TODO: open | restricted | internal | unavailable | not_yet_collected"
+          - data_source_id: "project_specific_placeholder: data_source_id"
+            data_source_type: "project_specific_placeholder: dataset | observation | interview | survey | system_log | artifact_output | document | expert_rating | benchmark | other"
+            data_location_or_reference: "project_specific_placeholder: repository path, attachment, DOI, or controlled reference"
+            access_status: "project_specific_placeholder: open | restricted | internal | unavailable | not_yet_collected"
         procedure:
           steps:
             - step_number: 1
-              action: "TODO: procedure step"
-              actor: "TODO: responsible actor"
-              output: "TODO: produced evidence or artifact"
+              action: "project_specific_placeholder: procedure step"
+              actor: "project_specific_placeholder: responsible actor"
+              output: "project_specific_placeholder: produced evidence or artifact"
           instruments_or_protocols:
-            - instrument_id: "TODO: instrument_id"
-              instrument_name: "TODO: instrument name"
-              instrument_type: "TODO: rubric | questionnaire | script | benchmark | interview_protocol | observation_protocol | other"
-              validation_status: "TODO: validated | adapted | draft | not_applicable | unknown"
+            - instrument_id: "project_specific_placeholder: instrument_id"
+              instrument_name: "project_specific_placeholder: instrument name"
+              instrument_type: "project_specific_placeholder: rubric | questionnaire | script | benchmark | interview_protocol | observation_protocol | other"
+              validation_status: "project_specific_placeholder: validated | adapted | draft | not_applicable | unknown"
           comparison_or_baseline:
-            baseline_present: "TODO: true | false"
-            baseline_description: "TODO: comparator, prior state, control, benchmark, or not_applicable"
+            baseline_present: "project_specific_placeholder: true | false"
+            baseline_description: "project_specific_placeholder: comparator, prior state, control, benchmark, or not_applicable"
         analysis:
           analysis_methods:
-            - "TODO: descriptive_statistics | inferential_statistics | qualitative_coding | thematic_analysis | comparative_analysis | trace_analysis | visual_inspection | expert_consensus | other"
+            - "project_specific_placeholder: descriptive_statistics | inferential_statistics | qualitative_coding | thematic_analysis | comparative_analysis | trace_analysis | visual_inspection | expert_consensus | other"
           analysis_software_or_tools: []
           decision_rules:
-            - rule_id: "TODO: decision_rule_id"
-              rule: "TODO: how evidence is interpreted"
+            - rule_id: "project_specific_placeholder: decision_rule_id"
+              rule: "project_specific_placeholder: how evidence is interpreted"
         validity_and_reliability_controls:
           validity_controls:
-            - "TODO: control or safeguard"
+            - "project_specific_placeholder: control or safeguard"
           reliability_controls:
-            - "TODO: control or safeguard"
+            - "project_specific_placeholder: control or safeguard"
           bias_or_confounding_controls:
-            - "TODO: control or safeguard"
+            - "project_specific_placeholder: control or safeguard"
         ethics_and_governance:
-          human_subjects_status: "TODO: not_human_subjects | exempt | approved | pending | not_applicable | unknown"
-          approval_reference: "TODO: IRB, ethics, governance, or not_applicable"
-          privacy_security_notes: "TODO: data protection notes"
-          conflict_of_interest_notes: "TODO: evaluator independence or conflict notes"
+          human_subjects_status: "project_specific_placeholder: not_human_subjects | exempt | approved | pending | not_applicable | unknown"
+          approval_reference: "project_specific_placeholder: IRB, ethics, governance, or not_applicable"
+          privacy_security_notes: "project_specific_placeholder: data protection notes"
+          conflict_of_interest_notes: "project_specific_placeholder: evaluator independence or conflict notes"
 
     results:
       overall_result_summary: >
-        TODO: concise synthesis of the evaluation results, including whether
+        project_specific_placeholder: concise synthesis of the evaluation results, including whether
         evidence supports, partially supports, fails to support, or contradicts
         the evaluated claims.
       artifact_utility_results:
         - result_id: utility_result_001
           linked_question_id: eq_001
-          criterion_id: "TODO: criterion_id"
-          finding: "TODO: utility finding"
-          evidence_summary: "TODO: evidence supporting the finding"
-          result_status: "TODO: supports | partially_supports | does_not_support | contradicts | inconclusive | not_evaluated"
-          confidence: "TODO: low | moderate | high | not_assessed"
+          criterion_id: "project_specific_placeholder: criterion_id"
+          finding: "project_specific_placeholder: utility finding"
+          evidence_summary: "project_specific_placeholder: evidence supporting the finding"
+          result_status: "project_specific_placeholder: supports | partially_supports | does_not_support | contradicts | inconclusive | not_evaluated"
+          confidence: "project_specific_placeholder: low | moderate | high | not_assessed"
       artifact_quality_results:
         - result_id: quality_result_001
-          quality_attribute: "TODO: usability | robustness | correctness | reliability | security | accessibility | maintainability | performance | other"
-          operational_definition: "TODO: how this quality attribute was assessed"
-          finding: "TODO: quality finding"
-          evidence_summary: "TODO: evidence supporting the finding"
-          result_status: "TODO: supports | partially_supports | does_not_support | contradicts | inconclusive | not_evaluated"
-          confidence: "TODO: low | moderate | high | not_assessed"
+          quality_attribute: "project_specific_placeholder: usability | robustness | correctness | reliability | security | accessibility | maintainability | performance | other"
+          operational_definition: "project_specific_placeholder: how this quality attribute was assessed"
+          finding: "project_specific_placeholder: quality finding"
+          evidence_summary: "project_specific_placeholder: evidence supporting the finding"
+          result_status: "project_specific_placeholder: supports | partially_supports | does_not_support | contradicts | inconclusive | not_evaluated"
+          confidence: "project_specific_placeholder: low | moderate | high | not_assessed"
       contribution_evidence_results:
         - result_id: contribution_result_001
-          contribution_type: "TODO: improvement | invention | exaptation | routine_design | method_extension | theory_extension | synthesis | other"
-          knowledge_goal: "TODO: definitional | descriptive | explanatory | predictive | explanatory_predictive | prescriptive | methodological | evaluative | other"
-          knowledge_scope: "TODO: idiographic | nomothetic | projectable_to_problem_class | mixed | not_yet_classified"
-          finding: "TODO: contribution-related finding"
-          evidence_summary: "TODO: evidence supporting contribution claim"
-          result_status: "TODO: supports | partially_supports | does_not_support | contradicts | inconclusive | not_evaluated"
-          confidence: "TODO: low | moderate | high | not_assessed"
+          contribution_type: "project_specific_placeholder: improvement | invention | exaptation | routine_design | method_extension | theory_extension | synthesis | other"
+          knowledge_goal: "project_specific_placeholder: definitional | descriptive | explanatory | predictive | explanatory_predictive | prescriptive | methodological | evaluative | other"
+          knowledge_scope: "project_specific_placeholder: idiographic | nomothetic | projectable_to_problem_class | mixed | not_yet_classified"
+          finding: "project_specific_placeholder: contribution-related finding"
+          evidence_summary: "project_specific_placeholder: evidence supporting contribution claim"
+          result_status: "project_specific_placeholder: supports | partially_supports | does_not_support | contradicts | inconclusive | not_evaluated"
+          confidence: "project_specific_placeholder: low | moderate | high | not_assessed"
       negative_or_null_findings:
-        - finding_id: "TODO: negative_or_null_finding_id"
-          finding: "TODO: negative, null, failed, contradictory, or unexpected finding"
-          implication: "TODO: implication for artifact, claim, or future evaluation"
+        - finding_id: "project_specific_placeholder: negative_or_null_finding_id"
+          finding: "project_specific_placeholder: negative, null, failed, contradictory, or unexpected finding"
+          implication: "project_specific_placeholder: implication for artifact, claim, or future evaluation"
       unexpected_findings:
-        - finding_id: "TODO: unexpected_finding_id"
-          finding: "TODO: unexpected finding"
-          interpretation: "TODO: interpretation or follow-up needed"
+        - finding_id: "project_specific_placeholder: unexpected_finding_id"
+          finding: "project_specific_placeholder: unexpected finding"
+          interpretation: "project_specific_placeholder: interpretation or follow-up needed"
 
     criterion_assessments:
-      - criterion_id: "TODO: criterion_id"
-        criterion_label: "TODO: criterion label"
+      - criterion_id: "project_specific_placeholder: criterion_id"
+        criterion_label: "project_specific_placeholder: criterion label"
         linked_questions:
-          - "TODO: eq_001"
-        assessment: "TODO: pass | partial_pass | fail | inconclusive | not_evaluated"
-        evidence_summary: "TODO: evidence summary"
-        threshold_comparison: "TODO: met_threshold | below_threshold | above_target | threshold_not_defined | not_applicable"
-        confidence: "TODO: low | moderate | high | not_assessed"
-        reviewer_notes: "TODO: notes for reviewers"
+          - "project_specific_placeholder: eq_001"
+        assessment: "project_specific_placeholder: pass | partial_pass | fail | inconclusive | not_evaluated"
+        evidence_summary: "project_specific_placeholder: evidence summary"
+        threshold_comparison: "project_specific_placeholder: met_threshold | below_threshold | above_target | threshold_not_defined | not_applicable"
+        confidence: "project_specific_placeholder: low | moderate | high | not_assessed"
+        reviewer_notes: "project_specific_placeholder: notes for reviewers"
 
     claim_alignment:
       supported_claims:
-        - claim_id: "TODO: claim_id"
-          support_level: "TODO: supported | partially_supported | not_supported | contradicted | inconclusive"
+        - claim_id: "project_specific_placeholder: claim_id"
+          support_level: "project_specific_placeholder: supported | partially_supported | not_supported | contradicted | inconclusive"
           evidence_ids:
-            - "TODO: evidence_id_or_result_id"
-          allowed_claim_language: "TODO: exact wording that is justified after evaluation"
+            - "project_specific_placeholder: evidence_id_or_result_id"
+          allowed_claim_language: "project_specific_placeholder: exact wording that is justified after evaluation"
       revised_or_limited_claims:
-        - original_claim_id: "TODO: claim_id"
-          original_claim_text: "TODO: original claim"
-          revised_claim_text: "TODO: revised claim with appropriate limits"
-          revision_rationale: "TODO: why revision is needed"
+        - original_claim_id: "project_specific_placeholder: claim_id"
+          original_claim_text: "project_specific_placeholder: original claim"
+          revised_claim_text: "project_specific_placeholder: revised claim with appropriate limits"
+          revision_rationale: "project_specific_placeholder: why revision is needed"
       unsupported_or_overclaimed_areas:
-        - area_id: "TODO: area_id"
-          unsupported_area: "TODO: claim, user group, context, quality attribute, or contribution type"
-          reason: "TODO: evidence gap or contrary evidence"
-          required_follow_up: "TODO: additional evidence needed"
+        - area_id: "project_specific_placeholder: area_id"
+          unsupported_area: "project_specific_placeholder: claim, user group, context, quality attribute, or contribution type"
+          reason: "project_specific_placeholder: evidence gap or contrary evidence"
+          required_follow_up: "project_specific_placeholder: additional evidence needed"
 
     validity_reliability_replication_projectability:
       validity_assessment:
         validity_discussion_present: true
         validity_types_addressed:
-          - "TODO: construct_validity | internal_validity | external_validity | ecological_validity | conclusion_validity | evaluation_validity | artifact_validity | context_validity | procedural_validity"
+          - "project_specific_placeholder: construct_validity | internal_validity | external_validity | ecological_validity | conclusion_validity | evaluation_validity | artifact_validity | context_validity | procedural_validity"
         validity_threats:
-          - threat_id: "TODO: validity_threat_id"
-            threat_type: "TODO: validity type"
-            threat_description: "TODO: threat description"
-            mitigation_used: "TODO: mitigation or none"
-            residual_risk: "TODO: low | moderate | high | unknown"
-        validity_conclusion: "TODO: concise validity conclusion"
+          - threat_id: "project_specific_placeholder: validity_threat_id"
+            threat_type: "project_specific_placeholder: validity type"
+            threat_description: "project_specific_placeholder: threat description"
+            mitigation_used: "project_specific_placeholder: mitigation or none"
+            residual_risk: "project_specific_placeholder: low | moderate | high | unknown"
+        validity_conclusion: "project_specific_placeholder: concise validity conclusion"
       reliability_assessment:
         reliability_discussion_present: true
         reliability_targets_addressed:
-          - "TODO: method_reliability | evaluator_reliability | instrument_reliability | implementation_reliability | artifact_reliability | data_reliability | design_knowledge_reliability"
+          - "project_specific_placeholder: method_reliability | evaluator_reliability | instrument_reliability | implementation_reliability | artifact_reliability | data_reliability | design_knowledge_reliability"
         reliability_evidence:
-          - reliability_target: "TODO: target"
-            evidence_summary: "TODO: reliability evidence"
-            result_status: "TODO: sufficient | partial | insufficient | not_evaluated"
-        synchronic_reliability_notes: "TODO: stability or agreement at a point in time"
-        diachronic_reliability_notes: "TODO: stability across time or versions"
+          - reliability_target: "project_specific_placeholder: target"
+            evidence_summary: "project_specific_placeholder: reliability evidence"
+            result_status: "project_specific_placeholder: sufficient | partial | insufficient | not_evaluated"
+        synchronic_reliability_notes: "project_specific_placeholder: stability or agreement at a point in time"
+        diachronic_reliability_notes: "project_specific_placeholder: stability across time or versions"
       replication_and_projectability_assessment:
-        replication_type: "TODO: exact_replication | conceptual_replication | differentiated_replication | not_applicable | not_assessed"
-        projectability_claim: "TODO: what can reasonably transfer or generalize"
+        replication_type: "project_specific_placeholder: exact_replication | conceptual_replication | differentiated_replication | not_applicable | not_assessed"
+        projectability_claim: "project_specific_placeholder: what can reasonably transfer or generalize"
         boundary_conditions:
-          - "TODO: boundary condition"
+          - "project_specific_placeholder: boundary condition"
         transfer_requirements:
-          - "TODO: requirement for applying findings elsewhere"
+          - "project_specific_placeholder: requirement for applying findings elsewhere"
         reuse_implications:
-          - "TODO: implication for artifact reuse, adaptation, or repository packaging"
+          - "project_specific_placeholder: implication for artifact reuse, adaptation, or repository packaging"
 
     transparency_crosswalk:
       process_transparency:
-        evidence_status: "TODO: complete | partial | not_yet_mapped | not_applicable"
-        evidence_summary: "TODO: how evaluation process is documented"
+        evidence_status: "project_specific_placeholder: complete | partial | accepted_v1_limitation | not_applicable"
+        evidence_summary: "project_specific_placeholder: how evaluation process is documented"
         evidence_locations: []
       problem_space_transparency:
-        evidence_status: "TODO: complete | partial | not_yet_mapped | not_applicable"
-        evidence_summary: "TODO: how problem context and goals are documented"
+        evidence_status: "project_specific_placeholder: complete | partial | accepted_v1_limitation | not_applicable"
+        evidence_summary: "project_specific_placeholder: how problem context and goals are documented"
         evidence_locations: []
       solution_space_transparency:
-        evidence_status: "TODO: complete | partial | not_yet_mapped | not_applicable"
-        evidence_summary: "TODO: how prior solutions or grounding are referenced"
+        evidence_status: "project_specific_placeholder: complete | partial | accepted_v1_limitation | not_applicable"
+        evidence_summary: "project_specific_placeholder: how prior solutions or grounding are referenced"
         evidence_locations: []
       build_transparency:
-        evidence_status: "TODO: complete | partial | not_yet_mapped | not_applicable"
-        evidence_summary: "TODO: how artifact build details are linked to evaluation interpretation"
+        evidence_status: "project_specific_placeholder: complete | partial | accepted_v1_limitation | not_applicable"
+        evidence_summary: "project_specific_placeholder: how artifact build details are linked to evaluation interpretation"
         evidence_locations: []
       evaluation_transparency:
         evidence_status: complete
@@ -373,76 +373,76 @@ evaluation_report_template:
           This report is the primary evaluation-transparency artifact for the
           evaluated artifact version.
         evidence_locations:
-          - "TODO: path to this evaluation report"
+          - "project_specific_placeholder: path to this evaluation report"
       contribution_transparency:
-        evidence_status: "TODO: complete | partial | not_yet_mapped | not_applicable"
-        evidence_summary: "TODO: how evaluation evidence supports contribution claims"
+        evidence_status: "project_specific_placeholder: complete | partial | accepted_v1_limitation | not_applicable"
+        evidence_summary: "project_specific_placeholder: how evaluation evidence supports contribution claims"
         evidence_locations: []
 
     responsible_design_and_risk_assessment:
-      applicable: "TODO: true | false"
+      applicable: "project_specific_placeholder: true | false"
       values_considered:
-        - "TODO: transparency | privacy | security | accessibility | equity | stakeholder_confidence | practitioner_usability | other"
+        - "project_specific_placeholder: transparency | privacy | security | accessibility | equity | stakeholder_confidence | practitioner_usability | other"
       risks_or_harms_identified:
-        - risk_id: "TODO: risk_id"
-          risk_description: "TODO: risk or harm"
-          severity: "TODO: low | moderate | high | unknown"
-          likelihood: "TODO: low | moderate | high | unknown"
-          mitigation: "TODO: mitigation or rationale for acceptance"
-      residual_risk_summary: "TODO: remaining risk after evaluation"
+        - risk_id: "project_specific_placeholder: risk_id"
+          risk_description: "project_specific_placeholder: risk or harm"
+          severity: "project_specific_placeholder: low | moderate | high | unknown"
+          likelihood: "project_specific_placeholder: low | moderate | high | unknown"
+          mitigation: "project_specific_placeholder: mitigation or rationale for acceptance"
+      residual_risk_summary: "project_specific_placeholder: remaining risk after evaluation"
 
     evidence_inventory:
-      - evidence_id: "TODO: evidence_id"
-        evidence_type: "TODO: raw_data | processed_data | instrument | protocol | code | log | transcript | survey_export | rubric | artifact_output | screenshot | memo | other"
-        title: "TODO: evidence title"
-        location: "TODO: repository path, DOI, attachment, or controlled reference"
-        access_status: "TODO: open | restricted | internal | unavailable"
-        sensitivity: "TODO: public | internal | confidential | human_subjects | proprietary | security_sensitive | other"
+      - evidence_id: "project_specific_placeholder: evidence_id"
+        evidence_type: "project_specific_placeholder: raw_data | processed_data | instrument | protocol | code | log | transcript | survey_export | rubric | artifact_output | screenshot | memo | other"
+        title: "project_specific_placeholder: evidence title"
+        location: "project_specific_placeholder: repository path, DOI, attachment, or controlled reference"
+        access_status: "project_specific_placeholder: open | restricted | internal | unavailable"
+        sensitivity: "project_specific_placeholder: public | internal | confidential | human_subjects | proprietary | security_sensitive | other"
         linked_method_ids:
           - method_001
         linked_result_ids:
-          - "TODO: result_id"
-        preservation_notes: "TODO: retention, anonymization, or redaction notes"
+          - "project_specific_placeholder: result_id"
+        preservation_notes: "project_specific_placeholder: retention, anonymization, or redaction notes"
 
     limitations:
-      - limitation_id: "TODO: limitation_id"
-        limitation: "TODO: limitation statement"
+      - limitation_id: "project_specific_placeholder: limitation_id"
+        limitation: "project_specific_placeholder: limitation statement"
         affected_claims:
-          - "TODO: claim_id"
-        effect_on_confidence: "TODO: low | moderate | high | unknown"
-        mitigation_or_follow_up: "TODO: mitigation or future evaluation need"
+          - "project_specific_placeholder: claim_id"
+        effect_on_confidence: "project_specific_placeholder: low | moderate | high | unknown"
+        mitigation_or_follow_up: "project_specific_placeholder: mitigation or future evaluation need"
 
     conclusions_and_recommendations:
       evaluation_conclusion: >
-        TODO: overall conclusion about artifact utility, quality, and claim
+        project_specific_placeholder: overall conclusion about artifact utility, quality, and claim
         support. Avoid language stronger than the evidence supports.
-      decision_recommendation: "TODO: proceed | revise_artifact | collect_more_evidence | narrow_claims | retire_or_pause | other"
+      decision_recommendation: "project_specific_placeholder: proceed | revise_artifact | collect_more_evidence | narrow_claims | retire_or_pause | other"
       artifact_changes_recommended:
-        - change_id: "TODO: change_id"
-          recommendation: "TODO: recommended artifact change"
-          rationale: "TODO: evidence-based rationale"
-          priority: "TODO: low | medium | high"
+        - change_id: "project_specific_placeholder: change_id"
+          recommendation: "project_specific_placeholder: recommended artifact change"
+          rationale: "project_specific_placeholder: evidence-based rationale"
+          priority: "project_specific_placeholder: low | medium | high"
       future_evaluation_recommended:
-        - future_eval_id: "TODO: future_eval_id"
-          recommendation: "TODO: future evaluation recommendation"
-          rationale: "TODO: evidence gap or risk addressed"
-          priority: "TODO: low | medium | high"
+        - future_eval_id: "project_specific_placeholder: future_eval_id"
+          recommendation: "project_specific_placeholder: future evaluation recommendation"
+          rationale: "project_specific_placeholder: evidence gap or risk addressed"
+          priority: "project_specific_placeholder: low | medium | high"
       publication_or_reporting_implications:
-        - "TODO: implication for manuscript, repository, package, registry, or review record"
+        - "project_specific_placeholder: implication for manuscript, repository, package, registry, or review record"
 
     review_and_approval:
       self_review:
-        completed: "TODO: true | false"
-        reviewer: "TODO: name or role"
-        date: "TODO: YYYY-MM-DD"
-        notes: "TODO: self-review notes"
+        completed: "project_specific_placeholder: true | false"
+        reviewer: "project_specific_placeholder: name or role"
+        date: "project_specific_placeholder: YYYY-MM-DD"
+        notes: "project_specific_placeholder: self-review notes"
       independent_review:
-        completed: "TODO: true | false"
-        reviewer: "TODO: name or role"
-        date: "TODO: YYYY-MM-DD or not_applicable"
-        notes: "TODO: independent review notes"
-      approval_status: "TODO: draft | in_review | approved | rejected | superseded"
-      approval_notes: "TODO: approval conditions, required changes, or not_applicable"
+        completed: "project_specific_placeholder: true | false"
+        reviewer: "project_specific_placeholder: name or role"
+        date: "project_specific_placeholder: YYYY-MM-DD or not_applicable"
+        notes: "project_specific_placeholder: independent review notes"
+      approval_status: "project_specific_placeholder: draft | in_review | approved | rejected | superseded"
+      approval_notes: "project_specific_placeholder: approval conditions, required changes, or not_applicable"
 
   validation_rules:
     required_top_level_fields:

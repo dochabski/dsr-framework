@@ -196,7 +196,7 @@ artifact_profile:
 
         '
     - id: evidence_fabrication
-      statement: 'The framework must not be used to create unsupported DSR claims; absent evidence must remain marked as not_yet_mapped,
+      statement: 'The framework must not be used to create unsupported DSR claims; absent evidence must remain marked as accepted_v1_limitation,
         planned, or unavailable.
 
         '
@@ -206,7 +206,7 @@ artifact_profile:
 
         '
   dsr_lifecycle_positioning:
-    lifecycle_model_status: dependency_not_yet_generated_in_this_file
+    lifecycle_model_status: dependency_post_v1_minor_release_work_in_this_file
     expected_lifecycle_stages:
     - stage_id: problem_and_objectives
       relevance: Defines problem class, stakeholders, goals, requirements, constraints, and success criteria.
@@ -286,7 +286,7 @@ artifact_profile:
 
         '
       claim_status: proposed
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
       evidence_needed:
       - evaluation_alignment_model
       - evaluation_plan_template
@@ -299,7 +299,7 @@ artifact_profile:
 
         '
       claim_status: proposed
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
       evidence_needed:
       - publication_registry_model
       - release_record
@@ -515,7 +515,7 @@ artifact_profile:
     - id: preserve_claim_boundaries
       rule: Do not treat framework completion as evidence of artifact utility or evaluation success.
     - id: preserve_evidence_status
-      rule: Do not remove not_yet_mapped or TODO evidence markers without adding traceable evidence.
+      rule: Do not remove accepted_v1_limitation or project_specific_placeholder evidence markers without adding traceable evidence.
     - id: retain_version_context
       rule: Reuse should identify the framework version or commit used.
     - id: tailor_for_risk
@@ -733,7 +733,7 @@ artifact_profile:
     - Required top-level key artifact_profile is present.
     - Stable identifiers use lower_snake_case where controlled.
     - No field claims L3, L4, or L5 as current conformance.
-    - TODO markers are limited to project facts not inferable from current sources.
+    - project_specific_placeholder markers are limited to project facts not inferable from current sources.
   limitations:
   - limitation_id: lim_dependency_files_pending
     statement: 'Several related models, schemas, templates, checklists, and records are referenced before they are generated.

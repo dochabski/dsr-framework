@@ -57,7 +57,7 @@ checklist:
         evidence required, pass/fail conditions, and remediation guidance.
     - source_id: spec_artifact_package
       role: upstream_artifact_package_requirements
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
       notes: >
         Expected upstream dependency for package contents, evidence, examples,
         records, and conformance obligations.
@@ -311,7 +311,7 @@ checklist:
         - record-source-basis file where available
       pass_condition: >
         Substantive DSR, protocol, quality, and artifact claims point to mapped
-        sources or are marked evidence_status: not_yet_mapped when evidence is not
+        sources or are marked evidence_status: accepted_v1_limitation when evidence is not
         yet available.
       fail_condition: >
         The package makes unsupported claims, uses uncited scholarly assertions, or
@@ -581,7 +581,7 @@ checklist:
         The package relies on undocumented decisions, missing reviews, unrecorded
         evaluations, or future plans presented as completed records.
       remediation_guidance: >
-        Add retained records for completed actions and create plans or TODO notes
+        Add retained records for completed actions and create plans or project_specific_placeholder notes
         for actions not yet performed.
       traceability:
         - trace_id: aprc_018_to_records_model

@@ -208,7 +208,7 @@ A DSR evaluation report should include or link to a matrix like the following.
 
 | Claim ID | Claim text | Claim object | Validity focus | Reliability target | Replication mode | Projectability level | Evidence record | Status |
 |---|---|---|---|---|---|---|---|---|
-| TODO: claim_id | TODO: claim text | TODO: artifact/method/measure/design knowledge | TODO | TODO | TODO | TODO | TODO: record path | draft |
+| project_specific_placeholder: claim_id | project_specific_placeholder: claim text | project_specific_placeholder: artifact/method/measure/design knowledge | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder: record path | draft |
 
 ## 11. Threats and mitigations
 

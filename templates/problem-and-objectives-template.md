@@ -47,27 +47,27 @@ license: CC0-1.0
 
 # Problem and Objectives Template
 
-> Use this template to document the problem context, design objectives, requirements, constraints, success criteria, and evaluation implications for a Design Science Research project. Replace all `TODO:` prompts with project-specific content. Retain sections that support reviewability, even when the answer is `not applicable`.
+> Use this template to document the problem context, design objectives, requirements, constraints, success criteria, and evaluation implications for a Design Science Research project. Replace all `project_specific_placeholder:` prompts with project-specific content. Retain sections that support reviewability, even when the answer is `not applicable`.
 
 ## 1. Document Control
 
 | Field | Value |
 |---|---|
-| Project ID | TODO: stable project identifier |
-| Project title | TODO: project title |
-| Prepared by | TODO: name or role |
-| Date prepared | TODO: YYYY-MM-DD |
-| Version | TODO: 0.1.0 |
+| Project ID | project_specific_placeholder: stable project identifier |
+| Project title | project_specific_placeholder: project title |
+| Prepared by | project_specific_placeholder: name or role |
+| Date prepared | project_specific_placeholder: YYYY-MM-DD |
+| Version | project_specific_placeholder: 0.1.0 |
 | Status | draft |
 | Intended conformance level | L2 reviewable |
-| Related artifact/profile | TODO: artifact-profile.yaml or artifact ID |
-| Related charter | TODO: dsr-project-charter-template.md output, if available |
+| Related artifact/profile | project_specific_placeholder: artifact-profile.yaml or artifact ID |
+| Related charter | project_specific_placeholder: dsr-project-charter-template.md output, if available |
 
 ## 2. Purpose and Scope of This Record
 
 ### 2.1 Purpose
 
-TODO: State why this problem-and-objectives record is being created. Include how it will support artifact design, requirements definition, evaluation planning, and contribution positioning.
+project_specific_placeholder: State why this problem-and-objectives record is being created. Include how it will support artifact design, requirements definition, evaluation planning, and contribution positioning.
 
 Example structure:
 
@@ -77,18 +77,18 @@ Example structure:
 
 | Scope Element | Description |
 |---|---|
-| In scope | TODO: what this problem-and-objectives record covers |
-| Out of scope | TODO: what it intentionally does not cover |
-| Unit of analysis | TODO: artifact, process, organization, learner, system, role, community, etc. |
-| Application context | TODO: local setting, domain, organization type, or use environment |
-| Time boundary | TODO: period covered by problem evidence and expected intervention/evaluation |
-| Geographic/regulatory boundary | TODO: jurisdiction, policy environment, accreditation/regulatory constraints, or N/A |
+| In scope | project_specific_placeholder: what this problem-and-objectives record covers |
+| Out of scope | project_specific_placeholder: what it intentionally does not cover |
+| Unit of analysis | project_specific_placeholder: artifact, process, organization, learner, system, role, community, etc. |
+| Application context | project_specific_placeholder: local setting, domain, organization type, or use environment |
+| Time boundary | project_specific_placeholder: period covered by problem evidence and expected intervention/evaluation |
+| Geographic/regulatory boundary | project_specific_placeholder: jurisdiction, policy environment, accreditation/regulatory constraints, or N/A |
 
 ## 3. Focal Problem Statement
 
 ### 3.1 Concise Problem Statement
 
-TODO: Write one concise statement of the focal problem.
+project_specific_placeholder: Write one concise statement of the focal problem.
 
 Recommended pattern:
 
@@ -98,29 +98,29 @@ Recommended pattern:
 
 | Field | Selected Value or Description |
 |---|---|
-| Problem type | TODO: technical_problem, socio_technical_problem, methodological_problem, wicked_problem, educational_problem, compliance_problem, other |
-| Problem class | TODO: broader reusable class of problems |
-| Local problem instance | TODO: specific manifestation in this project context |
-| Problem maturity | TODO: emergent, partially understood, well understood, contested, changing |
-| Problem structure | TODO: well_structured, semi_structured, ill_structured, wicked, unknown |
-| DSR relevance | TODO: why artifact creation/evaluation is appropriate rather than only explanation, policy, training, or consulting |
+| Problem type | project_specific_placeholder: technical_problem, socio_technical_problem, methodological_problem, wicked_problem, educational_problem, compliance_problem, other |
+| Problem class | project_specific_placeholder: broader reusable class of problems |
+| Local problem instance | project_specific_placeholder: specific manifestation in this project context |
+| Problem maturity | project_specific_placeholder: emergent, partially understood, well understood, contested, changing |
+| Problem structure | project_specific_placeholder: well_structured, semi_structured, ill_structured, wicked, unknown |
+| DSR relevance | project_specific_placeholder: why artifact creation/evaluation is appropriate rather than only explanation, policy, training, or consulting |
 
 ### 3.3 Current Unsatisfactory State
 
-TODO: Describe the current condition that motivates the DSR project. Include observed limitations, pain points, gaps, risks, inefficiencies, errors, missing capabilities, or unmet stakeholder needs.
+project_specific_placeholder: Describe the current condition that motivates the DSR project. Include observed limitations, pain points, gaps, risks, inefficiencies, errors, missing capabilities, or unmet stakeholder needs.
 
 | Current-State Element | Evidence or Description | Source/Reference | Evidence Strength |
 |---|---|---|---|
-| TODO: issue 1 | TODO | TODO | TODO: low/moderate/high |
-| TODO: issue 2 | TODO | TODO | TODO: low/moderate/high |
-| TODO: issue 3 | TODO | TODO | TODO: low/moderate/high |
+| project_specific_placeholder: issue 1 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder: low/moderate/high |
+| project_specific_placeholder: issue 2 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder: low/moderate/high |
+| project_specific_placeholder: issue 3 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder: low/moderate/high |
 
 ### 3.4 Consequences and Significance
 
 | Consequence | Affected Stakeholder/System | Severity | Evidence | Notes |
 |---|---|---|---|---|
-| TODO | TODO | TODO: low/moderate/high/critical | TODO | TODO |
-| TODO | TODO | TODO | TODO | TODO |
+| project_specific_placeholder | project_specific_placeholder | project_specific_placeholder: low/moderate/high/critical | project_specific_placeholder | project_specific_placeholder |
+| project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ## 4. Problem-Space Transparency
 
@@ -128,36 +128,36 @@ TODO: Describe the current condition that motivates the DSR project. Include obs
 
 | Context Dimension | Description |
 |---|---|
-| Domain | TODO |
-| Organizational setting | TODO |
-| Technological setting | TODO |
-| Social/cultural setting | TODO |
-| Governance/compliance setting | TODO |
-| Resource setting | TODO: budget, staffing, tools, data, access, time |
-| Prior artifact/network setting | TODO: existing systems, processes, templates, policies, datasets, models, or tools |
+| Domain | project_specific_placeholder |
+| Organizational setting | project_specific_placeholder |
+| Technological setting | project_specific_placeholder |
+| Social/cultural setting | project_specific_placeholder |
+| Governance/compliance setting | project_specific_placeholder |
+| Resource setting | project_specific_placeholder: budget, staffing, tools, data, access, time |
+| Prior artifact/network setting | project_specific_placeholder: existing systems, processes, templates, policies, datasets, models, or tools |
 
 ### 4.2 Stakeholders and Needs
 
 | Stakeholder ID | Stakeholder Role | Stakeholder Description | Problem Experience | Need or Interest | Involvement Stage |
 |---|---|---|---|---|---|
-| STK-001 | TODO | TODO | TODO | TODO | problem_identification |
-| STK-002 | TODO | TODO | TODO | TODO | requirements |
-| STK-003 | TODO | TODO | TODO | TODO | evaluation |
+| STK-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | problem_identification |
+| STK-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | requirements |
+| STK-003 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | evaluation |
 
 ### 4.3 Boundary Conditions
 
 | Boundary ID | Boundary Condition | Type | Implication for Design or Evaluation |
 |---|---|---|---|
-| BND-001 | TODO | TODO: contextual/technical/social/regulatory/data/resource/time | TODO |
-| BND-002 | TODO | TODO | TODO |
-| BND-003 | TODO | TODO | TODO |
+| BND-001 | project_specific_placeholder | project_specific_placeholder: contextual/technical/social/regulatory/data/resource/time | project_specific_placeholder |
+| BND-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| BND-003 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 4.4 Assumptions
 
 | Assumption ID | Assumption | Rationale | Risk if False | How It Will Be Checked |
 |---|---|---|---|---|
-| ASM-001 | TODO | TODO | TODO | TODO |
-| ASM-002 | TODO | TODO | TODO | TODO |
+| ASM-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| ASM-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ## 5. Evidence Basis for the Problem
 
@@ -167,20 +167,20 @@ Use this section to distinguish documented evidence from inference. Do not overc
 
 | Evidence ID | Evidence Type | Source/Reference | What It Supports | Strength | Limitations |
 |---|---|---|---|---|---|
-| EV-PROB-001 | TODO: literature/practice data/interview/observation/system log/document review/policy requirement | TODO | TODO | TODO: low/moderate/high | TODO |
-| EV-PROB-002 | TODO | TODO | TODO | TODO | TODO |
-| EV-PROB-003 | TODO | TODO | TODO | TODO | TODO |
+| EV-PROB-001 | project_specific_placeholder: literature/practice data/interview/observation/system log/document review/policy requirement | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder: low/moderate/high | project_specific_placeholder |
+| EV-PROB-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| EV-PROB-003 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 5.2 Knowledge Gap or Practical Gap
 
-TODO: Explain the gap between the current state and the desired state. Distinguish at least one of the following:
+project_specific_placeholder: Explain the gap between the current state and the desired state. Distinguish at least one of the following:
 
-- **Practical capability gap:** TODO
-- **Process or workflow gap:** TODO
-- **Artifact or technology gap:** TODO
-- **Knowledge or design-theory gap:** TODO
-- **Evaluation or measurement gap:** TODO
-- **Compliance, transparency, or governance gap:** TODO
+- **Practical capability gap:** project_specific_placeholder
+- **Process or workflow gap:** project_specific_placeholder
+- **Artifact or technology gap:** project_specific_placeholder
+- **Knowledge or design-theory gap:** project_specific_placeholder
+- **Evaluation or measurement gap:** project_specific_placeholder
+- **Compliance, transparency, or governance gap:** project_specific_placeholder
 
 ## 6. Desired Improvement State
 
@@ -188,19 +188,19 @@ TODO: Explain the gap between the current state and the desired state. Distingui
 
 | Improvement Goal ID | Improvement Goal | Stakeholder Value | Problem Element Addressed | Priority |
 |---|---|---|---|---|
-| GOAL-001 | TODO | TODO | TODO | TODO: must/should/could |
-| GOAL-002 | TODO | TODO | TODO | TODO |
-| GOAL-003 | TODO | TODO | TODO | TODO |
+| GOAL-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder: must/should/could |
+| GOAL-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| GOAL-003 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 6.2 Utility, Quality, and Knowledge Distinctions
 
 | Distinction | Project-Specific Meaning |
 |---|---|
-| Artifact utility | TODO: what practical usefulness would mean in this context |
-| Artifact quality | TODO: what internal/external quality attributes would mean |
-| Contribution to knowledge | TODO: what reusable design knowledge, method knowledge, or theory contribution may result |
-| Demonstration | TODO: how artifact use will be shown without treating demonstration as evaluation |
-| Evaluation | TODO: how artifact performance, utility, quality, or contribution will be assessed |
+| Artifact utility | project_specific_placeholder: what practical usefulness would mean in this context |
+| Artifact quality | project_specific_placeholder: what internal/external quality attributes would mean |
+| Contribution to knowledge | project_specific_placeholder: what reusable design knowledge, method knowledge, or theory contribution may result |
+| Demonstration | project_specific_placeholder: how artifact use will be shown without treating demonstration as evaluation |
+| Evaluation | project_specific_placeholder: how artifact performance, utility, quality, or contribution will be assessed |
 
 ## 7. Solution Objectives
 
@@ -210,12 +210,12 @@ Objectives should mediate between the problem definition and the later build/eva
 
 | Objective ID | Objective Statement | Objective Type | Derives From | Priority | Evaluation Implication |
 |---|---|---|---|---|---|
-| OBJ-001 | TODO: The artifact shall... / The project shall... | TODO: functional_requirement | TODO: problem/evidence/stakeholder IDs | must | TODO |
-| OBJ-002 | TODO | TODO: nonfunctional_requirement | TODO | should | TODO |
-| OBJ-003 | TODO | TODO: quality_attribute | TODO | must | TODO |
-| OBJ-004 | TODO | TODO: evaluation_requirement | TODO | must | TODO |
-| OBJ-005 | TODO | TODO: ethical_or_normative_requirement | TODO | should | TODO |
-| OBJ-006 | TODO | TODO: contribution_objective | TODO | could | TODO |
+| OBJ-001 | project_specific_placeholder: The artifact shall... / The project shall... | project_specific_placeholder: functional_requirement | project_specific_placeholder: problem/evidence/stakeholder IDs | must | project_specific_placeholder |
+| OBJ-002 | project_specific_placeholder | project_specific_placeholder: nonfunctional_requirement | project_specific_placeholder | should | project_specific_placeholder |
+| OBJ-003 | project_specific_placeholder | project_specific_placeholder: quality_attribute | project_specific_placeholder | must | project_specific_placeholder |
+| OBJ-004 | project_specific_placeholder | project_specific_placeholder: evaluation_requirement | project_specific_placeholder | must | project_specific_placeholder |
+| OBJ-005 | project_specific_placeholder | project_specific_placeholder: ethical_or_normative_requirement | project_specific_placeholder | should | project_specific_placeholder |
+| OBJ-006 | project_specific_placeholder | project_specific_placeholder: contribution_objective | project_specific_placeholder | could | project_specific_placeholder |
 
 Allowed objective types:
 
@@ -231,19 +231,19 @@ Allowed objective types:
 
 | Objective ID | Rationale | Alternative Considered | Why This Objective Is Appropriate |
 |---|---|---|---|
-| OBJ-001 | TODO | TODO | TODO |
-| OBJ-002 | TODO | TODO | TODO |
-| OBJ-003 | TODO | TODO | TODO |
+| OBJ-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| OBJ-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| OBJ-003 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 7.3 Objective Completeness Check
 
 | Check | Response |
 |---|---|
-| Do objectives cover the focal problem statement? | TODO: yes/no/partial + explanation |
-| Do objectives address all must-have stakeholder needs? | TODO |
-| Do objectives distinguish utility, quality, and contribution? | TODO |
-| Do objectives avoid prescribing a premature solution? | TODO |
-| Do objectives provide a basis for evaluation planning? | TODO |
+| Do objectives cover the focal problem statement? | project_specific_placeholder: yes/no/partial + explanation |
+| Do objectives address all must-have stakeholder needs? | project_specific_placeholder |
+| Do objectives distinguish utility, quality, and contribution? | project_specific_placeholder |
+| Do objectives avoid prescribing a premature solution? | project_specific_placeholder |
+| Do objectives provide a basis for evaluation planning? | project_specific_placeholder |
 
 ## 8. Requirements and Constraints
 
@@ -251,10 +251,10 @@ Allowed objective types:
 
 | Requirement ID | Requirement Statement | Requirement Type | Source Objective | Verification/Evaluation Method | Priority |
 |---|---|---|---|---|---|
-| REQ-001 | TODO | TODO: functional/nonfunctional/data/interface/process/documentation/governance | OBJ-001 | TODO | must |
-| REQ-002 | TODO | TODO | OBJ-002 | TODO | must |
-| REQ-003 | TODO | TODO | OBJ-003 | TODO | should |
-| REQ-004 | TODO | TODO | OBJ-004 | TODO | should |
+| REQ-001 | project_specific_placeholder | project_specific_placeholder: functional/nonfunctional/data/interface/process/documentation/governance | OBJ-001 | project_specific_placeholder | must |
+| REQ-002 | project_specific_placeholder | project_specific_placeholder | OBJ-002 | project_specific_placeholder | must |
+| REQ-003 | project_specific_placeholder | project_specific_placeholder | OBJ-003 | project_specific_placeholder | should |
+| REQ-004 | project_specific_placeholder | project_specific_placeholder | OBJ-004 | project_specific_placeholder | should |
 
 ### 8.2 Meta-Requirements
 
@@ -262,22 +262,22 @@ Meta-requirements express generalized requirements that may support reusable des
 
 | Meta-Requirement ID | Meta-Requirement | Problem Class Addressed | Local Instantiation | Reuse/Projectability Note |
 |---|---|---|---|---|
-| MR-001 | TODO | TODO | TODO | TODO |
-| MR-002 | TODO | TODO | TODO | TODO |
+| MR-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| MR-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 8.3 Design Constraints
 
 | Constraint ID | Constraint | Constraint Type | Design Implication | Evaluation Implication |
 |---|---|---|---|---|
-| CON-001 | TODO | TODO: technical/resource/time/security/regulatory/ethical/organizational | TODO | TODO |
-| CON-002 | TODO | TODO | TODO | TODO |
+| CON-001 | project_specific_placeholder | project_specific_placeholder: technical/resource/time/security/regulatory/ethical/organizational | project_specific_placeholder | project_specific_placeholder |
+| CON-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 8.4 Non-Goals
 
 | Non-Goal ID | Non-Goal | Reason Excluded | Risk of Misinterpretation |
 |---|---|---|---|
-| NG-001 | TODO | TODO | TODO |
-| NG-002 | TODO | TODO | TODO |
+| NG-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| NG-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ## 9. Success Criteria and Acceptance Logic
 
@@ -285,10 +285,10 @@ Meta-requirements express generalized requirements that may support reusable des
 
 | Criterion ID | Success Criterion | Linked Objective/Requirement | Measurement or Assessment Method | Threshold or Decision Rule | Evidence Required |
 |---|---|---|---|---|---|
-| SC-001 | TODO | OBJ-001 / REQ-001 | TODO | TODO | TODO |
-| SC-002 | TODO | OBJ-002 / REQ-002 | TODO | TODO | TODO |
-| SC-003 | TODO | OBJ-003 / REQ-003 | TODO | TODO | TODO |
-| SC-004 | TODO | OBJ-004 / REQ-004 | TODO | TODO | TODO |
+| SC-001 | project_specific_placeholder | OBJ-001 / REQ-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| SC-002 | project_specific_placeholder | OBJ-002 / REQ-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| SC-003 | project_specific_placeholder | OBJ-003 / REQ-003 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| SC-004 | project_specific_placeholder | OBJ-004 / REQ-004 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 9.2 Minimum Acceptance Criteria
 
@@ -296,32 +296,32 @@ A project may proceed to solution-space grounding and design rationale only when
 
 | Gate ID | Review Question | Pass Condition | Status | Notes |
 |---|---|---|---|---|
-| POB-GATE-001 | Is the focal problem stated clearly enough to guide design? | One concise focal problem statement is present and bounded. | TODO: pass/fail/waived | TODO |
-| POB-GATE-002 | Are stakeholders and context documented? | Primary stakeholders, context dimensions, and boundaries are identified. | TODO | TODO |
-| POB-GATE-003 | Are objectives traceable to the problem? | Each must-have objective links to a problem element, evidence item, or stakeholder need. | TODO | TODO |
-| POB-GATE-004 | Are requirements reviewable? | Each requirement has a type, source objective, and verification/evaluation method. | TODO | TODO |
-| POB-GATE-005 | Are success criteria evaluable? | Each success criterion defines evidence and a decision rule or threshold. | TODO | TODO |
+| POB-GATE-001 | Is the focal problem stated clearly enough to guide design? | One concise focal problem statement is present and bounded. | project_specific_placeholder: pass/fail/waived | project_specific_placeholder |
+| POB-GATE-002 | Are stakeholders and context documented? | Primary stakeholders, context dimensions, and boundaries are identified. | project_specific_placeholder | project_specific_placeholder |
+| POB-GATE-003 | Are objectives traceable to the problem? | Each must-have objective links to a problem element, evidence item, or stakeholder need. | project_specific_placeholder | project_specific_placeholder |
+| POB-GATE-004 | Are requirements reviewable? | Each requirement has a type, source objective, and verification/evaluation method. | project_specific_placeholder | project_specific_placeholder |
+| POB-GATE-005 | Are success criteria evaluable? | Each success criterion defines evidence and a decision rule or threshold. | project_specific_placeholder | project_specific_placeholder |
 
 ## 10. Evaluation Implications
 
 ### 10.1 Evaluation Planning Notes
 
-TODO: Explain how the problem/objective record shapes the evaluation plan.
+project_specific_placeholder: Explain how the problem/objective record shapes the evaluation plan.
 
 | Evaluation Implication ID | Linked Objective or Criterion | Evaluation Focus | Candidate Method | Notes |
 |---|---|---|---|---|
-| EVAL-IMP-001 | OBJ-001 / SC-001 | TODO: utility/quality/validity/reliability/projectability | TODO | TODO |
-| EVAL-IMP-002 | OBJ-002 / SC-002 | TODO | TODO | TODO |
+| EVAL-IMP-001 | OBJ-001 / SC-001 | project_specific_placeholder: utility/quality/validity/reliability/projectability | project_specific_placeholder | project_specific_placeholder |
+| EVAL-IMP-002 | OBJ-002 / SC-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 10.2 Demonstration vs. Evaluation Boundary
 
 | Question | Response |
 |---|---|
-| What will demonstrate that the artifact can be used? | TODO |
-| What will evaluate whether the artifact works well enough? | TODO |
-| What evidence will not count as evaluation by itself? | TODO |
-| What claims are evaluation evidence sufficient to support? | TODO |
-| What claims are not yet supported? | TODO |
+| What will demonstrate that the artifact can be used? | project_specific_placeholder |
+| What will evaluate whether the artifact works well enough? | project_specific_placeholder |
+| What evidence will not count as evaluation by itself? | project_specific_placeholder |
+| What claims are evaluation evidence sufficient to support? | project_specific_placeholder |
+| What claims are not yet supported? | project_specific_placeholder |
 
 ## 11. Traceability Matrix
 
@@ -329,26 +329,26 @@ Use this matrix to preserve a reviewable chain from problem evidence to objectiv
 
 | Problem Element ID | Evidence ID | Stakeholder/Context ID | Objective ID | Requirement ID | Success Criterion ID | Evaluation Implication ID |
 |---|---|---|---|---|---|---|
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO |
+| project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ## 12. Transparency Mapping
 
 | DSR Transparency Dimension | How This Record Addresses It | Evidence Status |
 |---|---|---|
-| Process transparency | TODO: how the problem/objective framing process was documented | TODO: mapped/not_yet_mapped/not_applicable |
-| Problem-space transparency | TODO: problem context, stakeholders, goals, timeframe, boundaries | TODO |
-| Solution-space transparency | TODO: links to related solution-space record or literature grounding | TODO |
-| Build transparency | TODO: how objectives/requirements will constrain later build choices | TODO |
-| Evaluation transparency | TODO: success criteria and evaluation implications | TODO |
-| Contribution transparency | TODO: knowledge contribution objective and intended projectability | TODO |
+| Process transparency | project_specific_placeholder: how the problem/objective framing process was documented | project_specific_placeholder: mapped/accepted_v1_limitation/not_applicable |
+| Problem-space transparency | project_specific_placeholder: problem context, stakeholders, goals, timeframe, boundaries | project_specific_placeholder |
+| Solution-space transparency | project_specific_placeholder: links to related solution-space record or literature grounding | project_specific_placeholder |
+| Build transparency | project_specific_placeholder: how objectives/requirements will constrain later build choices | project_specific_placeholder |
+| Evaluation transparency | project_specific_placeholder: success criteria and evaluation implications | project_specific_placeholder |
+| Contribution transparency | project_specific_placeholder: knowledge contribution objective and intended projectability | project_specific_placeholder |
 
 ## 13. Responsible Design, Risk, and Ethical Considerations
 
 | Consideration ID | Value/Risk/Concern | Affected Stakeholders | Design or Evaluation Response | Status |
 |---|---|---|---|---|
-| RD-001 | TODO: privacy, security, fairness, accessibility, transparency, safety, burden, exclusion, misuse, compliance | TODO | TODO | TODO |
-| RD-002 | TODO | TODO | TODO | TODO |
+| RD-001 | project_specific_placeholder: privacy, security, fairness, accessibility, transparency, safety, burden, exclusion, misuse, compliance | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| RD-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ## 14. Limitations and Open Questions
 
@@ -356,15 +356,15 @@ Use this matrix to preserve a reviewable chain from problem evidence to objectiv
 
 | Limitation ID | Limitation | Implication | Mitigation or Next Step |
 |---|---|---|---|
-| LIM-001 | TODO | TODO | TODO |
-| LIM-002 | TODO | TODO | TODO |
+| LIM-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| LIM-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ### 14.2 Open Questions
 
 | Question ID | Open Question | Owner | Needed Input | Target Resolution Point |
 |---|---|---|---|---|
-| OQ-001 | TODO | TODO | TODO | TODO |
-| OQ-002 | TODO | TODO | TODO | TODO |
+| OQ-001 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
+| OQ-002 | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder | project_specific_placeholder |
 
 ## 15. Reviewer Checklist
 
@@ -385,11 +385,11 @@ Complete this section when the problem-and-objectives record is ready for intern
 
 | Field | Response |
 |---|---|
-| Prepared by | TODO |
-| Date completed | TODO: YYYY-MM-DD |
-| Review status | TODO: draft/in_review/approved |
-| Ready for solution-space grounding? | TODO: yes/no/conditional |
-| Ready for design rationale? | TODO: yes/no/conditional |
-| Ready for evaluation planning? | TODO: yes/no/conditional |
-| Major unresolved risks | TODO |
+| Prepared by | project_specific_placeholder |
+| Date completed | project_specific_placeholder: YYYY-MM-DD |
+| Review status | project_specific_placeholder: draft/in_review/approved |
+| Ready for solution-space grounding? | project_specific_placeholder: yes/no/conditional |
+| Ready for design rationale? | project_specific_placeholder: yes/no/conditional |
+| Ready for evaluation planning? | project_specific_placeholder: yes/no/conditional |
+| Major unresolved risks | project_specific_placeholder |
 | Next recommended file | templates/solution-space-record-template.yaml |

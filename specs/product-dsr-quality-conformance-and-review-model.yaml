@@ -407,7 +407,7 @@ sections:
           minimum_acceptance:
             - Stable file path and item ID exist.
             - Draft status is explicit.
-            - TODOs are visible rather than hidden.
+            - project_specific_placeholders are visible rather than hidden.
         - id: l1_documented
           label: L1 Documented
           definition: Core identity, purpose, ownership, version, source basis, related items, and change history are present.
@@ -545,7 +545,7 @@ sections:
           requirement: Review must not accept publication-readiness, generalization, effectiveness, or reuse claims that are not bounded by evidence and stated limitations.
           verification: overclaim_review
         - id: qr_must_not_004
-          requirement: Review must not hide unresolved TODOs, assumptions, missing evidence, or known defects in release-facing records.
+          requirement: Review must not hide unresolved project_specific_placeholders, assumptions, missing evidence, or known defects in release-facing records.
           verification: release_readiness_review
 
   - id: information_items
@@ -1065,7 +1065,7 @@ sections:
         - level: l0_draft
           required_gate_status:
             qg_01_repository_consistency: conditional_pass_or_better
-          blocker_policy: Blockers may remain if clearly marked TODO and not released.
+          blocker_policy: Blockers may remain if clearly marked project_specific_placeholder and not released.
         - level: l1_documented
           required_gate_status:
             qg_01_repository_consistency: pass_with_minor_findings_or_better
@@ -1150,7 +1150,7 @@ sections:
           - Schema validates corresponding information item and uses explicit required properties.
           - additionalProperties policy is intentional.
         template:
-          - Template is usable by a researcher and marks project-specific fields as TODO only when unavoidable.
+          - Template is usable by a researcher and marks project-specific fields as project_specific_placeholder only when unavoidable.
           - Template fields correspond to schemas, models, and information-item rules.
         checklist:
           - Checklist items include check_id, question, evidence_required, pass_condition, fail_condition, and remediation_guidance.
@@ -1229,7 +1229,7 @@ sections:
         - Keep evidence close to the file or record it supports, but summarize review state in records/reviews.
         - Use stable IDs for review findings so remediation can be tracked across versions.
         - Prefer controlled values for quality dimensions, gate status, finding severity, and decisions.
-        - Mark unavailable evidence as not_yet_mapped, not_available, or not_applicable with rationale.
+        - Mark unavailable evidence as accepted_v1_limitation, not_available, or not_applicable with rationale.
       reviewer_guidance:
         - Review the declared conformance level before applying gates.
         - Classify each finding by severity, dimension, gate, affected item, and required action.

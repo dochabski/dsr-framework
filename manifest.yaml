@@ -60,6 +60,7 @@ manifest:
       literature_alignment_status: post_crosswalk_review_pass_with_required_followup
       latest_design_decision_record: records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
       latest_release_scope_decision: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+      latest_open_marker_disposition_review: records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
       latest_tailoring_record: records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
       public_draft_tailoring_status: accepted_for_0_1_0_public_draft_l2_scope
       v1_release_scope_status: l4_reusable_stable_target_l5_not_claimed_for_v1
@@ -473,7 +474,7 @@ manifest:
       remediation: Reconcile canonical package_id, title, version, repository URL, and release metadata.
     - failure_id: fm_unmapped_evidence
       description: A DSR concept or quality claim is made without corpus, protocol, or record evidence.
-      remediation: Add trace links to records/source-basis or mark evidence_status as not_yet_mapped.
+      remediation: Add trace links to records/source-basis or mark evidence_status as accepted_v1_limitation.
     - failure_id: fm_overclaimed_readiness
       description: The package claims L4/L5 reuse or archival publication readiness without supporting evaluation and release
         records.
@@ -563,7 +564,7 @@ manifest:
     from: dsr_extraction_corpus
     to: manifest.source_basis
     relation: declares_available_scholarly_source_basis
-    evidence_status: available_not_yet_mapped
+    evidence_status: available_accepted_v1_limitation
   - trace_id: tr_manifest_to_repaired_corpus
     from: dsr_extraction_corpus_repaired
     to: manifest.normalization_status.repaired_corpus_reference
@@ -594,6 +595,11 @@ manifest:
     to: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
     relation: defines_v1_l4_release_scope_and_validator_policy
     evidence_status: retained_governance_record
+  - trace_id: tr_release_scope_to_open_marker_disposition_review
+    from: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    to: records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
+    relation: supports_release_candidate_marker_disposition
+    evidence_status: retained_review_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -619,6 +625,7 @@ manifest:
     - schemas/package-inventory.schema.json
     - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
     - records/reviews/record-literature-alignment-0001.yaml
+    - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
     - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
@@ -750,3 +757,9 @@ manifest:
     description: Added retained v1.0.0 release-scope decision and aligned release-candidate validation with the L4 reusable-stable v1 target rather than L5.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_release_scope_and_validator_policy
+  - version: 0.1.7
+    date: '2026-04-28'
+    change_type: v1_open_marker_disposition
+    description: Added retained open-marker disposition review and replaced release-candidate marker strings with release-scoped limitation, post-v1, generated, available, or supersession language.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_open_marker_disposition

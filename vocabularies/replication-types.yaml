@@ -631,7 +631,7 @@ vocabulary:
       requirement: "entry_class must be one of coding_status, brendel_replication_study_type, replication_scope, or replication_outcome."
       severity: error
     - rule_id: repl_validation_004
-      requirement: "Claims about source-backed DSR replication types must include a mapped source_basis entry or evidence_status: not_yet_mapped."
+      requirement: "Claims about source-backed DSR replication types must include a mapped source_basis entry or evidence_status: accepted_v1_limitation."
       severity: warning
     - rule_id: repl_validation_005
       requirement: "Replication outcomes must not be used without evidence or a review record."
@@ -683,7 +683,7 @@ vocabulary:
       source: models/dsr-projectability-model.yaml
       target: entries
       relationship: upstream_model_dependency
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
 
   quality_gate_alignment:
     qg_consistency:

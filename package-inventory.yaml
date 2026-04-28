@@ -345,17 +345,18 @@ package_inventory:
   - directory_id: dir_015
     path: records/reviews
     purpose: Review and self-review records.
-    expected_file_count_from_selection_table: 4
+    expected_file_count_from_selection_table: 5
     listed_files:
     - records/reviews/record-review-0001-self-review.yaml
     - records/reviews/record-literature-alignment-0001.yaml
     - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/reviews/record-review-v1-readiness-audit.yaml
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 4
-      present_count: 4
+      listed_count: 5
+      present_count: 5
       missing_count: 0
   - directory_id: dir_016
     path: records/releases
@@ -599,7 +600,7 @@ package_inventory:
       traceability, implementation_guidance, template_or_schema_implications, and open_questions_and_backlog unless explicitly
       tailored.
     - Normative statements are testable and use must, should, may, or must_not.
-    - Downstream templates, schemas, checklists, and docs are listed or marked not_yet_mapped.
+    - Downstream templates, schemas, checklists, and docs are listed or marked accepted_v1_limitation.
   - validation_profile_id: vp_model
     applies_to: models/*.yaml files.
     primary_responsible_role: model_owner
@@ -626,7 +627,7 @@ package_inventory:
     primary_responsible_role: template_owner
     required_checks:
     - Template is directly usable by a researcher.
-    - TODO placeholders are limited to project-specific facts and explain needed input.
+    - project_specific_placeholder placeholders are limited to project-specific facts and explain needed input.
     - Template maps to schema, checklist, or model where applicable.
   - validation_profile_id: vp_checklist
     applies_to: checklists/*.yaml files.
@@ -641,7 +642,7 @@ package_inventory:
     required_checks:
     - Human-facing documentation identifies controlled source YAML or related files.
     - Markdown does not become the sole source of controlled data.
-    - Links to files, examples, records, and templates are valid or marked not_yet_mapped.
+    - Links to files, examples, records, and templates are valid or marked accepted_v1_limitation.
   - validation_profile_id: vp_root_governance
     applies_to: LICENSE, CONTRIBUTING.md, GOVERNANCE.md, SECURITY.md, CODE_OF_CONDUCT.md.
     primary_responsible_role: repository_governance_owner
@@ -661,7 +662,7 @@ package_inventory:
     primary_responsible_role: release_manager
     required_checks:
     - Citation, archival, and changelog metadata are synchronized at release time.
-    - DOI, version, release date, and author metadata are either populated or marked TODO before archival release.
+    - DOI, version, release date, and author metadata are either populated or marked project_specific_placeholder before archival release.
     - Release readiness checklist is completed before L5 claims.
   file_inventory:
   - inventory_entry_id: inv_0001
@@ -688,7 +689,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -721,7 +722,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -755,7 +756,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -789,7 +790,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -822,7 +823,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -855,7 +856,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -888,7 +889,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -921,7 +922,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -955,7 +956,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -990,7 +991,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1024,7 +1025,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1058,7 +1059,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1093,7 +1094,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1127,7 +1128,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1161,7 +1162,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1195,7 +1196,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1229,7 +1230,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1264,7 +1265,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1298,7 +1299,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1332,7 +1333,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1367,7 +1368,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1402,7 +1403,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1437,7 +1438,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1473,7 +1474,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1508,7 +1509,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1543,7 +1544,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1577,7 +1578,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1611,7 +1612,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1645,7 +1646,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1679,7 +1680,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1715,7 +1716,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1749,7 +1750,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1783,7 +1784,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1817,7 +1818,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1851,7 +1852,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1886,7 +1887,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1920,7 +1921,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1954,7 +1955,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -1988,7 +1989,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2022,7 +2023,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2056,7 +2057,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2090,7 +2091,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2124,7 +2125,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2158,7 +2159,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2192,7 +2193,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2226,7 +2227,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2260,7 +2261,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2294,7 +2295,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2328,7 +2329,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2362,7 +2363,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2396,7 +2397,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2429,7 +2430,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2462,7 +2463,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2495,7 +2496,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2528,7 +2529,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2561,7 +2562,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2594,7 +2595,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2627,7 +2628,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2660,7 +2661,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2693,7 +2694,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2727,7 +2728,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2761,7 +2762,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2795,7 +2796,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2829,7 +2830,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2863,7 +2864,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2897,7 +2898,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2931,7 +2932,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2965,7 +2966,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -2999,7 +3000,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3033,7 +3034,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3067,7 +3068,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3101,7 +3102,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3135,7 +3136,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3169,7 +3170,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3203,7 +3204,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3237,7 +3238,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3271,7 +3272,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3305,7 +3306,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3339,7 +3340,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3373,7 +3374,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3407,7 +3408,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3441,7 +3442,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3475,7 +3476,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3509,7 +3510,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3543,7 +3544,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3576,7 +3577,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3609,7 +3610,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3642,7 +3643,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3675,7 +3676,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3708,7 +3709,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3741,7 +3742,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3776,7 +3777,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3810,7 +3811,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3844,7 +3845,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3878,7 +3879,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3912,7 +3913,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -3946,7 +3947,7 @@ package_inventory:
       - path_exists_or_planned_exception_recorded
       - format_matches_declared_output_format
       - required_metadata_present
-      - dependency_links_resolve_or_are_marked_not_yet_mapped
+      - dependency_links_resolve_or_are_marked_accepted_v1_limitation
       - quality_gate_status_recorded
     minimum_acceptance_criteria:
     - uses_declared_path_and_extension
@@ -4742,6 +4743,40 @@ package_inventory:
     - parses_as_yaml
     - defines_v1_l4_release_scope
     - permits_post_v1_l5_non_claim_language
+  - inventory_entry_id: inv_0122
+    file_id: file_records__reviews__record_review_open_marker_disposition_0001_v1_0_0_yaml
+    selection_id: record_review_open_marker_disposition_0001_v1_0_0
+    path: records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
+    package_section: records/reviews
+    portion_type: release_readiness_review_record
+    output_format: yaml
+    purpose: Retain v1.0.0 open-marker disposition review and release-scoped blocker categories.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    - scripts/validate-package.py
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - release_manager
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - marker_disposition_categories_recorded
+      - no_open_marker_matches
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_release_scoped_marker_disposition
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -4765,7 +4800,7 @@ package_inventory:
     severity: error
     responsible_role: release_manager
   - rule_id: pkg_inv_rule_006
-    rule: Files with evidence_status not_yet_mapped may remain draft but must not be used to claim verified DSR evidence coverage.
+    rule: Files with evidence_status accepted_v1_limitation may remain draft but must not be used to claim verified DSR evidence coverage.
     severity: warning
     responsible_role: dsr_methodology_reviewer
   acceptance_criteria:
@@ -4951,12 +4986,17 @@ package_inventory:
     change: Added v1.0.0 release-scope and validator-policy decision record.
     responsible_party: framework_maintainer
     review_status: v1_release_scope_policy_recorded
+  - version: 0.1.8
+    date: '2026-04-28'
+    change: Dispositioned release-candidate open-marker strings into release-scoped limitation, post-v1, generated, available, or supersession language.
+    responsible_party: framework_maintainer
+    review_status: v1_marker_disposition_review_created
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 121
+    controlled_file_inventory_entries: 122
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass

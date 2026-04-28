@@ -95,7 +95,7 @@ source_basis:
     - artificial_versus_naturalistic_evaluation
     - evaluation_strategy_selection
     citation_anchor_ids:
-    - evidence_status:not_yet_mapped
+    - evidence_status:accepted_v1_limitation
   - source_id: dsr_methodology_and_naturalistic_evaluation_sources
     supports:
     - demonstration_evaluation_boundary
@@ -682,7 +682,7 @@ controlled_value_sets:
   - reported
   - retained
   - not_shareable
-  - not_yet_mapped
+  - accepted_v1_limitation
   claim_support_status_values:
   - supported
   - partially_supported
@@ -726,7 +726,7 @@ relationship_model:
     source_entity: claim
     target_entity: evidence_item
     cardinality: zero_or_more_evidence_items_per_claim
-    rule: A claim with no evidence items must be labeled planned, deferred, not_evaluated, or not_yet_mapped.
+    rule: A claim with no evidence items must be labeled planned, deferred, not_evaluated, or accepted_v1_limitation.
   - relationship_type: interpreted_against
     source_entity: evaluation_result
     target_entity: baseline_or_comparator

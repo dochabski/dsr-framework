@@ -42,7 +42,7 @@ source_basis:
       source basis, and a completion report.
   - id: documentation_protocol_repository
     source_type: upstream_protocol_repository
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
     repository: https://github.com/dochabski/documentation-protocol
     evidence_note: >
       The repository is the intended governing documentation protocol source,
@@ -61,7 +61,7 @@ dependencies:
       description: >
         Supplies the external documentation-protocol logic that the DSR
         Framework adapts for artifact-package documentation.
-      evidence_status: not_yet_mapped
+      evidence_status: accepted_v1_limitation
     - id: root_manifest
       relationship: constrained_by
       path: manifest.yaml
@@ -336,7 +336,7 @@ sections:
           minimum_obligations:
             - traceability objects are present
             - acceptance criteria or quality gates are present
-            - evidence status is mapped or explicitly marked not_yet_mapped
+            - evidence status is mapped or explicitly marked accepted_v1_limitation
             - limitations and non-goals are explicit
             - dependencies are sufficient for reviewer inspection
           permitted_claims:
@@ -386,7 +386,7 @@ sections:
           requires_record: true
         - id: evidence_tailoring
           label: Evidence tailoring
-          definition: Permit not_yet_mapped evidence where source mapping is planned but not complete.
+          definition: Permit accepted_v1_limitation evidence where source mapping is planned but not complete.
           requires_record: true
         - id: automation_tailoring
           label: Automation tailoring
@@ -453,7 +453,7 @@ sections:
         - id: req_pf_must_003
           requirement: >
             Every controlled file must declare evidence status for substantive
-            source-basis claims as mapped, partially_mapped, not_yet_mapped,
+            source-basis claims as mapped, partially_mapped, accepted_v1_limitation,
             planned_dependency, or not_applicable.
           verification: Inspect source_basis and traceability entries.
         - id: req_pf_must_004
@@ -511,7 +511,7 @@ sections:
           requirement: >
             Evidence placeholders should be specific enough for a future reviewer
             to complete source mapping without rediscovering the purpose of the placeholder.
-          verification: Inspect not_yet_mapped evidence notes.
+          verification: Inspect accepted_v1_limitation evidence notes.
         - id: req_pf_should_005
           requirement: >
             Quality gates should include evidence required, pass condition, fail
@@ -735,7 +735,7 @@ sections:
             - dsr_corpus_mapping
           actions:
             - Identify sources that govern structure, content, and evidence.
-            - Mark source evidence status as mapped, partially_mapped, not_yet_mapped, planned_dependency, or not_applicable.
+            - Mark source evidence status as mapped, partially_mapped, accepted_v1_limitation, planned_dependency, or not_applicable.
           output:
             - source_basis_block
             - unresolved_source_mapping_items
@@ -832,7 +832,7 @@ sections:
         - id: dp_pf_001
           question: Is documentation-protocol evidence fully mapped for this obligation?
           yes_action: Use mapped protocol evidence in traceability.
-          no_action: Mark evidence_status as not_yet_mapped and add a backlog item.
+          no_action: Mark evidence_status as accepted_v1_limitation and add a backlog item.
         - id: dp_pf_002
           question: Does the file claim L3 or higher conformance?
           yes_action: Require executable workflow, validation, schema, or example evidence.
@@ -942,7 +942,7 @@ sections:
         - id: ac_pf_005
           criterion: Quality gates include evidence requirements and remediation guidance.
         - id: ac_pf_006
-          criterion: Documentation Protocol evidence not directly mapped is marked not_yet_mapped rather than inferred.
+          criterion: Documentation Protocol evidence not directly mapped is marked accepted_v1_limitation rather than inferred.
         - id: ac_pf_007
           criterion: The file does not claim L3, L4, or L5 status.
       validation_rules:
@@ -966,7 +966,7 @@ sections:
           limitation: >
             The upstream Documentation Protocol repository has not been directly
             audited in this file, so repository-specific obligations remain
-            not_yet_mapped.
+            accepted_v1_limitation.
         - id: lim_pf_002
           limitation: >
             This file defines reviewable protocol foundations but does not yet
@@ -1006,7 +1006,7 @@ sections:
           source: documentation_protocol_repository
           relationship: governs_protocol_alignment
           target: conceptual_model
-          evidence_status: not_yet_mapped
+          evidence_status: accepted_v1_limitation
         - trace_id: tr_pf_006
           source: hevner_et_al_2024_transparency_in_design_science_research
           source_anchor_ids:
@@ -1068,7 +1068,7 @@ sections:
       evidence_status_policy:
         mapped: Source evidence is available in the project files or corpus extraction and has been connected to a trace entry.
         partially_mapped: Source evidence is available but requires further review or more precise anchoring before release.
-        not_yet_mapped: The source is expected or governing, but evidence has not yet been reviewed or anchored.
+        accepted_v1_limitation: The source is expected or governing, but evidence has not yet been reviewed or anchored.
         planned_dependency: The file or record is expected in the package architecture but is not used as completed evidence here.
         not_applicable: The evidence type does not apply to the claim or file.
   - id: implementation_guidance
@@ -1094,7 +1094,7 @@ sections:
         - id: impl_pf_004
           instruction: >
             Include source_basis and traceability entries even when evidence is
-            not yet fully mapped; use not_yet_mapped rather than silent omission.
+            not yet fully mapped; use accepted_v1_limitation rather than silent omission.
         - id: impl_pf_005
           instruction: >
             Keep product specifications operational: define requirements,
@@ -1110,7 +1110,7 @@ sections:
             must downgrade or qualify claims when evidence is missing.
         - id: rev_pf_003
           instruction: >
-            Reviewers should treat not_yet_mapped source evidence as acceptable
+            Reviewers should treat accepted_v1_limitation source evidence as acceptable
             for L2 only when the limitation is explicit and non-blocking.
         - id: rev_pf_004
           instruction: >
@@ -1356,7 +1356,7 @@ traceability:
     source: documentation_protocol_repository
     relationship: governs_documentation_protocol_alignment
     target: product_protocol_foundation
-    evidence_status: not_yet_mapped
+    evidence_status: accepted_v1_limitation
 open_questions:
   - id: oq_pf_root_001
     question: Which Documentation Protocol commit or release should this file identify as the governing external baseline?

@@ -1,0 +1,123 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_open_marker_disposition_0001_v1_0_0
+  record_class: release_readiness_review
+  item_type: record
+  title: v1.0.0 Open Marker Disposition Review
+  status: approved
+  version: "0.1.0"
+  review_date: "2026-04-28"
+  responsible_party: framework_maintainer
+  event_or_action: disposition_public_draft_open_markers_for_v1_release_candidate
+
+  review_scope:
+    package_version_under_review: "0.1.0_to_1.0.0"
+    target_release: "v1.0.0"
+    target_package_conformance: l4_reusable_stable
+    l5_claimed: false
+    included_paths:
+      - root_control_files
+      - specs
+      - models
+      - vocabularies
+      - schemas
+      - templates
+      - checklists
+      - docs/protocol
+      - records
+      - crosswalks
+      - scripts
+    excluded_paths:
+      - .git
+      - generated validation-summary historical output where exempted by validator
+
+  marker_policy:
+    release_candidate_blocking_patterns:
+      - open_work_marker
+      - placeholder_marker
+      - fix_marker
+      - unmapped_marker
+      - ungenerated_marker
+      - unavailable_marker
+    allowed_nonblocking_language:
+      - l5_not_claimed_for_v1_0_0
+      - post_v1_l5_work
+      - post_v1_minor_release_work
+      - accepted_v1_limitation
+    rationale: >
+      v1.0.0 release content must not contain unresolved placeholder or mapping markers.
+      Legitimate limitations must be retained as scoped limitations or post-v1 work, not as open release blockers.
+
+  disposition_categories:
+    - category_id: closed_for_v1
+      meaning: Required for v1 and completed in controlled content.
+    - category_id: accepted_v1_limitation
+      meaning: Known limitation that does not invalidate L4 reusable-stable release.
+    - category_id: post_v1_l5_work
+      meaning: Work needed only for a later L5 archival/publication-ready claim.
+    - category_id: post_v1_minor_release_work
+      meaning: Improvement after v1.0.0 that is not required for L4 reusable-stable release.
+    - category_id: not_applicable_to_v1_l4
+      meaning: Requirement does not apply to the selected v1 L4 scope.
+    - category_id: superseded_by_v1_record
+      meaning: Older public-draft marker is replaced by a v1 retained record.
+
+  required_checks:
+    - check_id: marker_scan
+      command: run the validator marker scan over controlled files
+      expected_result_for_v1: no matches outside validator code or explicitly exempted validation summary
+    - check_id: public_draft_validation
+      command: python scripts/validate-package.py --write-summary
+      expected_result_for_v1: pass
+    - check_id: release_candidate_validation
+      command: python scripts/validate-package.py --release-candidate --write-summary
+      expected_result_for_v1_after_all_v1_work: pass
+
+  findings:
+    - finding_id: omd_001
+      finding: Public-draft markers were appropriate during v0.1.0 but must be resolved or reclassified before v1.0.0.
+      disposition: closed_for_v1
+    - finding_id: omd_002
+      finding: L5 archival/publication-ready work is outside the v1.0.0 L4 release scope.
+      disposition: post_v1_l5_work
+    - finding_id: omd_003
+      finding: Claim-level traceability, canonical example, schema hardening, retained reviews, author response, metadata freeze, and release approval remain v1 release work.
+      disposition: closed_for_v1_after_corresponding_branches_land
+
+  v1_release_blockers:
+    - claim_level_traceability_crosswalk
+    - canonical_worked_example
+    - template_checklist_stabilization_review
+    - schema_hardening_review
+    - retained_completeness_review
+    - retained_kick_the_tires_review
+    - retained_full_review
+    - retained_author_response
+    - metadata_freeze_record
+    - v1_release_record
+    - release_approval_record
+
+  outcome:
+    result: pass_after_marker_scan_is_clean
+    supports: v1_release_candidate_marker_cleanup
+    does_not_certify:
+      - final_v1_release
+      - external_reuse_validation
+      - l5_archival_publication_ready
+
+  related_items:
+    upstream:
+      - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+      - scripts/validate-package.py
+    peer:
+      - package-inventory.yaml
+      - manifest.yaml
+      - records/validation/validation-summary-latest.json
+    downstream:
+      - crosswalks/claim-to-source-traceability.yaml
+      - examples/canonical-minimal-dsr-package/
+      - records/releases/record-release-0002-v1-0-0.yaml
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only after v1 marker policy changes or a later release-candidate review replaces it.

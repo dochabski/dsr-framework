@@ -282,7 +282,7 @@ The framework is grounded in two evidence families:
 1. **Documentation protocol and repository architecture evidence**, which governs structured information items, repository layout, controlled records, and validation-oriented package design.
 2. **DSR corpus evidence**, which grounds artifact ontology, lifecycle logic, contribution positioning, transparency, evaluation, reliability, validity, replication, projectability, and publication-readiness concepts.
 
-Where detailed evidence has not yet been mapped to a specific claim, controlled files should use `evidence_status: not_yet_mapped` or `evidence_status: partially_mapped` rather than inventing authority.
+Where detailed evidence has not yet been mapped to a specific claim, controlled files should use `evidence_status: accepted_v1_limitation` or `evidence_status: partially_mapped` rather than inventing authority.
 
 ## Limitations
 

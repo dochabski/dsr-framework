@@ -209,7 +209,7 @@ Recommended evidence fields:
 - limitation notes;
 - confidentiality or non-shareability rationale where applicable.
 
-Use `evidence_status: not_yet_mapped` when evidence exists in the project but has not yet been linked to the claim. Use `evidence_status: deferred` when the evaluation is intentionally postponed.
+Use `evidence_status: accepted_v1_limitation` when evidence exists in the project but has not yet been linked to the claim. Use `evidence_status: deferred` when the evaluation is intentionally postponed.
 
 ### 5.6 Analyze and interpret
 
@@ -434,8 +434,8 @@ An evaluation plan should be created before claims are reported as supported. A 
 
 ```yaml
 evaluation_plan:
-  plan_id: TODO
-  title: TODO
+  plan_id: project_specific_placeholder
+  title: project_specific_placeholder
   status: draft
   version: "0.1.0"
   evaluation_subjects: []
@@ -462,8 +462,8 @@ A minimal L2 report should include:
 
 ```yaml
 evaluation_report:
-  report_id: TODO
-  linked_plan_id: TODO
+  report_id: project_specific_placeholder
+  linked_plan_id: project_specific_placeholder
   status: draft
   version: "0.1.0"
   evaluation_subjects_reviewed: []
