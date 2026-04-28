@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: CC0-1.0
+package_inventory:
+  item_id: example_canonical_minimal_dsr_package_inventory
+  item_type: example_record
+  record_id: example_canonical_minimal_dsr_package_inventory_0001
+  record_class: package_inventory
+  title: Canonical Minimal DSR Package Example Inventory
+  purpose: Inventory the files in the synthetic canonical minimal DSR package example.
+  status: v1_release_candidate
+  version: 1.0.0-rc.1
+  owner: framework_maintainer
+  responsible_party: framework_maintainer
+  source_basis:
+    - source_id: dsr_framework_package_inventory
+      role: inventory_pattern
+      evidence_status: mapped
+  related_items:
+    upstream:
+      - package-inventory.yaml
+    peer:
+      - examples/canonical-minimal-dsr-package/README.md
+      - examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+      - examples/canonical-minimal-dsr-package/contribution-claim.yaml
+      - examples/canonical-minimal-dsr-package/transparency-crosswalk.yaml
+  inventory_scope:
+    included:
+      - canonical example files
+    excluded:
+      - real data
+      - source PDFs
+      - production implementation
+  directory_inventory:
+    - directory_id: example_dir_001
+      path: examples/canonical-minimal-dsr-package
+      listed_file_existence:
+        listed_count: 10
+        present_count: 10
+        missing_count: 0
+  root_file_inventory: []
+  validation_profiles:
+    - validation_profile_id: example_yaml_or_markdown
+      applies_to: Example YAML and Markdown files.
+      required_checks:
+        - parse YAML where applicable
+        - inspect Markdown for non-claims
+  file_inventory:
+    - path: examples/canonical-minimal-dsr-package/README.md
+      role: example_orientation
+    - path: examples/canonical-minimal-dsr-package/project-charter.md
+      role: project_scope
+    - path: examples/canonical-minimal-dsr-package/problem-and-objectives.md
+      role: problem_space
+    - path: examples/canonical-minimal-dsr-package/artifact-specification.md
+      role: artifact_boundary
+    - path: examples/canonical-minimal-dsr-package/design-rationale.md
+      role: design_reasoning
+    - path: examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+      role: evaluation_planning
+    - path: examples/canonical-minimal-dsr-package/contribution-claim.yaml
+      role: contribution_positioning
+    - path: examples/canonical-minimal-dsr-package/transparency-crosswalk.yaml
+      role: transparency_mapping
+    - path: examples/canonical-minimal-dsr-package/package-inventory.yaml
+      role: local_inventory
+    - path: examples/canonical-minimal-dsr-package/validation-notes.md
+      role: validation_scope_notes
+  change_history:
+    - version: 1.0.0-rc.1
+      date: '2026-04-28'
+      change: Initial example-local package inventory.
+      responsible_party: framework_maintainer

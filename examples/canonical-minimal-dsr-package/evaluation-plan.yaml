@@ -1,0 +1,165 @@
+# SPDX-License-Identifier: CC0-1.0
+evaluation_plan:
+  plan_id: example_heat_route_evaluation_plan
+  plan_type: dsr_evaluation_plan
+  title: Evaluation Plan for Neighborhood Heat-Risk Cooling Route Advisor
+  status: v1_release_candidate
+  version: 1.0.0-rc.1
+  date_created: '2026-04-28'
+  date_updated: null
+  responsible_party:
+    name: framework_maintainer
+    role: example_author
+    affiliation: dsr_framework_package
+  project_identity:
+    dsr_project_id: example_heat_route
+    project_title: Neighborhood Heat-Risk Cooling Route Advisor
+    artifact_id: example_heat_route_advisor
+    artifact_name: Neighborhood Heat-Risk Cooling Route Advisor
+    artifact_type: method
+    artifact_version_under_evaluation: 1.0.0-rc.1
+    evaluation_scope:
+      scope_type: package
+      included_components:
+        - synthetic input table specification
+        - rule-based scoring method
+        - ranked outreach output
+        - explanation fields
+        - human override note
+      excluded_components:
+        - real resident data
+        - production deployment
+        - emergency or clinical decision support
+      boundary_rationale: The example exercises framework mechanics without claiming real-world public-health effectiveness.
+  evaluation_purpose:
+    primary_purpose: readiness_review
+    lifecycle_stage: demonstration
+    evaluation_timing:
+      - ex_ante
+      - formative
+    evaluation_setting:
+      - artificial_setting
+      - expert_review
+    intended_decision_supported: Determine whether the example is sufficient as a canonical framework exercise.
+    intended_audiences:
+      - audience_id: researcher
+        information_need: How to instantiate problem, artifact, evaluation, contribution, and transparency records.
+      - audience_id: reviewer
+        information_need: How to distinguish demonstration from evaluation and identify non-claims.
+  claims_under_evaluation:
+    - claim_id: ep_claim_001
+      claim_text: The artifact can produce a transparent ranked route list from synthetic aggregate inputs.
+      claim_type: utility_claim
+      claim_scope: idiographic_local
+      related_artifact_component: rule_based_scoring_method
+      expected_evidence_level: feasibility
+      rationale_for_evaluation: The example must show a reviewable artifact path without real deployment.
+      evidence_status: planned
+    - claim_id: ep_claim_002
+      claim_text: A reviewer can inspect how requirements map to design features and evaluation criteria.
+      claim_type: transparency_claim
+      claim_scope: projectable_to_problem_class
+      related_artifact_component: documentation_package
+      expected_evidence_level: plausibility
+      rationale_for_evaluation: The example must exercise traceability and non-overclaiming expectations.
+      evidence_status: planned
+  evaluation_questions:
+    - question_id: eq_001
+      question: Can the synthetic scenario be executed from inputs to ranked output with visible explanations?
+      linked_claim_ids:
+        - ep_claim_001
+      decision_relevance: Supports example acceptance as an artificial demonstration.
+      evaluation_target: artifact_utility
+      success_criteria:
+        - criterion_id: transparency
+          criterion: Score components and limitations are visible.
+          operational_definition: A reviewer can see the factors used in ranking and the non-deployment warning.
+          threshold_or_decision_rule: Pass if all ranked outputs include explanation and limitation fields.
+          evidence_required:
+            - synthetic scenario output inspection
+          failure_condition: Ranking output lacks explanations or hides limitation language.
+    - question_id: eq_002
+      question: Can a reviewer trace requirements to design choices and evaluation criteria?
+      linked_claim_ids:
+        - ep_claim_002
+      decision_relevance: Supports example acceptance as a DSR documentation exercise.
+      evaluation_target: contribution_to_knowledge
+      success_criteria:
+        - criterion_id: traceability
+          criterion: Requirements map to design choices and evaluation claims.
+          operational_definition: R1 through R6 are visible in problem, design, and validation notes.
+          threshold_or_decision_rule: Pass if each requirement has an artifact or review counterpart.
+          evidence_required:
+            - project charter
+            - problem and objectives file
+            - design rationale
+          failure_condition: Requirements cannot be followed into the artifact or evaluation plan.
+  evaluation_design:
+    overall_strategy: Artificial demonstration plus structured expert walkthrough plan.
+    evaluation_pathway:
+      artificial_evaluation:
+        planned: true
+        rationale: Synthetic data is sufficient to exercise the example workflow.
+        methods:
+          - method_id: artificial_demonstration
+            method_family: artificial
+            method_name: Synthetic route-prioritization walkthrough
+            method_description: Use a fictional six-neighborhood table to produce and inspect a ranked outreach list.
+            evaluation_question_ids:
+              - eq_001
+      naturalistic_evaluation:
+        planned: false
+        rationale: Real-world deployment is outside this example.
+      expert_review:
+        planned: true
+        rationale: Expert walkthrough can inspect transparency and boundary conditions without deployment.
+        method_id: expert_walkthrough
+  evidence_plan:
+    evidence_items:
+      - evidence_id: synthetic_scenario_output
+        evidence_type: artificial_demonstration
+        supports_claim_ids:
+          - ep_claim_001
+      - evidence_id: checklist_review_notes
+        evidence_type: checklist_review
+        supports_claim_ids:
+          - ep_claim_002
+  validity_and_reliability_plan:
+    validity_threats:
+      - threat_id: artificial_setting_limit
+        threat: Synthetic data cannot establish real-world effectiveness.
+        mitigation: Label the example as demonstration material and require local validation for real use.
+    reliability_controls:
+      - control_id: transparent_rule_logic
+        control: Keep scoring factors visible and inspectable.
+  transparency_plan:
+    dimensions:
+      - process_transparency
+      - problem_space_transparency
+      - solution_space_transparency
+      - build_transparency
+      - evaluation_transparency
+      - contribution_transparency
+  analysis_and_interpretation_plan:
+    interpretation_rule: Treat successful walkthrough as framework exercisability evidence only.
+    non_overclaiming_rule: Do not infer public-health safety, clinical utility, external reuse, or L5 status.
+  acceptance_criteria:
+    - criterion_id: example_exercisable
+      pass_condition: A reviewer can inspect every example file and follow the documented path.
+    - criterion_id: non_overclaiming
+      pass_condition: Example files state synthetic scope and real-world non-claims.
+  validation_rules:
+    - rule_id: parse_yaml
+      rule: File parses as YAML.
+    - rule_id: retain_limits
+      rule: Limitations must remain visible.
+  traceability:
+    - from: problem-and-objectives.md
+      to: artifact-specification.md
+      relation: objectives_to_artifact_requirements
+    - from: artifact-specification.md
+      to: evaluation-plan.yaml
+      relation: artifact_to_evaluation_criteria
+  retention_rule:
+    retention_period: retain_while_example_is_packaged
+    supersession_rule: Supersede with a later canonical example version rather than deleting.
