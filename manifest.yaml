@@ -69,6 +69,8 @@ manifest:
       latest_claim_traceability_review: records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
       latest_source_anomaly_disposition_review: records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
       claim_traceability_status: established_for_major_v1_claims_after_source_anomaly_disposition
+      latest_canonical_example_package: examples/canonical-minimal-dsr-package/README.md
+      canonical_example_status: synthetic_demonstration_package_present_for_v1_exercisability_work
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -619,6 +621,11 @@ manifest:
     to: records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
     relation: closes_source_anomaly_followup_for_claim_traceability
     evidence_status: retained_review_record
+  - trace_id: tr_v1_release_scope_to_canonical_example
+    from: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    to: examples/canonical-minimal-dsr-package/README.md
+    relation: supports_v1_exercisability_and_reuse_readiness_path
+    evidence_status: synthetic_example_present_not_empirical_evaluation
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -647,6 +654,7 @@ manifest:
     - crosswalks/claim-to-source-traceability.yaml
     - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
     - records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
+    - examples/canonical-minimal-dsr-package/README.md
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
@@ -797,3 +805,9 @@ manifest:
     description: Added retained source-anomaly disposition review and updated claim-traceability status.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_source_anomaly_disposition
+  - version: 0.1.10
+    date: '2026-04-28'
+    change_type: v1_canonical_worked_example
+    description: Added canonical minimal synthetic DSR package example as exercisability and reuse-readiness preparation evidence.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_canonical_worked_example

@@ -1,0 +1,105 @@
+# SPDX-License-Identifier: CC0-1.0
+transparency_crosswalk:
+  item_id: example_heat_route_transparency_crosswalk
+  item_type: example_record
+  title: Transparency Crosswalk for Canonical Minimal DSR Example
+  purpose: Map the synthetic worked example to DSR transparency dimensions.
+  status: v1_release_candidate
+  version: 1.0.0-rc.1
+  owner:
+    role: framework_maintainer
+    name: framework_maintainer
+    contact: https://github.com/dochabski/dsr-framework
+  conformance_target: l2_reviewable
+  crosswalk_scope:
+    subject_id: example_heat_route_advisor
+    subject_type: example_artifact_package
+    subject_path: examples/canonical-minimal-dsr-package
+    intended_use: Exercise transparency reporting for a synthetic minimal DSR package.
+    applies_to_paths:
+      - examples/canonical-minimal-dsr-package/project-charter.md
+      - examples/canonical-minimal-dsr-package/problem-and-objectives.md
+      - examples/canonical-minimal-dsr-package/artifact-specification.md
+      - examples/canonical-minimal-dsr-package/design-rationale.md
+      - examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+      - examples/canonical-minimal-dsr-package/contribution-claim.yaml
+    excluded_paths: []
+    assumptions:
+      - The project is fictional and uses synthetic data only.
+    limitations:
+      - No real project execution occurred.
+      - No naturalistic evaluation occurred.
+  dimensions:
+    - dimension_id: process_transparency
+      evidence: Project charter and design rationale record the example process and decisions.
+      adequacy_assessment:
+        rating: adequate_for_example
+        limitations:
+          - No real project execution occurred.
+        remediation_actions:
+          - For real projects, add dated process records and decision logs.
+    - dimension_id: problem_space_transparency
+      evidence: Problem-and-objectives file records synthetic context, stakeholders, objectives, and non-goals.
+      adequacy_assessment:
+        rating: adequate_for_example
+        limitations:
+          - Fictional context only.
+        remediation_actions:
+          - For real projects, add situated stakeholder and context evidence.
+    - dimension_id: solution_space_transparency
+      evidence: Design rationale explains alternatives and selected rule-based approach.
+      adequacy_assessment:
+        rating: adequate_for_example
+        limitations:
+          - No new literature search in the example.
+        remediation_actions:
+          - For real projects, add solution-space grounding.
+    - dimension_id: build_transparency
+      evidence: Artifact specification records components, inputs, outputs, and method logic.
+      adequacy_assessment:
+        rating: adequate_for_example
+        limitations:
+          - No production implementation.
+        remediation_actions:
+          - For real artifacts, add build evidence and versioned implementation records.
+    - dimension_id: evaluation_transparency
+      evidence: Evaluation plan separates artificial demonstration from expert walkthrough.
+      adequacy_assessment:
+        rating: adequate_for_example
+        limitations:
+          - No naturalistic evaluation.
+        remediation_actions:
+          - Add evaluation results before making real-world utility claims.
+    - dimension_id: contribution_transparency
+      evidence: Contribution claim states methodological contribution and boundaries.
+      adequacy_assessment:
+        rating: adequate_for_example
+        limitations:
+          - No empirical framework-effectiveness claim.
+        remediation_actions:
+          - Add review evidence before using example as release evidence beyond exercisability.
+  source_basis:
+    - source_id: dsr_framework_templates
+      source_type: repository_controlled_files
+      evidence_status: mapped
+      relevance: Supplies transparency, evaluation, contribution, and artifact-package expectations.
+  related_items:
+    upstream:
+      - models/dsr-transparency-model.yaml
+      - templates/dsr-transparency-crosswalk-template.yaml
+      - schemas/dsr-transparency-crosswalk.schema.json
+    peer:
+      - examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+      - examples/canonical-minimal-dsr-package/contribution-claim.yaml
+  traceability:
+    - from: examples/canonical-minimal-dsr-package/problem-and-objectives.md
+      to: problem_space_transparency
+      relation: documents_problem_space
+    - from: examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+      to: evaluation_transparency
+      relation: documents_evaluation_scope
+  change_history:
+    - version: 1.0.0-rc.1
+      date: '2026-04-28'
+      change: Initial canonical minimal example transparency crosswalk.
+      responsible_party: framework_maintainer

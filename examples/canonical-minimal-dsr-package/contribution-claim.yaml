@@ -1,0 +1,160 @@
+# SPDX-License-Identifier: CC0-1.0
+template_metadata:
+  item_id: example_heat_route_contribution_claim_metadata
+  item_type: example_record_metadata
+  title: Contribution Claim Metadata for Canonical Minimal DSR Example
+  status: v1_release_candidate
+  version: 1.0.0-rc.1
+  conformance_target: l2_reviewable
+  target_schema: schemas/dsr-contribution-claim.schema.json
+  owner:
+    role: framework_maintainer
+    name: framework_maintainer
+contribution_claim:
+  claim_metadata:
+    claim_id: example_heat_route_contribution_claim
+    claim_title: Contribution Claim for Canonical Minimal DSR Example
+    claim_version: 1.0.0-rc.1
+    claim_status: v1_release_candidate
+    claim_date: '2026-04-28'
+    claim_owner:
+      role: framework_maintainer
+      name: framework_maintainer
+      contact: https://github.com/dochabski/dsr-framework
+    prepared_by:
+      - name: framework_maintainer
+        role: example_author
+        contribution_to_claim: Prepared synthetic worked example contribution claim.
+    intended_review_stage: release_review
+    confidentiality_or_release_status: public
+  project_context:
+    project_id: example_heat_route
+    project_title: Neighborhood Heat-Risk Cooling Route Advisor
+    artifact_id: example_heat_route_advisor
+    artifact_name: Neighborhood Heat-Risk Cooling Route Advisor
+    artifact_type: method
+    artifact_instance_or_type: artifact_type_level
+    application_domain: public-health operations and climate adaptation
+    problem_class: operational prioritization under constrained outreach resources
+    lifecycle_stage: demonstration
+    related_records:
+      problem_and_objectives: examples/canonical-minimal-dsr-package/problem-and-objectives.md
+      solution_space_record: examples/canonical-minimal-dsr-package/design-rationale.md
+      design_rationale: examples/canonical-minimal-dsr-package/design-rationale.md
+      artifact_specification: examples/canonical-minimal-dsr-package/artifact-specification.md
+      demonstration_record: examples/canonical-minimal-dsr-package/validation-notes.md
+      evaluation_plan: examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+      evaluation_report: null
+  claim_statement:
+    concise_claim: >
+      The example contributes a reusable demonstration of how to document a small DSR artifact package using the DSR Framework's problem, artifact, evaluation, contribution, and transparency structures.
+    expanded_claim: >
+      The example shows how a bounded synthetic artifact can be documented from problem framing through artifact specification, evaluation planning, contribution positioning, and transparency reporting.
+    claim_scope:
+      knowledge_scope: projectable_to_problem_class
+      scope_statement: The claim is methodological and limited to DSR documentation practice for small example packages.
+      unit_of_contribution: package
+      intended_audiences:
+        - audience: scholarly
+          expected_use: review and teaching of DSR documentation structure
+        - audience: practitioner
+          expected_use: lightweight example for adapting framework records
+    non_claims:
+      - Does not claim real-world public-health effectiveness.
+      - Does not claim external reuse of the DSR Framework.
+      - Does not claim empirical evaluation of the framework.
+  contribution_positioning:
+    primary_contribution_type: method_extension
+    secondary_contribution_types:
+      - synthesis
+    knowledge_goals:
+      - methodological
+    contribution_targets:
+      contribution_to_dsr_theory: limited
+      contribution_to_dsr_methodology: moderate
+      contribution_to_dsr_evaluation: limited
+      contribution_to_validity_or_reliability: limited
+      contribution_to_reporting_or_publication: moderate
+      contribution_to_practice: limited
+      contribution_to_specific_domain: none
+    relationship_to_existing_knowledge:
+      existing_knowledge_used:
+        - source_or_artifact: DSR Framework templates and checklists
+          role_in_claim: instantiation
+          citation_or_reference: README.md
+      claimed_delta: The example turns framework structures into an inspectable synthetic package path.
+      alternative_positionings_considered:
+        - alternative_positioning: empirical evaluation evidence
+          reason_not_selected: The example is synthetic and does not test real-world effects.
+  novelty_and_significance:
+    novelty_assessment:
+      novelty_level: low
+      novelty_rationale: The example is not a novel public-health method; its value is a reusable framework exercise.
+      application_domain_maturity: moderate
+      solution_maturity: low
+      routine_design_risk: moderate
+      originality_evidence:
+        - evidence_id: example_files
+          evidence_type: worked_example
+          evidence_summary: The example files instantiate the framework path.
+          citation_or_record_reference: examples/canonical-minimal-dsr-package/README.md
+  artifact_utility_quality_and_knowledge_distinctions:
+    artifact_utility_claim: The synthetic artifact can be followed as a demonstration.
+    artifact_quality_claim: The documentation package is transparent and reviewable.
+    knowledge_contribution_claim: The package demonstrates reusable DSR documentation structure.
+    distinction_note: Utility of the fictional artifact is separate from the framework example contribution.
+  demonstration_and_evaluation_basis:
+    demonstration_basis:
+      - synthetic walkthrough of ranked outreach logic
+    evaluation_basis:
+      - planned checklist review
+      - planned expert walkthrough
+    evaluation_limit: Artificial demonstration cannot substitute for naturalistic public-health evaluation.
+  evidence_basis:
+    - evidence_id: example_files
+      evidence_type: worked_example
+      supports: framework_exercisability
+    - evidence_id: validation_pass
+      evidence_type: validation_output
+      supports: package_inventory_and_yaml_parse_checks
+  validity_reliability_and_projectability:
+    validity_limits:
+      - synthetic context only
+      - no real-world intervention
+    reliability_controls:
+      - visible file inventory
+      - explicit non-claims
+    projectability_statement: Projectable only as a documentation example for comparable small DSR packages.
+  transparency_alignment:
+    transparency_crosswalk: examples/canonical-minimal-dsr-package/transparency-crosswalk.yaml
+    transparency_dimensions:
+      - process_transparency
+      - problem_space_transparency
+      - solution_space_transparency
+      - build_transparency
+      - evaluation_transparency
+      - contribution_transparency
+  limitations_and_open_questions:
+    limitations:
+      - The example is synthetic and demonstrative.
+      - It does not prove artifact effectiveness.
+      - It does not prove external reuse of the framework.
+    future_work:
+      - Extend with a richer example after v1 if needed.
+  review_and_acceptance:
+    reviewer_acceptance_criteria:
+      - A reviewer can inspect every example file.
+      - The example distinguishes demonstration from evaluation.
+      - The example states non-goals and limitations.
+  traceability:
+    - from: examples/canonical-minimal-dsr-package/problem-and-objectives.md
+      to: examples/canonical-minimal-dsr-package/contribution-claim.yaml
+      relation: problem_to_contribution_claim
+    - from: examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+      to: examples/canonical-minimal-dsr-package/contribution-claim.yaml
+      relation: evaluation_plan_bounds_contribution_claim
+  change_history:
+    - version: 1.0.0-rc.1
+      date: '2026-04-28'
+      change: Initial canonical minimal example contribution claim.
+      responsible_party: framework_maintainer
