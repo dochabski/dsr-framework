@@ -1,0 +1,172 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_source_anomaly_disposition_0001_v1_0_0
+  record_class: source_basis_review
+  item_type: record
+  title: v1.0.0 Source Anomaly Disposition Review
+  status: approved
+  version: 1.0.0-rc.1
+  review_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  event_or_action: review_claim_traceability_source_anomalies
+  scope:
+    target_release: v1.0.0
+    target_package_conformance: l4_reusable_stable
+    l5_claimed: false
+    reviewed_files:
+      - crosswalks/claim-to-source-traceability.yaml
+      - crosswalks/source-to-framework-alignment.yaml
+      - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
+  anomaly_checks:
+    - source_id_present
+    - short_citation_present
+    - source_role_present
+    - citation_anchor_ids_present
+    - strongest_anchor_or_equivalent_present
+    - evidence_role_matches_claim_strength
+    - conceptual_only_sources_not_overclaimed
+    - human_review_recommended_sources_dispositioned
+    - weak_sources_not_used_as_primary_support_for_strong_claims
+  disposition_values:
+    - accepted_primary_support
+    - accepted_background_support
+    - limited_use_background_only
+    - repaired_in_crosswalk
+    - excluded_from_v1_claim_support
+    - requires_post_v1_review
+  required_outcome:
+    - No v1 claim depends on an unresolved source anomaly.
+    - Conceptual, unevaluated, or weakly anchored sources are scoped appropriately.
+    - Claim-level crosswalk does not inflate source evidence strength.
+  reviewed_primary_sources:
+    - source_id: hevner_et_al_2024_transparency_in_design_science_research
+      short_citation: Hevner et al. 2024
+      source_role: reporting_guidance
+      source_type: methodological_reporting_framework
+      claim_roles:
+        - dsr_identity_and_build_evaluate_framing
+        - transparency_dimensions
+        - evaluation_transparency
+        - replication_context_and_publication_transparency
+        - stakeholder_context_risk_and_responsibility
+      reviewed_anchor_ids:
+        - CA01
+        - CA03
+        - CA04
+        - CA05
+        - CA07
+        - CA08
+        - CA10
+        - CA11
+        - CA12
+        - CA13
+        - CA14
+        - CA15
+        - CA16
+        - CA17
+        - CA18
+      disposition: accepted_primary_support
+      evidence_limit: Supports transparency, reporting, and reviewability claims; does not establish external empirical reuse of this package.
+    - source_id: weigand_johannesson_andersson_2021_101878
+      short_citation: Weigand, Johannesson, and Andersson 2021
+      source_role: artifact_typology
+      source_type: artifact_ontology
+      claim_roles:
+        - artifact_type_instance_and_use_context_clarity
+        - artifact_universal_and_research_outcome_distinction
+        - capacity_testing_and_use_effect_distinctions
+      reviewed_anchor_ids:
+        - A09
+        - A11
+        - A13
+        - A15
+        - A17
+        - A18
+      disposition: accepted_primary_support
+      evidence_limit: Supports artifact ontology and artifact-boundary claims; does not require every downstream project to adopt the full ontology.
+    - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+      short_citation: Akoka et al. 2023
+      source_role: contribution_typology
+      source_type: design_knowledge_synthesis
+      claim_roles:
+        - contribution_type_knowledge_goal_and_knowledge_scope
+        - knowledge_accumulation_and_projectability
+      reviewed_anchor_ids:
+        - A07
+        - A10
+        - A13
+        - A15
+      disposition: accepted_primary_support
+      evidence_limit: Supports contribution positioning and knowledge-accumulation claims; does not mechanically determine publishability.
+    - source_id: weber_2018_design_science_research
+      short_citation: Weber 2018
+      source_role: evaluation_framework
+      source_type: canonical_dsr_synthesis
+      claim_roles:
+        - dsr_guideline_synthesis
+        - evaluation_and_contribution_guidance
+      reviewed_anchor_ids:
+        - A10
+      disposition: accepted_primary_support
+      evidence_limit: Supports DSR evaluation and process/outcome quality framing; does not validate this repository's release maturity by itself.
+    - source_id: maedche_gregor_morana_feine_2019_problem_space_dsr
+      short_citation: Maedche et al. 2019
+      source_role: operationalization_resource
+      source_type: problem_space_methodology
+      claim_roles:
+        - problem_space_conceptualization
+      reviewed_anchor_ids:
+        - A09
+      disposition: accepted_primary_support
+      evidence_limit: Supports problem-space documentation claims; does not prescribe a single problem-framing method for all projects.
+    - source_id: gregor_zwikael_2024_ijpm_102584
+      short_citation: Gregor and Zwikael 2024
+      source_role: operationalization_resource
+      source_type: applied_dsr_methodology
+      claim_roles:
+        - co_creation_and_practical_knowledge_context
+      reviewed_anchor_ids:
+        - A28
+      disposition: accepted_primary_support
+      evidence_limit: Supports co-creation and context-sensitive practical design knowledge claims; use remains bounded to documentation and review logic.
+  human_review_sensitive_sources:
+    - source_id: pekkola_2023_reflections_supervising_postgraduate_dsr_thesis
+      short_citation: Pekkola 2023
+      issue: Source-level crosswalk records blank strongest anchor and blank contribution summary.
+      disposition: limited_use_background_only
+      v1_claim_use: excluded_from_primary_support
+      rationale: The claim-level crosswalk does not use this source as primary support, so no v1 claim depends on this anomaly.
+  findings:
+    - finding_id: source_anomaly_001
+      severity: pass
+      statement: Every source used as primary support in the claim-level crosswalk has a source identifier, citation anchors, evidence role, and limitation.
+      disposition: accepted_primary_support
+    - finding_id: source_anomaly_002
+      severity: pass
+      statement: Sources that are conceptual, typological, ontology, synthesis, or reporting-guidance sources are not used as empirical proof of framework utility.
+      disposition: accepted_with_evidence_limits
+    - finding_id: source_anomaly_003
+      severity: pass
+      statement: The human-review-sensitive Pekkola source is excluded from primary v1 claim support.
+      disposition: limited_use_background_only
+    - finding_id: source_anomaly_004
+      severity: pass
+      statement: No v1 claim depends on an unresolved source anomaly after this disposition.
+      disposition: closed_for_v1_claim_traceability
+  updates_applied:
+    - crosswalks/claim-to-source-traceability.yaml now records source anomaly disposition evidence.
+    - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml now reports pass_with_minor_limitations.
+  outcome:
+    result: pass
+    supports:
+      - v1_claim_traceability_review
+      - source_basis_control_for_v1
+      - l4_reusable_stable_release_preparation
+    does_not_certify:
+      - final_v1_release
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained source-basis or claim-traceability review.

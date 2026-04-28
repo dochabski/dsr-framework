@@ -67,7 +67,8 @@ manifest:
       latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
       latest_claim_traceability_crosswalk: crosswalks/claim-to-source-traceability.yaml
       latest_claim_traceability_review: records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
-      claim_traceability_status: established_for_major_v1_claims_with_source_anomaly_review_followup
+      latest_source_anomaly_disposition_review: records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
+      claim_traceability_status: established_for_major_v1_claims_after_source_anomaly_disposition
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -612,7 +613,12 @@ manifest:
     from: crosswalks/claim-to-source-traceability.yaml
     to: records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
     relation: supports_claim_traceability_review
-    evidence_status: review_requires_source_anomaly_followup_before_final_v1
+    evidence_status: review_completed_pass_with_minor_limitations
+  - trace_id: tr_claim_traceability_review_to_source_anomaly_disposition
+    from: records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
+    to: records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
+    relation: closes_source_anomaly_followup_for_claim_traceability
+    evidence_status: retained_review_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -640,6 +646,7 @@ manifest:
     - records/reviews/record-literature-alignment-0001.yaml
     - crosswalks/claim-to-source-traceability.yaml
     - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
+    - records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
@@ -784,3 +791,9 @@ manifest:
     description: Added v1 claim-level traceability crosswalk and retained claim-traceability review record.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_claim_level_traceability
+  - version: 0.1.9
+    date: '2026-04-28'
+    change_type: v1_source_anomaly_disposition
+    description: Added retained source-anomaly disposition review and updated claim-traceability status.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_source_anomaly_disposition
