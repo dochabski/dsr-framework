@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: CC0-1.0
+release_approval_record:
+  record_id: record_release_approval_0001_v1_0_0
+  record_class: release_approval
+  item_type: record
+  title: v1.0.0 Release Approval
+  status: approved
+  version: "1.0.0"
+  approval_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  target_release: v1.0.0
+  approved_release_tag: v1.0.0
+  approved_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  approved_commit:
+    commit_sha: d59db4046735af693eb0a91bdc4f1d4c0d730300
+    branch: main
+    approval_scope_note: >
+      This commit is the main-branch release-candidate content commit that
+      introduced the v1.0.0 metadata freeze and release record. The release
+      approval record itself is retained in the following approval commit.
+  approval_basis:
+    release_record: records/releases/record-release-0002-v1-0-0.yaml
+    metadata_freeze: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+    completeness_review: records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    kick_the_tires_review: records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    full_review: records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    author_response: records/reviews/record-author-response-0001-v1-0-0.yaml
+    claim_traceability: crosswalks/claim-to-source-traceability.yaml
+    canonical_example: examples/canonical-minimal-dsr-package/README.md
+  validation_commands:
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+  approval_statement: >
+    The DSR Framework v1.0.0 release is approved as an L4 reusable-stable
+    GitHub release. The release is not approved as L5 archival/publication-ready.
+  post_release_actions:
+    - tag release commit as v1.0.0
+    - create GitHub release using records/releases/github-release-notes-v1-0-0.md
+    - verify release artifacts and source archives
+    - if archival publication is later desired, open a separate L5 release-scope decision
+  outcome:
+    result: approved_for_github_release
+    approved_claims:
+      - v1_0_0_stable
+      - l4_reusable_stable
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained release approval.
