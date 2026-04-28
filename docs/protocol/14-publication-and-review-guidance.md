@@ -2,6 +2,14 @@
 
 # Publication and Review Guidance
 
+## Controlled source links
+
+- [models/dsr-publication-readiness-model.yaml](../../models/dsr-publication-readiness-model.yaml)
+- [specs/product-dsr-publication-and-registry-model.yaml](../../specs/product-dsr-publication-and-registry-model.yaml)
+- [checklists/publication-readiness-checklist.yaml](../../checklists/publication-readiness-checklist.yaml)
+- [templates/review-record-template.yaml](../../templates/review-record-template.yaml)
+- [records/releases/record-release-0001-v0-1-0.yaml](../../records/releases/record-release-0001-v0-1-0.yaml)
+
 | Field | Value |
 |---|---|
 | item_id | `docs_publication_review` |

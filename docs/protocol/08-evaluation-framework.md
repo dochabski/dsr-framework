@@ -2,6 +2,14 @@
 
 # Evaluation Framework
 
+## Controlled source links
+
+- [models/dsr-evaluation-alignment-model.yaml](../../models/dsr-evaluation-alignment-model.yaml)
+- [vocabularies/evaluation-method-families.yaml](../../vocabularies/evaluation-method-families.yaml)
+- [templates/evaluation-plan-template.yaml](../../templates/evaluation-plan-template.yaml)
+- [templates/evaluation-report-template.yaml](../../templates/evaluation-report-template.yaml)
+- [checklists/evaluation-readiness-checklist.yaml](../../checklists/evaluation-readiness-checklist.yaml)
+
 ```yaml
 item_id: docs_evaluation
 selection_id: docs_evaluation

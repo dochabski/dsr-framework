@@ -38,6 +38,14 @@ change_history:
 
 # DSR Lifecycle and Contribution Model
 
+## Controlled source links
+
+- [specs/product-dsr-lifecycle-and-contribution-model.yaml](../../specs/product-dsr-lifecycle-and-contribution-model.yaml)
+- [models/dsr-lifecycle-model.yaml](../../models/dsr-lifecycle-model.yaml)
+- [models/dsr-contribution-model.yaml](../../models/dsr-contribution-model.yaml)
+- [models/dsr-evaluation-alignment-model.yaml](../../models/dsr-evaluation-alignment-model.yaml)
+- [vocabularies/lifecycle-stages.yaml](../../vocabularies/lifecycle-stages.yaml)
+
 This page explains how the DSR Framework treats a Design Science Research project as both a **lifecycle of work** and a **contribution-producing argument**. It is a human-facing guide to the controlled lifecycle and contribution materials. The controlled source of truth should remain the related YAML specifications, models, vocabularies, templates, checklists, and records listed in the front matter.
 
 ## 1. Purpose

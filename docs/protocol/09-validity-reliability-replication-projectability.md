@@ -2,6 +2,15 @@
 
 # Validity, Reliability, Replication, and Projectability in DSR
 
+## Controlled source links
+
+- [models/dsr-reliability-model.yaml](../../models/dsr-reliability-model.yaml)
+- [models/dsr-projectability-model.yaml](../../models/dsr-projectability-model.yaml)
+- [vocabularies/validity-types.yaml](../../vocabularies/validity-types.yaml)
+- [vocabularies/reliability-types.yaml](../../vocabularies/reliability-types.yaml)
+- [vocabularies/replication-types.yaml](../../vocabularies/replication-types.yaml)
+- [vocabularies/projectability-types.yaml](../../vocabularies/projectability-types.yaml)
+
 ```yaml
 item_id: docs_validity_reliability
 item_type: description
