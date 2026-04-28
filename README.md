@@ -173,22 +173,23 @@ This repository is under active construction. Users should treat the framework a
 
 Known limitations at this stage:
 
-- The root README provides orientation but not a complete controlled specification.
-- Required root files are present, and public repository, creator, maintainer, release, license, and DOI facts are recorded for v0.1.0; stable v1 metadata still needs a separate freeze record.
-- Source-to-framework traceability is repaired for all 71 corpus sources; claim-level traceability remains uneven and needs a dedicated v1 mapping pass.
-- Schemas validate the current templates and records, but they should be tightened field-by-field after structure and vocabulary decisions stabilize.
-- Example packages should not be treated as evaluation evidence unless a corresponding evaluation record exists.
-- L4/L5 readiness should not be claimed until validation automation, example use, review, preservation, and release records support those levels.
+- The root README provides orientation, not the complete controlled specification.
+- Public repository, creator, maintainer, release, license, citation, and DOI facts are recorded for v0.1.0; stable v1 still needs a retained metadata-freeze record.
+- Source-to-framework traceability is remediated for all 71 corpus sources; claim-level traceability and trace-specificity remain the next mapping and review problem.
+- Schemas validate the current public-draft templates and records; release-grade field-level tightening remains pending.
+- Example packages remain non-evaluative unless a corresponding evaluation record exists.
+- L4/L5 readiness must not be claimed until example use, independent or retained review, preservation, metadata-freeze, registry, and release-approval records support those levels.
 
 ## Recommended next work
 
 For the repository to move beyond organized draft status, complete these work items next:
 
-1. Finish the v1 readiness audit and keep root metadata, conformance, inventory, release records, and citation files consistent.
-2. Tighten schemas from permissive structure validation toward stricter field-level validation.
-3. Add a canonical worked example package after templates and validation expectations stabilize.
-4. Convert source-level grounding into claim-level traceability.
-5. Add retained review, preservation, metadata-freeze, and release-approval records before any stable v1 or L5 claim.
+1. Add `records/preservation/record-preservation-0001-v0-1-0.yaml` while keeping L5 deferred.
+2. Add a post-crosswalk literature and claim-traceability review record that supersedes, but does not delete, `records/reviews/record-literature-alignment-0001.yaml`.
+3. Add GitHub issue templates or a retained backlog record for v1 hardening work.
+4. Tighten JSON Schemas from structural validation toward field-level validation.
+5. Add a canonical worked example package after templates and validation expectations stabilize.
+6. Add retained completeness, kick-the-tires, full-review, metadata-freeze, and release-approval records before any stable v1, L4, or L5 claim.
 
 ## Citation and reuse
 
