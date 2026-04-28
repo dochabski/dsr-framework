@@ -45,15 +45,39 @@
         "change_history"
       ],
       "properties": {
-        "item_id": {},
-        "item_type": {},
-        "title": {},
-        "purpose": {},
-        "status": {},
-        "version": {},
-        "owner": {},
-        "conformance_target": {},
-        "crosswalk_scope": {},
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner": {
+          "type": "object"
+        },
+        "conformance_target": {
+          "type": "string"
+        },
+        "crosswalk_scope": {
+          "type": "object"
+        },
         "dimensions": {
           "type": "array",
           "items": {
@@ -87,13 +111,33 @@
             "additionalProperties": true
           }
         },
-        "acceptance_criteria": {},
-        "quality_gate_status": {},
-        "source_basis": {},
-        "related_items": {},
-        "traceability": {},
-        "open_questions": {},
-        "change_history": {}
+        "acceptance_criteria": {
+          "type": "array"
+        },
+        "quality_gate_status": {
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "source_basis": {
+          "type": "array"
+        },
+        "related_items": {
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "traceability": {
+          "type": "array"
+        },
+        "open_questions": {
+          "type": "array"
+        },
+        "change_history": {
+          "type": "array"
+        }
       },
       "additionalProperties": true
     },

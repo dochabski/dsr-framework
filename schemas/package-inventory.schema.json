@@ -29,27 +29,80 @@
         "change_history"
       ],
       "properties": {
-        "item_id": {},
-        "item_type": {},
-        "record_id": {},
-        "record_class": {},
-        "title": {},
-        "purpose": {},
-        "status": {},
-        "version": {},
-        "date": {},
-        "owner": {},
-        "responsible_party": {},
-        "event_or_action": {},
-        "conformance_target": {},
-        "inventory_policy": {},
-        "source_basis": {},
-        "related_items": {},
-        "inventory_scope": {},
-        "directory_inventory": {},
-        "root_file_inventory": {},
-        "validation_profiles": {},
-        "file_inventory": {},
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "item_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string"
+        },
+        "owner": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "responsible_party": {
+          "type": "string"
+        },
+        "event_or_action": {
+          "type": "string"
+        },
+        "conformance_target": {
+          "type": "string"
+        },
+        "inventory_policy": {
+          "type": "object"
+        },
+        "source_basis": {
+          "type": "array"
+        },
+        "related_items": {
+          "type": "object"
+        },
+        "inventory_scope": {
+          "type": "object"
+        },
+        "directory_inventory": {
+          "type": "array"
+        },
+        "root_file_inventory": {
+          "type": "array"
+        },
+        "validation_profiles": {
+          "type": "array"
+        },
+        "file_inventory": {
+          "type": "array"
+        },
         "cross_file_validation_rules": {},
         "acceptance_criteria": {},
         "quality_gate_status": {},

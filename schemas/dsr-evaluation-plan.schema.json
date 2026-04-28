@@ -52,30 +52,90 @@
         "retention_rule"
       ],
       "properties": {
-        "plan_id": {},
-        "plan_type": {},
-        "title": {},
-        "status": {},
-        "version": {},
-        "date_created": {},
-        "date_updated": {},
-        "responsible_party": {},
-        "project_identity": {},
-        "evaluation_purpose": {},
-        "claims_under_evaluation": {},
-        "evaluation_questions": {},
-        "evaluation_design": {},
-        "evidence_plan": {},
-        "data_management_and_ethics": {},
-        "validity_and_reliability_plan": {},
-        "transparency_plan": {},
-        "analysis_and_interpretation_plan": {},
-        "decision_and_action_plan": {},
-        "acceptance_criteria": {},
-        "validation_rules": {},
-        "failure_modes": {},
-        "traceability": {},
-        "retention_rule": {}
+        "plan_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Stable evaluation-plan identifier."
+        },
+        "plan_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "date_updated": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "responsible_party": {
+          "type": "object"
+        },
+        "project_identity": {
+          "type": "object"
+        },
+        "evaluation_purpose": {
+          "type": "object"
+        },
+        "claims_under_evaluation": {
+          "type": "array"
+        },
+        "evaluation_questions": {
+          "type": "array"
+        },
+        "evaluation_design": {
+          "type": "object"
+        },
+        "evidence_plan": {
+          "type": "object"
+        },
+        "data_management_and_ethics": {
+          "type": "object"
+        },
+        "validity_and_reliability_plan": {
+          "type": "object"
+        },
+        "transparency_plan": {
+          "type": "object"
+        },
+        "analysis_and_interpretation_plan": {
+          "type": "object"
+        },
+        "decision_and_action_plan": {
+          "type": "object"
+        },
+        "acceptance_criteria": {
+          "type": "array"
+        },
+        "validation_rules": {
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "failure_modes": {
+          "type": "array"
+        },
+        "traceability": {
+          "type": "array"
+        },
+        "retention_rule": {
+          "type": "object"
+        }
       },
       "additionalProperties": true
     },

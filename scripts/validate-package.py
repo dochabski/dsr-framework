@@ -52,6 +52,7 @@ SCHEMA_INSTANCE_PAIRS = {
     "schemas/package-inventory.schema.json": [
         "package-inventory.yaml",
         "templates/package-inventory-template.yaml",
+        "examples/canonical-minimal-dsr-package/package-inventory.yaml",
     ],
     "schemas/conformance-declaration.schema.json": [
         "conformance-declaration.yaml",
@@ -60,16 +61,19 @@ SCHEMA_INSTANCE_PAIRS = {
     "schemas/dsr-evaluation-plan.schema.json": [
         "templates/evaluation-plan-template.yaml",
         "records/evaluations/record-evaluation-plan-0001.yaml",
+        "examples/canonical-minimal-dsr-package/evaluation-plan.yaml",
     ],
     "schemas/dsr-evaluation-report.schema.json": [
         "templates/evaluation-report-template.yaml",
     ],
     "schemas/dsr-contribution-claim.schema.json": [
         "templates/contribution-claim-template.yaml",
+        "examples/canonical-minimal-dsr-package/contribution-claim.yaml",
     ],
     "schemas/dsr-transparency-crosswalk.schema.json": [
         "templates/dsr-transparency-crosswalk-template.yaml",
         "records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml",
+        "examples/canonical-minimal-dsr-package/transparency-crosswalk.yaml",
     ],
 }
 

@@ -1,0 +1,86 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_schema_hardening_0001_v1_0_0
+  record_class: validation_review
+  item_type: record
+  title: v1.0.0 Schema Field-Hardening Review
+  status: approved
+  version: 1.0.0-rc.1
+  review_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  target_release: v1.0.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  reviewed_schemas:
+    - schemas/dsr-project.schema.json
+    - schemas/dsr-artifact.schema.json
+    - schemas/dsr-evaluation-plan.schema.json
+    - schemas/dsr-evaluation-report.schema.json
+    - schemas/dsr-contribution-claim.schema.json
+    - schemas/dsr-transparency-crosswalk.schema.json
+    - schemas/package-inventory.schema.json
+    - schemas/conformance-declaration.schema.json
+    - schemas/artifact-profile.schema.json
+  changed_schemas:
+    - schemas/artifact-profile.schema.json
+    - schemas/conformance-declaration.schema.json
+    - schemas/dsr-contribution-claim.schema.json
+    - schemas/dsr-evaluation-plan.schema.json
+    - schemas/dsr-evaluation-report.schema.json
+    - schemas/dsr-transparency-crosswalk.schema.json
+    - schemas/package-inventory.schema.json
+  unchanged_but_reviewed_schemas:
+    - schemas/dsr-project.schema.json
+    - schemas/dsr-artifact.schema.json
+  validation_fixture_updates:
+    - examples/canonical-minimal-dsr-package/evaluation-plan.yaml
+    - examples/canonical-minimal-dsr-package/contribution-claim.yaml
+    - examples/canonical-minimal-dsr-package/transparency-crosswalk.yaml
+    - examples/canonical-minimal-dsr-package/package-inventory.yaml
+  hardening_principles:
+    - required_fields_match_stable_templates
+    - enum_values_follow_controlled_vocabularies_where_stable
+    - canonical_example_is_validation_fixture
+    - retained_records_remain_valid
+    - l5_evidence_not_required_for_v1_l4
+  checks:
+    - check_id: json_schema_meta_validation
+      result: pass
+      evidence: All nine JSON Schemas meta-validate.
+    - check_id: schema_instance_pairs
+      result: pass
+      evidence: Schema-instance validation pair count increased from 12 to 16 after adding canonical example fixtures.
+    - check_id: compatibility_with_existing_templates
+      result: pass
+      evidence: Public-draft validation passes after field typing; no current retained template or record is broken.
+    - check_id: l5_not_required
+      result: pass
+      evidence: The field-hardening pass does not require preservation closure, registry closure, or L5 release approval for v1 L4 validation.
+  findings:
+    - finding_id: schema_hardening_001
+      severity: pass
+      statement: Canonical example YAML files now participate in schema-instance validation.
+      disposition: fixed
+    - finding_id: schema_hardening_002
+      severity: pass
+      statement: Loose top-level fields in evaluation, contribution, transparency, package inventory, conformance, artifact-profile, and evaluation-report schemas now have basic type constraints where compatible.
+      disposition: fixed
+    - finding_id: schema_hardening_003
+      severity: nonblocking
+      statement: Deep field-level constraints and additionalProperties closure remain suitable for later focused schema passes.
+      disposition: post_v1_minor_release_work
+    - finding_id: schema_hardening_004
+      severity: nonblocking
+      statement: DSR project and artifact schemas were reviewed but not changed because they already contain extensive definitions and stricter structure.
+      disposition: verified
+  outcome:
+    result: pass
+    supports:
+      - v1_release_candidate_validation
+      - l3_exercisability
+      - l4_reuse_readiness
+    does_not_support:
+      - l5_archival_publication_ready
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede with later schema-hardening reviews when schema families are tightened further.
