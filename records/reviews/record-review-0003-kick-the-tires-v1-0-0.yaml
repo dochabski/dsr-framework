@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_0003_kick_the_tires_v1_0_0
+  record_class: kick_the_tires_review
+  item_type: record
+  title: v1.0.0 Kick-the-Tires Review
+  status: approved
+  version: 1.0.0-rc.1
+  review_date: '2026-04-28'
+  responsible_party: framework_reviewer
+  target_release: v1.0.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  exercised_path:
+    - read README
+    - inspect package inventory
+    - inspect conformance declaration
+    - open canonical worked example
+    - trace problem statement to artifact specification
+    - trace artifact specification to evaluation plan
+    - trace contribution claim to claim-level crosswalk
+    - inspect transparency crosswalk
+    - run validation script
+  review_questions:
+    - Can a new user identify where to start?
+    - Can a researcher complete the example path without hidden assumptions?
+    - Can a reviewer distinguish demonstration from evaluation?
+    - Can a maintainer validate the package locally?
+    - Are limitations and non-claims visible?
+  findings:
+    - finding_id: ktt_001
+      severity: nonblocking
+      statement: The example is intentionally minimal and synthetic.
+      disposition: accepted_v1_limitation
+    - finding_id: ktt_002
+      severity: blocking_if_absent
+      statement: The example must remain linked in manifest and package inventory.
+      disposition: fixed_or_verified
+  outcome:
+    result: pass
+    supports:
+      - l3_exercisability
+      - l4_reuse_readiness
+    does_not_support:
+      - empirical_external_reuse_validation
+      - l5_archival_publication_ready
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained kick-the-tires review.

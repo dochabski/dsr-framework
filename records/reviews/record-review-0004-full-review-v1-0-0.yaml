@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_0004_full_review_v1_0_0
+  record_class: full_review
+  item_type: record
+  title: v1.0.0 Full Review
+  status: approved
+  version: 1.0.0-rc.1
+  review_date: '2026-04-28'
+  responsible_party: framework_reviewer
+  target_release: v1.0.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  quality_gates:
+    consistency:
+      result: pass
+      rationale: Controlled paths, IDs, statuses, inventory entries, and validation responsibilities are aligned for v1 preparation.
+    coherence:
+      result: pass
+      rationale: Specs, models, vocabularies, schemas, templates, checklists, docs, records, crosswalks, examples, and validation logic are mutually aligned.
+    cogency:
+      result: pass
+      rationale: README, protocol docs, templates, checklists, and canonical example support human use.
+    correspondence:
+      result: pass
+      rationale: Package contents correspond to the DSR Framework's declared artifact-package purpose.
+    dsr_transparency:
+      result: pass
+      rationale: Process, problem, solution, build, evaluation, and contribution transparency are represented.
+    reviewability:
+      result: pass
+      rationale: Validation, claim traceability, checklists, records, and examples support retained review.
+  findings:
+    - finding_id: full_001
+      severity: nonblocking
+      statement: v1.0.0 supports an L4 reusable-stable release path, not L5 archival/publication-ready status.
+      disposition: accepted_v1_limitation
+    - finding_id: full_002
+      severity: nonblocking
+      statement: External empirical reuse validation remains outside this release.
+      disposition: accepted_v1_limitation
+  outcome:
+    result: pass
+    supports: l4_reusable_stable_release
+    does_not_support:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained full review.
