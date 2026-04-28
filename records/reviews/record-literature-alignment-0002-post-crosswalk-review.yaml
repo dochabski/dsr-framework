@@ -1,0 +1,316 @@
+# SPDX-License-Identifier: CC0-1.0
+post_crosswalk_literature_alignment_review:
+  record_id: record_literature_alignment_0002_post_crosswalk_review
+  record_class: literature_alignment_review
+  item_type: record
+  title: Post-Crosswalk Literature Alignment Review
+  purpose: >
+    Evaluate the remediated source-to-framework crosswalk after the 71-source
+    grounding pass, distinguish completed source-level remediation from future
+    claim-level traceability work, and identify the next v1 review targets
+    without advancing the package beyond public-draft L2 reviewability.
+  status: draft
+  version: "0.1.0"
+  date: "2026-04-28"
+  responsible_party:
+    role: framework_reviewer
+    name: Codex
+  event_or_action: post_crosswalk_literature_alignment_review
+  conformance_target: l2_reviewable
+
+  review_scope:
+    included:
+      - crosswalks/source-to-framework-alignment.yaml
+      - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      - manifest.yaml
+      - package-inventory.yaml
+      - records/validation/validation-summary-latest.json
+      - README.md public-draft limitations and next-work posture
+    excluded:
+      - full-text PDF reinspection
+      - new literature search
+      - source extraction repair beyond the existing repaired corpus
+      - stable v1 readiness certification
+      - L4 reusable validation
+      - L5 archival/publication-ready certification
+    posture: >
+      The review uses GitHub main as the source of truth and treats the
+      source-to-framework crosswalk as source-level remediation evidence, not
+      as completed claim-level proof.
+
+  corpus_crosswalk_profile:
+    corpus_sources_total: 71
+    failed_conversions: 0
+    crosswalk_id: source_to_framework_alignment_0001
+    crosswalk_status: validated_remediated_public_draft
+    source_mappings_observed: 71
+    summary_counts:
+      total_corpus_sources: 71
+      source_basis_only_or_no_substantive_hits: 0
+      minimally_mapped_single_substantive_hit: 0
+      substantively_mapped_multi_file: 71
+    baseline_summary_counts:
+      total_corpus_sources: 71
+      source_basis_only_or_no_substantive_hits: 55
+      minimally_mapped_single_substantive_hit: 9
+      substantively_mapped_multi_file: 7
+    post_remediation_validation:
+      trace_objects_with_required_pattern: 142
+      evidence_status_counts:
+        substantive: 142
+    current_framework_coverage_evidence_status_distribution:
+      substantively_mapped_multi_file: 71
+    trace_object_status_distribution:
+      required_pattern_present: 71
+    required_grounding_decision_action_counts:
+      add_substantive_trace_links: 55
+      expand_single_trace_to_multi_file_grounding: 9
+      verify_trace_specificity: 7
+    target_path_family_counts:
+      recommended_target_paths:
+        models: 506
+        docs: 297
+        templates: 535
+        schemas: 70
+        checklists: 310
+        specs: 70
+        vocabularies: 309
+        records: 14
+      existing_substantive_paths:
+        docs: 71
+        models: 70
+        templates: 1
+
+  review_checks:
+    - check_id: pc_lar_check_source_coverage
+      question: Does every repaired corpus source have substantive non-source-basis grounding?
+      result: pass_for_public_draft_l2
+      basis: 71 of 71 source mappings report substantively_mapped_multi_file.
+    - check_id: pc_lar_check_trace_specificity
+      question: Are source mentions specific enough to support framework claims?
+      result: conditional_pass
+      basis: Required trace-object pattern is present, but claim-level trace specificity still needs targeted review.
+    - check_id: pc_lar_check_construct_coverage
+      question: Are major DSR constructs represented across framework target families?
+      result: pass_with_followup
+      basis: Recommended paths span models, docs, templates, schemas, checklists, specs, vocabularies, and records.
+    - check_id: pc_lar_check_overclaim_risk
+      question: Could source-level coverage be mistaken for v1/L4/L5 claim proof?
+      result: risk_control_required
+      basis: README, release, conformance, and validation records must continue to distinguish source-level remediation from claim-level evidence.
+    - check_id: pc_lar_check_vocabulary_schema_drift
+      question: Do vocabulary and schema decisions need another pass after the crosswalk?
+      result: followup_required
+      basis: Schema field hardening and claim-family mapping should follow trace-specific review and issue/backlog structuring.
+    - check_id: pc_lar_check_review_readiness
+      question: Is the crosswalk ready to support public-draft review?
+      result: pass_with_required_followup
+      basis: Public-draft L2 reviewability is supported, but stable v1 and L4/L5 require examples, retained reviews, and release-governance records.
+
+  prioritized_findings:
+    - finding_id: pc_lar_finding_001
+      priority: high
+      status: accepted
+      finding: Source-level crosswalk coverage is adequate for public-draft L2 reviewability.
+      evidence_basis:
+        - crosswalk summary counts show 71 total sources and 71 substantively mapped multi-file sources.
+        - post-remediation validation reports 142 substantive trace objects with the required pattern.
+      affected_paths:
+        - crosswalks/source-to-framework-alignment.yaml
+        - manifest.yaml
+        - package-inventory.yaml
+        - records/validation/validation-summary-latest.json
+      recommended_action: Retain the crosswalk as public-draft source-level remediation evidence.
+      acceptance_criteria: Do not reintroduce stale source-basis-only counts as current findings.
+    - finding_id: pc_lar_finding_002
+      priority: high
+      status: accepted
+      finding: Claim-level traceability remains incomplete; source-level mapping must not be represented as claim-level proof.
+      evidence_basis:
+        - README distinguishes repaired source-to-framework traceability from future claim-level traceability.
+        - Crosswalk target recommendations are broad and source-centered rather than claim-family-centered.
+      affected_paths:
+        - README.md
+        - future crosswalk: crosswalks/claim-to-source-traceability.yaml
+        - records/reviews/record-review-v1-readiness-audit.yaml
+      recommended_action: Create a claim-level traceability crosswalk for v1 that maps claim families to source anchors, framework paths, limitations, and acceptance criteria.
+      acceptance_criteria: No v1, L4, or L5 claim relies only on source-level crosswalk completion.
+    - finding_id: pc_lar_finding_003
+      priority: medium
+      status: accepted
+      finding: Crosswalk remediation deliberately maps each source to a small number of substantive targets; this is acceptable for public draft but needs claim-specific expansion for v1.
+      evidence_basis:
+        - Current substantive paths are concentrated in docs and models, with templates represented once as existing substantive paths.
+        - Recommended target paths include broader template, checklist, schema, vocabulary, and record families for later work.
+      affected_paths:
+        - templates/problem-and-objectives-template.md
+        - models/dsr-decision-flow.yaml
+        - checklists/dsr-minimum-viable-study-checklist.yaml
+        - templates/evaluation-plan-template.yaml
+        - templates/evaluation-report-template.yaml
+      recommended_action: Expand trace-specific evidence in templates and checklists after issue templates/backlog and docs source-link warnings are addressed.
+      acceptance_criteria: v1 edits name supported constructs and evidence anchors, not just source IDs.
+    - finding_id: pc_lar_finding_004
+      priority: high
+      status: accepted
+      finding: Overclaim controls should remain active in README, release, conformance, and validation records.
+      evidence_basis:
+        - Package status remains 0.1.0_public_draft.
+        - Current conformance remains l2_reviewable_qualified_public_draft.
+        - L5 remains deferred in manifest, release, and conformance records.
+      affected_paths:
+        - README.md
+        - conformance-declaration.yaml
+        - records/releases/record-release-0001-v0-1-0.yaml
+        - scripts/validate-package.py
+      recommended_action: Keep release-candidate validation failing until examples, retained review records, release approval, and unresolved v1/L5 follow-up are addressed.
+      acceptance_criteria: Public-draft wording never implies stable v1, achieved L4, or L5 archival/publication-ready status.
+    - finding_id: pc_lar_finding_005
+      priority: medium
+      status: accepted
+      finding: Canonical worked example and stricter schemas should wait until trace-specificity and issue-template/backlog work are in place.
+      evidence_basis:
+        - Current validation still warns about docs/protocol controlled-source links.
+        - Examples are planned but not present.
+        - Schema hardening remains future public-draft work.
+      affected_paths:
+        - examples/
+        - schemas/
+        - .github/ISSUE_TEMPLATE/
+        - docs/protocol/
+      recommended_action: Add docs controlled-source links and issue templates before large example/schema branches.
+      acceptance_criteria: Later example and schema PRs can be routed through retained issue/backlog categories.
+    - finding_id: pc_lar_finding_006
+      priority: medium
+      status: human_review_required
+      finding: Pekkola 2023 is substantively mapped in the crosswalk but has blank strongest anchor and contribution fields, so it should be treated as limited-use until extraction metadata is repaired.
+      evidence_basis:
+        - source_id pekkola_2023_reflections_supervising_postgraduate_dsr_thesis has empty strongest_evidence_anchor_id and strongest_dsr_contribution values.
+      affected_paths:
+        - crosswalks/source-to-framework-alignment.yaml
+        - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      recommended_action: Human-review or repair this extraction before using it to support strong framework claims.
+      acceptance_criteria: Pekkola-derived claims are either backed by repaired anchors or marked as caution/background only.
+
+  source_area_notes:
+    problem_space_objective_relevance:
+      sources:
+        - source_id: maedche_gregor_morana_feine_2019_problem_space_dsr
+          evidence_anchor_id: A09
+          contribution: Problem space through stakeholders, needs, goals, and requirements.
+        - source_id: purao_2021_dsr_problems_where_do_they_come_from
+          evidence_anchor_id: A20
+          contribution: Phase-based problem identification, problem-class abstraction, significance, solvability, wickedness, and representation.
+        - source_id: alismail_zhang_chatterjee_2017_dsr_objectives_framework
+          evidence_anchor_id: A06
+          contribution: Objectives connecting problem definition, artifact type, requirements, reasoning, build activity, and evaluation.
+        - source_id: thuan_drechsler_antunes_2019_construction_dsr_questions
+          evidence_anchor_id: A21
+          contribution: Typology and templates for DSR research questions.
+        - source_id: zur_heiden_2020_considering_context_dsr
+          evidence_anchor_id: A10
+          contribution: Context specification and context-to-design traceability.
+        - source_id: vom_brocke_weber_grisold_2021_dsr_practical_relevance
+          evidence_anchor_id: A09
+          contribution: Collaboration-centered practical relevance and societal value reporting.
+      v1_target_paths:
+        - templates/problem-and-objectives-template.md
+        - models/dsr-decision-flow.yaml
+        - checklists/dsr-minimum-viable-study-checklist.yaml
+        - docs/protocol/00-framework-overview.md
+    stakeholder_externality_responsible_design:
+      sources:
+        - source_id: hevner_et_al_2024_transparency_in_design_science_research
+          evidence_anchor_id: CA01
+          contribution: Transparency framework across process, problem, solution, build, evaluation, and contribution.
+        - source_id: hevner_storey_2021_externalities_dsr
+          evidence_anchor_id: A18
+          contribution: Prerequisite space and externalities for DSR preparation and governance.
+        - source_id: suero_montero_kapinga_2019_dsr_strengthened
+          evidence_anchor_id: A07
+          contribution: Co-creation and co-design throughout DSR.
+        - source_id: beinke_fitte_teuteberg_2019_blockchain_ehr
+          evidence_anchor_id: A14
+          contribution: Stakeholder-oriented requirements and evaluation example.
+      v1_target_paths:
+        - models/dsr-transparency-model.yaml
+        - docs/protocol/10-transparency-and-reporting.md
+        - templates/evaluation-plan-template.yaml
+        - templates/evaluation-report-template.yaml
+    reliability_replication_projectability:
+      sources:
+        - source_id: brendel_et_al_2021_replication_study_types_dsr
+          evidence_anchor_id: A14
+          contribution: Eight DSR replication study types plus progression framework.
+        - source_id: reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation_dsr
+          evidence_anchor_id: A10
+          contribution: Cumulative DSR quality criteria including relevance, novelty/reuse balance, testability, and usefulness.
+        - source_id: akoka_comyn_wattiau_prat_storey_2023_knowledge_contributions_in_dsr
+          evidence_anchor_id: A07/A12
+          contribution: Knowledge-type paths and classification robustness.
+        - source_id: peffers_tuunanen_niehaves_2018_design_science_research_genres
+          evidence_anchor_id: CA-003
+          contribution: Genre-sensitive evaluation, reporting, and publication.
+      v1_target_paths:
+        - models/dsr-reliability-model.yaml
+        - checklists/reliability-checklist.yaml
+        - models/dsr-projectability-model.yaml
+        - checklists/replication-projectability-checklist.yaml
+
+  recommended_workplan:
+    - work_item_id: pc_lar_work_001
+      action: Create claim-level traceability map for v1.
+      suggested_path: crosswalks/claim-to-source-traceability.yaml
+    - work_item_id: pc_lar_work_002
+      action: Add GitHub issue templates/backlog categories for hardening work.
+      suggested_path: .github/ISSUE_TEMPLATE/
+    - work_item_id: pc_lar_work_003
+      action: Add controlled-source Markdown links to docs/protocol pages.
+      suggested_path: docs/protocol/
+    - work_item_id: pc_lar_work_004
+      action: Add canonical worked example after templates/checklists stabilize.
+      suggested_path: examples/
+    - work_item_id: pc_lar_work_005
+      action: Tighten schemas field-by-field after example and template expectations stabilize.
+      suggested_path: schemas/
+    - work_item_id: pc_lar_work_006
+      action: Retain review, author-response, metadata-freeze, release-approval, and preservation-closure records before any v1/L5 claim.
+      suggested_path: records/
+
+  outcome:
+    result: pass_with_required_followup
+    supports: continued_public_draft_l2_reviewability
+    does_not_support:
+      - stable_v1
+      - achieved_l4_reusable
+      - l5_archival_publication_ready
+    statement: >
+      The 71-source crosswalk remediation is complete for source-to-framework
+      alignment at the v0.1.0 public-draft level. It supports continued
+      qualified L2 reviewability, but it does not complete claim-level
+      traceability, stable v1 readiness, L4 reusable validation, or L5
+      archival/publication-ready evidence.
+
+  related_items:
+    supersedes_for_current_source_coverage:
+      - records/reviews/record-literature-alignment-0001.yaml
+    evidence:
+      - crosswalks/source-to-framework-alignment.yaml
+      - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
+      - manifest.yaml
+      - package-inventory.yaml
+      - records/validation/validation-summary-latest.json
+      - README.md
+
+  retention_rule:
+    retention_id: ret_literature_alignment_reviews_permanent
+    retention_period: retain_for_life_of_repository
+    disposition: preserve_with_review_records
+    supersession_rule: Supersede after claim-level traceability pass or v1 readiness review; do not delete historical review records.
+
+  change_history:
+    - version: "0.1.0"
+      date: "2026-04-28"
+      change_type: created
+      changed_by: Codex
+      description: Created post-crosswalk literature alignment review after source-level traceability remediation.
