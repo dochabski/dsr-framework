@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: CC0-1.0
+author_response_record:
+  record_id: record_author_response_0001_v1_0_0
+  record_class: author_response
+  item_type: record
+  title: v1.0.0 Author Response and Remediation Closure
+  status: approved
+  version: 1.0.0-rc.1
+  response_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  target_release: v1.0.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  source_reviews:
+    - records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    - records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    - records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
+    - records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
+    - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
+  response_policy:
+    allowed_dispositions:
+      - fixed
+      - verified
+      - accepted_v1_limitation
+      - post_v1_l5_work
+      - post_v1_minor_release_work
+      - rejected_with_rationale
+    release_blocking_rule: No blocking v1 findings may remain open.
+  responses:
+    - finding_ref: completeness_001
+      disposition: accepted_v1_limitation
+      response: L5 is not claimed for v1.0.0 and is retained as post-v1 work.
+    - finding_ref: completeness_002
+      disposition: scheduled_for_release_metadata_branch
+      response: Metadata freeze, v1 release record, and release approval remain scheduled for the release metadata branch.
+    - finding_ref: ktt_001
+      disposition: accepted_v1_limitation
+      response: The canonical example is intentionally synthetic and is labelled as demonstration material.
+    - finding_ref: full_001
+      disposition: accepted_v1_limitation
+      response: Conformance declaration and release records distinguish L4 reusable-stable from L5.
+  outcome:
+    result: all_current_v1_review_findings_addressed_or_scheduled
+    supports: release_approval_review
+    does_not_support: l5_archival_publication_ready
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained author-response record.

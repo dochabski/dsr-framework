@@ -351,6 +351,10 @@ package_inventory:
     expected_file_count_from_selection_table: 7
     listed_files:
     - records/reviews/record-review-0001-self-review.yaml
+    - records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    - records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    - records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    - records/reviews/record-author-response-0001-v1-0-0.yaml
     - records/reviews/record-literature-alignment-0001.yaml
     - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
     - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
@@ -362,8 +366,8 @@ package_inventory:
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 9
-      present_count: 9
+      listed_count: 13
+      present_count: 13
       missing_count: 0
   - directory_id: dir_016
     path: records/releases
@@ -5185,6 +5189,148 @@ package_inventory:
     - records_schema_hardening_scope
     - references_canonical_example_fixtures
     - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0138
+    file_id: file_records__reviews__record_review_0002_completeness_v1_0_0_yaml
+    selection_id: record_review_0002_completeness_v1_0_0
+    path: records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    package_section: records/reviews
+    portion_type: completeness_review_record
+    output_format: yaml
+    purpose: Retain v1.0.0 completeness review evidence for L4 release preparation.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - package-inventory.yaml
+    - manifest.yaml
+    - examples/canonical-minimal-dsr-package/README.md
+    - crosswalks/claim-to-source-traceability.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - completeness_review_outcome
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - documents_completeness_review
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0139
+    file_id: file_records__reviews__record_review_0003_kick_the_tires_v1_0_0_yaml
+    selection_id: record_review_0003_kick_the_tires_v1_0_0
+    path: records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    package_section: records/reviews
+    portion_type: kick_the_tires_review_record
+    output_format: yaml
+    purpose: Retain v1.0.0 kick-the-tires review evidence for example-guided exercisability and reuse preparation.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - package-inventory.yaml
+    - examples/canonical-minimal-dsr-package/README.md
+    - records/validation/validation-summary-latest.json
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - exercised_path_recorded
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - documents_kick_the_tires_review
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0140
+    file_id: file_records__reviews__record_review_0004_full_review_v1_0_0_yaml
+    selection_id: record_review_0004_full_review_v1_0_0
+    path: records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    package_section: records/reviews
+    portion_type: full_review_record
+    output_format: yaml
+    purpose: Retain v1.0.0 full review evidence for L4 reusable-stable release preparation.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - conformance-declaration.yaml
+    - records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    - records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - quality_gates_recorded
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - documents_full_review
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0141
+    file_id: file_records__reviews__record_author_response_0001_v1_0_0_yaml
+    selection_id: record_author_response_0001_v1_0_0
+    path: records/reviews/record-author-response-0001-v1-0-0.yaml
+    package_section: records/reviews
+    portion_type: author_response_record
+    output_format: yaml
+    purpose: Retain v1.0.0 author response and remediation closure evidence for release approval review.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    - records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    - records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
+    - records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
+    - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - dsr_methodology_reviewer
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - author_response_outcome
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - documents_author_response
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -5429,12 +5575,17 @@ package_inventory:
     change: Upgraded validation automation to run public-draft and v1 L4 release-candidate checks in CI while preserving allowed release-candidate failure before release finalization.
     responsible_party: framework_maintainer
     review_status: v1_validation_automation_upgraded
+  - version: 0.1.15
+    date: '2026-04-28'
+    change: Added retained v1 completeness, kick-the-tires, full-review, and author-response records.
+    responsible_party: framework_maintainer
+    review_status: v1_retained_review_packet_recorded
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 137
+    controlled_file_inventory_entries: 141
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -5456,6 +5607,11 @@ package_inventory:
     latest_schema_hardening_review: records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     schema_hardening_status: v1_field_hardening_pass_completed_with_canonical_example_fixtures
     validation_automation_status: v1_l4_release_candidate_gate_runs_in_ci_with_allowed_failure_until_release_branch
+    latest_v1_completeness_review: records/reviews/record-review-0002-completeness-v1-0-0.yaml
+    latest_v1_kick_the_tires_review: records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
+    latest_v1_full_review: records/reviews/record-review-0004-full-review-v1-0-0.yaml
+    latest_v1_author_response: records/reviews/record-author-response-0001-v1-0-0.yaml
+    v1_review_packet_status: retained_review_packet_present_pending_metadata_freeze_release_record_and_approval
     source_traceability_validation_counts: *id001
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424
