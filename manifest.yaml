@@ -9,8 +9,8 @@ manifest:
     target, validation obligations, and traceability expectations for the Design Science Research Framework repository.
 
     '
-  status: 0.1.0_public_draft
-  version: 0.1.0
+  status: 1.0.0_stable
+  version: 1.0.0
   package:
     package_id: dsr_framework
     package_name: DSR Framework
@@ -28,8 +28,8 @@ manifest:
       '
     canonical_repository_role: source_of_truth_package
     repository_url: https://github.com/dochabski/dsr-framework
-    publication_status: 0.1.0_public_draft
-    intended_release: v0.1.0
+    publication_status: 1.0.0_stable
+    intended_release: v1.0.0
     license:
       spdx_id: CC0-1.0
       license_file: LICENSE
@@ -43,7 +43,7 @@ manifest:
     - .zenodo.json
     - codemeta.json
     normalization_status:
-      status: 0.1.0_public_draft_reconciled_for_v1_readiness
+      status: 1.0.0_stable_metadata_frozen
       normalized_at: '2026-04-27'
       structure_status: canonical_directories_populated_from_product_catalog
       required_root_file_status: all_required_root_files_present_as_draft_or_controlled_files
@@ -54,7 +54,7 @@ manifest:
         combined_yaml: ../Extractions_Combined_Repaired/dsr_extractions_repaired_20260427.yaml
         record_count: 71
         status: parseable_working_corpus_for_next_literature_alignment_pass
-      publication_readiness_status: published_citable_public_draft_not_l5
+      publication_readiness_status: v1_l4_reusable_stable_not_l5
       latest_literature_alignment_review: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
       prior_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
       literature_alignment_status: post_crosswalk_review_pass_with_required_followup
@@ -81,6 +81,9 @@ manifest:
       latest_v1_full_review: records/reviews/record-review-0004-full-review-v1-0-0.yaml
       latest_v1_author_response: records/reviews/record-author-response-0001-v1-0-0.yaml
       v1_review_packet_status: retained_review_packet_present_pending_metadata_freeze_release_record_and_approval
+      latest_metadata_freeze_record: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
+      latest_v1_release_record: records/releases/record-release-0002-v1-0-0.yaml
+      v1_release_record_status: ready_for_release_approval
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -103,9 +106,8 @@ manifest:
   conformance:
     selected_default_conformance: l1_documented
     file_conformance: l1_documented
-    package_conformance: l2_reviewable_qualified_public_draft
-    v1_target_package_conformance: l4_reusable_stable
-    l5_status: deferred_until_preservation_registry_metadata_freeze_and_independent_review
+    package_conformance: l4_reusable_stable
+    l5_status: not_claimed_for_v1_0_0_post_v1_l5_work
     conformance_declaration_file: conformance-declaration.yaml
     tailoring_status: preliminary_root_manifest
     conformance_rationale: 'The selected table row identifies root_manifest as an L1 root specification. The broader generation
@@ -166,7 +168,7 @@ manifest:
       role: public_repository_entry_point
       required: true
       expected_item_type: description
-      validation_status: present_current_orientation
+      validation_status: present_v1_stable_orientation
       existence_audit_date: '2026-04-27'
     - path: LICENSE
       role: license_terms
@@ -178,7 +180,7 @@ manifest:
       role: citation_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_public_draft_citation_metadata_confirmed_v0_1_0_v1_freeze_pending
+      validation_status: present_v1_citation_metadata_frozen_1_0_0
       existence_audit_date: '2026-04-27'
     - path: CHANGELOG.md
       role: release_change_log
@@ -214,7 +216,7 @@ manifest:
       role: archival_and_doi_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending
+      validation_status: present_v1_zenodo_metadata_prepared_l5_not_claimed
       existence_audit_date: '2026-04-27'
     - path: manifest.yaml
       role: repository_manifest_and_canonical_package_identity
@@ -226,7 +228,7 @@ manifest:
       role: structured_project_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending
+      validation_status: present_v1_metadata_frozen_1_0_0
       existence_audit_date: '2026-04-27'
     - path: artifact-profile.yaml
       role: artifact_identity_scope_claims_and_reuse_constraints
@@ -666,6 +668,16 @@ manifest:
     to: records/reviews/record-author-response-0001-v1-0-0.yaml
     relation: supports_v1_author_response_and_remediation_closure
     evidence_status: retained_author_response_record
+  - trace_id: tr_v1_reviews_to_metadata_freeze
+    from: records/reviews/record-author-response-0001-v1-0-0.yaml
+    to: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
+    relation: supports_v1_metadata_freeze
+    evidence_status: retained_metadata_freeze_record
+  - trace_id: tr_metadata_freeze_to_v1_release_record
+    from: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
+    to: records/releases/record-release-0002-v1-0-0.yaml
+    relation: supports_v1_release_record
+    evidence_status: retained_release_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -701,6 +713,9 @@ manifest:
     - records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml
     - records/reviews/record-review-0004-full-review-v1-0-0.yaml
     - records/reviews/record-author-response-0001-v1-0-0.yaml
+    - records/releases/record-metadata-freeze-0001-v1-0-0.yaml
+    - records/releases/record-release-0002-v1-0-0.yaml
+    - records/releases/github-release-notes-v1-0-0.md
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
@@ -881,3 +896,9 @@ manifest:
     description: Added retained v1 completeness, kick-the-tires, full-review, and author-response records.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_retained_review_packet
+  - version: 1.0.0
+    date: '2026-04-28'
+    change_type: v1_metadata_freeze_and_release_record
+    description: Froze v1.0.0 metadata and added retained v1 release record and GitHub release notes.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_metadata_freeze_and_release_record

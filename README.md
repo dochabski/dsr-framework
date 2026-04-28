@@ -3,11 +3,11 @@ SPDX-License-Identifier: CC0-1.0
 item_id: root_readme
 item_type: description
 selection_id: root_readme
-status: 0.1.0_public_draft
-version: 0.1.0
+status: 1.0.0_stable
+version: 1.0.0
 file_conformance: l1_documented
-package_conformance: l2_reviewable_qualified_public_draft
-v1_target_package_conformance: l4_reusable_stable
+package_conformance: l4_reusable_stable
+l5_claimed: false
 -->
 
 # Design Science Research Framework
@@ -20,20 +20,20 @@ This repository treats DSR as a research tradition centered on purposeful artifa
 
 | Field | Value |
 |---|---|
-| Package status | `0.1.0_public_draft` -- usable, citable, but still under active validation. |
-| Current package version | `0.1.0` |
+| Package status | `1.0.0_stable` -- reusable stable package, not L5 archival/publication-ready. |
+| Current package version | `1.0.0` |
 | Default root README conformance | `L1 documented` |
 | Current organization state | Canonical directory structure populated from the product catalog |
-| Current validation state | Qualified `L2 reviewable` public-draft evidence: YAML/JSON/CFF parsing passes; schema/template and schema/record validation pairs pass; all 71 repaired corpus sources are multi-file substantively grounded |
-| Intended package trajectory | `1.0.0-rc.N` toward `1.0.0_stable` with an `L4 reusable` target; `L5 archival/publication-ready` is reserved for a later release with independent review, preservation, registry, and metadata-freeze evidence |
+| Current validation state | `L4 reusable stable` release evidence: YAML/JSON/CFF parsing passes; schema/template, schema/record, and canonical-example validation pairs pass; claim-level traceability, retained review records, metadata freeze, and release record are present |
+| Intended package trajectory | `1.0.0_stable`; `L5 archival/publication-ready` is reserved for a later release with independent external review, preservation closure, registry publication, and L5 release approval |
 | Primary audience | DSR researchers, doctoral supervisors, methods instructors, reviewers, editors, and artifact-package maintainers |
 | Primary use | Establish a public entry point for a reusable DSR documentation and review framework |
 
 ## Release progression
 
-This repository uses a controlled status progression: `0.1.0_public_draft`, `1.0.0-rc.N`, and `1.0.0_stable`. The current release is published and citable as a public draft with qualified L2 reviewability evidence. It is not a stable 1.0 framework, not L3 exercisable, not L4 reuse-validated, and not L5 archival/publication-ready.
+This repository uses a controlled status progression: `0.1.0_public_draft`, `1.0.0-rc.N`, and `1.0.0_stable`. The current release is prepared as the stable v1.0.0 framework with L4 reusable-stable package conformance.
 
-The selected v1 target is `l4_reusable_stable`. L5 archival/publication-ready status requires a separate release decision with completed preservation, metadata-freeze, registry, independent-review, and release-approval records.
+L5 archival/publication-ready status is not claimed for v1.0.0. L5 requires a separate release decision with completed preservation closure, registry publication, independent external review, archival fixity evidence, and L5 release approval.
 
 ## What this framework provides
 
@@ -128,7 +128,7 @@ The framework uses staged conformance so the package can mature without overclai
 | `L4` | Reusable | The package is sufficiently coherent and documented for adaptation by others. |
 | `L5` | Archival / publication-ready | The package is release-ready, citable, preserved, and supported by final review records. |
 
-This `README.md` is maintained at `L1 documented` conformance. It orients the repository and identifies dependencies. Package-level validation evidence is retained in `manifest.yaml`, `package-inventory.yaml`, schemas, and review records; this README does not certify publication readiness.
+This `README.md` is maintained at `L1 documented` conformance. It orients the repository and identifies dependencies. Package-level L4 validation evidence is retained in `manifest.yaml`, `package-inventory.yaml`, schemas, examples, crosswalks, review records, and release records; this README does not claim L5 archival/publication-ready status.
 
 ## Core DSR distinctions preserved by the framework
 

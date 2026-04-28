@@ -482,16 +482,24 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
             run.error(f"manifest.yaml: stale unconfirmed public-draft metadata status remains: {phrase}")
 
     inventory = load_yaml_file(ROOT / "package-inventory.yaml")["package_inventory"]
+    expected_conformance = expected_package_conformance(inventory)
     root_status_by_path = {
         entry.get("path"): entry.get("current_status")
         for entry in inventory.get("root_file_inventory", [])
         if isinstance(entry, dict)
     }
-    expected_statuses = {
-        "CITATION.cff": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
-        ".zenodo.json": "present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending",
-        "metadata.yaml": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
-    }
+    if expected_conformance == "l4_reusable_stable":
+        expected_statuses = {
+            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_0",
+            ".zenodo.json": "present_v1_zenodo_metadata_prepared_l5_not_claimed",
+            "metadata.yaml": "present_v1_metadata_frozen_1_0_0",
+        }
+    else:
+        expected_statuses = {
+            "CITATION.cff": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
+            ".zenodo.json": "present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending",
+            "metadata.yaml": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
+        }
     for path, expected in expected_statuses.items():
         if root_status_by_path.get(path) != expected:
             run.error(f"package-inventory.yaml: root_file_inventory status for {path} must be {expected}.")
@@ -502,11 +510,18 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
         for entry in manifest.get("repository_architecture", {}).get("required_root_files", [])
         if isinstance(entry, dict)
     }
-    expected_manifest_statuses = {
-        "CITATION.cff": "present_public_draft_citation_metadata_confirmed_v0_1_0_v1_freeze_pending",
-        ".zenodo.json": "present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending",
-        "metadata.yaml": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
-    }
+    if expected_conformance == "l4_reusable_stable":
+        expected_manifest_statuses = {
+            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_0",
+            ".zenodo.json": "present_v1_zenodo_metadata_prepared_l5_not_claimed",
+            "metadata.yaml": "present_v1_metadata_frozen_1_0_0",
+        }
+    else:
+        expected_manifest_statuses = {
+            "CITATION.cff": "present_public_draft_citation_metadata_confirmed_v0_1_0_v1_freeze_pending",
+            ".zenodo.json": "present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending",
+            "metadata.yaml": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
+        }
     for path, expected in expected_manifest_statuses.items():
         if manifest_root_status_by_path.get(path) != expected:
             run.error(f"manifest.yaml: required_root_files status for {path} must be {expected}.")
@@ -630,7 +645,9 @@ def write_summary(run: ValidationRun, inventory: dict[str, Any]) -> None:
             "inventory_status": {
                 "package_status": inventory.get("status"),
                 "package_conformance": inventory.get("package_conformance"),
-                "v1_target_package_conformance": inventory.get("v1_target_package_conformance"),
+                "v1_target_package_conformance": inventory.get("v1_target_package_conformance")
+                or inventory.get("package_conformance"),
+                "l5_claimed": inventory.get("l5_claimed"),
                 "controlled_file_inventory_entries": inventory.get("normalization_status", {}).get(
                     "controlled_file_inventory_entries"
                 ),

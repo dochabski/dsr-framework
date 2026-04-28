@@ -8,8 +8,8 @@ artifact_profile:
     and publication preparation.
 
     '
-  status: 0.1.0_public_draft
-  version: 0.1.0
+  status: 1.0.0_stable
+  version: 1.0.0
   owner:
     role: framework_maintainer
     name: David Ochabski
@@ -21,8 +21,8 @@ artifact_profile:
     output_format: yaml
     default_conformance_from_selection_table: L1
     file_conformance: l1_documented
-    package_conformance: l2_reviewable_qualified_public_draft
-    v1_target_package_conformance: l4_reusable_stable
+    package_conformance: l4_reusable_stable
+    l5_claimed: false
     key_dependencies:
     - dsr_lifecycle_contribution_model
     - dsr_corpus
@@ -55,14 +55,14 @@ artifact_profile:
     - package-inventory.yaml
     - conformance-declaration.yaml
     repository_url: https://github.com/dochabski/dsr-framework
-    release_url: https://github.com/dochabski/dsr-framework/releases/tag/v0.1.0
+    release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.0.0
     archive_doi: 10.5281/zenodo.19835424
   artifact_identity:
     artifact_id: dsr_framework
     artifact_name: Design Science Research Framework
     artifact_short_name: DSR Framework
-    artifact_version: 0.1.0
-    artifact_status: 0.1.0_public_draft
+    artifact_version: 1.0.0
+    artifact_status: 1.0.0_stable
     artifact_family: open_research_artifact_framework
     artifact_kind: compound_artifact_package
     artifact_boundary_statement: 'The artifact is the framework package as a reusable artifact type: its root metadata, specifications,
@@ -407,11 +407,11 @@ artifact_profile:
       label: L1 documented
       rationale: The artifact profile file itself remains a root orientation/control file whose role is to describe package identity, scope, claims, and review boundaries.
     current_package_conformance_level:
-      id: l2_reviewable_qualified_public_draft
-      label: L2 reviewable qualified public draft
-      rationale: 'The public draft package has root controls, inventory, source-to-framework traceability, validation evidence,
-        and a retained release record sufficient for qualified review. This profile does not assert L3 exercisability,
-        L4 external reuse validation, or L5 archival/publication-ready conformance.
+      id: l4_reusable_stable
+      label: L4 reusable stable
+      rationale: 'The v1.0.0 package has root controls, inventory, claim-level traceability, validation evidence, a canonical
+        worked example, retained review records, metadata freeze, and a v1 release record sufficient for L4 reusable-stable
+        release preparation. This profile does not assert L5 archival/publication-ready conformance.
 
         '
     target_future_package_conformance:
@@ -493,8 +493,8 @@ artifact_profile:
       attribution_expectation: citation_requested_even_where_not_legally_required
     citation_guidance:
       preferred_citation_file: CITATION.cff
-      citation_status: confirmed_for_v0_1_0_public_draft
-      interim_citation_text: 'Cite the DSR Framework repository release v0.1.0, DOI 10.5281/zenodo.19835424, and relevant source files
+      citation_status: frozen_for_v1_0_0_github_release
+      interim_citation_text: 'Cite the DSR Framework repository release v1.0.0 and relevant source files
         used.
 
         '
@@ -834,3 +834,9 @@ artifact_profile:
     changed_by: GPT-5.5 Thinking
     description: Separated file and package conformance, resolved stale v0.1.0 citation/license/repository questions, and scoped remaining questions to v1 or L5 follow-up.
     related_request: pr_1_cleanup_review
+  - version: 1.0.0
+    date: '2026-04-28'
+    change_type: v1_metadata_freeze
+    changed_by: framework_maintainer
+    description: Updated current artifact profile status and package conformance for v1.0.0 L4 reusable stable release preparation with L5 not claimed.
+    related_request: command_queue_v1_metadata_freeze_and_release_record
