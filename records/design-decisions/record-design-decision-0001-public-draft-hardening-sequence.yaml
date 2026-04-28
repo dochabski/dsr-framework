@@ -1,0 +1,82 @@
+# SPDX-License-Identifier: CC0-1.0
+design_decision_record:
+  record_id: record_design_decision_0001_public_draft_hardening_sequence
+  record_class: design_decision
+  item_type: record
+  title: Public-Draft Hardening Sequence Decision
+  status: approved
+  version: "0.1.0"
+  date: "2026-04-28"
+  responsible_party: framework_maintainer
+  event_or_action: public_draft_hardening_sequence_decision
+  decision:
+    selected_sequence:
+      - step: 1
+        workstream: preservation_record
+        rationale: Retain v0.1.0 public-draft DOI, release, and preservation-scope evidence before later inventory-changing work.
+      - step: 2
+        workstream: post_crosswalk_literature_alignment_review
+        rationale: Preserve the completed 71-source source-level remediation before claim-level traceability expansion.
+      - step: 3
+        workstream: github_issue_templates_and_backlog
+        rationale: Convert hidden v1 work into structured governance intake before larger content edits.
+      - step: 4
+        workstream: docs_protocol_controlled_source_links
+        rationale: Keep human-facing protocol documentation linked to controlled YAML and JSON source files.
+      - step: 5
+        workstream: canonical_worked_example
+        rationale: Exercise templates and checklists only after source-level review and issue governance are in place.
+      - step: 6
+        workstream: schema_field_hardening
+        rationale: Tighten schemas after example and template expectations stabilize.
+      - step: 7
+        workstream: claim_level_traceability_for_v1
+        rationale: Expand source-level mappings into claim-specific evidence chains before stable v1.
+      - step: 8
+        workstream: retained_review_and_release_records
+        rationale: Require completeness, kick-the-tires, full review, author response, and release approval before stable v1 or L5 claims.
+  rationale:
+    - Avoid package-inventory conflicts by sequencing inventory-changing work on top of merged baselines.
+    - Prevent premature stable v1, achieved L4, or L5 archival/publication-ready claims.
+    - Preserve source-level remediation as retained evidence before expanding to claim-level traceability.
+    - Keep validation green in public-draft mode while release-candidate blockers remain explicit.
+  alternatives_considered:
+    - option: schema_tightening_before_example
+      reason_rejected: Strict field constraints should be tested against at least one canonical worked example.
+    - option: example_before_traceability_review
+      reason_rejected: Example scope should reflect the post-crosswalk review and source-level evidence boundaries.
+    - option: l5_preservation_closure_in_v0_1_0
+      reason_rejected: v0.1.0 has public-draft preservation evidence but lacks L5 metadata freeze, registry closure, independent review, and release approval.
+  evidence:
+    - README.md
+    - conformance-declaration.yaml
+    - manifest.yaml
+    - package-inventory.yaml
+    - records/releases/record-release-0001-v0-1-0.yaml
+    - records/preservation/record-preservation-0001-v0-1-0.yaml
+    - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    - records/validation/validation-summary-latest.json
+  outcome:
+    status: accepted_for_public_draft
+    conformance_effect: strengthens_public_draft_l2_reviewability_only
+    does_not_certify:
+      - stable_v1
+      - achieved_l4_reusable
+      - l5_archival_publication_ready
+  related_items:
+    upstream:
+      - records/reviews/record-review-v1-readiness-audit.yaml
+      - records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
+    peer:
+      - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
+      - package-inventory.yaml
+      - manifest.yaml
+    downstream:
+      - examples/
+      - schemas/
+      - records/reviews/
+      - records/releases/
+  retention_rule:
+    retention_class: repository_lifecycle_record
+    minimum_retention: retain_for_life_of_repository
+    supersession_rule: Supersede after stable v1 release-planning review if the hardening sequence changes.
