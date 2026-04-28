@@ -10,6 +10,7 @@
 - Added package validation script and GitHub Actions workflow for public-draft validation.
 - Added retained machine-readable validation summary under `records/validation/`.
 - Added optional release-candidate validation mode and workflow dispatch input.
+- Added `.gitattributes` to normalize repository text files to LF line endings.
 
 ### Changed
 
@@ -20,6 +21,7 @@
 - Separated file-level and package-level conformance fields in root-facing metadata.
 - Hardened validation for release-record contradictions, conformance-scope ambiguity, Unicode control characters, documentation link coverage, and release-candidate gates.
 - Reconciled conformance declaration and package inventory wording so qualified L2 public-draft conformance is current, while L3/L4/L5 and v1 metadata freeze remain future work.
+- Reconciled manifest root metadata statuses and public-repository wording in governance/security files.
 
 ## [0.1.0] - 2026-04-27
 

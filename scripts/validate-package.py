@@ -29,6 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SUMMARY_PATH = ROOT / "records" / "validation" / "validation-summary-latest.json"
 BIDI_CONTROL_RE = re.compile(r"[\u202A-\u202E\u2066-\u2069]")
 TEXT_SUFFIXES = {".yaml", ".yml", ".md", ".json", ".cff", ".toml", ".py", ".txt"}
+TEXT_FILENAMES = {"CITATION.cff", ".gitattributes"}
 
 IGNORED_ACTUAL_PATHS = {
     ".gitignore",
@@ -129,7 +130,7 @@ def walk_values(value: Any) -> list[str]:
 
 
 def iter_text_files() -> list[Path]:
-    return [path for path in iter_files() if path.suffix.lower() in TEXT_SUFFIXES or path.name == "CITATION.cff"]
+    return [path for path in iter_files() if path.suffix.lower() in TEXT_SUFFIXES or path.name in TEXT_FILENAMES]
 
 
 def validate_parseability(run: ValidationRun) -> None:
@@ -420,6 +421,7 @@ def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) ->
 
 def validate_public_draft_metadata_status(run: ValidationRun) -> None:
     inventory_text = (ROOT / "package-inventory.yaml").read_text(encoding="utf-8")
+    manifest_text = (ROOT / "manifest.yaml").read_text(encoding="utf-8")
     stale_inventory_phrases = [
         "needs_creator_repository_and_release_metadata",
         "do_not_publish_until_metadata_confirmed",
@@ -429,6 +431,15 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
     for phrase in stale_inventory_phrases:
         if phrase in inventory_text:
             run.error(f"package-inventory.yaml: stale unconfirmed public-draft metadata status remains: {phrase}")
+
+    stale_manifest_statuses = [
+        "present_release_metadata_updated_with_reserved_doi",
+        "present_release_metadata_updated_pending_publish_confirmation",
+        "present_draft_needs_public_metadata_confirmation",
+    ]
+    for phrase in stale_manifest_statuses:
+        if phrase in manifest_text:
+            run.error(f"manifest.yaml: stale unconfirmed public-draft metadata status remains: {phrase}")
 
     inventory = load_yaml_file(ROOT / "package-inventory.yaml")["package_inventory"]
     root_status_by_path = {
@@ -444,6 +455,21 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
     for path, expected in expected_statuses.items():
         if root_status_by_path.get(path) != expected:
             run.error(f"package-inventory.yaml: root_file_inventory status for {path} must be {expected}.")
+
+    manifest = load_yaml_file(ROOT / "manifest.yaml")["manifest"]
+    manifest_root_status_by_path = {
+        entry.get("path"): entry.get("validation_status")
+        for entry in manifest.get("repository_architecture", {}).get("required_root_files", [])
+        if isinstance(entry, dict)
+    }
+    expected_manifest_statuses = {
+        "CITATION.cff": "present_public_draft_citation_metadata_confirmed_v0_1_0_v1_freeze_pending",
+        ".zenodo.json": "present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending",
+        "metadata.yaml": "present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending",
+    }
+    for path, expected in expected_manifest_statuses.items():
+        if manifest_root_status_by_path.get(path) != expected:
+            run.error(f"manifest.yaml: required_root_files status for {path} must be {expected}.")
 
 
 DEFERRED_MARKER_RE = re.compile(

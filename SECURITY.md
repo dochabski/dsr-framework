@@ -4,7 +4,7 @@ This repository is primarily a documentation and research-artifact package, but 
 
 ## Reporting
 
-Report security concerns through the repository issue tracker or maintainer contact once the public repository is created. Until then, do not publish sensitive details in shared artifacts.
+Report security concerns through the repository issue tracker or maintainer contact. Do not publish sensitive details in shared artifacts or public issue text.
 
 ## Sensitive Information
 
@@ -18,7 +18,7 @@ Do not commit:
 
 ## Supported Versions
 
-The package is currently a draft `0.1.0` working version. Security and maintenance support policies should be finalized before public release.
+The package is currently a `0.1.0` public draft. Security and maintenance support policies should be finalized before stable v1 or any L5 archival/publication-ready release.
 
 ## Automation
 

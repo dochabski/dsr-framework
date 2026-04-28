@@ -494,14 +494,14 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0006
     exists: true
-    current_status: present_draft_needs_public_maintainer_confirmation
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_governance_policy_v1_role_confirmation_pending
+    existence_audit_date: '2026-04-28'
   - path: SECURITY.md
     listed: true
     inventory_entry_id: inv_0007
     exists: true
-    current_status: present_draft
-    existence_audit_date: '2026-04-27'
+    current_status: present_public_draft_security_policy_v1_support_policy_pending
+    existence_audit_date: '2026-04-28'
   - path: CODE_OF_CONDUCT.md
     listed: true
     inventory_entry_id: inv_0008
@@ -556,6 +556,12 @@ package_inventory:
     exists: true
     current_status: present_codemeta_metadata
     existence_audit_date: '2026-04-27'
+  - path: .gitattributes
+    listed: true
+    inventory_entry_id: root_gitattributes
+    exists: true
+    current_status: present_public_draft_lf_normalization_policy
+    existence_audit_date: '2026-04-28'
   validation_profiles:
   - validation_profile_id: vp_yaml_controlled_file
     applies_to: General controlled YAML files.
@@ -631,6 +637,13 @@ package_inventory:
     - Root governance file exists at declared path.
     - Content is consistent with repository license, contribution process, and community expectations.
     - No governance policy conflicts with conformance declaration or release process.
+  - validation_profile_id: vp_repository_configuration
+    applies_to: Repository configuration files such as .gitattributes.
+    primary_responsible_role: repository_quality_reviewer
+    required_checks:
+    - Configuration file exists at declared path.
+    - Text-file normalization policy is explicit.
+    - Binary file patterns are not normalized as text.
   - validation_profile_id: vp_release_metadata
     applies_to: CITATION.cff, .zenodo.json, CHANGELOG.md, and release records.
     primary_responsible_role: release_manager
@@ -4278,6 +4291,36 @@ package_inventory:
     - uses_declared_path_and_extension
     - parses_as_json
     - reports_result_counts
+  - inventory_entry_id: inv_0109
+    file_id: file_gitattributes
+    selection_id: repository_line_ending_policy
+    path: .gitattributes
+    package_section: root
+    portion_type: repository_configuration
+    output_format: gitattributes
+    purpose: Normalize repository text files to LF line endings and mark common binary artifacts as binary.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - v1_readiness_audit
+    - repository_quality_review
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_repository_configuration
+    validation_responsibility:
+      primary_role: repository_quality_reviewer
+      review_roles:
+      - framework_maintainer
+      automation_role: git_normalization
+      evidence_expected:
+      - path_exists
+      - git_diff_check_passes
+      - line_ending_churn_prevented
+    minimum_acceptance_criteria:
+    - exists_at_root
+    - declares_lf_text_normalization
+    - marks_common_binary_formats_binary
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -4457,12 +4500,17 @@ package_inventory:
     change: Reconciled root-file metadata statuses to reflect confirmed v0.1.0 public-draft facts while reserving v1 freeze and L5 preservation work.
     responsible_party: framework_maintainer
     review_status: final_public_draft_reconciliation
+  - version: 0.1.2
+    date: '2026-04-28'
+    change: Added .gitattributes to normalize text line endings and inventoried it as repository configuration.
+    responsible_party: framework_maintainer
+    review_status: final_public_draft_reconciliation
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 108
+    controlled_file_inventory_entries: 109
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass

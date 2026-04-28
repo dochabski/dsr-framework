@@ -153,7 +153,7 @@ manifest:
       role: citation_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_release_metadata_updated_with_reserved_doi
+      validation_status: present_public_draft_citation_metadata_confirmed_v0_1_0_v1_freeze_pending
       existence_audit_date: '2026-04-27'
     - path: CHANGELOG.md
       role: release_change_log
@@ -171,7 +171,7 @@ manifest:
       role: governance_model
       required: true
       expected_item_type: policy
-      validation_status: present_draft_needs_public_maintainer_confirmation
+      validation_status: present_public_draft_governance_policy_v1_role_confirmation_pending
       existence_audit_date: '2026-04-27'
     - path: SECURITY.md
       role: security_reporting_policy
@@ -189,7 +189,7 @@ manifest:
       role: archival_and_doi_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_release_metadata_updated_pending_publish_confirmation
+      validation_status: present_public_draft_zenodo_metadata_confirmed_v0_1_0_l5_preservation_pending
       existence_audit_date: '2026-04-27'
     - path: manifest.yaml
       role: repository_manifest_and_canonical_package_identity
@@ -201,7 +201,7 @@ manifest:
       role: structured_project_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_draft_needs_public_metadata_confirmation
+      validation_status: present_public_draft_metadata_confirmed_v0_1_0_v1_freeze_pending
       existence_audit_date: '2026-04-27'
     - path: artifact-profile.yaml
       role: artifact_identity_scope_claims_and_reuse_constraints
@@ -233,6 +233,12 @@ manifest:
       expected_item_type: metadata
       validation_status: present
       existence_audit_date: '2026-04-27'
+    - path: .gitattributes
+      role: repository_line_ending_policy
+      required: true
+      expected_item_type: repository_configuration
+      validation_status: present_public_draft_lf_normalization_policy
+      existence_audit_date: '2026-04-28'
     canonical_directories:
     - path: specs
       role: controlled product specifications
@@ -617,13 +623,13 @@ manifest:
     status: pass
   assumptions:
   - assumption_id: asm_001
-    statement: The public repository URL is not yet known at generation time.
-    handling: Repository URL is resolved in metadata.yaml, CITATION.cff, .zenodo.json, and manifest.yaml for the public draft
-      release.
+    statement: The public repository URL was unknown at initial generation time.
+    handling: Repository URL is now resolved in metadata.yaml, CITATION.cff, .zenodo.json, and manifest.yaml for the v0.1.0
+      public draft release.
   - assumption_id: asm_002
-    statement: CC0-1.0 is used as the provisional license identifier because the governing generation files carry CC0-1.0
-      SPDX headers.
-    handling: Confirm against the final LICENSE file before public release.
+    statement: CC0-1.0 is used for documentation and metadata files, with Apache-2.0 reserved for reusable automation code
+      where applicable.
+    handling: License policy is confirmed for the v0.1.0 public draft and should be rechecked during v1 metadata freeze.
   - assumption_id: asm_003
     statement: root_manifest is treated as L1 documented according to the selected table row, while the broader package default
       remains L2 reviewable according to the generation specification.
@@ -683,3 +689,9 @@ manifest:
     description: Normalized release and conformance progression to v0.1.0 public draft, v1 release-candidate sequence, and L4 reusable stable target.
     responsible_party: GPT-5.5 Thinking
     related_request: v1_readiness_audit_remediation
+  - version: 0.1.2
+    date: '2026-04-28'
+    change_type: public_draft_manifest_reconciliation
+    description: Reconciled manifest root metadata statuses and added repository line-ending policy for LF-normalized text files.
+    responsible_party: framework_maintainer
+    related_request: final_public_draft_hardening_pass
