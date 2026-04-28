@@ -75,6 +75,7 @@ manifest:
       template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
       latest_schema_hardening_review: records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
       schema_hardening_status: v1_field_hardening_pass_completed_with_canonical_example_fixtures
+      validation_automation_status: v1_l4_release_candidate_gate_runs_in_ci_with_allowed_failure_until_release_branch
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -839,3 +840,9 @@ manifest:
     description: Hardened compatible schema fields, added canonical example schema-instance fixtures, and retained schema-hardening review evidence.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_schema_field_hardening
+  - version: 0.1.13
+    date: '2026-04-28'
+    change_type: v1_validation_automation
+    description: Upgraded validation automation so release-candidate mode explicitly checks v1.0.0 L4 gates and runs in CI with allowed failure until release finalization.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_validation_automation

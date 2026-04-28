@@ -30,6 +30,7 @@ SUMMARY_PATH = ROOT / "records" / "validation" / "validation-summary-latest.json
 BIDI_CONTROL_RE = re.compile(r"[\u202A-\u202E\u2066-\u2069]")
 TEXT_SUFFIXES = {".yaml", ".yml", ".md", ".json", ".cff", ".toml", ".py", ".txt"}
 TEXT_FILENAMES = {"CITATION.cff", ".gitattributes"}
+VALIDATION_MODES = {"public_draft", "release_candidate"}
 
 IGNORED_ACTUAL_PATHS = {
     ".gitignore",
@@ -77,11 +78,36 @@ SCHEMA_INSTANCE_PAIRS = {
     ],
 }
 
+V1_RELEASE_CANDIDATE_REQUIRED_PATHS = {
+    "canonical worked example": "examples/canonical-minimal-dsr-package/README.md",
+    "claim-level traceability crosswalk": "crosswalks/claim-to-source-traceability.yaml",
+    "source anomaly disposition review": "records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml",
+    "template and checklist stabilization review": "records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml",
+    "schema hardening review": "records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml",
+    "completeness review": "records/reviews/record-review-0002-completeness-v1-0-0.yaml",
+    "kick-the-tires review": "records/reviews/record-review-0003-kick-the-tires-v1-0-0.yaml",
+    "full review": "records/reviews/record-review-0004-full-review-v1-0-0.yaml",
+    "author response": "records/reviews/record-author-response-0001-v1-0-0.yaml",
+    "metadata freeze": "records/releases/record-metadata-freeze-0001-v1-0-0.yaml",
+    "v1 release record": "records/releases/record-release-0002-v1-0-0.yaml",
+    "release approval": "records/releases/record-release-approval-0001-v1-0-0.yaml",
+}
+
+L5_CLAIM_PATTERNS = {
+    "l5_claimed: true": "L5 claimed flag",
+    "archival_publication_ready: true": "archival publication readiness true flag",
+    "package_conformance: l5_archival_publication_ready": "L5 package conformance claim",
+    "conformance_claim_supported: l5_archival_publication_ready": "L5 supported conformance claim",
+}
+
 
 class ValidationRun:
-    def __init__(self, release_candidate: bool) -> None:
-        self.release_candidate = release_candidate
-        self.validation_scope = "v1_l4_release_candidate" if release_candidate else "public_draft"
+    def __init__(self, mode: str = "public_draft") -> None:
+        if mode not in VALIDATION_MODES:
+            raise ValueError(f"Unsupported validation mode: {mode}")
+        self.mode = mode
+        self.release_candidate = mode == "release_candidate"
+        self.validation_scope = "v1_l4_release_candidate" if self.release_candidate else "public_draft"
         self.errors: list[str] = []
         self.warnings: list[str] = []
         self.counts: dict[str, int] = {}
@@ -283,11 +309,12 @@ def validate_unicode_controls(run: ValidationRun) -> None:
 def validate_release_status_consistency(run: ValidationRun) -> None:
     metadata = load_yaml_file(ROOT / "metadata.yaml")
     release_readiness = metadata["versioning_and_release"]["release_readiness"]
-    if release_readiness.get("release_candidate") is not False:
+    current_state = str(release_readiness.get("current_state", ""))
+    if current_state == "0.1.0_public_draft" and release_readiness.get("release_candidate") is not False:
         run.error("metadata.yaml: release_readiness.release_candidate must be false for v0.1.0 public draft.")
     if release_readiness.get("archival_publication_ready") is not False:
         run.error(
-            "metadata.yaml: release_readiness.archival_publication_ready must be false unless L5 gates are complete."
+            "metadata.yaml: release_readiness.archival_publication_ready must remain false unless L5 gates are complete."
         )
 
     release_record = load_yaml_file(ROOT / "records/releases/record-release-0001-v0-1-0.yaml")["release_record"]
@@ -319,7 +346,7 @@ def validate_release_status_consistency(run: ValidationRun) -> None:
             run.error(f"release record: stale public-draft contradiction remains: {phrase}")
 
     restricted_patterns = {
-        "archival_publication_ready: true": "archival publication readiness true flag",
+        **L5_CLAIM_PATTERNS,
         "conformance_target: l5_archival_publication_ready": "L5 conformance target",
     }
     for path in [
@@ -336,15 +363,23 @@ def validate_release_status_consistency(run: ValidationRun) -> None:
                 run.error(f"{rel(path)}: contains restricted {label}: {pattern}")
 
 
+def expected_package_conformance(inventory: dict[str, Any]) -> str:
+    status = str(inventory.get("status", ""))
+    package_conformance = str(inventory.get("package_conformance", ""))
+    if status.startswith("1.0.0") or package_conformance == "l4_reusable_stable":
+        return "l4_reusable_stable"
+    return "l2_reviewable_qualified_public_draft"
+
+
 def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) -> None:
+    expected_conformance = expected_package_conformance(inventory)
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for required in [
-        "file_conformance: l1_documented",
-        "package_conformance: l2_reviewable_qualified_public_draft",
-        "v1_target_package_conformance: l4_reusable_stable",
-    ]:
-        if required not in readme:
-            run.error(f"README.md: missing explicit conformance scope field: {required}")
+    if "file_conformance: l1_documented" not in readme:
+        run.error("README.md: missing explicit conformance scope field: file_conformance: l1_documented")
+    if f"package_conformance: {expected_conformance}" not in readme:
+        run.error(f"README.md: missing explicit current package conformance field: package_conformance: {expected_conformance}")
+    if expected_conformance == "l2_reviewable_qualified_public_draft" and "v1_target_package_conformance: l4_reusable_stable" not in readme:
+        run.error("README.md: missing v1 target field while package remains a public draft.")
     if "conformance_target:" in readme.split("-->", 1)[0]:
         run.error("README.md: front-matter comment must not use ambiguous conformance_target.")
 
@@ -359,15 +394,15 @@ def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) ->
             run.error(f"manifest.yaml: use explicit file/package conformance scope instead of {old_key}.")
     if conformance.get("file_conformance") != "l1_documented":
         run.error("manifest.yaml: conformance.file_conformance must be l1_documented.")
-    if conformance.get("package_conformance") != "l2_reviewable_qualified_public_draft":
-        run.error("manifest.yaml: conformance.package_conformance must be l2_reviewable_qualified_public_draft.")
-    if conformance.get("v1_target_package_conformance") != "l4_reusable_stable":
+    if conformance.get("package_conformance") != expected_conformance:
+        run.error(f"manifest.yaml: conformance.package_conformance must be {expected_conformance}.")
+    if expected_conformance == "l2_reviewable_qualified_public_draft" and conformance.get("v1_target_package_conformance") != "l4_reusable_stable":
         run.error("manifest.yaml: conformance.v1_target_package_conformance must be l4_reusable_stable.")
 
     if "conformance_target" in inventory:
         run.error("package-inventory.yaml: use package_conformance instead of ambiguous conformance_target.")
-    if inventory.get("package_conformance") != "l2_reviewable_qualified_public_draft":
-        run.error("package-inventory.yaml: package_conformance must be l2_reviewable_qualified_public_draft.")
+    if inventory.get("package_conformance") != expected_conformance:
+        run.error(f"package-inventory.yaml: package_conformance must be {expected_conformance}.")
 
     artifact = load_yaml_file(ROOT / "artifact-profile.yaml")["artifact_profile"]
     selection = artifact.get("selection_metadata", {})
@@ -378,8 +413,8 @@ def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) ->
         run.error("artifact-profile.yaml: use current_package_conformance_level and file_conformance.")
     if quality.get("file_conformance", {}).get("id") != "l1_documented":
         run.error("artifact-profile.yaml: quality_and_conformance_profile.file_conformance.id must be l1_documented.")
-    if quality.get("current_package_conformance_level", {}).get("id") != "l2_reviewable_qualified_public_draft":
-        run.error("artifact-profile.yaml: current_package_conformance_level.id must be l2_reviewable_qualified_public_draft.")
+    if quality.get("current_package_conformance_level", {}).get("id") != expected_conformance:
+        run.error(f"artifact-profile.yaml: current_package_conformance_level.id must be {expected_conformance}.")
 
     for entry in inventory.get("file_inventory", []):
         if str(entry.get("default_conformance", "")).lower() == "l5":
@@ -396,11 +431,11 @@ def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) ->
 
     conformance_declaration = load_yaml_file(ROOT / "conformance-declaration.yaml")["conformance_declaration"]
     declaration = conformance_declaration.get("declaration", {})
-    if declaration.get("current_package_conformance", {}).get("id") != "l2_reviewable_qualified_public_draft":
-        run.error("conformance-declaration.yaml: declaration.current_package_conformance.id must be l2_reviewable_qualified_public_draft.")
+    if declaration.get("current_package_conformance", {}).get("id") != expected_conformance:
+        run.error(f"conformance-declaration.yaml: declaration.current_package_conformance.id must be {expected_conformance}.")
     if declaration.get("file_conformance", {}).get("id") != "l1_documented":
         run.error("conformance-declaration.yaml: declaration.file_conformance.id must be l1_documented.")
-    if declaration.get("v1_target_package_conformance", {}).get("id") != "l4_reusable_stable":
+    if expected_conformance == "l2_reviewable_qualified_public_draft" and declaration.get("v1_target_package_conformance", {}).get("id") != "l4_reusable_stable":
         run.error("conformance-declaration.yaml: declaration.v1_target_package_conformance.id must be l4_reusable_stable.")
 
     catalog_ids = {
@@ -408,7 +443,7 @@ def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) ->
         for item in conformance_declaration.get("conformance_level_catalog", [])
         if isinstance(item, dict)
     }
-    if "l2_reviewable_qualified_public_draft" not in catalog_ids:
+    if expected_conformance == "l2_reviewable_qualified_public_draft" and "l2_reviewable_qualified_public_draft" not in catalog_ids:
         run.error("conformance-declaration.yaml: conformance catalog must include l2_reviewable_qualified_public_draft or an explicit mapping.")
 
     conformance_text = (ROOT / "conformance-declaration.yaml").read_text(encoding="utf-8")
@@ -516,38 +551,15 @@ def validate_release_candidate_gates(run: ValidationRun) -> None:
     run.note(
         "Release-candidate mode validates v1.0.0/L4 reusable-stable readiness; explicit L5 non-claims and post-v1 L5 work do not block this mode."
     )
-    required_record_dirs = [
-        ("records/reviews", ("*.yaml",)),
-        ("records/releases", ("*.yaml",)),
-        ("records/preservation", ("*.yaml",)),
-        ("records/validation", ("*.yaml", "*.json")),
-    ]
-    for directory, patterns in required_record_dirs:
-        files = [file for pattern in patterns for file in (ROOT / directory).glob(pattern)]
-        if not files:
-            run.error(f"{directory}: release-candidate mode requires at least one retained validation or record file.")
+    if run.counts.get("inventory_file_entries") != run.counts.get("actual_controlled_files_seen"):
+        run.error("package-inventory.yaml: inventory count must equal actual controlled file count in release-candidate mode.")
 
-    examples = [path for path in (ROOT / "examples").rglob("*") if path.is_file()]
-    if not examples:
-        run.error("examples/: release-candidate mode requires a canonical worked example package.")
-
-    required_review_markers = {
-        "completeness": "records/reviews/: missing retained completeness review record.",
-        "kick-the-tires": "records/reviews/: missing retained kick-the-tires review record.",
-        "full-review": "records/reviews/: missing retained full review record.",
-        "author-response": "records/reviews/: missing retained author-response record.",
-        "release-approval": "records/decisions or records/releases: missing retained release approval record.",
-    }
-    tracked_names = " ".join(rel(path) for path in iter_files())
-    for marker, message in required_review_markers.items():
-        if marker not in tracked_names:
-            run.error(message)
+    for label, path in V1_RELEASE_CANDIDATE_REQUIRED_PATHS.items():
+        if not (ROOT / path).exists():
+            run.error(f"{path}: missing required v1 L4 release-candidate evidence ({label}).")
 
     v1_release_record_path = ROOT / "records/releases/record-release-0002-v1-0-0.yaml"
     if not v1_release_record_path.exists():
-        run.error(
-            "records/releases/record-release-0002-v1-0-0.yaml: missing v1.0.0 release record for L4 release-candidate validation."
-        )
         return
 
     try:
@@ -560,15 +572,29 @@ def validate_release_candidate_gates(run: ValidationRun) -> None:
     if blockers:
         run.error("records/releases/record-release-0002-v1-0-0.yaml: unresolved v1_release_blockers remain.")
 
+    if v1_release_record.get("package_conformance") != "l4_reusable_stable":
+        run.error("records/releases/record-release-0002-v1-0-0.yaml: package_conformance must be l4_reusable_stable.")
+
     if v1_release_record.get("l5_claimed") is True:
         run.error(
             "records/releases/record-release-0002-v1-0-0.yaml: v1.0.0 release-candidate mode must not claim L5."
         )
 
+    for path in [
+        ROOT / "records/releases/record-metadata-freeze-0001-v1-0-0.yaml",
+        ROOT / "records/releases/record-release-approval-0001-v1-0-0.yaml",
+    ]:
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for pattern, label in L5_CLAIM_PATTERNS.items():
+            if pattern in text:
+                run.error(f"{rel(path)}: contains restricted {label}: {pattern}")
+
 
 def write_summary(run: ValidationRun, inventory: dict[str, Any]) -> None:
     SUMMARY_PATH.parent.mkdir(parents=True, exist_ok=True)
-    mode = "release_candidate" if run.release_candidate else "public_draft"
+    mode = run.mode
     existing: dict[str, Any] = {}
     if SUMMARY_PATH.exists():
         try:
@@ -599,6 +625,7 @@ def write_summary(run: ValidationRun, inventory: dict[str, Any]) -> None:
             "public_draft_result": validation_runs.get("public_draft", {}).get("result"),
             "release_candidate_result": validation_runs.get("release_candidate", {}).get("result"),
             "release_candidate_expected_failure": validation_runs.get("release_candidate", {}).get("expected_failure"),
+            "release_candidate_scope": "v1.0.0_l4_reusable_stable_not_l5",
             "validation_runs": validation_runs,
             "inventory_status": {
                 "package_status": inventory.get("status"),
@@ -616,9 +643,14 @@ def write_summary(run: ValidationRun, inventory: dict[str, Any]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "--mode",
+        choices=sorted(VALIDATION_MODES),
+        help="Validation mode. Defaults to public_draft unless --release-candidate is set.",
+    )
+    parser.add_argument(
         "--release-candidate",
         action="store_true",
-        help="Treat deferred markers and missing release records as errors.",
+        help="Alias for --mode release_candidate; validates v1.0.0/L4 release-candidate gates.",
     )
     parser.add_argument(
         "--write-summary",
@@ -627,7 +659,11 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    run = ValidationRun(release_candidate=args.release_candidate)
+    mode = args.mode or ("release_candidate" if args.release_candidate else "public_draft")
+    if args.release_candidate and args.mode and args.mode != "release_candidate":
+        parser.error("--release-candidate cannot be combined with --mode public_draft.")
+
+    run = ValidationRun(mode=mode)
 
     validate_parseability(run)
     validate_json_schemas(run)
