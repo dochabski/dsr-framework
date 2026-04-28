@@ -1,0 +1,104 @@
+# SPDX-License-Identifier: CC0-1.0
+review_record:
+  record_id: record_review_template_checklist_stabilization_0001_v1_0_0
+  record_class: reuse_readiness_review
+  item_type: record
+  title: v1.0.0 Template and Checklist Stabilization Review
+  status: approved
+  version: 1.0.0-rc.1
+  review_date: '2026-04-28'
+  responsible_party: framework_maintainer
+  target_release: v1.0.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  scope:
+    reviewed_template_directory: templates
+    reviewed_checklist_directory: checklists
+    compatibility_fixture: examples/canonical-minimal-dsr-package
+    excluded:
+      - broad_schema_hardening
+      - final_metadata_freeze
+      - L5_archival_publication_ready_claim
+  reviewed_templates:
+    - templates/artifact-profile-template.yaml
+    - templates/artifact-specification-template.md
+    - templates/build-transparency-record-template.yaml
+    - templates/conformance-declaration-template.yaml
+    - templates/contribution-claim-template.yaml
+    - templates/contribution-positioning-record-template.yaml
+    - templates/demonstration-record-template.yaml
+    - templates/design-rationale-template.md
+    - templates/dsr-project-charter-template.md
+    - templates/dsr-transparency-crosswalk-template.yaml
+    - templates/evaluation-plan-template.yaml
+    - templates/evaluation-report-template.yaml
+    - templates/package-inventory-template.yaml
+    - templates/problem-and-objectives-template.md
+    - templates/review-record-template.yaml
+    - templates/solution-space-record-template.yaml
+  reviewed_checklists:
+    - checklists/artifact-package-readiness-checklist.yaml
+    - checklists/contribution-positioning-checklist.yaml
+    - checklists/dsr-minimum-viable-study-checklist.yaml
+    - checklists/dsr-transparency-crosswalk-checklist.yaml
+    - checklists/evaluation-readiness-checklist.yaml
+    - checklists/publication-readiness-checklist.yaml
+    - checklists/reliability-checklist.yaml
+    - checklists/replication-projectability-checklist.yaml
+  review_criteria:
+    - stable_fields
+    - human_usability
+    - acceptance_criteria_present
+    - schema_alignment_where_available
+    - canonical_example_compatibility
+    - non_overclaiming_language
+  checks:
+    - check_id: marker_scan_templates_checklists
+      command: git grep -n -E release_marker_patterns -- templates checklists
+      result: pass
+      evidence: No release-blocking marker strings were present in templates or checklists.
+    - check_id: canonical_example_compatibility
+      result: pass
+      evidence: >
+        The canonical minimal example instantiates project charter, problem/objectives, artifact specification,
+        design rationale, evaluation plan, contribution claim, transparency crosswalk, local inventory, and validation notes
+        against current template and checklist expectations.
+    - check_id: checklist_reviewability
+      result: pass_with_minor_limitations
+      evidence: >
+        Current checklists contain review questions, evidence requirements, pass/fail conditions, remediation guidance,
+        and conformance relevance sufficient for public review and v1 preparation. Field-level normalization can be improved
+        during schema hardening without blocking this stabilization record.
+    - check_id: non_overclaiming
+      result: pass
+      evidence: Templates, checklists, and canonical example preserve the distinction between demonstration, evaluation, contribution, L4 preparation, and L5 non-claim language.
+  findings:
+    - finding_id: tcs_001
+      severity: pass
+      statement: Templates and checklists have no release-blocking marker strings.
+      disposition: verified
+    - finding_id: tcs_002
+      severity: pass
+      statement: The canonical example exercises the main human workflow from problem framing through transparency and contribution records.
+      disposition: verified
+    - finding_id: tcs_003
+      severity: nonblocking
+      statement: Checklist fields are reviewable but can be made more uniform during schema field hardening.
+      disposition: post_stabilization_schema_work
+    - finding_id: tcs_004
+      severity: nonblocking
+      statement: This review supports v1 L4 preparation but does not by itself approve stable v1 or L5.
+      disposition: accepted_v1_limitation
+  outcome:
+    result: pass
+    supports:
+      - v1_l4_reuse_readiness_preparation
+      - canonical_example_compatibility
+      - template_and_checklist_reviewability
+    does_not_support:
+      - final_v1_release
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede after schema hardening or final v1 readiness review if template/checklist requirements change.
