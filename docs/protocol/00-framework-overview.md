@@ -11,6 +11,15 @@ target_path: docs/protocol/00-framework-overview.md
 
 # DSR Framework Overview
 
+## Controlled source links
+
+- [manifest.yaml](../../manifest.yaml)
+- [metadata.yaml](../../metadata.yaml)
+- [artifact-profile.yaml](../../artifact-profile.yaml)
+- [package-inventory.yaml](../../package-inventory.yaml)
+- [conformance-declaration.yaml](../../conformance-declaration.yaml)
+- [specs/product-catalog.yaml](../../specs/product-catalog.yaml)
+
 ## Document status
 
 | Field | Value |

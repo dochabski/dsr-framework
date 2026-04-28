@@ -2,6 +2,14 @@
 
 # Transparency and Reporting
 
+## Controlled source links
+
+- [models/dsr-transparency-model.yaml](../../models/dsr-transparency-model.yaml)
+- [vocabularies/transparency-dimensions.yaml](../../vocabularies/transparency-dimensions.yaml)
+- [templates/dsr-transparency-crosswalk-template.yaml](../../templates/dsr-transparency-crosswalk-template.yaml)
+- [schemas/dsr-transparency-crosswalk.schema.json](../../schemas/dsr-transparency-crosswalk.schema.json)
+- [records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml](../../records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml)
+
 ## Document control
 
 | Field | Value |

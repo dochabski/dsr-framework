@@ -36,6 +36,13 @@ change_history:
 
 # Artifact Ontology Guide
 
+## Controlled source links
+
+- [models/dsr-artifact-ontology.yaml](../../models/dsr-artifact-ontology.yaml)
+- [models/dsr-framework-canonical-model.yaml](../../models/dsr-framework-canonical-model.yaml)
+- [vocabularies/artifact-types.yaml](../../vocabularies/artifact-types.yaml)
+- [schemas/dsr-artifact.schema.json](../../schemas/dsr-artifact.schema.json)
+
 This page explains how the DSR Framework classifies, bounds, documents, and reviews artifacts. It is a human-facing guide to `models/dsr-artifact-ontology.yaml`; the YAML model remains the controlled source for entity names, validation implications, and downstream schema alignment.
 
 ## 1. Purpose
