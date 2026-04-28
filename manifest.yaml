@@ -59,8 +59,10 @@ manifest:
       prior_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
       literature_alignment_status: post_crosswalk_review_pass_with_required_followup
       latest_design_decision_record: records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+      latest_release_scope_decision: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
       latest_tailoring_record: records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
       public_draft_tailoring_status: accepted_for_0_1_0_public_draft_l2_scope
+      v1_release_scope_status: l4_reusable_stable_target_l5_not_claimed_for_v1
       latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
@@ -587,6 +589,11 @@ manifest:
     to: records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
     relation: documents_public_draft_conformance_tailoring
     evidence_status: retained_governance_record
+  - trace_id: tr_v1_conformance_target_to_release_scope_decision
+    from: records/decisions/record-decision-v1-conformance-target.yaml
+    to: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    relation: defines_v1_l4_release_scope_and_validator_policy
+    evidence_status: retained_governance_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -613,6 +620,7 @@ manifest:
     - records/source-basis/record-source-basis-0001-dsr-corpus.yaml
     - records/reviews/record-literature-alignment-0001.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+    - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
     - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
   acceptance_criteria:
   - criterion_id: ac_manifest_identity
@@ -736,3 +744,9 @@ manifest:
     description: Added retained design-decision and tailoring records for public-draft hardening sequence and conformance-scope governance.
     responsible_party: framework_maintainer
     related_request: command_queue_public_draft_decision_tailoring_records
+  - version: 0.1.6
+    date: '2026-04-28'
+    change_type: v1_release_scope_and_validator_policy
+    description: Added retained v1.0.0 release-scope decision and aligned release-candidate validation with the L4 reusable-stable v1 target rather than L5.
+    responsible_party: framework_maintainer
+    related_request: command_queue_v1_release_scope_and_validator_policy

@@ -1,0 +1,90 @@
+# SPDX-License-Identifier: CC0-1.0
+design_decision_record:
+  record_id: record_design_decision_0002_v1_0_0_release_scope
+  record_class: design_decision
+  item_type: record
+  title: v1.0.0 Release Scope and Validator Policy Decision
+  status: approved
+  version: "0.1.0"
+  decision_date: "2026-04-28"
+  responsible_party: framework_maintainer
+  owner: framework_maintainer
+  event_or_action: define_v1_0_0_release_scope_and_validator_policy
+
+  decision:
+    release_target:
+      release_version: "1.0.0"
+      release_status: "1.0.0_stable"
+      package_conformance_target: l4_reusable_stable
+      l5_archival_publication_ready_claimed: false
+      l5_scope_for_v1: not_claimed_for_v1_0_0
+    validator_policy:
+      public_draft_mode:
+        purpose: preserve current public-draft validation behavior while v1 work proceeds
+        expected_result_before_v1: pass
+      release_candidate_mode:
+        purpose: validate v1.0.0 L4 reusable-stable readiness
+        must_block:
+          - unresolved v1 release blockers
+          - missing canonical worked example
+          - missing claim-level traceability crosswalk
+          - missing retained completeness review
+          - missing retained kick-the-tires review
+          - missing retained full review
+          - missing retained author-response record
+          - missing retained release approval record
+          - open marker strings matching the validator marker regex
+          - inventory mismatch
+          - schema/template/record validation failure
+          - inconsistent version, release, citation, license, repository, or conformance metadata
+        must_not_block:
+          - explicit statements that L5 archival/publication-ready is not claimed for v1.0.0
+          - post-v1 L5 work listed under a nonblocking post-v1 section
+      l5_release_mode:
+        status: outside_v1_0_0_scope
+        note: L5 may be added later as a separate validation mode or release decision.
+
+  rationale:
+    - The repository's declared v1 trajectory targets L4 reusable stable, while L5 requires additional preservation, registry, metadata-freeze, independent-review, and release-approval evidence.
+    - The current release-candidate gate conflates v1 blockers with v0.1.0 follow-up and post-v1 L5 work.
+    - A clean v1 gate should block unresolved L4 reuse-readiness problems without forcing an L5 claim.
+    - L5 non-claim language is a transparency requirement, not a release defect.
+
+  implementation_requirements:
+    - Keep public-draft validation passing throughout v1 work.
+    - Keep the existing --release-candidate CLI flag backward compatible.
+    - Treat --release-candidate as v1.0.0/L4 release-candidate validation unless a future L5 mode is explicitly added.
+    - Do not require records/releases/record-release-0001-v0-1-0.yaml to have no historical v0.1.0 follow-up items.
+    - Require the current v1 release record, once created, to have no unresolved v1 blockers.
+    - Permit post_v1_l5_work or l5_not_claimed_for_v1 sections when they are explicitly nonblocking.
+
+  acceptance_criteria:
+    - Public-draft validation still passes.
+    - Release-candidate validation continues to fail until genuine v1 blockers are completed.
+    - Release-candidate validation no longer fails solely because L5 is not claimed.
+    - The validator emits clear messages distinguishing v1 blockers from post-v1 L5 non-claims.
+    - No file claims stable v1, achieved L4, or L5 until the corresponding retained evidence exists.
+
+  outcome:
+    result: accepted_for_v1_0_0_release_work
+    conformance_impact: clarifies_path_to_l4_reusable_stable
+    does_not_certify:
+      - stable_v1_release
+      - achieved_l4_reuse_readiness
+      - l5_archival_publication_ready
+
+  related_items:
+    upstream:
+      - records/decisions/record-decision-v1-conformance-target.yaml
+      - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+      - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
+    peer:
+      - scripts/validate-package.py
+      - package-inventory.yaml
+      - manifest.yaml
+    downstream:
+      - records/releases/record-release-0002-v1-0-0.yaml
+      - records/releases/record-release-approval-0001-v1-0-0.yaml
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: May be superseded only by a later retained release-scope decision.

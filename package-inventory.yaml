@@ -272,14 +272,15 @@ package_inventory:
   - directory_id: dir_009
     path: records/design-decisions
     purpose: Retained artifact and protocol design decisions.
-    expected_file_count_from_selection_table: 1
+    expected_file_count_from_selection_table: 2
     listed_files:
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+    - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 1
-      present_count: 1
+      listed_count: 2
+      present_count: 2
       missing_count: 0
   - directory_id: dir_010
     path: records/tailoring
@@ -4705,6 +4706,42 @@ package_inventory:
     - parses_as_yaml
     - records_public_draft_conformance_scope
     - keeps_stable_v1_l4_l5_deferred
+  - inventory_entry_id: inv_0121
+    file_id: file_records__design_decisions__record_design_decision_0002_v1_0_0_release_scope_yaml
+    selection_id: record_design_decision_0002_v1_0_0_release_scope
+    path: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    package_section: records/design-decisions
+    portion_type: design_decision_record
+    output_format: yaml
+    purpose: Define v1.0.0 as an L4 reusable-stable release target and align release-candidate validation with that scope.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/decisions/record-decision-v1-conformance-target.yaml
+    - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+    - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
+    - scripts/validate-package.py
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-28'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - release_manager
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - v1_l4_release_scope_recorded
+      - validator_policy_recorded
+      - l5_not_claimed_for_v1
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - defines_v1_l4_release_scope
+    - permits_post_v1_l5_non_claim_language
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -4909,12 +4946,17 @@ package_inventory:
     change: Added public-draft design-decision and tailoring records for hardening sequence and conformance-scope governance.
     responsible_party: framework_maintainer
     review_status: public_draft_decision_tailoring_records_created
+  - version: 0.1.7
+    date: '2026-04-28'
+    change: Added v1.0.0 release-scope and validator-policy decision record.
+    responsible_party: framework_maintainer
+    review_status: v1_release_scope_policy_recorded
   normalization_status:
     status: 0.1.0_public_draft_reconciled_for_v1_readiness
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 120
+    controlled_file_inventory_entries: 121
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass

@@ -1,6 +1,6 @@
 {
   "validation_summary": {
-    "generated_at": "2026-04-28T18:48:43+00:00",
+    "generated_at": "2026-04-28T19:52:38+00:00",
     "repository": "dochabski/dsr-framework",
     "latest_mode": "public_draft",
     "public_draft_result": "pass",
@@ -8,20 +8,21 @@
     "release_candidate_expected_failure": true,
     "validation_runs": {
       "public_draft": {
-        "generated_at": "2026-04-28T18:48:43+00:00",
+        "generated_at": "2026-04-28T19:52:38+00:00",
         "mode": "public_draft",
+        "validation_scope": "public_draft",
         "result": "pass",
         "expected_failure": false,
         "error_count": 0,
         "warning_count": 1,
         "counts": {
-          "yaml_or_cff_files_parsed": 85,
+          "yaml_or_cff_files_parsed": 86,
           "json_files_parsed": 12,
           "toml_files_parsed": 1,
           "json_schemas_meta_validated": 9,
           "schema_instance_pairs_validated": 12,
-          "inventory_file_entries": 120,
-          "actual_controlled_files_seen": 120,
+          "inventory_file_entries": 121,
+          "actual_controlled_files_seen": 121,
           "markdown_relative_links_checked": 36,
           "docs_protocol_pages_checked": 7,
           "docs_protocol_pages_with_controlled_source_links": 7,
@@ -35,20 +36,21 @@
         "notes": []
       },
       "release_candidate": {
-        "generated_at": "2026-04-28T18:48:37+00:00",
+        "generated_at": "2026-04-28T19:52:32+00:00",
         "mode": "release_candidate",
+        "validation_scope": "v1_l4_release_candidate",
         "result": "fail",
         "expected_failure": true,
         "error_count": 77,
         "warning_count": 1,
         "counts": {
-          "yaml_or_cff_files_parsed": 85,
+          "yaml_or_cff_files_parsed": 86,
           "json_files_parsed": 12,
           "toml_files_parsed": 1,
           "json_schemas_meta_validated": 9,
           "schema_instance_pairs_validated": 12,
-          "inventory_file_entries": 120,
-          "actual_controlled_files_seen": 120,
+          "inventory_file_entries": 121,
+          "actual_controlled_files_seen": 121,
           "markdown_relative_links_checked": 36,
           "docs_protocol_pages_checked": 7,
           "docs_protocol_pages_with_controlled_source_links": 7,
@@ -132,19 +134,21 @@
           "records/reviews/: missing retained full review record.",
           "records/reviews/: missing retained author-response record.",
           "records/decisions or records/releases: missing retained release approval record.",
-          "release record: release-candidate mode cannot pass while future_l5_or_v1_followup items remain unresolved."
+          "records/releases/record-release-0002-v1-0-0.yaml: missing v1.0.0 release record for L4 release-candidate validation."
         ],
         "warnings": [
           "Found 3144 deferred markers; acceptable for public draft, not for release-candidate mode."
         ],
-        "notes": []
+        "notes": [
+          "Release-candidate mode validates v1.0.0/L4 reusable-stable readiness; explicit L5 non-claims and post-v1 L5 work do not block this mode."
+        ]
       }
     },
     "inventory_status": {
       "package_status": "0.1.0_public_draft",
       "package_conformance": "l2_reviewable_qualified_public_draft",
       "v1_target_package_conformance": "l4_reusable_stable",
-      "controlled_file_inventory_entries": 120
+      "controlled_file_inventory_entries": 121
     }
   }
 }
