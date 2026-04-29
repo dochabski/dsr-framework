@@ -366,7 +366,7 @@ def validate_release_status_consistency(run: ValidationRun) -> None:
 def expected_package_conformance(inventory: dict[str, Any]) -> str:
     status = str(inventory.get("status", ""))
     package_conformance = str(inventory.get("package_conformance", ""))
-    if status.startswith("1.0.0") or package_conformance == "l4_reusable_stable":
+    if status.startswith("1.0.") or package_conformance == "l4_reusable_stable":
         return "l4_reusable_stable"
     return "l2_reviewable_qualified_public_draft"
 
@@ -490,9 +490,9 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
     }
     if expected_conformance == "l4_reusable_stable":
         expected_statuses = {
-            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_0",
+            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_1",
             ".zenodo.json": "present_v1_zenodo_metadata_prepared_l5_not_claimed",
-            "metadata.yaml": "present_v1_metadata_frozen_1_0_0",
+            "metadata.yaml": "present_v1_metadata_frozen_1_0_1",
         }
     else:
         expected_statuses = {
@@ -512,9 +512,9 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
     }
     if expected_conformance == "l4_reusable_stable":
         expected_manifest_statuses = {
-            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_0",
+            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_1",
             ".zenodo.json": "present_v1_zenodo_metadata_prepared_l5_not_claimed",
-            "metadata.yaml": "present_v1_metadata_frozen_1_0_0",
+            "metadata.yaml": "present_v1_metadata_frozen_1_0_1",
         }
     else:
         expected_manifest_statuses = {
@@ -564,7 +564,7 @@ def validate_release_candidate_gates(run: ValidationRun) -> None:
     if not run.release_candidate:
         return
     run.note(
-        "Release-candidate mode validates v1.0.0/L4 reusable-stable readiness; explicit L5 non-claims and post-v1 L5 work do not block this mode."
+        "Release-candidate mode validates v1.x/L4 reusable-stable readiness; explicit L5 non-claims and post-v1 L5 work do not block this mode."
     )
     if run.counts.get("inventory_file_entries") != run.counts.get("actual_controlled_files_seen"):
         run.error("package-inventory.yaml: inventory count must equal actual controlled file count in release-candidate mode.")
@@ -640,7 +640,7 @@ def write_summary(run: ValidationRun, inventory: dict[str, Any]) -> None:
             "public_draft_result": validation_runs.get("public_draft", {}).get("result"),
             "release_candidate_result": validation_runs.get("release_candidate", {}).get("result"),
             "release_candidate_expected_failure": validation_runs.get("release_candidate", {}).get("expected_failure"),
-            "release_candidate_scope": "v1.0.0_l4_reusable_stable_not_l5",
+            "release_candidate_scope": "v1.x_l4_reusable_stable_not_l5",
             "validation_runs": validation_runs,
             "inventory_status": {
                 "package_status": inventory.get("status"),
@@ -667,7 +667,7 @@ def main() -> int:
     parser.add_argument(
         "--release-candidate",
         action="store_true",
-        help="Alias for --mode release_candidate; validates v1.0.0/L4 release-candidate gates.",
+        help="Alias for --mode release_candidate; validates v1.x/L4 release-candidate gates.",
     )
     parser.add_argument(
         "--write-summary",

@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: CC0-1.0
+release_approval_record:
+  record_id: record_release_approval_0002_v1_0_1
+  record_class: release_approval
+  item_type: record
+  title: v1.0.1 Patch Release Approval
+  status: approved
+  version: "1.0.1"
+  approval_date: "2026-04-29"
+  responsible_party: framework_maintainer
+  target_release: v1.0.1
+  approved_release_tag: v1.0.1
+  approved_package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  approved_commit:
+    commit_sha: 9d0ca79de8373503feea1def8dadc3e8cc269c01
+    branch: main
+    approval_scope_note: >
+      This commit is the main-branch content commit that introduced the retained
+      core scope-boundary clarification. The v1.0.1 patch release metadata,
+      release record, and approval record are retained in the following patch
+      release commit.
+
+  approval_basis:
+    patch_release_record: records/releases/record-release-0003-v1-0-1.yaml
+    patch_metadata_freeze: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    scope_boundary_decision: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+    v1_0_0_release_approval: records/releases/record-release-approval-0001-v1-0-0.yaml
+
+  validation_commands:
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  approval_statement: >
+    The DSR Framework v1.0.1 patch release is approved as an L4 reusable-stable
+    GitHub release. The release is not approved as L5 archival/publication-ready.
+
+  post_release_actions:
+    - tag release commit as v1.0.1
+    - create GitHub release using records/releases/github-release-notes-v1-0-1.md
+    - verify release artifacts and source archives
+
+  outcome:
+    result: approved_for_github_patch_release
+    approved_claims:
+      - v1_0_1_stable
+      - l4_reusable_stable
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained release approval.

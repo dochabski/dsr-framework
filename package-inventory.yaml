@@ -7,12 +7,12 @@ package_inventory:
   title: DSR Framework Package Inventory
   purpose: Inventory all required, planned, and controlled files in the DSR Framework package and assign validation responsibilities
     for each file class and file entry.
-  status: 1.0.0_stable
-  version: 1.0.0
+  status: 1.0.1_stable
+  version: 1.0.1
   date: '2026-04-27'
   owner: framework_maintainer
   responsible_party: framework_maintainer
-  event_or_action: package_inventory_updated_for_v1_0_0_release
+  event_or_action: package_inventory_updated_for_v1_0_1_release
   package_conformance: l4_reusable_stable
   l5_claimed: false
   inventory_policy:
@@ -24,7 +24,7 @@ package_inventory:
       responsibility, or moved between draft/review/release states.
     source_of_truth_rule: Use package-inventory.yaml as the structured package inventory; human-facing documentation may render
       or summarize it but should not override it.
-    release_progression_rule: The controlled release progression reached 1.0.0_stable for L4 reusable-stable package conformance; L5 archival/publication-ready status remains post-v1 work until preservation closure, registry publication, independent external review, and L5 approval evidence is retained.
+    release_progression_rule: The controlled release progression reached 1.0.x_stable for L4 reusable-stable package conformance; L5 archival/publication-ready status remains post-v1 work until preservation closure, registry publication, independent external review, and L5 approval evidence is retained.
   source_basis:
   - source_id: user_current_request
     role: immediate_task_definition
@@ -373,18 +373,22 @@ package_inventory:
   - directory_id: dir_016
     path: records/releases
     purpose: Release records.
-    expected_file_count_from_selection_table: 5
+    expected_file_count_from_selection_table: 9
     listed_files:
     - records/releases/record-release-0001-v0-1-0.yaml
     - records/releases/record-metadata-freeze-0001-v1-0-0.yaml
     - records/releases/record-release-0002-v1-0-0.yaml
     - records/releases/record-release-approval-0001-v1-0-0.yaml
     - records/releases/github-release-notes-v1-0-0.md
+    - records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    - records/releases/record-release-0003-v1-0-1.yaml
+    - records/releases/record-release-approval-0002-v1-0-1.yaml
+    - records/releases/github-release-notes-v1-0-1.md
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 5
-      present_count: 5
+      listed_count: 9
+      present_count: 9
       missing_count: 0
   - directory_id: dir_017
     path: records/preservation
@@ -516,7 +520,7 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0003
     exists: true
-    current_status: present_v1_citation_metadata_frozen_1_0_0
+    current_status: present_v1_citation_metadata_frozen_1_0_1
     existence_audit_date: '2026-04-28'
   - path: CHANGELOG.md
     listed: true
@@ -564,7 +568,7 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0011
     exists: true
-    current_status: present_v1_metadata_frozen_1_0_0
+    current_status: present_v1_metadata_frozen_1_0_1
     existence_audit_date: '2026-04-28'
   - path: artifact-profile.yaml
     listed: true
@@ -5519,6 +5523,147 @@ package_inventory:
     - parses_as_yaml
     - records_v1_release_approval
     - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0147
+    file_id: file_records__releases__record_metadata_freeze_0002_v1_0_1_yaml
+    selection_id: record_metadata_freeze_0002_v1_0_1
+    path: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    package_section: records/releases
+    portion_type: metadata_freeze_record
+    output_format: yaml
+    purpose: Freeze v1.0.1 patch release metadata for scope-boundary clarification.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - CHANGELOG.md
+    - CITATION.cff
+    - .zenodo.json
+    - codemeta.json
+    - metadata.yaml
+    - manifest.yaml
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-29'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - release_manager
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - frozen_fields_recorded
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_metadata_freeze
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0148
+    file_id: file_records__releases__record_release_0003_v1_0_1_yaml
+    selection_id: record_release_0003_v1_0_1
+    path: records/releases/record-release-0003-v1-0-1.yaml
+    package_section: records/releases
+    portion_type: release_record
+    output_format: yaml
+    purpose: Retain v1.0.1 patch release record for the scope-boundary clarification release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    - records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    - records/releases/record-release-0002-v1-0-0.yaml
+    - records/releases/record-release-approval-0001-v1-0-0.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-29'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - release_manager
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - empty_patch_release_blockers
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_patch_release_scope
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0149
+    file_id: file_records__releases__record_release_approval_0002_v1_0_1_yaml
+    selection_id: record_release_approval_0002_v1_0_1
+    path: records/releases/record-release-approval-0002-v1-0-1.yaml
+    package_section: records/releases
+    portion_type: release_approval_record
+    output_format: yaml
+    purpose: Retain v1.0.1 patch release approval for the L4 reusable-stable GitHub release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0003-v1-0-1.yaml
+    - records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    - records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    - records/validation/validation-summary-latest.json
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-29'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - release_manager
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - release_approval_recorded
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_v1_patch_release_approval
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0150
+    file_id: file_records__releases__github_release_notes_v1_0_1_md
+    selection_id: github_release_notes_v1_0_1
+    path: records/releases/github-release-notes-v1-0-1.md
+    package_section: records/releases
+    portion_type: release_notes
+    output_format: markdown
+    purpose: Human-facing GitHub release notes for v1.0.1.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0003-v1-0-1.yaml
+    - CHANGELOG.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-29'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - release_manager
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - markdown_link_check
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - documents_v1_patch_release_notes
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -5783,12 +5928,17 @@ package_inventory:
     change: Added retained core scope-boundary decision and README scope layer clarification.
     responsible_party: framework_maintainer
     review_status: core_scope_boundary_clarified_without_expanding_v1_obligations
+  - version: 1.0.1
+    date: '2026-04-29'
+    change: Froze v1.0.1 patch release metadata and added patch release, approval, and GitHub release notes records.
+    responsible_party: framework_maintainer
+    review_status: v1_0_1_patch_release_records_created
   normalization_status:
-    status: 1.0.0_stable_metadata_frozen
+    status: 1.0.1_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 146
+    controlled_file_inventory_entries: 150
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -5820,12 +5970,17 @@ package_inventory:
     latest_metadata_freeze_record: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
     latest_v1_release_record: records/releases/record-release-0002-v1-0-0.yaml
     latest_v1_release_approval: records/releases/record-release-approval-0001-v1-0-0.yaml
+    latest_patch_metadata_freeze_record: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    latest_patch_release_record: records/releases/record-release-0003-v1-0-1.yaml
+    latest_patch_release_approval: records/releases/record-release-approval-0002-v1-0-1.yaml
+    latest_patch_release_notes: records/releases/github-release-notes-v1-0-1.md
     v1_release_record_status: approved_for_github_release
     v1_release_approval_status: approved_for_github_release
+    patch_release_status: approved_for_github_release_v1_0_1
     source_traceability_validation_counts: *id001
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424
     zenodo_record_url: https://zenodo.org/records/19835424
     package_conformance: l4_reusable_stable
-    l5_status: not_claimed_for_v1_0_0_post_v1_l5_work
+    l5_status: not_claimed_for_v1_x_post_v1_l5_work
   auxiliary_file_inventory: []

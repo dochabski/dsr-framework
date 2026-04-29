@@ -9,8 +9,8 @@ manifest:
     target, validation obligations, and traceability expectations for the Design Science Research Framework repository.
 
     '
-  status: 1.0.0_stable
-  version: 1.0.0
+  status: 1.0.1_stable
+  version: 1.0.1
   package:
     package_id: dsr_framework
     package_name: DSR Framework
@@ -28,8 +28,8 @@ manifest:
       '
     canonical_repository_role: source_of_truth_package
     repository_url: https://github.com/dochabski/dsr-framework
-    publication_status: 1.0.0_stable
-    intended_release: v1.0.0
+    publication_status: 1.0.1_stable
+    intended_release: v1.0.1
     license:
       spdx_id: CC0-1.0
       license_file: LICENSE
@@ -43,7 +43,7 @@ manifest:
     - .zenodo.json
     - codemeta.json
     normalization_status:
-      status: 1.0.0_stable_metadata_frozen
+      status: 1.0.1_stable_metadata_frozen
       normalized_at: '2026-04-27'
       structure_status: canonical_directories_populated_from_product_catalog
       required_root_file_status: all_required_root_files_present_as_draft_or_controlled_files
@@ -86,8 +86,13 @@ manifest:
       latest_metadata_freeze_record: records/releases/record-metadata-freeze-0001-v1-0-0.yaml
       latest_v1_release_record: records/releases/record-release-0002-v1-0-0.yaml
       latest_v1_release_approval: records/releases/record-release-approval-0001-v1-0-0.yaml
+      latest_patch_metadata_freeze_record: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+      latest_patch_release_record: records/releases/record-release-0003-v1-0-1.yaml
+      latest_patch_release_approval: records/releases/record-release-approval-0002-v1-0-1.yaml
+      latest_patch_release_notes: records/releases/github-release-notes-v1-0-1.md
       v1_release_record_status: approved_for_github_release
       v1_release_approval_status: approved_for_github_release
+      patch_release_status: approved_for_github_release_v1_0_1
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -111,7 +116,7 @@ manifest:
     selected_default_conformance: l1_documented
     file_conformance: l1_documented
     package_conformance: l4_reusable_stable
-    l5_status: not_claimed_for_v1_0_0_post_v1_l5_work
+    l5_status: not_claimed_for_v1_x_post_v1_l5_work
     conformance_declaration_file: conformance-declaration.yaml
     tailoring_status: preliminary_root_manifest
     conformance_rationale: 'The selected table row identifies root_manifest as an L1 root specification. The broader generation
@@ -184,7 +189,7 @@ manifest:
       role: citation_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_citation_metadata_frozen_1_0_0
+      validation_status: present_v1_citation_metadata_frozen_1_0_1
       existence_audit_date: '2026-04-27'
     - path: CHANGELOG.md
       role: release_change_log
@@ -232,7 +237,7 @@ manifest:
       role: structured_project_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_metadata_frozen_1_0_0
+      validation_status: present_v1_metadata_frozen_1_0_1
       existence_audit_date: '2026-04-27'
     - path: artifact-profile.yaml
       role: artifact_identity_scope_claims_and_reuse_constraints
@@ -692,6 +697,21 @@ manifest:
     to: README.md
     relation: records_and_explains_scope_boundary_clarification
     evidence_status: retained_design_decision_record
+  - trace_id: tr_scope_boundary_to_patch_metadata_freeze
+    from: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    to: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    relation: supports_v1_0_1_patch_metadata_freeze
+    evidence_status: retained_metadata_freeze_record
+  - trace_id: tr_patch_metadata_freeze_to_v1_0_1_release_record
+    from: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    to: records/releases/record-release-0003-v1-0-1.yaml
+    relation: supports_v1_0_1_patch_release_record
+    evidence_status: retained_release_record
+  - trace_id: tr_v1_0_1_release_record_to_release_approval
+    from: records/releases/record-release-0003-v1-0-1.yaml
+    to: records/releases/record-release-approval-0002-v1-0-1.yaml
+    relation: supports_v1_0_1_patch_release_approval
+    evidence_status: retained_release_approval_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -731,6 +751,10 @@ manifest:
     - records/releases/record-release-0002-v1-0-0.yaml
     - records/releases/record-release-approval-0001-v1-0-0.yaml
     - records/releases/github-release-notes-v1-0-0.md
+    - records/releases/record-metadata-freeze-0002-v1-0-1.yaml
+    - records/releases/record-release-0003-v1-0-1.yaml
+    - records/releases/record-release-approval-0002-v1-0-1.yaml
+    - records/releases/github-release-notes-v1-0-1.md
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
@@ -930,3 +954,9 @@ manifest:
     description: Added retained core scope-boundary decision and README scope layer clarification without expanding v1 obligations.
     responsible_party: framework_maintainer
     related_request: scope_review_core_scope_boundary_update
+  - version: 1.0.1
+    date: '2026-04-29'
+    change_type: patch_release_metadata_and_records
+    description: Updated release-facing metadata for v1.0.1 and added patch release freeze, release, approval, and notes records.
+    responsible_party: framework_maintainer
+    related_request: v1_0_1_scope_boundary_patch_release

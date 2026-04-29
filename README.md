@@ -3,8 +3,8 @@ SPDX-License-Identifier: CC0-1.0
 item_id: root_readme
 item_type: description
 selection_id: root_readme
-status: 1.0.0_stable
-version: 1.0.0
+status: 1.0.1_stable
+version: 1.0.1
 file_conformance: l1_documented
 package_conformance: l4_reusable_stable
 l5_claimed: false
@@ -20,20 +20,20 @@ This repository treats DSR as a research tradition centered on purposeful artifa
 
 | Field | Value |
 |---|---|
-| Package status | `1.0.0_stable` -- reusable stable package, not L5 archival/publication-ready. |
-| Current package version | `1.0.0` |
+| Package status | `1.0.1_stable` -- reusable stable package, not L5 archival/publication-ready. |
+| Current package version | `1.0.1` |
 | Default root README conformance | `L1 documented` |
 | Current organization state | Canonical directory structure populated from the product catalog |
 | Current validation state | `L4 reusable stable` release evidence: YAML/JSON/CFF parsing passes; schema/template, schema/record, and canonical-example validation pairs pass; claim-level traceability, retained review records, metadata freeze, and release record are present |
-| Intended package trajectory | `1.0.0_stable`; `L5 archival/publication-ready` is reserved for a later release with independent external review, preservation closure, registry publication, and L5 release approval |
+| Intended package trajectory | `1.0.x_stable`; `L5 archival/publication-ready` is reserved for a later release with independent external review, preservation closure, registry publication, and L5 release approval |
 | Primary audience | DSR researchers, doctoral supervisors, methods instructors, reviewers, editors, and artifact-package maintainers |
 | Primary use | Establish a public entry point for a reusable DSR documentation and review framework |
 
 ## Release progression
 
-This repository uses a controlled status progression: `0.1.0_public_draft`, `1.0.0-rc.N`, and `1.0.0_stable`. The current release is prepared as the stable v1.0.0 framework with L4 reusable-stable package conformance.
+This repository uses a controlled status progression: `0.1.0_public_draft`, `1.0.0-rc.N`, and `1.0.x_stable`. The current release is prepared as the stable v1.0.1 framework with L4 reusable-stable package conformance.
 
-L5 archival/publication-ready status is not claimed for v1.0.0. L5 requires a separate release decision with completed preservation closure, registry publication, independent external review, archival fixity evidence, and L5 release approval.
+L5 archival/publication-ready status is not claimed for v1.0.1. L5 requires a separate release decision with completed preservation closure, registry publication, independent external review, archival fixity evidence, and L5 release approval.
 
 ## What this framework provides
 
