@@ -275,15 +275,16 @@ package_inventory:
   - directory_id: dir_009
     path: records/design-decisions
     purpose: Retained artifact and protocol design decisions.
-    expected_file_count_from_selection_table: 2
+    expected_file_count_from_selection_table: 3
     listed_files:
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    - records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
     directory_status: exists_files_verified
-    existence_audit_date: '2026-04-28'
+    existence_audit_date: '2026-04-29'
     listed_file_existence:
-      listed_count: 2
-      present_count: 2
+      listed_count: 3
+      present_count: 3
       missing_count: 0
   - directory_id: dir_010
     path: records/tailoring
@@ -4769,6 +4770,42 @@ package_inventory:
     - parses_as_yaml
     - defines_v1_l4_release_scope
     - permits_post_v1_l5_non_claim_language
+  - inventory_entry_id: inv_0146
+    file_id: file_records__design_decisions__record_design_decision_0003_core_scope_boundary_yaml
+    selection_id: record_design_decision_0003_core_scope_boundary
+    path: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    package_section: records/design-decisions
+    portion_type: design_decision_record
+    output_format: yaml
+    purpose: Retain the repository scope boundary as GitHub-native DSR operationalization rather than exhaustive DSR theory.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    - conformance-declaration.yaml
+    - artifact-profile.yaml
+    - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-04-29'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - valid_yaml
+      - scope_boundary_recorded
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - parses_as_yaml
+    - records_core_support_extension_scope_boundary
+    - keeps_v1_l4_status_without_l5_claim
   - inventory_entry_id: inv_0122
     file_id: file_records__reviews__record_review_open_marker_disposition_0001_v1_0_0_yaml
     selection_id: record_review_open_marker_disposition_0001_v1_0_0
@@ -5741,12 +5778,17 @@ package_inventory:
     change: Added retained v1.0.0 release approval record.
     responsible_party: framework_maintainer
     review_status: v1_release_approval_recorded
+  - version: 1.0.0
+    date: '2026-04-29'
+    change: Added retained core scope-boundary decision and README scope layer clarification.
+    responsible_party: framework_maintainer
+    review_status: core_scope_boundary_clarified_without_expanding_v1_obligations
   normalization_status:
     status: 1.0.0_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 145
+    controlled_file_inventory_entries: 146
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -5756,6 +5798,8 @@ package_inventory:
     latest_literature_alignment_review: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
     literature_alignment_status: post_crosswalk_review_pass_with_required_followup
     source_traceability_status: passed_all_71_sources_multi_file_grounded
+    latest_scope_boundary_decision: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    scope_boundary_status: core_framework_support_extension_layers_declared
     latest_source_to_framework_crosswalk: crosswalks/source-to-framework-alignment.yaml
     latest_claim_traceability_crosswalk: crosswalks/claim-to-source-traceability.yaml
     latest_claim_traceability_review: records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml

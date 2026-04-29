@@ -1,0 +1,122 @@
+# SPDX-License-Identifier: CC0-1.0
+design_decision_record:
+  record_id: record_design_decision_0003_core_scope_boundary
+  record_class: design_decision
+  item_type: record
+  title: Core Scope Boundary for GitHub-Native DSR Operationalization
+  status: approved
+  version: "1.0.0"
+  decision_date: "2026-04-29"
+  responsible_party: framework_maintainer
+  owner: framework_maintainer
+  event_or_action: define_core_scope_boundary_for_github_native_dsr_operationalization
+
+  decision:
+    core_claim: >
+      The DSR Framework repository operationalizes the canonical Design Science Research
+      paradigm as a reusable GitHub-native artifact package.
+    non_claims:
+      - The repository does not claim to be an exhaustive theory of Design Science Research.
+      - The repository does not replace the scholarly DSR literature.
+      - The repository does not claim status as an externally ratified universal disciplinary standard.
+      - The repository does not certify that downstream artifacts are empirically validated merely because they use the framework.
+      - The repository does not claim L5 archival/publication-ready conformance for v1.0.0.
+    scope_layers:
+      core_framework:
+        role: required_for_v1_core_claim
+        description: >
+          Materials needed to codify and operationalize DSR as a reviewable GitHub artifact package.
+        includes:
+          - DSR lifecycle, artifact ontology, contribution, evaluation, transparency, reliability, replication, projectability, and publication-readiness models
+          - controlled vocabularies
+          - templates
+          - schemas
+          - checklists
+          - records
+          - source and claim crosswalks
+          - canonical example package
+          - metadata, package inventory, conformance declaration, and release controls
+      support_layer:
+        role: useful_but_not_required_for_core_claim
+        description: >
+          Materials that help users understand, teach, or apply the framework.
+        includes:
+          - companion guide
+          - explanatory documentation
+          - role-based pathways
+          - teaching materials
+          - additional worked examples
+      extension_layer:
+        role: deferred_or_optional_growth
+        description: >
+          Materials that may extend the framework without becoming v1 core obligations.
+        includes:
+          - discipline-specific adaptations
+          - advanced responsible-design modules
+          - expanded pedagogy or workbook materials
+          - automation beyond validation basics
+          - future L5 archival/publication workflow extensions
+    retained_scope_rule: >
+      Core v1 obligations should be limited to the materials needed to make DSR artifacts
+      explicit, structured, reviewable, reusable, citable, and release-governed in GitHub.
+      Support and extension materials should not be interpreted as required for the core
+      framework claim unless a later retained decision explicitly promotes them.
+
+  rationale:
+    - The repository already has a protocol-governed package architecture with controlled files, records, metadata, validation, examples, and release controls.
+    - This architecture is a natural consequence of making DSR operational in GitHub rather than a file-hosting convention.
+    - Without an explicit scope boundary, readers may misinterpret the framework as an attempt to exhaustively formalize all of DSR.
+    - The scope boundary helps distinguish necessary core operationalization from companion, teaching, and extension materials.
+    - The boundary also protects v1.0.0 L4 reusable-stable claims from being confused with later L5 archival/publication-ready claims.
+
+  implementation_requirements:
+    - Add a concise scope-boundary section to README.md.
+    - Add a core/support/extension layer table to README.md.
+    - Keep controlled source-of-truth authority in YAML and JSON-compatible files.
+    - Keep Markdown as human-facing explanation and navigation.
+    - Inventory this decision record in package-inventory.yaml.
+    - Point manifest.yaml to this decision as the latest general design-decision record.
+    - Do not promote companion guides, teaching materials, or advanced modules into v1 core obligations by implication.
+
+  acceptance_criteria:
+    - README.md explicitly states that the repository operationalizes canonical DSR as a GitHub-native artifact package.
+    - README.md explicitly states that the repository is not an exhaustive theory of DSR, a replacement for DSR literature, or a downstream validation guarantee.
+    - README.md distinguishes core framework, support layer, and extension layer.
+    - This record exists under records/design-decisions/ and is listed in package-inventory.yaml.
+    - manifest.yaml references this record without changing the v1.0.0 L4-not-L5 release posture.
+    - Package validation passes in public-draft mode.
+    - Release-candidate validation is not made worse by this change.
+
+  outcome:
+    result: accepted
+    conformance_impact: clarifies_scope_without_expanding_v1_obligations
+    package_status_impact: no_change_to_1_0_0_stable_l4_reusable_stable_status
+    l5_impact: no_l5_claim_added
+    affected_files:
+      - README.md
+      - manifest.yaml
+      - package-inventory.yaml
+      - records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+
+  related_items:
+    upstream:
+      - README.md
+      - manifest.yaml
+      - package-inventory.yaml
+      - conformance-declaration.yaml
+      - artifact-profile.yaml
+      - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    peer:
+      - specs/product-dsr-framework-foundation.yaml
+      - specs/product-dsr-artifact-package-specification.yaml
+      - specs/product-dsr-repository-architecture.yaml
+      - crosswalks/source-to-framework-alignment.yaml
+      - crosswalks/claim-to-source-traceability.yaml
+    downstream:
+      - docs/protocol/00-framework-overview.md
+      - examples/canonical-minimal-dsr-package/README.md
+      - future_companion_or_teaching_materials
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: May be superseded only by a later retained design-decision record that explicitly changes the core/support/extension scope boundary.

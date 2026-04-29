@@ -47,6 +47,28 @@ The framework is organized as a compound DSR artifact package. Its intended prod
 6. **Records** that retain evidence of source basis, decisions, contribution positioning, transparency, evaluation, review, release, and preservation events.
 7. **Human-facing documentation** that explains the controlled YAML, JSON Schema, and record files in a form usable by researchers and reviewers.
 
+## Scope boundary
+
+The purpose of this repository is to operationalize the canonical Design Science Research (DSR) paradigm as a GitHub-native artifact package.
+
+The repository is not intended to be an exhaustive theory of DSR, a replacement for DSR literature, a universal disciplinary standard, or a guarantee that any downstream artifact has been empirically validated. Its narrower purpose is to make DSR work more explicit, structured, reviewable, reusable, citable, and release-ready.
+
+The framework therefore treats GitHub not merely as a file host or software platform, but as a research artifact stewardship environment. Repository structure, version control, metadata, schemas, templates, checklists, records, crosswalks, examples, and releases are used to make DSR artifacts inspectable across their problem framing, solution grounding, design/build process, demonstration, evaluation, contribution claims, limitations, and reuse conditions.
+
+The core framework includes the materials needed to support this operationalization: DSR models, controlled vocabularies, templates, schemas, checklists, records, crosswalks, examples, documentation, metadata, and release controls.
+
+Companion guides, teaching materials, extended workbooks, discipline-specific adaptations, and advanced modules are supporting or extension materials. They may help users understand or apply the framework, but they are not themselves required for the core framework claim.
+
+## Core, support, and extension layers
+
+| Layer | Role | Examples |
+|---|---|---|
+| Core framework | Required to operationalize DSR as a reviewable GitHub artifact package | Models, vocabularies, schemas, templates, checklists, records, crosswalks, package metadata, release controls |
+| Support layer | Helps users understand, teach, or apply the framework | Companion guide, worked examples, role-based pathways, explanatory documentation |
+| Extension layer | Useful for future growth but not required for the v1 core claim | Discipline-specific adaptations, advanced responsible-design modules, expanded pedagogy, automation beyond validation basics |
+
+This distinction prevents the repository from being interpreted as an attempt to exhaustively formalize all of DSR. The v1 package claim is narrower: the repository operationalizes DSR documentation, evaluation, review, reuse, and citation in a structured GitHub-native form.
+
 ## Repository map
 
 The organized framework package uses the following top-level structure.
