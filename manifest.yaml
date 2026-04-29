@@ -58,8 +58,10 @@ manifest:
       latest_literature_alignment_review: records/reviews/record-literature-alignment-0002-post-crosswalk-review.yaml
       prior_literature_alignment_review: records/reviews/record-literature-alignment-0001.yaml
       literature_alignment_status: post_crosswalk_review_pass_with_required_followup
-      latest_design_decision_record: records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
+      latest_design_decision_record: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
       latest_release_scope_decision: records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+      latest_scope_boundary_decision: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+      scope_boundary_status: core_framework_support_extension_layers_declared
       latest_open_marker_disposition_review: records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
       latest_tailoring_record: records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
       public_draft_tailoring_status: accepted_for_0_1_0_public_draft_l2_scope
@@ -685,6 +687,11 @@ manifest:
     to: records/releases/record-release-approval-0001-v1-0-0.yaml
     relation: supports_v1_release_approval
     evidence_status: retained_release_approval_record
+  - trace_id: tr_scope_boundary_decision_to_readme_scope_boundary
+    from: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    to: README.md
+    relation: records_and_explains_scope_boundary_clarification
+    evidence_status: retained_design_decision_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -727,6 +734,7 @@ manifest:
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
+    - records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
     - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
   acceptance_criteria:
   - criterion_id: ac_manifest_identity
@@ -916,3 +924,9 @@ manifest:
     description: Added retained v1.0.0 release approval record for the L4 reusable-stable GitHub release.
     responsible_party: framework_maintainer
     related_request: command_queue_v1_release_approval
+  - version: 1.0.0
+    date: '2026-04-29'
+    change_type: core_scope_boundary_clarification
+    description: Added retained core scope-boundary decision and README scope layer clarification without expanding v1 obligations.
+    responsible_party: framework_maintainer
+    related_request: scope_review_core_scope_boundary_update
