@@ -6,6 +6,23 @@
 
 - No unreleased changes.
 
+## [1.0.1] - 2026-04-29
+
+### Added
+
+- Added retained scope-boundary decision record clarifying the core framework, support layer, and extension layer.
+
+### Changed
+
+- Clarified that the repository operationalizes canonical DSR as a GitHub-native artifact package, not as an exhaustive DSR theory, replacement for DSR literature, universal disciplinary standard, or downstream validation guarantee.
+- Updated release-facing metadata for the v1.0.1 patch release while preserving `l4_reusable_stable` conformance and `l5_claimed: false`.
+
+### Validation
+
+- Public validation passes with controlled inventory alignment.
+- Release-candidate validation passes for the v1 L4 reusable-stable gate.
+- v1.0.1 does not claim external empirical reuse validation or L5 archival/publication-ready status.
+
 ## [1.0.0] - 2026-04-28
 
 ### Added

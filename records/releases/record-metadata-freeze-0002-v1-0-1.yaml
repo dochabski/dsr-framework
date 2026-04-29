@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: CC0-1.0
+metadata_freeze_record:
+  record_id: record_metadata_freeze_0002_v1_0_1
+  record_class: metadata_freeze
+  item_type: record
+  title: v1.0.1 Metadata Freeze Record
+  status: approved
+  version: "1.0.1"
+  freeze_date: "2026-04-29"
+  responsible_party: framework_maintainer
+  target_release: v1.0.1
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  patch_scope:
+    release_type: patch
+    prior_release: v1.0.0
+    patch_purpose: >
+      Package the retained core scope-boundary clarification as a citable
+      v1.0.1 GitHub release.
+    functional_or_schema_change: false
+    conformance_change: none
+
+  frozen_fields:
+    release_version: "1.0.1"
+    release_status: "1.0.1_stable"
+    package_conformance: l4_reusable_stable
+    repository: https://github.com/dochabski/dsr-framework
+    license: CC0-1.0
+    archival_publication_ready: false
+
+  frozen_files:
+    - README.md
+    - CHANGELOG.md
+    - CITATION.cff
+    - .zenodo.json
+    - codemeta.json
+    - metadata.yaml
+    - manifest.yaml
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    - package-inventory.yaml
+    - records/releases/record-release-0003-v1-0-1.yaml
+
+  evidence_records:
+    - records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    - records/releases/record-release-0002-v1-0-0.yaml
+    - records/releases/record-release-approval-0001-v1-0-0.yaml
+    - records/validation/validation-summary-latest.json
+
+  outcome:
+    result: metadata_frozen_for_v1_0_1_patch_release
+    supports: release_approval
+    does_not_support: l5_archival_publication_ready
