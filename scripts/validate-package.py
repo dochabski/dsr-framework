@@ -530,10 +530,11 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
         if isinstance(entry, dict)
     }
     if expected_conformance == "l4_reusable_stable":
+        version_token = str(inventory.get("version", "1.0.0")).replace(".", "_")
         expected_statuses = {
-            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_1",
+            "CITATION.cff": f"present_v1_citation_metadata_frozen_{version_token}",
             ".zenodo.json": "present_v1_zenodo_metadata_prepared_l5_not_claimed",
-            "metadata.yaml": "present_v1_metadata_frozen_1_0_1",
+            "metadata.yaml": f"present_v1_metadata_frozen_{version_token}",
         }
     else:
         expected_statuses = {
@@ -552,10 +553,11 @@ def validate_public_draft_metadata_status(run: ValidationRun) -> None:
         if isinstance(entry, dict)
     }
     if expected_conformance == "l4_reusable_stable":
+        manifest_version_token = str(manifest.get("version", "1.0.0")).replace(".", "_")
         expected_manifest_statuses = {
-            "CITATION.cff": "present_v1_citation_metadata_frozen_1_0_1",
+            "CITATION.cff": f"present_v1_citation_metadata_frozen_{manifest_version_token}",
             ".zenodo.json": "present_v1_zenodo_metadata_prepared_l5_not_claimed",
-            "metadata.yaml": "present_v1_metadata_frozen_1_0_1",
+            "metadata.yaml": f"present_v1_metadata_frozen_{manifest_version_token}",
         }
     else:
         expected_manifest_statuses = {

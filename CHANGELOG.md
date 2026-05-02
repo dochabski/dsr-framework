@@ -6,6 +6,20 @@
 
 - No unreleased changes.
 
+## [1.0.2] - 2026-05-02
+
+### Changed
+
+- Reconciled release-facing conformance language across README, artifact profile, conformance declaration, manifest, and package inventory with the current v1 L4 reusable-stable claim.
+- Hardened validation so stale pre-v1/public-draft contradiction phrases fail when the package is in L4 reusable-stable state.
+- Updated release metadata for the v1.0.2 patch release while preserving `l4_reusable_stable` conformance and `l5_claimed: false`.
+
+### Validation
+
+- Public validation passes with controlled inventory alignment.
+- Release-candidate validation passes for the v1 L4 reusable-stable gate.
+- v1.0.2 does not claim external empirical reuse validation or L5 archival/publication-ready status.
+
 ## [1.0.1] - 2026-04-29
 
 ### Added

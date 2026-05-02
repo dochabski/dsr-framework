@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_0004_v1_0_2
+  record_class: release_record
+  item_type: record
+  title: DSR Framework v1.0.2 Patch Release Record
+  status: approved
+  version: "1.0.2"
+  release_date: "2026-05-02"
+  responsible_party: framework_maintainer
+  release_tag: v1.0.2
+  release_status: "1.0.2_stable"
+  package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  release_scope:
+    included:
+      - v1_0_1_stable_package
+      - conformance_consistency_cleanup
+      - validation_guard_for_stale_pre_v1_conformance_language
+      - metadata_patch_release_updates
+      - validation_summary
+    excluded:
+      - l5_archival_publication_ready_claim
+      - external_empirical_reuse_validation
+      - new schema requirements
+      - new canonical example content
+      - new dsr_theory_operational_kernel_artifact
+      - Zenodo publication action
+
+  patch_release_blockers: []
+
+  retained_evidence:
+    conformance_declaration: conformance-declaration.yaml
+    artifact_profile: artifact-profile.yaml
+    manifest: manifest.yaml
+    package_inventory: package-inventory.yaml
+    validator: scripts/validate-package.py
+    metadata_freeze: records/releases/record-metadata-freeze-0003-v1-0-2.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+
+  validation:
+    required_commands:
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass
+
+  release_notes_summary:
+    - v1.0.2 packages conformance-consistency cleanup after the v1.0.1 scope-boundary patch.
+    - Release-facing files consistently state the current L4 reusable-stable claim.
+    - Validation now blocks stale pre-v1/public-draft contradiction phrases in L4 state.
+    - The release does not claim L5 archival/publication-ready status.
+
+  known_limitations:
+    - L5 archival/publication-ready status is not claimed for v1.0.2.
+    - External empirical reuse validation is not claimed.
+    - Zenodo publication is not performed by this patch release task.
+    - A DSR theory operationalization artifact package remains future work.
+
+  outcome:
+    result: ready_for_github_patch_release
+    conformance_claim_supported: l4_reusable_stable
+    conformance_claim_not_supported: l5_archival_publication_ready
