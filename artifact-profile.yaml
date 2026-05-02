@@ -313,9 +313,9 @@ artifact_profile:
       statement: 'This profile does not claim disciplinary adoption or consensus beyond the cited DSR source basis.
 
         '
-    - id: no_complete_validation_claim
-      statement: 'This profile does not claim L3, L4, or L5 conformance until schemas, examples, validation routines, evaluations,
-        reviews, and release records are complete.
+    - id: no_l5_or_empirical_validation_claim
+      statement: 'This profile does not claim L5 archival/publication-ready conformance, empirical improvement of DSR outcomes,
+        universal adoption, independent external review, or automatic validation of downstream artifacts.
 
         '
   knowledge_profile:
@@ -409,29 +409,26 @@ artifact_profile:
     current_package_conformance_level:
       id: l4_reusable_stable
       label: L4 reusable stable
-      rationale: 'The v1.0.0 package has root controls, inventory, claim-level traceability, validation evidence, a canonical
-        worked example, retained review records, metadata freeze, and a v1 release record sufficient for L4 reusable-stable
-        release preparation. This profile does not assert L5 archival/publication-ready conformance.
+      rationale: 'The v1.0.1 package has root controls, inventory, claim-level traceability, validation evidence, a canonical
+        worked example, retained review records, metadata freeze, release records, and release approval sufficient for L4
+        reusable-stable conformance. This profile does not assert L5 archival/publication-ready conformance.
 
         '
+    current_l4_evidence:
+    - schemas_generated_and_validated
+    - templates_generated_and_stabilized
+    - canonical_example_package_generated
+    - validation_procedure_documented_and_passing
+    - claim_level_traceability_retained
+    - retained_v1_review_packet_present
+    - metadata_freeze_and_release_approval_retained
     target_future_package_conformance:
-    - id: l3_exercisable
-      required_before_claiming:
-      - schemas_generated
-      - templates_generated
-      - example_package_generated
-      - automated_or_manual_validation_procedure_documented
-    - id: l4_reusable
-      required_before_claiming:
-      - external_or_independent_review_recorded
-      - reuse_guidance_complete
-      - versioned_release_candidate_prepared
     - id: l5_archival_publication_ready
       required_before_claiming:
-      - citation_metadata_complete
-      - release_record_complete
-      - preservation_record_complete
-      - publication_readiness_review_complete
+      - archival_fixity_and_preservation_closure_complete
+      - registry_publication_closure_complete
+      - independent_external_review_complete
+      - l5_release_approval_complete
     acceptance_criteria:
     - criterion_id: ac_identity_complete
       statement: Artifact identity, package class, artifact type, intended users, and boundary statements are present.
@@ -700,7 +697,7 @@ artifact_profile:
   validation_profile:
     schema_validation:
       schema_expected: schemas/artifact-profile.schema.json
-      schema_status: schema_available_public_draft_validation
+      schema_status: schema_available_v1_l4_validation
       interim_validation: yaml_parse_schema_validation_and_manual_quality_gate_review
     manual_review_checks:
     - review_id: rv_identity_and_scope
@@ -732,28 +729,29 @@ artifact_profile:
     - YAML parses without syntax errors.
     - Required top-level key artifact_profile is present.
     - Stable identifiers use lower_snake_case where controlled.
-    - No field claims L3, L4, or L5 as current conformance.
+    - Current L4 conformance claims align with retained release, review, validation, traceability, and example evidence.
+    - No field claims L5 archival/publication-ready conformance or empirical framework-effectiveness validation.
     - project_specific_placeholder markers are limited to project facts not inferable from current sources.
   limitations:
   - limitation_id: lim_dependency_files_pending
-    statement: 'Several related models, schemas, templates, checklists, and records are referenced before they are generated.
+    statement: 'Some related models, schemas, templates, checklists, and records may continue to evolve after the stable v1 release.
 
       '
-    impact: pass_with_dependencies
-    mitigation: Generate package-inventory.yaml, conformance-declaration.yaml, and core lifecycle/contribution files next.
+    impact: accepted_v1_limitation
+    mitigation: Maintain package-inventory.yaml, conformance-declaration.yaml, and lifecycle/contribution files as retained controlled evidence.
   - limitation_id: lim_documentation_protocol_not_live_checked
     statement: 'The external Documentation Protocol repository was not live-checked during this generation.
 
       '
     impact: moderate
-    mitigation: Check the repository before claiming L2+ conformance if current protocol requirements may have changed.
+    mitigation: Check the repository before claiming cross-repository conformance or creating the planned self-application validation record.
   - limitation_id: lim_corpus_mapping_source_level
     statement: 'This profile maps DSR corpus evidence at source-id level, not at detailed citation-anchor level for every
       field.
 
       '
     impact: moderate
-    mitigation: Generate source-basis and crosswalk records with citation-anchor mappings.
+    mitigation: Maintain source-level and claim-level crosswalk records; expand field-level anchors only when needed for later reviews.
   - limitation_id: lim_no_empirical_framework_evaluation_yet
     statement: 'This profile documents the framework artifact but does not report empirical evaluation of the framework''s
       utility.
@@ -761,33 +759,33 @@ artifact_profile:
       '
     impact: high_for_utility_claims
     mitigation: Generate and execute an evaluation plan before stronger utility claims are made.
-  resolved_for_v0_1_0_public_draft:
+  resolved_release_metadata:
   - maintainer_name
   - repository_url
   - license_policy
   - citation_file_exists
   - zenodo_doi_recorded
-  still_open_for_v1_or_l5:
+  still_open_for_post_v1_l5_or_minor_release:
   - orcid
   - institutional_affiliation
-  - metadata_freeze
-  - preservation_record
-  - independent_review
-  - pilot_or_example_evaluation_strategy
+  - l5_preservation_closure
+  - registry_publication_closure
+  - independent_external_review
+  - empirical_framework_utility_evaluation
   assumptions:
   - assumption_id: asm_file_and_package_conformance_scope
-    statement: File-level L1 conformance and package-level qualified L2 public-draft conformance are separate claims.
+    statement: File-level L1 conformance and package-level L4 reusable-stable conformance are separate claims.
   - assumption_id: asm_evidence_policy
     statement: Internal corpus evidence should be used without inventing additional bibliographic claims.
   open_questions:
   - question_id: oq_v1_orcid_affiliation
-    question: What ORCID and institutional affiliation metadata should be included before v1 metadata freeze?
+    question: What ORCID and institutional affiliation metadata should be included before a future major release or L5 release?
     resolution_needed_for:
     - metadata.yaml
     - CITATION.cff
     - .zenodo.json
-  - question_id: oq_v1_metadata_freeze
-    question: What exact metadata-freeze record should lock v1.0.0 release metadata?
+  - question_id: oq_future_metadata_freeze
+    question: What future metadata-freeze record should lock any later major-release or L5 metadata changes?
     resolution_needed_for:
     - metadata.yaml
     - CITATION.cff
@@ -797,8 +795,8 @@ artifact_profile:
     resolution_needed_for:
     - records/preservation/
     - records/releases/
-  - question_id: oq_v1_conformance_progression
-    question: Which records, examples, validation checks, and reviews are required before claiming L4 reusable stable for version 1.0.0?
+  - question_id: oq_l5_conformance_progression
+    question: Which additional preservation, registry, independent-review, validation, and approval records are required before any L5 archival/publication-ready claim?
     resolution_needed_for:
     - package-inventory.yaml
     - conformance-declaration.yaml
@@ -806,7 +804,7 @@ artifact_profile:
   - question_id: oq_external_protocol_alignment
     question: Should the Documentation Protocol repository be checked live before locking this artifact profile?
     resolution_needed_for:
-    - l2_reviewable_release_candidate
+    - post_v1_external_alignment_review
   - question_id: oq_evaluation_strategy
     question: What pilot project or exemplar package will be used to evaluate the framework's utility and usability?
     resolution_needed_for:
@@ -846,3 +844,9 @@ artifact_profile:
     changed_by: framework_maintainer
     description: Updated current artifact profile version and release URL for v1.0.1 scope-boundary clarification patch release.
     related_request: v1_0_1_scope_boundary_patch_release
+  - version: 1.0.1
+    date: '2026-05-02'
+    change_type: conformance_consistency_cleanup
+    changed_by: framework_maintainer
+    description: Reconciled artifact-profile explanatory conformance language with current v1.0.1 L4 reusable-stable status while keeping L5 and empirical framework utility out of scope.
+    related_request: conformance_consistency_review

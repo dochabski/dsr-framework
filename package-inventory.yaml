@@ -514,7 +514,7 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0002
     exists: true
-    current_status: present_public_draft_license_confirmed_v0_1_0_v1_freeze_pending
+    current_status: present_v1_open_license_confirmed
     existence_audit_date: '2026-04-28'
   - path: CITATION.cff
     listed: true
@@ -526,31 +526,31 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0004
     exists: true
-    current_status: present_draft
+    current_status: present_v1_changelog_current
     existence_audit_date: '2026-04-27'
   - path: CONTRIBUTING.md
     listed: true
     inventory_entry_id: inv_0005
     exists: true
-    current_status: present_draft
+    current_status: present_v1_contributor_guidance
     existence_audit_date: '2026-04-27'
   - path: GOVERNANCE.md
     listed: true
     inventory_entry_id: inv_0006
     exists: true
-    current_status: present_public_draft_governance_policy_v1_role_confirmation_pending
+    current_status: present_v1_governance_policy
     existence_audit_date: '2026-04-28'
   - path: SECURITY.md
     listed: true
     inventory_entry_id: inv_0007
     exists: true
-    current_status: present_public_draft_security_policy_v1_support_policy_pending
+    current_status: present_v1_security_policy
     existence_audit_date: '2026-04-28'
   - path: CODE_OF_CONDUCT.md
     listed: true
     inventory_entry_id: inv_0008
     exists: true
-    current_status: present_draft
+    current_status: present_v1_code_of_conduct
     existence_audit_date: '2026-04-27'
   - path: .zenodo.json
     listed: true
@@ -604,7 +604,7 @@ package_inventory:
     listed: true
     inventory_entry_id: root_gitattributes
     exists: true
-    current_status: present_public_draft_lf_normalization_policy
+    current_status: present_v1_lf_normalization_policy
     existence_audit_date: '2026-04-28'
   validation_profiles:
   - validation_profile_id: vp_yaml_controlled_file
@@ -5761,39 +5761,38 @@ package_inventory:
   assumptions:
   - Inventory status present_at_declared_path means the file exists at the organized package path; it does not mean the content
     is final or publication-ready.
-  - Public-draft repository, creator, release, license, DOI, and Zenodo facts are confirmed for v0.1.0; v1 metadata freeze,
-    L5 preservation, independent review, and release approval remain future work.
-  - Schema validation currently confirms structure compatibility with generated templates and records; stricter field-level
-    constraints should be added in later passes.
+  - Repository, creator, maintainer, release, license, citation, DOI, v1 metadata-freeze, and release-approval facts are
+    retained for the current stable v1 line; L5 preservation closure, registry publication, independent external review,
+    and L5 approval remain post-v1 work.
+  - Schema validation currently confirms compatibility with generated templates, retained records, and canonical example
+    fixtures; later releases may still tighten field-level constraints.
   limitations:
-  - This inventory does not certify L4 reusable or L5 archival/publication-ready conformance.
+  - This inventory supports current L4 reusable-stable package inventory alignment but does not certify L5 archival/publication-ready
+    conformance, empirical framework utility, or independent external reuse validation.
   - External link validation and full cross-reference validation have not yet been run.
-  - Human bibliographic review and second-pass source-to-claim literature alignment remain pending.
-  - Auxiliary files are identified separately from controlled product-catalog files and need disposition before public release.
+  - Human bibliographic review beyond the retained source-level and claim-level traceability records remains post-v1 work.
+  - Auxiliary files remain excluded from controlled product-catalog inventory unless a later retained decision explicitly adds them.
   open_questions:
   - question_id: pkg_inv_oq_001
-    question: Should examples/ contain one canonical worked example package in v0.1.0, or remain empty until the framework
-      is piloted?
+    question: Should future examples beyond the canonical minimal DSR package remain examples, or become separately versioned artifact packages?
     owner: framework_maintainer
-    status: open
+    status: post_v1_scope_question
   - question_id: pkg_inv_oq_002
-    question: Should crosswalks/ include a documentation-protocol-to-DSR-framework crosswalk before the first public release?
+    question: Should a documentation-protocol-to-DSR-framework crosswalk be added as part of the planned self-application validation artifact?
     owner: repository_quality_reviewer
-    status: open
+    status: post_v1_scope_question
   - question_id: pkg_inv_oq_003
-    question: Should CI treat missing L2+ planned files as warnings during early development and errors only at release-readiness
-      gates?
+    question: Should CI add a separate L5 validation mode while keeping the current release-candidate mode scoped to v1.x L4?
     owner: automation_maintainer
-    status: open
+    status: post_v1_l5_question
   - question_id: pkg_inv_oq_004
-    question: Should FRAMEWORK_AUDIT_2026-04-27.md become a retained review record under records/reviews before public release?
+    question: Should private or local audit materials become retained review records only after scope, licensing, and source constraints are reviewed?
     owner: repository_quality_reviewer
-    status: open
+    status: post_v1_scope_question
   - question_id: pkg_inv_oq_005
-    question: Should the recommended source-to-framework alignment crosswalk be created before any GitHub publication, or
-      can it be a first post-publication hardening task?
+    question: Should the DSR theory operational kernel be added under a future artifacts or packages policy, or split into a standalone repository after validation?
     owner: framework_maintainer
-    status: open
+    status: post_v1_artifact_boundary_question
   retention_rule:
     retention_class: repository_lifecycle_record
     minimum_retention: retain_for_life_of_repository
@@ -5933,6 +5932,11 @@ package_inventory:
     change: Froze v1.0.1 patch release metadata and added patch release, approval, and GitHub release notes records.
     responsible_party: framework_maintainer
     review_status: v1_0_1_patch_release_records_created
+  - version: 1.0.1
+    date: '2026-05-02'
+    change: Reconciled package inventory root statuses, assumptions, limitations, and open questions with current v1.0.1 L4 reusable-stable status.
+    responsible_party: framework_maintainer
+    review_status: conformance_consistency_reconciled
   normalization_status:
     status: 1.0.1_stable_metadata_frozen
     normalization_date: '2026-04-27'

@@ -191,31 +191,30 @@ Generated framework files should be reviewed against six package-level quality g
 
 ## Current limitations
 
-This repository is under active construction. Users should treat the framework as a developing artifact package rather than a finished standard.
+This repository is a stable v1 DSR artifact package, but it remains a bounded framework rather than a finished disciplinary standard.
 
-Known limitations at this stage:
+Known limitations for the current release:
 
 - The root README provides orientation, not the complete controlled specification.
-- Public repository, creator, maintainer, release, license, citation, and DOI facts are recorded for v0.1.0; stable v1 still needs a retained metadata-freeze record.
-- Source-to-framework traceability is remediated for all 71 corpus sources; claim-level traceability and trace-specificity remain the next mapping and review problem.
-- Schemas validate the current public-draft templates and records; release-grade field-level tightening remains pending.
-- Example packages remain non-evaluative unless a corresponding evaluation record exists.
-- L4/L5 readiness must not be claimed until example use, independent or retained review, preservation, metadata-freeze, registry, and release-approval records support those levels.
+- L4 reusable-stable package conformance is claimed for the current v1 line, but L5 archival/publication-ready status is not claimed.
+- The framework has retained source-level and claim-level traceability for major v1 claims, but it does not claim full literature saturation or universal disciplinary consensus.
+- The canonical example and validation records support exercisability and reuse-readiness; they do not prove empirical improvement of DSR outcomes or validate downstream artifacts automatically.
+- Source PDFs and copyrighted source documents are not redistributed in this repository.
+- Independent external review, archival fixity closure, registry publication closure, and any L5 release approval remain post-v1 work.
 
 ## Recommended next work
 
-For the repository to move beyond organized draft status, complete these work items next:
+Recommended next work should preserve the current L4-not-L5 boundary:
 
-1. Add `records/preservation/record-preservation-0001-v0-1-0.yaml` while keeping L5 deferred.
-2. Add a post-crosswalk literature and claim-traceability review record that supersedes, but does not delete, `records/reviews/record-literature-alignment-0001.yaml`.
-3. Add GitHub issue templates or a retained backlog record for v1 hardening work.
-4. Tighten JSON Schemas from structural validation toward field-level validation.
-5. Add a canonical worked example package after templates and validation expectations stabilize.
-6. Add retained completeness, kick-the-tires, full-review, metadata-freeze, and release-approval records before any stable v1, L4, or L5 claim.
+1. Reconcile any remaining stale public-draft or qualified-L2 wording in controlled records against the current v1 L4 claim.
+2. Add an explicit policy for any future `artifacts/` or `packages/` directory so substantive artifact packages are distinguished from examples and core framework materials.
+3. Add a bounded DSR theory operationalization artifact package only after the directory policy is retained.
+4. Add a self-application validation record comparing `documentation-protocol` and `dsr-framework` against the DSR theory operational model.
+5. Keep L5 archival/publication-ready work separate until preservation closure, registry evidence, independent external review, and L5 release approval are retained.
 
 ## Citation and reuse
 
-Use the repository citation metadata in `CITATION.cff`, the repository license notice in `LICENSE`, and the archived-release metadata in `.zenodo.json`. This v0.1.0 package is a public draft: citable and reusable, but still under active validation and not yet a stable 1.0 framework.
+Use the repository citation metadata in `CITATION.cff`, the repository license notice in `LICENSE`, and the archived-release metadata in `.zenodo.json`. The current v1.0.1 release is the reusable-stable package release. It is not an L5 archival/publication-ready release and it does not certify downstream artifacts merely because they use the framework.
 
 ## Maintainer note
 

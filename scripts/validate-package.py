@@ -458,6 +458,47 @@ def validate_conformance_scope(run: ValidationRun, inventory: dict[str, Any]) ->
             if phrase in conformance_text:
                 run.error(f"conformance-declaration.yaml: stale L1-era conformance phrase remains: {phrase}")
 
+    if expected_conformance == "l4_reusable_stable":
+        stale_l4_contradiction_phrases = {
+            "README.md": [
+                "stable v1 still needs a retained metadata-freeze record",
+                "This v0.1.0 package is a public draft",
+                "not yet a stable 1.0 framework",
+                "L4/L5 readiness must not be claimed until",
+            ],
+            "conformance-declaration.yaml": [
+                "outcome_qualified_l2_public_draft_declared",
+                "status: qualified_l2_public_draft_declared",
+                "qualified L2 public-draft conformance remains the current package claim",
+                "must not claim L3, L4, or L5 conformance until",
+                "File-level L1 and package-level qualified L2 public-draft conformance are declared",
+            ],
+            "artifact-profile.yaml": [
+                "This profile does not claim L3, L4, or L5 conformance until",
+                "No field claims L3, L4, or L5 as current conformance",
+                "File-level L1 conformance and package-level qualified L2 public-draft conformance are separate claims",
+                "What exact metadata-freeze record should lock v1.0.0 release metadata",
+                "before claiming L4 reusable stable for version 1.0.0",
+            ],
+            "package-inventory.yaml": [
+                "v1 metadata freeze, L5 preservation, independent review, and release approval remain future work",
+                "This inventory does not certify L4 reusable",
+                "before public release",
+                "Should examples/ contain one canonical worked example package in v0.1.0",
+                "before the first public release",
+            ],
+            "manifest.yaml": [
+                "broader generation specification treats the package default as L2 reviewable",
+                "Zenodo publication pending explicit confirmation",
+                "first v0.1.0 release candidate",
+            ],
+        }
+        for relative_path, phrases in stale_l4_contradiction_phrases.items():
+            text = (ROOT / relative_path).read_text(encoding="utf-8")
+            for phrase in phrases:
+                if phrase in text:
+                    run.error(f"{relative_path}: stale pre-v1 conformance contradiction remains: {phrase}")
+
 
 def validate_public_draft_metadata_status(run: ValidationRun) -> None:
     inventory_text = (ROOT / "package-inventory.yaml").read_text(encoding="utf-8")

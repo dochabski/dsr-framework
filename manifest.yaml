@@ -118,10 +118,11 @@ manifest:
     package_conformance: l4_reusable_stable
     l5_status: not_claimed_for_v1_x_post_v1_l5_work
     conformance_declaration_file: conformance-declaration.yaml
-    tailoring_status: preliminary_root_manifest
-    conformance_rationale: 'The selected table row identifies root_manifest as an L1 root specification. The broader generation
-      specification treats the package default as L2 reviewable; this manifest therefore declares L1 for the generated file
-      while preserving a path toward L2 package reviewability through package inventory, schemas, records, and review gates.
+    tailoring_status: v1_l4_file_package_scope_reconciled
+    conformance_rationale: 'The selected table row identifies root_manifest as an L1 root specification. The current package
+      claim is L4 reusable stable based on retained v1 release evidence, validation automation, claim traceability, canonical
+      example, review packet, metadata freeze, and release approval. L5 archival/publication-ready status remains outside
+      the current claim.
 
       '
   source_basis:
@@ -195,31 +196,31 @@ manifest:
       role: release_change_log
       required: true
       expected_item_type: record
-      validation_status: present_updated_for_v0_1_0_public_draft
+      validation_status: present_v1_changelog_current
       existence_audit_date: '2026-04-27'
     - path: CONTRIBUTING.md
       role: contributor_guidance
       required: true
       expected_item_type: procedure
-      validation_status: present_draft
+      validation_status: present_v1_contributor_guidance
       existence_audit_date: '2026-04-27'
     - path: GOVERNANCE.md
       role: governance_model
       required: true
       expected_item_type: policy
-      validation_status: present_public_draft_governance_policy_v1_role_confirmation_pending
+      validation_status: present_v1_governance_policy
       existence_audit_date: '2026-04-27'
     - path: SECURITY.md
       role: security_reporting_policy
       required: true
       expected_item_type: policy
-      validation_status: present_draft
+      validation_status: present_v1_security_policy
       existence_audit_date: '2026-04-27'
     - path: CODE_OF_CONDUCT.md
       role: participation_norms
       required: true
       expected_item_type: policy
-      validation_status: present_draft
+      validation_status: present_v1_code_of_conduct
       existence_audit_date: '2026-04-27'
     - path: .zenodo.json
       role: archival_and_doi_metadata
@@ -243,7 +244,7 @@ manifest:
       role: artifact_identity_scope_claims_and_reuse_constraints
       required: true
       expected_item_type: description
-      validation_status: present_draft
+      validation_status: present_v1_artifact_profile
       existence_audit_date: '2026-04-27'
     - path: package-inventory.yaml
       role: package_file_inventory_and_validation_responsibilities
@@ -255,7 +256,7 @@ manifest:
       role: conformance_level_and_tailoring_declaration
       required: true
       expected_item_type: record
-      validation_status: present_draft
+      validation_status: present_v1_conformance_declaration
       existence_audit_date: '2026-04-27'
     - path: REUSE.toml
       role: machine-readable license annotations
@@ -273,7 +274,7 @@ manifest:
       role: repository_line_ending_policy
       required: true
       expected_item_type: repository_configuration
-      validation_status: present_public_draft_lf_normalization_policy
+      validation_status: present_v1_lf_normalization_policy
       existence_audit_date: '2026-04-28'
     canonical_directories:
     - path: specs
@@ -793,43 +794,44 @@ manifest:
   assumptions:
   - assumption_id: asm_001
     statement: The public repository URL was unknown at initial generation time.
-    handling: Repository URL is now resolved in metadata.yaml, CITATION.cff, .zenodo.json, and manifest.yaml for the v0.1.0
-      public draft release.
+    handling: Repository URL is resolved in metadata.yaml, CITATION.cff, .zenodo.json, and manifest.yaml for the current
+      stable v1 release line.
   - assumption_id: asm_002
     statement: CC0-1.0 is used for documentation and metadata files, with Apache-2.0 reserved for reusable automation code
       where applicable.
-    handling: License policy is confirmed for the v0.1.0 public draft and should be rechecked during v1 metadata freeze.
+    handling: License policy is confirmed for the current stable v1 release line and should be rechecked for any later L5
+      or major-release metadata freeze.
   - assumption_id: asm_003
     statement: root_manifest is treated as L1 documented according to the selected table row, while the broader package default
-      remains L2 reviewable according to the generation specification.
-    handling: Reconcile any conformance tailoring in conformance-declaration.yaml.
+      is currently L4 reusable stable according to retained v1 release evidence.
+    handling: Keep file-level and package-level conformance scope reconciled in conformance-declaration.yaml.
   limitations:
   - limitation_id: lim_001
     statement: This manifest does not replace package-inventory.yaml as an exhaustive file-by-file inventory.
   - limitation_id: lim_002
-    statement: This manifest does not assert empirical evaluation, publication readiness, DOI registration, or repository
-      archival completion.
+    statement: This manifest asserts the current reusable-stable package release metadata but does not assert empirical framework
+      utility, independent external reuse validation, or L5 archival/publication-ready closure.
   - limitation_id: lim_003
     statement: The live documentation-protocol repository was checked for structural alignment on 2026-04-27, but future upstream
       changes are not pinned to a commit in this package yet.
   - limitation_id: lim_004
-    statement: Required root files are present, but public repository URL, creator metadata, maintainer contact, release date,
-      and DOI information have been updated for the public draft release, with Zenodo publication pending explicit confirmation.
+    statement: Required root files are present and current v1 release metadata is retained; future L5 archival/publication-ready
+      status still requires separate preservation, registry, independent external review, and L5 approval evidence.
   open_questions:
   - question_id: oq_repository_url
-    question: What is the canonical GitHub repository URL for the DSR Framework package?
-    blocking_release: true
+    question: Should future standalone artifact packages use this repository as their initial home or split into their own repositories after validation?
+    blocking_release: false
     assigned_to: project_maintainer
   - question_id: oq_maintainer_identity
-    question: What public maintainer name, organization, or contact route should be declared?
-    blocking_release: true
+    question: Should future major releases add ORCID or institutional affiliation metadata beyond the current maintainer identity?
+    blocking_release: false
     assigned_to: project_maintainer
   - question_id: oq_license_confirmation
-    question: Should the repository license remain CC0-1.0 for all generated framework files?
-    blocking_release: true
+    question: Should future standalone artifact packages preserve the same CC0-1.0 documentation license, or adopt package-specific licensing?
+    blocking_release: false
     assigned_to: project_maintainer
   - question_id: oq_inventory_completion
-    question: Which selected files will be generated before the first v0.1.0 release candidate?
+    question: Which future support-layer or extension-layer materials should be added only after an artifacts or packages directory policy is retained?
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
@@ -960,3 +962,9 @@ manifest:
     description: Updated release-facing metadata for v1.0.1 and added patch release freeze, release, approval, and notes records.
     responsible_party: framework_maintainer
     related_request: v1_0_1_scope_boundary_patch_release
+  - version: 1.0.1
+    date: '2026-05-02'
+    change_type: conformance_consistency_cleanup
+    description: Reconciled manifest conformance rationale, root-file statuses, assumptions, limitations, and open questions with current v1.0.1 L4 reusable-stable status.
+    responsible_party: framework_maintainer
+    related_request: conformance_consistency_review

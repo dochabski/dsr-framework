@@ -6,7 +6,7 @@ conformance_declaration:
   item_type: record
   title: DSR Framework Conformance Declaration
   purpose: >
-    Declare the initial conformance level, tailoring rationale, evidence basis,
+    Declare the current conformance level, tailoring rationale, evidence basis,
     review obligations, and non-overclaiming constraints for the DSR Framework
     artifact package.
   status: 1.0.1_stable
@@ -118,14 +118,16 @@ conformance_declaration:
       package_claim_allowed: false
 
   tailoring:
-    tailoring_id: tailoring_initial_root_package_conformance
-    tailoring_status: active_for_initial_draft
+    tailoring_id: tailoring_v1_stable_file_and_package_conformance
+    tailoring_status: active_for_v1_stable_package
     tailoring_rationale: >
-      This declaration is intentionally conservative. It establishes L1
-      documented conformance for this root file and qualified L2 reviewable
-      public-draft conformance for the package, while reserving L3, L4, and L5
-      claims until examples, stricter validation, review records, release
-      approval, and preservation evidence are available for inspection.
+      This declaration distinguishes file-level and package-level conformance.
+      The root conformance declaration remains an L1 documented control record.
+      The package-level claim is L4 reusable stable for the v1 stable line,
+      supported by retained examples, validation automation, claim traceability,
+      review records, release records, and release approval. L5
+      archival/publication-ready conformance and empirical external reuse
+      validation remain outside the current claim.
     tailored_scope:
       included:
         - root package identity and governance alignment
@@ -136,19 +138,19 @@ conformance_declaration:
       excluded_from_current_claim:
         - empirical evaluation of framework utility
         - proof of artifact reuse by external users
-        - stable release, registry, or archival/publication-ready conformance
-        - L3 exercisable, L4 reusable stable, or L5 archival/publication-ready claims
-        - independent review or external reuse validation
+        - archival/publication-ready conformance
+        - L5 archival/publication-ready claims
+        - independent external review or external reuse validation
     permitted_unresolved_items:
       - unresolved_item: full_quality_conformance_model
-        treatment: dependency_pending_generation_or_review
-        impact_on_claim: prevents_l3_l4_l5_or_release_candidate_claim
+        treatment: retained_model_available_with_future_refinement_allowed
+        impact_on_claim: accepted_v1_limitation_does_not_block_l4
       - unresolved_item: conformance_schema
-        treatment: expected_downstream_schema
-        impact_on_claim: prevents_schema_validated_claim
+        treatment: schema_hardening_remains_iterative
+        impact_on_claim: accepted_v1_limitation_does_not_block_l4
       - unresolved_item: independent_review_record
         treatment: post_v1_minor_release_work
-        impact_on_claim: prevents_reviewed_claim
+        impact_on_claim: prevents_independent_external_review_claim
 
   source_basis:
     - source_id: user_current_request
@@ -261,9 +263,10 @@ conformance_declaration:
     must:
       - obligation_id: co_must_preserve_non_overclaiming
         statement: >
-          The package must not claim L3, L4, or L5 conformance until
-          exercisability, reusable-stability, preservation, release-approval,
-          and independent-review evidence have been generated or mapped.
+          The package must not treat its L4 reusable-stable GitHub release
+          conformance as L5 archival/publication-ready conformance, empirical
+          framework-utility validation, or independent external reuse
+          validation unless retained evidence for those stronger claims exists.
       - obligation_id: co_must_keep_root_files_aligned
         statement: >
           The declaration must remain synchronized with manifest.yaml,
@@ -317,7 +320,7 @@ conformance_declaration:
         - declaration.v1_target_package_conformance
         - tailoring
         - limitations
-      pass_condition: File-level L1 and package-level qualified L2 public-draft conformance are declared, while L3/L4/L5 claims are explicitly reserved.
+      pass_condition: File-level L1 and package-level L4 reusable-stable conformance are declared, while L5 and empirical external reuse claims are explicitly reserved.
       current_status: pass
     - criterion_id: ac_traceability
       criterion: The file maps source basis, dependencies, related items, and downstream validation expectations.
@@ -362,7 +365,7 @@ conformance_declaration:
       current_status: pass
     - rule_id: vr_no_higher_level_overclaim
       rule_type: semantic
-      statement: L3, L4, and L5 conformance levels must not be marked package_claim_allowed true unless evidence has been retained.
+      statement: L4 and L5 conformance levels must not be marked package_claim_allowed true unless corresponding retained evidence exists; current retained evidence supports L4 but not L5.
       validation_method: reviewer_check
       current_status: pass
     - rule_id: vr_cross_file_consistency
@@ -420,12 +423,12 @@ conformance_declaration:
   failure_modes:
     - failure_mode_id: fm_missing_root_alignment
       description: Root package files make inconsistent package identity, version, ownership, or conformance claims.
-      consequence: L1 claim for the package control layer must be suspended until corrected.
+      consequence: The affected conformance claim must be suspended until corrected.
       remediation_guidance: Reconcile manifest.yaml, metadata.yaml, artifact-profile.yaml, package-inventory.yaml, and this declaration.
     - failure_mode_id: fm_overclaimed_maturity
-      description: The package claims L3, L4, or L5 conformance without examples, review records, preservation evidence, release approval, or validation outputs.
-      consequence: Higher-level conformance claim is invalid; qualified L2 public-draft conformance remains the current package claim.
-      remediation_guidance: Remove the unsupported higher-level claim or generate and retain the required evidence.
+      description: The package claims L5 archival/publication-ready conformance, empirical external reuse validation, or independent external review without corresponding retained evidence.
+      consequence: The unsupported stronger claim is invalid; L4 reusable-stable conformance remains the current package claim when its retained evidence remains valid.
+      remediation_guidance: Remove the unsupported stronger claim or generate and retain the required L5, empirical validation, or independent external review evidence.
     - failure_mode_id: fm_unrecorded_tailoring
       description: Required files, fields, evidence, or review obligations are omitted without a tailoring record.
       consequence: Conformance review cannot determine whether omission is intentional or accidental.
@@ -436,43 +439,45 @@ conformance_declaration:
       remediation_guidance: Update either this file or the schema and retain the design decision.
 
   outcome:
-    outcome_id: outcome_qualified_l2_public_draft_declared
-    status: qualified_l2_public_draft_declared
+    outcome_id: outcome_l4_reusable_stable_declared
+    status: l4_reusable_stable_declared
     summary: >
-      Qualified L2 reviewable public-draft conformance is declared for the DSR
-      Framework package. The declaration is conservative and does not assert L3
-      exercisability, L4 reusable validation, or L5 archival/publication
-      readiness until related examples, validation automation, review records,
-      preservation records, and release evidence are available.
+      L4 reusable-stable conformance is declared for the DSR Framework package.
+      The declaration is conservative about stronger claims: it does not assert
+      L5 archival/publication readiness, empirical framework-utility validation,
+      or independent external reuse validation.
     current_claims_allowed:
       - The root conformance declaration exists as a structured YAML record.
       - The declaration documents current conformance level, tailoring, evidence basis, limitations, and review obligations.
-      - The package is suitable for public-draft review against retained source-traceability, validation, and package-control evidence.
+      - The package is suitable for L4 reusable-stable use against retained validation, examples, claim traceability, package-control, review, and release evidence.
     current_claims_not_allowed:
-      - The complete repository has passed independent review.
       - The framework has been empirically evaluated for utility.
-      - The package is reusable by external users without further review.
-      - The package is L3 exercisable, L4 reusable stable, or L5 archival/publication-ready.
+      - The package has passed independent external review.
+      - The package is L5 archival/publication-ready.
+      - The package has demonstrated external empirical reuse validation.
 
   limitations:
     - limitation_id: lim_dependency_model_pending
       statement: >
-        The quality/conformance model dependency is referenced but not fully
-        generated or reviewed in this file.
+        The quality/conformance model remains open to later refinement, but the
+        retained v1 evidence supports the current L4 reusable-stable package
+        claim.
     - limitation_id: lim_no_schema_validation_yet
       statement: >
-        YAML parseability has been checked, but validation against a formal
-        conformance-declaration JSON Schema is pending schema generation.
-    - limitation_id: lim_no_complete_v1_audit
+        YAML parseability and schema validation are retained for the current
+        conformance declaration; later releases may still tighten field-level
+        validation rules.
+    - limitation_id: lim_no_empirical_external_reuse_validation
       statement: >
-        This record starts a v1 readiness audit but does not by itself complete
-        schema hardening, example validation, claim-level traceability,
-        independent review, or preservation checks.
+        The package has retained v1 review, validation, traceability, example,
+        metadata-freeze, and release-approval evidence, but it does not claim
+        empirical external reuse validation.
     - limitation_id: lim_l5_deferred
       statement: >
-        GitHub and Zenodo publication support public-draft citation, but L5
-        remains deferred until preservation, registry, metadata-freeze,
-        independent-review, and release-approval evidence is retained.
+        GitHub and Zenodo publication support citation and reuse, but L5
+        archival/publication-ready conformance remains deferred until
+        preservation closure, registry closure, independent external review,
+        L5 metadata freeze, and L5 release approval evidence are retained.
 
   open_questions:
     - question_id: oq_conformance_level_names
@@ -549,4 +554,9 @@ conformance_declaration:
       date: "2026-04-28"
       change_type: final_public_draft_reconciliation
       description: Separated file-level L1 and package-level qualified L2 conformance, mapped qualified L2 into the catalog, and removed stale L2-prohibition language.
+      responsible_party: GPT-5.5 Thinking
+    - version: "1.0.1"
+      date: "2026-05-02"
+      change_type: conformance_consistency_cleanup
+      description: Reconciled explanatory conformance language with current v1.0.1 L4 reusable-stable status while keeping L5 and empirical external reuse validation out of scope.
       responsible_party: GPT-5.5 Thinking
