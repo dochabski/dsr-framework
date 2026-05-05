@@ -1,0 +1,67 @@
+# SPDX-License-Identifier: CC0-1.0
+dsr_theory_to_dsr_framework_crosswalk:
+  item_id: dsr_theory_to_dsr_framework_crosswalk
+  item_type: crosswalk
+  title: DSR Theory Kernel to DSR Framework Crosswalk
+  status: retained_self_application_evidence
+  version: "0.1.0-draft"
+  date: "2026-05-05"
+  responsible_party: framework_maintainer
+  target_repository: dochabski/dsr-framework
+  target_commit: ce74c0aa4a6b9f6536a3ae718fe7152345c64c7a
+  mappings:
+    - kernel_area: dsr_identity_boundary
+      dsr_framework_targets:
+        - README.md
+        - models/dsr-framework-canonical-model.yaml
+        - conformance-declaration.yaml
+        - crosswalks/claim-to-source-traceability.yaml
+      evidence_status: mapped
+      limitation: Does not prove every possible DSR tradition is exhausted.
+    - kernel_area: artifact_ontology
+      dsr_framework_targets:
+        - models/dsr-artifact-ontology.yaml
+        - schemas/dsr-artifact.schema.json
+        - templates/artifact-specification-template.md
+        - docs/protocol/05-artifact-ontology.md
+      evidence_status: mapped
+      limitation: The nested ontology still requires independent semantic review before standalone release.
+    - kernel_area: lifecycle_contribution_and_evaluation
+      dsr_framework_targets:
+        - models/dsr-lifecycle-model.yaml
+        - models/dsr-contribution-model.yaml
+        - models/dsr-evaluation-alignment-model.yaml
+        - templates/evaluation-plan-template.yaml
+        - templates/contribution-claim-template.yaml
+      evidence_status: mapped
+      limitation: Documentation and examples do not constitute empirical utility validation.
+    - kernel_area: transparency_reliability_replication_projectability
+      dsr_framework_targets:
+        - models/dsr-transparency-model.yaml
+        - models/dsr-reliability-model.yaml
+        - models/dsr-projectability-model.yaml
+        - docs/protocol/09-validity-reliability-replication-projectability.md
+        - docs/protocol/10-transparency-and-reporting.md
+      evidence_status: mapped
+      limitation: External reuse and long-term maintenance remain future evaluation areas.
+    - kernel_area: review_release_and_non_overclaiming
+      dsr_framework_targets:
+        - package-inventory.yaml
+        - records/reviews
+        - records/releases
+        - records/validation/validation-summary-latest.json
+      evidence_status: mapped
+      limitation: L5 remains explicitly outside the current claim.
+    - kernel_area: theory_kernel_as_nested_artifact
+      dsr_framework_targets:
+        - artifacts/README.md
+        - artifacts/dsr-theory-operational-kernel/README.md
+        - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+      evidence_status: mapped
+      limitation: Nested artifact status is draft and does not change the host release claim.
+  outcome:
+    result: mapped_with_retained_limitations
+    supports: dsr_framework_self_application
+    does_not_support:
+      - empirical_downstream_utility_validation
+      - l5_archival_publication_ready

@@ -36,8 +36,12 @@ The artifact translates DSR theory synthesis into controlled materials for:
 | `schemas/dsr-project.schema.json` | JSON Schema for DSR project/module authoring records. |
 | `templates/*.yaml` | YAML authoring templates validated against the schema. |
 | `crosswalks/concept-to-ontology-coverage.yaml` | Retained coverage disposition for concept inventory to ontology/SKOS/SHACL alignment. |
+| `crosswalks/dsr-theory-to-documentation-protocol.yaml` | Crosswalk from the theory kernel to the Documentation Protocol repository. |
+| `crosswalks/dsr-theory-to-dsr-framework.yaml` | Crosswalk from the theory kernel to the DSR Framework repository. |
 | `records/source-basis/record-source-basis-dsr-theory-operational-kernel.yaml` | Source-basis record for local synthesis inputs and extraction corpus context. |
 | `records/validation/record-validation-0001-local-preflight.yaml` | Local technical and coverage preflight record. |
+| `records/validation/record-validation-0002-self-application.yaml` | Self-application validation comparing `documentation-protocol` and `dsr-framework` against the kernel. |
+| `validation-targets/*.yaml` | Per-repository validation target records for the self-application pass. |
 
 ## Non-claims
 
@@ -52,4 +56,4 @@ This artifact does not claim:
 
 ## Next use
 
-Use this artifact as the first self-application target for the DSR Framework. The next substantive step is to validate `documentation-protocol` and `dsr-framework` against the operational kernel, while retaining semantic-review limits around lightweight ontology declarations.
+Use this artifact as the first self-application target for the DSR Framework. The retained self-application pass validates `documentation-protocol` as the meta-protocol layer and `dsr-framework` as the DSR-specific operationalization layer, while retaining semantic-review limits around lightweight ontology declarations.

@@ -76,8 +76,9 @@ manifest:
       latest_nested_artifact_package: artifacts/dsr-theory-operational-kernel/README.md
       latest_nested_artifact_profile: artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
       latest_nested_artifact_validation_record: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+      latest_nested_artifact_self_application_record: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
       latest_nested_artifact_coverage_crosswalk: artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
-      nested_artifact_status: dsr_theory_operational_kernel_identifier_coverage_reconciled_l2_reviewable_draft
+      nested_artifact_status: dsr_theory_operational_kernel_self_application_validation_retained_l2_reviewable_draft
       latest_template_checklist_stabilization_review: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
       template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
       latest_schema_hardening_review: records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
@@ -718,6 +719,11 @@ manifest:
     to: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
     relation: retains_first_import_validation_for_nested_draft_artifact
     evidence_status: draft_validation_record
+  - trace_id: tr_dsr_theory_kernel_to_self_application_validation
+    from: artifacts/dsr-theory-operational-kernel/README.md
+    to: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+    relation: validates_two_repository_architecture_against_operational_kernel
+    evidence_status: retained_self_application_validation
   - trace_id: tr_scope_boundary_to_patch_metadata_freeze
     from: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
     to: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
@@ -779,6 +785,7 @@ manifest:
     - examples/canonical-minimal-dsr-package/README.md
     - artifacts/dsr-theory-operational-kernel/README.md
     - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+    - artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
     - records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
     - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     - records/reviews/record-review-0002-completeness-v1-0-0.yaml
@@ -1027,3 +1034,9 @@ manifest:
     description: Reconciled concept-inventory identifiers into the DSR theory operational ontology and updated retained coverage validation evidence.
     responsible_party: framework_maintainer
     related_request: dsr_theory_operational_kernel_coverage_gap_pass
+  - version: 1.0.2
+    date: '2026-05-05'
+    change_type: nested_dsr_theory_artifact_self_application_validation
+    description: Added retained self-application validation records comparing documentation-protocol and dsr-framework against the DSR theory operational kernel.
+    responsible_party: framework_maintainer
+    related_request: dsr_theory_operational_kernel_self_application_validation

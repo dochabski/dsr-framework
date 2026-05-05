@@ -1,0 +1,75 @@
+# SPDX-License-Identifier: CC0-1.0
+self_application_validation_record:
+  record_id: record_validation_0002_dsr_theory_operational_kernel_self_application
+  record_class: validation_record
+  item_type: record
+  title: DSR Theory Operational Kernel Self-Application Validation
+  status: retained_self_application_evidence
+  version: "0.1.0-draft"
+  validation_date: "2026-05-05"
+  responsible_party: framework_maintainer
+  artifact_scope: artifacts/dsr-theory-operational-kernel
+  validation_purpose: >
+    Apply the draft DSR theory operational kernel back to the two-repository
+    architecture: Documentation Protocol as the meta-protocol layer and DSR
+    Framework as the DSR-specific operationalization layer.
+  validation_targets:
+    - target_id: documentation_protocol
+      repository: https://github.com/dochabski/documentation-protocol
+      branch: main
+      inspected_commit: 80aec1aab1f1317e258fbce12e02419bbe9b6ca1
+      retained_target_record: artifacts/dsr-theory-operational-kernel/validation-targets/documentation-protocol-validation.yaml
+      retained_crosswalk: artifacts/dsr-theory-operational-kernel/crosswalks/dsr-theory-to-documentation-protocol.yaml
+      result: pass_with_public_draft_limitations
+    - target_id: dsr_framework
+      repository: https://github.com/dochabski/dsr-framework
+      branch: main
+      inspected_commit: ce74c0aa4a6b9f6536a3ae718fe7152345c64c7a
+      retained_target_record: artifacts/dsr-theory-operational-kernel/validation-targets/dsr-framework-validation.yaml
+      retained_crosswalk: artifacts/dsr-theory-operational-kernel/crosswalks/dsr-theory-to-dsr-framework.yaml
+      result: pass_with_retained_limitations
+  validation_questions:
+    - question_id: sav_001
+      question: Does the two-repository architecture separate general artifact documentation protocol from DSR-specific theory operationalization?
+      result: pass
+    - question_id: sav_002
+      question: Can the theory kernel classify both repositories without requiring a third repository immediately?
+      result: pass
+    - question_id: sav_003
+      question: Does the validation avoid treating documentation completeness as empirical proof of utility?
+      result: pass
+    - question_id: sav_004
+      question: Are L5 archival/publication-ready claims kept outside the current result?
+      result: pass
+  findings:
+    - finding_id: sav_001
+      severity: nonblocking
+      result: pass
+      statement: >
+        The two-repository architecture is theoretically defensible:
+        documentation-protocol serves the meta-protocol role, and dsr-framework
+        serves the DSR-specific operationalization role.
+    - finding_id: sav_002
+      severity: nonblocking
+      result: pass
+      statement: The DSR theory operational kernel can classify and validate both repositories at a structural and conceptual level without hidden reliance on local Dropbox files.
+    - finding_id: sav_003
+      severity: nonblocking
+      result: accepted_limitation
+      statement: This is self-application evidence for coherence, structure, and traceability; it is not empirical proof of downstream usefulness or external adoption.
+    - finding_id: sav_004
+      severity: nonblocking
+      result: accepted_limitation
+      statement: The nested DSR theory kernel remains draft until semantic review and a release decision are retained.
+  outcome:
+    result: pass_with_retained_limitations
+    supports:
+      - two_repository_architecture_decision
+      - next_release_preparation
+      - draft_kernel_reviewability
+      - self_application_evidence
+    does_not_support:
+      - empirical_downstream_utility_validation
+      - independent_external_semantic_review
+      - standalone_kernel_stable_release
+      - l5_archival_publication_ready

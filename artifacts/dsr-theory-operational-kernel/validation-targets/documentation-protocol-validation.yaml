@@ -1,0 +1,82 @@
+# SPDX-License-Identifier: CC0-1.0
+documentation_protocol_validation:
+  item_id: documentation_protocol_validation_against_dsr_theory_kernel
+  item_type: validation_target_record
+  title: Documentation Protocol Validation Against DSR Theory Operational Kernel
+  status: retained_self_application_evidence
+  version: "0.1.0-draft"
+  validation_date: "2026-05-05"
+  responsible_party: framework_maintainer
+  target_repository:
+    name: dochabski/documentation-protocol
+    url: https://github.com/dochabski/documentation-protocol
+    branch: main
+    inspected_commit: 80aec1aab1f1317e258fbce12e02419bbe9b6ca1
+    declared_status: public_draft_release_under_active_validation
+  validation_scope:
+    included:
+      - README.md
+      - manifest.yaml
+      - metadata.yaml
+      - specs
+      - templates
+      - checklists
+      - schemas
+      - records
+      - citation_and_license_metadata
+    excluded:
+      - independent external review
+      - Zenodo publication verification beyond retained metadata
+      - downstream artifact effectiveness
+      - L5 archival/publication-ready approval
+  kernel_questions:
+    - question_id: dp_kernel_q001
+      question: Does the target provide a repository architecture for DSR artifact packages?
+      result: pass
+      evidence:
+        - manifest.yaml canonical_directories
+        - specs/product-repository-architecture.yaml
+        - specs/product-artifact-package-specification.yaml
+    - question_id: dp_kernel_q002
+      question: Does the target distinguish source-of-truth structured files from human-facing documentation?
+      result: pass
+      evidence:
+        - README.md source-of-truth statement
+        - manifest.yaml source_of_truth_format
+    - question_id: dp_kernel_q003
+      question: Does the target support DSR transparency, contribution, evaluation, and release records?
+      result: pass
+      evidence:
+        - specs/product-dsr-lifecycle-and-contribution-model.yaml
+        - specs/product-quality-conformance-and-review-model.yaml
+        - specs/product-publication-and-registry-model.yaml
+    - question_id: dp_kernel_q004
+      question: Does the target avoid overclaiming stable DSR framework validation?
+      result: pass_with_limitations
+      evidence:
+        - README.md status public draft
+        - manifest.yaml status draft
+      limitation: The target is a general documentation protocol and remains public draft; it is not itself a final DSR theory validation artifact.
+  findings:
+    - finding_id: dp_validation_001
+      severity: nonblocking
+      result: pass
+      statement: Documentation Protocol supplies the meta-protocol layer needed for repository structure, source-of-truth files, metadata, review records, release records, and preservation planning.
+    - finding_id: dp_validation_002
+      severity: nonblocking
+      result: pass_with_limitations
+      statement: Documentation Protocol contains DSR-specific transparency and lifecycle products, but DSR theory operationalization is intentionally delegated to dsr-framework.
+    - finding_id: dp_validation_003
+      severity: nonblocking
+      result: accepted_limitation
+      statement: The target remains public draft and should not be represented as an L4/L5 validation result for the DSR theory kernel.
+  outcome:
+    result: pass_with_public_draft_limitations
+    supports:
+      - meta_protocol_layer_for_dsr_artifact_packages
+      - repository_architecture_self_application
+      - package_review_and_release_structure
+    does_not_support:
+      - standalone_dsr_theory_release
+      - empirical_downstream_utility_validation
+      - l5_archival_publication_ready

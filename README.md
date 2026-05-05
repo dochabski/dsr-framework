@@ -207,9 +207,9 @@ Known limitations for the current release:
 
 Recommended next work should preserve the current L4-not-L5 boundary:
 
-1. Review and repair the recorded concept-to-ontology coverage gaps in `artifacts/dsr-theory-operational-kernel/`.
-2. Add a self-application validation record comparing `documentation-protocol` and `dsr-framework` against the DSR theory operational model.
-3. Decide whether the DSR theory operational kernel should remain nested in this repository or split into a standalone artifact repository after review.
+1. Review the DSR theory operational kernel for semantic adequacy now that identifier-level ontology, SHACL, and SKOS coverage is reconciled.
+2. Decide whether the DSR theory operational kernel should remain nested in this repository or split into a standalone artifact repository after review.
+3. Prepare the next patch or minor release only after the retained self-application validation evidence has passed repository validation.
 4. Keep L5 archival/publication-ready work separate until preservation closure, registry evidence, independent external review, and L5 release approval are retained.
 
 ## Citation and reuse
