@@ -73,6 +73,11 @@ manifest:
       claim_traceability_status: established_for_major_v1_claims_after_source_anomaly_disposition
       latest_canonical_example_package: examples/canonical-minimal-dsr-package/README.md
       canonical_example_status: synthetic_demonstration_package_present_for_v1_exercisability_work
+      latest_nested_artifact_package: artifacts/dsr-theory-operational-kernel/README.md
+      latest_nested_artifact_profile: artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+      latest_nested_artifact_validation_record: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+      latest_nested_artifact_coverage_crosswalk: artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+      nested_artifact_status: dsr_theory_operational_kernel_imported_as_l2_reviewable_draft
       latest_template_checklist_stabilization_review: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
       template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
       latest_schema_hardening_review: records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
@@ -372,6 +377,11 @@ manifest:
       required: false
       directory_status: exists
       existence_audit_date: '2026-04-27'
+    - path: artifacts
+      role: nested draft artifact packages developed before standalone repository or release decisions
+      required: false
+      directory_status: exists
+      existence_audit_date: '2026-05-05'
     - path: .github/ISSUE_TEMPLATE
       role: repository issue templates
       required: false
@@ -476,7 +486,7 @@ manifest:
       status: pass
     - validation_id: val_directory_alignment
       rule: Canonical directories must preserve specs, models, vocabularies, schemas, templates, checklists, docs, records,
-        crosswalks, examples, and GitHub automation areas.
+        crosswalks, examples, artifacts, and GitHub automation areas.
       status: pass
     - validation_id: val_conformance_statement
       rule: Manifest must distinguish selected L1 file conformance from broader L2 package target.
@@ -698,6 +708,16 @@ manifest:
     to: README.md
     relation: records_and_explains_scope_boundary_clarification
     evidence_status: retained_design_decision_record
+  - trace_id: tr_scope_boundary_to_nested_artifact_policy
+    from: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
+    to: artifacts/README.md
+    relation: defines_policy_for_nested_artifacts_as_support_or_extension_materials
+    evidence_status: retained_scope_application
+  - trace_id: tr_dsr_theory_kernel_to_local_preflight
+    from: artifacts/dsr-theory-operational-kernel/README.md
+    to: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+    relation: retains_first_import_validation_for_nested_draft_artifact
+    evidence_status: draft_validation_record
   - trace_id: tr_scope_boundary_to_patch_metadata_freeze
     from: records/design-decisions/record-design-decision-0003-core-scope-boundary.yaml
     to: records/releases/record-metadata-freeze-0002-v1-0-1.yaml
@@ -757,6 +777,8 @@ manifest:
     - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
     - records/reviews/record-review-source-anomaly-disposition-0001-v1-0-0.yaml
     - examples/canonical-minimal-dsr-package/README.md
+    - artifacts/dsr-theory-operational-kernel/README.md
+    - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
     - records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
     - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     - records/reviews/record-review-0002-completeness-v1-0-0.yaml
@@ -993,3 +1015,9 @@ manifest:
     description: Updated release-facing metadata for v1.0.2 and added patch release freeze, release, approval, and notes records for conformance consistency cleanup.
     responsible_party: framework_maintainer
     related_request: conformance_consistency_patch_release
+  - version: 1.0.2
+    date: '2026-05-05'
+    change_type: nested_dsr_theory_artifact_import
+    description: Added a draft nested DSR theory operational kernel artifact package under artifacts/ with local source-basis, validation, and concept-to-ontology coverage records.
+    responsible_party: framework_maintainer
+    related_request: dsr_theory_operational_framework_import

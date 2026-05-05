@@ -1,0 +1,172 @@
+# SPDX-License-Identifier: CC0-1.0
+package_inventory:
+  item_id: dsr_theory_operational_kernel_package_inventory
+  item_type: package_inventory
+  record_id: package_inventory_dsr_theory_operational_kernel_0001
+  title: DSR Theory Operational Kernel Package Inventory
+  status: draft_internal_artifact_package
+  version: "0.1.0-draft"
+  date: "2026-05-05"
+  responsible_party: framework_maintainer
+  package_root: artifacts/dsr-theory-operational-kernel
+  package_conformance: l2_reviewable_draft
+  host_package_conformance: l4_reusable_stable
+  l5_claimed: false
+  inventory_policy:
+    scope: nested_artifact_package
+    update_rule: Update this local inventory when files are added, removed, renamed, superseded, or moved between draft and review states.
+    source_of_truth_rule: This file inventories the nested artifact package; the root `package-inventory.yaml` remains the source of truth for repository-wide controlled files.
+  directory_inventory:
+    - path: artifacts/dsr-theory-operational-kernel
+      purpose: Draft theory operational kernel package root.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/README.md
+        - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+        - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+        - artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
+        - artifacts/dsr-theory-operational-kernel/competency-questions.yaml
+    - path: artifacts/dsr-theory-operational-kernel/ontology
+      purpose: OWL/RDF ontology files.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
+    - path: artifacts/dsr-theory-operational-kernel/shapes
+      purpose: SHACL validation shapes.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/shapes/dsr-shapes.ttl
+    - path: artifacts/dsr-theory-operational-kernel/vocabularies
+      purpose: SKOS controlled vocabularies.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.yaml
+        - artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.ttl
+    - path: artifacts/dsr-theory-operational-kernel/schemas
+      purpose: JSON Schema validators for theory-kernel authoring records.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/schemas/dsr-project.schema.json
+    - path: artifacts/dsr-theory-operational-kernel/templates
+      purpose: YAML authoring templates.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/templates/dsr-artifact-template.yaml
+        - artifacts/dsr-theory-operational-kernel/templates/dsr-contribution-template.yaml
+        - artifacts/dsr-theory-operational-kernel/templates/dsr-design-knowledge-template.yaml
+        - artifacts/dsr-theory-operational-kernel/templates/dsr-evaluation-template.yaml
+        - artifacts/dsr-theory-operational-kernel/templates/dsr-project-template.yaml
+        - artifacts/dsr-theory-operational-kernel/templates/dsr-transparency-template.yaml
+    - path: artifacts/dsr-theory-operational-kernel/crosswalks
+      purpose: Coverage and traceability crosswalks.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+    - path: artifacts/dsr-theory-operational-kernel/records
+      purpose: Retained artifact records.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/records/source-basis/record-source-basis-dsr-theory-operational-kernel.yaml
+        - artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+  file_inventory:
+    - path: artifacts/dsr-theory-operational-kernel/README.md
+      portion_type: artifact_readme
+      output_format: markdown
+      purpose: Human-facing entry point for the draft theory operational kernel package.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+      portion_type: artifact_profile
+      output_format: yaml
+      purpose: Structured profile and non-claim declaration for the artifact package.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+      portion_type: package_inventory
+      output_format: yaml
+      purpose: Local inventory for the nested artifact package.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
+      portion_type: concept_inventory
+      output_format: yaml
+      purpose: Normalized concept inventory generated from the DSR theory operational synthesis.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/competency-questions.yaml
+      portion_type: ontology_competency_questions
+      output_format: yaml
+      purpose: Competency questions for semantic validation of DSR documentation.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
+      portion_type: ontology
+      output_format: turtle
+      purpose: Draft OWL/RDF ontology for DSR theory operationalization.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/shapes/dsr-shapes.ttl
+      portion_type: shacl_shapes
+      output_format: turtle
+      purpose: Draft SHACL shapes for validating DSR theory operational records.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.yaml
+      portion_type: controlled_vocabulary
+      output_format: yaml
+      purpose: YAML representation of the DSR SKOS controlled vocabulary.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.ttl
+      portion_type: controlled_vocabulary
+      output_format: turtle
+      purpose: Turtle representation of the DSR SKOS controlled vocabulary.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/schemas/dsr-project.schema.json
+      portion_type: json_schema
+      output_format: json
+      purpose: JSON Schema for DSR project and module authoring records.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/templates/dsr-artifact-template.yaml
+      portion_type: authoring_template
+      output_format: yaml
+      purpose: DSR artifact authoring template.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/templates/dsr-contribution-template.yaml
+      portion_type: authoring_template
+      output_format: yaml
+      purpose: DSR contribution authoring template.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/templates/dsr-design-knowledge-template.yaml
+      portion_type: authoring_template
+      output_format: yaml
+      purpose: DSR design-knowledge authoring template.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/templates/dsr-evaluation-template.yaml
+      portion_type: authoring_template
+      output_format: yaml
+      purpose: DSR evaluation authoring template.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/templates/dsr-project-template.yaml
+      portion_type: authoring_template
+      output_format: yaml
+      purpose: Full DSR project authoring template.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/templates/dsr-transparency-template.yaml
+      portion_type: authoring_template
+      output_format: yaml
+      purpose: DSR transparency authoring template.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+      portion_type: coverage_crosswalk
+      output_format: yaml
+      purpose: Coverage disposition from concept inventory to ontology, SKOS, and SHACL files.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/records/source-basis/record-source-basis-dsr-theory-operational-kernel.yaml
+      portion_type: source_basis_record
+      output_format: yaml
+      purpose: Source-basis record for the theory operational kernel package.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+      portion_type: validation_record
+      output_format: yaml
+      purpose: Local validation and preflight record for the theory operational kernel package.
+      inventory_status: present_at_declared_path
+  validation_summary:
+    total_local_file_entries: 19
+    parse_status: pass
+    schema_template_validation_status: pass
+    coverage_status: pass_with_recorded_draft_gaps
+    l5_claimed: false

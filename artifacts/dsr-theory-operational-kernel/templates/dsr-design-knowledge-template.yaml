@@ -1,0 +1,84 @@
+# SPDX-License-Identifier: CC0-1.0
+# DSR design-knowledge authoring template.
+# Use this for design principles, design patterns, design theory elements, or other codified output knowledge.
+# Knowledge goal values: definitional, descriptive, prescriptive, explanatory, predictive, explanatory_predictive, evaluative, methodological, normative_ethical.
+# Knowledge scope values: idiographic_local, projectable_problem_class, analytical_generalization, nomothetic_general.
+
+dsr_design_knowledge:
+  schema_version: "0.1.0-draft"
+  design_knowledge:
+    design_knowledge_id: "DK-001"
+    knowledge_goal: "prescriptive"
+    knowledge_scope: "projectable_problem_class"
+    design_knowledge_statement: "<codified design knowledge statement>"
+    cimo:
+      context: "<where, when, and for whom this knowledge applies>"
+      intervention_or_artifact_feature: "<artifact feature, design action, or intervention>"
+      mechanism_or_rationale: "<why the intervention is expected to produce the outcome>"
+      outcome_or_effect: "<intended or observed outcome>"
+    supported_by_evaluation_ids: ["EVAL-001"]
+    related_artifact_ids: ["AU-001"]
+    boundary_conditions:
+      - boundary_condition_id: "BC-DK-001"
+        boundary_type: "context"
+        statement: "<limits on applying this design knowledge>"
+        applies_to_ids: ["DK-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:BoundaryCondition"
+          ontology_property: "dsr:hasBoundaryCondition"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:BoundaryConditionShape"
+          json_schema_pointer: "#/$defs/boundary_condition"
+    projectability_statement: "<how this knowledge projects beyond the local artifact instance>"
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:DesignKnowledge"
+      ontology_property: "dsr:producesDesignKnowledge"
+      skos_concept_uri: "https://w3id.org/dsr-framework/vocab/design-knowledge"
+      shacl_shape: "dsrsh:DesignKnowledgeShape"
+      json_schema_pointer: "#/$defs/design_knowledge_record"
+  traceability:
+    problem_to_requirement: []
+    requirement_to_design_decision: []
+    design_decision_to_evaluation: []
+    evaluation_to_design_knowledge:
+      - trace_id: "TRACE-E2DK-001"
+        edge_type: "evaluation_to_design_knowledge"
+        from_id: "EVAL-001"
+        to_id: "DK-001"
+        rationale: "<how evaluation evidence supports or limits this design knowledge>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    design_knowledge_to_contribution:
+      - trace_id: "TRACE-DK2C-001"
+        edge_type: "design_knowledge_to_contribution"
+        from_id: "DK-001"
+        to_id: "CONTRIB-001"
+        rationale: "<how this design knowledge supports the contribution>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+  anti_pattern_self_check:
+    - anti_pattern_id: "ap_non_codified_knowledge"
+      anti_pattern_label: "Non-Codified Knowledge"
+      status: "not_checked"
+      rationale: "<check whether knowledge is reusable, inspectable, and distinct from narrative only>"
+      mitigation_or_action: "<codify as design principle, pattern, theory element, or structured finding>"
+      related_record_ids: ["DK-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+  quality_control:
+    completeness_status: "recommended"
+    human_review_recommended: true
+    review_notes: "<review CIMO quality, boundary conditions, and evaluation support>"
+    known_gaps: []

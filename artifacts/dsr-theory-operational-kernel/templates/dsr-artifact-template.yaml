@@ -1,0 +1,174 @@
+# SPDX-License-Identifier: CC0-1.0
+# DSR artifact authoring template.
+# Distinguish artifact universal/design entity from artifact instantiation. Include make plan, use plan, and capacity specification.
+# Artifact type values: construct, model, method, instantiation_class, artifact_instantiation, design_principle, design_pattern, design_theory, framework, taxonomy, ontology, architecture, socio_technical_intervention, process_artifact.
+
+dsr_artifact:
+  schema_version: "0.1.0-draft"
+  artifact:
+    artifact_id: "ART-001"
+    artifact_universal:
+      artifact_universal_id: "AU-001"
+      artifact_type: "method"
+      artifact_name: "<artifact/design entity name>"
+      purpose_and_scope: "<purpose, intended problem class, and reusable scope>"
+      artifact_boundary: "<what belongs to the artifact and what remains outside>"
+      knowledge_scope: "projectable_problem_class"
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:ArtifactUniversal"
+        ontology_property: "dsr:hasDesignEntity"
+        skos_concept_uri: "https://w3id.org/dsr-framework/vocab/artifact-universal"
+        shacl_shape: "dsrsh:DesignEntityShape"
+        json_schema_pointer: "#/$defs/artifact_universal"
+    instantiations:
+      - artifact_instantiation_id: "AI-001"
+        artifact_name: "<prototype or implementation name>"
+        artifact_version: "<version/build>"
+        instantiates_artifact_universal_id: "AU-001"
+        implementation_context: "<where/how the instance exists>"
+        repository_or_trace_reference: null
+        limitations: "<limits of this instantiation>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:ArtifactInstantiation"
+          ontology_property: "dsr:instantiatesDesignEntity"
+          skos_concept_uri: "https://w3id.org/dsr-framework/vocab/artifact-instantiation"
+          shacl_shape: "dsrsh:ArtifactInstantiationShape"
+          json_schema_pointer: "#/$defs/artifact_instantiation"
+    make_plan:
+      plan_id: "MAKE-001"
+      goal: "<make goal>"
+      steps: ["<make step>"]
+      resources_or_materials: ["<resource, tool, code, material, or knowledge required>"]
+      trace_references: []
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:MakePlan"
+        ontology_property: "dsr:hasMakePlan"
+        skos_concept_uri: "https://w3id.org/dsr-framework/vocab/make-plan"
+        shacl_shape: "dsrsh:MakePlanShape"
+        json_schema_pointer: "#/$defs/plan"
+    use_plan:
+      plan_id: "USE-001"
+      goal: "<use goal or intended effect>"
+      steps: ["<use step>"]
+      resources_or_materials: ["<user role, environment, data, or supporting artifact>"]
+      trace_references: []
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:UsePlan"
+        ontology_property: "dsr:hasUsePlan"
+        skos_concept_uri: "https://w3id.org/dsr-framework/vocab/use-plan"
+        shacl_shape: "dsrsh:UsePlanShape"
+        json_schema_pointer: "#/$defs/plan"
+    capacity_specification:
+      - capacity_id: "CAP-001"
+        capacity_type: "function"
+        capacity_statement: "<expected artifact capacity>"
+        measure_or_observation: "<how this capacity is checked>"
+        required_by_requirement_ids: ["REQ-001"]
+        evaluated_by_ids: ["EVAL-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:CapacitySpecification"
+          ontology_property: "dsr:hasCapacitySpecification"
+          skos_concept_uri: "https://w3id.org/dsr-framework/vocab/capacity-specification"
+          shacl_shape: "dsrsh:CapacitySpecificationShape"
+          json_schema_pointer: "#/$defs/capacity_specification"
+    design_decisions:
+      - design_decision_id: "DD-001"
+        decision_statement: "<design decision>"
+        rationale: "<decision rationale and justificatory knowledge>"
+        alternatives_considered: ["<alternative and reason accepted/rejected>"]
+        satisfies_requirement_ids: ["REQ-001"]
+        evaluated_by_ids: ["EVAL-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:DesignDecision"
+          ontology_property: "dsr:satisfiesRequirement"
+          skos_concept_uri: null
+          shacl_shape: null
+          json_schema_pointer: "#/$defs/design_decision"
+    claims:
+      - claim_id: "CLM-MAKE-001"
+        claim_type: "make_claim"
+        claim_statement: "<claim about make plan, capacity, use, usage effect, or contribution>"
+        claim_disposition: "planned"
+        supported_by_evaluation_ids: ["EVAL-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    responsible_design_constraints: ["<privacy, security, ethics, IP, maintenance, or stakeholder-burden constraint>"]
+    maintenance_and_versioning: "<versioning, dependencies, archival plan, and maintenance boundary>"
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:DesignEntity"
+      ontology_property: "dsr:producesDesignEntity"
+      skos_concept_uri: null
+      shacl_shape: "dsrsh:DesignEntityShape"
+      json_schema_pointer: "#/$defs/artifact_record"
+  traceability:
+    problem_to_requirement: []
+    requirement_to_design_decision:
+      - trace_id: "TRACE-R2D-001"
+        edge_type: "requirement_to_design_decision"
+        from_id: "REQ-001"
+        to_id: "DD-001"
+        rationale: "<how the design decision satisfies the requirement>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    design_decision_to_evaluation:
+      - trace_id: "TRACE-D2E-001"
+        edge_type: "design_decision_to_evaluation"
+        from_id: "DD-001"
+        to_id: "EVAL-001"
+        rationale: "<how evaluation checks the design decision>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    evaluation_to_design_knowledge: []
+    design_knowledge_to_contribution: []
+  anti_pattern_self_check:
+    - anti_pattern_id: "ap_artifact_black_box"
+      anti_pattern_label: "Artifact Black Box"
+      status: "not_checked"
+      rationale: "<check artifact boundary, make plan, use plan, capacity, rationale, and trace>"
+      mitigation_or_action: "<add missing artifact specification or build trace>"
+      related_record_ids: ["ART-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+  quality_control:
+    completeness_status: "recommended"
+    human_review_recommended: true
+    review_notes: "<review artifact-universal/instantiation distinction and make/use/capacity completeness>"
+    known_gaps: []

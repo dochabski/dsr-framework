@@ -1,0 +1,753 @@
+# SPDX-License-Identifier: CC0-1.0
+# DSR project authoring template.
+# Replace placeholder IDs and angle-bracket text with project-specific content.
+# Controlled vocabulary values are intentionally valid defaults; change them only to another listed value.
+# Artifact types: construct, model, method, instantiation_class, artifact_instantiation, design_principle, design_pattern, design_theory, framework, taxonomy, ontology, architecture, socio_technical_intervention, process_artifact
+# Knowledge goals: definitional, descriptive, prescriptive, explanatory, predictive, explanatory_predictive, evaluative, methodological, normative_ethical
+# Knowledge scopes: idiographic_local, projectable_problem_class, analytical_generalization, nomothetic_general
+# Traceability edges required here: problem_to_requirement, requirement_to_design_decision, design_decision_to_evaluation, evaluation_to_design_knowledge, design_knowledge_to_contribution
+
+dsr_project:
+  schema_version: "0.1.0-draft"
+  project_id: "PROJECT-001" # Stable repository identifier, e.g., dsr_framework_validation_case_001.
+  project_title: "<project title>" # Human-readable project title.
+  documentation_status: "draft" # draft | under_review | accepted | published | archived.
+  dsr_genre: "design_science_research_methodology" # Use a project-level genre or other.
+  dsr_strategy: "strategy_1a" # Optional Akoka-style DSR strategy; revise or remove in downstream profiles if not used.
+  project_summary: "<one-paragraph summary of the DSR project, artifact, evaluation, and contribution>"
+
+  repository_context:
+    repository_uri: null # Repository URL or local path when available.
+    documentation_protocol_version: "<documentation protocol version or commit>"
+    ontology_file: "ontology/dsr-ontology.ttl"
+    shacl_shapes_file: "ontology/dsr-shapes.ttl"
+    skos_vocabulary_file: "ontology/dsr-skos.ttl"
+    schema_file: "schemas/dsr-project.schema.json"
+
+  source_citation_anchors:
+    - source_anchor_id: "SRC-001" # Reuse this ID in source_anchor_ids fields below.
+      citation_label: "<short citation or repository evidence label>"
+      source_type: "<article | repository_file | issue | pull_request | dataset | meeting_note | other>"
+      bibliographic_reference: "<full reference or repository path>"
+      location: "<page, section, line range, commit hash, URL fragment, or file path>"
+      evidence_type: "close_paraphrase" # direct_quote | close_paraphrase | table_data | figure_or_model | formal_definition | example | method_description | evaluation_result | limitation | bibliographic_metadata | extractor_inference | repository_trace.
+      evidence_summary: "<brief statement of what this anchor supports>"
+      url_or_repository_path: null
+      confidence_level: "medium" # low | medium | high.
+      confidence_percent: null # Optional numeric confidence from 0 to 100.
+
+  problem_space:
+    problem_space_id: "PS-001"
+    problem_instance:
+      problem_instance_id: "PI-001"
+      problem_statement: "<situated problem instance in the actual context>"
+      local_context_summary: "<where the problem occurs and who is affected>"
+      abstracts_to_problem_class_id: "PC-001"
+      stakeholder_ids: ["STK-001"]
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:ProblemInstance"
+        ontology_property: "dsr:includesProblemInstance"
+        skos_concept_uri: null
+        shacl_shape: "dsrsh:ProblemInstanceShape"
+        json_schema_pointer: "#/$defs/problem_instance"
+    problem_class:
+      problem_class_id: "PC-001"
+      problem_class_statement: "<abstract problem class beyond the local instance>"
+      abstraction_rationale: "<why the local problem is an instance of this class>"
+      projectability_statement: "<how findings may project to similar problems>"
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:ProblemClass"
+        ontology_property: "dsr:includesProblemClass"
+        skos_concept_uri: null
+        shacl_shape: "dsrsh:ProblemClassShape"
+        json_schema_pointer: "#/$defs/problem_class"
+    relevance_justification: "<evidence-backed explanation of practical or scholarly importance>"
+    severity_or_importance: "<severity, urgency, opportunity value, or stakeholder impact>"
+    problem_to_requirement_summary: "<short explanation of how the problem becomes objectives and requirements>"
+    boundary_conditions:
+      - boundary_condition_id: "BC-PS-001"
+        boundary_type: "context"
+        statement: "<problem-space boundary condition>"
+        applies_to_ids: ["PI-001", "PC-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:BoundaryCondition"
+          ontology_property: "dsr:hasBoundaryCondition"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:BoundaryConditionShape"
+          json_schema_pointer: "#/$defs/boundary_condition"
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:ProblemSpace"
+      ontology_property: "dsr:hasProblemSpace"
+      skos_concept_uri: null
+      shacl_shape: "dsrsh:ProblemSpaceShape"
+      json_schema_pointer: "#/$defs/problem_space"
+
+  context_space:
+    context_id: "CTX-001"
+    context_description: "<organizational, technical, social, regulatory, temporal, and resource context>"
+    organizational_conditions: "<organizational constraints or affordances>"
+    technical_conditions: "<technical infrastructure, integrations, or limitations>"
+    social_or_stakeholder_conditions: "<social, role, incentive, or adoption conditions>"
+    regulatory_or_ethical_conditions: "<regulatory, privacy, security, or ethics constraints>"
+    artifact_network: "<neighboring systems, artifacts, practices, data, and processes>"
+    stakeholders:
+      - stakeholder_id: "STK-001"
+        stakeholder_role: "practitioner" # researcher, reviewer, practitioner, manager, policy_public, technical_implementer, user, sponsor.
+        description: "<stakeholder or stakeholder group description>"
+        needs_or_goals:
+          - "<need, goal, pain point, or value concern>"
+        burdens_or_risks:
+          - "<burden, risk, or ethical concern>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:Stakeholder"
+          ontology_property: "dsr:hasStakeholder"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:StakeholderShape"
+          json_schema_pointer: "#/$defs/stakeholder"
+    boundary_conditions:
+      - boundary_condition_id: "BC-CTX-001"
+        boundary_type: "governance"
+        statement: "<context boundary condition>"
+        applies_to_ids: ["CTX-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:BoundaryCondition"
+          ontology_property: "dsr:hasBoundaryCondition"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:BoundaryConditionShape"
+          json_schema_pointer: "#/$defs/boundary_condition"
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:Context"
+      ontology_property: "dsr:occursInContext"
+      skos_concept_uri: null
+      shacl_shape: "dsrsh:ContextShape"
+      json_schema_pointer: "#/$defs/context_space"
+
+  input_knowledge:
+    - input_knowledge_id: "IK-001"
+      knowledge_role: "kernel_theory" # kernel_theory | prior_artifact | design_theory | design_pattern | method | technology | evaluation_framework | literature_synthesis | domain_evidence | practitioner_knowledge | repository_trace | other.
+      label: "<source, prior artifact, theory, method, or repository trace>"
+      summary_of_use: "<how this knowledge grounds requirements, design, or evaluation>"
+      grounds_requirement_ids: ["REQ-001"]
+      grounds_design_decision_ids: ["DD-001"]
+      grounds_evaluation_ids: ["EVAL-001"]
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:InputKnowledge"
+        ontology_property: "dsr:usesInputKnowledge"
+        skos_concept_uri: null
+        shacl_shape: "dsrsh:InputKnowledgeShape"
+        json_schema_pointer: "#/$defs/input_knowledge_item"
+
+  objectives_and_requirements:
+    objectives:
+      - objective_id: "OBJ-001"
+        objective_type: "design_objective"
+        objective_statement: "<objective derived from the problem and context>"
+        derived_from_problem_or_context_ids: ["PI-001", "CTX-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:Objective"
+          ontology_property: "dsr:hasObjective"
+          skos_concept_uri: null
+          shacl_shape: null
+          json_schema_pointer: "#/$defs/objective"
+    requirements:
+      - requirement_id: "REQ-001"
+        requirement_type: "functional_requirement" # functional_requirement, quality_requirement, meta_requirement, evaluation_requirement, ethical_requirement, security_requirement, privacy_requirement, maintenance_requirement, documentation_requirement, acceptance_condition, other.
+        requirement_statement: "<evaluable requirement or acceptance condition>"
+        derived_from_ids: ["PI-001", "PC-001", "IK-001"]
+        acceptance_or_success_criteria:
+          - "<observable acceptance or success criterion>"
+        satisfied_by_design_decision_ids: ["DD-001"]
+        evaluated_by_ids: ["EVAL-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:Requirement"
+          ontology_property: "dsr:hasRequirement"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:RequirementShape"
+          json_schema_pointer: "#/$defs/requirement"
+
+  artifact:
+    artifact_id: "ART-001"
+    artifact_universal:
+      artifact_universal_id: "AU-001"
+      artifact_type: "method"
+      artifact_name: "<artifact/design entity name>"
+      purpose_and_scope: "<what reusable design entity is being contributed>"
+      artifact_boundary: "<what is inside and outside the artifact boundary>"
+      knowledge_scope: "projectable_problem_class"
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:ArtifactUniversal"
+        ontology_property: "dsr:hasDesignEntity"
+        skos_concept_uri: "https://w3id.org/dsr-framework/vocab/artifact-universal"
+        shacl_shape: "dsrsh:DesignEntityShape"
+        json_schema_pointer: "#/$defs/artifact_universal"
+    instantiations:
+      - artifact_instantiation_id: "AI-001"
+        artifact_name: "<prototype, implementation, proof of concept, or field instance name>"
+        artifact_version: "<version or build identifier>"
+        instantiates_artifact_universal_id: "AU-001"
+        implementation_context: "<where and how this instance was implemented or demonstrated>"
+        repository_or_trace_reference: null
+        limitations: "<known limitations of this instance>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:ArtifactInstantiation"
+          ontology_property: "dsr:instantiatesDesignEntity"
+          skos_concept_uri: "https://w3id.org/dsr-framework/vocab/artifact-instantiation"
+          shacl_shape: "dsrsh:ArtifactInstantiationShape"
+          json_schema_pointer: "#/$defs/artifact_instantiation"
+    make_plan:
+      plan_id: "MAKE-001"
+      goal: "<construction or configuration goal>"
+      steps:
+        - "<make step>"
+      resources_or_materials:
+        - "<code, data, method, tool, resource, or expertise required>"
+      trace_references: []
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:MakePlan"
+        ontology_property: "dsr:hasMakePlan"
+        skos_concept_uri: "https://w3id.org/dsr-framework/vocab/make-plan"
+        shacl_shape: "dsrsh:MakePlanShape"
+        json_schema_pointer: "#/$defs/plan"
+    use_plan:
+      plan_id: "USE-001"
+      goal: "<use goal or intended effect>"
+      steps:
+        - "<use step>"
+      resources_or_materials:
+        - "<user role, system, data, or operational condition required>"
+      trace_references: []
+      source_anchor_ids: ["SRC-001"]
+      confidence_level: "medium"
+      confidence_percent: null
+      ambiguity_level: "medium"
+      notes: null
+      ontology_mapping:
+        ontology_class: "dsr:UsePlan"
+        ontology_property: "dsr:hasUsePlan"
+        skos_concept_uri: "https://w3id.org/dsr-framework/vocab/use-plan"
+        shacl_shape: "dsrsh:UsePlanShape"
+        json_schema_pointer: "#/$defs/plan"
+    capacity_specification:
+      - capacity_id: "CAP-001"
+        capacity_type: "function"
+        capacity_statement: "<function, affordance, constraint, or quality attribute expected of the artifact>"
+        measure_or_observation: "<how the capacity can be observed or checked>"
+        required_by_requirement_ids: ["REQ-001"]
+        evaluated_by_ids: ["EVAL-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:CapacitySpecification"
+          ontology_property: "dsr:hasCapacitySpecification"
+          skos_concept_uri: "https://w3id.org/dsr-framework/vocab/capacity-specification"
+          shacl_shape: "dsrsh:CapacitySpecificationShape"
+          json_schema_pointer: "#/$defs/capacity_specification"
+    design_decisions:
+      - design_decision_id: "DD-001"
+        decision_statement: "<design decision>"
+        rationale: "<why this decision satisfies requirements and uses input knowledge>"
+        alternatives_considered:
+          - "<alternative and reason accepted/rejected>"
+        satisfies_requirement_ids: ["REQ-001"]
+        evaluated_by_ids: ["EVAL-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:DesignDecision"
+          ontology_property: "dsr:satisfiesRequirement"
+          skos_concept_uri: null
+          shacl_shape: null
+          json_schema_pointer: "#/$defs/design_decision"
+    claims:
+      - claim_id: "CLM-MAKE-001"
+        claim_type: "make_claim"
+        claim_statement: "<claim that the make plan produces the intended artifact/capacity>"
+        claim_disposition: "planned"
+        supported_by_evaluation_ids: ["EVAL-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    responsible_design_constraints:
+      - "<privacy, security, safety, fairness, IP, stakeholder-burden, or maintenance constraint>"
+    maintenance_and_versioning: "<how artifact versions, dependencies, and maintenance boundaries are documented>"
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:DesignEntity"
+      ontology_property: "dsr:producesDesignEntity"
+      skos_concept_uri: null
+      shacl_shape: "dsrsh:DesignEntityShape"
+      json_schema_pointer: "#/$defs/artifact_record"
+
+  demonstration_and_use:
+    demonstrations:
+      - demonstration_id: "DEMO-001"
+        artifact_instantiation_ids: ["AI-001"]
+        demonstration_context: "<scenario, pilot, example, walkthrough, proof of concept, or field demonstration context>"
+        use_case_or_scenario: "<task or use case demonstrated>"
+        demonstration_output: "<output, observation, screenshot, log, or artifact behavior observed>"
+        trace_references: []
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:Demonstration"
+          ontology_property: "dsr:demonstratesArtifact"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:DemonstrationShape"
+          json_schema_pointer: "#/$defs/demonstration"
+    use_evidence_summary: "<what the demonstration or use trace shows>"
+    limitations: "<limits of demonstration/use evidence>"
+
+  evaluation:
+    evaluations:
+      - evaluation_id: "EVAL-001"
+        evaluation_object_ids: ["AU-001", "AI-001", "CLM-MAKE-001"]
+        claim_types_supported: ["make_claim"]
+        evaluation_timing: "ex_post" # ex_ante, ex_post.
+        evaluation_function: "formative" # formative, summative.
+        evaluation_setting: "artificial" # artificial, naturalistic.
+        evaluation_method: "<evaluation method, e.g., analytical proof, expert review, experiment, case, field study, simulation>"
+        evaluation_criteria: ["utility"] # utility, efficacy, effectiveness, efficiency, robustness, fidelity, simplicity, clarity, consistency, aesthetics, ethical_acceptability, fitness_for_use, fitness_for_evolution, projectability, feasibility, usability, completeness, traceability, novelty.
+        evidence:
+          - evidence_id: "EVID-001"
+            evidence_mode: "repository_trace" # analytical, empirical, expert, simulation, experiment, field, case, proof, repository_trace, literature_synthesis, conceptual_argument, build_evaluate, replication.
+            data_or_observation_summary: "<data, observations, proof, expert judgment, or repository trace>"
+            metric_or_indicator: "<metric, indicator, or judgment basis>"
+            result_summary: "<result, finding, interpretation, or limitation>"
+            supports_design_knowledge_ids: ["DK-001"]
+            supports_contribution_ids: ["CONTRIB-001"]
+            source_anchor_ids: ["SRC-001"]
+            confidence_level: "medium"
+            confidence_percent: null
+            ambiguity_level: "medium"
+            notes: null
+            ontology_mapping:
+              ontology_class: "dsr:EvaluationEvidence"
+              ontology_property: "dsr:generatesEvidence"
+              skos_concept_uri: null
+              shacl_shape: "dsrsh:EvaluationEvidenceShape"
+              json_schema_pointer: "#/$defs/evaluation_evidence"
+        findings: "<main evaluation findings>"
+        limitations: "<evaluation limitations and threats to validity>"
+        claim_evidence_alignment_rationale: "<why this evaluation can support the stated claim type>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:Evaluation"
+          ontology_property: "dsr:hasEvaluation"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:EvaluationShape"
+          json_schema_pointer: "#/$defs/evaluation_record"
+    validity_assessments:
+      - validity_assessment_id: "VAL-001"
+        validity_type: "evaluation_validity"
+        assessment_statement: "<assessment of whether the evaluation supports the claim>"
+        evidence_ids: ["EVID-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:ValidityAssessment"
+          ontology_property: "dsr:hasValidityAssessment"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:ValidityAssessmentShape"
+          json_schema_pointer: "#/$defs/validity_assessment"
+    reliability_assessments: []
+    replication_activities: []
+
+  design_knowledge:
+    design_knowledge_items:
+      - design_knowledge_id: "DK-001"
+        knowledge_goal: "prescriptive"
+        knowledge_scope: "projectable_problem_class"
+        design_knowledge_statement: "<codified design knowledge generated by the project>"
+        cimo:
+          context: "<context in which the knowledge applies>"
+          intervention_or_artifact_feature: "<artifact feature, action, or intervention>"
+          mechanism_or_rationale: "<why the intervention is expected to work>"
+          outcome_or_effect: "<intended or observed outcome>"
+        supported_by_evaluation_ids: ["EVAL-001"]
+        related_artifact_ids: ["AU-001"]
+        boundary_conditions:
+          - boundary_condition_id: "BC-DK-001"
+            boundary_type: "context"
+            statement: "<boundary condition for applying this design knowledge>"
+            applies_to_ids: ["DK-001"]
+            source_anchor_ids: ["SRC-001"]
+            confidence_level: "medium"
+            confidence_percent: null
+            ambiguity_level: "medium"
+            notes: null
+            ontology_mapping:
+              ontology_class: "dsr:BoundaryCondition"
+              ontology_property: "dsr:hasBoundaryCondition"
+              skos_concept_uri: null
+              shacl_shape: "dsrsh:BoundaryConditionShape"
+              json_schema_pointer: "#/$defs/boundary_condition"
+        projectability_statement: "<how this knowledge may transfer, generalize, or project beyond the local case>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:DesignKnowledge"
+          ontology_property: "dsr:producesDesignKnowledge"
+          skos_concept_uri: "https://w3id.org/dsr-framework/vocab/design-knowledge"
+          shacl_shape: "dsrsh:DesignKnowledgeShape"
+          json_schema_pointer: "#/$defs/design_knowledge_record"
+
+  contribution:
+    contribution_claims:
+      - contribution_id: "CONTRIB-001"
+        contribution_object: "methodology"
+        knowledge_goal: "prescriptive"
+        knowledge_scope: "projectable_problem_class"
+        novelty_mode: "improvement"
+        maturity: "emerging"
+        contribution_statement: "<scientific, methodological, practical, or artifact contribution claim>"
+        evidence_basis: "<evidence and design knowledge supporting the contribution>"
+        supported_by_design_knowledge_ids: ["DK-001"]
+        supported_by_evaluation_ids: ["EVAL-001"]
+        boundary_conditions:
+          - boundary_condition_id: "BC-CONTRIB-001"
+            boundary_type: "domain"
+            statement: "<boundary condition limiting the contribution claim>"
+            applies_to_ids: ["CONTRIB-001"]
+            source_anchor_ids: ["SRC-001"]
+            confidence_level: "medium"
+            confidence_percent: null
+            ambiguity_level: "medium"
+            notes: null
+            ontology_mapping:
+              ontology_class: "dsr:BoundaryCondition"
+              ontology_property: "dsr:hasBoundaryCondition"
+              skos_concept_uri: null
+              shacl_shape: "dsrsh:BoundaryConditionShape"
+              json_schema_pointer: "#/$defs/boundary_condition"
+        intended_audiences: ["researcher", "reviewer", "practitioner"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:ContributionClaim"
+          ontology_property: "dsr:claimsContribution"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:ContributionClaimShape"
+          json_schema_pointer: "#/$defs/contribution_record"
+
+  transparency:
+    # Six transparency forms are expected unless proportionately scoped out: process, problem_space, solution_space, build, evaluation, contribution.
+    transparency_traces:
+      - transparency_trace_id: "TRN-PROCESS-001"
+        transparency_form: "process"
+        documentation_location: "<where process trace is documented>"
+        trace_reference: null
+        summary: "<process transparency summary>"
+        audiences: ["researcher", "reviewer"]
+        mitigates_anti_pattern_ids: ["ap_ex_post_dsrification"]
+        responsible_disclosure_notes: "<confidentiality, security, privacy, or burden limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-PROBLEM-001"
+        transparency_form: "problem_space"
+        documentation_location: "<where problem-space trace is documented>"
+        trace_reference: null
+        summary: "<problem-space transparency summary>"
+        audiences: ["researcher", "reviewer", "practitioner"]
+        mitigates_anti_pattern_ids: ["ap_weak_problem_grounding"]
+        responsible_disclosure_notes: "<disclosure limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-SOLUTION-001"
+        transparency_form: "solution_space"
+        documentation_location: "<where solution grounding is documented>"
+        trace_reference: null
+        summary: "<solution-space transparency summary>"
+        audiences: ["researcher", "reviewer"]
+        mitigates_anti_pattern_ids: ["ap_weak_solution_grounding"]
+        responsible_disclosure_notes: "<disclosure limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-BUILD-001"
+        transparency_form: "build"
+        documentation_location: "<where build trace is documented>"
+        trace_reference: null
+        summary: "<build transparency summary>"
+        audiences: ["researcher", "technical_implementer"]
+        mitigates_anti_pattern_ids: ["ap_artifact_black_box"]
+        responsible_disclosure_notes: "<code, security, IP, or sensitive implementation limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-EVALUATION-001"
+        transparency_form: "evaluation"
+        documentation_location: "<where evaluation protocol/data/findings are documented>"
+        trace_reference: null
+        summary: "<evaluation transparency summary>"
+        audiences: ["researcher", "reviewer", "practitioner"]
+        mitigates_anti_pattern_ids: ["ap_evaluation_mismatch"]
+        responsible_disclosure_notes: "<data, privacy, participant, or confidentiality limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-CONTRIBUTION-001"
+        transparency_form: "contribution"
+        documentation_location: "<where contribution and boundary conditions are documented>"
+        trace_reference: null
+        summary: "<contribution transparency summary>"
+        audiences: ["researcher", "reviewer", "practitioner"]
+        mitigates_anti_pattern_ids: ["ap_non_codified_knowledge", "ap_conflated_artifact_and_output_knowledge"]
+        responsible_disclosure_notes: "<limits on disclosure or generalization>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+    dsr_grid_summary:
+      - dimension: "problem"
+        summary: "<DSR Grid problem summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "input_knowledge"
+        summary: "<DSR Grid input knowledge summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "research_process"
+        summary: "<DSR Grid research process summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "key_concepts"
+        summary: "<DSR Grid key concepts summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "solution"
+        summary: "<DSR Grid solution/artifact summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "output_knowledge"
+        summary: "<DSR Grid output knowledge summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+    responsible_transparency_balance: "<why documentation is sufficient without creating confidentiality, IP, privacy, security, or stakeholder-burden problems>"
+
+  traceability:
+    problem_to_requirement:
+      - trace_id: "TRACE-P2R-001"
+        edge_type: "problem_to_requirement"
+        from_id: "PI-001"
+        to_id: "REQ-001"
+        rationale: "<why this requirement follows from the problem>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    requirement_to_design_decision:
+      - trace_id: "TRACE-R2D-001"
+        edge_type: "requirement_to_design_decision"
+        from_id: "REQ-001"
+        to_id: "DD-001"
+        rationale: "<how this decision satisfies the requirement>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    design_decision_to_evaluation:
+      - trace_id: "TRACE-D2E-001"
+        edge_type: "design_decision_to_evaluation"
+        from_id: "DD-001"
+        to_id: "EVAL-001"
+        rationale: "<how evaluation tests or inspects this design decision>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    evaluation_to_design_knowledge:
+      - trace_id: "TRACE-E2DK-001"
+        edge_type: "evaluation_to_design_knowledge"
+        from_id: "EVAL-001"
+        to_id: "DK-001"
+        rationale: "<how evaluation evidence supports the design knowledge>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    design_knowledge_to_contribution:
+      - trace_id: "TRACE-DK2C-001"
+        edge_type: "design_knowledge_to_contribution"
+        from_id: "DK-001"
+        to_id: "CONTRIB-001"
+        rationale: "<how the design knowledge supports the contribution claim>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+
+  anti_pattern_self_check:
+    - anti_pattern_id: "ap_ex_post_dsrification"
+      anti_pattern_label: "Ex-Post DSR-ification"
+      status: "not_checked"
+      rationale: "<check whether prospective DSR logic, process trace, evaluation, and contribution trace are present>"
+      mitigation_or_action: "<action if possible or present>"
+      related_record_ids: ["TRN-PROCESS-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+    - anti_pattern_id: "ap_artifact_black_box"
+      anti_pattern_label: "Artifact Black Box"
+      status: "not_checked"
+      rationale: "<check whether artifact boundary, make plan, use plan, capacities, and design rationale are documented>"
+      mitigation_or_action: "<action if possible or present>"
+      related_record_ids: ["ART-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+    - anti_pattern_id: "ap_evaluation_mismatch"
+      anti_pattern_label: "Evaluation Mismatch"
+      status: "not_checked"
+      rationale: "<check whether evaluation timing, setting, method, evidence mode, and criteria match the claim type>"
+      mitigation_or_action: "<action if possible or present>"
+      related_record_ids: ["EVAL-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+    - anti_pattern_id: "ap_conflated_artifact_and_output_knowledge"
+      anti_pattern_label: "Conflated Artifact and Output Knowledge"
+      status: "not_checked"
+      rationale: "<check whether artifact, design knowledge, and contribution claim are distinct>"
+      mitigation_or_action: "<action if possible or present>"
+      related_record_ids: ["AU-001", "DK-001", "CONTRIB-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+
+  quality_control:
+    completeness_status: "recommended"
+    human_review_recommended: true
+    review_notes: "<items requiring human review before publication or schema-gated release>"
+    known_gaps:
+      - "<known gap, ambiguity, or missing evidence item>"

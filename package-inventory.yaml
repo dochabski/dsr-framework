@@ -87,6 +87,7 @@ package_inventory:
     - records
     - crosswalks
     - examples
+    - artifact packages developed inside this repository before standalone release
     - GitHub automation and issue-template directories when introduced
     excluded:
     - temporary working files
@@ -506,6 +507,37 @@ package_inventory:
     listed_file_existence:
       listed_count: 1
       present_count: 1
+      missing_count: 0
+  - directory_id: dir_025
+    path: artifacts
+    purpose: Nested artifact packages developed inside the DSR Framework repository before standalone release or repository split.
+    expected_file_count_from_selection_table: 20
+    listed_files:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    - artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
+    - artifacts/dsr-theory-operational-kernel/competency-questions.yaml
+    - artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
+    - artifacts/dsr-theory-operational-kernel/shapes/dsr-shapes.ttl
+    - artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.yaml
+    - artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.ttl
+    - artifacts/dsr-theory-operational-kernel/schemas/dsr-project.schema.json
+    - artifacts/dsr-theory-operational-kernel/templates/dsr-artifact-template.yaml
+    - artifacts/dsr-theory-operational-kernel/templates/dsr-contribution-template.yaml
+    - artifacts/dsr-theory-operational-kernel/templates/dsr-design-knowledge-template.yaml
+    - artifacts/dsr-theory-operational-kernel/templates/dsr-evaluation-template.yaml
+    - artifacts/dsr-theory-operational-kernel/templates/dsr-project-template.yaml
+    - artifacts/dsr-theory-operational-kernel/templates/dsr-transparency-template.yaml
+    - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+    - artifacts/dsr-theory-operational-kernel/records/source-basis/record-source-basis-dsr-theory-operational-kernel.yaml
+    - artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-05-05'
+    listed_file_existence:
+      listed_count: 20
+      present_count: 20
       missing_count: 0
   root_file_inventory:
   - path: README.md
@@ -5810,6 +5842,705 @@ package_inventory:
     - uses_declared_path_and_extension
     - documents_v1_patch_release_notes
     - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0155
+    file_id: file_artifacts__README_md
+    selection_id: artifact_dsr_theory_operational_kernel_artifact_policy
+    path: artifacts/README.md
+    package_section: artifacts
+    portion_type: artifact_directory_policy
+    output_format: markdown
+    purpose: Policy for nested artifact packages developed inside the repository.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0156
+    file_id: file_artifacts__dsr_theory_operational_kernel__README_md
+    selection_id: artifact_dsr_theory_operational_kernel_artifact_documentation
+    path: artifacts/dsr-theory-operational-kernel/README.md
+    package_section: artifacts/dsr-theory-operational-kernel
+    portion_type: artifact_readme
+    output_format: markdown
+    purpose: Human-facing entry point for the draft DSR theory operational kernel artifact package.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0157
+    file_id: file_artifacts__dsr_theory_operational_kernel__artifact_profile_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_artifact_profile
+    path: artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    package_section: artifacts/dsr-theory-operational-kernel
+    portion_type: artifact_profile
+    output_format: yaml
+    purpose: Structured profile, scope, validation posture, and non-claims for the draft artifact package.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0158
+    file_id: file_artifacts__dsr_theory_operational_kernel__package_inventory_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_package_inventory
+    path: artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    package_section: artifacts/dsr-theory-operational-kernel
+    portion_type: nested_package_inventory
+    output_format: yaml
+    purpose: Local inventory for the nested DSR theory operational kernel artifact package.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0159
+    file_id: file_artifacts__dsr_theory_operational_kernel__concept_inventory_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_concept_inventory
+    path: artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
+    package_section: artifacts/dsr-theory-operational-kernel
+    portion_type: concept_inventory
+    output_format: yaml
+    purpose: Normalized DSR concept inventory for ontology, vocabulary, shape, schema, and template development.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0160
+    file_id: file_artifacts__dsr_theory_operational_kernel__competency_questions_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_competency_questions
+    path: artifacts/dsr-theory-operational-kernel/competency-questions.yaml
+    package_section: artifacts/dsr-theory-operational-kernel
+    portion_type: ontology_competency_questions
+    output_format: yaml
+    purpose: Ontology competency questions for semantic validation of DSR documentation records.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0161
+    file_id: file_artifacts__dsr_theory_operational_kernel__ontology__dsr_ontology_ttl
+    selection_id: artifact_dsr_theory_operational_kernel_ontology
+    path: artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
+    package_section: artifacts/dsr-theory-operational-kernel/ontology
+    portion_type: ontology
+    output_format: turtle
+    purpose: Draft OWL/RDF ontology for DSR theory operationalization.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0162
+    file_id: file_artifacts__dsr_theory_operational_kernel__shapes__dsr_shapes_ttl
+    selection_id: artifact_dsr_theory_operational_kernel_shacl_shapes
+    path: artifacts/dsr-theory-operational-kernel/shapes/dsr-shapes.ttl
+    package_section: artifacts/dsr-theory-operational-kernel/shapes
+    portion_type: shacl_shapes
+    output_format: turtle
+    purpose: Draft SHACL shapes for DSR theory operational record validation.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0163
+    file_id: file_artifacts__dsr_theory_operational_kernel__vocabularies__dsr_skos_controlled_vocabulary_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_skos_vocabulary_yaml
+    path: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/vocabularies
+    portion_type: controlled_vocabulary
+    output_format: yaml
+    purpose: YAML representation of the DSR SKOS controlled vocabulary.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0164
+    file_id: file_artifacts__dsr_theory_operational_kernel__vocabularies__dsr_skos_controlled_vocabulary_ttl
+    selection_id: artifact_dsr_theory_operational_kernel_skos_vocabulary_ttl
+    path: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.ttl
+    package_section: artifacts/dsr-theory-operational-kernel/vocabularies
+    portion_type: controlled_vocabulary
+    output_format: turtle
+    purpose: Turtle representation of the DSR SKOS controlled vocabulary.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0165
+    file_id: file_artifacts__dsr_theory_operational_kernel__schemas__dsr_project_schema_json
+    selection_id: artifact_dsr_theory_operational_kernel_json_schema
+    path: artifacts/dsr-theory-operational-kernel/schemas/dsr-project.schema.json
+    package_section: artifacts/dsr-theory-operational-kernel/schemas
+    portion_type: json_schema
+    output_format: json_schema
+    purpose: JSON Schema for DSR project and module authoring records.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0166
+    file_id: file_artifacts__dsr_theory_operational_kernel__templates__dsr_artifact_template_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_artifact_template
+    path: artifacts/dsr-theory-operational-kernel/templates/dsr-artifact-template.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/templates
+    portion_type: authoring_template
+    output_format: yaml
+    purpose: DSR artifact authoring template.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0167
+    file_id: file_artifacts__dsr_theory_operational_kernel__templates__dsr_contribution_template_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_contribution_template
+    path: artifacts/dsr-theory-operational-kernel/templates/dsr-contribution-template.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/templates
+    portion_type: authoring_template
+    output_format: yaml
+    purpose: DSR contribution authoring template.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0168
+    file_id: file_artifacts__dsr_theory_operational_kernel__templates__dsr_design_knowledge_template_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_design_knowledge_template
+    path: artifacts/dsr-theory-operational-kernel/templates/dsr-design-knowledge-template.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/templates
+    portion_type: authoring_template
+    output_format: yaml
+    purpose: DSR design-knowledge authoring template.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0169
+    file_id: file_artifacts__dsr_theory_operational_kernel__templates__dsr_evaluation_template_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_evaluation_template
+    path: artifacts/dsr-theory-operational-kernel/templates/dsr-evaluation-template.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/templates
+    portion_type: authoring_template
+    output_format: yaml
+    purpose: DSR evaluation authoring template.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0170
+    file_id: file_artifacts__dsr_theory_operational_kernel__templates__dsr_project_template_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_project_template
+    path: artifacts/dsr-theory-operational-kernel/templates/dsr-project-template.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/templates
+    portion_type: authoring_template
+    output_format: yaml
+    purpose: Full DSR project authoring template.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0171
+    file_id: file_artifacts__dsr_theory_operational_kernel__templates__dsr_transparency_template_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_transparency_template
+    path: artifacts/dsr-theory-operational-kernel/templates/dsr-transparency-template.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/templates
+    portion_type: authoring_template
+    output_format: yaml
+    purpose: DSR transparency authoring template.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0172
+    file_id: file_artifacts__dsr_theory_operational_kernel__crosswalks__concept_to_ontology_coverage_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_concept_coverage_crosswalk
+    path: artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/crosswalks
+    portion_type: coverage_crosswalk
+    output_format: yaml
+    purpose: Coverage disposition from concept inventory to ontology, SKOS, and SHACL files.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0173
+    file_id: file_artifacts__dsr_theory_operational_kernel__records__source_basis__record_source_basis_dsr_theory_operational_kernel_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_source_basis_record
+    path: artifacts/dsr-theory-operational-kernel/records/source-basis/record-source-basis-dsr-theory-operational-kernel.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/records/source-basis
+    portion_type: source_basis_record
+    output_format: yaml
+    purpose: Retained source-basis record for the draft DSR theory operational kernel package.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0174
+    file_id: file_artifacts__dsr_theory_operational_kernel__records__validation__record_validation_0001_local_preflight_yaml
+    selection_id: artifact_dsr_theory_operational_kernel_local_preflight_validation_record
+    path: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+    package_section: artifacts/dsr-theory-operational-kernel/records/validation
+    portion_type: validation_record
+    output_format: yaml
+    purpose: Retained local preflight validation record for the draft DSR theory operational kernel package.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/README.md
+    - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+    - artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-05'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - local_artifact_inventory_aligned
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - remains_scoped_as_nested_draft_artifact
+    - records_source_basis_or_local_inventory_context
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -6088,12 +6819,17 @@ package_inventory:
     change: Froze v1.0.2 patch release metadata and added patch release, approval, and GitHub release notes records for conformance consistency cleanup.
     responsible_party: framework_maintainer
     review_status: v1_0_2_patch_release_records_created
+  - version: 1.0.2
+    date: '2026-05-05'
+    change: Added draft DSR theory operational kernel artifact package under artifacts/ with retained source-basis and local preflight records.
+    responsible_party: framework_maintainer
+    review_status: nested_dsr_theory_artifact_imported_as_draft
   normalization_status:
     status: 1.0.2_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 154
+    controlled_file_inventory_entries: 174
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass

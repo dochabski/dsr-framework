@@ -1,0 +1,88 @@
+# SPDX-License-Identifier: CC0-1.0
+validation_record:
+  record_id: record_validation_0001_dsr_theory_operational_kernel_local_preflight
+  record_class: validation_record
+  item_type: record
+  title: DSR Theory Operational Kernel Local Preflight
+  status: draft_retained
+  version: "0.1.0-draft"
+  validation_date: "2026-05-05"
+  responsible_party: framework_maintainer
+  artifact_scope: artifacts/dsr-theory-operational-kernel
+  validation_environment:
+    operating_system: windows
+    python_runtime: local_python_3
+    libraries:
+      - pyyaml
+      - jsonschema
+      - rdflib
+  checks:
+    - check_id: yaml_parse
+      result: pass
+      files_checked:
+        - concept-inventory.yaml
+        - competency-questions.yaml
+        - vocabularies/dsr-skos-controlled-vocabulary.yaml
+        - templates/dsr-artifact-template.yaml
+        - templates/dsr-contribution-template.yaml
+        - templates/dsr-design-knowledge-template.yaml
+        - templates/dsr-evaluation-template.yaml
+        - templates/dsr-project-template.yaml
+        - templates/dsr-transparency-template.yaml
+    - check_id: json_schema_meta_validation
+      result: pass
+      files_checked:
+        - schemas/dsr-project.schema.json
+    - check_id: template_schema_validation
+      result: pass
+      schema: schemas/dsr-project.schema.json
+      instances_checked:
+        - templates/dsr-artifact-template.yaml
+        - templates/dsr-contribution-template.yaml
+        - templates/dsr-design-knowledge-template.yaml
+        - templates/dsr-evaluation-template.yaml
+        - templates/dsr-project-template.yaml
+        - templates/dsr-transparency-template.yaml
+    - check_id: ttl_parse
+      result: pass
+      files_checked:
+        - ontology/dsr-ontology.ttl
+        - shapes/dsr-shapes.ttl
+        - vocabularies/dsr-skos-controlled-vocabulary.ttl
+      triple_counts:
+        ontology: 2563
+        shacl_shapes: 1132
+        skos_vocabulary: 11097
+    - check_id: concept_to_ontology_coverage
+      result: pass_with_recorded_draft_gaps
+      evidence: crosswalks/concept-to-ontology-coverage.yaml
+      interpretation: >
+        The artifact is suitable for controlled draft import. Concept coverage and
+        selected SHACL path issues remain recorded follow-up before stronger
+        ontology-completeness or standalone release claims.
+  concept_inventory_counts:
+    classes: 98
+    object_properties: 52
+    datatype_properties: 34
+    controlled_vocabularies: 23
+    validation_rules: 29
+    anti_patterns: 13
+    source_clarification_needed: 11
+  coverage_summary:
+    controlled_vocabularies_represented: 23
+    controlled_vocabularies_missing: 0
+    classes_not_represented_by_identifier: 26
+    object_properties_not_represented_by_identifier: 22
+    datatype_properties_not_represented_by_identifier: 12
+    shacl_target_classes_missing: 0
+  outcome:
+    result: pass_for_draft_import_with_recorded_gaps
+    supports:
+      - controlled_github_import
+      - public_review_preparation
+      - later_self_application_evaluation
+    does_not_support:
+      - complete_ontology_coverage
+      - standalone_stable_release
+      - independent_semantic_review
+      - l5_archival_publication_ready

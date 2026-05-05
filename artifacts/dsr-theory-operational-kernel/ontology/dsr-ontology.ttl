@@ -1,0 +1,2769 @@
+# SPDX-License-Identifier: CC0-1.0
+# dsr-ontology.ttl
+# Core OWL ontology for the operational Design Science Research framework.
+# Generated 2026-05-05.
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsr: <https://w3id.org/dsr-framework/ontology#> .
+@prefix dsrv: <https://w3id.org/dsr-framework/vocab/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/dsr-framework/ontology> a owl:Ontology ;
+    dcterms:created "2026-05-05"^^xsd:date ;
+    dcterms:creator "DSR Framework project" ;
+    dcterms:description "Core OWL ontology for the operational Design Science Research (DSR) framework. It represents DSR studies as linked problem, context, input-knowledge, requirement, artifact, demonstration, evaluation, evidence, design-knowledge, contribution, transparency, validity, reliability, replication, and anti-pattern entities. It is intended to be paired with the DSR SKOS controlled vocabulary and SHACL validation shapes."@en ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dcterms:modified "2026-05-05"^^xsd:date ;
+    dcterms:source "DSR Operational Synthesis.txt",
+        "Theory of Design Science Research.txt",
+        "Unified DSR source operational extraction corpus",
+        "concept-inventory_v2.yaml" ;
+    dcterms:title "DSR Core Ontology"@en ;
+    vann:preferredNamespacePrefix "dsr" ;
+    vann:preferredNamespaceUri "https://w3id.org/dsr-framework/ontology#" ;
+    rdfs:comment "OWL restrictions in this file express the intended core semantic profile. Completeness, severity, and authoring conformance should be enforced in SHACL, JSON Schema, and repository validation profiles."@en ;
+    rdfs:seeAlso dsrv: ;
+    owl:versionIRI <https://w3id.org/dsr-framework/ontology/0.1.0> ;
+    owl:versionInfo "0.1.0-draft" .
+
+dsr:Architecture a owl:Class ;
+    rdfs:label "Architecture"@en ;
+    dcterms:identifier "architecture" ;
+    rdfs:comment "A structural design entity describing components, interfaces, layers, or configuration principles for a technical or sociotechnical system."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:architecture ;
+    skos:definition "A structural design entity describing components, interfaces, layers, or configuration principles for a technical or sociotechnical system."@en ;
+    skos:prefLabel "Architecture"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:ArtifactBlackBox a owl:NamedIndividual,
+        dsr:AntiPattern ;
+    rdfs:label "Artifact black box"@en ;
+    dcterms:identifier "artifact_black_box" ;
+    rdfs:comment "Reporting an artifact without sufficient specification, make plan, design rationale, or build transparency."@en ;
+    skos:closeMatch dsrv:artifact-black-box ;
+    skos:definition "Reporting an artifact without sufficient specification, make plan, design rationale, or build transparency."@en ;
+    skos:prefLabel "Artifact black box"@en ;
+    dsr:status "recommended" .
+
+dsr:ArtifactSpace a owl:Class ;
+    rdfs:label "Artifact Space"@en ;
+    dcterms:identifier "artifact_space" ;
+    rdfs:comment "The space of design entities, artifact universals, artifact instantiations, artifact specifications, make/use/capacity claims, and artifact networks."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:closeMatch dsrv:artifact-space ;
+    skos:definition "The space of design entities, artifact universals, artifact instantiations, artifact specifications, make/use/capacity claims, and artifact networks."@en ;
+    skos:prefLabel "Artifact Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ArtifactUniversal a owl:Class ;
+    rdfs:label "Artifact Universal"@en ;
+    dcterms:identifier "artifact_universal" ;
+    rdfs:comment "A reusable artifact kind or design specification, distinct from a concrete implementation, that can be instantiated and evaluated through instances."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:altLabel "abstract artifact"@en,
+        "artifact class"@en,
+        "artifact kind"@en ;
+    skos:closeMatch dsrv:artifact-universal ;
+    skos:definition "A reusable artifact kind or design specification, distinct from a concrete implementation, that can be instantiated and evaluated through instances."@en ;
+    skos:prefLabel "Artifact Universal"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:BuildTrace a owl:Class ;
+    rdfs:label "Build Trace"@en ;
+    dcterms:identifier "build_trace" ;
+    rdfs:comment "Documentation of construction activities, versions, code or materials, implementation choices, and capacity conformance evidence."@en ;
+    rdfs:subClassOf dsr:TransparencyTrace ;
+    skos:closeMatch dsrv:build-trace ;
+    skos:definition "Documentation of construction activities, versions, code or materials, implementation choices, and capacity conformance evidence."@en ;
+    skos:prefLabel "Build Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:BuildTransparencyTrace a owl:Class ;
+    rdfs:label "Build Transparency Trace"@en ;
+    dcterms:identifier "build_transparency_trace" ;
+    rdfs:comment "Documentation of design rationale, creative reasoning, collaboration, artifact construction choices, and implementation decisions."@en ;
+    rdfs:subClassOf dsr:TransparencyTrace ;
+    skos:closeMatch dsrv:build-transparency-trace ;
+    skos:definition "Documentation of design rationale, creative reasoning, collaboration, artifact construction choices, and implementation decisions."@en ;
+    skos:prefLabel "Build Transparency Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:CommunicationSpace a owl:Class ;
+    rdfs:label "Communication and Transparency Space"@en ;
+    dcterms:identifier "communication_space" ;
+    rdfs:comment "The reporting, repository, audience, DSR Grid, and transparency layer that makes the study reviewable, reusable, auditable, and practically intelligible."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:closeMatch dsrv:communication-space ;
+    skos:definition "The reporting, repository, audience, DSR Grid, and transparency layer that makes the study reviewable, reusable, auditable, and practically intelligible."@en ;
+    skos:prefLabel "Communication and Transparency Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:Construct a owl:Class ;
+    rdfs:label "Construct"@en ;
+    dcterms:identifier "construct" ;
+    rdfs:comment "A conceptual vocabulary, term set, or symbolic representation used to describe a problem or solution domain."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:construct ;
+    skos:definition "A conceptual vocabulary, term set, or symbolic representation used to describe a problem or solution domain."@en ;
+    skos:prefLabel "Construct"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:ContextSpace a owl:Class ;
+    rdfs:label "Context Space"@en ;
+    dcterms:identifier "context_space" ;
+    rdfs:comment "The organizational, technical, social, temporal, cultural, regulatory, resource, stakeholder, and artifact-network conditions that bound DSR claims."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:closeMatch dsrv:context-space ;
+    skos:definition "The organizational, technical, social, temporal, cultural, regulatory, resource, stakeholder, and artifact-network conditions that bound DSR claims."@en ;
+    skos:prefLabel "Context Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ContributionTransparencyTrace a owl:Class ;
+    rdfs:label "Contribution Transparency Trace"@en ;
+    dcterms:identifier "contribution_transparency_trace" ;
+    rdfs:comment "Documentation of scientific and practical contribution, design knowledge, audience-specific communication, evidence basis, and limits."@en ;
+    rdfs:subClassOf dsr:TransparencyTrace ;
+    skos:closeMatch dsrv:contribution-transparency-trace ;
+    skos:definition "Documentation of scientific and practical contribution, design knowledge, audience-specific communication, evidence basis, and limits."@en ;
+    skos:prefLabel "Contribution Transparency Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:DSRGridSummary a owl:Class ;
+    rdfs:label "DSR Grid Summary"@en ;
+    dcterms:identifier "dsr_grid_summary" ;
+    rdfs:comment "A six-dimension summary covering problem, input knowledge, research process, key concepts, solution, and output knowledge."@en ;
+    rdfs:subClassOf dsr:DocumentationArtifact ;
+    skos:closeMatch dsrv:dsr-grid-summary ;
+    skos:definition "A six-dimension summary covering problem, input knowledge, research process, key concepts, solution, and output knowledge."@en ;
+    skos:prefLabel "DSR Grid Summary"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:DesignPattern a owl:Class ;
+    rdfs:label "Design Pattern"@en ;
+    dcterms:identifier "design_pattern" ;
+    rdfs:comment "A reusable problem-solution schema including problem, context, forces, solution, rationale, consequences, and implementation guidance."@en ;
+    rdfs:subClassOf dsr:DesignEntity,
+        dsr:DesignKnowledge ;
+    skos:closeMatch dsrv:design-pattern ;
+    skos:definition "A reusable problem-solution schema including problem, context, forces, solution, rationale, consequences, and implementation guidance."@en ;
+    skos:prefLabel "Design Pattern"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:DesignPrinciple a owl:Class ;
+    rdfs:label "Design Principle"@en ;
+    dcterms:identifier "design_principle" ;
+    rdfs:comment "A transferable prescriptive design-knowledge statement linking context, intervention or action, mechanism or rationale, outcome, and boundary conditions."@en ;
+    rdfs:subClassOf dsr:DesignEntity,
+        dsr:DesignKnowledge ;
+    skos:closeMatch dsrv:design-principle ;
+    skos:definition "A transferable prescriptive design-knowledge statement linking context, intervention or action, mechanism or rationale, outcome, and boundary conditions."@en ;
+    skos:prefLabel "Design Principle"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:DesignSpace a owl:Class ;
+    rdfs:label "Design Space"@en ;
+    dcterms:identifier "design_space" ;
+    rdfs:comment "The search and construction space containing objectives, requirements, design rationale, make plans, use plans, capacities, alternatives, and decisions."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:closeMatch dsrv:design-space ;
+    skos:definition "The search and construction space containing objectives, requirements, design rationale, make plans, use plans, capacities, alternatives, and decisions."@en ;
+    skos:prefLabel "Design Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:DesignTheory a owl:Class ;
+    rdfs:label "Design Theory"@en ;
+    dcterms:identifier "design_theory" ;
+    rdfs:comment "A structured prescriptive theory including purpose and scope, constructs, form and function, mutability, propositions, justificatory knowledge, implementation principles, and expository instantiation."@en ;
+    rdfs:subClassOf dsr:DesignEntity,
+        dsr:DesignKnowledge ;
+    skos:closeMatch dsrv:design-theory ;
+    skos:definition "A structured prescriptive theory including purpose and scope, constructs, form and function, mutability, propositions, justificatory knowledge, implementation principles, and expository instantiation."@en ;
+    skos:prefLabel "Design Theory"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:EvaluationFinding a owl:Class ;
+    rdfs:label "Evaluation Finding"@en ;
+    dcterms:identifier "evaluation_finding" ;
+    rdfs:comment "A result, interpretation, or limitation produced by evaluation and used to support or constrain claims."@en ;
+    rdfs:subClassOf dsr:EvaluationEvidence ;
+    skos:closeMatch dsrv:evaluation-finding ;
+    skos:definition "A result, interpretation, or limitation produced by evaluation and used to support or constrain claims."@en ;
+    skos:prefLabel "Evaluation Finding"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:EvaluationMismatch a owl:NamedIndividual,
+        dsr:AntiPattern ;
+    rdfs:label "Evaluation mismatch"@en ;
+    dcterms:identifier "evaluation_mismatch" ;
+    rdfs:comment "Misalignment between evaluation object, criteria, evidence mode, context, maturity, and claim type."@en ;
+    skos:closeMatch dsrv:evaluation-mismatch ;
+    skos:definition "Misalignment between evaluation object, criteria, evidence mode, context, maturity, and claim type."@en ;
+    skos:prefLabel "Evaluation mismatch"@en ;
+    dsr:status "recommended" .
+
+dsr:EvaluationSpace a owl:Class ;
+    rdfs:label "Evaluation Space"@en ;
+    dcterms:identifier "evaluation_space" ;
+    rdfs:comment "The structured relation among artifact, claim type, timing, setting, evidence mode, criteria, stakeholders, findings, and limitations."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:closeMatch dsrv:evaluation-space ;
+    skos:definition "The structured relation among artifact, claim type, timing, setting, evidence mode, criteria, stakeholders, findings, and limitations."@en ;
+    skos:prefLabel "Evaluation Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:EvaluationTransparencyTrace a owl:Class ;
+    rdfs:label "Evaluation Transparency Trace"@en ;
+    dcterms:identifier "evaluation_transparency_trace" ;
+    rdfs:comment "Documentation of evaluation methods, criteria, evidence, measures, formative and summative findings, and fitness for use or evolution."@en ;
+    rdfs:subClassOf dsr:TransparencyTrace ;
+    skos:closeMatch dsrv:evaluation-transparency-trace ;
+    skos:definition "Documentation of evaluation methods, criteria, evidence, measures, formative and summative findings, and fitness for use or evolution."@en ;
+    skos:prefLabel "Evaluation Transparency Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ExPostDSRification a owl:NamedIndividual,
+        dsr:AntiPattern ;
+    rdfs:label "Ex-post DSR-ification"@en ;
+    dcterms:identifier "ex_post_dsr_ification" ;
+    rdfs:comment "Retrofitting DSR language to a completed local project without traceable problem, design, evaluation, or contribution grounding."@en ;
+    skos:closeMatch dsrv:ex-post-dsr-ification ;
+    skos:definition "Retrofitting DSR language to a completed local project without traceable problem, design, evaluation, or contribution grounding."@en ;
+    skos:prefLabel "Ex-post DSR-ification"@en ;
+    dsr:status "recommended" .
+
+dsr:Framework a owl:Class ;
+    rdfs:label "Framework"@en ;
+    dcterms:identifier "framework" ;
+    rdfs:comment "An organizing structure for concepts, dimensions, criteria, relationships, or activities in DSR or a domain of practice."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:framework ;
+    skos:definition "An organizing structure for concepts, dimensions, criteria, relationships, or activities in DSR or a domain of practice."@en ;
+    skos:prefLabel "Framework"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:InstantiationClass a owl:Class ;
+    rdfs:label "Instantiation Class"@en ;
+    dcterms:identifier "instantiation_class" ;
+    rdfs:comment "A reusable class of implemented artifacts, prototypes, systems, interventions, or process implementations represented at the artifact-kind level."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:instantiation-class ;
+    skos:definition "A reusable class of implemented artifacts, prototypes, systems, interventions, or process implementations represented at the artifact-kind level."@en ;
+    skos:prefLabel "Instantiation Class"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:KnowledgeContribution a owl:Class ;
+    rdfs:label "Knowledge Contribution"@en ;
+    dcterms:identifier "knowledge_contribution" ;
+    rdfs:comment "A codified addition to DSR or domain knowledge characterized by contribution object, knowledge goal, knowledge scope, novelty, maturity, audience, evidence basis, and boundary conditions."@en ;
+    rdfs:subClassOf dsr:OutputKnowledge ;
+    skos:closeMatch dsrv:knowledge-contribution ;
+    skos:definition "A codified addition to DSR or domain knowledge characterized by contribution object, knowledge goal, knowledge scope, novelty, maturity, audience, evidence basis, and boundary conditions."@en ;
+    skos:prefLabel "Knowledge Contribution"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:KnowledgeGoal a owl:Class ;
+    rdfs:label "Knowledge Goal"@en ;
+    dcterms:identifier "knowledge_goal" ;
+    rdfs:comment "The purpose of knowledge produced, such as definitional, descriptive, explanatory, predictive, evaluative, methodological, normative, or prescriptive."@en ;
+    rdfs:subClassOf dsr:KnowledgeType ;
+    skos:closeMatch dsrv:knowledge-goal ;
+    skos:definition "The purpose of knowledge produced, such as definitional, descriptive, explanatory, predictive, evaluative, methodological, normative, or prescriptive."@en ;
+    skos:prefLabel "Knowledge Goal"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:KnowledgeScope a owl:Class ;
+    rdfs:label "Knowledge Scope"@en ;
+    dcterms:identifier "knowledge_scope" ;
+    rdfs:comment "The level of generality or projectability of knowledge, ranging from idiographic or local to nomothetic or general."@en ;
+    rdfs:subClassOf dsr:KnowledgeType ;
+    skos:closeMatch dsrv:knowledge-scope ;
+    skos:definition "The level of generality or projectability of knowledge, ranging from idiographic or local to nomothetic or general."@en ;
+    skos:prefLabel "Knowledge Scope"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:KnowledgeSpace a owl:Class ;
+    rdfs:label "Knowledge Space"@en ;
+    dcterms:identifier "knowledge_space" ;
+    rdfs:comment "The generated design knowledge, output knowledge, contribution claim, boundary conditions, and accumulated knowledge-base updates."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:closeMatch dsrv:knowledge-space ;
+    skos:definition "The generated design knowledge, output knowledge, contribution claim, boundary conditions, and accumulated knowledge-base updates."@en ;
+    skos:prefLabel "Knowledge Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:MakeClaim a owl:Class ;
+    rdfs:label "Make Claim"@en ;
+    dcterms:identifier "make_claim" ;
+    rdfs:comment "A claim that executing a make plan yields an artifact instance with specified capacities satisfying a make goal."@en ;
+    rdfs:subClassOf dsr:Claim ;
+    skos:closeMatch dsrv:make-claim ;
+    skos:definition "A claim that executing a make plan yields an artifact instance with specified capacities satisfying a make goal."@en ;
+    skos:prefLabel "Make Claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:Measure a owl:Class ;
+    rdfs:label "Measure"@en ;
+    dcterms:identifier "measure" ;
+    rdfs:comment "An instrument, metric, indicator, test, observation, scale, analytic output, or data collection item used in evaluation."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:measure ;
+    skos:definition "An instrument, metric, indicator, test, observation, scale, analytic output, or data collection item used in evaluation."@en ;
+    skos:prefLabel "Measure"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:Method a owl:Class ;
+    rdfs:label "Method"@en ;
+    dcterms:identifier "method" ;
+    rdfs:comment "A procedure, algorithm, process, technique, or methodology for accomplishing a design, implementation, evaluation, or research task."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:method ;
+    skos:definition "A procedure, algorithm, process, technique, or methodology for accomplishing a design, implementation, evaluation, or research task."@en ;
+    skos:prefLabel "Method"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:Model a owl:Class ;
+    rdfs:label "Model"@en ;
+    dcterms:identifier "model" ;
+    rdfs:comment "An abstraction of relationships, structures, processes, states, mechanisms, or design logic."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:model ;
+    skos:definition "An abstraction of relationships, structures, processes, states, mechanisms, or design logic."@en ;
+    skos:prefLabel "Model"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:NonCodifiedKnowledge a owl:NamedIndividual,
+        dsr:AntiPattern ;
+    rdfs:label "Non-codified knowledge"@en ;
+    dcterms:identifier "non_codified_knowledge" ;
+    rdfs:comment "Failing to codify design knowledge, boundary conditions, contribution claims, or projectability beyond the local artifact."@en ;
+    skos:closeMatch dsrv:non-codified-knowledge ;
+    skos:definition "Failing to codify design knowledge, boundary conditions, contribution claims, or projectability beyond the local artifact."@en ;
+    skos:prefLabel "Non-codified knowledge"@en ;
+    dsr:status "recommended" .
+
+dsr:OntologyArtifact a owl:Class ;
+    rdfs:label "Ontology Artifact"@en ;
+    dcterms:identifier "ontology_artifact" ;
+    rdfs:comment "A formalized conceptualization of classes, properties, relationships, and constraints produced or used as a DSR artifact."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:definition "A formalized conceptualization of classes, properties, relationships, and constraints produced or used as a DSR artifact."@en ;
+    skos:prefLabel "Ontology Artifact"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:ProblemSpaceTransparencyTrace a owl:Class ;
+    rdfs:label "Problem-Space Transparency Trace"@en ;
+    dcterms:identifier "problem_space_transparency_trace" ;
+    rdfs:comment "Documentation of context, stakeholders, scope, goals, timeframe, resources, constraints, and boundary conditions."@en ;
+    rdfs:subClassOf dsr:TransparencyTrace ;
+    skos:closeMatch dsrv:problem-space-transparency-trace ;
+    skos:definition "Documentation of context, stakeholders, scope, goals, timeframe, resources, constraints, and boundary conditions."@en ;
+    skos:prefLabel "Problem-Space Transparency Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ProcessArtifact a owl:Class ;
+    rdfs:label "Process Artifact"@en ;
+    dcterms:identifier "process_artifact" ;
+    rdfs:comment "A designed process, workflow, lifecycle, checklist, grid, or method artifact used to guide DSR or practice."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:process-artifact ;
+    skos:definition "A designed process, workflow, lifecycle, checklist, grid, or method artifact used to guide DSR or practice."@en ;
+    skos:prefLabel "Process Artifact"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:ProcessTransparencyTrace a owl:Class ;
+    rdfs:label "Process Transparency Trace"@en ;
+    dcterms:identifier "process_transparency_trace" ;
+    rdfs:comment "Documentation of actual activities, reasoning, sequence, iterations, emergent decisions, and design log."@en ;
+    rdfs:subClassOf dsr:TransparencyTrace ;
+    skos:closeMatch dsrv:process-transparency-trace ;
+    skos:definition "Documentation of actual activities, reasoning, sequence, iterations, emergent decisions, and design log."@en ;
+    skos:prefLabel "Process Transparency Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:RepositoryPackage a owl:Class ;
+    rdfs:label "Repository Package"@en ;
+    dcterms:identifier "repository_package" ;
+    rdfs:comment "A reusable package containing data, code, screenshots, simulations, logs, instruments, models, documentation, source registry, concept inventory, schemas, shapes, examples, and validation scripts."@en ;
+    rdfs:subClassOf dsr:DocumentationArtifact ;
+    skos:closeMatch dsrv:repository-package ;
+    skos:definition "A reusable package containing data, code, screenshots, simulations, logs, instruments, models, documentation, source registry, concept inventory, schemas, shapes, examples, and validation scripts."@en ;
+    skos:prefLabel "Repository Package"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ResearchQuestion a owl:Class ;
+    rdfs:label "Research Question"@en ;
+    dcterms:identifier "research_question" ;
+    rdfs:comment "A problem-, objective-, artifact-, design-, evaluation-, or knowledge-oriented inquiry formulation for a DSR study."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:research-question ;
+    skos:definition "A problem-, objective-, artifact-, design-, evaluation-, or knowledge-oriented inquiry formulation for a DSR study."@en ;
+    skos:prefLabel "Research Question"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:RoutineDesignOverclaim a owl:NamedIndividual,
+        dsr:AntiPattern ;
+    rdfs:label "Routine design overclaim"@en ;
+    dcterms:identifier "routine_design_overclaim" ;
+    rdfs:comment "Claiming a routine implementation as DSR without novelty, design knowledge, projectability, or adequate evaluation."@en ;
+    skos:closeMatch dsrv:routine-design-overclaim ;
+    skos:definition "Claiming a routine implementation as DSR without novelty, design knowledge, projectability, or adequate evaluation."@en ;
+    skos:prefLabel "Routine design overclaim"@en ;
+    dsr:status "recommended" .
+
+dsr:SocioTechnicalIntervention a owl:Class ;
+    rdfs:label "Socio-Technical Intervention"@en ;
+    dcterms:identifier "socio_technical_intervention" ;
+    rdfs:comment "A coordinated human, organizational, technical, and process configuration intended to change practice and generate situated utility."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:socio-technical-intervention ;
+    skos:definition "A coordinated human, organizational, technical, and process configuration intended to change practice and generate situated utility."@en ;
+    skos:prefLabel "Socio-Technical Intervention"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:SolutionSpace a owl:Class ;
+    rdfs:label "Solution Space"@en ;
+    dcterms:identifier "solution_space" ;
+    rdfs:comment "The prior artifacts, theories, technologies, methods, design alternatives, and patterns used to ground the artifact."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:closeMatch dsrv:solution-space ;
+    skos:definition "The prior artifacts, theories, technologies, methods, design alternatives, and patterns used to ground the artifact."@en ;
+    skos:prefLabel "Solution Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:SolutionSpaceTransparencyTrace a owl:Class ;
+    rdfs:label "Solution-Space Transparency Trace"@en ;
+    dcterms:identifier "solution_space_transparency_trace" ;
+    rdfs:comment "Documentation of search strategy, grounding theories, prior artifacts, design alternatives, technologies, and evidence synthesis."@en ;
+    rdfs:subClassOf dsr:TransparencyTrace ;
+    skos:closeMatch dsrv:solution-space-transparency-trace ;
+    skos:definition "Documentation of search strategy, grounding theories, prior artifacts, design alternatives, technologies, and evidence synthesis."@en ;
+    skos:prefLabel "Solution-Space Transparency Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:Taxonomy a owl:Class ;
+    rdfs:label "Taxonomy"@en ;
+    dcterms:identifier "taxonomy" ;
+    rdfs:comment "A classification artifact that organizes concepts, dimensions, types, or criteria and supports discriminating judgments."@en ;
+    rdfs:subClassOf dsr:DesignEntity ;
+    skos:closeMatch dsrv:taxonomy ;
+    skos:definition "A classification artifact that organizes concepts, dimensions, types, or criteria and supports discriminating judgments."@en ;
+    skos:prefLabel "Taxonomy"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:UsageEffectClaim a owl:Class ;
+    rdfs:label "Usage-Effect Claim"@en ;
+    dcterms:identifier "usage_effect_claim" ;
+    rdfs:comment "A claim that artifact use in practice contributes to broader organizational, social, technical, or practitioner effects."@en ;
+    rdfs:subClassOf dsr:UseClaim ;
+    skos:closeMatch dsrv:usage-effect-claim ;
+    skos:definition "A claim that artifact use in practice contributes to broader organizational, social, technical, or practitioner effects."@en ;
+    skos:prefLabel "Usage-Effect Claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:UseCase a owl:Class ;
+    rdfs:label "Use Case"@en ;
+    dcterms:identifier "use_case" ;
+    rdfs:comment "A situated description of users, tasks, context, steps, and expected effects for artifact use."@en ;
+    rdfs:subClassOf dsr:Demonstration ;
+    skos:closeMatch dsrv:use-case ;
+    skos:definition "A situated description of users, tasks, context, steps, and expected effects for artifact use."@en ;
+    skos:prefLabel "Use Case"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:WeakProblemGrounding a owl:NamedIndividual,
+        dsr:AntiPattern ;
+    rdfs:label "Weak problem grounding"@en ;
+    dcterms:identifier "weak_problem_grounding" ;
+    rdfs:comment "Insufficient evidence, stakeholder grounding, or abstraction for the problem instance and problem class."@en ;
+    skos:closeMatch dsrv:weak-problem-grounding ;
+    skos:definition "Insufficient evidence, stakeholder grounding, or abstraction for the problem instance and problem class."@en ;
+    skos:prefLabel "Weak problem grounding"@en ;
+    dsr:status "recommended" .
+
+dsr:acceptanceThreshold a owl:DatatypeProperty ;
+    rdfs:label "acceptance threshold"@en ;
+    dcterms:identifier "acceptance_threshold" ;
+    rdfs:comment "Threshold, criterion, metric, or pass/fail statement used to judge whether an objective or requirement is satisfied."@en ;
+    rdfs:domain dsr:AcceptanceCriterion ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:acceptance-threshold ;
+    skos:definition "Threshold, criterion, metric, or pass/fail statement used to judge whether an objective or requirement is satisfied."@en ;
+    skos:prefLabel "acceptance threshold"@en ;
+    dsr:status "recommended" .
+
+dsr:ambiguityLevel a owl:AnnotationProperty ;
+    rdfs:label "ambiguity level"@en .
+
+dsr:antiPatternTrigger a owl:DatatypeProperty ;
+    rdfs:label "anti-pattern trigger"@en ;
+    dcterms:identifier "anti_pattern_trigger" ;
+    rdfs:comment "Condition, warning, or finding that indicates a DSR anti-pattern."@en ;
+    rdfs:domain dsr:AntiPattern ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:anti-pattern-trigger ;
+    skos:definition "Condition, warning, or finding that indicates a DSR anti-pattern."@en ;
+    skos:prefLabel "anti-pattern trigger"@en ;
+    dsr:status "recommended" .
+
+dsr:artifactBoundary a owl:DatatypeProperty ;
+    rdfs:label "artifact boundary"@en ;
+    dcterms:identifier "artifact_boundary" ;
+    rdfs:comment "Statement of what is inside and outside the artifact or design entity boundary."@en ;
+    rdfs:domain dsr:DesignEntity ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:artifact-boundary ;
+    skos:definition "Statement of what is inside and outside the artifact or design entity boundary."@en ;
+    skos:prefLabel "artifact boundary"@en ;
+    dsr:status "recommended" .
+
+dsr:artifactName a owl:DatatypeProperty ;
+    rdfs:label "artifact name"@en ;
+    dcterms:identifier "artifact_name" ;
+    rdfs:comment "Name of a design entity or artifact instantiation."@en ;
+    rdfs:domain dsr:DSREntity ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:artifact-name ;
+    skos:definition "Name of a design entity or artifact instantiation."@en ;
+    skos:prefLabel "artifact name"@en ;
+    dsr:status "recommended" .
+
+dsr:artifactVersion a owl:DatatypeProperty ;
+    rdfs:label "artifact version"@en ;
+    dcterms:identifier "artifact_version" ;
+    rdfs:comment "Version, release, prototype, or build identifier for an artifact instantiation or design entity."@en ;
+    rdfs:domain dsr:DSREntity ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:artifact-version ;
+    skos:definition "Version, release, prototype, or build identifier for an artifact instantiation or design entity."@en ;
+    skos:prefLabel "artifact version"@en ;
+    dsr:status "recommended" .
+
+dsr:boundaryConditionText a owl:DatatypeProperty ;
+    rdfs:label "boundary condition text"@en ;
+    dcterms:identifier "boundary_condition_text" ;
+    rdfs:comment "Textual statement of a condition limiting where a claim or design knowledge applies."@en ;
+    rdfs:domain dsr:BoundaryCondition ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:boundary-condition-text ;
+    skos:definition "Textual statement of a condition limiting where a claim or design knowledge applies."@en ;
+    skos:prefLabel "boundary condition text"@en ;
+    dsr:status "recommended" .
+
+dsr:capacityStatement a owl:DatatypeProperty ;
+    rdfs:label "capacity statement"@en ;
+    dcterms:identifier "capacity_statement" ;
+    rdfs:comment "Textual statement of artifact function, affordance, quality, constraint, or capability."@en ;
+    rdfs:domain dsr:CapacitySpecification ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:capacity-statement ;
+    skos:definition "Textual statement of artifact function, affordance, quality, constraint, or capability."@en ;
+    skos:prefLabel "capacity statement"@en ;
+    dsr:status "recommended" .
+
+dsr:cardinalityExpectation a owl:AnnotationProperty ;
+    rdfs:label "cardinality expectation"@en .
+
+dsr:claimStatement a owl:DatatypeProperty ;
+    rdfs:label "claim statement"@en ;
+    dcterms:identifier "claim_statement" ;
+    rdfs:comment "Textual statement of a make, use, usage-effect, projectability, or contribution claim."@en ;
+    rdfs:domain dsr:Claim ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:claim-statement ;
+    skos:definition "Textual statement of a make, use, usage-effect, projectability, or contribution claim."@en ;
+    skos:prefLabel "claim statement"@en ;
+    dsr:status "recommended" .
+
+dsr:confidencePercent a owl:DatatypeProperty ;
+    rdfs:label "confidence percent"@en ;
+    dcterms:identifier "confidence_percent" ;
+    rdfs:comment "Confidence value expressed as a percentage from 0 to 100."@en ;
+    rdfs:range xsd:decimal ;
+    skos:closeMatch dsrv:confidence-percent ;
+    skos:definition "Confidence value expressed as a percentage from 0 to 100."@en ;
+    skos:prefLabel "confidence percent"@en ;
+    dsr:status "recommended" .
+
+dsr:contextDescription a owl:DatatypeProperty ;
+    rdfs:label "context description"@en ;
+    dcterms:identifier "context_description" ;
+    rdfs:comment "Textual description of organizational, social, technical, temporal, regulatory, or artifact-network context."@en ;
+    rdfs:domain dsr:Context ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:context-description ;
+    skos:definition "Textual description of organizational, social, technical, temporal, regulatory, or artifact-network context."@en ;
+    skos:prefLabel "context description"@en ;
+    dsr:status "recommended" .
+
+dsr:contributionStatement a owl:DatatypeProperty ;
+    rdfs:label "contribution statement"@en ;
+    dcterms:identifier "contribution_statement" ;
+    rdfs:comment "Textual statement of a scientific, practical, methodological, design, or knowledge contribution."@en ;
+    rdfs:domain dsr:ContributionClaim ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:contribution-statement ;
+    skos:definition "Textual statement of a scientific, practical, methodological, design, or knowledge contribution."@en ;
+    skos:prefLabel "contribution statement"@en ;
+    dsr:status "recommended" .
+
+dsr:controlledByVocabulary a owl:AnnotationProperty ;
+    rdfs:label "controlled by vocabulary"@en .
+
+dsr:createdOn a owl:DatatypeProperty ;
+    rdfs:label "created on"@en ;
+    dcterms:identifier "created_on" ;
+    rdfs:comment "Date on which a record or entity was created."@en ;
+    rdfs:range xsd:date ;
+    skos:closeMatch dsrv:created-on ;
+    skos:definition "Date on which a record or entity was created."@en ;
+    skos:prefLabel "created on"@en ;
+    dsr:status "recommended" .
+
+dsr:definitionText a owl:DatatypeProperty ;
+    rdfs:label "definition text"@en ;
+    dcterms:identifier "definition_text" ;
+    rdfs:comment "Definition or explanatory text for an entity."@en ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:definition-text ;
+    skos:definition "Definition or explanatory text for an entity."@en ;
+    skos:prefLabel "definition text"@en ;
+    dsr:status "recommended" .
+
+dsr:designDecisionText a owl:DatatypeProperty ;
+    rdfs:label "design decision text"@en ;
+    dcterms:identifier "design_decision_text" ;
+    rdfs:comment "Textual description of a design decision."@en ;
+    rdfs:domain dsr:DesignDecision ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:design-decision-text ;
+    skos:definition "Textual description of a design decision."@en ;
+    skos:prefLabel "design decision text"@en ;
+    dsr:status "recommended" .
+
+dsr:evaluationResultSummary a owl:DatatypeProperty ;
+    rdfs:label "evaluation result summary"@en ;
+    dcterms:identifier "evaluation_result_summary" ;
+    rdfs:comment "Concise summary of an evaluation result, finding, interpretation, or limitation."@en ;
+    rdfs:domain dsr:EvaluationEvidence ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:evaluation-result-summary ;
+    skos:definition "Concise summary of an evaluation result, finding, interpretation, or limitation."@en ;
+    skos:prefLabel "evaluation result summary"@en ;
+    dsr:status "recommended" .
+
+dsr:hasAntiPatternType a owl:ObjectProperty ;
+    rdfs:label "has anti-pattern type"@en ;
+    dcterms:identifier "has_anti_pattern_type" ;
+    rdfs:comment "Relates an anti-pattern record to a controlled anti-pattern type concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-anti-pattern-type ;
+    skos:definition "Relates an anti-pattern record to a controlled anti-pattern type concept."@en ;
+    skos:prefLabel "has anti-pattern type"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasArtifactType a owl:ObjectProperty ;
+    rdfs:label "has artifact type"@en ;
+    dcterms:identifier "has_artifact_type" ;
+    rdfs:comment "Relates a design entity or artifact instantiation to a controlled artifact-type SKOS concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-artifact-type ;
+    skos:definition "Relates a design entity or artifact instantiation to a controlled artifact-type SKOS concept."@en ;
+    skos:prefLabel "has artifact type"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasDesignEntity a owl:ObjectProperty ;
+    rdfs:label "has design entity"@en ;
+    dcterms:identifier "has_design_entity" ;
+    rdfs:comment "Alias for produces design entity when documenting the artifact/design-entity relation without process semantics."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:DesignEntity ;
+    skos:closeMatch dsr:producesDesignEntity,
+        dsrv:has-design-entity ;
+    skos:definition "Alias for produces design entity when documenting the artifact/design-entity relation without process semantics."@en ;
+    skos:prefLabel "has design entity"@en ;
+    dsr:status "required" .
+
+dsr:hasEvaluationSetting a owl:ObjectProperty ;
+    rdfs:label "has evaluation setting"@en ;
+    dcterms:identifier "has_evaluation_setting" ;
+    rdfs:comment "Relates an evaluation to a controlled setting concept, such as artificial or naturalistic."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-evaluation-setting ;
+    skos:definition "Relates an evaluation to a controlled setting concept, such as artificial or naturalistic."@en ;
+    skos:prefLabel "has evaluation setting"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasEvaluationTiming a owl:ObjectProperty ;
+    rdfs:label "has evaluation timing"@en ;
+    dcterms:identifier "has_evaluation_timing" ;
+    rdfs:comment "Relates an evaluation to a controlled timing concept, such as ex ante or ex post."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-evaluation-timing ;
+    skos:definition "Relates an evaluation to a controlled timing concept, such as ex ante or ex post."@en ;
+    skos:prefLabel "has evaluation timing"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasEvidenceMode a owl:ObjectProperty ;
+    rdfs:label "has evidence mode"@en ;
+    dcterms:identifier "has_evidence_mode" ;
+    rdfs:comment "Relates evaluation evidence to a controlled evidence-mode concept, such as empirical, analytical, expert, simulation, experiment, field, case, proof, or trace."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-evidence-mode ;
+    skos:definition "Relates evaluation evidence to a controlled evidence-mode concept, such as empirical, analytical, expert, simulation, experiment, field, case, proof, or trace."@en ;
+    skos:prefLabel "has evidence mode"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasInputKnowledge a owl:ObjectProperty ;
+    rdfs:label "has input knowledge"@en ;
+    dcterms:identifier "has_input_knowledge" ;
+    rdfs:comment "Alias for uses input knowledge."@en ;
+    owl:equivalentProperty dsr:usesInputKnowledge ;
+    skos:closeMatch dsrv:has-input-knowledge ;
+    skos:definition "Alias for uses input knowledge."@en ;
+    skos:prefLabel "has input knowledge"@en ;
+    dsr:status "required" .
+
+dsr:hasKnowledgeGoal a owl:ObjectProperty ;
+    rdfs:label "has knowledge goal"@en ;
+    dcterms:identifier "has_knowledge_goal" ;
+    rdfs:comment "Relates design knowledge, output knowledge, or a contribution claim to a controlled knowledge-goal concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-knowledge-goal ;
+    skos:definition "Relates design knowledge, output knowledge, or a contribution claim to a controlled knowledge-goal concept."@en ;
+    skos:prefLabel "has knowledge goal"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasKnowledgeScope a owl:ObjectProperty ;
+    rdfs:label "has knowledge scope"@en ;
+    dcterms:identifier "has_knowledge_scope" ;
+    rdfs:comment "Relates design knowledge, output knowledge, or a contribution claim to a controlled knowledge-scope concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-knowledge-scope ;
+    skos:definition "Relates design knowledge, output knowledge, or a contribution claim to a controlled knowledge-scope concept."@en ;
+    skos:prefLabel "has knowledge scope"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasObligationStatus a owl:ObjectProperty ;
+    rdfs:label "has obligation status"@en ;
+    dcterms:identifier "has_obligation_status" ;
+    rdfs:comment "Relates any ontology entity to a controlled obligation/status concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-obligation-status ;
+    skos:definition "Relates any ontology entity to a controlled obligation/status concept."@en ;
+    skos:prefLabel "has obligation status"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasReliabilityTarget a owl:ObjectProperty ;
+    rdfs:label "has reliability target"@en ;
+    dcterms:identifier "has_reliability_target" ;
+    rdfs:comment "Relates a reliability assessment to a controlled reliability-target concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-reliability-target ;
+    skos:definition "Relates a reliability assessment to a controlled reliability-target concept."@en ;
+    skos:prefLabel "has reliability target"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasReliabilityType a owl:ObjectProperty ;
+    rdfs:label "has reliability type"@en ;
+    dcterms:identifier "has_reliability_type" ;
+    rdfs:comment "Relates a reliability assessment to a controlled reliability-type concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-reliability-type ;
+    skos:definition "Relates a reliability assessment to a controlled reliability-type concept."@en ;
+    skos:prefLabel "has reliability type"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasReplicationType a owl:ObjectProperty ;
+    rdfs:label "has replication type"@en ;
+    dcterms:identifier "has_replication_type" ;
+    rdfs:comment "Relates a replication activity to a controlled replication-type concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-replication-type ;
+    skos:definition "Relates a replication activity to a controlled replication-type concept."@en ;
+    skos:prefLabel "has replication type"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasTransparencyForm a owl:ObjectProperty ;
+    rdfs:label "has transparency form"@en ;
+    dcterms:identifier "has_transparency_form" ;
+    rdfs:comment "Relates a transparency trace to a controlled transparency-form concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-transparency-form ;
+    skos:definition "Relates a transparency trace to a controlled transparency-form concept."@en ;
+    skos:prefLabel "has transparency form"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:hasValidityType a owl:ObjectProperty ;
+    rdfs:label "has validity type"@en ;
+    dcterms:identifier "has_validity_type" ;
+    rdfs:comment "Relates a validity assessment to a controlled validity-type concept."@en ;
+    rdfs:range skos:Concept ;
+    skos:closeMatch dsrv:has-validity-type ;
+    skos:definition "Relates a validity assessment to a controlled validity-type concept."@en ;
+    skos:prefLabel "has validity type"@en ;
+    dsr:controlledByVocabulary dsrv: ;
+    dsr:status "recommended" .
+
+dsr:labelText a owl:DatatypeProperty ;
+    rdfs:label "label text"@en ;
+    dcterms:identifier "label_text" ;
+    rdfs:comment "Human-readable label text for an entity when rdfs:label is not sufficient in a data profile."@en ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:label-text ;
+    skos:definition "Human-readable label text for an entity when rdfs:label is not sufficient in a data profile."@en ;
+    skos:prefLabel "label text"@en ;
+    dsr:status "recommended" .
+
+dsr:makeGoal a owl:DatatypeProperty ;
+    rdfs:label "make goal"@en ;
+    dcterms:identifier "make_goal" ;
+    rdfs:comment "Goal satisfied by executing a make plan."@en ;
+    rdfs:domain dsr:MakePlan ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:make-goal ;
+    skos:definition "Goal satisfied by executing a make plan."@en ;
+    skos:prefLabel "make goal"@en ;
+    dsr:status "recommended" .
+
+dsr:metricValue a owl:DatatypeProperty ;
+    rdfs:label "metric value"@en ;
+    dcterms:identifier "metric_value" ;
+    rdfs:comment "Metric value, observation, measurement, score, result, or other evaluation datum."@en ;
+    rdfs:domain dsr:EvaluationEvidence ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:metric-value ;
+    skos:definition "Metric value, observation, measurement, score, result, or other evaluation datum."@en ;
+    skos:prefLabel "metric value"@en ;
+    dsr:status "recommended" .
+
+dsr:modifiedOn a owl:DatatypeProperty ;
+    rdfs:label "modified on"@en ;
+    dcterms:identifier "modified_on" ;
+    rdfs:comment "Date on which a record or entity was modified."@en ;
+    rdfs:range xsd:date ;
+    skos:closeMatch dsrv:modified-on ;
+    skos:definition "Date on which a record or entity was modified."@en ;
+    skos:prefLabel "modified on"@en ;
+    dsr:status "recommended" .
+
+dsr:needStatement a owl:DatatypeProperty ;
+    rdfs:label "need statement"@en ;
+    dcterms:identifier "need_statement" ;
+    rdfs:comment "Textual statement of a stakeholder need, goal, pain point, or value concern."@en ;
+    rdfs:domain dsr:StakeholderNeed ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:need-statement ;
+    skos:definition "Textual statement of a stakeholder need, goal, pain point, or value concern."@en ;
+    skos:prefLabel "need statement"@en ;
+    dsr:status "recommended" .
+
+dsr:objectiveText a owl:DatatypeProperty ;
+    rdfs:label "objective text"@en ;
+    dcterms:identifier "objective_text" ;
+    rdfs:comment "Textual statement of a design, research, evaluation, use, make, or contribution objective."@en ;
+    rdfs:domain dsr:Objective ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:objective-text ;
+    skos:definition "Textual statement of a design, research, evaluation, use, make, or contribution objective."@en ;
+    skos:prefLabel "objective text"@en ;
+    dsr:status "recommended" .
+
+dsr:problemStatementText a owl:DatatypeProperty ;
+    rdfs:label "problem statement text"@en ;
+    dcterms:identifier "problem_statement_text" ;
+    rdfs:comment "Textual statement of the problem, its relevance, severity, stakeholders, solvability, or abstraction level."@en ;
+    rdfs:domain dsr:Problem ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:problem-statement-text ;
+    skos:definition "Textual statement of the problem, its relevance, severity, stakeholders, solvability, or abstraction level."@en ;
+    skos:prefLabel "problem statement text"@en ;
+    dsr:status "recommended" .
+
+dsr:rationaleText a owl:DatatypeProperty ;
+    rdfs:label "rationale text"@en ;
+    dcterms:identifier "rationale_text" ;
+    rdfs:comment "Reasoning, tradeoff, justification, or design rationale text."@en ;
+    rdfs:domain dsr:DesignRationale ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:rationale-text ;
+    skos:definition "Reasoning, tradeoff, justification, or design rationale text."@en ;
+    skos:prefLabel "rationale text"@en ;
+    dsr:status "recommended" .
+
+dsr:recordIdentifier a owl:DatatypeProperty ;
+    rdfs:label "record identifier"@en ;
+    dcterms:identifier "record_identifier" ;
+    rdfs:comment "Stable identifier for a study, artifact, claim, evidence item, trace, or assessment record."@en ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:record-identifier ;
+    skos:definition "Stable identifier for a study, artifact, claim, evidence item, trace, or assessment record."@en ;
+    skos:prefLabel "record identifier"@en ;
+    dsr:status "recommended" .
+
+dsr:requirementText a owl:DatatypeProperty ;
+    rdfs:label "requirement text"@en ;
+    dcterms:identifier "requirement_text" ;
+    rdfs:comment "Textual statement of a functional, nonfunctional, meta-requirement, acceptance condition, or evaluation criterion."@en ;
+    rdfs:domain dsr:Requirement ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:requirement-text ;
+    skos:definition "Textual statement of a functional, nonfunctional, meta-requirement, acceptance condition, or evaluation criterion."@en ;
+    skos:prefLabel "requirement text"@en ;
+    dsr:status "recommended" .
+
+dsr:sourceAnchor a owl:AnnotationProperty ;
+    rdfs:label "source anchor"@en .
+
+dsr:sourceAnchorId a owl:DatatypeProperty ;
+    rdfs:label "source anchor identifier"@en ;
+    dcterms:identifier "source_anchor_id" ;
+    rdfs:comment "Stable source or evidence anchor identifier used for provenance and traceability."@en ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:source-anchor-id ;
+    skos:definition "Stable source or evidence anchor identifier used for provenance and traceability."@en ;
+    skos:prefLabel "source anchor identifier"@en ;
+    dsr:status "recommended" .
+
+dsr:stakeholderRole a owl:DatatypeProperty ;
+    rdfs:label "stakeholder role"@en ;
+    dcterms:identifier "stakeholder_role" ;
+    rdfs:comment "Role played by a stakeholder, such as user, sponsor, practitioner, manager, reviewer, designer, evaluator, or policy actor."@en ;
+    rdfs:domain dsr:Stakeholder ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:stakeholder-role ;
+    skos:definition "Role played by a stakeholder, such as user, sponsor, practitioner, manager, reviewer, designer, evaluator, or policy actor."@en ;
+    skos:prefLabel "stakeholder role"@en ;
+    dsr:status "recommended" .
+
+dsr:status a owl:AnnotationProperty ;
+    rdfs:label "status"@en .
+
+dsr:traceReference a owl:DatatypeProperty ;
+    rdfs:label "trace reference"@en ;
+    dcterms:identifier "trace_reference" ;
+    rdfs:comment "URI or file-path reference to a transparency trace, evidence artifact, repository object, or documentation record."@en ;
+    rdfs:range xsd:anyURI ;
+    skos:closeMatch dsrv:trace-reference ;
+    skos:definition "URI or file-path reference to a transparency trace, evidence artifact, repository object, or documentation record."@en ;
+    skos:prefLabel "trace reference"@en ;
+    dsr:status "recommended" .
+
+dsr:usageNote a owl:AnnotationProperty ;
+    rdfs:label "usage note"@en .
+
+dsr:useGoal a owl:DatatypeProperty ;
+    rdfs:label "use goal"@en ;
+    dcterms:identifier "use_goal" ;
+    rdfs:comment "Goal or intended effect satisfied by executing a use plan."@en ;
+    rdfs:domain dsr:UsePlan ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dsrv:use-goal ;
+    skos:definition "Goal or intended effect satisfied by executing a use plan."@en ;
+    skos:prefLabel "use goal"@en ;
+    dsr:status "recommended" .
+
+dsr:validationNote a owl:AnnotationProperty ;
+    rdfs:label "validation note"@en .
+
+dsr:AcceptanceCriterion a owl:Class ;
+    rdfs:label "Acceptance Criterion"@en ;
+    dcterms:identifier "acceptance_criterion" ;
+    rdfs:comment "A threshold, criterion, metric, or pass/fail statement for satisfying an objective or requirement."@en ;
+    rdfs:subClassOf dsr:Requirement ;
+    skos:closeMatch dsrv:acceptance-criterion ;
+    skos:definition "A threshold, criterion, metric, or pass/fail statement for satisfying an objective or requirement."@en ;
+    skos:prefLabel "Acceptance Criterion"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:DesignRationale a owl:Class ;
+    rdfs:label "Design Rationale"@en ;
+    dcterms:identifier "design_rationale" ;
+    rdfs:comment "The reasoning, tradeoffs, alternatives, decisions, creative choices, and justificatory knowledge explaining why an artifact was designed as it was."@en ;
+    rdfs:subClassOf dsr:DocumentationArtifact ;
+    skos:closeMatch dsrv:design-rationale ;
+    skos:definition "The reasoning, tradeoffs, alternatives, decisions, creative choices, and justificatory knowledge explaining why an artifact was designed as it was."@en ;
+    skos:prefLabel "Design Rationale"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:communicatesToAudience a owl:ObjectProperty ;
+    rdfs:label "communicates to audience"@en ;
+    dcterms:identifier "communicates_to_audience" ;
+    rdfs:comment "Relates a transparency or communication trace to the audience or stakeholder role it is intended to serve."@en ;
+    rdfs:domain dsr:TransparencyTrace ;
+    rdfs:range dsr:Stakeholder ;
+    owl:inverseOf dsr:isAudienceForCommunication ;
+    skos:closeMatch dsrv:communicates-to-audience ;
+    skos:definition "Relates a transparency or communication trace to the audience or stakeholder role it is intended to serve."@en ;
+    skos:prefLabel "communicates to audience"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:derivesRequirementFrom a owl:ObjectProperty ;
+    rdfs:label "derives requirement from"@en ;
+    dcterms:identifier "derives_requirement_from" ;
+    rdfs:comment "Relates a requirement to the problem space, input knowledge, or stakeholder need from which it is derived."@en ;
+    rdfs:domain dsr:Requirement ;
+    rdfs:range dsr:RequirementSource ;
+    owl:inverseOf dsr:groundsRequirement ;
+    skos:closeMatch dsrv:derives-requirement-from ;
+    skos:definition "Relates a requirement to the problem space, input knowledge, or stakeholder need from which it is derived."@en ;
+    skos:prefLabel "derives requirement from"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:groundsRequirement a owl:ObjectProperty ;
+    rdfs:label "grounds requirement"@en ;
+    dcterms:identifier "grounds_requirement" ;
+    rdfs:comment "Inverse of derives requirement from."@en ;
+    rdfs:domain dsr:RequirementSource ;
+    rdfs:range dsr:Requirement ;
+    owl:inverseOf dsr:derivesRequirementFrom ;
+    skos:definition "Inverse of derives requirement from."@en ;
+    skos:prefLabel "grounds requirement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasAntiPattern a owl:ObjectProperty ;
+    rdfs:label "has anti-pattern"@en ;
+    dcterms:identifier "has_anti_pattern" ;
+    rdfs:comment "Relates a DSR study or record to a detected or documented DSR failure mode."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:AntiPattern ;
+    owl:inverseOf dsr:isAntiPatternOf ;
+    skos:closeMatch dsrv:has-anti-pattern ;
+    skos:definition "Relates a DSR study or record to a detected or documented DSR failure mode."@en ;
+    skos:prefLabel "has anti-pattern"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:hasArtifactInstantiation a owl:ObjectProperty ;
+    rdfs:label "has artifact instantiation"@en ;
+    dcterms:identifier "has_artifact_instantiation" ;
+    rdfs:comment "Relates a DSR study to a concrete artifact instantiation produced, demonstrated, or evaluated in the study."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ArtifactInstantiation ;
+    owl:inverseOf dsr:isArtifactInstantiationOfStudy ;
+    skos:closeMatch dsrv:has-artifact-instantiation ;
+    skos:definition "Relates a DSR study to a concrete artifact instantiation produced, demonstrated, or evaluated in the study."@en ;
+    skos:prefLabel "has artifact instantiation"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:hasDemonstration a owl:ObjectProperty ;
+    rdfs:label "has demonstration"@en ;
+    dcterms:identifier "has_demonstration" ;
+    rdfs:comment "Relates a DSR study to a demonstration activity or record."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:Demonstration ;
+    owl:inverseOf dsr:isDemonstrationOf ;
+    skos:closeMatch dsrv:has-demonstration ;
+    skos:definition "Relates a DSR study to a demonstration activity or record."@en ;
+    skos:prefLabel "has demonstration"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:hasDesignDecision a owl:ObjectProperty ;
+    rdfs:label "has design decision"@en ;
+    dcterms:identifier "has_design_decision" ;
+    rdfs:comment "Relates a DSR study to a traceable design decision."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:DesignDecision ;
+    owl:inverseOf dsr:isDesignDecisionOf ;
+    skos:closeMatch dsrv:has-design-decision ;
+    skos:definition "Relates a DSR study to a traceable design decision."@en ;
+    skos:prefLabel "has design decision"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:hasEvaluationPlan a owl:ObjectProperty ;
+    rdfs:label "has evaluation plan"@en ;
+    dcterms:identifier "has_evaluation_plan" ;
+    rdfs:comment "Relates a DSR study to its evaluation plan."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:EvaluationPlan ;
+    owl:inverseOf dsr:isEvaluationPlanOf ;
+    skos:closeMatch dsrv:has-evaluation-plan ;
+    skos:definition "Relates a DSR study to its evaluation plan."@en ;
+    skos:prefLabel "has evaluation plan"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:hasEvaluationReport a owl:ObjectProperty ;
+    rdfs:label "has evaluation report"@en ;
+    dcterms:identifier "has_evaluation_report" ;
+    rdfs:comment "Relates a DSR study to its evaluation report."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:EvaluationReport ;
+    owl:inverseOf dsr:isEvaluationReportOf ;
+    skos:closeMatch dsrv:has-evaluation-report ;
+    skos:definition "Relates a DSR study to its evaluation report."@en ;
+    skos:prefLabel "has evaluation report"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:hasObjective a owl:ObjectProperty ;
+    rdfs:label "has objective"@en ;
+    dcterms:identifier "has_objective" ;
+    rdfs:comment "Relates a DSR study to a design, research, evaluation, use, make, or contribution objective."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:Objective ;
+    owl:inverseOf dsr:isObjectiveOf ;
+    skos:closeMatch dsrv:has-objective ;
+    skos:definition "Relates a DSR study to a design, research, evaluation, use, make, or contribution objective."@en ;
+    skos:prefLabel "has objective"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:hasProblemInstance a owl:ObjectProperty ;
+    rdfs:label "has problem instance"@en ;
+    dcterms:identifier "has_problem_instance" ;
+    rdfs:comment "Inverse of abstracts to problem class."@en ;
+    rdfs:domain dsr:ProblemClass ;
+    rdfs:range dsr:ProblemInstance ;
+    owl:inverseOf dsr:abstractsToProblemClass ;
+    skos:definition "Inverse of abstracts to problem class."@en ;
+    skos:prefLabel "has problem instance"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasProjectabilityStatement a owl:ObjectProperty ;
+    rdfs:label "has projectability statement"@en ;
+    dcterms:identifier "has_projectability_statement" ;
+    rdfs:comment "Relates design knowledge to a statement of where, how, and under what conditions it may transfer beyond the local instance."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:ProjectabilityStatement ;
+    owl:inverseOf dsr:isProjectabilityStatementFor ;
+    skos:closeMatch dsrv:has-projectability-statement ;
+    skos:definition "Relates design knowledge to a statement of where, how, and under what conditions it may transfer beyond the local instance."@en ;
+    skos:prefLabel "has projectability statement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasReplicationActivity a owl:ObjectProperty ;
+    rdfs:label "has replication activity"@en ;
+    dcterms:identifier "has_replication_activity" ;
+    rdfs:comment "Relates a DSR study to a replication-oriented activity, study, adaptation, recreation, update, or meta-replication."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ReplicationActivity ;
+    owl:inverseOf dsr:isReplicationActivityOf ;
+    skos:closeMatch dsrv:has-replication-activity ;
+    skos:definition "Relates a DSR study to a replication-oriented activity, study, adaptation, recreation, update, or meta-replication."@en ;
+    skos:prefLabel "has replication activity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "optional" .
+
+dsr:hasResponsibleDesignConstraint a owl:ObjectProperty ;
+    rdfs:label "has responsible design constraint"@en ;
+    dcterms:identifier "has_responsible_design_constraint" ;
+    rdfs:comment "Relates a DSR study to privacy, security, ethical, IP, maintenance, stakeholder-burden, confidentiality, sustainability, or social-accountability constraints."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ResponsibleDesignConstraint ;
+    owl:inverseOf dsr:isResponsibleDesignConstraintOf ;
+    skos:closeMatch dsrv:has-responsible-design-constraint ;
+    skos:definition "Relates a DSR study to privacy, security, ethical, IP, maintenance, stakeholder-burden, confidentiality, sustainability, or social-accountability constraints."@en ;
+    skos:prefLabel "has responsible design constraint"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:hasStakeholder a owl:ObjectProperty ;
+    rdfs:label "has stakeholder"@en ;
+    dcterms:identifier "has_stakeholder" ;
+    rdfs:comment "Relates a context to an actor or group affected by, using, evaluating, sponsoring, governing, or reviewing the DSR artifact or study."@en ;
+    rdfs:domain dsr:Context ;
+    rdfs:range dsr:Stakeholder ;
+    owl:inverseOf dsr:isStakeholderInContext ;
+    skos:closeMatch dsrv:has-stakeholder ;
+    skos:definition "Relates a context to an actor or group affected by, using, evaluating, sponsoring, governing, or reviewing the DSR artifact or study."@en ;
+    skos:prefLabel "has stakeholder"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasStakeholderNeed a owl:ObjectProperty ;
+    rdfs:label "has stakeholder need"@en ;
+    dcterms:identifier "has_stakeholder_need" ;
+    rdfs:comment "Relates a stakeholder to a stated or inferred need, goal, pain point, or value concern."@en ;
+    rdfs:domain dsr:Stakeholder ;
+    rdfs:range dsr:StakeholderNeed ;
+    owl:inverseOf dsr:isNeedOfStakeholder ;
+    skos:closeMatch dsrv:has-stakeholder-need ;
+    skos:definition "Relates a stakeholder to a stated or inferred need, goal, pain point, or value concern."@en ;
+    skos:prefLabel "has stakeholder need"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isAntiPatternOf a owl:ObjectProperty ;
+    rdfs:label "is anti pattern of"@en ;
+    dcterms:identifier "is_anti_pattern_of" ;
+    rdfs:comment "Inverse of has anti-pattern."@en ;
+    rdfs:domain dsr:AntiPattern ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasAntiPattern ;
+    skos:definition "Inverse of has anti-pattern."@en ;
+    skos:prefLabel "is anti pattern of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isArtifactInstantiationOfStudy a owl:ObjectProperty ;
+    rdfs:label "is artifact instantiation of study"@en ;
+    dcterms:identifier "is_artifact_instantiation_of_study" ;
+    rdfs:comment "Inverse of has artifact instantiation."@en ;
+    rdfs:domain dsr:ArtifactInstantiation ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasArtifactInstantiation ;
+    skos:definition "Inverse of has artifact instantiation."@en ;
+    skos:prefLabel "is artifact instantiation of study"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:isAudienceForCommunication a owl:ObjectProperty ;
+    rdfs:label "is audience for communication"@en ;
+    dcterms:identifier "is_audience_for_communication" ;
+    rdfs:comment "Inverse of communicates to audience."@en ;
+    rdfs:domain dsr:Stakeholder ;
+    rdfs:range dsr:TransparencyTrace ;
+    owl:inverseOf dsr:communicatesToAudience ;
+    skos:definition "Inverse of communicates to audience."@en ;
+    skos:prefLabel "is audience for communication"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isBoundaryConditionFor a owl:ObjectProperty ;
+    rdfs:label "is boundary condition for"@en ;
+    dcterms:identifier "is_boundary_condition_for" ;
+    rdfs:comment "Inverse of has boundary condition."@en ;
+    rdfs:domain dsr:BoundaryCondition ;
+    rdfs:range dsr:DesignKnowledge ;
+    owl:inverseOf dsr:hasBoundaryCondition ;
+    skos:definition "Inverse of has boundary condition."@en ;
+    skos:prefLabel "is boundary condition for"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isCapacitySpecificationFor a owl:ObjectProperty ;
+    rdfs:label "is capacity specification for"@en ;
+    dcterms:identifier "is_capacity_specification_for" ;
+    rdfs:comment "Inverse of has capacity specification."@en ;
+    rdfs:domain dsr:CapacitySpecification ;
+    rdfs:range dsr:DesignEntity ;
+    owl:inverseOf dsr:hasCapacitySpecification ;
+    skos:definition "Inverse of has capacity specification."@en ;
+    skos:prefLabel "is capacity specification for"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isContextForStudy a owl:ObjectProperty ;
+    rdfs:label "is context for study"@en ;
+    dcterms:identifier "is_context_for_study" ;
+    rdfs:comment "Inverse of occurs in context."@en ;
+    rdfs:domain dsr:Context ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:occursInContext ;
+    skos:definition "Inverse of occurs in context."@en ;
+    skos:prefLabel "is context for study"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isContributionClaimOf a owl:ObjectProperty ;
+    rdfs:label "is contribution claim of"@en ;
+    dcterms:identifier "is_contribution_claim_of" ;
+    rdfs:comment "Inverse of claims contribution."@en ;
+    rdfs:domain dsr:ContributionClaim ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:claimsContribution ;
+    skos:definition "Inverse of claims contribution."@en ;
+    skos:prefLabel "is contribution claim of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isContributionClaimSupportedBy a owl:ObjectProperty ;
+    rdfs:label "is contribution claim supported by"@en ;
+    dcterms:identifier "is_contribution_claim_supported_by" ;
+    rdfs:comment "Inverse of supports contribution claim."@en ;
+    rdfs:domain dsr:ContributionClaim ;
+    rdfs:range dsr:EvaluationEvidence ;
+    owl:inverseOf dsr:supportsContributionClaim ;
+    skos:definition "Inverse of supports contribution claim."@en ;
+    skos:prefLabel "is contribution claim supported by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isDemonstratedBy a owl:ObjectProperty ;
+    rdfs:label "is demonstrated by"@en ;
+    dcterms:identifier "is_demonstrated_by" ;
+    rdfs:comment "Inverse of demonstrates artifact."@en ;
+    rdfs:domain dsr:ArtifactInstantiation ;
+    rdfs:range dsr:Demonstration ;
+    owl:inverseOf dsr:demonstratesArtifact ;
+    skos:definition "Inverse of demonstrates artifact."@en ;
+    skos:prefLabel "is demonstrated by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isDemonstrationOf a owl:ObjectProperty ;
+    rdfs:label "is demonstration of"@en ;
+    dcterms:identifier "is_demonstration_of" ;
+    rdfs:comment "Inverse of has demonstration."@en ;
+    rdfs:domain dsr:Demonstration ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasDemonstration ;
+    skos:definition "Inverse of has demonstration."@en ;
+    skos:prefLabel "is demonstration of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isDesignDecisionOf a owl:ObjectProperty ;
+    rdfs:label "is design decision of"@en ;
+    dcterms:identifier "is_design_decision_of" ;
+    rdfs:comment "Inverse of has design decision."@en ;
+    rdfs:domain dsr:DesignDecision ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasDesignDecision ;
+    skos:definition "Inverse of has design decision."@en ;
+    skos:prefLabel "is design decision of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isDesignEntityProducedBy a owl:ObjectProperty ;
+    rdfs:label "is design entity produced by"@en ;
+    dcterms:identifier "is_design_entity_produced_by" ;
+    rdfs:comment "Inverse of produces design entity."@en ;
+    rdfs:domain dsr:DesignEntity ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:producesDesignEntity ;
+    skos:definition "Inverse of produces design entity."@en ;
+    skos:prefLabel "is design entity produced by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isDesignKnowledgeProducedBy a owl:ObjectProperty ;
+    rdfs:label "is design knowledge produced by"@en ;
+    dcterms:identifier "is_design_knowledge_produced_by" ;
+    rdfs:comment "Inverse of produces design knowledge."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:producesDesignKnowledge ;
+    skos:definition "Inverse of produces design knowledge."@en ;
+    skos:prefLabel "is design knowledge produced by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isEvaluatedBy a owl:ObjectProperty ;
+    rdfs:label "is evaluated by"@en ;
+    dcterms:identifier "is_evaluated_by" ;
+    rdfs:comment "Inverse of evaluates."@en ;
+    rdfs:domain dsr:EvaluationTarget ;
+    rdfs:range dsr:Evaluation ;
+    owl:inverseOf dsr:evaluates ;
+    skos:definition "Inverse of evaluates."@en ;
+    skos:prefLabel "is evaluated by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isEvaluationCriterionFor a owl:ObjectProperty ;
+    rdfs:label "is evaluation criterion for"@en ;
+    dcterms:identifier "is_evaluation_criterion_for" ;
+    rdfs:comment "Inverse of uses evaluation criterion."@en ;
+    rdfs:domain dsr:EvaluationCriterion ;
+    rdfs:range dsr:Evaluation ;
+    owl:inverseOf dsr:usesEvaluationCriterion ;
+    skos:definition "Inverse of uses evaluation criterion."@en ;
+    skos:prefLabel "is evaluation criterion for"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isEvaluationOfStudy a owl:ObjectProperty ;
+    rdfs:label "is evaluation of study"@en ;
+    dcterms:identifier "is_evaluation_of_study" ;
+    rdfs:comment "Inverse of has evaluation."@en ;
+    rdfs:domain dsr:Evaluation ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasEvaluation ;
+    skos:definition "Inverse of has evaluation."@en ;
+    skos:prefLabel "is evaluation of study"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isEvaluationPlanOf a owl:ObjectProperty ;
+    rdfs:label "is evaluation plan of"@en ;
+    dcterms:identifier "is_evaluation_plan_of" ;
+    rdfs:comment "Inverse of has evaluation plan."@en ;
+    rdfs:domain dsr:EvaluationPlan ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasEvaluationPlan ;
+    skos:definition "Inverse of has evaluation plan."@en ;
+    skos:prefLabel "is evaluation plan of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isEvaluationReportOf a owl:ObjectProperty ;
+    rdfs:label "is evaluation report of"@en ;
+    dcterms:identifier "is_evaluation_report_of" ;
+    rdfs:comment "Inverse of has evaluation report."@en ;
+    rdfs:domain dsr:EvaluationReport ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasEvaluationReport ;
+    skos:definition "Inverse of has evaluation report."@en ;
+    skos:prefLabel "is evaluation report of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isGeneratedByEvaluation a owl:ObjectProperty ;
+    rdfs:label "is generated by evaluation"@en ;
+    dcterms:identifier "is_generated_by_evaluation" ;
+    rdfs:comment "Inverse of generates evidence."@en ;
+    rdfs:domain dsr:EvaluationEvidence ;
+    rdfs:range dsr:Evaluation ;
+    owl:inverseOf dsr:generatesEvidence ;
+    skos:definition "Inverse of generates evidence."@en ;
+    skos:prefLabel "is generated by evaluation"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isInputKnowledgeUsedBy a owl:ObjectProperty ;
+    rdfs:label "is input knowledge used by"@en ;
+    dcterms:identifier "is_input_knowledge_used_by" ;
+    rdfs:comment "Inverse of uses input knowledge."@en ;
+    rdfs:domain dsr:InputKnowledge ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:usesInputKnowledge ;
+    skos:definition "Inverse of uses input knowledge."@en ;
+    skos:prefLabel "is input knowledge used by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isInstantiatedBy a owl:ObjectProperty ;
+    rdfs:label "is instantiated by"@en ;
+    dcterms:identifier "is_instantiated_by" ;
+    rdfs:comment "Inverse of instantiates design entity."@en ;
+    rdfs:domain dsr:DesignEntity ;
+    rdfs:range dsr:ArtifactInstantiation ;
+    owl:inverseOf dsr:instantiatesDesignEntity ;
+    skos:definition "Inverse of instantiates design entity."@en ;
+    skos:prefLabel "is instantiated by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:isMakePlanFor a owl:ObjectProperty ;
+    rdfs:label "is make plan for"@en ;
+    dcterms:identifier "is_make_plan_for" ;
+    rdfs:comment "Inverse of has make plan."@en ;
+    rdfs:domain dsr:MakePlan ;
+    rdfs:range dsr:DesignEntity ;
+    owl:inverseOf dsr:hasMakePlan ;
+    skos:definition "Inverse of has make plan."@en ;
+    skos:prefLabel "is make plan for"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isMitigatedByTrace a owl:ObjectProperty ;
+    rdfs:label "is mitigated by trace"@en ;
+    dcterms:identifier "is_mitigated_by_trace" ;
+    rdfs:comment "Inverse of mitigates anti-pattern."@en ;
+    rdfs:domain dsr:AntiPattern ;
+    rdfs:range dsr:TransparencyTrace ;
+    owl:inverseOf dsr:mitigatesAntiPattern ;
+    skos:definition "Inverse of mitigates anti-pattern."@en ;
+    skos:prefLabel "is mitigated by trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isNeedOfStakeholder a owl:ObjectProperty ;
+    rdfs:label "is need of stakeholder"@en ;
+    dcterms:identifier "is_need_of_stakeholder" ;
+    rdfs:comment "Inverse of has stakeholder need."@en ;
+    rdfs:domain dsr:StakeholderNeed ;
+    rdfs:range dsr:Stakeholder ;
+    owl:inverseOf dsr:hasStakeholderNeed ;
+    skos:definition "Inverse of has stakeholder need."@en ;
+    skos:prefLabel "is need of stakeholder"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isObjectiveOf a owl:ObjectProperty ;
+    rdfs:label "is objective of"@en ;
+    dcterms:identifier "is_objective_of" ;
+    rdfs:comment "Inverse of has objective."@en ;
+    rdfs:domain dsr:Objective ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasObjective ;
+    skos:definition "Inverse of has objective."@en ;
+    skos:prefLabel "is objective of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isOutputKnowledgeProducedBy a owl:ObjectProperty ;
+    rdfs:label "is output knowledge produced by"@en ;
+    dcterms:identifier "is_output_knowledge_produced_by" ;
+    rdfs:comment "Inverse of produces output knowledge."@en ;
+    rdfs:domain dsr:OutputKnowledge ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:producesOutputKnowledge ;
+    skos:definition "Inverse of produces output knowledge."@en ;
+    skos:prefLabel "is output knowledge produced by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isProblemClassIn a owl:ObjectProperty ;
+    rdfs:label "is problem class in"@en ;
+    dcterms:identifier "is_problem_class_in" ;
+    rdfs:comment "Inverse of includes problem class."@en ;
+    rdfs:domain dsr:ProblemClass ;
+    rdfs:range dsr:ProblemSpace ;
+    owl:inverseOf dsr:includesProblemClass ;
+    skos:definition "Inverse of includes problem class."@en ;
+    skos:prefLabel "is problem class in"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isProblemInstanceAddressedBy a owl:ObjectProperty ;
+    rdfs:label "is problem instance addressed by"@en ;
+    dcterms:identifier "is_problem_instance_addressed_by" ;
+    rdfs:comment "Inverse of addresses problem instance."@en ;
+    rdfs:domain dsr:ProblemInstance ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:addressesProblemInstance ;
+    skos:definition "Inverse of addresses problem instance."@en ;
+    skos:prefLabel "is problem instance addressed by"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isProblemInstanceIn a owl:ObjectProperty ;
+    rdfs:label "is problem instance in"@en ;
+    dcterms:identifier "is_problem_instance_in" ;
+    rdfs:comment "Inverse of includes problem instance."@en ;
+    rdfs:domain dsr:ProblemInstance ;
+    rdfs:range dsr:ProblemSpace ;
+    owl:inverseOf dsr:includesProblemInstance ;
+    skos:definition "Inverse of includes problem instance."@en ;
+    skos:prefLabel "is problem instance in"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isProblemSpaceOf a owl:ObjectProperty ;
+    rdfs:label "is problem space of"@en ;
+    dcterms:identifier "is_problem_space_of" ;
+    rdfs:comment "Inverse of has problem space."@en ;
+    rdfs:domain dsr:ProblemSpace ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasProblemSpace ;
+    skos:definition "Inverse of has problem space."@en ;
+    skos:prefLabel "is problem space of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isProjectabilityStatementFor a owl:ObjectProperty ;
+    rdfs:label "is projectability statement for"@en ;
+    dcterms:identifier "is_projectability_statement_for" ;
+    rdfs:comment "Inverse of has projectability statement."@en ;
+    rdfs:domain dsr:ProjectabilityStatement ;
+    rdfs:range dsr:DesignKnowledge ;
+    owl:inverseOf dsr:hasProjectabilityStatement ;
+    skos:definition "Inverse of has projectability statement."@en ;
+    skos:prefLabel "is projectability statement for"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isReliabilityAssessmentOf a owl:ObjectProperty ;
+    rdfs:label "is reliability assessment of"@en ;
+    dcterms:identifier "is_reliability_assessment_of" ;
+    rdfs:comment "Inverse of has reliability assessment."@en ;
+    rdfs:domain dsr:ReliabilityAssessment ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasReliabilityAssessment ;
+    skos:definition "Inverse of has reliability assessment."@en ;
+    skos:prefLabel "is reliability assessment of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:isReplicationActivityOf a owl:ObjectProperty ;
+    rdfs:label "is replication activity of"@en ;
+    dcterms:identifier "is_replication_activity_of" ;
+    rdfs:comment "Inverse of has replication activity."@en ;
+    rdfs:domain dsr:ReplicationActivity ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasReplicationActivity ;
+    skos:definition "Inverse of has replication activity."@en ;
+    skos:prefLabel "is replication activity of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "optional" .
+
+dsr:isRequirementOf a owl:ObjectProperty ;
+    rdfs:label "is requirement of"@en ;
+    dcterms:identifier "is_requirement_of" ;
+    rdfs:comment "Inverse of has requirement."@en ;
+    rdfs:domain dsr:Requirement ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasRequirement ;
+    skos:definition "Inverse of has requirement."@en ;
+    skos:prefLabel "is requirement of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isResponsibleDesignConstraintOf a owl:ObjectProperty ;
+    rdfs:label "is responsible design constraint of"@en ;
+    dcterms:identifier "is_responsible_design_constraint_of" ;
+    rdfs:comment "Inverse of has responsible design constraint."@en ;
+    rdfs:domain dsr:ResponsibleDesignConstraint ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasResponsibleDesignConstraint ;
+    skos:definition "Inverse of has responsible design constraint."@en ;
+    skos:prefLabel "is responsible design constraint of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isSatisfiedByDesignEntity a owl:ObjectProperty ;
+    rdfs:label "is satisfied by design entity"@en ;
+    dcterms:identifier "is_satisfied_by_design_entity" ;
+    rdfs:comment "Inverse of satisfies requirement."@en ;
+    rdfs:domain dsr:Requirement ;
+    rdfs:range dsr:DesignEntity ;
+    owl:inverseOf dsr:satisfiesRequirement ;
+    skos:definition "Inverse of satisfies requirement."@en ;
+    skos:prefLabel "is satisfied by design entity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:isStakeholderInContext a owl:ObjectProperty ;
+    rdfs:label "is stakeholder in context"@en ;
+    dcterms:identifier "is_stakeholder_in_context" ;
+    rdfs:comment "Inverse of has stakeholder."@en ;
+    rdfs:domain dsr:Stakeholder ;
+    rdfs:range dsr:Context ;
+    owl:inverseOf dsr:hasStakeholder ;
+    skos:definition "Inverse of has stakeholder."@en ;
+    skos:prefLabel "is stakeholder in context"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isSupportedByEvidence a owl:ObjectProperty ;
+    rdfs:label "is supported by evidence"@en ;
+    dcterms:identifier "is_supported_by_evidence" ;
+    rdfs:comment "Inverse of supports design knowledge."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:EvaluationEvidence ;
+    owl:inverseOf dsr:supportsDesignKnowledge ;
+    skos:definition "Inverse of supports design knowledge."@en ;
+    skos:prefLabel "is supported by evidence"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isTransparencyTraceOf a owl:ObjectProperty ;
+    rdfs:label "is transparency trace of"@en ;
+    dcterms:identifier "is_transparency_trace_of" ;
+    rdfs:comment "Inverse of has transparency trace."@en ;
+    rdfs:domain dsr:TransparencyTrace ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasTransparencyTrace ;
+    skos:definition "Inverse of has transparency trace."@en ;
+    skos:prefLabel "is transparency trace of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isUsePlanFor a owl:ObjectProperty ;
+    rdfs:label "is use plan for"@en ;
+    dcterms:identifier "is_use_plan_for" ;
+    rdfs:comment "Inverse of has use plan."@en ;
+    rdfs:domain dsr:UsePlan ;
+    rdfs:range dsr:DesignEntity ;
+    owl:inverseOf dsr:hasUsePlan ;
+    skos:definition "Inverse of has use plan."@en ;
+    skos:prefLabel "is use plan for"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:isValidityAssessmentOf a owl:ObjectProperty ;
+    rdfs:label "is validity assessment of"@en ;
+    dcterms:identifier "is_validity_assessment_of" ;
+    rdfs:comment "Inverse of has validity assessment."@en ;
+    rdfs:domain dsr:ValidityAssessment ;
+    rdfs:range dsr:DSRStudy ;
+    owl:inverseOf dsr:hasValidityAssessment ;
+    skos:definition "Inverse of has validity assessment."@en ;
+    skos:prefLabel "is validity assessment of"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:mitigatesAntiPattern a owl:ObjectProperty ;
+    rdfs:label "mitigates anti-pattern"@en ;
+    dcterms:identifier "mitigates_anti_pattern" ;
+    rdfs:comment "Relates a transparency trace or documentation element to the DSR anti-pattern it helps mitigate."@en ;
+    rdfs:domain dsr:TransparencyTrace ;
+    rdfs:range dsr:AntiPattern ;
+    owl:inverseOf dsr:isMitigatedByTrace ;
+    skos:closeMatch dsrv:mitigates-anti-pattern ;
+    skos:definition "Relates a transparency trace or documentation element to the DSR anti-pattern it helps mitigate."@en ;
+    skos:prefLabel "mitigates anti-pattern"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:producesDesignKnowledge a owl:ObjectProperty ;
+    rdfs:label "produces design knowledge"@en ;
+    dcterms:identifier "produces_design_knowledge" ;
+    rdfs:comment "Relates a DSR study to the prescriptive design knowledge it generates."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:DesignKnowledge ;
+    owl:inverseOf dsr:isDesignKnowledgeProducedBy ;
+    skos:closeMatch dsrv:produces-design-knowledge ;
+    skos:definition "Relates a DSR study to the prescriptive design knowledge it generates."@en ;
+    skos:prefLabel "produces design knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:producesOutputKnowledge a owl:ObjectProperty ;
+    rdfs:label "produces output knowledge"@en ;
+    dcterms:identifier "produces_output_knowledge" ;
+    rdfs:comment "Relates a DSR study to knowledge generated by the study that updates the knowledge base."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:OutputKnowledge ;
+    owl:inverseOf dsr:isOutputKnowledgeProducedBy ;
+    skos:closeMatch dsrv:produces-output-knowledge ;
+    skos:definition "Relates a DSR study to knowledge generated by the study that updates the knowledge base."@en ;
+    skos:prefLabel "produces output knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:satisfiesRequirement a owl:ObjectProperty ;
+    rdfs:label "satisfies requirement"@en ;
+    dcterms:identifier "satisfies_requirement" ;
+    rdfs:comment "Relates a design entity to a requirement it is intended to satisfy."@en ;
+    rdfs:domain dsr:DesignEntity ;
+    rdfs:range dsr:Requirement ;
+    owl:inverseOf dsr:isSatisfiedByDesignEntity ;
+    skos:closeMatch dsrv:satisfies-requirement ;
+    skos:definition "Relates a design entity to a requirement it is intended to satisfy."@en ;
+    skos:prefLabel "satisfies requirement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:supportsContributionClaim a owl:ObjectProperty ;
+    rdfs:label "supports contribution claim"@en ;
+    dcterms:identifier "supports_contribution_claim" ;
+    rdfs:comment "Relates evidence to the contribution claim it supports or constrains."@en ;
+    rdfs:domain dsr:EvaluationEvidence ;
+    rdfs:range dsr:ContributionClaim ;
+    owl:inverseOf dsr:isContributionClaimSupportedBy ;
+    skos:closeMatch dsrv:supports-contribution-claim ;
+    skos:definition "Relates evidence to the contribution claim it supports or constrains."@en ;
+    skos:prefLabel "supports contribution claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:usesEvaluationCriterion a owl:ObjectProperty ;
+    rdfs:label "uses evaluation criterion"@en ;
+    dcterms:identifier "uses_evaluation_criterion" ;
+    rdfs:comment "Relates an evaluation to the criterion, metric, or judgment basis it uses."@en ;
+    rdfs:domain dsr:Evaluation ;
+    rdfs:range dsr:EvaluationCriterion ;
+    owl:inverseOf dsr:isEvaluationCriterionFor ;
+    skos:closeMatch dsrv:uses-evaluation-criterion ;
+    skos:definition "Relates an evaluation to the criterion, metric, or judgment basis it uses."@en ;
+    skos:prefLabel "uses evaluation criterion"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:EvaluationCriterion a owl:Class ;
+    rdfs:label "Evaluation Criterion"@en ;
+    dcterms:identifier "evaluation_criterion" ;
+    rdfs:comment "A standard, metric, or judgment basis against which artifact, requirement, design, use, knowledge, or contribution success is assessed."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:evaluation-criterion ;
+    skos:definition "A standard, metric, or judgment basis against which artifact, requirement, design, use, knowledge, or contribution success is assessed."@en ;
+    skos:prefLabel "Evaluation Criterion"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:EvaluationPlan a owl:Class ;
+    rdfs:label "Evaluation Plan"@en ;
+    dcterms:identifier "evaluation_plan" ;
+    rdfs:comment "A planned evaluation design specifying object, timing, function, setting, evidence mode, criteria, stakeholders, measures, and claim alignment."@en ;
+    rdfs:subClassOf dsr:DocumentationArtifact ;
+    skos:closeMatch dsrv:evaluation-plan ;
+    skos:definition "A planned evaluation design specifying object, timing, function, setting, evidence mode, criteria, stakeholders, measures, and claim alignment."@en ;
+    skos:prefLabel "Evaluation Plan"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:EvaluationReport a owl:Class ;
+    rdfs:label "Evaluation Report"@en ;
+    dcterms:identifier "evaluation_report" ;
+    rdfs:comment "A report of evaluation methods, measures, criteria, findings, limitations, and claim support."@en ;
+    rdfs:subClassOf dsr:DocumentationArtifact ;
+    skos:closeMatch dsrv:evaluation-report ;
+    skos:definition "A report of evaluation methods, measures, criteria, findings, limitations, and claim support."@en ;
+    skos:prefLabel "Evaluation Report"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:KnowledgeType a owl:Class ;
+    rdfs:label "Knowledge Type"@en ;
+    dcterms:identifier "knowledge_type" ;
+    rdfs:comment "A normalized category of knowledge formed by knowledge goal and knowledge scope, used to represent DSR knowledge contributions."@en ;
+    rdfs:subClassOf dsr:KnowledgeBaseEntity ;
+    skos:closeMatch dsrv:knowledge-type ;
+    skos:definition "A normalized category of knowledge formed by knowledge goal and knowledge scope, used to represent DSR knowledge contributions."@en ;
+    skos:prefLabel "Knowledge Type"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ProjectabilityStatement a owl:Class ;
+    rdfs:label "Projectability Statement"@en ;
+    dcterms:identifier "projectability_statement" ;
+    rdfs:comment "A statement of where, how, and under what boundary conditions design knowledge may transfer or project beyond the local instance."@en ;
+    rdfs:subClassOf dsr:Claim ;
+    skos:closeMatch dsrv:projectability-statement ;
+    skos:definition "A statement of where, how, and under what boundary conditions design knowledge may transfer or project beyond the local instance."@en ;
+    skos:prefLabel "Projectability Statement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:QualityAssessment a owl:Class ;
+    rdfs:label "Quality Assessment"@en ;
+    dcterms:identifier "quality_assessment" ;
+    rdfs:comment "An assessment of validity, reliability, transparency, utility, rigor, projectability, or related quality dimensions in a DSR study."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:quality-assessment ;
+    skos:definition "An assessment of validity, reliability, transparency, utility, rigor, projectability, or related quality dimensions in a DSR study."@en ;
+    skos:prefLabel "Quality Assessment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ReplicationActivity a owl:Class ;
+    rdfs:label "Replication Activity"@en ;
+    dcterms:identifier "replication_activity" ;
+    rdfs:comment "A test, redesign, justification, adaptation, explanation, update, recreation, differentiated replication, conceptual replication, or meta-replication activity for DSR artifacts or knowledge."@en ;
+    rdfs:subClassOf dsr:ResearchProcessActivity ;
+    skos:closeMatch dsrv:replication-activity ;
+    skos:definition "A test, redesign, justification, adaptation, explanation, update, recreation, differentiated replication, conceptual replication, or meta-replication activity for DSR artifacts or knowledge."@en ;
+    skos:prefLabel "Replication Activity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:9.3.replication_and_accumulation" ;
+    dsr:status "optional" .
+
+dsr:RequirementSource a owl:Class ;
+    rdfs:label "Requirement Source"@en ;
+    dcterms:identifier "requirement_source" ;
+    rdfs:comment "A problem-space, input-knowledge, or stakeholder-need entity from which a requirement can be derived."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( dsr:ProblemSpace dsr:InputKnowledge dsr:StakeholderNeed ) ] ;
+    skos:definition "A problem-space, input-knowledge, or stakeholder-need entity from which a requirement can be derived."@en ;
+    skos:prefLabel "Requirement Source"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:ResponsibleDesignConstraint a owl:Class ;
+    rdfs:label "Responsible Design Constraint"@en ;
+    dcterms:identifier "responsible_design_constraint" ;
+    rdfs:comment "A privacy, security, ethical, IP, maintenance, stakeholder-burden, confidentiality, sustainability, or social-accountability constraint on DSR artifact design or disclosure."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:responsible-design-constraint ;
+    skos:definition "A privacy, security, ethical, IP, maintenance, stakeholder-burden, confidentiality, sustainability, or social-accountability constraint on DSR artifact design or disclosure."@en ;
+    skos:prefLabel "Responsible Design Constraint"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:UseClaim a owl:Class ;
+    rdfs:label "Use Claim"@en ;
+    dcterms:identifier "use_claim" ;
+    rdfs:comment "A claim that executing a use plan with an artifact instance under specified use conditions yields intended use effects satisfying a use goal."@en ;
+    rdfs:subClassOf dsr:Claim ;
+    skos:closeMatch dsrv:use-claim ;
+    skos:definition "A claim that executing a use plan with an artifact instance under specified use conditions yields intended use effects satisfying a use goal."@en ;
+    skos:prefLabel "Use Claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:abstractsToProblemClass a owl:ObjectProperty ;
+    rdfs:label "abstracts to problem class"@en ;
+    dcterms:identifier "abstracts_to_problem_class" ;
+    rdfs:comment "Relates a local problem instance to the generalized class of similar problems to which it is abstracted."@en ;
+    rdfs:domain dsr:ProblemInstance ;
+    rdfs:range dsr:ProblemClass ;
+    owl:inverseOf dsr:hasProblemInstance ;
+    skos:closeMatch dsrv:abstracts-to-problem-class ;
+    skos:definition "Relates a local problem instance to the generalized class of similar problems to which it is abstracted."@en ;
+    skos:prefLabel "abstracts to problem class"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:addressesProblemInstance a owl:ObjectProperty ;
+    rdfs:label "addresses problem instance"@en ;
+    dcterms:identifier "addresses_problem_instance" ;
+    rdfs:comment "Relates a DSR study to the local or situated problem instance it addresses."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ProblemInstance ;
+    owl:inverseOf dsr:isProblemInstanceAddressedBy ;
+    skos:closeMatch dsrv:addresses-problem-instance ;
+    skos:definition "Relates a DSR study to the local or situated problem instance it addresses."@en ;
+    skos:prefLabel "addresses problem instance"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:claimsContribution a owl:ObjectProperty ;
+    rdfs:label "claims contribution"@en ;
+    dcterms:identifier "claims_contribution" ;
+    rdfs:comment "Relates a DSR study to its claimed scientific, practical, methodological, design, or knowledge contribution."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ContributionClaim ;
+    owl:inverseOf dsr:isContributionClaimOf ;
+    skos:closeMatch dsrv:claims-contribution ;
+    skos:definition "Relates a DSR study to its claimed scientific, practical, methodological, design, or knowledge contribution."@en ;
+    skos:prefLabel "claims contribution"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:demonstratesArtifact a owl:ObjectProperty ;
+    rdfs:label "demonstrates artifact"@en ;
+    dcterms:identifier "demonstrates_artifact" ;
+    rdfs:comment "Relates a demonstration to the artifact instantiation whose feasibility or possible utility is shown."@en ;
+    rdfs:domain dsr:Demonstration ;
+    rdfs:range dsr:ArtifactInstantiation ;
+    owl:inverseOf dsr:isDemonstratedBy ;
+    skos:closeMatch dsrv:demonstrates-artifact ;
+    skos:definition "Relates a demonstration to the artifact instantiation whose feasibility or possible utility is shown."@en ;
+    skos:prefLabel "demonstrates artifact"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:evaluates a owl:ObjectProperty ;
+    rdfs:label "evaluates"@en ;
+    dcterms:identifier "evaluates" ;
+    rdfs:comment "Relates an evaluation to the design entity, artifact instantiation, use claim, or contribution claim being evaluated."@en ;
+    rdfs:domain dsr:Evaluation ;
+    rdfs:range dsr:EvaluationTarget ;
+    owl:inverseOf dsr:isEvaluatedBy ;
+    skos:closeMatch dsrv:evaluates ;
+    skos:definition "Relates an evaluation to the design entity, artifact instantiation, use claim, or contribution claim being evaluated."@en ;
+    skos:prefLabel "evaluates"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:generatesEvidence a owl:ObjectProperty ;
+    rdfs:label "generates evidence"@en ;
+    dcterms:identifier "generates_evidence" ;
+    rdfs:comment "Relates an evaluation to the evidence it generates or assembles."@en ;
+    rdfs:domain dsr:Evaluation ;
+    rdfs:range dsr:EvaluationEvidence ;
+    owl:inverseOf dsr:isGeneratedByEvaluation ;
+    skos:closeMatch dsrv:generates-evidence ;
+    skos:definition "Relates an evaluation to the evidence it generates or assembles."@en ;
+    skos:prefLabel "generates evidence"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasBoundaryCondition a owl:ObjectProperty ;
+    rdfs:label "has boundary condition"@en ;
+    dcterms:identifier "has_boundary_condition" ;
+    rdfs:comment "Relates design knowledge to the contextual, use, stakeholder, artifact-network, domain, temporal, resource, or governance conditions that delimit applicability."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:BoundaryCondition ;
+    owl:inverseOf dsr:isBoundaryConditionFor ;
+    skos:closeMatch dsrv:has-boundary-condition ;
+    skos:definition "Relates design knowledge to the contextual, use, stakeholder, artifact-network, domain, temporal, resource, or governance conditions that delimit applicability."@en ;
+    skos:prefLabel "has boundary condition"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasCapacitySpecification a owl:ObjectProperty ;
+    rdfs:label "has capacity specification"@en ;
+    dcterms:identifier "has_capacity_specification" ;
+    rdfs:comment "Relates a design entity to its claimed functions, affordances, quality attributes, constraints, or capabilities."@en ;
+    rdfs:domain dsr:DesignEntity ;
+    rdfs:range dsr:CapacitySpecification ;
+    owl:inverseOf dsr:isCapacitySpecificationFor ;
+    skos:closeMatch dsrv:has-capacity-specification ;
+    skos:definition "Relates a design entity to its claimed functions, affordances, quality attributes, constraints, or capabilities."@en ;
+    skos:prefLabel "has capacity specification"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasEvaluation a owl:ObjectProperty ;
+    rdfs:label "has evaluation"@en ;
+    dcterms:identifier "has_evaluation" ;
+    rdfs:comment "Relates a DSR study to an evaluation activity or assessment."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:Evaluation ;
+    owl:inverseOf dsr:isEvaluationOfStudy ;
+    skos:closeMatch dsrv:has-evaluation ;
+    skos:definition "Relates a DSR study to an evaluation activity or assessment."@en ;
+    skos:prefLabel "has evaluation"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasMakePlan a owl:ObjectProperty ;
+    rdfs:label "has make plan"@en ;
+    dcterms:identifier "has_make_plan" ;
+    rdfs:comment "Relates a design entity to the plan for producing an artifact instance."@en ;
+    rdfs:domain dsr:DesignEntity ;
+    rdfs:range dsr:MakePlan ;
+    owl:inverseOf dsr:isMakePlanFor ;
+    skos:closeMatch dsrv:has-make-plan ;
+    skos:definition "Relates a design entity to the plan for producing an artifact instance."@en ;
+    skos:prefLabel "has make plan"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasProblemSpace a owl:ObjectProperty ;
+    rdfs:label "has problem space"@en ;
+    dcterms:identifier "has_problem_space" ;
+    rdfs:comment "Relates a DSR study to its represented problem space."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ProblemSpace ;
+    owl:inverseOf dsr:isProblemSpaceOf ;
+    skos:closeMatch dsrv:has-problem-space ;
+    skos:definition "Relates a DSR study to its represented problem space."@en ;
+    skos:prefLabel "has problem space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasReliabilityAssessment a owl:ObjectProperty ;
+    rdfs:label "has reliability assessment"@en ;
+    dcterms:identifier "has_reliability_assessment" ;
+    rdfs:comment "Relates a DSR study to a synchronic or diachronic reliability assessment for artifact, method, measures, process, implementation, evaluator, or design knowledge."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ReliabilityAssessment ;
+    owl:inverseOf dsr:isReliabilityAssessmentOf ;
+    skos:closeMatch dsrv:has-reliability-assessment ;
+    skos:definition "Relates a DSR study to a synchronic or diachronic reliability assessment for artifact, method, measures, process, implementation, evaluator, or design knowledge."@en ;
+    skos:prefLabel "has reliability assessment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:hasRequirement a owl:ObjectProperty ;
+    rdfs:label "has requirement"@en ;
+    dcterms:identifier "has_requirement" ;
+    rdfs:comment "Relates a DSR study to an objective, functional requirement, nonfunctional requirement, meta-requirement, acceptance criterion, or evaluation criterion."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:Requirement ;
+    owl:inverseOf dsr:isRequirementOf ;
+    skos:closeMatch dsrv:has-requirement ;
+    skos:definition "Relates a DSR study to an objective, functional requirement, nonfunctional requirement, meta-requirement, acceptance criterion, or evaluation criterion."@en ;
+    skos:prefLabel "has requirement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasTransparencyTrace a owl:ObjectProperty ;
+    rdfs:label "has transparency trace"@en ;
+    dcterms:identifier "has_transparency_trace" ;
+    rdfs:comment "Relates a DSR study to documentation traces for process, problem-space, solution-space, build, evaluation, and contribution transparency."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:TransparencyTrace ;
+    owl:inverseOf dsr:isTransparencyTraceOf ;
+    skos:closeMatch dsrv:has-transparency-trace ;
+    skos:definition "Relates a DSR study to documentation traces for process, problem-space, solution-space, build, evaluation, and contribution transparency."@en ;
+    skos:prefLabel "has transparency trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasUsePlan a owl:ObjectProperty ;
+    rdfs:label "has use plan"@en ;
+    dcterms:identifier "has_use_plan" ;
+    rdfs:comment "Relates a design entity to the plan for using an artifact instance in context."@en ;
+    rdfs:domain dsr:DesignEntity ;
+    rdfs:range dsr:UsePlan ;
+    owl:inverseOf dsr:isUsePlanFor ;
+    skos:closeMatch dsrv:has-use-plan ;
+    skos:definition "Relates a design entity to the plan for using an artifact instance in context."@en ;
+    skos:prefLabel "has use plan"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:hasValidityAssessment a owl:ObjectProperty ;
+    rdfs:label "has validity assessment"@en ;
+    dcterms:identifier "has_validity_assessment" ;
+    rdfs:comment "Relates a DSR study to an assessment of semantic, problem, requirements, artifact, evaluation, internal, external, pragmatic, contribution, or ethical validity."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ValidityAssessment ;
+    owl:inverseOf dsr:isValidityAssessmentOf ;
+    skos:closeMatch dsrv:has-validity-assessment ;
+    skos:definition "Relates a DSR study to an assessment of semantic, problem, requirements, artifact, evaluation, internal, external, pragmatic, contribution, or ethical validity."@en ;
+    skos:prefLabel "has validity assessment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:includesProblemClass a owl:ObjectProperty ;
+    rdfs:label "includes problem class"@en ;
+    dcterms:identifier "includes_problem_class" ;
+    rdfs:comment "Relates a problem space to a generalized problem class represented within it."@en ;
+    rdfs:domain dsr:ProblemSpace ;
+    rdfs:range dsr:ProblemClass ;
+    owl:inverseOf dsr:isProblemClassIn ;
+    skos:closeMatch dsrv:includes-problem-class ;
+    skos:definition "Relates a problem space to a generalized problem class represented within it."@en ;
+    skos:prefLabel "includes problem class"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:includesProblemInstance a owl:ObjectProperty ;
+    rdfs:label "includes problem instance"@en ;
+    dcterms:identifier "includes_problem_instance" ;
+    rdfs:comment "Relates a problem space to a situated problem instance represented within it."@en ;
+    rdfs:domain dsr:ProblemSpace ;
+    rdfs:range dsr:ProblemInstance ;
+    owl:inverseOf dsr:isProblemInstanceIn ;
+    skos:closeMatch dsrv:includes-problem-instance ;
+    skos:definition "Relates a problem space to a situated problem instance represented within it."@en ;
+    skos:prefLabel "includes problem instance"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:instantiatesDesignEntity a owl:ObjectProperty ;
+    rdfs:label "instantiates design entity"@en ;
+    dcterms:identifier "instantiates_design_entity" ;
+    rdfs:comment "Relates a concrete artifact instantiation to the design entity or artifact universal it implements or instantiates."@en ;
+    rdfs:domain dsr:ArtifactInstantiation ;
+    rdfs:range dsr:DesignEntity ;
+    owl:inverseOf dsr:isInstantiatedBy ;
+    skos:closeMatch dsrv:instantiates-design-entity ;
+    skos:definition "Relates a concrete artifact instantiation to the design entity or artifact universal it implements or instantiates."@en ;
+    skos:prefLabel "instantiates design entity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "conditional" .
+
+dsr:occursInContext a owl:ObjectProperty ;
+    rdfs:label "occurs in context"@en ;
+    dcterms:identifier "occurs_in_context" ;
+    rdfs:comment "Relates a DSR study to the organizational, social, technical, temporal, regulatory, or artifact-network context in which it occurs."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:Context ;
+    owl:inverseOf dsr:isContextForStudy ;
+    skos:closeMatch dsrv:occurs-in-context ;
+    skos:definition "Relates a DSR study to the organizational, social, technical, temporal, regulatory, or artifact-network context in which it occurs."@en ;
+    skos:prefLabel "occurs in context"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:supportsDesignKnowledge a owl:ObjectProperty ;
+    rdfs:label "supports design knowledge"@en ;
+    dcterms:identifier "supports_design_knowledge" ;
+    rdfs:comment "Relates evaluation evidence to the design knowledge it supports, constrains, or helps warrant."@en ;
+    rdfs:domain dsr:EvaluationEvidence ;
+    rdfs:range dsr:DesignKnowledge ;
+    owl:inverseOf dsr:isSupportedByEvidence ;
+    skos:closeMatch dsrv:supports-design-knowledge ;
+    skos:definition "Relates evaluation evidence to the design knowledge it supports, constrains, or helps warrant."@en ;
+    skos:prefLabel "supports design knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:DesignDecision a owl:Class ;
+    rdfs:label "Design Decision"@en ;
+    dcterms:identifier "design_decision" ;
+    rdfs:comment "A traceable choice about artifact structure, function, process, requirement satisfaction, capacity, evaluation, implementation, or boundary condition."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:design-decision ;
+    skos:definition "A traceable choice about artifact structure, function, process, requirement satisfaction, capacity, evaluation, implementation, or boundary condition."@en ;
+    skos:prefLabel "Design Decision"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:EvaluationTarget a owl:Class ;
+    rdfs:label "Evaluation Target"@en ;
+    dcterms:identifier "evaluation_target" ;
+    rdfs:comment "A design entity, artifact instantiation, use claim, or contribution claim that can be evaluated."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( dsr:DesignEntity dsr:ArtifactInstantiation dsr:UseClaim dsr:ContributionClaim ) ] ;
+    skos:definition "A design entity, artifact instantiation, use claim, or contribution claim that can be evaluated."@en ;
+    skos:prefLabel "Evaluation Target"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:Objective a owl:Class ;
+    rdfs:label "Objective"@en ;
+    dcterms:identifier "objective" ;
+    rdfs:comment "A design, research, evaluation, use, make, or contribution objective that translates problem and input knowledge into an intended target."@en ;
+    rdfs:subClassOf dsr:DesignSpecification ;
+    skos:closeMatch dsrv:objective ;
+    skos:definition "A design, research, evaluation, use, make, or contribution objective that translates problem and input knowledge into an intended target."@en ;
+    skos:prefLabel "Objective"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:OutputKnowledge a owl:Class ;
+    rdfs:label "Output Knowledge"@en ;
+    dcterms:identifier "output_knowledge" ;
+    rdfs:comment "Knowledge generated by the DSR study that updates the knowledge base, including artifact knowledge, design principles, theories, patterns, methods, taxonomies, requirements, and evaluation findings."@en ;
+    rdfs:subClassOf dsr:KnowledgeBaseEntity ;
+    skos:closeMatch dsrv:output-knowledge ;
+    skos:definition "Knowledge generated by the DSR study that updates the knowledge base, including artifact knowledge, design principles, theories, patterns, methods, taxonomies, requirements, and evaluation findings."@en ;
+    skos:prefLabel "Output Knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:Problem a owl:Class ;
+    rdfs:label "Problem"@en ;
+    dcterms:identifier "problem" ;
+    rdfs:comment "A design-relevant need, deficiency, gap, opportunity, or wicked situation requiring artifact intervention and researchable or evaluable framing."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:problem ;
+    skos:definition "A design-relevant need, deficiency, gap, opportunity, or wicked situation requiring artifact intervention and researchable or evaluable framing."@en ;
+    skos:prefLabel "Problem"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:ReliabilityAssessment a owl:Class ;
+    rdfs:label "Reliability Assessment"@en ;
+    dcterms:identifier "reliability_assessment" ;
+    rdfs:comment "A synchronic or diachronic reliability assessment for artifact, method, measure, evaluator, process, implementation, or design knowledge consistency."@en ;
+    rdfs:subClassOf dsr:QualityAssessment ;
+    skos:closeMatch dsrv:reliability-assessment ;
+    skos:definition "A synchronic or diachronic reliability assessment for artifact, method, measure, evaluator, process, implementation, or design knowledge consistency."@en ;
+    skos:prefLabel "Reliability Assessment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:9.2.reliability_framework" ;
+    dsr:status "conditional" .
+
+dsr:ResearchProcessActivity a owl:Class ;
+    rdfs:label "Research Process Activity"@en ;
+    dcterms:identifier "research_process_activity" ;
+    rdfs:comment "An activity performed in the DSR process, including construction, demonstration, evaluation, replication, communication, or review."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:research-process-activity ;
+    skos:definition "An activity performed in the DSR process, including construction, demonstration, evaluation, replication, communication, or review."@en ;
+    skos:prefLabel "Research Process Activity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ValidityAssessment a owl:Class ;
+    rdfs:label "Validity Assessment"@en ;
+    dcterms:identifier "validity_assessment" ;
+    rdfs:comment "An assessment of semantic, problem, requirements, artifact, evaluation, internal, external, pragmatic, contribution, ethical, or responsible-design validity."@en ;
+    rdfs:subClassOf dsr:QualityAssessment ;
+    skos:closeMatch dsrv:validity-assessment ;
+    skos:definition "An assessment of semantic, problem, requirements, artifact, evaluation, internal, external, pragmatic, contribution, ethical, or responsible-design validity."@en ;
+    skos:prefLabel "Validity Assessment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:9.1.validity_taxonomy" ;
+    dsr:status "recommended" .
+
+dsr:producesDesignEntity a owl:ObjectProperty ;
+    rdfs:label "produces design entity"@en ;
+    dcterms:identifier "produces_design_entity" ;
+    rdfs:comment "Relates a DSR study to the abstract or reusable design entity, artifact kind, or artifact universal it produces."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:DesignEntity ;
+    owl:inverseOf dsr:isDesignEntityProducedBy ;
+    skos:closeMatch dsrv:produces-design-entity ;
+    skos:definition "Relates a DSR study to the abstract or reusable design entity, artifact kind, or artifact universal it produces."@en ;
+    skos:prefLabel "produces design entity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:usesInputKnowledge a owl:ObjectProperty ;
+    rdfs:label "uses input knowledge"@en ;
+    dcterms:identifier "uses_input_knowledge" ;
+    rdfs:comment "Relates a DSR study to prior descriptive, prescriptive, theoretical, practitioner, artifact, methodological, or technical knowledge used for rigor grounding."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:InputKnowledge ;
+    owl:inverseOf dsr:isInputKnowledgeUsedBy ;
+    skos:closeMatch dsrv:uses-input-knowledge ;
+    skos:definition "Relates a DSR study to prior descriptive, prescriptive, theoretical, practitioner, artifact, methodological, or technical knowledge used for rigor grounding."@en ;
+    skos:prefLabel "uses input knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:BoundaryCondition a owl:Class ;
+    rdfs:label "Boundary Condition"@en ;
+    dcterms:identifier "boundary_condition" ;
+    rdfs:comment "A condition of context, use, stakeholder class, artifact network, domain, time, resource, governance, or environment that limits where a claim or design knowledge applies."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:boundary-condition ;
+    skos:definition "A condition of context, use, stakeholder class, artifact network, domain, time, resource, governance, or environment that limits where a claim or design knowledge applies."@en ;
+    skos:prefLabel "Boundary Condition"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:10.1.contribution_dimensions" ;
+    dsr:status "required" .
+
+dsr:CapacitySpecification a owl:Class ;
+    rdfs:label "Capacity Specification"@en ;
+    dcterms:identifier "capacity_specification" ;
+    rdfs:comment "A specification of claimed artifact functions, affordances, constraints, quality attributes, or capabilities expected from a design entity."@en ;
+    rdfs:subClassOf dsr:DesignSpecification ;
+    skos:altLabel "affordance specification"@en,
+        "capability specification"@en ;
+    skos:closeMatch dsrv:capacity-specification ;
+    skos:definition "A specification of claimed artifact functions, affordances, constraints, quality attributes, or capabilities expected from a design entity."@en ;
+    skos:prefLabel "Capacity Specification"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:4.2.make_use_claim_structure" ;
+    dsr:status "required" .
+
+dsr:InputKnowledge a owl:Class ;
+    rdfs:label "Input Knowledge"@en ;
+    dcterms:identifier "input_knowledge" ;
+    rdfs:comment "Prior descriptive, prescriptive, theoretical, practitioner, artifact, methodological, technological, or design-pattern knowledge used to ground design and evaluation."@en ;
+    rdfs:subClassOf dsr:KnowledgeBaseEntity ;
+    skos:altLabel "justificatory knowledge"@en,
+        "knowledge base grounding"@en,
+        "rigor base"@en ;
+    skos:closeMatch dsrv:input-knowledge ;
+    skos:definition "Prior descriptive, prescriptive, theoretical, practitioner, artifact, methodological, technological, or design-pattern knowledge used to ground design and evaluation."@en ;
+    skos:prefLabel "Input Knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:2.minimum_dsr_record_architecture",
+        "theory_synthesis:1.definitional_nucleus" ;
+    dsr:status "required" .
+
+dsr:KnowledgeBaseEntity a owl:Class ;
+    rdfs:label "Knowledge Base Entity"@en ;
+    dcterms:identifier "knowledge_base_entity" ;
+    rdfs:comment "A knowledge object used as input to, or produced by, a DSR study."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:knowledge-base-entity ;
+    skos:definition "A knowledge object used as input to, or produced by, a DSR study."@en ;
+    skos:prefLabel "Knowledge Base Entity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:MakePlan a owl:Class ;
+    rdfs:label "Make Plan"@en ;
+    dcterms:identifier "make_plan" ;
+    rdfs:comment "A plan for producing an artifact instance, including procedure, build logic, resources, constraints, and conformance expectations."@en ;
+    rdfs:subClassOf dsr:DesignSpecification ;
+    skos:altLabel "build plan"@en,
+        "construction plan"@en ;
+    skos:closeMatch dsrv:make-plan ;
+    skos:definition "A plan for producing an artifact instance, including procedure, build logic, resources, constraints, and conformance expectations."@en ;
+    skos:prefLabel "Make Plan"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:4.2.make_use_claim_structure" ;
+    dsr:status "required" .
+
+dsr:StakeholderNeed a owl:Class ;
+    rdfs:label "Stakeholder Need"@en ;
+    dcterms:identifier "stakeholder_need" ;
+    rdfs:comment "A need, goal, pain point, requirement source, or value concern articulated by or inferred for a stakeholder."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:stakeholder-need ;
+    skos:definition "A need, goal, pain point, requirement source, or value concern articulated by or inferred for a stakeholder."@en ;
+    skos:prefLabel "Stakeholder Need"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:UsePlan a owl:Class ;
+    rdfs:label "Use Plan"@en ;
+    dcterms:identifier "use_plan" ;
+    rdfs:comment "A plan for using an artifact instance in context, including user roles, use steps, use conditions, intended effects, and artifact-network assumptions."@en ;
+    rdfs:subClassOf dsr:DesignSpecification ;
+    skos:altLabel "application plan"@en,
+        "usage plan"@en ;
+    skos:closeMatch dsrv:use-plan ;
+    skos:definition "A plan for using an artifact instance in context, including user roles, use steps, use conditions, intended effects, and artifact-network assumptions."@en ;
+    skos:prefLabel "Use Plan"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:4.2.make_use_claim_structure" ;
+    dsr:status "required" .
+
+dsr:Claim a owl:Class ;
+    rdfs:label "Claim"@en ;
+    dcterms:identifier "claim" ;
+    rdfs:comment "A statement asserted by a DSR study that requires evidence, warrant, scope, and boundary conditions."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:claim ;
+    skos:definition "A statement asserted by a DSR study that requires evidence, warrant, scope, and boundary conditions."@en ;
+    skos:prefLabel "Claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:Demonstration a owl:Class ;
+    rdfs:label "Demonstration"@en ;
+    dcterms:identifier "demonstration" ;
+    rdfs:comment "A use-case, scenario, prototype, pilot, proof-of-concept, or case-based showing of artifact feasibility or possible utility."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:demonstratesArtifact ;
+            owl:someValuesFrom dsr:ArtifactInstantiation ],
+        dsr:ResearchProcessActivity ;
+    skos:closeMatch dsrv:demonstration ;
+    skos:definition "A use-case, scenario, prototype, pilot, proof-of-concept, or case-based showing of artifact feasibility or possible utility."@en ;
+    skos:prefLabel "Demonstration"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:5.process_model" ;
+    dsr:status "recommended" .
+
+dsr:DesignSpecification a owl:Class ;
+    rdfs:label "Design Specification"@en ;
+    dcterms:identifier "design_specification" ;
+    rdfs:comment "A specification of artifact construction, use, capacity, boundary, conformance, or design rationale."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:design-specification ;
+    skos:definition "A specification of artifact construction, use, capacity, boundary, conformance, or design rationale."@en ;
+    skos:prefLabel "Design Specification"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:Context a owl:Class ;
+    rdfs:label "Context"@en ;
+    dcterms:identifier "context" ;
+    rdfs:comment "The organizational, social, technical, temporal, cultural, regulatory, resource, and artifact-network conditions under which a DSR artifact is designed, instantiated, evaluated, used, or expected to transfer."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:context ;
+    skos:definition "The organizational, social, technical, temporal, cultural, regulatory, resource, and artifact-network conditions under which a DSR artifact is designed, instantiated, evaluated, used, or expected to transfer."@en ;
+    skos:prefLabel "Context"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:3.1.ontological_layers" ;
+    dsr:status "required" .
+
+dsr:DocumentationArtifact a owl:Class ;
+    rdfs:label "Documentation Artifact"@en ;
+    dcterms:identifier "documentation_artifact" ;
+    rdfs:comment "A record, log, trace, diagram, package, or report that makes the DSR study reviewable, reusable, auditable, or intelligible."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:documentation-artifact ;
+    skos:definition "A record, log, trace, diagram, package, or report that makes the DSR study reviewable, reusable, auditable, or intelligible."@en ;
+    skos:prefLabel "Documentation Artifact"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ProblemClass a owl:Class ;
+    rdfs:label "Problem Class"@en ;
+    dcterms:identifier "problem_class" ;
+    rdfs:comment "An abstract class of similar problems beyond the local case to which design knowledge may project or generalize."@en ;
+    rdfs:subClassOf dsr:Problem ;
+    skos:altLabel "abstract problem class"@en,
+        "generalized problem frame"@en ;
+    skos:closeMatch dsrv:problem-class ;
+    skos:definition "An abstract class of similar problems beyond the local case to which design knowledge may project or generalize."@en ;
+    skos:prefLabel "Problem Class"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "required" .
+
+dsr:Stakeholder a owl:Class ;
+    rdfs:label "Stakeholder"@en ;
+    dcterms:identifier "stakeholder" ;
+    rdfs:comment "An actor or group affected by, using, evaluating, sponsoring, governing, reviewing, or otherwise involved with the artifact, study, problem, evaluation, or design knowledge."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:stakeholder ;
+    skos:definition "An actor or group affected by, using, evaluating, sponsoring, governing, reviewing, or otherwise involved with the artifact, study, problem, evaluation, or design knowledge."@en ;
+    skos:prefLabel "Stakeholder"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "required" .
+
+dsr:ContributionClaim a owl:Class ;
+    rdfs:label "Contribution Claim"@en ;
+    dcterms:identifier "contribution_claim" ;
+    rdfs:comment "A claimed scientific, practical, methodological, design, or knowledge contribution made by the DSR study, including novelty, utility, evidence basis, audience, scope, and boundary conditions."@en ;
+    rdfs:subClassOf dsr:Claim ;
+    skos:altLabel "knowledge contribution claim"@en,
+        "scientific contribution claim"@en ;
+    skos:closeMatch dsrv:contribution-claim ;
+    skos:definition "A claimed scientific, practical, methodological, design, or knowledge contribution made by the DSR study, including novelty, utility, evidence basis, audience, scope, and boundary conditions."@en ;
+    skos:prefLabel "Contribution Claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:10.1.contribution_dimensions" ;
+    dsr:status "required" .
+
+dsr:DSRSpace a owl:Class ;
+    rdfs:label "DSR Space"@en ;
+    dcterms:identifier "dsr_space" ;
+    rdfs:comment "An analytic space used to organize DSR documentation, such as problem, context, solution, design, artifact, evaluation, knowledge, or communication space."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:dsr-space ;
+    skos:definition "An analytic space used to organize DSR documentation, such as problem, context, solution, design, artifact, evaluation, knowledge, or communication space."@en ;
+    skos:prefLabel "DSR Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "recommended" .
+
+dsr:ProblemInstance a owl:Class ;
+    rdfs:label "Problem Instance"@en ;
+    dcterms:identifier "problem_instance" ;
+    rdfs:comment "A situated local occurrence of a problem in a specific environment, organization, practice, stakeholder group, or case."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:abstractsToProblemClass ;
+            owl:someValuesFrom dsr:ProblemClass ],
+        dsr:Problem ;
+    owl:disjointWith dsr:ProblemClass ;
+    skos:altLabel "case problem"@en,
+        "local problem"@en,
+        "situated problem"@en ;
+    skos:closeMatch dsrv:problem-instance ;
+    skos:definition "A situated local occurrence of a problem in a specific environment, organization, practice, stakeholder group, or case."@en ;
+    skos:prefLabel "Problem Instance"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "required" .
+
+dsr:ProblemSpace a owl:Class ;
+    rdfs:label "Problem Space"@en ;
+    dcterms:identifier "problem_space" ;
+    rdfs:comment "The represented domain of need, problem, gap, opportunity, deficiency, severity, feasibility, stakeholder significance, problem instance, and problem class."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:includesProblemInstance ;
+            owl:someValuesFrom dsr:ProblemInstance ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:includesProblemClass ;
+            owl:someValuesFrom dsr:ProblemClass ],
+        dsr:DSRSpace ;
+    skos:closeMatch dsrv:problem-space ;
+    skos:definition "The represented domain of need, problem, gap, opportunity, deficiency, severity, feasibility, stakeholder significance, problem instance, and problem class."@en ;
+    skos:prefLabel "Problem Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:3.system_ontology",
+        "theory_synthesis:3.1.ontological_layers" ;
+    dsr:status "required" .
+
+dsr:ArtifactInstantiation a owl:Class ;
+    rdfs:label "Artifact Instantiation"@en ;
+    dcterms:identifier "artifact_instantiation" ;
+    rdfs:comment "A concrete implemented artifact, prototype, system, intervention, proof of concept, proof of value, or technical object used for demonstration or evaluation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:instantiatesDesignEntity ;
+            owl:someValuesFrom dsr:DesignEntity ],
+        dsr:DSREntity ;
+    skos:altLabel "artifact instance"@en,
+        "field implementation"@en,
+        "implementation"@en,
+        "proof of concept"@en,
+        "prototype"@en,
+        "technical object"@en ;
+    skos:closeMatch dsrv:artifact-instantiation ;
+    skos:definition "A concrete implemented artifact, prototype, system, intervention, proof of concept, proof of value, or technical object used for demonstration or evaluation."@en ;
+    skos:prefLabel "Artifact Instantiation"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:4.artifact_operationalization",
+        "theory_synthesis:4.1.artifact_ontology" ;
+    dsr:status "conditional" .
+
+dsr:Evaluation a owl:Class ;
+    rdfs:label "Evaluation"@en ;
+    dcterms:identifier "evaluation" ;
+    rdfs:comment "An evidence-generating assessment of a design entity, artifact instantiation, use claim, contribution claim, design knowledge, or related DSR entity against explicit criteria."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:generatesEvidence ;
+            owl:someValuesFrom dsr:EvaluationEvidence ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:evaluates ;
+            owl:someValuesFrom dsr:EvaluationTarget ],
+        dsr:ResearchProcessActivity ;
+    skos:closeMatch dsrv:evaluation ;
+    skos:definition "An evidence-generating assessment of a design entity, artifact instantiation, use claim, contribution claim, design knowledge, or related DSR entity against explicit criteria."@en ;
+    skos:prefLabel "Evaluation"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:6.evaluation_model",
+        "theory_synthesis:8.evaluation_theory" ;
+    dsr:status "required" .
+
+dsr:Requirement a owl:Class ;
+    rdfs:label "Requirement"@en ;
+    dcterms:identifier "requirement" ;
+    rdfs:comment "A functional, nonfunctional, meta-requirement, acceptance condition, or evaluation criterion derived from problem space, input knowledge, or stakeholder needs."@en ;
+    rdfs:subClassOf dsr:DesignSpecification ;
+    skos:closeMatch dsrv:requirement ;
+    skos:definition "A functional, nonfunctional, meta-requirement, acceptance condition, or evaluation criterion derived from problem space, input knowledge, or stakeholder needs."@en ;
+    skos:prefLabel "Requirement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:2.minimum_dsr_record_architecture" ;
+    dsr:status "required" .
+
+dsr:EvaluationEvidence a owl:Class ;
+    rdfs:label "Evaluation Evidence"@en ;
+    dcterms:identifier "evaluation_evidence" ;
+    rdfs:comment "Data, proof, expert review, experiment, simulation, field study, case, trace, analytic result, or other evidence generated or assembled to assess artifact, use, contribution, validity, reliability, or design knowledge claims."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:supportsDesignKnowledge ;
+            owl:someValuesFrom dsr:DesignKnowledge ],
+        dsr:DSREntity ;
+    owl:disjointWith dsr:ContributionClaim ;
+    skos:altLabel "assessment evidence"@en,
+        "evaluation data"@en,
+        "validation evidence"@en ;
+    skos:closeMatch dsrv:evaluation-evidence ;
+    skos:definition "Data, proof, expert review, experiment, simulation, field study, case, trace, analytic result, or other evidence generated or assembled to assess artifact, use, contribution, validity, reliability, or design knowledge claims."@en ;
+    skos:prefLabel "Evaluation Evidence"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:6.evaluation_model",
+        "theory_synthesis:8.evaluation_theory" ;
+    dsr:status "required" .
+
+dsr:AntiPattern a owl:Class ;
+    rdfs:label "Anti-Pattern"@en ;
+    dcterms:identifier "anti_pattern" ;
+    rdfs:comment "A known DSR failure mode, such as ex-post DSR-ification, routine design overclaim, artifact black box, weak problem grounding, weak solution grounding, evaluation mismatch, overlocalization, overabstraction, non-codified knowledge, transparency overload, or artifact maintenance neglect."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:closeMatch dsrv:anti-pattern ;
+    skos:definition "A known DSR failure mode, such as ex-post DSR-ification, routine design overclaim, artifact black box, weak problem grounding, weak solution grounding, evaluation mismatch, overlocalization, overabstraction, non-codified knowledge, transparency overload, or artifact maintenance neglect."@en ;
+    skos:prefLabel "Anti-Pattern"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:9.anti_pattern_checks" ;
+    dsr:status "recommended" .
+
+dsr:DesignKnowledge a owl:Class ;
+    rdfs:label "Design Knowledge"@en ;
+    dcterms:identifier "design_knowledge" ;
+    rdfs:comment "Prescriptive means-end knowledge generated by the study, connecting problem and context conditions, artifact features, mechanisms or rationale, outcomes, evidence, and boundary conditions."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:hasBoundaryCondition ;
+            owl:someValuesFrom dsr:BoundaryCondition ],
+        dsr:KnowledgeBaseEntity ;
+    skos:altLabel "lambda knowledge"@en,
+        "means-end knowledge"@en,
+        "prescriptive design knowledge"@en ;
+    skos:closeMatch dsrv:design-knowledge ;
+    skos:definition "Prescriptive means-end knowledge generated by the study, connecting problem and context conditions, artifact features, mechanisms or rationale, outcomes, evidence, and boundary conditions."@en ;
+    skos:prefLabel "Design Knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:6.1.design_knowledge_as_means_end_knowledge" ;
+    dsr:status "required" .
+
+dsr:TransparencyTrace a owl:Class ;
+    rdfs:label "Transparency Trace"@en ;
+    dcterms:identifier "transparency_trace" ;
+    rdfs:comment "A documentation trace for process, problem-space, solution-space, build, evaluation, and contribution transparency."@en ;
+    rdfs:subClassOf dsr:DocumentationArtifact ;
+    skos:altLabel "audit trail"@en,
+        "documentation trace"@en,
+        "research trace"@en ;
+    skos:closeMatch dsrv:transparency-trace ;
+    skos:definition "A documentation trace for process, problem-space, solution-space, build, evaluation, and contribution transparency."@en ;
+    skos:prefLabel "Transparency Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:8.transparency_and_documentation_protocol",
+        "theory_synthesis:12.1.dsr_transparency_framework" ;
+    dsr:status "required" .
+
+dsr:DSREntity a owl:Class ;
+    rdfs:label "DSR Entity"@en ;
+    dcterms:identifier "dsr_entity" ;
+    rdfs:comment "Any entity, activity, claim, knowledge item, artifact, assessment, or trace represented in the DSR framework."@en ;
+    skos:closeMatch dsrv:dsr-entity ;
+    skos:definition "Any entity, activity, claim, knowledge item, artifact, assessment, or trace represented in the DSR framework."@en ;
+    skos:prefLabel "DSR Entity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:status "required" .
+
+dsr:DesignEntity a owl:Class ;
+    rdfs:label "Design Entity"@en ;
+    dcterms:identifier "design_entity" ;
+    rdfs:comment "An abstract or reusable artifact universal, artifact kind, design specification, or solution class that is the scientific object of DSR and the bearer of reusable design knowledge."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:hasCapacitySpecification ;
+            owl:someValuesFrom dsr:CapacitySpecification ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasUsePlan ;
+            owl:someValuesFrom dsr:UsePlan ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasMakePlan ;
+            owl:someValuesFrom dsr:MakePlan ],
+        dsr:DSREntity ;
+    owl:disjointWith dsr:ArtifactInstantiation ;
+    skos:altLabel "abstract artifact"@en,
+        "artifact kind"@en,
+        "artifact universal"@en,
+        "designed solution class"@en ;
+    skos:closeMatch dsrv:design-entity ;
+    skos:definition "An abstract or reusable artifact universal, artifact kind, design specification, or solution class that is the scientific object of DSR and the bearer of reusable design knowledge."@en ;
+    skos:prefLabel "Design Entity"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:4.artifact_operationalization",
+        "theory_synthesis:4.1.artifact_ontology" ;
+    dsr:status "required" .
+
+dsr:DSRStudy a owl:Class ;
+    rdfs:label "DSR Study"@en ;
+    dcterms:identifier "dsr_study" ;
+    rdfs:comment "A complete design science research project or study that transforms a relevant problem instance and problem class into an evaluated design entity or artifact instantiation and codified design knowledge."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dsr:usesInputKnowledge ;
+            owl:someValuesFrom dsr:InputKnowledge ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasProblemSpace ;
+            owl:someValuesFrom dsr:ProblemSpace ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:addressesProblemInstance ;
+            owl:someValuesFrom dsr:ProblemInstance ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:producesDesignEntity ;
+            owl:someValuesFrom dsr:DesignEntity ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:occursInContext ;
+            owl:someValuesFrom dsr:Context ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasEvaluation ;
+            owl:someValuesFrom dsr:Evaluation ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasTransparencyTrace ;
+            owl:someValuesFrom dsr:TransparencyTrace ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasReliabilityAssessment ;
+            owl:someValuesFrom dsr:ReliabilityAssessment ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasRequirement ;
+            owl:someValuesFrom dsr:Requirement ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:hasValidityAssessment ;
+            owl:someValuesFrom dsr:ValidityAssessment ],
+        [ a owl:Restriction ;
+            owl:onProperty dsr:claimsContribution ;
+            owl:someValuesFrom dsr:ContributionClaim ],
+        dsr:DSREntity ;
+    skos:altLabel "DSR project"@en,
+        "artifact-centered inquiry"@en,
+        "design science research study"@en ;
+    skos:closeMatch dsrv:dsr-study ;
+    skos:definition "A complete design science research project or study that transforms a relevant problem instance and problem class into an evaluated design entity or artifact instantiation and codified design knowledge."@en ;
+    skos:prefLabel "DSR Study"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:1.core_definition",
+        "theory_synthesis:1.definitional_nucleus" ;
+    dsr:status "required" .

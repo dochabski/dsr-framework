@@ -1,0 +1,88 @@
+# SPDX-License-Identifier: CC0-1.0
+source_basis_record:
+  record_id: record_source_basis_dsr_theory_operational_kernel
+  record_class: source_basis
+  item_type: record
+  title: DSR Theory Operational Kernel Source Basis
+  status: draft_retained
+  version: "0.1.0-draft"
+  record_date: "2026-05-05"
+  responsible_party: framework_maintainer
+  artifact_scope: artifacts/dsr-theory-operational-kernel
+  purpose: >
+    Record the local source and synthesis basis for the DSR theory operational
+    kernel artifact before it is reviewed as a repository-governed package.
+  source_inputs:
+    - source_id: dsr_theory_concept_inventory_initial
+      source_type: local_yaml
+      local_reference: DSR Theory/concept-inventory.yaml
+      role: earlier concept inventory used as historical synthesis context
+      committed_in_this_package: false
+    - source_id: dsr_source_operational_extraction_prompt
+      source_type: local_prompt
+      local_reference: DSR Theory/dsr_source_operational_extraction_recurring_prompt.txt
+      role: recurring extraction prompt used to generate source-operational records
+      committed_in_this_package: false
+    - source_id: dsr_source_operational_extraction_template
+      source_type: local_yaml_template
+      local_reference: DSR Theory/dsr-source-operational-extraction-template.yaml
+      role: extraction template used for literature source records
+      committed_in_this_package: false
+    - source_id: concept_inventory_sources_translated_chunked
+      source_type: local_generated_corpus
+      local_reference: DSR Theory/Concept_Inventory_Sources_Translated_Chunked
+      role: chunked source-operational extraction corpus used by the synthesis
+      converted_records: 71
+      failed_conversions: 0
+      committed_in_this_package: false
+      note: >
+        The generated chunk files remain local in this first import to avoid
+        turning the PR into a large evidence-package publication. They can be
+        added later as controlled evidence chunks if review requires them.
+    - source_id: dsr_theory_operational_synthesis_framework
+      source_type: local_artifact_folder
+      local_reference: DSR Theory/DSR_Theory_Operational_Synthesis_Framework
+      role: immediate source folder for committed draft artifact files
+      committed_in_this_package: true
+  committed_derivatives:
+    - path: artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
+      source_file: concept-inventory_v2.yaml
+      role: normalized concept inventory
+    - path: artifacts/dsr-theory-operational-kernel/competency-questions.yaml
+      source_file: dsr_ontology_competency_questions.yaml
+      role: ontology competency questions
+    - path: artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
+      source_file: dsr-ontology.ttl
+      role: draft ontology
+    - path: artifacts/dsr-theory-operational-kernel/shapes/dsr-shapes.ttl
+      source_file: dsr-shapes.ttl
+      role: draft SHACL shapes
+    - path: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.yaml
+      source_file: dsr_skos_controlled_vocabulary.yaml
+      role: YAML controlled vocabulary
+    - path: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.ttl
+      source_file: dsr_skos_controlled_vocabulary.ttl
+      role: SKOS vocabulary
+    - path: artifacts/dsr-theory-operational-kernel/schemas/dsr-project.schema.json
+      source_file: dsr-authoring-templates-and-schema.zip/dsr-project.schema.json
+      role: JSON Schema
+    - path: artifacts/dsr-theory-operational-kernel/templates
+      source_file: dsr-authoring-templates-and-schema.zip
+      role: extracted YAML authoring templates
+  exclusion_policy:
+    copyrighted_source_documents_included: false
+    source_pdfs_included: false
+    local_absolute_paths_required_for_release: false
+    note: >
+      Public repository files should retain source-basis metadata without depending
+      on private Dropbox paths for release-critical use.
+  outcome:
+    result: source_basis_retained_for_draft_import
+    supports:
+      - draft_reviewability
+      - local_preflight_validation
+      - later_self_application_evaluation
+    does_not_support:
+      - independent_literature_review_completion
+      - standalone_stable_release
+      - l5_archival_publication_ready

@@ -1,0 +1,147 @@
+# SPDX-License-Identifier: CC0-1.0
+concept_to_ontology_coverage:
+  item_id: dsr_theory_operational_kernel_concept_to_ontology_coverage
+  item_type: crosswalk
+  title: Concept Inventory to Ontology Coverage Disposition
+  status: draft_reviewed_with_gaps
+  version: "0.1.0-draft"
+  date: "2026-05-05"
+  responsible_party: framework_maintainer
+  purpose: >
+    Record the first local coverage check between the DSR concept inventory,
+    OWL/RDF ontology, SKOS vocabulary, and SHACL shape files before the artifact
+    is used as a stronger validation kernel.
+  reviewed_files:
+    concept_inventory: artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
+    ontology: artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
+    shacl_shapes: artifacts/dsr-theory-operational-kernel/shapes/dsr-shapes.ttl
+    skos_yaml: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.yaml
+    skos_ttl: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.ttl
+  method:
+    - Parse YAML files with PyYAML.
+    - Parse Turtle files with rdflib.
+    - Compare concept inventory identifiers to RDF `dcterms:identifier` values where present.
+    - Compare controlled vocabulary identifiers to SKOS concept identifiers.
+    - Check SHACL target-class references and SHACL path references for ontology or shape representation.
+  summary_counts:
+    concept_inventory:
+      classes: 98
+      object_properties: 52
+      datatype_properties: 34
+      controlled_vocabularies: 23
+      validation_rules: 29
+      anti_patterns: 13
+      source_clarification_needed: 11
+    rdf_parse:
+      ontology_triples: 2563
+      shacl_triples: 1132
+      skos_triples: 11097
+      ontology_class_identifiers: 87
+      ontology_property_identifiers: 130
+      skos_identifiers: 485
+    coverage:
+      classes_represented_by_identifier: 72
+      classes_not_represented_by_identifier: 26
+      object_properties_represented_by_identifier: 30
+      object_properties_not_represented_by_identifier: 22
+      datatype_properties_represented_by_identifier: 22
+      datatype_properties_not_represented_by_identifier: 12
+      controlled_vocabularies_represented: 23
+      controlled_vocabularies_not_represented: 0
+  concept_inventory_gaps:
+    classes_not_represented_by_identifier:
+      - artifact_network
+      - audience
+      - cimo_statement
+      - descriptive_knowledge
+      - dsr_strategy
+      - environment
+      - evaluation_object
+      - governance
+      - kernel_theory
+      - knowledge_contribution_diagram
+      - knowledge_moment
+      - knowledge_path
+      - ontology
+      - path_of_knowledge_types
+      - practitioner_knowledge
+      - prerequisite_space
+      - prior_artifact
+      - problem_motivation
+      - problem_statement
+      - process_log
+      - replication_study
+      - requirements_design_evaluation_trace
+      - resource
+      - solution_alternative
+      - solvability_assessment
+      - stakeholder_evidence
+    object_properties_not_represented_by_identifier:
+      - abstracted_into
+      - applied_to
+      - codifies_as
+      - derived_from_problem
+      - evaluated_by
+      - evaluates_object
+      - grounded_in_input_knowledge
+      - has_artifact_universal
+      - has_context
+      - has_design_rationale
+      - has_evaluation_evidence
+      - has_knowledge_moment
+      - has_problem_class
+      - has_use_case
+      - implemented_in
+      - includes_dsr_grid_dimension
+      - instantiates_artifact_universal
+      - precedes_knowledge_moment
+      - provides_requirements_for
+      - supports_claim
+      - uses_kernel_theory
+      - uses_prior_artifact
+    datatype_properties_not_represented_by_identifier:
+      - alternate_label
+      - ambiguity_level
+      - evaluation_limitations
+      - identifier
+      - maintenance_boundary
+      - novelty_claim
+      - obligation_status
+      - preferred_label
+      - projectability_scope_text
+      - relevance_justification
+      - repository_path
+      - trace_description
+  shacl_consistency:
+    target_classes_missing_from_ontology_by_uri: []
+    path_terms_requiring_review:
+      - http://purl.org/dc/terms/source
+      - http://www.w3.org/2000/01/rdf-schema#label
+      - http://www.w3.org/2000/01/rdf-schema#seeAlso
+      - https://w3id.org/dsr-framework/ontology#hasCIMOContext
+      - https://w3id.org/dsr-framework/ontology#hasClaimType
+      - https://w3id.org/dsr-framework/ontology#hasEvaluationMethod
+      - https://w3id.org/dsr-framework/ontology#hasInterventionOrArtifactFeature
+      - https://w3id.org/dsr-framework/ontology#hasMechanismOrRationale
+      - https://w3id.org/dsr-framework/ontology#hasNoveltyMode
+      - https://w3id.org/dsr-framework/ontology#hasOutcomeOrEffect
+    interpretation: >
+      SHACL target classes resolve without missing ontology targets. Several path
+      terms require review because the first check did not find a local identifier
+      declaration or because the term belongs to a standard RDF namespace.
+  disposition:
+    result: pass_with_recorded_draft_gaps
+    draft_acceptance: >
+      The package is internally parseable and reviewable as a draft artifact.
+      The gaps are explicit and block stronger ontology-completeness claims until
+      they are repaired or retained as scoped modeling decisions.
+    required_followup:
+      - decide which concept inventory terms should become OWL classes or properties;
+      - decide which terms remain YAML-only, SKOS-only, review-only, or documentation constructs;
+      - add ontology declarations or retained modeling decisions for SHACL path terms that are not standard RDF terms;
+      - update this crosswalk after the next ontology pass.
+    does_not_support:
+      - standalone_stable_release
+      - complete_ontology_coverage
+      - independent_semantic_review
+      - l5_archival_publication_ready

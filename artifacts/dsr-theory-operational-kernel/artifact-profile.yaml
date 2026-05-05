@@ -1,0 +1,76 @@
+# SPDX-License-Identifier: CC0-1.0
+artifact_profile:
+  item_id: dsr_theory_operational_kernel_artifact_profile
+  item_type: artifact_profile
+  record_id: artifact_profile_dsr_theory_operational_kernel_0001
+  title: "Design Science Research Theory: Operational Kernel and Repository Validation Framework"
+  status: draft_internal_artifact_package
+  version: "0.1.0-draft"
+  date: "2026-05-05"
+  responsible_party: framework_maintainer
+  host_repository: https://github.com/dochabski/dsr-framework
+  host_package_version: "1.0.2"
+  artifact_type:
+    primary: methodological_framework
+    secondary:
+      - theory_synthesis
+      - validation_instrument
+      - semantic_model_package
+  purpose: >
+    Translate DSR theory synthesis into an operational kernel of concepts, ontology terms,
+    controlled vocabularies, validation shapes, schemas, templates, records, and coverage
+    checks that can be used to validate repository-based DSR artifact packages.
+  package_scope:
+    included:
+      - concept inventory
+      - ontology competency questions
+      - OWL/RDF ontology
+      - SKOS controlled vocabulary
+      - SHACL shapes
+      - JSON Schema
+      - YAML authoring templates
+      - source-basis record
+      - local validation record
+      - concept-to-ontology coverage crosswalk
+    excluded:
+      - copyrighted source PDFs
+      - original full-text source documents
+      - independent external semantic review
+      - empirical validation of downstream framework utility
+      - standalone publication or archival release
+  conformance_posture:
+    artifact_status: draft_internal_artifact_package
+    current_artifact_conformance: l2_reviewable_draft
+    host_package_conformance: l4_reusable_stable
+    l5_claimed: false
+    note: >
+      The host DSR Framework package remains an L4 reusable-stable v1.x package.
+      This nested artifact package is a draft self-application artifact and does not
+      change the host package's L4-not-L5 conformance claim.
+  source_basis:
+    retained_record: records/source-basis/record-source-basis-dsr-theory-operational-kernel.yaml
+    corpus_profile:
+      converted_source_records: 71
+      failed_source_conversions: 0
+      chunked_extraction_files_available_locally: true
+      chunked_extraction_files_committed_in_this_package: false
+      rationale: >
+        The first GitHub import retains source-basis and validation summaries without
+        committing large generated extraction chunks. Full evidence packaging can be
+        added in a later artifact-evidence branch if needed.
+  validation:
+    latest_local_preflight_record: records/validation/record-validation-0001-local-preflight.yaml
+    concept_coverage_record: crosswalks/concept-to-ontology-coverage.yaml
+    validation_summary:
+      yaml_parse_status: pass
+      ttl_parse_status: pass
+      schema_meta_validation_status: pass
+      template_schema_validation_status: pass
+      concept_to_ontology_coverage_status: pass_with_recorded_draft_gaps
+  non_claims:
+    - does_not_claim_exhaustive_dsr_theory
+    - does_not_replace_scholarly_literature
+    - does_not_claim_independent_semantic_review
+    - does_not_claim_empirical_downstream_utility
+    - does_not_claim_standalone_stable_release
+    - does_not_claim_l5_archival_publication_ready

@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: CC0-1.0
+# DSR evaluation authoring template.
+# Evaluation coordinates are required: timing (ex_ante, ex_post), function (formative, summative), setting (artificial, naturalistic), criteria, evidence mode, and claim type.
+
+dsr_evaluation:
+  schema_version: "0.1.0-draft"
+  evaluation:
+    evaluation_id: "EVAL-001"
+    evaluation_object_ids: ["AU-001", "AI-001", "CLM-001"] # Artifact, instantiation, claim, design knowledge, or contribution being evaluated.
+    claim_types_supported: ["make_claim"] # make_claim, use_claim, usage_effect_claim, contribution_claim.
+    evaluation_timing: "ex_post"
+    evaluation_function: "formative"
+    evaluation_setting: "artificial"
+    evaluation_method: "<evaluation method and protocol summary>"
+    evaluation_criteria: ["utility"]
+    evidence:
+      - evidence_id: "EVID-001"
+        evidence_mode: "repository_trace"
+        data_or_observation_summary: "<data, observation, proof, simulation, field, case, expert, or repository evidence>"
+        metric_or_indicator: "<metric, indicator, rubric, or qualitative judgment basis>"
+        result_summary: "<evaluation result and interpretation>"
+        supports_design_knowledge_ids: ["DK-001"]
+        supports_contribution_ids: ["CONTRIB-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:EvaluationEvidence"
+          ontology_property: "dsr:generatesEvidence"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:EvaluationEvidenceShape"
+          json_schema_pointer: "#/$defs/evaluation_evidence"
+    findings: "<main finding>"
+    limitations: "<limits and threats to validity>"
+    claim_evidence_alignment_rationale: "<why this method, setting, timing, evidence mode, and criterion support the claim>"
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:Evaluation"
+      ontology_property: "dsr:hasEvaluation"
+      skos_concept_uri: null
+      shacl_shape: "dsrsh:EvaluationShape"
+      json_schema_pointer: "#/$defs/evaluation_record"
+  validity_assessment:
+    validity_assessment_id: "VAL-001"
+    validity_type: "evaluation_validity"
+    assessment_statement: "<how valid the evaluation is for the claim being made>"
+    evidence_ids: ["EVID-001"]
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:ValidityAssessment"
+      ontology_property: "dsr:hasValidityAssessment"
+      skos_concept_uri: null
+      shacl_shape: "dsrsh:ValidityAssessmentShape"
+      json_schema_pointer: "#/$defs/validity_assessment"
+  traceability:
+    problem_to_requirement: []
+    requirement_to_design_decision: []
+    design_decision_to_evaluation:
+      - trace_id: "TRACE-D2E-001"
+        edge_type: "design_decision_to_evaluation"
+        from_id: "DD-001"
+        to_id: "EVAL-001"
+        rationale: "<how this evaluation examines the design decision>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    evaluation_to_design_knowledge:
+      - trace_id: "TRACE-E2DK-001"
+        edge_type: "evaluation_to_design_knowledge"
+        from_id: "EVAL-001"
+        to_id: "DK-001"
+        rationale: "<how evidence supports, revises, or limits the design knowledge>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+    design_knowledge_to_contribution: []
+  anti_pattern_self_check:
+    - anti_pattern_id: "ap_evaluation_mismatch"
+      anti_pattern_label: "Evaluation Mismatch"
+      status: "not_checked"
+      rationale: "<check method/criterion/evidence/setting against claim type>"
+      mitigation_or_action: "<revise evaluation design or narrow the claim>"
+      related_record_ids: ["EVAL-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+  quality_control:
+    completeness_status: "recommended"
+    human_review_recommended: true
+    review_notes: "<review evaluation alignment and evidence sufficiency>"
+    known_gaps: []
