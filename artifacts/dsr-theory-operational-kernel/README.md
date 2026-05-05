@@ -44,7 +44,7 @@ The artifact translates DSR theory synthesis into controlled materials for:
 This artifact does not claim:
 
 - that the DSR theory synthesis is complete or exhaustive;
-- that all concept inventory terms are fully represented in OWL/RDF;
+- that identifier-level OWL/RDF coverage is the same as mature semantic adequacy;
 - that the ontology has passed independent semantic review;
 - that the framework has empirical proof of downstream utility;
 - that this artifact is a standalone stable release;
@@ -52,4 +52,4 @@ This artifact does not claim:
 
 ## Next use
 
-Use this artifact as the first self-application target for the DSR Framework. The next substantive step is to close or disposition concept-to-ontology coverage gaps, then validate `documentation-protocol` and `dsr-framework` against the operational kernel.
+Use this artifact as the first self-application target for the DSR Framework. The next substantive step is to validate `documentation-protocol` and `dsr-framework` against the operational kernel, while retaining semantic-review limits around lightweight ontology declarations.

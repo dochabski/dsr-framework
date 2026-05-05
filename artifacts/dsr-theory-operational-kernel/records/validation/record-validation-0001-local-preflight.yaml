@@ -50,16 +50,17 @@ validation_record:
         - shapes/dsr-shapes.ttl
         - vocabularies/dsr-skos-controlled-vocabulary.ttl
       triple_counts:
-        ontology: 2563
+        ontology: 3307
         shacl_shapes: 1132
         skos_vocabulary: 11097
     - check_id: concept_to_ontology_coverage
-      result: pass_with_recorded_draft_gaps
+      result: pass_after_identifier_level_ontology_reconciliation
       evidence: crosswalks/concept-to-ontology-coverage.yaml
       interpretation: >
-        The artifact is suitable for controlled draft import. Concept coverage and
-        selected SHACL path issues remain recorded follow-up before stronger
-        ontology-completeness or standalone release claims.
+        Concept inventory identifiers are represented in the ontology and SKOS
+        vocabulary, and nonstandard SHACL path references resolve. Semantic
+        adequacy and stronger axioms remain human-review work before standalone
+        release claims.
   concept_inventory_counts:
     classes: 98
     object_properties: 52
@@ -71,18 +72,17 @@ validation_record:
   coverage_summary:
     controlled_vocabularies_represented: 23
     controlled_vocabularies_missing: 0
-    classes_not_represented_by_identifier: 26
-    object_properties_not_represented_by_identifier: 22
-    datatype_properties_not_represented_by_identifier: 12
+    classes_not_represented_by_identifier: 0
+    object_properties_not_represented_by_identifier: 0
+    datatype_properties_not_represented_by_identifier: 0
     shacl_target_classes_missing: 0
   outcome:
-    result: pass_for_draft_import_with_recorded_gaps
+    result: pass_for_draft_review_after_identifier_reconciliation
     supports:
       - controlled_github_import
       - public_review_preparation
       - later_self_application_evaluation
     does_not_support:
-      - complete_ontology_coverage
-      - standalone_stable_release
       - independent_semantic_review
+      - standalone_stable_release
       - l5_archival_publication_ready

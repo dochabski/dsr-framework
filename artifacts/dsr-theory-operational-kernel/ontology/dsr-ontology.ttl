@@ -2767,3 +2767,829 @@ dsr:DSRStudy a owl:Class ;
     dsr:sourceAnchor "operational_synthesis:1.core_definition",
         "theory_synthesis:1.definitional_nucleus" ;
     dsr:status "required" .
+
+# -----------------------------------------------------------------------------
+
+# Concept-inventory reconciliation declarations
+
+# -----------------------------------------------------------------------------
+
+# These lightweight declarations close identifier-level coverage between
+
+# concept-inventory.yaml and the OWL ontology. They should be refined with
+
+# stronger axioms only after semantic review and downstream validation needs are
+
+# clearer.
+
+dsr:Environment a owl:Class ;
+    rdfs:label "Environment"@en ;
+    dcterms:identifier "environment" ;
+    rdfs:comment "The practice, organizational, technical, social, or application setting in which the DSR problem arises and the artifact is used."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:definition "The practice, organizational, technical, social, or application setting in which the DSR problem arises and the artifact is used."@en ;
+    skos:prefLabel "Environment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:3.system_ontology_of_dsr",
+        "theory_synthesis:3.1.ontological_layers" ;
+    dsr:status "required" .
+
+dsr:PrerequisiteSpace a owl:Class ;
+    rdfs:label "Prerequisite Space"@en ;
+    dcterms:identifier "prerequisite_space" ;
+    rdfs:comment "The resources, governance arrangements, knowledge bases, access conditions, and operational interventions that shape DSR project feasibility."@en ;
+    rdfs:subClassOf dsr:DSRSpace ;
+    skos:definition "The resources, governance arrangements, knowledge bases, access conditions, and operational interventions that shape DSR project feasibility."@en ;
+    skos:prefLabel "Prerequisite Space"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:3.1.ontological_layers" ;
+    dsr:status "recommended" .
+
+dsr:ProblemStatement a owl:Class ;
+    rdfs:label "Problem Statement"@en ;
+    dcterms:identifier "problem_statement" ;
+    rdfs:comment "A textual and traceable statement of the problem, its relevance, severity, stakeholders, solvability, and abstraction level."@en ;
+    rdfs:subClassOf dsr:ProblemSpace ;
+    skos:definition "A textual and traceable statement of the problem, its relevance, severity, stakeholders, solvability, and abstraction level."@en ;
+    skos:prefLabel "Problem Statement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "required" .
+
+dsr:ProblemMotivation a owl:Class ;
+    rdfs:label "Problem Motivation"@en ;
+    dcterms:identifier "problem_motivation" ;
+    rdfs:comment "The justification that a problem is important, novel, feasible, and practically or societally relevant."@en ;
+    rdfs:subClassOf dsr:ProblemSpace ;
+    skos:definition "The justification that a problem is important, novel, feasible, and practically or societally relevant."@en ;
+    skos:prefLabel "Problem Motivation"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory",
+        "theory_synthesis:2.consensus_commitments" ;
+    dsr:status "required" .
+
+dsr:StakeholderEvidence a owl:Class ;
+    rdfs:label "Stakeholder Evidence"@en ;
+    dcterms:identifier "stakeholder_evidence" ;
+    rdfs:comment "Evidence that stakeholders experience, value, assess, or are affected by the problem, artifact, evaluation, or contribution."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:definition "Evidence that stakeholders experience, value, assess, or are affected by the problem, artifact, evaluation, or contribution."@en ;
+    skos:prefLabel "Stakeholder Evidence"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory",
+        "theory_synthesis:14.practitioner_relevance_and_co_creation_theory",
+        "theory_synthesis:9.1.validity_taxonomy" ;
+    dsr:status "recommended" .
+
+dsr:ArtifactNetwork a owl:Class ;
+    rdfs:label "Artifact Network"@en ;
+    dcterms:identifier "artifact_network" ;
+    rdfs:comment "The neighboring artifacts, infrastructures, practices, use plans, and sociotechnical arrangements within which an artifact functions."@en ;
+    rdfs:subClassOf dsr:ContextSpace ;
+    skos:definition "The neighboring artifacts, infrastructures, practices, use plans, and sociotechnical arrangements within which an artifact functions."@en ;
+    skos:prefLabel "Artifact Network"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:3.1.ontological_layers",
+        "theory_synthesis:4.2.make_use_claim_structure" ;
+    dsr:status "recommended" .
+
+dsr:Resource a owl:Class ;
+    rdfs:label "Resource"@en ;
+    dcterms:identifier "resource" ;
+    rdfs:comment "A financial, technical, human, organizational, data, access, or infrastructure resource affecting DSR feasibility."@en ;
+    rdfs:subClassOf dsr:PrerequisiteSpace ;
+    skos:definition "A financial, technical, human, organizational, data, access, or infrastructure resource affecting DSR feasibility."@en ;
+    skos:prefLabel "Resource"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:3.1.ontological_layers",
+        "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "recommended" .
+
+dsr:Governance a owl:Class ;
+    rdfs:label "Governance"@en ;
+    dcterms:identifier "governance" ;
+    rdfs:comment "Decision rights, accountability, policy, privacy, security, IP, and maintenance arrangements affecting artifact design and transparency."@en ;
+    rdfs:subClassOf dsr:PrerequisiteSpace ;
+    skos:definition "Decision rights, accountability, policy, privacy, security, IP, and maintenance arrangements affecting artifact design and transparency."@en ;
+    skos:prefLabel "Governance"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:3.1.ontological_layers",
+        "theory_synthesis:17.formal_propositions_of_consensus_theory",
+        "theory_synthesis:12.1.dsr_transparency_framework" ;
+    dsr:status "recommended" .
+
+dsr:SolvabilityAssessment a owl:Class ;
+    rdfs:label "Solvability Assessment"@en ;
+    dcterms:identifier "solvability_assessment" ;
+    rdfs:comment "An assessment of feasibility, access, resources, governance, and operational intervention capacity for addressing the problem through DSR."@en ;
+    rdfs:subClassOf dsr:ProblemSpace ;
+    skos:definition "An assessment of feasibility, access, resources, governance, and operational intervention capacity for addressing the problem through DSR."@en ;
+    skos:prefLabel "Solvability Assessment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "recommended" .
+
+dsr:KernelTheory a owl:Class ;
+    rdfs:label "Kernel Theory"@en ;
+    dcterms:identifier "kernel_theory" ;
+    rdfs:comment "A theory or explanatory body of knowledge imported to justify requirements, mechanisms, design decisions, or evaluation expectations."@en ;
+    rdfs:subClassOf dsr:InputKnowledge ;
+    skos:definition "A theory or explanatory body of knowledge imported to justify requirements, mechanisms, design decisions, or evaluation expectations."@en ;
+    skos:prefLabel "Kernel Theory"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:6.1.design_knowledge_as_means_end_knowledge" ;
+    dsr:status "recommended" .
+
+dsr:DescriptiveKnowledge a owl:Class ;
+    rdfs:label "Descriptive Knowledge"@en ;
+    dcterms:identifier "descriptive_knowledge" ;
+    rdfs:comment "Knowledge that describes problem, context, artifact state, behavior, or empirical conditions."@en ;
+    rdfs:subClassOf dsr:InputKnowledge ;
+    skos:definition "Knowledge that describes problem, context, artifact state, behavior, or empirical conditions."@en ;
+    skos:prefLabel "Descriptive Knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:6.1.design_knowledge_as_means_end_knowledge" ;
+    dsr:status "recommended" .
+
+dsr:PractitionerKnowledge a owl:Class ;
+    rdfs:label "Practitioner Knowledge"@en ;
+    dcterms:identifier "practitioner_knowledge" ;
+    rdfs:comment "Practice-based knowledge from practitioners or stakeholders used to ground relevance, requirements, design, or evaluation."@en ;
+    rdfs:subClassOf dsr:InputKnowledge ;
+    skos:definition "Practice-based knowledge from practitioners or stakeholders used to ground relevance, requirements, design, or evaluation."@en ;
+    skos:prefLabel "Practitioner Knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:14.practitioner_relevance_and_co_creation_theory" ;
+    dsr:status "recommended" .
+
+dsr:PriorArtifact a owl:Class ;
+    rdfs:label "Prior Artifact"@en ;
+    dcterms:identifier "prior_artifact" ;
+    rdfs:comment "An existing artifact, method, pattern, technology, theory, or implementation used as solution-space grounding or comparison."@en ;
+    rdfs:subClassOf dsr:InputKnowledge ;
+    skos:definition "An existing artifact, method, pattern, technology, theory, or implementation used as solution-space grounding or comparison."@en ;
+    skos:prefLabel "Prior Artifact"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:3.1.ontological_layers" ;
+    dsr:status "recommended" .
+
+dsr:SolutionAlternative a owl:Class ;
+    rdfs:label "Solution Alternative"@en ;
+    dcterms:identifier "solution_alternative" ;
+    rdfs:comment "A candidate artifact, approach, theory, pattern, technology, or design option considered before or during construction."@en ;
+    rdfs:subClassOf dsr:SolutionSpace ;
+    skos:definition "A candidate artifact, approach, theory, pattern, technology, or design option considered before or during construction."@en ;
+    skos:prefLabel "Solution Alternative"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:3.1.ontological_layers",
+        "theory_synthesis:7.process_theory",
+        "theory_synthesis:12.1.dsr_transparency_framework" ;
+    dsr:status "recommended" .
+
+dsr:Ontology a owl:Class ;
+    rdfs:label "Ontology"@en ;
+    dcterms:identifier "ontology" ;
+    rdfs:comment "A formalized conceptualization of DSR classes, properties, relationships, and constraints."@en ;
+    rdfs:subClassOf dsr:ArtifactUniversal ;
+    skos:definition "A formalized conceptualization of DSR classes, properties, relationships, and constraints."@en ;
+    skos:prefLabel "Ontology"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:9.1.validity_taxonomy",
+        "operational_synthesis:11.operational_thesis_for_dsr_framework_repo" ;
+    dsr:status "conditional" .
+
+dsr:EvaluationObject a owl:Class ;
+    rdfs:label "Evaluation Object"@en ;
+    dcterms:identifier "evaluation_object" ;
+    rdfs:comment "The DSR entity being evaluated, such as problem, requirements, solution design, instantiation, solution-in-use, design knowledge, or contribution."@en ;
+    rdfs:subClassOf dsr:EvaluationSpace ;
+    skos:definition "The DSR entity being evaluated, such as problem, requirements, solution design, instantiation, solution-in-use, design knowledge, or contribution."@en ;
+    skos:prefLabel "Evaluation Object"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:8.1.evaluation_coordinate_system",
+        "theory_synthesis:8.3.evaluation_object_hierarchy" ;
+    dsr:status "required" .
+
+dsr:KnowledgeMoment a owl:Class ;
+    rdfs:label "Knowledge Moment"@en ;
+    dcterms:identifier "knowledge_moment" ;
+    rdfs:comment "A point in a DSR project at which a particular knowledge type is produced."@en ;
+    rdfs:subClassOf dsr:KnowledgeSpace ;
+    skos:definition "A point in a DSR project at which a particular knowledge type is produced."@en ;
+    skos:prefLabel "Knowledge Moment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "recommended" .
+
+dsr:KnowledgePath a owl:Class ;
+    rdfs:label "Knowledge Path"@en ;
+    dcterms:identifier "knowledge_path" ;
+    rdfs:comment "A sequence of knowledge moments in a DSR project."@en ;
+    rdfs:subClassOf dsr:KnowledgeSpace ;
+    skos:definition "A sequence of knowledge moments in a DSR project."@en ;
+    skos:prefLabel "Knowledge Path"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies",
+        "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "recommended" .
+
+dsr:PathOfKnowledgeTypes a owl:Class ;
+    rdfs:label "Path of Knowledge Types"@en ;
+    dcterms:identifier "path_of_knowledge_types" ;
+    rdfs:comment "A directed graph representation of the sequence of knowledge types or knowledge moments generated by a DSR project."@en ;
+    rdfs:subClassOf dsr:KnowledgePath ;
+    skos:definition "A directed graph representation of the sequence of knowledge types or knowledge moments generated by a DSR project."@en ;
+    skos:prefLabel "Path of Knowledge Types"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies",
+        "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "recommended" .
+
+dsr:DsrStrategy a owl:Class ;
+    rdfs:label "DSR Knowledge Path Strategy"@en ;
+    dcterms:identifier "dsr_strategy" ;
+    rdfs:comment "A strategy category for DSR contribution progression, such as 1a, 1b, 2a, 2b, 3, 4a, or 4b, derived from paths of knowledge types."@en ;
+    rdfs:subClassOf dsr:KnowledgeSpace ;
+    skos:definition "A strategy category for DSR contribution progression, such as 1a, 1b, 2a, 2b, 3, 4a, or 4b, derived from paths of knowledge types."@en ;
+    skos:prefLabel "DSR Knowledge Path Strategy"@en ;
+    dsr:ambiguityLevel "medium" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "optional" .
+
+dsr:CimoStatement a owl:Class ;
+    rdfs:label "CIMO Statement"@en ;
+    dcterms:identifier "cimo_statement" ;
+    rdfs:comment "A codified design-knowledge statement linking context, intervention, mechanism, and outcome."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:definition "A codified design-knowledge statement linking context, intervention, mechanism, and outcome."@en ;
+    skos:prefLabel "CIMO Statement"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "recommended" .
+
+dsr:KnowledgeContributionDiagram a owl:Class ;
+    rdfs:label "Knowledge Contribution Diagram"@en ;
+    dcterms:identifier "knowledge_contribution_diagram" ;
+    rdfs:comment "A diagrammatic representation of component-level contributions in complex DSR artifacts."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:definition "A diagrammatic representation of component-level contributions in complex DSR artifacts."@en ;
+    skos:prefLabel "Knowledge Contribution Diagram"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "optional" .
+
+dsr:RequirementsDesignEvaluationTrace a owl:Class ;
+    rdfs:label "Requirements-Design-Evaluation Trace"@en ;
+    dcterms:identifier "requirements_design_evaluation_trace" ;
+    rdfs:comment "A traceability artifact linking literature/problem-derived requirements to design decisions and evaluation criteria or findings."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:definition "A traceability artifact linking literature/problem-derived requirements to design decisions and evaluation criteria or findings."@en ;
+    skos:prefLabel "Requirements-Design-Evaluation Trace"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:13.design_knowledge_codification_theory",
+        "operational_synthesis:3.system_ontology" ;
+    dsr:status "required" .
+
+dsr:ReplicationStudy a owl:Class ;
+    rdfs:label "Replication Study"@en ;
+    dcterms:identifier "replication_study" ;
+    rdfs:comment "A study or activity that tests, redesigns, justifies, adapts, explains, updates, recreates, or meta-replicates DSR artifacts or knowledge."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:definition "A study or activity that tests, redesigns, justifies, adapts, explains, updates, recreates, or meta-replicates DSR artifacts or knowledge."@en ;
+    skos:prefLabel "Replication Study"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:9.3.replication_and_accumulation" ;
+    dsr:status "optional" .
+
+dsr:ProcessLog a owl:Class ;
+    rdfs:label "Process Log"@en ;
+    dcterms:identifier "process_log" ;
+    rdfs:comment "Concurrent or reconstructed log of design knowledge production, activities, iterations, decisions, and rationale."@en ;
+    rdfs:subClassOf dsr:DSREntity ;
+    skos:definition "Concurrent or reconstructed log of design knowledge production, activities, iterations, decisions, and rationale."@en ;
+    skos:prefLabel "Process Log"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:12.2.reporting_architecture_dsr_grid_transparency" ;
+    dsr:status "recommended" .
+
+dsr:Audience a owl:Class ;
+    rdfs:label "Audience"@en ;
+    dcterms:identifier "audience" ;
+    rdfs:comment "An intended recipient or evaluator of DSR communication, such as researcher, reviewer, practitioner, manager, policy/public actor, or technical implementer."@en ;
+    rdfs:subClassOf dsr:CommunicationSpace ;
+    skos:definition "An intended recipient or evaluator of DSR communication, such as researcher, reviewer, practitioner, manager, policy/public actor, or technical implementer."@en ;
+    skos:prefLabel "Audience"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:10.1.contribution_dimensions",
+        "theory_synthesis:14.practitioner_relevance_and_co_creation_theory" ;
+    dsr:status "recommended" .
+
+dsr:hasProblemClass a owl:ObjectProperty ;
+    rdfs:label "has problem class"@en ;
+    dcterms:identifier "has_problem_class" ;
+    rdfs:comment "Links a DSR study or problem instance to the abstract class of similar problems."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ProblemClass ;
+    skos:definition "Links a DSR study or problem instance to the abstract class of similar problems."@en ;
+    skos:prefLabel "has problem class"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:5.problem_space_theory",
+        "theory_synthesis:17.formal_propositions_of_consensus_theory" ;
+    dsr:status "required" .
+
+dsr:hasContext a owl:ObjectProperty ;
+    rdfs:label "has context"@en ;
+    dcterms:identifier "has_context" ;
+    rdfs:comment "Links a study, problem, artifact, or evaluation to the contextual conditions bounding interpretation."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:Context ;
+    skos:definition "Links a study, problem, artifact, or evaluation to the contextual conditions bounding interpretation."@en ;
+    skos:prefLabel "has context"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "required" .
+
+dsr:usesKernelTheory a owl:ObjectProperty ;
+    rdfs:label "uses kernel theory"@en ;
+    dcterms:identifier "uses_kernel_theory" ;
+    rdfs:comment "Links a design decision, requirement, or evaluation model to a justifying kernel theory."@en ;
+    rdfs:domain dsr:DesignDecision ;
+    rdfs:range dsr:KernelTheory ;
+    skos:definition "Links a design decision, requirement, or evaluation model to a justifying kernel theory."@en ;
+    skos:prefLabel "uses kernel theory"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:6.1.design_knowledge_as_means_end_knowledge" ;
+    dsr:status "recommended" .
+
+dsr:usesPriorArtifact a owl:ObjectProperty ;
+    rdfs:label "uses prior artifact"@en ;
+    dcterms:identifier "uses_prior_artifact" ;
+    rdfs:comment "Links a design decision or solution-space trace to a prior artifact or technology."@en ;
+    rdfs:domain dsr:DesignDecision ;
+    rdfs:range dsr:PriorArtifact ;
+    skos:definition "Links a design decision or solution-space trace to a prior artifact or technology."@en ;
+    skos:prefLabel "uses prior artifact"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:12.1.dsr_transparency_framework" ;
+    dsr:status "recommended" .
+
+dsr:derivedFromProblem a owl:ObjectProperty ;
+    rdfs:label "derived from problem"@en ;
+    dcterms:identifier "derived_from_problem" ;
+    rdfs:comment "Relates an objective or requirement to the problem instance/class and stakeholder need that motivate it."@en ;
+    rdfs:domain dsr:Requirement ;
+    rdfs:range dsr:Problem ;
+    skos:definition "Relates an objective or requirement to the problem instance/class and stakeholder need that motivate it."@en ;
+    skos:prefLabel "derived from problem"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:7.process_theory",
+        "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "required" .
+
+dsr:groundedInInputKnowledge a owl:ObjectProperty ;
+    rdfs:label "grounded in input knowledge"@en ;
+    dcterms:identifier "grounded_in_input_knowledge" ;
+    rdfs:comment "Relates requirements, design decisions, or evaluations to the knowledge base used for rigor."@en ;
+    rdfs:domain dsr:DesignDecision ;
+    rdfs:range dsr:InputKnowledge ;
+    skos:definition "Relates requirements, design decisions, or evaluations to the knowledge base used for rigor."@en ;
+    skos:prefLabel "grounded in input knowledge"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:2.consensus_commitments",
+        "theory_synthesis:7.process_theory" ;
+    dsr:status "required" .
+
+dsr:hasArtifactUniversal a owl:ObjectProperty ;
+    rdfs:label "has artifact universal"@en ;
+    dcterms:identifier "has_artifact_universal" ;
+    rdfs:comment "Links a DSR study to the reusable artifact universal or design entity being contributed/evaluated."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:ArtifactUniversal ;
+    skos:definition "Links a DSR study to the reusable artifact universal or design entity being contributed/evaluated."@en ;
+    skos:prefLabel "has artifact universal"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:4.1.artifact_ontology",
+        "operational_synthesis:4.artifact_operationalization" ;
+    dsr:status "required" .
+
+dsr:instantiatesArtifactUniversal a owl:ObjectProperty ;
+    rdfs:label "instantiates artifact universal"@en ;
+    dcterms:identifier "instantiates_artifact_universal" ;
+    rdfs:comment "Relates a concrete artifact instance to the reusable artifact universal it realizes."@en ;
+    rdfs:domain dsr:ArtifactInstantiation ;
+    rdfs:range dsr:ArtifactUniversal ;
+    owl:inverseOf dsr:hasArtifactInstantiation ;
+    skos:definition "Relates a concrete artifact instance to the reusable artifact universal it realizes."@en ;
+    skos:prefLabel "instantiates artifact universal"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:4.1.artifact_ontology",
+        "theory_synthesis:17.formal_propositions_of_consensus_theory" ;
+    dsr:status "conditional" .
+
+dsr:hasDesignRationale a owl:ObjectProperty ;
+    rdfs:label "has design rationale"@en ;
+    dcterms:identifier "has_design_rationale" ;
+    rdfs:comment "Links design decisions or artifacts to the reasoning, alternatives, tradeoffs, and justifications behind them."@en ;
+    rdfs:domain dsr:ArtifactUniversal ;
+    rdfs:range dsr:DesignRationale ;
+    skos:definition "Links design decisions or artifacts to the reasoning, alternatives, tradeoffs, and justifications behind them."@en ;
+    skos:prefLabel "has design rationale"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:7.process_theory",
+        "theory_synthesis:12.1.dsr_transparency_framework" ;
+    dsr:status "required" .
+
+dsr:hasUseCase a owl:ObjectProperty ;
+    rdfs:label "has use case"@en ;
+    dcterms:identifier "has_use_case" ;
+    rdfs:comment "Links a use plan, demonstration, or evaluation to a scenario of users, tasks, context, and effects."@en ;
+    rdfs:domain dsr:UsePlan ;
+    rdfs:range dsr:UseCase ;
+    skos:definition "Links a use plan, demonstration, or evaluation to a scenario of users, tasks, context, and effects."@en ;
+    skos:prefLabel "has use case"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:4.2.make_use_claim_structure" ;
+    dsr:status "recommended" .
+
+dsr:hasEvaluationEvidence a owl:ObjectProperty ;
+    rdfs:label "has evaluation evidence"@en ;
+    dcterms:identifier "has_evaluation_evidence" ;
+    rdfs:comment "Links a study, artifact, claim, or contribution to supporting evaluation evidence."@en ;
+    rdfs:domain dsr:DSRStudy ;
+    rdfs:range dsr:EvaluationEvidence ;
+    skos:definition "Links a study, artifact, claim, or contribution to supporting evaluation evidence."@en ;
+    skos:prefLabel "has evaluation evidence"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:1.definitional_nucleus",
+        "theory_synthesis:8.evaluation_theory" ;
+    dsr:status "required" .
+
+dsr:evaluatesObject a owl:ObjectProperty ;
+    rdfs:label "evaluates object"@en ;
+    dcterms:identifier "evaluates_object" ;
+    rdfs:comment "Relates an evaluation evidence item to the object being evaluated."@en ;
+    rdfs:domain dsr:EvaluationEvidence ;
+    rdfs:range dsr:EvaluationObject ;
+    skos:definition "Relates an evaluation evidence item to the object being evaluated."@en ;
+    skos:prefLabel "evaluates object"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:8.1.evaluation_coordinate_system",
+        "theory_synthesis:8.3.evaluation_object_hierarchy" ;
+    dsr:status "required" .
+
+dsr:supportsClaim a owl:ObjectProperty ;
+    rdfs:label "supports claim"@en ;
+    dcterms:identifier "supports_claim" ;
+    rdfs:comment "Relates evidence to a make, use, usage-effect, or contribution claim that it supports."@en ;
+    rdfs:domain dsr:EvaluationEvidence ;
+    rdfs:range dsr:Claim ;
+    skos:definition "Relates evidence to a make, use, usage-effect, or contribution claim that it supports."@en ;
+    skos:prefLabel "supports claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:4.2.make_use_claim_structure",
+        "theory_synthesis:8.3.evaluation_object_hierarchy" ;
+    dsr:status "required" .
+
+dsr:codifiesAs a owl:ObjectProperty ;
+    rdfs:label "codifies as"@en ;
+    dcterms:identifier "codifies_as" ;
+    rdfs:comment "Relates design knowledge to a codification artifact such as design principle, pattern, CIMO statement, grid, diagram, or repository package."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:DSREntity ;
+    skos:definition "Relates design knowledge to a codification artifact such as design principle, pattern, CIMO statement, grid, diagram, or repository package."@en ;
+    skos:prefLabel "codifies as"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "recommended" .
+
+dsr:hasKnowledgeMoment a owl:ObjectProperty ;
+    rdfs:label "has knowledge moment"@en ;
+    dcterms:identifier "has_knowledge_moment" ;
+    rdfs:comment "Relates a knowledge path to a knowledge moment."@en ;
+    rdfs:domain dsr:KnowledgePath ;
+    rdfs:range dsr:KnowledgeMoment ;
+    skos:definition "Relates a knowledge path to a knowledge moment."@en ;
+    skos:prefLabel "has knowledge moment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "recommended" .
+
+dsr:precedesKnowledgeMoment a owl:ObjectProperty ;
+    rdfs:label "precedes knowledge moment"@en ;
+    dcterms:identifier "precedes_knowledge_moment" ;
+    rdfs:comment "Relates one knowledge moment to a later moment in a knowledge path."@en ;
+    rdfs:domain dsr:KnowledgeMoment ;
+    rdfs:range dsr:KnowledgeMoment ;
+    skos:definition "Relates one knowledge moment to a later moment in a knowledge path."@en ;
+    skos:prefLabel "precedes knowledge moment"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "recommended" .
+
+dsr:appliedTo a owl:ObjectProperty ;
+    rdfs:label "applied to"@en ;
+    dcterms:identifier "applied_to" ;
+    rdfs:comment "Knowledge-path edge indicating that a knowledge contribution or artifact is applied to a specific context, problem, or instance."@en ;
+    rdfs:domain dsr:KnowledgeMoment ;
+    rdfs:range dsr:KnowledgeMoment ;
+    skos:definition "Knowledge-path edge indicating that a knowledge contribution or artifact is applied to a specific context, problem, or instance."@en ;
+    skos:prefLabel "applied to"@en ;
+    dsr:ambiguityLevel "medium" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "optional" .
+
+dsr:implementedIn a owl:ObjectProperty ;
+    rdfs:label "implemented in"@en ;
+    dcterms:identifier "implemented_in" ;
+    rdfs:comment "Knowledge-path edge indicating that an abstract artifact or design knowledge is implemented in an instantiation."@en ;
+    rdfs:domain dsr:KnowledgeMoment ;
+    rdfs:range dsr:ArtifactInstantiation ;
+    skos:definition "Knowledge-path edge indicating that an abstract artifact or design knowledge is implemented in an instantiation."@en ;
+    skos:prefLabel "implemented in"@en ;
+    dsr:ambiguityLevel "medium" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "optional" .
+
+dsr:evaluatedBy a owl:ObjectProperty ;
+    rdfs:label "evaluated by"@en ;
+    dcterms:identifier "evaluated_by" ;
+    rdfs:comment "Knowledge-path edge indicating that a knowledge contribution or artifact is evaluated by evidence."@en ;
+    rdfs:domain dsr:KnowledgeMoment ;
+    rdfs:range dsr:EvaluationEvidence ;
+    skos:definition "Knowledge-path edge indicating that a knowledge contribution or artifact is evaluated by evidence."@en ;
+    skos:prefLabel "evaluated by"@en ;
+    dsr:ambiguityLevel "medium" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "optional" .
+
+dsr:abstractedInto a owl:ObjectProperty ;
+    rdfs:label "abstracted into"@en ;
+    dcterms:identifier "abstracted_into" ;
+    rdfs:comment "Knowledge-path edge indicating that instance-level knowledge is abstracted into more general design knowledge or problem-class knowledge."@en ;
+    rdfs:domain dsr:KnowledgeMoment ;
+    rdfs:range dsr:KnowledgeMoment ;
+    skos:definition "Knowledge-path edge indicating that instance-level knowledge is abstracted into more general design knowledge or problem-class knowledge."@en ;
+    skos:prefLabel "abstracted into"@en ;
+    dsr:ambiguityLevel "medium" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies" ;
+    dsr:status "optional" .
+
+dsr:providesRequirementsFor a owl:ObjectProperty ;
+    rdfs:label "provides requirements for"@en ;
+    dcterms:identifier "provides_requirements_for" ;
+    rdfs:comment "Trace relation indicating that problem, input knowledge, or prior evaluation supplies requirements for artifact design."@en ;
+    rdfs:domain dsr:ProblemSpace ;
+    rdfs:range dsr:Requirement ;
+    skos:definition "Trace relation indicating that problem, input knowledge, or prior evaluation supplies requirements for artifact design."@en ;
+    skos:prefLabel "provides requirements for"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:6.2.knowledge_path_strategies",
+        "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "recommended" .
+
+dsr:includesDsrGridDimension a owl:ObjectProperty ;
+    rdfs:label "includes DSR Grid dimension"@en ;
+    dcterms:identifier "includes_dsr_grid_dimension" ;
+    rdfs:comment "Links a DSR Grid summary to a grid dimension."@en ;
+    rdfs:domain dsr:DSRGridSummary ;
+    rdfs:range dsr:DSREntity ;
+    skos:definition "Links a DSR Grid summary to a grid dimension."@en ;
+    skos:prefLabel "includes DSR Grid dimension"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:12.2.reporting_architecture_dsr_grid_transparency" ;
+    dsr:status "recommended" .
+
+dsr:hasCIMOContext a owl:ObjectProperty ;
+    rdfs:label "has CIMO context"@en ;
+    dcterms:identifier "has_cimo_context" ;
+    rdfs:comment "Relates a design-knowledge statement to its CIMO context component."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:Context ;
+    skos:definition "Relates a design-knowledge statement to its CIMO context component."@en ;
+    skos:prefLabel "has CIMO context"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "concept_to_ontology_reconciliation:2026-05-05" ;
+    dsr:status "profile_level_reconciled" .
+
+dsr:hasClaimType a owl:ObjectProperty ;
+    rdfs:label "has claim type"@en ;
+    dcterms:identifier "has_claim_type" ;
+    rdfs:comment "Relates an evaluation or contribution claim to a controlled claim-type concept."@en ;
+    rdfs:domain dsr:ContributionClaim ;
+    rdfs:range dsr:Claim ;
+    skos:definition "Relates an evaluation or contribution claim to a controlled claim-type concept."@en ;
+    skos:prefLabel "has claim type"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "concept_to_ontology_reconciliation:2026-05-05" ;
+    dsr:status "profile_level_reconciled" .
+
+dsr:hasEvaluationMethod a owl:ObjectProperty ;
+    rdfs:label "has evaluation method"@en ;
+    dcterms:identifier "has_evaluation_method" ;
+    rdfs:comment "Relates an evaluation or evidence record to the evaluation method used."@en ;
+    rdfs:domain dsr:Evaluation ;
+    rdfs:range dsr:Method ;
+    skos:definition "Relates an evaluation or evidence record to the evaluation method used."@en ;
+    skos:prefLabel "has evaluation method"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "concept_to_ontology_reconciliation:2026-05-05" ;
+    dsr:status "profile_level_reconciled" .
+
+dsr:hasInterventionOrArtifactFeature a owl:ObjectProperty ;
+    rdfs:label "has intervention or artifact feature"@en ;
+    dcterms:identifier "has_intervention_or_artifact_feature" ;
+    rdfs:comment "Relates a design-knowledge statement to its intervention, action, or artifact-feature component."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:DesignEntity ;
+    skos:definition "Relates a design-knowledge statement to its intervention, action, or artifact-feature component."@en ;
+    skos:prefLabel "has intervention or artifact feature"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "concept_to_ontology_reconciliation:2026-05-05" ;
+    dsr:status "profile_level_reconciled" .
+
+dsr:hasMechanismOrRationale a owl:ObjectProperty ;
+    rdfs:label "has mechanism or rationale"@en ;
+    dcterms:identifier "has_mechanism_or_rationale" ;
+    rdfs:comment "Relates a design-knowledge statement to its mechanism or design rationale component."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:DesignRationale ;
+    skos:definition "Relates a design-knowledge statement to its mechanism or design rationale component."@en ;
+    skos:prefLabel "has mechanism or rationale"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "concept_to_ontology_reconciliation:2026-05-05" ;
+    dsr:status "profile_level_reconciled" .
+
+dsr:hasNoveltyMode a owl:ObjectProperty ;
+    rdfs:label "has novelty mode"@en ;
+    dcterms:identifier "has_novelty_mode" ;
+    rdfs:comment "Relates a contribution claim to the novelty mode used to qualify the contribution."@en ;
+    rdfs:domain dsr:ContributionClaim ;
+    rdfs:range dsr:KnowledgeContribution ;
+    skos:definition "Relates a contribution claim to the novelty mode used to qualify the contribution."@en ;
+    skos:prefLabel "has novelty mode"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "concept_to_ontology_reconciliation:2026-05-05" ;
+    dsr:status "profile_level_reconciled" .
+
+dsr:hasOutcomeOrEffect a owl:ObjectProperty ;
+    rdfs:label "has outcome or effect"@en ;
+    dcterms:identifier "has_outcome_or_effect" ;
+    rdfs:comment "Relates a design-knowledge statement to its intended or observed outcome or effect."@en ;
+    rdfs:domain dsr:DesignKnowledge ;
+    rdfs:range dsr:EvaluationEvidence ;
+    skos:definition "Relates a design-knowledge statement to its intended or observed outcome or effect."@en ;
+    skos:prefLabel "has outcome or effect"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "concept_to_ontology_reconciliation:2026-05-05" ;
+    dsr:status "profile_level_reconciled" .
+
+dsr:identifier a owl:DatatypeProperty ;
+    rdfs:label "identifier"@en ;
+    dcterms:identifier "identifier" ;
+    rdfs:comment "Stable ASCII identifier for any inventory, ontology, schema, SHACL, or trace item."@en ;
+    rdfs:range xsd:string ;
+    skos:definition "Stable ASCII identifier for any inventory, ontology, schema, SHACL, or trace item."@en ;
+    skos:prefLabel "identifier"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:11.operational_thesis_for_dsr_framework_repo" ;
+    dsr:status "required" .
+
+dsr:preferredLabel a owl:DatatypeProperty ;
+    rdfs:label "preferred label"@en ;
+    dcterms:identifier "preferred_label" ;
+    rdfs:comment "Primary human-readable label for a concept, property, rule, vocabulary value, trace, or artifact."@en ;
+    rdfs:range xsd:string ;
+    skos:definition "Primary human-readable label for a concept, property, rule, vocabulary value, trace, or artifact."@en ;
+    skos:prefLabel "preferred label"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:11.operational_thesis_for_dsr_framework_repo" ;
+    dsr:status "required" .
+
+dsr:alternateLabel a owl:DatatypeProperty ;
+    rdfs:label "alternate label"@en ;
+    dcterms:identifier "alternate_label" ;
+    rdfs:comment "Synonym or alternate expression for a concept, property, rule, vocabulary value, trace, or artifact."@en ;
+    rdfs:range xsd:string ;
+    skos:definition "Synonym or alternate expression for a concept, property, rule, vocabulary value, trace, or artifact."@en ;
+    skos:prefLabel "alternate label"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:11.operational_thesis_for_dsr_framework_repo" ;
+    dsr:status "recommended" .
+
+dsr:ambiguityLevel a owl:DatatypeProperty ;
+    rdfs:label "ambiguity level"@en ;
+    dcterms:identifier "ambiguity_level" ;
+    rdfs:comment "Assessment of interpretive ambiguity for an extracted item: low, medium, or high."@en ;
+    rdfs:range xsd:string ;
+    skos:definition "Assessment of interpretive ambiguity for an extracted item: low, medium, or high."@en ;
+    skos:prefLabel "ambiguity level"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:11.operational_thesis_for_dsr_framework_repo" ;
+    dsr:status "required" .
+
+dsr:obligationStatus a owl:DatatypeProperty ;
+    rdfs:label "obligation status"@en ;
+    dcterms:identifier "obligation_status" ;
+    rdfs:comment "Normative status for a field or rule: required, recommended, optional, conditional, contested, not addressed, or not applicable."@en ;
+    rdfs:range xsd:string ;
+    skos:definition "Normative status for a field or rule: required, recommended, optional, conditional, contested, not addressed, or not applicable."@en ;
+    skos:prefLabel "obligation status"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:9.validation_rules_for_repository_operationalization" ;
+    dsr:status "required" .
+
+dsr:relevanceJustification a owl:DatatypeProperty ;
+    rdfs:label "relevance justification"@en ;
+    dcterms:identifier "relevance_justification" ;
+    rdfs:comment "Text explaining practical, societal, stakeholder, or research importance of the problem and artifact."@en ;
+    rdfs:domain dsr:ProblemMotivation ;
+    rdfs:range xsd:string ;
+    skos:definition "Text explaining practical, societal, stakeholder, or research importance of the problem and artifact."@en ;
+    skos:prefLabel "relevance justification"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:2.consensus_commitments",
+        "theory_synthesis:5.problem_space_theory" ;
+    dsr:status "required" .
+
+dsr:evaluationLimitations a owl:DatatypeProperty ;
+    rdfs:label "evaluation limitations"@en ;
+    dcterms:identifier "evaluation_limitations" ;
+    rdfs:comment "Text describing limitations, threats, context restrictions, or evidence gaps in an evaluation."@en ;
+    rdfs:domain dsr:EvaluationReport ;
+    rdfs:range xsd:string ;
+    skos:definition "Text describing limitations, threats, context restrictions, or evidence gaps in an evaluation."@en ;
+    skos:prefLabel "evaluation limitations"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:8.evaluation_theory",
+        "theory_synthesis:9.1.validity_taxonomy" ;
+    dsr:status "recommended" .
+
+dsr:noveltyClaim a owl:DatatypeProperty ;
+    rdfs:label "novelty claim"@en ;
+    dcterms:identifier "novelty_claim" ;
+    rdfs:comment "Text specifying whether the contribution is routine design, improvement, exaptation, or invention and why it is significant."@en ;
+    rdfs:domain dsr:KnowledgeContribution ;
+    rdfs:range xsd:string ;
+    skos:definition "Text specifying whether the contribution is routine design, improvement, exaptation, or invention and why it is significant."@en ;
+    skos:prefLabel "novelty claim"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:10.2.contribution_matrix" ;
+    dsr:status "required" .
+
+dsr:projectabilityScopeText a owl:DatatypeProperty ;
+    rdfs:label "projectability scope text"@en ;
+    dcterms:identifier "projectability_scope_text" ;
+    rdfs:comment "Text describing where and how design knowledge may travel beyond the local instance."@en ;
+    rdfs:domain dsr:ProjectabilityStatement ;
+    rdfs:range xsd:string ;
+    skos:definition "Text describing where and how design knowledge may travel beyond the local instance."@en ;
+    skos:prefLabel "projectability scope text"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:5.problem_space_theory",
+        "theory_synthesis:17.formal_propositions_of_consensus_theory" ;
+    dsr:status "required" .
+
+dsr:traceDescription a owl:DatatypeProperty ;
+    rdfs:label "trace description"@en ;
+    dcterms:identifier "trace_description" ;
+    rdfs:comment "Text describing what a trace artifact records and how it supports review, reuse, audit, replication, or validation."@en ;
+    rdfs:domain dsr:DSREntity ;
+    rdfs:range xsd:string ;
+    skos:definition "Text describing what a trace artifact records and how it supports review, reuse, audit, replication, or validation."@en ;
+    skos:prefLabel "trace description"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:12.1.dsr_transparency_framework",
+        "theory_synthesis:13.design_knowledge_codification_theory" ;
+    dsr:status "required" .
+
+dsr:repositoryPath a owl:DatatypeProperty ;
+    rdfs:label "repository path"@en ;
+    dcterms:identifier "repository_path" ;
+    rdfs:comment "Relative repository path for an artifact, trace, schema, shape, vocabulary, template, example, or validation script."@en ;
+    rdfs:domain dsr:RepositoryPackage ;
+    rdfs:range xsd:string ;
+    skos:definition "Relative repository path for an artifact, trace, schema, shape, vocabulary, template, example, or validation script."@en ;
+    skos:prefLabel "repository path"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "operational_synthesis:11.operational_thesis_for_dsr_framework_repo" ;
+    dsr:status "recommended" .
+
+dsr:maintenanceBoundary a owl:DatatypeProperty ;
+    rdfs:label "maintenance boundary"@en ;
+    dcterms:identifier "maintenance_boundary" ;
+    rdfs:comment "Statement of maintenance scope, version support, executable boundaries, archiving, or artifact decay assumptions."@en ;
+    rdfs:domain dsr:RepositoryPackage ;
+    rdfs:range xsd:string ;
+    skos:definition "Statement of maintenance scope, version support, executable boundaries, archiving, or artifact decay assumptions."@en ;
+    skos:prefLabel "maintenance boundary"@en ;
+    dsr:ambiguityLevel "low" ;
+    dsr:sourceAnchor "theory_synthesis:16.boundary_conditions_and_anti_patterns",
+        "theory_synthesis:17.formal_propositions_of_consensus_theory" ;
+    dsr:status "recommended" .

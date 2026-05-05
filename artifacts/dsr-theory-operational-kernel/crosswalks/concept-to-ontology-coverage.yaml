@@ -3,14 +3,14 @@ concept_to_ontology_coverage:
   item_id: dsr_theory_operational_kernel_concept_to_ontology_coverage
   item_type: crosswalk
   title: Concept Inventory to Ontology Coverage Disposition
-  status: draft_reviewed_with_gaps
-  version: "0.1.0-draft"
+  status: coverage_reconciled_for_draft_review
+  version: "0.1.1-draft"
   date: "2026-05-05"
   responsible_party: framework_maintainer
   purpose: >
-    Record the first local coverage check between the DSR concept inventory,
-    OWL/RDF ontology, SKOS vocabulary, and SHACL shape files before the artifact
-    is used as a stronger validation kernel.
+    Record the coverage check between the DSR concept inventory, OWL/RDF ontology,
+    SKOS vocabulary, and SHACL shape files after the first identifier-level ontology
+    reconciliation pass.
   reviewed_files:
     concept_inventory: artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
     ontology: artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
@@ -22,7 +22,14 @@ concept_to_ontology_coverage:
     - Parse Turtle files with rdflib.
     - Compare concept inventory identifiers to RDF `dcterms:identifier` values where present.
     - Compare controlled vocabulary identifiers to SKOS concept identifiers.
-    - Check SHACL target-class references and SHACL path references for ontology or shape representation.
+    - Check SHACL target-class references and nonstandard SHACL path references for ontology or shape representation.
+    - Treat standard RDF/RDFS/Dublin Core path references as namespace-level dependencies rather than DSR ontology gaps.
+  reconciliation_action:
+    - Added lightweight OWL class declarations for concept-inventory classes that lacked ontology identifiers.
+    - Added lightweight OWL object-property declarations for concept-inventory object properties that lacked ontology identifiers.
+    - Added lightweight OWL datatype-property declarations for concept-inventory datatype properties that lacked ontology identifiers.
+    - Added DSR ontology declarations for profile-level SHACL predicates that had previously existed only in the SHACL profile.
+    - Did not add stronger domain, range, cardinality, disjointness, or equivalence axioms beyond conservative concept-inventory-derived declarations.
   summary_counts:
     concept_inventory:
       classes: 98
@@ -33,115 +40,55 @@ concept_to_ontology_coverage:
       anti_patterns: 13
       source_clarification_needed: 11
     rdf_parse:
-      ontology_triples: 2563
+      ontology_triples: 3307
       shacl_triples: 1132
       skos_triples: 11097
-      ontology_class_identifiers: 87
-      ontology_property_identifiers: 130
+      ontology_class_identifiers: 113
+      ontology_property_identifiers: 171
       skos_identifiers: 485
     coverage:
-      classes_represented_by_identifier: 72
-      classes_not_represented_by_identifier: 26
-      object_properties_represented_by_identifier: 30
-      object_properties_not_represented_by_identifier: 22
-      datatype_properties_represented_by_identifier: 22
-      datatype_properties_not_represented_by_identifier: 12
+      classes_represented_by_identifier: 98
+      classes_not_represented_by_identifier: 0
+      object_properties_represented_by_identifier: 52
+      object_properties_not_represented_by_identifier: 0
+      datatype_properties_represented_by_identifier: 34
+      datatype_properties_not_represented_by_identifier: 0
       controlled_vocabularies_represented: 23
       controlled_vocabularies_not_represented: 0
-  concept_inventory_gaps:
-    classes_not_represented_by_identifier:
-      - artifact_network
-      - audience
-      - cimo_statement
-      - descriptive_knowledge
-      - dsr_strategy
-      - environment
-      - evaluation_object
-      - governance
-      - kernel_theory
-      - knowledge_contribution_diagram
-      - knowledge_moment
-      - knowledge_path
-      - ontology
-      - path_of_knowledge_types
-      - practitioner_knowledge
-      - prerequisite_space
-      - prior_artifact
-      - problem_motivation
-      - problem_statement
-      - process_log
-      - replication_study
-      - requirements_design_evaluation_trace
-      - resource
-      - solution_alternative
-      - solvability_assessment
-      - stakeholder_evidence
-    object_properties_not_represented_by_identifier:
-      - abstracted_into
-      - applied_to
-      - codifies_as
-      - derived_from_problem
-      - evaluated_by
-      - evaluates_object
-      - grounded_in_input_knowledge
-      - has_artifact_universal
-      - has_context
-      - has_design_rationale
-      - has_evaluation_evidence
-      - has_knowledge_moment
-      - has_problem_class
-      - has_use_case
-      - implemented_in
-      - includes_dsr_grid_dimension
-      - instantiates_artifact_universal
-      - precedes_knowledge_moment
-      - provides_requirements_for
-      - supports_claim
-      - uses_kernel_theory
-      - uses_prior_artifact
-    datatype_properties_not_represented_by_identifier:
-      - alternate_label
-      - ambiguity_level
-      - evaluation_limitations
-      - identifier
-      - maintenance_boundary
-      - novelty_claim
-      - obligation_status
-      - preferred_label
-      - projectability_scope_text
-      - relevance_justification
-      - repository_path
-      - trace_description
   shacl_consistency:
     target_classes_missing_from_ontology_by_uri: []
-    path_terms_requiring_review:
+    nonstandard_path_terms_missing_from_ontology_or_shapes_by_uri: []
+    standard_namespace_paths_observed:
       - http://purl.org/dc/terms/source
       - http://www.w3.org/2000/01/rdf-schema#label
       - http://www.w3.org/2000/01/rdf-schema#seeAlso
-      - https://w3id.org/dsr-framework/ontology#hasCIMOContext
-      - https://w3id.org/dsr-framework/ontology#hasClaimType
-      - https://w3id.org/dsr-framework/ontology#hasEvaluationMethod
-      - https://w3id.org/dsr-framework/ontology#hasInterventionOrArtifactFeature
-      - https://w3id.org/dsr-framework/ontology#hasMechanismOrRationale
-      - https://w3id.org/dsr-framework/ontology#hasNoveltyMode
-      - https://w3id.org/dsr-framework/ontology#hasOutcomeOrEffect
     interpretation: >
-      SHACL target classes resolve without missing ontology targets. Several path
-      terms require review because the first check did not find a local identifier
-      declaration or because the term belongs to a standard RDF namespace.
+      SHACL target classes and nonstandard DSR path terms resolve after the
+      reconciliation pass. Standard RDF/RDFS/Dublin Core terms are external
+      namespace dependencies and are not DSR ontology defects.
+  remaining_review_limits:
+    - Identifier-level coverage is complete, but semantic adequacy still needs human review.
+    - Lightweight declarations should be refined with stronger axioms only after downstream validation needs are stable.
+    - Source clarification items in the concept inventory remain source-review work, not ontology-parse failures.
+    - This pass does not establish independent semantic review or empirical framework utility.
   disposition:
-    result: pass_with_recorded_draft_gaps
+    result: pass_after_identifier_level_ontology_reconciliation
     draft_acceptance: >
-      The package is internally parseable and reviewable as a draft artifact.
-      The gaps are explicit and block stronger ontology-completeness claims until
-      they are repaired or retained as scoped modeling decisions.
+      The package is internally parseable and identifier-complete across concept
+      inventory, ontology, SKOS vocabulary, and SHACL references for draft review.
+      The artifact remains a nested draft package until semantic review and
+      self-application evaluation are retained.
     required_followup:
-      - decide which concept inventory terms should become OWL classes or properties;
-      - decide which terms remain YAML-only, SKOS-only, review-only, or documentation constructs;
-      - add ontology declarations or retained modeling decisions for SHACL path terms that are not standard RDF terms;
-      - update this crosswalk after the next ontology pass.
+      - review whether lightweight declarations need stronger domain, range, subclass, inverse, or cardinality axioms;
+      - resolve or retain source-clarification items from the concept inventory;
+      - validate documentation-protocol and dsr-framework against the operational kernel;
+      - decide whether this artifact should remain nested or become a standalone repository after review.
+    supports:
+      - controlled_github_import
+      - draft_reviewability
+      - first_self_application_evaluation
     does_not_support:
-      - standalone_stable_release
-      - complete_ontology_coverage
       - independent_semantic_review
+      - empirical_downstream_utility_validation
+      - standalone_stable_release
       - l5_archival_publication_ready
