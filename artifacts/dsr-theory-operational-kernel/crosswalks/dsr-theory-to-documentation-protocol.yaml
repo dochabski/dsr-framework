@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: CC0-1.0
+dsr_theory_to_documentation_protocol_crosswalk:
+  item_id: dsr_theory_to_documentation_protocol_crosswalk
+  item_type: crosswalk
+  title: DSR Theory Kernel to Documentation Protocol Crosswalk
+  status: retained_self_application_evidence
+  version: "0.1.0-draft"
+  date: "2026-05-05"
+  responsible_party: framework_maintainer
+  target_repository: dochabski/documentation-protocol
+  target_commit: 80aec1aab1f1317e258fbce12e02419bbe9b6ca1
+  mappings:
+    - kernel_area: repository_artifact_stewardship
+      documentation_protocol_targets:
+        - manifest.yaml
+        - specs/product-repository-architecture.yaml
+        - specs/product-artifact-package-specification.yaml
+      evidence_status: mapped
+      limitation: Documentation Protocol is a general meta-protocol, not the DSR-specific kernel.
+    - kernel_area: source_of_truth_and_human_rendering
+      documentation_protocol_targets:
+        - README.md
+        - manifest.yaml
+        - specs/product-protocol-foundation.yaml
+      evidence_status: mapped
+      limitation: Render generation is described as future-capable rather than fully automated.
+    - kernel_area: artifact_package_inventory_and_metadata
+      documentation_protocol_targets:
+        - specs/product-artifact-package-specification.yaml
+        - specs/product-metadata-and-identifier-profile.yaml
+        - templates/artifact-profile-template.yaml
+      evidence_status: mapped
+      limitation: Downstream artifacts must still instantiate their own inventories and licenses.
+    - kernel_area: dsr_lifecycle_contribution_evaluation_transparency
+      documentation_protocol_targets:
+        - specs/product-dsr-lifecycle-and-contribution-model.yaml
+        - checklists/dsr-transparency-crosswalk-checklist.yaml
+        - templates/dsr-transparency-crosswalk-template.yaml
+      evidence_status: mapped
+      limitation: DSR-specific operationalization is more complete in dsr-framework.
+    - kernel_area: quality_conformance_review_release_preservation
+      documentation_protocol_targets:
+        - specs/product-quality-conformance-and-review-model.yaml
+        - specs/product-publication-and-registry-model.yaml
+        - checklists/artifact-package-readiness-checklist.yaml
+      evidence_status: mapped
+      limitation: Target remains public draft and should not be treated as final L5 evidence.
+  outcome:
+    result: mapped_with_public_draft_limitations
+    supports: meta_protocol_self_application
+    does_not_support: l5_archival_publication_ready

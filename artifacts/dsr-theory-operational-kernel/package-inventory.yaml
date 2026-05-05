@@ -62,12 +62,21 @@ package_inventory:
       directory_status: exists_files_verified
       listed_files:
         - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+        - artifacts/dsr-theory-operational-kernel/crosswalks/dsr-theory-to-documentation-protocol.yaml
+        - artifacts/dsr-theory-operational-kernel/crosswalks/dsr-theory-to-dsr-framework.yaml
     - path: artifacts/dsr-theory-operational-kernel/records
       purpose: Retained artifact records.
       directory_status: exists_files_verified
       listed_files:
         - artifacts/dsr-theory-operational-kernel/records/source-basis/record-source-basis-dsr-theory-operational-kernel.yaml
         - artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
+        - artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+    - path: artifacts/dsr-theory-operational-kernel/validation-targets
+      purpose: Per-repository validation target records.
+      directory_status: exists_files_verified
+      listed_files:
+        - artifacts/dsr-theory-operational-kernel/validation-targets/documentation-protocol-validation.yaml
+        - artifacts/dsr-theory-operational-kernel/validation-targets/dsr-framework-validation.yaml
   file_inventory:
     - path: artifacts/dsr-theory-operational-kernel/README.md
       portion_type: artifact_readme
@@ -164,9 +173,35 @@ package_inventory:
       output_format: yaml
       purpose: Local validation and preflight record for the theory operational kernel package.
       inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/crosswalks/dsr-theory-to-documentation-protocol.yaml
+      portion_type: self_application_crosswalk
+      output_format: yaml
+      purpose: Crosswalk from the DSR theory operational kernel to Documentation Protocol.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/crosswalks/dsr-theory-to-dsr-framework.yaml
+      portion_type: self_application_crosswalk
+      output_format: yaml
+      purpose: Crosswalk from the DSR theory operational kernel to DSR Framework.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/validation-targets/documentation-protocol-validation.yaml
+      portion_type: validation_target_record
+      output_format: yaml
+      purpose: Per-target validation record for Documentation Protocol.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/validation-targets/dsr-framework-validation.yaml
+      portion_type: validation_target_record
+      output_format: yaml
+      purpose: Per-target validation record for DSR Framework.
+      inventory_status: present_at_declared_path
+    - path: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+      portion_type: validation_record
+      output_format: yaml
+      purpose: Retained self-application validation record for the two-repository architecture.
+      inventory_status: present_at_declared_path
   validation_summary:
-    total_local_file_entries: 19
+    total_local_file_entries: 24
     parse_status: pass
     schema_template_validation_status: pass
     coverage_status: pass_after_identifier_level_ontology_reconciliation
+    self_application_status: pass_with_retained_limitations
     l5_claimed: false

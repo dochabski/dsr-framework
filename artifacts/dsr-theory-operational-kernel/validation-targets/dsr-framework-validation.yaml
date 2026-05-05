@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: CC0-1.0
+dsr_framework_validation:
+  item_id: dsr_framework_validation_against_dsr_theory_kernel
+  item_type: validation_target_record
+  title: DSR Framework Validation Against DSR Theory Operational Kernel
+  status: retained_self_application_evidence
+  version: "0.1.0-draft"
+  validation_date: "2026-05-05"
+  responsible_party: framework_maintainer
+  target_repository:
+    name: dochabski/dsr-framework
+    url: https://github.com/dochabski/dsr-framework
+    branch: main
+    inspected_commit: ce74c0aa4a6b9f6536a3ae718fe7152345c64c7a
+    declared_status: 1.0.2_stable_with_nested_draft_kernel
+  validation_scope:
+    included:
+      - README.md
+      - manifest.yaml
+      - artifact-profile.yaml
+      - conformance-declaration.yaml
+      - package-inventory.yaml
+      - specs
+      - models
+      - vocabularies
+      - schemas
+      - templates
+      - checklists
+      - docs/protocol
+      - records
+      - crosswalks
+      - examples
+      - artifacts/dsr-theory-operational-kernel
+    excluded:
+      - empirical downstream adoption study
+      - independent external semantic review
+      - L5 archival/publication-ready approval
+  kernel_questions:
+    - question_id: df_kernel_q001
+      question: Does the target instantiate DSR artifact ontology, lifecycle, contribution, evaluation, transparency, reliability, replication, projectability, and publication-readiness structures?
+      result: pass
+      evidence:
+        - models
+        - vocabularies
+        - specs
+        - docs/protocol
+    - question_id: df_kernel_q002
+      question: Does the target provide templates, checklists, schemas, examples, retained reviews, and validation automation?
+      result: pass
+      evidence:
+        - templates
+        - checklists
+        - schemas
+        - examples/canonical-minimal-dsr-package
+        - records/reviews
+        - scripts/validate-package.py
+    - question_id: df_kernel_q003
+      question: Does the target retain source-level and claim-level traceability?
+      result: pass
+      evidence:
+        - crosswalks/source-to-framework-alignment.yaml
+        - crosswalks/claim-to-source-traceability.yaml
+        - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
+    - question_id: df_kernel_q004
+      question: Does the target avoid treating documentation completeness as empirical proof of utility?
+      result: pass
+      evidence:
+        - README.md known limitations
+        - artifact-profile.yaml non-claims
+        - conformance-declaration.yaml not_claimed
+    - question_id: df_kernel_q005
+      question: Does the target include the operational theory kernel as a controlled draft artifact without expanding the host package claim?
+      result: pass
+      evidence:
+        - artifacts/README.md
+        - artifacts/dsr-theory-operational-kernel/artifact-profile.yaml
+        - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+  findings:
+    - finding_id: df_validation_001
+      severity: nonblocking
+      result: pass
+      statement: The DSR Framework instantiates the operational structures expected by the theory kernel across controlled models, records, templates, examples, crosswalks, validation, and release evidence.
+    - finding_id: df_validation_002
+      severity: nonblocking
+      result: pass
+      statement: The nested operational kernel is inventoried and validated without changing the host package's L4-not-L5 conformance boundary.
+    - finding_id: df_validation_003
+      severity: nonblocking
+      result: accepted_limitation
+      statement: The target does not claim empirical downstream utility, independent external semantic review, or L5 archival/publication-ready status.
+  outcome:
+    result: pass_with_retained_limitations
+    supports:
+      - self_application_of_dsr_theory_kernel
+      - continued_l4_host_package_reviewability
+      - next_release_preparation
+    does_not_support:
+      - empirical_downstream_utility_validation
+      - independent_external_semantic_review
+      - l5_archival_publication_ready
