@@ -1,0 +1,62 @@
+# SPDX-License-Identifier: CC0-1.0
+release_approval_record:
+  record_id: record_release_approval_0004_v1_1_0
+  record_class: release_approval
+  item_type: record
+  title: v1.1.0 Minor Release Approval
+  status: approved
+  version: "1.1.0"
+  approval_date: "2026-05-05"
+  responsible_party: framework_maintainer
+  target_release: v1.1.0
+  approved_release_tag: v1.1.0
+  approved_package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  approved_commit:
+    commit_sha: 631050765b54efc3259a1df41e9f09b10b4f5ef5
+    branch: main
+    approval_scope_note: >
+      This commit is the main-branch content commit that added the nested DSR
+      theory operational kernel artifact and retained self-application validation
+      evidence. The v1.1.0 metadata, release record, and approval record are
+      retained in the following release-preparation commit.
+
+  approval_basis:
+    minor_release_record: records/releases/record-release-0005-v1-1-0.yaml
+    minor_metadata_freeze: records/releases/record-metadata-freeze-0004-v1-1-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+    self_application_validation: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+    v1_0_2_release_approval: records/releases/record-release-approval-0003-v1-0-2.yaml
+
+  validation_commands:
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  approval_statement: >
+    The DSR Framework v1.1.0 minor release is approved as an L4 reusable-stable
+    GitHub release. The release is not approved as L5 archival/publication-ready.
+
+  post_release_actions:
+    - tag release commit as v1.1.0
+    - create GitHub release using records/releases/github-release-notes-v1-1-0.md
+    - verify release artifacts and source archives
+    - publish Zenodo only after explicit maintainer confirmation
+
+  outcome:
+    result: approved_for_github_minor_release
+    approved_claims:
+      - v1_1_0_stable
+      - l4_reusable_stable
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+      - standalone_stable_release_of_nested_kernel
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained release approval.

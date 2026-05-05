@@ -8,8 +8,8 @@ metadata_record:
     for reviewable reuse and future publication.
 
     '
-  status: 1.0.2_stable
-  version: 1.0.2
+  status: 1.1.0_stable
+  version: 1.1.0
   owner:
     role: project_steward
     name: David Ochabski
@@ -100,7 +100,7 @@ repository_metadata:
     markdown_extension: .md
     json_schema_extension: .schema.json
     stable_identifier_style: lower_snake_case
-  release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.0.2
+  release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.1.0
   default_branch: main
   github:
     owner: dochabski
@@ -138,8 +138,8 @@ authorship_and_contribution:
 citation_metadata:
   preferred_citation_status: github_v1_release
   title: DSR Framework
-  version: 1.0.2
-  release_date: '2026-05-02'
+  version: 1.1.0
+  release_date: '2026-05-05'
   publication_year: '2026'
   authors:
   - Ochabski, David
@@ -155,7 +155,7 @@ citation_metadata:
     value: null
     provider: Zenodo
     concept_recid: '19835423'
-  url: https://github.com/dochabski/dsr-framework/releases/tag/v1.0.2
+  url: https://github.com/dochabski/dsr-framework/releases/tag/v1.1.0
   abstract: 'The DSR Framework is a structured artifact package for Design Science Research documentation, review, evaluation,
     transparency, contribution positioning, and publication preparation.
 
@@ -181,7 +181,7 @@ citation_metadata:
     status: evidence_base_reference
   repository_url: https://github.com/dochabski/dsr-framework
   archival_url: https://zenodo.org/records/19835424
-  v1_release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.0.2
+  v1_release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.1.0
   l5_claimed: false
 license_and_reuse:
   default_license:
@@ -221,7 +221,7 @@ license_and_reuse:
   - LICENSES/Apache-2.0.txt
   - REUSE.toml
 versioning_and_release:
-  current_version: 1.0.2
+  current_version: 1.1.0
   semantic_versioning_policy:
     major: incompatible structural changes to the framework package or schemas
     minor: backward-compatible additions to models, vocabularies, templates, or records
@@ -235,13 +235,13 @@ versioning_and_release:
   - deprecated
   - archived
   release_readiness:
-    current_state: 1.0.2_stable
+    current_state: 1.1.0_stable
     release_candidate: false
     archival_publication_ready: false
     controlled_progression:
     - 0.1.0_public_draft
     - 1.0.0_rc.N
-    - 1.0.x_stable
+    - 1.1.x_stable
     current_package_conformance: l4_reusable_stable
     l5_status: not_claimed_for_v1_x_post_v1_l5_work
     required_before_release: []
@@ -433,11 +433,11 @@ open_questions:
   question: What exact metadata schema should validate this file after the metadata profile is generated?
   resolution_needed_for: l2_reviewable_or_higher_conformance
 limitations:
-- This is a v0.1.0 public draft release and remains under active validation.
-- External utility evaluation, independent review, and reuse evidence remain future work.
+- The current v1.1.0 release is an L4 reusable-stable package release, not an L5 archival/publication-ready release.
+- External empirical utility evaluation, external reuse evidence, and automatic downstream artifact validation are not claimed.
 - The repaired extraction corpus and original source PDFs are not included in the public package.
-- The v0.1.0 Zenodo archive preserves the release package as uploaded at DOI publication time.
-- The v1.0.0 target is L4 reusable stable; L5 archival/publication-ready status is deferred until preservation, registry, metadata-freeze, and independent-review gates pass.
+- The v0.1.0 Zenodo archive remains historical preservation evidence for that public-draft release.
+- L5 archival/publication-ready status is deferred until preservation closure, registry evidence, independent external review, and L5 approval gates pass.
 acceptance_criteria:
 - criterion_id: ac_metadata_001
   criterion: The file parses as YAML.
@@ -456,6 +456,12 @@ acceptance_criteria:
   criterion: The metadata aligns with CITATION.cff, .zenodo.json, package inventory, and manifest.
   status: pass
 change_history:
+- version: 1.1.0
+  date: '2026-05-05'
+  change_type: minor_release_metadata_update
+  description: Updated current release metadata for v1.1.0 after adding the nested DSR theory operational kernel and retained self-application validation evidence.
+  responsible_party: framework_maintainer
+  related_request: dsr_theory_kernel_self_application_release
 - version: 0.1.0
   date: '2026-04-27'
   change_type: initial_draft

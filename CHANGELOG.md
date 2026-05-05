@@ -6,6 +6,25 @@
 
 - No unreleased changes.
 
+## [1.1.0] - 2026-05-05
+
+### Added
+
+- Added the nested DSR theory operational kernel artifact package under `artifacts/dsr-theory-operational-kernel/`.
+- Added retained self-application validation records comparing `documentation-protocol` and `dsr-framework` against the DSR theory operational kernel.
+- Added crosswalks from the theory kernel to both repository layers and per-target validation records.
+
+### Changed
+
+- Updated release-facing metadata for the v1.1.0 minor release while preserving `l4_reusable_stable` conformance and `l5_claimed: false`.
+- Updated repository inventory and validation summary to `183/183` controlled files after release records are added.
+
+### Validation
+
+- Public validation passes with controlled inventory alignment.
+- Release-candidate validation passes for the v1 L4 reusable-stable gate.
+- v1.1.0 does not claim external empirical reuse validation, downstream artifact validation, standalone kernel stable release, or L5 archival/publication-ready status.
+
 ## [1.0.2] - 2026-05-02
 
 ### Changed
