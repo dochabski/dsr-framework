@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_0005_v1_1_0
+  record_class: release_record
+  item_type: record
+  title: DSR Framework v1.1.0 Minor Release Record
+  status: approved
+  version: "1.1.0"
+  release_date: "2026-05-05"
+  responsible_party: framework_maintainer
+  release_tag: v1.1.0
+  release_status: "1.1.0_stable"
+  package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  release_scope:
+    included:
+      - v1_0_2_stable_package
+      - nested_dsr_theory_operational_kernel_artifact
+      - concept_to_ontology_coverage_reconciliation
+      - self_application_validation_records
+      - documentation_protocol_validation_target
+      - dsr_framework_validation_target
+      - theory_kernel_to_repository_crosswalks
+      - validation_summary
+    excluded:
+      - l5_archival_publication_ready_claim
+      - external_empirical_reuse_validation
+      - standalone_stable_release_of_the_nested_kernel
+      - downstream_artifact_certification
+      - Zenodo publication action
+
+  minor_release_blockers: []
+
+  retained_evidence:
+    nested_artifact_readme: artifacts/dsr-theory-operational-kernel/README.md
+    nested_artifact_inventory: artifacts/dsr-theory-operational-kernel/package-inventory.yaml
+    self_application_validation: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+    documentation_protocol_target: artifacts/dsr-theory-operational-kernel/validation-targets/documentation-protocol-validation.yaml
+    dsr_framework_target: artifacts/dsr-theory-operational-kernel/validation-targets/dsr-framework-validation.yaml
+    metadata_freeze: records/releases/record-metadata-freeze-0004-v1-1-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+
+  validation:
+    required_commands:
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass
+
+  release_notes_summary:
+    - v1.1.0 adds a nested DSR theory operational kernel artifact package.
+    - Adds retained self-application validation for documentation-protocol and dsr-framework.
+    - Preserves L4 reusable-stable package conformance for the host package.
+    - Does not claim L5 archival/publication-ready status or empirical downstream utility.
+
+  known_limitations:
+    - L5 archival/publication-ready status is not claimed for v1.1.0.
+    - External empirical reuse validation is not claimed.
+    - The nested DSR theory operational kernel remains draft L2 reviewable evidence, not a standalone stable release.
+    - Zenodo publication is not performed by this release-preparation task.
+
+  outcome:
+    result: ready_for_github_minor_release
+    conformance_claim_supported: l4_reusable_stable
+    conformance_claim_not_supported: l5_archival_publication_ready

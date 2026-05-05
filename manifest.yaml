@@ -9,8 +9,8 @@ manifest:
     target, validation obligations, and traceability expectations for the Design Science Research Framework repository.
 
     '
-  status: 1.0.2_stable
-  version: 1.0.2
+  status: 1.1.0_stable
+  version: 1.1.0
   package:
     package_id: dsr_framework
     package_name: DSR Framework
@@ -28,8 +28,8 @@ manifest:
       '
     canonical_repository_role: source_of_truth_package
     repository_url: https://github.com/dochabski/dsr-framework
-    publication_status: 1.0.2_stable
-    intended_release: v1.0.2
+    publication_status: 1.1.0_stable
+    intended_release: v1.1.0
     license:
       spdx_id: CC0-1.0
       license_file: LICENSE
@@ -43,7 +43,7 @@ manifest:
     - .zenodo.json
     - codemeta.json
     normalization_status:
-      status: 1.0.2_stable_metadata_frozen
+      status: 1.1.0_stable_metadata_frozen
       normalized_at: '2026-04-27'
       structure_status: canonical_directories_populated_from_product_catalog
       required_root_file_status: all_required_root_files_present_as_draft_or_controlled_files
@@ -96,9 +96,14 @@ manifest:
       latest_patch_release_record: records/releases/record-release-0004-v1-0-2.yaml
       latest_patch_release_approval: records/releases/record-release-approval-0003-v1-0-2.yaml
       latest_patch_release_notes: records/releases/github-release-notes-v1-0-2.md
+      latest_minor_metadata_freeze_record: records/releases/record-metadata-freeze-0004-v1-1-0.yaml
+      latest_minor_release_record: records/releases/record-release-0005-v1-1-0.yaml
+      latest_minor_release_approval: records/releases/record-release-approval-0004-v1-1-0.yaml
+      latest_minor_release_notes: records/releases/github-release-notes-v1-1-0.md
       v1_release_record_status: approved_for_github_release
       v1_release_approval_status: approved_for_github_release
       patch_release_status: approved_for_github_release_v1_0_2
+      minor_release_status: approved_for_github_release_v1_1_0
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -196,7 +201,7 @@ manifest:
       role: citation_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_citation_metadata_frozen_1_0_2
+      validation_status: present_v1_citation_metadata_frozen_1_1_0
       existence_audit_date: '2026-04-27'
     - path: CHANGELOG.md
       role: release_change_log
@@ -244,7 +249,7 @@ manifest:
       role: structured_project_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_metadata_frozen_1_0_2
+      validation_status: present_v1_metadata_frozen_1_1_0
       existence_audit_date: '2026-04-27'
     - path: artifact-profile.yaml
       role: artifact_identity_scope_claims_and_reuse_constraints
@@ -754,6 +759,21 @@ manifest:
     to: records/releases/record-release-approval-0003-v1-0-2.yaml
     relation: supports_v1_0_2_patch_release_approval
     evidence_status: retained_release_approval_record
+  - trace_id: tr_dsr_theory_self_application_to_v1_1_0_metadata_freeze
+    from: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+    to: records/releases/record-metadata-freeze-0004-v1-1-0.yaml
+    relation: supports_v1_1_0_minor_metadata_freeze
+    evidence_status: retained_metadata_freeze_record
+  - trace_id: tr_v1_1_0_metadata_freeze_to_release_record
+    from: records/releases/record-metadata-freeze-0004-v1-1-0.yaml
+    to: records/releases/record-release-0005-v1-1-0.yaml
+    relation: supports_v1_1_0_minor_release_record
+    evidence_status: retained_release_record
+  - trace_id: tr_v1_1_0_release_record_to_release_approval
+    from: records/releases/record-release-0005-v1-1-0.yaml
+    to: records/releases/record-release-approval-0004-v1-1-0.yaml
+    relation: supports_v1_1_0_minor_release_approval
+    evidence_status: retained_release_approval_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -804,6 +824,10 @@ manifest:
     - records/releases/record-release-0004-v1-0-2.yaml
     - records/releases/record-release-approval-0003-v1-0-2.yaml
     - records/releases/github-release-notes-v1-0-2.md
+    - records/releases/record-metadata-freeze-0004-v1-1-0.yaml
+    - records/releases/record-release-0005-v1-1-0.yaml
+    - records/releases/record-release-approval-0004-v1-1-0.yaml
+    - records/releases/github-release-notes-v1-1-0.md
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
@@ -883,6 +907,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.1.0
+    date: '2026-05-05'
+    change_type: minor_release_metadata_and_records
+    description: Updated release-facing metadata for v1.1.0 and added minor release freeze, release, approval, and notes records after nested DSR theory operational kernel self-application validation.
+    responsible_party: framework_maintainer
+    related_request: dsr_theory_kernel_self_application_release
   - version: 0.1.0
     date: '2026-04-27'
     change_type: initial_generation
