@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: CC0-1.0
+# DSR contribution authoring template.
+# Contribution claims should not merely restate the artifact; they should identify object, novelty, knowledge goal, scope, evidence, and boundaries.
+
+dsr_contribution:
+  schema_version: "0.1.0-draft"
+  contribution:
+    contribution_id: "CONTRIB-001"
+    contribution_object: "methodology" # design_entity, design_theory, both_design_entity_and_design_theory, methodology, evaluation_framework, taxonomy, ontology, design_principle, design_pattern.
+    knowledge_goal: "prescriptive"
+    knowledge_scope: "projectable_problem_class"
+    novelty_mode: "improvement" # routine_design, improvement, exaptation, invention.
+    maturity: "emerging" # nascent, emerging, mature, replicated, codified.
+    contribution_statement: "<clear contribution claim to research, method, practice, artifact, or design knowledge>"
+    evidence_basis: "<evaluation evidence and design knowledge supporting the contribution>"
+    supported_by_design_knowledge_ids: ["DK-001"]
+    supported_by_evaluation_ids: ["EVAL-001"]
+    boundary_conditions:
+      - boundary_condition_id: "BC-CONTRIB-001"
+        boundary_type: "domain"
+        statement: "<scope and limits of the contribution>"
+        applies_to_ids: ["CONTRIB-001"]
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:BoundaryCondition"
+          ontology_property: "dsr:hasBoundaryCondition"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:BoundaryConditionShape"
+          json_schema_pointer: "#/$defs/boundary_condition"
+    intended_audiences: ["researcher", "reviewer", "practitioner"]
+    source_anchor_ids: ["SRC-001"]
+    confidence_level: "medium"
+    confidence_percent: null
+    ambiguity_level: "medium"
+    notes: null
+    ontology_mapping:
+      ontology_class: "dsr:ContributionClaim"
+      ontology_property: "dsr:claimsContribution"
+      skos_concept_uri: null
+      shacl_shape: "dsrsh:ContributionClaimShape"
+      json_schema_pointer: "#/$defs/contribution_record"
+  traceability:
+    problem_to_requirement: []
+    requirement_to_design_decision: []
+    design_decision_to_evaluation: []
+    evaluation_to_design_knowledge: []
+    design_knowledge_to_contribution:
+      - trace_id: "TRACE-DK2C-001"
+        edge_type: "design_knowledge_to_contribution"
+        from_id: "DK-001"
+        to_id: "CONTRIB-001"
+        rationale: "<why this design knowledge supports the contribution claim>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+  anti_pattern_self_check:
+    - anti_pattern_id: "ap_routine_design_overclaim"
+      anti_pattern_label: "Routine Design Overclaim"
+      status: "not_checked"
+      rationale: "<check whether novelty and projectable design knowledge exceed routine local design>"
+      mitigation_or_action: "<narrow claim, add abstraction/evidence, or document genuine novelty>"
+      related_record_ids: ["CONTRIB-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+    - anti_pattern_id: "ap_conflated_artifact_and_output_knowledge"
+      anti_pattern_label: "Conflated Artifact and Output Knowledge"
+      status: "not_checked"
+      rationale: "<check distinction among artifact, design knowledge, and contribution>"
+      mitigation_or_action: "<separate artifact description from codified design knowledge and contribution claim>"
+      related_record_ids: ["CONTRIB-001", "DK-001", "AU-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+  quality_control:
+    completeness_status: "recommended"
+    human_review_recommended: true
+    review_notes: "<review novelty, evidence basis, knowledge scope, and boundary conditions>"
+    known_gaps: []

@@ -1,0 +1,3243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/dsr-framework/schemas/dsr-project.schema.json",
+  "title": "Design Science Research project and module authoring schema",
+  "description": "Validates full DSR project records and the module-root YAML templates generated from the DSR ontology, SHACL profile, SKOS vocabulary, and concept inventory.",
+  "type": "object",
+  "oneOf": [
+    {
+      "required": [
+        "dsr_project"
+      ],
+      "properties": {
+        "dsr_project": {
+          "$ref": "#/$defs/dsr_project"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": [
+        "dsr_evaluation"
+      ],
+      "properties": {
+        "dsr_evaluation": {
+          "$ref": "#/$defs/evaluation_module"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": [
+        "dsr_artifact"
+      ],
+      "properties": {
+        "dsr_artifact": {
+          "$ref": "#/$defs/artifact_module"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": [
+        "dsr_design_knowledge"
+      ],
+      "properties": {
+        "dsr_design_knowledge": {
+          "$ref": "#/$defs/design_knowledge_module"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": [
+        "dsr_contribution"
+      ],
+      "properties": {
+        "dsr_contribution": {
+          "$ref": "#/$defs/contribution_module"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": [
+        "dsr_transparency"
+      ],
+      "properties": {
+        "dsr_transparency": {
+          "$ref": "#/$defs/transparency_module"
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "$defs": {
+    "artifact_type": {
+      "type": "string",
+      "enum": [
+        "construct",
+        "model",
+        "method",
+        "instantiation_class",
+        "artifact_instantiation",
+        "design_principle",
+        "design_pattern",
+        "design_theory",
+        "framework",
+        "taxonomy",
+        "ontology",
+        "architecture",
+        "socio_technical_intervention",
+        "process_artifact"
+      ],
+      "description": "Controlled artifact/design-entity type."
+    },
+    "knowledge_goal": {
+      "type": "string",
+      "enum": [
+        "definitional",
+        "descriptive",
+        "prescriptive",
+        "explanatory",
+        "predictive",
+        "explanatory_predictive",
+        "evaluative",
+        "methodological",
+        "normative_ethical"
+      ],
+      "description": "Controlled knowledge goal."
+    },
+    "knowledge_scope": {
+      "type": "string",
+      "enum": [
+        "idiographic_local",
+        "projectable_problem_class",
+        "analytical_generalization",
+        "nomothetic_general"
+      ],
+      "description": "Controlled knowledge scope."
+    },
+    "evaluation_timing": {
+      "type": "string",
+      "enum": [
+        "ex_ante",
+        "ex_post"
+      ],
+      "description": "ex_ante or ex_post."
+    },
+    "evaluation_function": {
+      "type": "string",
+      "enum": [
+        "formative",
+        "summative"
+      ],
+      "description": "formative or summative."
+    },
+    "evaluation_setting": {
+      "type": "string",
+      "enum": [
+        "artificial",
+        "naturalistic"
+      ],
+      "description": "artificial or naturalistic."
+    },
+    "evidence_mode": {
+      "type": "string",
+      "enum": [
+        "analytical",
+        "empirical",
+        "expert",
+        "simulation",
+        "experiment",
+        "field",
+        "case",
+        "proof",
+        "repository_trace",
+        "literature_synthesis",
+        "conceptual_argument",
+        "build_evaluate",
+        "replication"
+      ],
+      "description": "Controlled evaluation evidence mode."
+    },
+    "evaluation_criterion": {
+      "type": "string",
+      "enum": [
+        "utility",
+        "efficacy",
+        "effectiveness",
+        "efficiency",
+        "robustness",
+        "fidelity",
+        "simplicity",
+        "clarity",
+        "consistency",
+        "aesthetics",
+        "ethical_acceptability",
+        "fitness_for_use",
+        "fitness_for_evolution",
+        "projectability",
+        "feasibility",
+        "usability",
+        "completeness",
+        "traceability",
+        "novelty"
+      ],
+      "description": "Controlled evaluation criterion."
+    },
+    "claim_type": {
+      "type": "string",
+      "enum": [
+        "make_claim",
+        "use_claim",
+        "usage_effect_claim",
+        "contribution_claim"
+      ],
+      "description": "Controlled claim type."
+    },
+    "validity_type": {
+      "type": "string",
+      "enum": [
+        "semantic_validity",
+        "problem_validity",
+        "requirements_validity",
+        "artifact_validity",
+        "evaluation_validity",
+        "internal_validity",
+        "external_context_validity",
+        "pragmatic_validity",
+        "contribution_validity",
+        "ethical_responsible_validity"
+      ],
+      "description": "Controlled validity type."
+    },
+    "reliability_target": {
+      "type": "string",
+      "enum": [
+        "artifact",
+        "method",
+        "measure",
+        "design_knowledge",
+        "evaluator",
+        "process",
+        "implementation"
+      ],
+      "description": "Controlled reliability target."
+    },
+    "reliability_timing": {
+      "type": "string",
+      "enum": [
+        "synchronic",
+        "diachronic"
+      ],
+      "description": "Controlled reliability timing/type."
+    },
+    "replication_type": {
+      "type": "string",
+      "enum": [
+        "test",
+        "redesign",
+        "justification",
+        "adaptation",
+        "explanation",
+        "update",
+        "recreation",
+        "meta_replication",
+        "differentiated_replication",
+        "conceptual_replication"
+      ],
+      "description": "Controlled replication type."
+    },
+    "transparency_form": {
+      "type": "string",
+      "enum": [
+        "process",
+        "problem_space",
+        "solution_space",
+        "build",
+        "evaluation",
+        "contribution"
+      ],
+      "description": "Six transparency forms."
+    },
+    "dsr_grid_dimension": {
+      "type": "string",
+      "enum": [
+        "problem",
+        "input_knowledge",
+        "research_process",
+        "key_concepts",
+        "solution",
+        "output_knowledge"
+      ],
+      "description": "Six DSR Grid dimensions."
+    },
+    "contribution_object": {
+      "type": "string",
+      "enum": [
+        "design_entity",
+        "design_theory",
+        "both_design_entity_and_design_theory",
+        "methodology",
+        "evaluation_framework",
+        "taxonomy",
+        "ontology",
+        "design_principle",
+        "design_pattern"
+      ],
+      "description": "Controlled contribution object."
+    },
+    "novelty_mode": {
+      "type": "string",
+      "enum": [
+        "routine_design",
+        "improvement",
+        "exaptation",
+        "invention"
+      ],
+      "description": "Controlled novelty mode."
+    },
+    "maturity": {
+      "type": "string",
+      "enum": [
+        "nascent",
+        "emerging",
+        "mature",
+        "replicated",
+        "codified"
+      ],
+      "description": "Controlled maturity level."
+    },
+    "audience": {
+      "type": "string",
+      "enum": [
+        "researcher",
+        "reviewer",
+        "practitioner",
+        "manager",
+        "policy_public",
+        "technical_implementer",
+        "user",
+        "sponsor"
+      ],
+      "description": "Controlled audience/stakeholder role."
+    },
+    "obligation_status": {
+      "type": "string",
+      "enum": [
+        "required",
+        "recommended",
+        "optional",
+        "conditional",
+        "contested",
+        "not_addressed",
+        "not_applicable"
+      ],
+      "description": "Controlled obligation/status value."
+    },
+    "ambiguity_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "low, medium, or high ambiguity."
+    },
+    "traceability_edge": {
+      "type": "string",
+      "enum": [
+        "source_to_concept",
+        "concept_to_ontology_class",
+        "concept_to_property",
+        "concept_to_skos_term",
+        "concept_to_schema_field",
+        "concept_to_shacl_shape",
+        "problem_to_requirement",
+        "requirement_to_design_decision",
+        "design_decision_to_evaluation",
+        "evaluation_to_design_knowledge",
+        "design_knowledge_to_contribution",
+        "contribution_to_repository_artifact",
+        "evidence_to_claim",
+        "evidence_to_validation_rule"
+      ],
+      "description": "Controlled traceability edge type."
+    },
+    "dsr_strategy": {
+      "type": "string",
+      "enum": [
+        "strategy_1a",
+        "strategy_1b",
+        "strategy_2a",
+        "strategy_2b",
+        "strategy_3",
+        "strategy_4a",
+        "strategy_4b"
+      ],
+      "description": "Optional DSR strategy classification."
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "direct_quote",
+        "close_paraphrase",
+        "table_data",
+        "figure_or_model",
+        "formal_definition",
+        "example",
+        "method_description",
+        "evaluation_result",
+        "limitation",
+        "bibliographic_metadata",
+        "extractor_inference",
+        "repository_trace"
+      ],
+      "description": "Controlled source/evidence anchor evidence type."
+    },
+    "dsr_genre": {
+      "type": "string",
+      "enum": [
+        "design_theory_contribution",
+        "design_science_research_methodology",
+        "artifact_typology",
+        "evaluation_framework",
+        "reporting_guidance",
+        "design_knowledge_synthesis",
+        "reliability_replication",
+        "application_case",
+        "other"
+      ],
+      "description": "DSR genre value from the operational extraction profile."
+    },
+    "documentation_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "under_review",
+        "accepted",
+        "published",
+        "archived"
+      ],
+      "description": "Documentation lifecycle status."
+    },
+    "anti_pattern_status": {
+      "type": "string",
+      "enum": [
+        "not_checked",
+        "not_present",
+        "possible",
+        "present",
+        "not_applicable"
+      ],
+      "description": "Status of an anti-pattern self-check."
+    },
+    "requirement_type": {
+      "type": "string",
+      "enum": [
+        "functional_requirement",
+        "quality_requirement",
+        "meta_requirement",
+        "evaluation_requirement",
+        "ethical_requirement",
+        "security_requirement",
+        "privacy_requirement",
+        "maintenance_requirement",
+        "documentation_requirement",
+        "acceptance_condition",
+        "other"
+      ],
+      "description": "Requirement classification."
+    },
+    "objective_type": {
+      "type": "string",
+      "enum": [
+        "problem_objective",
+        "design_objective",
+        "artifact_objective",
+        "evaluation_objective",
+        "contribution_objective",
+        "practice_objective",
+        "other"
+      ],
+      "description": "Objective classification."
+    },
+    "knowledge_role": {
+      "type": "string",
+      "enum": [
+        "kernel_theory",
+        "prior_artifact",
+        "design_theory",
+        "design_pattern",
+        "method",
+        "technology",
+        "evaluation_framework",
+        "literature_synthesis",
+        "domain_evidence",
+        "practitioner_knowledge",
+        "repository_trace",
+        "other"
+      ],
+      "description": "Role played by input knowledge."
+    },
+    "capacity_type": {
+      "type": "string",
+      "enum": [
+        "function",
+        "affordance",
+        "quality_attribute",
+        "constraint",
+        "interface",
+        "data_requirement",
+        "responsible_design",
+        "security",
+        "privacy",
+        "maintenance",
+        "other"
+      ],
+      "description": "Capacity specification type."
+    },
+    "boundary_type": {
+      "type": "string",
+      "enum": [
+        "context",
+        "stakeholder",
+        "domain",
+        "technical",
+        "temporal",
+        "regulatory",
+        "resource",
+        "governance",
+        "security",
+        "privacy",
+        "intellectual_property",
+        "maintenance",
+        "ethical",
+        "other"
+      ],
+      "description": "Boundary-condition type."
+    },
+    "claim_disposition": {
+      "type": "string",
+      "enum": [
+        "supported",
+        "partially_supported",
+        "not_supported",
+        "inconclusive",
+        "planned"
+      ],
+      "description": "Result disposition for a claim or finding."
+    },
+    "confidence_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "Human-assessed confidence level."
+    },
+    "anti_pattern_id": {
+      "type": "string",
+      "enum": [
+        "ap_ex_post_dsrification",
+        "ap_routine_design_overclaim",
+        "ap_artifact_black_box",
+        "ap_weak_problem_grounding",
+        "ap_weak_solution_grounding",
+        "ap_evaluation_mismatch",
+        "ap_theory_fetish",
+        "ap_overlocalization",
+        "ap_overabstraction",
+        "ap_non_codified_knowledge",
+        "ap_transparency_overload",
+        "ap_artifact_maintenance_neglect",
+        "ap_conflated_artifact_and_output_knowledge"
+      ],
+      "description": "Controlled anti-pattern identifier."
+    },
+    "confidence_percent": {
+      "type": [
+        "number",
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "source_anchor_ref_array": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Source citation anchor IDs supporting the claim."
+    },
+    "id_array": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "string_array": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "optional_string_array": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "ontology_mapping": {
+      "type": "object",
+      "properties": {
+        "ontology_class": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_property": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "skos_concept_uri": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "shacl_shape": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "json_schema_pointer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "description": "Optional mapping to ontology, SKOS, SHACL, or schema terms."
+    },
+    "source_citation_anchor": {
+      "type": "object",
+      "properties": {
+        "source_anchor_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "citation_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bibliographic_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_type": {
+          "$ref": "#/$defs/evidence_type"
+        },
+        "evidence_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url_or_repository_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "source_anchor_id",
+        "citation_label",
+        "source_type",
+        "bibliographic_reference",
+        "location",
+        "evidence_type",
+        "evidence_summary",
+        "confidence_level"
+      ]
+    },
+    "evidence_record": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_type": {
+          "$ref": "#/$defs/evidence_type"
+        },
+        "evidence_mode": {
+          "$ref": "#/$defs/evidence_mode"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supports_claim_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "summary",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "boundary_condition": {
+      "type": "object",
+      "properties": {
+        "boundary_condition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundary_type": {
+          "$ref": "#/$defs/boundary_type"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applies_to_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "boundary_condition_id",
+        "boundary_type",
+        "statement",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "stakeholder": {
+      "type": "object",
+      "properties": {
+        "stakeholder_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stakeholder_role": {
+          "$ref": "#/$defs/audience"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "needs_or_goals": {
+          "$ref": "#/$defs/string_array"
+        },
+        "burdens_or_risks": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "stakeholder_id",
+        "stakeholder_role",
+        "description",
+        "needs_or_goals",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "problem_instance": {
+      "type": "object",
+      "properties": {
+        "problem_instance_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "problem_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "local_context_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "abstracts_to_problem_class_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stakeholder_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "problem_instance_id",
+        "problem_statement",
+        "local_context_summary",
+        "abstracts_to_problem_class_id",
+        "stakeholder_ids",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "problem_class": {
+      "type": "object",
+      "properties": {
+        "problem_class_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "problem_class_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "abstraction_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "projectability_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "problem_class_id",
+        "problem_class_statement",
+        "abstraction_rationale",
+        "projectability_statement",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "problem_space": {
+      "type": "object",
+      "properties": {
+        "problem_space_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "problem_instance": {
+          "$ref": "#/$defs/problem_instance"
+        },
+        "problem_class": {
+          "$ref": "#/$defs/problem_class"
+        },
+        "relevance_justification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity_or_importance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "problem_to_requirement_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundary_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/boundary_condition"
+          },
+          "minItems": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "problem_space_id",
+        "problem_instance",
+        "problem_class",
+        "relevance_justification",
+        "severity_or_importance",
+        "boundary_conditions",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "context_space": {
+      "type": "object",
+      "properties": {
+        "context_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context_description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "organizational_conditions": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technical_conditions": {
+          "type": "string",
+          "minLength": 1
+        },
+        "social_or_stakeholder_conditions": {
+          "type": "string",
+          "minLength": 1
+        },
+        "regulatory_or_ethical_conditions": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_network": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stakeholders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stakeholder"
+          },
+          "minItems": 1
+        },
+        "boundary_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/boundary_condition"
+          },
+          "minItems": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "context_id",
+        "context_description",
+        "stakeholders",
+        "boundary_conditions",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "input_knowledge_item": {
+      "type": "object",
+      "properties": {
+        "input_knowledge_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "knowledge_role": {
+          "$ref": "#/$defs/knowledge_role"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary_of_use": {
+          "type": "string",
+          "minLength": 1
+        },
+        "grounds_requirement_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "grounds_design_decision_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "grounds_evaluation_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "input_knowledge_id",
+        "knowledge_role",
+        "label",
+        "summary_of_use",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "objective": {
+      "type": "object",
+      "properties": {
+        "objective_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "objective_type": {
+          "$ref": "#/$defs/objective_type"
+        },
+        "objective_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "derived_from_problem_or_context_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "objective_id",
+        "objective_type",
+        "objective_statement",
+        "derived_from_problem_or_context_ids",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "requirement": {
+      "type": "object",
+      "properties": {
+        "requirement_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requirement_type": {
+          "$ref": "#/$defs/requirement_type"
+        },
+        "requirement_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "derived_from_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "acceptance_or_success_criteria": {
+          "$ref": "#/$defs/string_array"
+        },
+        "satisfied_by_design_decision_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "evaluated_by_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "requirement_id",
+        "requirement_type",
+        "requirement_statement",
+        "derived_from_ids",
+        "acceptance_or_success_criteria",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "objectives_and_requirements": {
+      "type": "object",
+      "properties": {
+        "objectives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/objective"
+          },
+          "minItems": 1
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/requirement"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "objectives",
+        "requirements"
+      ]
+    },
+    "design_decision": {
+      "type": "object",
+      "properties": {
+        "design_decision_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alternatives_considered": {
+          "$ref": "#/$defs/string_array"
+        },
+        "satisfies_requirement_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "evaluated_by_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "design_decision_id",
+        "decision_statement",
+        "rationale",
+        "alternatives_considered",
+        "satisfies_requirement_ids",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "plan": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "$ref": "#/$defs/string_array"
+        },
+        "resources_or_materials": {
+          "$ref": "#/$defs/string_array"
+        },
+        "trace_references": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "plan_id",
+        "goal",
+        "steps",
+        "resources_or_materials",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "capacity_specification": {
+      "type": "object",
+      "properties": {
+        "capacity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "capacity_type": {
+          "$ref": "#/$defs/capacity_type"
+        },
+        "capacity_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "measure_or_observation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_by_requirement_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "evaluated_by_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "capacity_id",
+        "capacity_type",
+        "capacity_statement",
+        "measure_or_observation",
+        "required_by_requirement_ids",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "artifact_universal": {
+      "type": "object",
+      "properties": {
+        "artifact_universal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_type": {
+          "$ref": "#/$defs/artifact_type"
+        },
+        "artifact_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose_and_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_boundary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "knowledge_scope": {
+          "$ref": "#/$defs/knowledge_scope"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "artifact_universal_id",
+        "artifact_type",
+        "artifact_name",
+        "purpose_and_scope",
+        "artifact_boundary",
+        "knowledge_scope",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "artifact_instantiation": {
+      "type": "object",
+      "properties": {
+        "artifact_instantiation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instantiates_artifact_universal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "implementation_context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository_or_trace_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "artifact_instantiation_id",
+        "artifact_name",
+        "artifact_version",
+        "instantiates_artifact_universal_id",
+        "implementation_context",
+        "limitations",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_type": {
+          "$ref": "#/$defs/claim_type"
+        },
+        "claim_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_disposition": {
+          "$ref": "#/$defs/claim_disposition"
+        },
+        "supported_by_evaluation_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "claim_type",
+        "claim_statement",
+        "claim_disposition",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "artifact_record": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_universal": {
+          "$ref": "#/$defs/artifact_universal"
+        },
+        "instantiations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifact_instantiation"
+          },
+          "minItems": 1
+        },
+        "make_plan": {
+          "$ref": "#/$defs/plan"
+        },
+        "use_plan": {
+          "$ref": "#/$defs/plan"
+        },
+        "capacity_specification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/capacity_specification"
+          },
+          "minItems": 1
+        },
+        "design_decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/design_decision"
+          },
+          "minItems": 1
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim"
+          },
+          "minItems": 1
+        },
+        "responsible_design_constraints": {
+          "$ref": "#/$defs/string_array"
+        },
+        "maintenance_and_versioning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "artifact_universal",
+        "instantiations",
+        "make_plan",
+        "use_plan",
+        "capacity_specification",
+        "design_decisions",
+        "claims",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "demonstration": {
+      "type": "object",
+      "properties": {
+        "demonstration_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_instantiation_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "demonstration_context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "use_case_or_scenario": {
+          "type": "string",
+          "minLength": 1
+        },
+        "demonstration_output": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trace_references": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "demonstration_id",
+        "artifact_instantiation_ids",
+        "demonstration_context",
+        "use_case_or_scenario",
+        "demonstration_output",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "demonstration_and_use": {
+      "type": "object",
+      "properties": {
+        "demonstrations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/demonstration"
+          },
+          "minItems": 1
+        },
+        "use_evidence_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "demonstrations",
+        "use_evidence_summary",
+        "limitations"
+      ]
+    },
+    "evaluation_evidence": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_mode": {
+          "$ref": "#/$defs/evidence_mode"
+        },
+        "data_or_observation_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_or_indicator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supports_design_knowledge_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "supports_contribution_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "evidence_mode",
+        "data_or_observation_summary",
+        "metric_or_indicator",
+        "result_summary",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "evaluation_record": {
+      "type": "object",
+      "properties": {
+        "evaluation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evaluation_object_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "claim_types_supported": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim_type"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "evaluation_timing": {
+          "$ref": "#/$defs/evaluation_timing"
+        },
+        "evaluation_function": {
+          "$ref": "#/$defs/evaluation_function"
+        },
+        "evaluation_setting": {
+          "$ref": "#/$defs/evaluation_setting"
+        },
+        "evaluation_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evaluation_criteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evaluation_criterion"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evaluation_evidence"
+          },
+          "minItems": 1
+        },
+        "findings": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_evidence_alignment_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "evaluation_id",
+        "evaluation_object_ids",
+        "claim_types_supported",
+        "evaluation_timing",
+        "evaluation_function",
+        "evaluation_setting",
+        "evaluation_method",
+        "evaluation_criteria",
+        "evidence",
+        "findings",
+        "claim_evidence_alignment_rationale",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "evaluation_section": {
+      "type": "object",
+      "properties": {
+        "evaluations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evaluation_record"
+          },
+          "minItems": 1
+        },
+        "validity_assessments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/validity_assessment"
+          },
+          "minItems": 1
+        },
+        "reliability_assessments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reliability_assessment"
+          },
+          "minItems": 0
+        },
+        "replication_activities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/replication_activity"
+          },
+          "minItems": 0
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "evaluations",
+        "validity_assessments"
+      ]
+    },
+    "cimo_statement": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intervention_or_artifact_feature": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mechanism_or_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outcome_or_effect": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "context",
+        "intervention_or_artifact_feature",
+        "mechanism_or_rationale",
+        "outcome_or_effect"
+      ]
+    },
+    "design_knowledge_record": {
+      "type": "object",
+      "properties": {
+        "design_knowledge_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "knowledge_goal": {
+          "$ref": "#/$defs/knowledge_goal"
+        },
+        "knowledge_scope": {
+          "$ref": "#/$defs/knowledge_scope"
+        },
+        "design_knowledge_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cimo": {
+          "$ref": "#/$defs/cimo_statement"
+        },
+        "supported_by_evaluation_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "related_artifact_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "boundary_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/boundary_condition"
+          },
+          "minItems": 1
+        },
+        "projectability_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "design_knowledge_id",
+        "knowledge_goal",
+        "knowledge_scope",
+        "design_knowledge_statement",
+        "cimo",
+        "supported_by_evaluation_ids",
+        "boundary_conditions",
+        "projectability_statement",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "design_knowledge_section": {
+      "type": "object",
+      "properties": {
+        "design_knowledge_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/design_knowledge_record"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "design_knowledge_items"
+      ]
+    },
+    "contribution_record": {
+      "type": "object",
+      "properties": {
+        "contribution_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contribution_object": {
+          "$ref": "#/$defs/contribution_object"
+        },
+        "knowledge_goal": {
+          "$ref": "#/$defs/knowledge_goal"
+        },
+        "knowledge_scope": {
+          "$ref": "#/$defs/knowledge_scope"
+        },
+        "novelty_mode": {
+          "$ref": "#/$defs/novelty_mode"
+        },
+        "maturity": {
+          "$ref": "#/$defs/maturity"
+        },
+        "contribution_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supported_by_design_knowledge_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "supported_by_evaluation_ids": {
+          "$ref": "#/$defs/id_array"
+        },
+        "boundary_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/boundary_condition"
+          },
+          "minItems": 1
+        },
+        "intended_audiences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/audience"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "contribution_id",
+        "contribution_object",
+        "knowledge_goal",
+        "knowledge_scope",
+        "novelty_mode",
+        "maturity",
+        "contribution_statement",
+        "evidence_basis",
+        "supported_by_design_knowledge_ids",
+        "boundary_conditions",
+        "intended_audiences",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "contribution_section": {
+      "type": "object",
+      "properties": {
+        "contribution_claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contribution_record"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "contribution_claims"
+      ]
+    },
+    "transparency_trace": {
+      "type": "object",
+      "properties": {
+        "transparency_trace_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transparency_form": {
+          "$ref": "#/$defs/transparency_form"
+        },
+        "documentation_location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trace_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "audiences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/audience"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "mitigates_anti_pattern_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anti_pattern_id"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "responsible_disclosure_notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "transparency_trace_id",
+        "transparency_form",
+        "documentation_location",
+        "summary",
+        "audiences",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "dsr_grid_entry": {
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "$ref": "#/$defs/dsr_grid_dimension"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "dimension",
+        "summary",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "transparency_section": {
+      "type": "object",
+      "properties": {
+        "transparency_traces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transparency_trace"
+          },
+          "minItems": 6,
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "transparency_form"
+                ],
+                "properties": {
+                  "transparency_form": {
+                    "const": "process"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "transparency_form"
+                ],
+                "properties": {
+                  "transparency_form": {
+                    "const": "problem_space"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "transparency_form"
+                ],
+                "properties": {
+                  "transparency_form": {
+                    "const": "solution_space"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "transparency_form"
+                ],
+                "properties": {
+                  "transparency_form": {
+                    "const": "build"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "transparency_form"
+                ],
+                "properties": {
+                  "transparency_form": {
+                    "const": "evaluation"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "transparency_form"
+                ],
+                "properties": {
+                  "transparency_form": {
+                    "const": "contribution"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "dsr_grid_summary": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dsr_grid_entry"
+          },
+          "minItems": 6,
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "dimension"
+                ],
+                "properties": {
+                  "dimension": {
+                    "const": "problem"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "dimension"
+                ],
+                "properties": {
+                  "dimension": {
+                    "const": "input_knowledge"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "dimension"
+                ],
+                "properties": {
+                  "dimension": {
+                    "const": "research_process"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "dimension"
+                ],
+                "properties": {
+                  "dimension": {
+                    "const": "key_concepts"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "dimension"
+                ],
+                "properties": {
+                  "dimension": {
+                    "const": "solution"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "dimension"
+                ],
+                "properties": {
+                  "dimension": {
+                    "const": "output_knowledge"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "responsible_transparency_balance": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "transparency_traces",
+        "dsr_grid_summary",
+        "responsible_transparency_balance"
+      ],
+      "description": "Transparency section. The SHACL profile recommends covering all six transparency forms and all six DSR Grid dimensions."
+    },
+    "validity_assessment": {
+      "type": "object",
+      "properties": {
+        "validity_assessment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validity_type": {
+          "$ref": "#/$defs/validity_type"
+        },
+        "assessment_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "validity_assessment_id",
+        "validity_type",
+        "assessment_statement",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "reliability_assessment": {
+      "type": "object",
+      "properties": {
+        "reliability_assessment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reliability_target": {
+          "$ref": "#/$defs/reliability_target"
+        },
+        "reliability_timing": {
+          "$ref": "#/$defs/reliability_timing"
+        },
+        "assessment_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "reliability_assessment_id",
+        "reliability_target",
+        "reliability_timing",
+        "assessment_statement",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "replication_activity": {
+      "type": "object",
+      "properties": {
+        "replication_activity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "replication_type": {
+          "$ref": "#/$defs/replication_type"
+        },
+        "knowledge_function": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trace_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        },
+        "ambiguity_level": {
+          "$ref": "#/$defs/ambiguity_level"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_mapping": {
+          "$ref": "#/$defs/ontology_mapping"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "replication_activity_id",
+        "replication_type",
+        "knowledge_function",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "trace_link": {
+      "type": "object",
+      "properties": {
+        "trace_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edge_type": {
+          "$ref": "#/$defs/traceability_edge"
+        },
+        "from_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_anchor_ids": {
+          "$ref": "#/$defs/source_anchor_ref_array"
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        },
+        "confidence_percent": {
+          "$ref": "#/$defs/confidence_percent"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "trace_id",
+        "edge_type",
+        "from_id",
+        "to_id",
+        "rationale",
+        "source_anchor_ids",
+        "confidence_level"
+      ]
+    },
+    "problem_to_requirement_link": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/trace_link"
+        },
+        {
+          "properties": {
+            "edge_type": {
+              "const": "problem_to_requirement"
+            }
+          }
+        }
+      ]
+    },
+    "requirement_to_design_decision_link": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/trace_link"
+        },
+        {
+          "properties": {
+            "edge_type": {
+              "const": "requirement_to_design_decision"
+            }
+          }
+        }
+      ]
+    },
+    "design_decision_to_evaluation_link": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/trace_link"
+        },
+        {
+          "properties": {
+            "edge_type": {
+              "const": "design_decision_to_evaluation"
+            }
+          }
+        }
+      ]
+    },
+    "evaluation_to_design_knowledge_link": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/trace_link"
+        },
+        {
+          "properties": {
+            "edge_type": {
+              "const": "evaluation_to_design_knowledge"
+            }
+          }
+        }
+      ]
+    },
+    "design_knowledge_to_contribution_link": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/trace_link"
+        },
+        {
+          "properties": {
+            "edge_type": {
+              "const": "design_knowledge_to_contribution"
+            }
+          }
+        }
+      ]
+    },
+    "traceability": {
+      "type": "object",
+      "properties": {
+        "problem_to_requirement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/problem_to_requirement_link"
+          },
+          "minItems": 1
+        },
+        "requirement_to_design_decision": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/requirement_to_design_decision_link"
+          },
+          "minItems": 1
+        },
+        "design_decision_to_evaluation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/design_decision_to_evaluation_link"
+          },
+          "minItems": 1
+        },
+        "evaluation_to_design_knowledge": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evaluation_to_design_knowledge_link"
+          },
+          "minItems": 1
+        },
+        "design_knowledge_to_contribution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/design_knowledge_to_contribution_link"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "problem_to_requirement",
+        "requirement_to_design_decision",
+        "design_decision_to_evaluation",
+        "evaluation_to_design_knowledge",
+        "design_knowledge_to_contribution"
+      ]
+    },
+    "module_traceability": {
+      "type": "object",
+      "properties": {
+        "problem_to_requirement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/problem_to_requirement_link"
+          },
+          "minItems": 0
+        },
+        "requirement_to_design_decision": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/requirement_to_design_decision_link"
+          },
+          "minItems": 0
+        },
+        "design_decision_to_evaluation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/design_decision_to_evaluation_link"
+          },
+          "minItems": 0
+        },
+        "evaluation_to_design_knowledge": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evaluation_to_design_knowledge_link"
+          },
+          "minItems": 0
+        },
+        "design_knowledge_to_contribution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/design_knowledge_to_contribution_link"
+          },
+          "minItems": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "anti_pattern_check": {
+      "type": "object",
+      "properties": {
+        "anti_pattern_id": {
+          "$ref": "#/$defs/anti_pattern_id"
+        },
+        "anti_pattern_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "$ref": "#/$defs/anti_pattern_status"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mitigation_or_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "related_record_ids": {
+          "$ref": "#/$defs/optional_string_array"
+        },
+        "source_anchor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "confidence_level": {
+          "$ref": "#/$defs/confidence_level"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "anti_pattern_id",
+        "anti_pattern_label",
+        "status",
+        "rationale",
+        "mitigation_or_action",
+        "confidence_level"
+      ]
+    },
+    "quality_control": {
+      "type": "object",
+      "properties": {
+        "completeness_status": {
+          "$ref": "#/$defs/obligation_status"
+        },
+        "human_review_recommended": {
+          "type": "boolean"
+        },
+        "review_notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "known_gaps": {
+          "$ref": "#/$defs/optional_string_array"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "completeness_status",
+        "human_review_recommended",
+        "review_notes",
+        "known_gaps"
+      ]
+    },
+    "repository_context": {
+      "type": "object",
+      "properties": {
+        "repository_uri": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "documentation_protocol_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ontology_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shacl_shapes_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skos_vocabulary_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_file": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "ontology_file",
+        "shacl_shapes_file",
+        "skos_vocabulary_file",
+        "schema_file"
+      ]
+    },
+    "dsr_project": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "documentation_status": {
+          "$ref": "#/$defs/documentation_status"
+        },
+        "dsr_genre": {
+          "$ref": "#/$defs/dsr_genre"
+        },
+        "dsr_strategy": {
+          "$ref": "#/$defs/dsr_strategy"
+        },
+        "project_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository_context": {
+          "$ref": "#/$defs/repository_context"
+        },
+        "source_citation_anchors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_citation_anchor"
+          },
+          "minItems": 1
+        },
+        "problem_space": {
+          "$ref": "#/$defs/problem_space"
+        },
+        "context_space": {
+          "$ref": "#/$defs/context_space"
+        },
+        "input_knowledge": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/input_knowledge_item"
+          },
+          "minItems": 1
+        },
+        "objectives_and_requirements": {
+          "$ref": "#/$defs/objectives_and_requirements"
+        },
+        "artifact": {
+          "$ref": "#/$defs/artifact_record"
+        },
+        "demonstration_and_use": {
+          "$ref": "#/$defs/demonstration_and_use"
+        },
+        "evaluation": {
+          "$ref": "#/$defs/evaluation_section"
+        },
+        "design_knowledge": {
+          "$ref": "#/$defs/design_knowledge_section"
+        },
+        "contribution": {
+          "$ref": "#/$defs/contribution_section"
+        },
+        "transparency": {
+          "$ref": "#/$defs/transparency_section"
+        },
+        "traceability": {
+          "$ref": "#/$defs/traceability"
+        },
+        "anti_pattern_self_check": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anti_pattern_check"
+          },
+          "minItems": 1
+        },
+        "quality_control": {
+          "$ref": "#/$defs/quality_control"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "project_id",
+        "project_title",
+        "documentation_status",
+        "dsr_genre",
+        "project_summary",
+        "repository_context",
+        "source_citation_anchors",
+        "problem_space",
+        "context_space",
+        "input_knowledge",
+        "objectives_and_requirements",
+        "artifact",
+        "demonstration_and_use",
+        "evaluation",
+        "design_knowledge",
+        "contribution",
+        "transparency",
+        "traceability",
+        "anti_pattern_self_check",
+        "quality_control"
+      ]
+    },
+    "evaluation_module": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evaluation": {
+          "$ref": "#/$defs/evaluation_record"
+        },
+        "validity_assessment": {
+          "$ref": "#/$defs/validity_assessment"
+        },
+        "traceability": {
+          "$ref": "#/$defs/module_traceability"
+        },
+        "anti_pattern_self_check": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anti_pattern_check"
+          },
+          "minItems": 1
+        },
+        "quality_control": {
+          "$ref": "#/$defs/quality_control"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "evaluation",
+        "traceability",
+        "anti_pattern_self_check",
+        "quality_control"
+      ]
+    },
+    "artifact_module": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact": {
+          "$ref": "#/$defs/artifact_record"
+        },
+        "traceability": {
+          "$ref": "#/$defs/module_traceability"
+        },
+        "anti_pattern_self_check": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anti_pattern_check"
+          },
+          "minItems": 1
+        },
+        "quality_control": {
+          "$ref": "#/$defs/quality_control"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact",
+        "traceability",
+        "anti_pattern_self_check",
+        "quality_control"
+      ]
+    },
+    "design_knowledge_module": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "design_knowledge": {
+          "$ref": "#/$defs/design_knowledge_record"
+        },
+        "traceability": {
+          "$ref": "#/$defs/module_traceability"
+        },
+        "anti_pattern_self_check": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anti_pattern_check"
+          },
+          "minItems": 1
+        },
+        "quality_control": {
+          "$ref": "#/$defs/quality_control"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "design_knowledge",
+        "traceability",
+        "anti_pattern_self_check",
+        "quality_control"
+      ]
+    },
+    "contribution_module": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contribution": {
+          "$ref": "#/$defs/contribution_record"
+        },
+        "traceability": {
+          "$ref": "#/$defs/module_traceability"
+        },
+        "anti_pattern_self_check": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anti_pattern_check"
+          },
+          "minItems": 1
+        },
+        "quality_control": {
+          "$ref": "#/$defs/quality_control"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "contribution",
+        "traceability",
+        "anti_pattern_self_check",
+        "quality_control"
+      ]
+    },
+    "transparency_module": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transparency": {
+          "$ref": "#/$defs/transparency_section"
+        },
+        "traceability": {
+          "$ref": "#/$defs/module_traceability"
+        },
+        "anti_pattern_self_check": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anti_pattern_check"
+          },
+          "minItems": 1
+        },
+        "quality_control": {
+          "$ref": "#/$defs/quality_control"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "transparency",
+        "traceability",
+        "anti_pattern_self_check",
+        "quality_control"
+      ]
+    }
+  }
+}

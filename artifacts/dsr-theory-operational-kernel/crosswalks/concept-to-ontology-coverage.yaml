@@ -1,0 +1,94 @@
+# SPDX-License-Identifier: CC0-1.0
+concept_to_ontology_coverage:
+  item_id: dsr_theory_operational_kernel_concept_to_ontology_coverage
+  item_type: crosswalk
+  title: Concept Inventory to Ontology Coverage Disposition
+  status: coverage_reconciled_for_draft_review
+  version: "0.1.1-draft"
+  date: "2026-05-05"
+  responsible_party: framework_maintainer
+  purpose: >
+    Record the coverage check between the DSR concept inventory, OWL/RDF ontology,
+    SKOS vocabulary, and SHACL shape files after the first identifier-level ontology
+    reconciliation pass.
+  reviewed_files:
+    concept_inventory: artifacts/dsr-theory-operational-kernel/concept-inventory.yaml
+    ontology: artifacts/dsr-theory-operational-kernel/ontology/dsr-ontology.ttl
+    shacl_shapes: artifacts/dsr-theory-operational-kernel/shapes/dsr-shapes.ttl
+    skos_yaml: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.yaml
+    skos_ttl: artifacts/dsr-theory-operational-kernel/vocabularies/dsr-skos-controlled-vocabulary.ttl
+  method:
+    - Parse YAML files with PyYAML.
+    - Parse Turtle files with rdflib.
+    - Compare concept inventory identifiers to RDF `dcterms:identifier` values where present.
+    - Compare controlled vocabulary identifiers to SKOS concept identifiers.
+    - Check SHACL target-class references and nonstandard SHACL path references for ontology or shape representation.
+    - Treat standard RDF/RDFS/Dublin Core path references as namespace-level dependencies rather than DSR ontology gaps.
+  reconciliation_action:
+    - Added lightweight OWL class declarations for concept-inventory classes that lacked ontology identifiers.
+    - Added lightweight OWL object-property declarations for concept-inventory object properties that lacked ontology identifiers.
+    - Added lightweight OWL datatype-property declarations for concept-inventory datatype properties that lacked ontology identifiers.
+    - Added DSR ontology declarations for profile-level SHACL predicates that had previously existed only in the SHACL profile.
+    - Did not add stronger domain, range, cardinality, disjointness, or equivalence axioms beyond conservative concept-inventory-derived declarations.
+  summary_counts:
+    concept_inventory:
+      classes: 98
+      object_properties: 52
+      datatype_properties: 34
+      controlled_vocabularies: 23
+      validation_rules: 29
+      anti_patterns: 13
+      source_clarification_needed: 11
+    rdf_parse:
+      ontology_triples: 3307
+      shacl_triples: 1132
+      skos_triples: 11097
+      ontology_class_identifiers: 113
+      ontology_property_identifiers: 171
+      skos_identifiers: 485
+    coverage:
+      classes_represented_by_identifier: 98
+      classes_not_represented_by_identifier: 0
+      object_properties_represented_by_identifier: 52
+      object_properties_not_represented_by_identifier: 0
+      datatype_properties_represented_by_identifier: 34
+      datatype_properties_not_represented_by_identifier: 0
+      controlled_vocabularies_represented: 23
+      controlled_vocabularies_not_represented: 0
+  shacl_consistency:
+    target_classes_missing_from_ontology_by_uri: []
+    nonstandard_path_terms_missing_from_ontology_or_shapes_by_uri: []
+    standard_namespace_paths_observed:
+      - http://purl.org/dc/terms/source
+      - http://www.w3.org/2000/01/rdf-schema#label
+      - http://www.w3.org/2000/01/rdf-schema#seeAlso
+    interpretation: >
+      SHACL target classes and nonstandard DSR path terms resolve after the
+      reconciliation pass. Standard RDF/RDFS/Dublin Core terms are external
+      namespace dependencies and are not DSR ontology defects.
+  remaining_review_limits:
+    - Identifier-level coverage is complete, but semantic adequacy still needs human review.
+    - Lightweight declarations should be refined with stronger axioms only after downstream validation needs are stable.
+    - Source clarification items in the concept inventory remain source-review work, not ontology-parse failures.
+    - This pass does not establish independent semantic review or empirical framework utility.
+  disposition:
+    result: pass_after_identifier_level_ontology_reconciliation
+    draft_acceptance: >
+      The package is internally parseable and identifier-complete across concept
+      inventory, ontology, SKOS vocabulary, and SHACL references for draft review.
+      The artifact remains a nested draft package until semantic review and
+      self-application evaluation are retained.
+    required_followup:
+      - review whether lightweight declarations need stronger domain, range, subclass, inverse, or cardinality axioms;
+      - resolve or retain source-clarification items from the concept inventory;
+      - validate documentation-protocol and dsr-framework against the operational kernel;
+      - decide whether this artifact should remain nested or become a standalone repository after review.
+    supports:
+      - controlled_github_import
+      - draft_reviewability
+      - first_self_application_evaluation
+    does_not_support:
+      - independent_semantic_review
+      - empirical_downstream_utility_validation
+      - standalone_stable_release
+      - l5_archival_publication_ready

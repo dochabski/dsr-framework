@@ -1,0 +1,1267 @@
+# SPDX-License-Identifier: CC0-1.0
+# dsr-shapes.ttl
+# SHACL validation profile for the operational Design Science Research framework.
+# Generated for the DSR Framework project from dsr-ontology.ttl,
+# dsr_ontology_competency_questions.yaml, concept-inventory_v2.yaml,
+# Theory of Design Science Research.txt, and DSR Operational Synthesis.txt.
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsr: <https://w3id.org/dsr-framework/ontology#> .
+@prefix dsrsh: <https://w3id.org/dsr-framework/shapes#> .
+@prefix dsrv: <https://w3id.org/dsr-framework/vocab/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/dsr-framework/shapes> a owl:Ontology ;
+    dcterms:created "2026-05-05"^^xsd:date ;
+    dcterms:creator "DSR Framework project" ;
+    dcterms:description "SHACL validation shapes for operational Design Science Research documentation records. The profile separates mandatory DSR validity conditions, recommended quality controls, and best-practice enrichment prompts."@en ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dcterms:source "dsr-ontology.ttl",
+        "dsr_ontology_competency_questions.yaml",
+        "concept-inventory_v2.yaml",
+        "Theory of Design Science Research.txt",
+        "DSR Operational Synthesis.txt" ;
+    dcterms:title "DSR SHACL Shapes"@en ;
+    vann:preferredNamespacePrefix "dsrsh" ;
+    vann:preferredNamespaceUri "https://w3id.org/dsr-framework/shapes#" ;
+    owl:imports <https://w3id.org/dsr-framework/ontology> ;
+    owl:versionInfo "0.1.0-draft" .
+
+# -----------------------------------------------------------------------------
+# Profile-level predicates used by this SHACL profile when the OWL ontology has
+# not yet promoted a source-supported field to a core ontology property.
+# These declarations are intentionally lightweight RDF property notes, not OWL
+# cardinality axioms.
+# -----------------------------------------------------------------------------
+
+dsr:hasClaimType a rdf:Property ;
+    rdfs:label "has claim type"@en ;
+    rdfs:comment "Profile-level property used to link an evaluation or claim to a controlled claim-type concept for evaluation-alignment checks."@en .
+
+dsr:hasEvaluationMethod a rdf:Property ;
+    rdfs:label "has evaluation method"@en ;
+    rdfs:comment "Profile-level property used to identify the evaluation method selected for a claim, artifact, or evidence-generating assessment."@en .
+
+dsr:hasNoveltyMode a rdf:Property ;
+    rdfs:label "has novelty mode"@en ;
+    rdfs:comment "Profile-level property used to link a contribution claim to a controlled novelty-mode concept."@en .
+
+dsr:hasCIMOContext a rdf:Property ;
+    rdfs:label "has CIMO context"@en ;
+    rdfs:comment "Profile-level property used to identify the context component in a CIMO-style design-knowledge statement."@en .
+
+dsr:hasInterventionOrArtifactFeature a rdf:Property ;
+    rdfs:label "has intervention or artifact feature"@en ;
+    rdfs:comment "Profile-level property used to identify the intervention, action, or artifact feature component in a CIMO-style design-knowledge statement."@en .
+
+dsr:hasMechanismOrRationale a rdf:Property ;
+    rdfs:label "has mechanism or rationale"@en ;
+    rdfs:comment "Profile-level property used to identify the mechanism or rationale component in a CIMO-style design-knowledge statement."@en .
+
+dsr:hasOutcomeOrEffect a rdf:Property ;
+    rdfs:label "has outcome or effect"@en ;
+    rdfs:comment "Profile-level property used to identify the intended or observed outcome/effect component in a CIMO-style design-knowledge statement."@en .
+
+# -----------------------------------------------------------------------------
+# Reusable controlled-value lists.
+# -----------------------------------------------------------------------------
+
+dsrsh:ArtifactTypeValues a rdf:List .
+
+dsrsh:DSRStudyShape a sh:NodeShape ;
+    rdfs:label "DSR Study shape"@en ;
+    sh:targetClass dsr:DSRStudy ;
+    sh:severity sh:Violation ;
+    sh:message "A DSRStudy must document the minimum DSR validity structure: problem instance, problem class, context, stakeholder, input knowledge, requirement or objective, design entity or artifact, evaluation or justified evaluation plan, design knowledge or contribution claim, and transparency trace."@en ;
+    sh:property [
+        sh:path dsr:hasProblemSpace ;
+        sh:minCount 1 ;
+        sh:class dsr:ProblemSpace ;
+        sh:severity sh:Violation ;
+        sh:message "A DSRStudy must have at least one represented ProblemSpace."@en
+    ] ;
+    sh:property [
+        sh:path ( dsr:hasProblemSpace dsr:includesProblemInstance ) ;
+        sh:minCount 1 ;
+        sh:class dsr:ProblemInstance ;
+        sh:severity sh:Violation ;
+        sh:message "A DSRStudy must identify at least one situated problem instance, either directly or through its ProblemSpace."@en
+    ] ;
+    sh:property [
+        sh:path ( dsr:hasProblemSpace dsr:includesProblemClass ) ;
+        sh:minCount 1 ;
+        sh:class dsr:ProblemClass ;
+        sh:severity sh:Violation ;
+        sh:message "A DSRStudy must identify at least one abstract problem class."@en
+    ] ;
+    sh:property [
+        sh:path dsr:occursInContext ;
+        sh:minCount 1 ;
+        sh:class dsr:Context ;
+        sh:severity sh:Violation ;
+        sh:message "A DSRStudy must have at least one context description node."@en
+    ] ;
+    sh:property [
+        sh:path ( dsr:occursInContext dsr:hasStakeholder ) ;
+        sh:minCount 1 ;
+        sh:class dsr:Stakeholder ;
+        sh:severity sh:Violation ;
+        sh:message "A DSRStudy must have at least one stakeholder or stakeholder group through its context."@en
+    ] ;
+    sh:property [
+        sh:path dsr:usesInputKnowledge ;
+        sh:minCount 1 ;
+        sh:class dsr:InputKnowledge ;
+        sh:severity sh:Violation ;
+        sh:message "A DSRStudy must cite or represent at least one input knowledge source."@en
+    ] ;
+    sh:property [
+        sh:path dsr:recordIdentifier ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Prefer exactly one stable record identifier for repository validation, traceability, and replication."@en
+    ] ;
+    sh:or (
+        [ sh:property [
+            sh:path dsr:hasRequirement ;
+            sh:minCount 1 ;
+            sh:class dsr:Requirement
+        ] ]
+        [ sh:property [
+            sh:path dsr:hasObjective ;
+            sh:minCount 1 ;
+            sh:class dsr:Objective
+        ] ]
+    ) ;
+    sh:or (
+        [ sh:property [
+            sh:path dsr:producesDesignEntity ;
+            sh:minCount 1 ;
+            sh:class dsr:DesignEntity
+        ] ]
+        [ sh:property [
+            sh:path dsr:hasDesignEntity ;
+            sh:minCount 1 ;
+            sh:class dsr:DesignEntity
+        ] ]
+        [ sh:property [
+            sh:path dsr:hasArtifactInstantiation ;
+            sh:minCount 1 ;
+            sh:class dsr:ArtifactInstantiation
+        ] ]
+    ) ;
+    sh:or (
+        [ sh:property [
+            sh:path dsr:hasEvaluation ;
+            sh:minCount 1 ;
+            sh:class dsr:Evaluation
+        ] ]
+        [ sh:property [
+            sh:path dsr:hasEvaluationPlan ;
+            sh:minCount 1 ;
+            sh:class dsr:EvaluationPlan
+        ] ]
+    ) ;
+    sh:or (
+        [ sh:property [
+            sh:path dsr:producesDesignKnowledge ;
+            sh:minCount 1 ;
+            sh:class dsr:DesignKnowledge
+        ] ]
+        [ sh:property [
+            sh:path dsr:claimsContribution ;
+            sh:minCount 1 ;
+            sh:class dsr:ContributionClaim
+        ] ]
+    ) ;
+    sh:property [
+        sh:path dsr:hasTransparencyTrace ;
+        sh:minCount 1 ;
+        sh:class dsr:TransparencyTrace ;
+        sh:severity sh:Violation ;
+        sh:message "A DSRStudy must have at least one transparency trace."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasValidityAssessment ;
+        sh:minCount 1 ;
+        sh:class dsr:ValidityAssessment ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: include a validity assessment covering problem, artifact, evaluation, contribution, and context validity where applicable."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasReliabilityAssessment ;
+        sh:minCount 1 ;
+        sh:class dsr:ReliabilityAssessment ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: include reliability assessment when the study makes repeatability, consistency, or accumulation claims."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasReplicationActivity ;
+        sh:class dsr:ReplicationActivity ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: document replication, adaptation, recreation, update, or meta-replication activities when available."@en
+    ] .
+
+dsrsh:DSRStudySixTransparencyFormsWarningShape a sh:NodeShape ;
+    rdfs:label "DSR Study six transparency forms warning shape"@en ;
+    sh:targetClass dsr:DSRStudy ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Recommended transparency coverage is incomplete: each DSRStudy should address process, problem-space, solution-space, build, evaluation, and contribution transparency unless proportionately scoped out."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+PREFIX dsrv: <https://w3id.org/dsr-framework/vocab/>
+SELECT $this ?missingForm
+WHERE {
+  VALUES ?missingForm {
+    dsrv:transparency-form-process
+    dsrv:transparency-form-problem-space
+    dsrv:transparency-form-solution-space
+    dsrv:transparency-form-build
+    dsrv:transparency-form-evaluation
+    dsrv:transparency-form-contribution
+  }
+  FILTER NOT EXISTS { $this dsr:hasTransparencyTrace/dsr:hasTransparencyForm ?missingForm . }
+}
+"""
+    ] .
+
+# -----------------------------------------------------------------------------
+# Problem-space shapes.
+# -----------------------------------------------------------------------------
+
+dsrsh:ProblemSpaceShape a sh:NodeShape ;
+    rdfs:label "Problem Space shape"@en ;
+    sh:targetClass dsr:ProblemSpace ;
+    sh:property [
+        sh:path dsr:includesProblemInstance ;
+        sh:minCount 1 ;
+        sh:class dsr:ProblemInstance ;
+        sh:severity sh:Violation ;
+        sh:message "ProblemSpace must include at least one situated ProblemInstance."@en
+    ] ;
+    sh:property [
+        sh:path dsr:includesProblemClass ;
+        sh:minCount 1 ;
+        sh:class dsr:ProblemClass ;
+        sh:severity sh:Violation ;
+        sh:message "ProblemSpace must include at least one abstract ProblemClass."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: cite the source anchor or repository evidence supporting the problem-space representation."@en
+    ] .
+
+dsrsh:ProblemInstanceShape a sh:NodeShape ;
+    rdfs:label "Problem Instance shape"@en ;
+    sh:targetClass dsr:ProblemInstance ;
+    sh:property [
+        sh:path dsr:problemStatementText ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "ProblemInstance must have a situated problem statement."@en
+    ] ;
+    sh:property [
+        sh:path dsr:abstractsToProblemClass ;
+        sh:minCount 1 ;
+        sh:class dsr:ProblemClass ;
+        sh:severity sh:Violation ;
+        sh:message "ProblemInstance must abstract to at least one ProblemClass to support DSR projectability."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: cite evidence supporting the local problem instance."@en
+    ] .
+
+dsrsh:ProblemClassShape a sh:NodeShape ;
+    rdfs:label "Problem Class shape"@en ;
+    sh:targetClass dsr:ProblemClass ;
+    sh:property [
+        sh:path dsr:problemStatementText ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "ProblemClass must state the generalized problem class, not only the local case."@en
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath dsr:abstractsToProblemClass ] ;
+        sh:minCount 1 ;
+        sh:class dsr:ProblemInstance ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: each ProblemClass should be grounded by at least one ProblemInstance."@en
+    ] .
+
+dsrsh:ProblemWithoutStakeholderGroundingWarningShape a sh:NodeShape ;
+    rdfs:label "Problem without stakeholder grounding warning shape"@en ;
+    sh:targetClass dsr:ProblemSpace ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Anti-pattern warning: the problem space is not grounded in a stakeholder through the containing study context."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+SELECT $this
+WHERE {
+  FILTER NOT EXISTS {
+    ?study dsr:hasProblemSpace $this ;
+           dsr:occursInContext/dsr:hasStakeholder ?stakeholder .
+  }
+}
+"""
+    ] .
+
+# -----------------------------------------------------------------------------
+# Context, stakeholder, input knowledge, and requirement shapes.
+# -----------------------------------------------------------------------------
+
+dsrsh:ContextShape a sh:NodeShape ;
+    rdfs:label "Context shape"@en ;
+    sh:targetClass dsr:Context ;
+    sh:property [
+        sh:path dsr:contextDescription ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Context must have a contextDescription describing organizational, technical, social, temporal, regulatory, resource, or artifact-network conditions."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasStakeholder ;
+        sh:minCount 1 ;
+        sh:class dsr:Stakeholder ;
+        sh:severity sh:Violation ;
+        sh:message "Context must identify at least one relevant stakeholder or stakeholder group."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: cite the source anchor or repository trace for contextual claims."@en
+    ] .
+
+dsrsh:StakeholderShape a sh:NodeShape ;
+    rdfs:label "Stakeholder shape"@en ;
+    sh:targetClass dsr:Stakeholder ;
+    sh:property [
+        sh:path dsr:stakeholderRole ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Stakeholder must have a stakeholderRole such as user, practitioner, sponsor, evaluator, reviewer, manager, designer, or public actor."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasStakeholderNeed ;
+        sh:class dsr:StakeholderNeed ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: document at least one stakeholder need, goal, pain point, or value concern."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: cite evidence or source anchors for stakeholder role and need claims."@en
+    ] .
+
+dsrsh:InputKnowledgeShape a sh:NodeShape ;
+    rdfs:label "Input Knowledge shape"@en ;
+    sh:targetClass dsr:InputKnowledge ;
+    sh:severity sh:Violation ;
+    sh:message "InputKnowledge must identify a source through sourceAnchorId, traceReference, dcterms:source, or rdfs:seeAlso."@en ;
+    sh:or (
+        [ sh:property [
+            sh:path dsr:sourceAnchorId ;
+            sh:minCount 1 ;
+            sh:datatype xsd:string
+        ] ]
+        [ sh:property [
+            sh:path dsr:traceReference ;
+            sh:minCount 1 ;
+            sh:datatype xsd:anyURI
+        ] ]
+        [ sh:property [
+            sh:path dcterms:source ;
+            sh:minCount 1
+        ] ]
+        [ sh:property [
+            sh:path rdfs:seeAlso ;
+            sh:minCount 1
+        ] ]
+    ) ;
+    sh:property [
+        sh:path dsr:definitionText ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: summarize how this input knowledge grounds artifact design, requirements, or evaluation."@en
+    ] .
+
+dsrsh:RequirementShape a sh:NodeShape ;
+    rdfs:label "Requirement shape"@en ;
+    sh:targetClass dsr:Requirement ;
+    sh:property [
+        sh:path dsr:requirementText ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Requirement must state the functional, nonfunctional, meta-requirement, objective, acceptance condition, or evaluation criterion."@en
+    ] ;
+    sh:property [
+        sh:path dsr:derivesRequirementFrom ;
+        sh:minCount 1 ;
+        sh:class dsr:RequirementSource ;
+        sh:severity sh:Violation ;
+        sh:message "Requirement must trace backward to a ProblemSpace, InputKnowledge source, or StakeholderNeed."@en
+    ] ;
+    sh:property [
+        sh:path dsr:isSatisfiedByDesignEntity ;
+        sh:class dsr:DesignEntity ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: trace each Requirement forward to the DesignEntity intended to satisfy it."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: cite source anchors for problem-derived, theory-derived, or stakeholder-derived requirements."@en
+    ] .
+
+# -----------------------------------------------------------------------------
+# Artifact and design-entity shapes.
+# -----------------------------------------------------------------------------
+
+dsrsh:DesignEntityShape a sh:NodeShape ;
+    rdfs:label "Design Entity shape"@en ;
+    sh:targetClass dsr:DesignEntity ;
+    sh:property [
+        sh:path dsr:artifactName ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: provide one stable artifactName for the design entity."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasArtifactType ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:artifact-type-architecture
+            dsrv:artifact-type-artifact-instantiation
+            dsrv:artifact-type-construct
+            dsrv:artifact-type-design-pattern
+            dsrv:artifact-type-design-principle
+            dsrv:artifact-type-design-theory
+            dsrv:artifact-type-framework
+            dsrv:artifact-type-instantiation-class
+            dsrv:artifact-type-method
+            dsrv:artifact-type-model
+            dsrv:artifact-type-ontology
+            dsrv:artifact-type-process-artifact
+            dsrv:artifact-type-socio-technical-intervention
+            dsrv:artifact-type-taxonomy
+        ) ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: classify the DesignEntity using the controlled artifact-type vocabulary."@en
+    ] ;
+    sh:property [
+        sh:path dsr:artifactBoundary ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: state what is inside and outside the artifact boundary."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasCapacitySpecification ;
+        sh:minCount 1 ;
+        sh:class dsr:CapacitySpecification ;
+        sh:severity sh:Violation ;
+        sh:message "DesignEntity must have at least one CapacitySpecification stating expected functions, affordances, constraints, or quality attributes."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasMakePlan ;
+        sh:minCount 1 ;
+        sh:class dsr:MakePlan ;
+        sh:severity sh:Warning ;
+        sh:message "Anti-pattern warning: artifact without make plan. Document the procedure, build logic, resources, and conformance expectations for producing instances."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasUsePlan ;
+        sh:minCount 1 ;
+        sh:class dsr:UsePlan ;
+        sh:severity sh:Warning ;
+        sh:message "Anti-pattern warning: artifact without use plan. Document user roles, use steps, use conditions, intended effects, and artifact-network assumptions."@en
+    ] ;
+    sh:property [
+        sh:path dsr:satisfiesRequirement ;
+        sh:class dsr:Requirement ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: trace the DesignEntity to the Requirement it satisfies."@en
+    ] .
+
+dsrsh:ArtifactInstantiationShape a sh:NodeShape ;
+    rdfs:label "Artifact Instantiation shape"@en ;
+    sh:targetClass dsr:ArtifactInstantiation ;
+    sh:property [
+        sh:path dsr:artifactName ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: provide one stable artifactName for the prototype, implementation, proof of concept, or technical object."@en
+    ] ;
+    sh:property [
+        sh:path dsr:artifactVersion ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: provide a single version, build, or release identifier for the artifact instantiation."@en
+    ] ;
+    sh:property [
+        sh:path dsr:instantiatesDesignEntity ;
+        sh:minCount 1 ;
+        sh:class dsr:DesignEntity ;
+        sh:severity sh:Violation ;
+        sh:message "ArtifactInstantiation must identify the DesignEntity or artifact universal that it instantiates."@en
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath dsr:demonstratesArtifact ] ;
+        sh:class dsr:Demonstration ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: connect the artifact instantiation to at least one Demonstration."@en
+    ] .
+
+dsrsh:MakePlanShape a sh:NodeShape ;
+    rdfs:label "Make Plan shape"@en ;
+    sh:targetClass dsr:MakePlan ;
+    sh:property [
+        sh:path dsr:makeGoal ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "MakePlan must state the make goal or construction objective it satisfies."@en
+    ] ;
+    sh:property [
+        sh:path dsr:isMakePlanFor ;
+        sh:class dsr:DesignEntity ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: link each MakePlan back to the DesignEntity it produces or instantiates."@en
+    ] ;
+    sh:property [
+        sh:path dsr:traceReference ;
+        sh:datatype xsd:anyURI ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: reference build logs, code, design notes, materials, or construction documentation."@en
+    ] .
+
+dsrsh:UsePlanShape a sh:NodeShape ;
+    rdfs:label "Use Plan shape"@en ;
+    sh:targetClass dsr:UsePlan ;
+    sh:property [
+        sh:path dsr:useGoal ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "UsePlan must state the use goal, intended effect, or use objective."@en
+    ] ;
+    sh:property [
+        sh:path dsr:isUsePlanFor ;
+        sh:class dsr:DesignEntity ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: link each UsePlan back to the DesignEntity it puts into use."@en
+    ] ;
+    sh:property [
+        sh:path dsr:traceReference ;
+        sh:datatype xsd:anyURI ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: reference user instructions, use scenarios, deployment notes, or artifact-network assumptions."@en
+    ] .
+
+dsrsh:CapacitySpecificationShape a sh:NodeShape ;
+    rdfs:label "Capacity Specification shape"@en ;
+    sh:targetClass dsr:CapacitySpecification ;
+    sh:property [
+        sh:path dsr:capacityStatement ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "CapacitySpecification must state at least one artifact function, affordance, quality, constraint, or capability."@en
+    ] ;
+    sh:property [
+        sh:path dsr:isCapacitySpecificationFor ;
+        sh:class dsr:DesignEntity ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: link each CapacitySpecification to the DesignEntity whose capacities it specifies."@en
+    ] .
+
+dsrsh:DesignEntityMakeUseAntiPatternShape a sh:NodeShape ;
+    rdfs:label "Artifact without make or use plan anti-pattern warning shape"@en ;
+    sh:targetClass dsr:DesignEntity ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Anti-pattern warning: a DesignEntity should not be reported as a black-box artifact; provide both make and use plans unless explicitly not applicable."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+SELECT $this
+WHERE {
+  FILTER ( !EXISTS { $this dsr:hasMakePlan ?makePlan . }
+        || !EXISTS { $this dsr:hasUsePlan ?usePlan . } )
+}
+"""
+    ] .
+
+# -----------------------------------------------------------------------------
+# Demonstration, evaluation, and evaluation-evidence shapes.
+# -----------------------------------------------------------------------------
+
+dsrsh:DemonstrationShape a sh:NodeShape ;
+    rdfs:label "Demonstration shape"@en ;
+    sh:targetClass dsr:Demonstration ;
+    sh:property [
+        sh:path dsr:demonstratesArtifact ;
+        sh:minCount 1 ;
+        sh:class dsr:ArtifactInstantiation ;
+        sh:severity sh:Violation ;
+        sh:message "Demonstration must identify the ArtifactInstantiation whose feasibility or possible utility is shown."@en
+    ] ;
+    sh:property [
+        sh:path dsr:traceReference ;
+        sh:datatype xsd:anyURI ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: reference demonstration scenarios, screenshots, walkthroughs, pilots, notebooks, logs, or case evidence."@en
+    ] .
+
+dsrsh:EvaluationShape a sh:NodeShape ;
+    rdfs:label "Evaluation shape"@en ;
+    sh:targetClass dsr:Evaluation ;
+    sh:property [
+        sh:path dsr:hasEvaluationTiming ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in ( dsrv:evaluation-timing-ex-ante dsrv:evaluation-timing-ex-post ) ;
+        sh:severity sh:Violation ;
+        sh:message "Evaluation must specify timing: ex ante or ex post."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasEvaluationSetting ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in ( dsrv:evaluation-setting-artificial dsrv:evaluation-setting-naturalistic ) ;
+        sh:severity sh:Violation ;
+        sh:message "Evaluation must specify setting: artificial or naturalistic."@en
+    ] ;
+    sh:property [
+        sh:path dsr:usesEvaluationCriterion ;
+        sh:minCount 1 ;
+        sh:class dsr:EvaluationCriterion ;
+        sh:severity sh:Violation ;
+        sh:message "Evaluation must specify at least one criterion, metric, or judgment basis."@en
+    ] ;
+    sh:property [
+        sh:path dsr:evaluates ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:or (
+            [ sh:class dsr:DesignEntity ]
+            [ sh:class dsr:ArtifactInstantiation ]
+            [ sh:class dsr:MakeClaim ]
+            [ sh:class dsr:UseClaim ]
+            [ sh:class dsr:UsageEffectClaim ]
+            [ sh:class dsr:ContributionClaim ]
+            [ sh:class dsr:DesignKnowledge ]
+        ) ;
+        sh:message "Evaluation must specify what artifact, claim, or design knowledge it evaluates."@en
+    ] ;
+    sh:property [
+        sh:path dsr:generatesEvidence ;
+        sh:minCount 1 ;
+        sh:class dsr:EvaluationEvidence ;
+        sh:severity sh:Warning ;
+        sh:message "Anti-pattern warning: missing evaluation evidence. Link the Evaluation to the EvaluationEvidence it generates or assembles, unless this is only an EvaluationPlan."@en
+    ] ;
+    sh:property [
+        sh:path ( dsr:generatesEvidence dsr:hasEvidenceMode ) ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:evidence-mode-analytical
+            dsrv:evidence-mode-build-evaluate
+            dsrv:evidence-mode-case
+            dsrv:evidence-mode-conceptual-argument
+            dsrv:evidence-mode-empirical
+            dsrv:evidence-mode-experiment
+            dsrv:evidence-mode-expert
+            dsrv:evidence-mode-field
+            dsrv:evidence-mode-literature-synthesis
+            dsrv:evidence-mode-proof
+            dsrv:evidence-mode-replication
+            dsrv:evidence-mode-repository-trace
+            dsrv:evidence-mode-simulation
+        ) ;
+        sh:severity sh:Violation ;
+        sh:message "Evaluation must specify evidence mode through its generated EvaluationEvidence."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasClaimType ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:claim-type-make-claim
+            dsrv:claim-type-use-claim
+            dsrv:claim-type-usage-effect-claim
+            dsrv:claim-type-contribution-claim
+        ) ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: identify the claim type so evaluation method, setting, timing, evidence mode, and criterion can be aligned with the claim being made."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasEvaluationMethod ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: name or link the evaluation method used, so it can be checked against claim type and artifact maturity."@en
+    ] .
+
+dsrsh:EvaluationEvidenceShape a sh:NodeShape ;
+    rdfs:label "Evaluation Evidence shape"@en ;
+    sh:targetClass dsr:EvaluationEvidence ;
+    sh:property [
+        sh:path dsr:hasEvidenceMode ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:evidence-mode-analytical
+            dsrv:evidence-mode-build-evaluate
+            dsrv:evidence-mode-case
+            dsrv:evidence-mode-conceptual-argument
+            dsrv:evidence-mode-empirical
+            dsrv:evidence-mode-experiment
+            dsrv:evidence-mode-expert
+            dsrv:evidence-mode-field
+            dsrv:evidence-mode-literature-synthesis
+            dsrv:evidence-mode-proof
+            dsrv:evidence-mode-replication
+            dsrv:evidence-mode-repository-trace
+            dsrv:evidence-mode-simulation
+        ) ;
+        sh:severity sh:Violation ;
+        sh:message "EvaluationEvidence must specify one controlled evidence mode."@en
+    ] ;
+    sh:property [
+        sh:path dsr:evaluationResultSummary ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: summarize the evaluation result, finding, interpretation, or limitation."@en
+    ] ;
+    sh:property [
+        sh:path dsr:metricValue ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: record metric values, observations, scores, or qualitative evidence summaries where applicable."@en
+    ] ;
+    sh:property [
+        sh:path dsr:supportsDesignKnowledge ;
+        sh:class dsr:DesignKnowledge ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: link evaluation evidence to the DesignKnowledge it supports, constrains, or invalidates."@en
+    ] ;
+    sh:property [
+        sh:path dsr:supportsContributionClaim ;
+        sh:class dsr:ContributionClaim ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: link evaluation evidence to the ContributionClaim it supports or constrains."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: provide source anchors for evaluation data, proof, case records, simulations, experiments, field evidence, or expert review."@en
+    ] .
+
+dsrsh:EvaluationMissingEvidenceWarningShape a sh:NodeShape ;
+    rdfs:label "Evaluation missing evidence anti-pattern warning shape"@en ;
+    sh:targetClass dsr:Evaluation ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Anti-pattern warning: Evaluation is present but no EvaluationEvidence is linked."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+SELECT $this
+WHERE {
+  FILTER NOT EXISTS { $this dsr:generatesEvidence ?evidence . }
+}
+"""
+    ] .
+
+dsrsh:EvaluationMethodClaimTypeAlignmentWarningShape a sh:NodeShape ;
+    rdfs:label "Evaluation method to claim-type alignment warning shape"@en ;
+    sh:targetClass dsr:Evaluation ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Anti-pattern warning: evaluation method is not explicitly linked to claim type. State claim type and method so reviewers can judge evaluation alignment."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+SELECT $this
+WHERE {
+  {
+    $this dsr:evaluates ?target .
+    ?target a ?claimClass .
+    VALUES ?claimClass {
+      dsr:MakeClaim
+      dsr:UseClaim
+      dsr:UsageEffectClaim
+      dsr:ContributionClaim
+    }
+    FILTER ( !EXISTS { $this dsr:hasClaimType ?claimType . }
+          || !EXISTS { $this dsr:hasEvaluationMethod ?method . } )
+  }
+  UNION
+  {
+    $this dsr:hasClaimType ?claimType .
+    FILTER NOT EXISTS { $this dsr:hasEvaluationMethod ?method . }
+  }
+}
+"""
+    ] .
+
+# -----------------------------------------------------------------------------
+# Design knowledge and contribution shapes.
+# -----------------------------------------------------------------------------
+
+dsrsh:DesignKnowledgeShape a sh:NodeShape ;
+    rdfs:label "Design Knowledge shape"@en ;
+    sh:targetClass dsr:DesignKnowledge ;
+    sh:severity sh:Warning ;
+    sh:message "DesignKnowledge should be explicitly supported by EvaluationEvidence and enriched as CIMO-style knowledge where possible."@en ;
+    sh:property [
+        sh:path dsr:hasKnowledgeGoal ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:knowledge-goal-definitional
+            dsrv:knowledge-goal-descriptive
+            dsrv:knowledge-goal-evaluative
+            dsrv:knowledge-goal-explanatory
+            dsrv:knowledge-goal-explanatory-predictive
+            dsrv:knowledge-goal-methodological
+            dsrv:knowledge-goal-normative-ethical
+            dsrv:knowledge-goal-predictive
+            dsrv:knowledge-goal-prescriptive
+        ) ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: classify DesignKnowledge by knowledge goal."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasKnowledgeScope ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:knowledge-scope-idiographic-local
+            dsrv:knowledge-scope-projectable-problem-class
+            dsrv:knowledge-scope-analytical-generalization
+            dsrv:knowledge-scope-nomothetic-general
+        ) ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: classify DesignKnowledge by knowledge scope."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasBoundaryCondition ;
+        sh:minCount 1 ;
+        sh:class dsr:BoundaryCondition ;
+        sh:severity sh:Warning ;
+        sh:message "Anti-pattern warning: DesignKnowledge without boundary condition. State where, when, for whom, and under what conditions it applies."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasProjectabilityStatement ;
+        sh:class dsr:ProjectabilityStatement ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: state how the design knowledge projects beyond the local problem instance."@en
+    ] ;
+    sh:or (
+        [ sh:property [
+            sh:path dsr:isSupportedByEvidence ;
+            sh:minCount 1 ;
+            sh:class dsr:EvaluationEvidence
+        ] ]
+        [ sh:property [
+            sh:path [ sh:inversePath dsr:supportsDesignKnowledge ] ;
+            sh:minCount 1 ;
+            sh:class dsr:EvaluationEvidence
+        ] ]
+    ) ;
+    sh:property [
+        sh:path dsr:hasCIMOContext ;
+        sh:class dsr:Context ;
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "Best-practice CIMO enrichment: identify the context component for this design knowledge."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasInterventionOrArtifactFeature ;
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "Best-practice CIMO enrichment: identify the intervention, action, or artifact feature component."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasMechanismOrRationale ;
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "Best-practice CIMO enrichment: identify the mechanism or rationale explaining why the intervention should produce the outcome."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasOutcomeOrEffect ;
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "Best-practice CIMO enrichment: identify the outcome or effect component."@en
+    ] .
+
+dsrsh:DesignKnowledgeBoundaryConditionWarningShape a sh:NodeShape ;
+    rdfs:label "Design knowledge without boundary condition warning shape"@en ;
+    sh:targetClass dsr:DesignKnowledge ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Anti-pattern warning: design knowledge is missing boundary conditions."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+SELECT $this
+WHERE {
+  FILTER NOT EXISTS { $this dsr:hasBoundaryCondition ?boundaryCondition . }
+}
+"""
+    ] .
+
+dsrsh:ContributionClaimShape a sh:NodeShape ;
+    rdfs:label "Contribution Claim shape"@en ;
+    sh:targetClass dsr:ContributionClaim ;
+    sh:property [
+        sh:path dsr:contributionStatement ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "ContributionClaim must state what is contributed to research, practice, method, design, or knowledge."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasKnowledgeGoal ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:knowledge-goal-definitional
+            dsrv:knowledge-goal-descriptive
+            dsrv:knowledge-goal-evaluative
+            dsrv:knowledge-goal-explanatory
+            dsrv:knowledge-goal-explanatory-predictive
+            dsrv:knowledge-goal-methodological
+            dsrv:knowledge-goal-normative-ethical
+            dsrv:knowledge-goal-predictive
+            dsrv:knowledge-goal-prescriptive
+        ) ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: classify the contribution claim by knowledge goal."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasKnowledgeScope ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:knowledge-scope-idiographic-local
+            dsrv:knowledge-scope-projectable-problem-class
+            dsrv:knowledge-scope-analytical-generalization
+            dsrv:knowledge-scope-nomothetic-general
+        ) ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: classify the contribution claim by knowledge scope."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasNoveltyMode ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:novelty-mode-invention
+            dsrv:novelty-mode-improvement
+            dsrv:novelty-mode-exaptation
+            dsrv:novelty-mode-routine-design
+        ) ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: classify the contribution claim by novelty mode."@en
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath dsr:supportsContributionClaim ] ;
+        sh:minCount 1 ;
+        sh:class dsr:EvaluationEvidence ;
+        sh:severity sh:Warning ;
+        sh:message "Anti-pattern warning: contribution claim without evidence. Link at least one EvaluationEvidence item that supports or constrains this claim."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasBoundaryCondition ;
+        sh:class dsr:BoundaryCondition ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: state boundary conditions delimiting the contribution claim."@en
+    ] .
+
+dsrsh:ContributionClaimWithoutEvidenceWarningShape a sh:NodeShape ;
+    rdfs:label "Contribution claim without evidence warning shape"@en ;
+    sh:targetClass dsr:ContributionClaim ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Anti-pattern warning: contribution claim lacks linked evidence."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+SELECT $this
+WHERE {
+  FILTER NOT EXISTS { ?evidence dsr:supportsContributionClaim $this . }
+}
+"""
+    ] .
+
+dsrsh:RoutineDesignNoveltyContributionWarningShape a sh:NodeShape ;
+    rdfs:label "Routine design with no novelty/contribution articulation warning shape"@en ;
+    sh:targetClass dsr:ContributionClaim ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Anti-pattern warning: routine design requires explicit novelty, abstraction, projectability, evidence, or contribution articulation to qualify as DSR."@en ;
+        sh:select """
+PREFIX dsr: <https://w3id.org/dsr-framework/ontology#>
+PREFIX dsrv: <https://w3id.org/dsr-framework/vocab/>
+SELECT $this
+WHERE {
+  $this dsr:hasNoveltyMode dsrv:novelty-mode-routine-design .
+  FILTER ( !EXISTS { $this dsr:contributionStatement ?statement . }
+        || !EXISTS { $this dsr:hasKnowledgeScope ?scope . }
+        || !EXISTS { ?evidence dsr:supportsContributionClaim $this . } )
+}
+"""
+    ] .
+
+# -----------------------------------------------------------------------------
+# Transparency, validity, reliability, and replication shapes.
+# -----------------------------------------------------------------------------
+
+dsrsh:TransparencyTraceShape a sh:NodeShape ;
+    rdfs:label "Transparency Trace shape"@en ;
+    sh:targetClass dsr:TransparencyTrace ;
+    sh:severity sh:Violation ;
+    sh:message "TransparencyTrace must include either a traceReference or a sourceAnchorId, and should identify a transparency form."@en ;
+    sh:property [
+        sh:path dsr:hasTransparencyForm ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:transparency-form-process
+            dsrv:transparency-form-problem-space
+            dsrv:transparency-form-solution-space
+            dsrv:transparency-form-build
+            dsrv:transparency-form-evaluation
+            dsrv:transparency-form-contribution
+        ) ;
+        sh:severity sh:Violation ;
+        sh:message "TransparencyTrace must specify one transparency form."@en
+    ] ;
+    sh:or (
+        [ sh:property [
+            sh:path dsr:traceReference ;
+            sh:minCount 1 ;
+            sh:datatype xsd:anyURI
+        ] ]
+        [ sh:property [
+            sh:path dsr:sourceAnchorId ;
+            sh:minCount 1 ;
+            sh:datatype xsd:string
+        ] ]
+    ) ;
+    sh:property [
+        sh:path dsr:communicatesToAudience ;
+        sh:class dsr:Stakeholder ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: identify the audience served by the transparency trace."@en
+    ] ;
+    sh:property [
+        sh:path dsr:mitigatesAntiPattern ;
+        sh:class dsr:AntiPattern ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: link the trace to any anti-pattern it mitigates."@en
+    ] .
+
+dsrsh:ValidityAssessmentShape a sh:NodeShape ;
+    rdfs:label "Validity Assessment shape"@en ;
+    sh:targetClass dsr:ValidityAssessment ;
+    sh:property [
+        sh:path dsr:hasValidityType ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:validity-type-artifact-validity
+            dsrv:validity-type-contribution-validity
+            dsrv:validity-type-ethical-responsible-validity
+            dsrv:validity-type-evaluation-validity
+            dsrv:validity-type-external-context-validity
+            dsrv:validity-type-internal-validity
+            dsrv:validity-type-pragmatic-validity
+            dsrv:validity-type-problem-validity
+            dsrv:validity-type-requirements-validity
+            dsrv:validity-type-semantic-validity
+        ) ;
+        sh:severity sh:Violation ;
+        sh:message "ValidityAssessment must specify a controlled validity type."@en
+    ] ;
+    sh:property [
+        sh:path dsr:confidencePercent ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 100 ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: confidencePercent should be a decimal percentage from 0 to 100."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: validity assessments should cite source anchors or evidence."@en
+    ] .
+
+dsrsh:ReliabilityAssessmentShape a sh:NodeShape ;
+    rdfs:label "Reliability Assessment shape"@en ;
+    sh:targetClass dsr:ReliabilityAssessment ;
+    sh:property [
+        sh:path dsr:hasReliabilityTarget ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:reliability-target-artifact
+            dsrv:reliability-target-design-knowledge
+            dsrv:reliability-target-evaluator
+            dsrv:reliability-target-implementation
+            dsrv:reliability-target-measure
+            dsrv:reliability-target-method
+            dsrv:reliability-target-process
+        ) ;
+        sh:severity sh:Violation ;
+        sh:message "ReliabilityAssessment must state the reliability target: artifact, method, measure, design knowledge, evaluator, process, or implementation."@en
+    ] ;
+    sh:property [
+        sh:path dsr:hasReliabilityType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in ( dsrv:reliability-timing-synchronic dsrv:reliability-timing-diachronic ) ;
+        sh:severity sh:Violation ;
+        sh:message "ReliabilityAssessment must state synchronic or diachronic reliability timing/type."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: reliability assessments should cite evidence or source anchors."@en
+    ] .
+
+dsrsh:ReplicationActivityShape a sh:NodeShape ;
+    rdfs:label "Replication Activity shape"@en ;
+    sh:targetClass dsr:ReplicationActivity ;
+    sh:property [
+        sh:path dsr:hasReplicationType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in (
+            dsrv:replication-type-adaptation
+            dsrv:replication-type-conceptual-replication
+            dsrv:replication-type-differentiated-replication
+            dsrv:replication-type-explanation
+            dsrv:replication-type-justification
+            dsrv:replication-type-meta-replication
+            dsrv:replication-type-recreation
+            dsrv:replication-type-redesign
+            dsrv:replication-type-test
+            dsrv:replication-type-update
+        ) ;
+        sh:severity sh:Violation ;
+        sh:message "ReplicationActivity must specify a controlled replication type."@en
+    ] ;
+    sh:property [
+        sh:path dsr:definitionText ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: state the knowledge function of the replication activity: test, redesign, justify, adapt, explain, update, recreate, compare, or synthesize."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: cite replication evidence or repository traces."@en
+    ] .
+
+# -----------------------------------------------------------------------------
+# Supporting shapes for entities referenced by required node shapes.
+# -----------------------------------------------------------------------------
+
+dsrsh:BoundaryConditionShape a sh:NodeShape ;
+    rdfs:label "Boundary Condition shape"@en ;
+    sh:targetClass dsr:BoundaryCondition ;
+    sh:property [
+        sh:path dsr:boundaryConditionText ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Recommended: boundary conditions should be expressed as text or linked to a context, stakeholder class, artifact network, domain, temporal condition, resource, or governance constraint."@en
+    ] .
+
+dsrsh:EvaluationCriterionShape a sh:NodeShape ;
+    rdfs:label "Evaluation Criterion shape"@en ;
+    sh:targetClass dsr:EvaluationCriterion ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: label each evaluation criterion."@en
+    ] ;
+    sh:property [
+        sh:path dsr:definitionText ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: define the criterion, metric, or judgment basis."@en
+    ] .
+
+dsrsh:EvaluationPlanShape a sh:NodeShape ;
+    rdfs:label "Evaluation Plan shape"@en ;
+    sh:targetClass dsr:EvaluationPlan ;
+    sh:property [
+        sh:path dsr:definitionText ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "A justified EvaluationPlan should describe object, timing, setting, evidence mode, criterion, method, and why a completed evaluation is not yet available."@en
+    ] ;
+    sh:property [
+        sh:path dsr:sourceAnchorId ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "Best practice: cite an evaluation protocol, preregistration, study design note, or repository trace."@en
+    ] .

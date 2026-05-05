@@ -1,0 +1,169 @@
+# SPDX-License-Identifier: CC0-1.0
+# DSR transparency authoring template.
+# Cover six transparency forms proportionately: process, problem_space, solution_space, build, evaluation, contribution.
+# Also summarize the six DSR Grid dimensions.
+
+dsr_transparency:
+  schema_version: "0.1.0-draft"
+  transparency:
+    transparency_traces:
+      - transparency_trace_id: "TRN-PROCESS-001"
+        transparency_form: "process"
+        documentation_location: "<process log, method section, issue/PR trail, or notebook path>"
+        trace_reference: null
+        summary: "<what process information is made transparent>"
+        audiences: ["researcher", "reviewer"]
+        mitigates_anti_pattern_ids: ["ap_ex_post_dsrification"]
+        responsible_disclosure_notes: "<what is withheld or summarized for confidentiality, security, privacy, IP, or burden reasons>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-PROBLEM-001"
+        transparency_form: "problem_space"
+        documentation_location: "<problem-space documentation path>"
+        trace_reference: null
+        summary: "<problem instance, class, relevance, stakeholders, and boundaries>"
+        audiences: ["researcher", "reviewer", "practitioner"]
+        mitigates_anti_pattern_ids: ["ap_weak_problem_grounding"]
+        responsible_disclosure_notes: "<disclosure limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-SOLUTION-001"
+        transparency_form: "solution_space"
+        documentation_location: "<input knowledge, alternatives, and solution grounding path>"
+        trace_reference: null
+        summary: "<how solution grounding and alternatives are documented>"
+        audiences: ["researcher", "reviewer"]
+        mitigates_anti_pattern_ids: ["ap_weak_solution_grounding"]
+        responsible_disclosure_notes: "<disclosure limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-BUILD-001"
+        transparency_form: "build"
+        documentation_location: "<artifact build/specification path>"
+        trace_reference: null
+        summary: "<make plan, use plan, capacity, design rationale, and construction trace>"
+        audiences: ["researcher", "technical_implementer"]
+        mitigates_anti_pattern_ids: ["ap_artifact_black_box"]
+        responsible_disclosure_notes: "<code, security, or IP disclosure limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-EVALUATION-001"
+        transparency_form: "evaluation"
+        documentation_location: "<evaluation protocol, data, results, or limitations path>"
+        trace_reference: null
+        summary: "<evaluation coordinates, methods, evidence, criteria, findings, and limits>"
+        audiences: ["researcher", "reviewer", "practitioner"]
+        mitigates_anti_pattern_ids: ["ap_evaluation_mismatch"]
+        responsible_disclosure_notes: "<participant/data/privacy disclosure limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+      - transparency_trace_id: "TRN-CONTRIBUTION-001"
+        transparency_form: "contribution"
+        documentation_location: "<design knowledge and contribution documentation path>"
+        trace_reference: null
+        summary: "<contribution, design knowledge, novelty, scope, evidence, and boundaries>"
+        audiences: ["researcher", "reviewer", "practitioner"]
+        mitigates_anti_pattern_ids: ["ap_non_codified_knowledge", "ap_conflated_artifact_and_output_knowledge"]
+        responsible_disclosure_notes: "<generalization or disclosure limits>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+        confidence_percent: null
+        ambiguity_level: "medium"
+        notes: null
+        ontology_mapping:
+          ontology_class: "dsr:TransparencyTrace"
+          ontology_property: "dsr:hasTransparencyTrace"
+          skos_concept_uri: null
+          shacl_shape: "dsrsh:TransparencyTraceShape"
+          json_schema_pointer: "#/$defs/transparency_trace"
+    dsr_grid_summary:
+      - dimension: "problem"
+        summary: "<problem dimension summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "input_knowledge"
+        summary: "<input knowledge dimension summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "research_process"
+        summary: "<research process dimension summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "key_concepts"
+        summary: "<key concepts dimension summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "solution"
+        summary: "<solution/artifact dimension summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+      - dimension: "output_knowledge"
+        summary: "<output knowledge dimension summary>"
+        source_anchor_ids: ["SRC-001"]
+        confidence_level: "medium"
+    responsible_transparency_balance: "<rationale for proportional transparency and responsible disclosure>"
+  traceability:
+    problem_to_requirement: []
+    requirement_to_design_decision: []
+    design_decision_to_evaluation: []
+    evaluation_to_design_knowledge: []
+    design_knowledge_to_contribution: []
+  anti_pattern_self_check:
+    - anti_pattern_id: "ap_transparency_overload"
+      anti_pattern_label: "Transparency Overload"
+      status: "not_checked"
+      rationale: "<check whether documentation demands or disclosure create unnecessary burden or risk>"
+      mitigation_or_action: "<summarize, redact, scope, or justify disclosure boundaries>"
+      related_record_ids: ["TRN-PROCESS-001", "TRN-BUILD-001", "TRN-EVALUATION-001"]
+      source_anchor_ids: []
+      confidence_level: "medium"
+  quality_control:
+    completeness_status: "recommended"
+    human_review_recommended: true
+    review_notes: "<review six-form coverage, DSR Grid coverage, and responsible disclosure>"
+    known_gaps: []

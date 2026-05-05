@@ -53,7 +53,7 @@ The purpose of this repository is to operationalize the canonical Design Science
 
 The repository is not intended to be an exhaustive theory of DSR, a replacement for DSR literature, a universal disciplinary standard, or a guarantee that any downstream artifact has been empirically validated. Its narrower purpose is to make DSR work more explicit, structured, reviewable, reusable, citable, and release-ready.
 
-The framework therefore treats GitHub not merely as a file host or software platform, but as a research artifact stewardship environment. Repository structure, version control, metadata, schemas, templates, checklists, records, crosswalks, examples, and releases are used to make DSR artifacts inspectable across their problem framing, solution grounding, design/build process, demonstration, evaluation, contribution claims, limitations, and reuse conditions.
+The framework therefore treats GitHub not merely as a file host or software platform, but as a research artifact stewardship environment. Repository structure, version control, metadata, schemas, templates, checklists, records, crosswalks, examples, nested artifact packages, and releases are used to make DSR artifacts inspectable across their problem framing, solution grounding, design/build process, demonstration, evaluation, contribution claims, limitations, and reuse conditions.
 
 The core framework includes the materials needed to support this operationalization: DSR models, controlled vocabularies, templates, schemas, checklists, records, crosswalks, examples, documentation, metadata, and release controls.
 
@@ -101,6 +101,7 @@ The organized framework package uses the following top-level structure.
 | `records/` | Retained evidence of decisions, source basis, tailoring, reviews, evaluations, releases, and preservation. |
 | `crosswalks/` | Mappings among source traditions, framework products, protocol concepts, and DSR constructs. |
 | `examples/` | Demonstration packages and worked examples, separated from required package-control files. |
+| `artifacts/` | Bounded draft artifact packages developed inside the repository before a standalone split or release decision. |
 
 ## How to use the framework
 
@@ -206,11 +207,10 @@ Known limitations for the current release:
 
 Recommended next work should preserve the current L4-not-L5 boundary:
 
-1. Reconcile any remaining stale public-draft or qualified-L2 wording in controlled records against the current v1 L4 claim.
-2. Add an explicit policy for any future `artifacts/` or `packages/` directory so substantive artifact packages are distinguished from examples and core framework materials.
-3. Add a bounded DSR theory operationalization artifact package only after the directory policy is retained.
-4. Add a self-application validation record comparing `documentation-protocol` and `dsr-framework` against the DSR theory operational model.
-5. Keep L5 archival/publication-ready work separate until preservation closure, registry evidence, independent external review, and L5 release approval are retained.
+1. Review and repair the recorded concept-to-ontology coverage gaps in `artifacts/dsr-theory-operational-kernel/`.
+2. Add a self-application validation record comparing `documentation-protocol` and `dsr-framework` against the DSR theory operational model.
+3. Decide whether the DSR theory operational kernel should remain nested in this repository or split into a standalone artifact repository after review.
+4. Keep L5 archival/publication-ready work separate until preservation closure, registry evidence, independent external review, and L5 release approval are retained.
 
 ## Citation and reuse
 
