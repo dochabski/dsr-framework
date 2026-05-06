@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_0006_v1_2_0
+  record_class: release_record
+  item_type: record
+  title: DSR Framework v1.2.0 Minor Release Record
+  status: approved
+  version: "1.2.0"
+  release_date: "2026-05-06"
+  responsible_party: framework_maintainer
+  release_tag: v1.2.0
+  release_status: "1.2.0_stable"
+  package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  release_scope:
+    included:
+      - v1_1_0_stable_package
+      - wicked_problem_resolution_workflow
+      - validation_summary
+      - release_metadata_updates
+    excluded:
+      - l5_archival_publication_ready_claim
+      - external_empirical_reuse_validation
+      - downstream_artifact_certification
+      - Zenodo publication action
+
+  minor_release_blockers: []
+
+  retained_evidence:
+    workflow_document: docs/wicked-problem-resolution-workflow.md
+    metadata_freeze: records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+
+  validation:
+    required_commands:
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass
+
+  release_notes_summary:
+    - v1.2.0 adds a controlled wicked problem resolution workflow process artifact.
+    - The workflow supports DSR-oriented problem framing, artifact intervention design, safe-to-fail evaluation, and design-knowledge capture.
+    - Preserves L4 reusable-stable package conformance for the host package.
+    - Does not claim L5 archival/publication-ready status or empirical downstream utility.
+
+  known_limitations:
+    - L5 archival/publication-ready status is not claimed for v1.2.0.
+    - External empirical reuse validation is not claimed.
+    - The workflow is process guidance and does not certify any downstream wicked-problem intervention.
+    - Zenodo publication is handled separately after GitHub release publication.
+
+  outcome:
+    result: ready_for_github_minor_release
+    conformance_claim_supported: l4_reusable_stable
+    conformance_claim_not_supported: l5_archival_publication_ready

@@ -9,8 +9,8 @@ manifest:
     target, validation obligations, and traceability expectations for the Design Science Research Framework repository.
 
     '
-  status: 1.1.0_stable
-  version: 1.1.0
+  status: 1.2.0_stable
+  version: 1.2.0
   package:
     package_id: dsr_framework
     package_name: DSR Framework
@@ -28,8 +28,8 @@ manifest:
       '
     canonical_repository_role: source_of_truth_package
     repository_url: https://github.com/dochabski/dsr-framework
-    publication_status: 1.1.0_stable
-    intended_release: v1.1.0
+    publication_status: 1.2.0_stable
+    intended_release: v1.2.0
     license:
       spdx_id: CC0-1.0
       license_file: LICENSE
@@ -43,7 +43,7 @@ manifest:
     - .zenodo.json
     - codemeta.json
     normalization_status:
-      status: 1.1.0_stable_metadata_frozen
+      status: 1.2.0_stable_metadata_frozen
       normalized_at: '2026-04-27'
       structure_status: canonical_directories_populated_from_product_catalog
       required_root_file_status: all_required_root_files_present_as_draft_or_controlled_files
@@ -78,6 +78,8 @@ manifest:
       latest_nested_artifact_validation_record: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
       latest_nested_artifact_self_application_record: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
       latest_nested_artifact_coverage_crosswalk: artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+      latest_wicked_problem_resolution_workflow: docs/wicked-problem-resolution-workflow.md
+      wicked_problem_resolution_workflow_status: controlled_process_artifact_present
       nested_artifact_status: dsr_theory_operational_kernel_self_application_validation_retained_l2_reviewable_draft
       latest_template_checklist_stabilization_review: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
       template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
@@ -100,10 +102,14 @@ manifest:
       latest_minor_release_record: records/releases/record-release-0005-v1-1-0.yaml
       latest_minor_release_approval: records/releases/record-release-approval-0004-v1-1-0.yaml
       latest_minor_release_notes: records/releases/github-release-notes-v1-1-0.md
+      latest_current_metadata_freeze_record: records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+      latest_current_release_record: records/releases/record-release-0006-v1-2-0.yaml
+      latest_current_release_approval: records/releases/record-release-approval-0005-v1-2-0.yaml
+      latest_current_release_notes: records/releases/github-release-notes-v1-2-0.md
       v1_release_record_status: approved_for_github_release
       v1_release_approval_status: approved_for_github_release
       patch_release_status: approved_for_github_release_v1_0_2
-      minor_release_status: approved_for_github_release_v1_1_0
+      minor_release_status: approved_for_github_release_v1_2_0
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -201,7 +207,7 @@ manifest:
       role: citation_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_citation_metadata_frozen_1_1_0
+      validation_status: present_v1_citation_metadata_frozen_1_2_0
       existence_audit_date: '2026-04-27'
     - path: CHANGELOG.md
       role: release_change_log
@@ -249,7 +255,7 @@ manifest:
       role: structured_project_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_metadata_frozen_1_1_0
+      validation_status: present_v1_metadata_frozen_1_2_0
       existence_audit_date: '2026-04-27'
     - path: artifact-profile.yaml
       role: artifact_identity_scope_claims_and_reuse_constraints
@@ -774,6 +780,21 @@ manifest:
     to: records/releases/record-release-approval-0004-v1-1-0.yaml
     relation: supports_v1_1_0_minor_release_approval
     evidence_status: retained_release_approval_record
+  - trace_id: tr_wicked_problem_workflow_to_v1_2_0_metadata_freeze
+    from: docs/wicked-problem-resolution-workflow.md
+    to: records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    relation: supports_v1_2_0_minor_metadata_freeze
+    evidence_status: retained_metadata_freeze_record
+  - trace_id: tr_v1_2_0_metadata_freeze_to_release_record
+    from: records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    to: records/releases/record-release-0006-v1-2-0.yaml
+    relation: supports_v1_2_0_minor_release_record
+    evidence_status: retained_release_record
+  - trace_id: tr_v1_2_0_release_record_to_release_approval
+    from: records/releases/record-release-0006-v1-2-0.yaml
+    to: records/releases/record-release-approval-0005-v1-2-0.yaml
+    relation: supports_v1_2_0_minor_release_approval
+    evidence_status: retained_release_approval_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -828,6 +849,11 @@ manifest:
     - records/releases/record-release-0005-v1-1-0.yaml
     - records/releases/record-release-approval-0004-v1-1-0.yaml
     - records/releases/github-release-notes-v1-1-0.md
+    - docs/wicked-problem-resolution-workflow.md
+    - records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    - records/releases/record-release-0006-v1-2-0.yaml
+    - records/releases/record-release-approval-0005-v1-2-0.yaml
+    - records/releases/github-release-notes-v1-2-0.md
     - records/reviews/record-review-open-marker-disposition-0001-v1-0-0.yaml
     - records/design-decisions/record-design-decision-0001-public-draft-hardening-sequence.yaml
     - records/design-decisions/record-design-decision-0002-v1-0-0-release-scope.yaml
@@ -907,6 +933,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.2.0
+    date: '2026-05-06'
+    change_type: wicked_problem_workflow_and_minor_release_records
+    description: Added the wicked problem resolution workflow process artifact and updated release-facing metadata for v1.2.0 with retained freeze, release, approval, and notes records.
+    responsible_party: framework_maintainer
+    related_request: wicked_problem_resolution_workflow_release
   - version: 1.1.0
     date: '2026-05-05'
     change_type: minor_release_metadata_and_records
