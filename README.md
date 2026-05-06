@@ -3,8 +3,8 @@ SPDX-License-Identifier: CC0-1.0
 item_id: root_readme
 item_type: description
 selection_id: root_readme
-status: 1.1.0_stable
-version: 1.1.0
+status: 1.2.0_stable
+version: 1.2.0
 file_conformance: l1_documented
 package_conformance: l4_reusable_stable
 l5_claimed: false
@@ -20,8 +20,8 @@ This repository treats DSR as a research tradition centered on purposeful artifa
 
 | Field | Value |
 |---|---|
-| Package status | `1.1.0_stable` -- reusable stable package, not L5 archival/publication-ready. |
-| Current package version | `1.1.0` |
+| Package status | `1.2.0_stable` -- reusable stable package, not L5 archival/publication-ready. |
+| Current package version | `1.2.0` |
 | Default root README conformance | `L1 documented` |
 | Current organization state | Canonical directory structure populated from the product catalog |
 | Current validation state | `L4 reusable stable` release evidence: YAML/JSON/CFF parsing passes; schema/template, schema/record, and canonical-example validation pairs pass; claim-level traceability, retained review records, metadata freeze, and release record are present |
@@ -31,9 +31,9 @@ This repository treats DSR as a research tradition centered on purposeful artifa
 
 ## Release progression
 
-This repository uses a controlled status progression: `0.1.0_public_draft`, `1.0.0-rc.N`, and `1.0.x_stable`. The current release is prepared as the stable v1.1.0 framework with L4 reusable-stable package conformance.
+This repository uses a controlled status progression: `0.1.0_public_draft`, `1.0.0-rc.N`, and `1.0.x_stable`. The current release is prepared as the stable v1.2.0 framework with L4 reusable-stable package conformance.
 
-L5 archival/publication-ready status is not claimed for v1.1.0. L5 requires a separate release decision with completed preservation closure, registry publication, independent external review, archival fixity evidence, and L5 release approval.
+L5 archival/publication-ready status is not claimed for v1.2.0. L5 requires a separate release decision with completed preservation closure, registry publication, independent external review, archival fixity evidence, and L5 release approval.
 
 ## What this framework provides
 
@@ -46,6 +46,7 @@ The framework is organized as a compound DSR artifact package. Its intended prod
 5. **Templates and checklists** for researchers who need operational DSR documentation artifacts rather than only prose guidance.
 6. **Records** that retain evidence of source basis, decisions, contribution positioning, transparency, evaluation, review, release, and preservation events.
 7. **Human-facing documentation** that explains the controlled YAML, JSON Schema, and record files in a form usable by researchers and reviewers.
+8. **Workflow guidance** for wicked problem resolution, problem abstraction, artifact intervention design, safe-to-fail evaluation, and reusable design-knowledge capture.
 
 ## Scope boundary
 
@@ -98,6 +99,7 @@ The organized framework package uses the following top-level structure.
 | `templates/` | Reusable project, artifact, evaluation, contribution, and transparency templates. |
 | `checklists/` | Quality, readiness, transparency, evaluation, contribution, reliability, and projectability checklists. |
 | `docs/protocol/` | Human-facing protocol documentation. |
+| `docs/wicked-problem-resolution-workflow.md` | Human-facing process artifact for approaching wicked problems through DSR-oriented problem framing, artifact design, evaluation, and design-knowledge capture. |
 | `records/` | Retained evidence of decisions, source basis, tailoring, reviews, evaluations, releases, and preservation. |
 | `crosswalks/` | Mappings among source traditions, framework products, protocol concepts, and DSR constructs. |
 | `examples/` | Demonstration packages and worked examples, separated from required package-control files. |
@@ -214,7 +216,7 @@ Recommended next work should preserve the current L4-not-L5 boundary:
 
 ## Citation and reuse
 
-Use the repository citation metadata in `CITATION.cff`, the repository license notice in `LICENSE`, and the archived-release metadata in `.zenodo.json`. The current v1.1.0 release is the reusable-stable package release. It is not an L5 archival/publication-ready release and it does not certify downstream artifacts merely because they use the framework.
+Use the repository citation metadata in `CITATION.cff`, the repository license notice in `LICENSE`, and the archived-release metadata in `.zenodo.json`. The current v1.2.0 release is the reusable-stable package release. It is not an L5 archival/publication-ready release and it does not certify downstream artifacts merely because they use the framework.
 
 ## Maintainer note
 

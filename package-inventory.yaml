@@ -7,12 +7,12 @@ package_inventory:
   title: DSR Framework Package Inventory
   purpose: Inventory all required, planned, and controlled files in the DSR Framework package and assign validation responsibilities
     for each file class and file entry.
-  status: 1.1.0_stable
-  version: 1.1.0
+  status: 1.2.0_stable
+  version: 1.2.0
   date: '2026-04-27'
   owner: framework_maintainer
   responsible_party: framework_maintainer
-  event_or_action: package_inventory_updated_for_v1_1_0_release
+  event_or_action: package_inventory_updated_for_v1_2_0_release
   package_conformance: l4_reusable_stable
   l5_claimed: false
   inventory_policy:
@@ -374,7 +374,7 @@ package_inventory:
   - directory_id: dir_016
     path: records/releases
     purpose: Release records.
-    expected_file_count_from_selection_table: 17
+    expected_file_count_from_selection_table: 21
     listed_files:
     - records/releases/record-release-0001-v0-1-0.yaml
     - records/releases/record-metadata-freeze-0001-v1-0-0.yaml
@@ -393,11 +393,15 @@ package_inventory:
     - records/releases/record-release-0005-v1-1-0.yaml
     - records/releases/record-release-approval-0004-v1-1-0.yaml
     - records/releases/github-release-notes-v1-1-0.md
+    - records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    - records/releases/record-release-0006-v1-2-0.yaml
+    - records/releases/record-release-approval-0005-v1-2-0.yaml
+    - records/releases/github-release-notes-v1-2-0.md
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 17
-      present_count: 17
+      listed_count: 21
+      present_count: 21
       missing_count: 0
   - directory_id: dir_017
     path: records/preservation
@@ -512,6 +516,18 @@ package_inventory:
       listed_count: 1
       present_count: 1
       missing_count: 0
+  - directory_id: dir_026
+    path: docs
+    purpose: Human-facing process artifacts and supplemental repository documentation outside protocol pages.
+    expected_file_count_from_selection_table: 1
+    listed_files:
+    - docs/wicked-problem-resolution-workflow.md
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-05-06'
+    listed_file_existence:
+      listed_count: 1
+      present_count: 1
+      missing_count: 0
   - directory_id: dir_025
     path: artifacts
     purpose: Nested artifact packages developed inside the DSR Framework repository before standalone release or repository split.
@@ -565,7 +581,7 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0003
     exists: true
-    current_status: present_v1_citation_metadata_frozen_1_1_0
+    current_status: present_v1_citation_metadata_frozen_1_2_0
     existence_audit_date: '2026-04-28'
   - path: CHANGELOG.md
     listed: true
@@ -613,7 +629,7 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0011
     exists: true
-    current_status: present_v1_metadata_frozen_1_1_0
+    current_status: present_v1_metadata_frozen_1_2_0
     existence_audit_date: '2026-04-28'
   - path: artifact-profile.yaml
     listed: true
@@ -6857,6 +6873,170 @@ package_inventory:
     - uses_declared_path_and_extension
     - documents_v1_1_0_minor_release_scope
     - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0184
+    file_id: file_docs__wicked_problem_resolution_workflow_md
+    selection_id: wicked_problem_resolution_workflow
+    path: docs/wicked-problem-resolution-workflow.md
+    package_section: docs
+    portion_type: process_artifact_documentation
+    output_format: markdown
+    purpose: Controlled process artifact for resolving wicked problems through DSR-oriented framing, intervention design, evaluation, and reusable design-knowledge capture.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-06'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - documents_v1_2_0_minor_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0185
+    file_id: file_records__releases__record_metadata_freeze_0005_v1_2_0_yaml
+    selection_id: record_metadata_freeze_0005_v1_2_0
+    path: records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    package_section: records/releases
+    portion_type: metadata_freeze_record
+    output_format: yaml
+    purpose: Freeze v1.2.0 minor release metadata for the wicked problem resolution workflow release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0006-v1-2-0.yaml
+    - CHANGELOG.md
+    - manifest.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-06'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - documents_v1_2_0_minor_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0186
+    file_id: file_records__releases__record_release_0006_v1_2_0_yaml
+    selection_id: record_release_0006_v1_2_0
+    path: records/releases/record-release-0006-v1-2-0.yaml
+    package_section: records/releases
+    portion_type: release_record
+    output_format: yaml
+    purpose: Retain v1.2.0 minor release record for the wicked problem resolution workflow release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    - docs/wicked-problem-resolution-workflow.md
+    - records/validation/validation-summary-latest.json
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-06'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - documents_v1_2_0_minor_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0187
+    file_id: file_records__releases__record_release_approval_0005_v1_2_0_yaml
+    selection_id: record_release_approval_0005_v1_2_0
+    path: records/releases/record-release-approval-0005-v1-2-0.yaml
+    package_section: records/releases
+    portion_type: release_approval_record
+    output_format: yaml
+    purpose: Retain v1.2.0 minor release approval for the L4 reusable-stable GitHub release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0006-v1-2-0.yaml
+    - records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    - records/validation/validation-summary-latest.json
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-06'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - documents_v1_2_0_minor_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0188
+    file_id: file_records__releases__github_release_notes_v1_2_0_md
+    selection_id: github_release_notes_v1_2_0
+    path: records/releases/github-release-notes-v1-2-0.md
+    package_section: records/releases
+    portion_type: release_notes
+    output_format: markdown
+    purpose: Human-facing GitHub release notes for v1.2.0.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - records/releases/record-release-0006-v1-2-0.yaml
+    - CHANGELOG.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-06'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - documents_v1_2_0_minor_release_scope
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -7150,12 +7330,17 @@ package_inventory:
     change: Froze v1.1.0 minor release metadata and added minor release, approval, and GitHub release notes records for nested DSR theory kernel self-application validation.
     responsible_party: framework_maintainer
     review_status: v1_1_0_minor_release_records_created
+  - version: 1.2.0
+    date: '2026-05-06'
+    change: Added the wicked problem resolution workflow and froze v1.2.0 minor release metadata, release, approval, and GitHub release notes records.
+    responsible_party: framework_maintainer
+    review_status: v1_2_0_minor_release_records_created
   normalization_status:
-    status: 1.1.0_stable_metadata_frozen
+    status: 1.2.0_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 183
+    controlled_file_inventory_entries: 188
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -7195,10 +7380,14 @@ package_inventory:
     latest_minor_release_record: records/releases/record-release-0005-v1-1-0.yaml
     latest_minor_release_approval: records/releases/record-release-approval-0004-v1-1-0.yaml
     latest_minor_release_notes: records/releases/github-release-notes-v1-1-0.md
+    latest_current_metadata_freeze_record: records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    latest_current_release_record: records/releases/record-release-0006-v1-2-0.yaml
+    latest_current_release_approval: records/releases/record-release-approval-0005-v1-2-0.yaml
+    latest_current_release_notes: records/releases/github-release-notes-v1-2-0.md
     v1_release_record_status: approved_for_github_release
     v1_release_approval_status: approved_for_github_release
     patch_release_status: approved_for_github_release_v1_0_2
-    minor_release_status: approved_for_github_release_v1_1_0
+    minor_release_status: approved_for_github_release_v1_2_0
     source_traceability_validation_counts: *id001
     github_repository: https://github.com/dochabski/dsr-framework
     published_zenodo_doi: 10.5281/zenodo.19835424

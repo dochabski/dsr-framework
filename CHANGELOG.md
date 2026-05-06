@@ -6,6 +6,24 @@
 
 - No unreleased changes.
 
+## [1.2.0] - 2026-05-06
+
+### Added
+
+- Added `docs/wicked-problem-resolution-workflow.md` as a controlled DSR-oriented process artifact for moving from wicked problem framing to artifact intervention, evaluation, and design-knowledge capture.
+- Added retained v1.2.0 metadata-freeze, release, release-approval, and GitHub release-note records.
+
+### Changed
+
+- Updated release-facing metadata for the v1.2.0 minor release while preserving `l4_reusable_stable` conformance and `l5_claimed: false`.
+- Updated repository inventory and validation summary to `188/188` controlled files after release records are added.
+
+### Validation
+
+- Public validation passes with controlled inventory alignment.
+- Release-candidate validation passes for the v1 L4 reusable-stable gate.
+- v1.2.0 does not claim external empirical reuse validation, downstream artifact validation, or L5 archival/publication-ready status.
+
 ## [1.1.0] - 2026-05-05
 
 ### Added

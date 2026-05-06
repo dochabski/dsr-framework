@@ -1,0 +1,61 @@
+﻿# SPDX-License-Identifier: CC0-1.0
+release_approval_record:
+  record_id: record_release_approval_0005_v1_2_0
+  record_class: release_approval
+  item_type: record
+  title: v1.2.0 Minor Release Approval
+  status: approved
+  version: "1.2.0"
+  approval_date: "2026-05-06"
+  responsible_party: framework_maintainer
+  target_release: v1.2.0
+  approved_release_tag: v1.2.0
+  approved_package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  approved_commit:
+    commit_sha: b8cbd04c4778e2b06c442c6290ffc1d1d1c72399
+    branch: main
+    approval_scope_note: >
+      This release-preparation commit adds the workflow document and the retained
+      v1.2.0 metadata, release, and approval records. The exact approved commit
+      is the final main-branch commit tagged as v1.2.0.
+
+  approval_basis:
+    minor_release_record: records/releases/record-release-0006-v1-2-0.yaml
+    minor_metadata_freeze: records/releases/record-metadata-freeze-0005-v1-2-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+    workflow_document: docs/wicked-problem-resolution-workflow.md
+    v1_1_0_release_approval: records/releases/record-release-approval-0004-v1-1-0.yaml
+
+  validation_commands:
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  approval_statement: >
+    The DSR Framework v1.2.0 minor release is approved as an L4 reusable-stable
+    GitHub release. The release is not approved as L5 archival/publication-ready.
+
+  post_release_actions:
+    - tag release commit as v1.2.0
+    - create GitHub release using records/releases/github-release-notes-v1-2-0.md
+    - verify release artifacts and source archives
+    - update Zenodo metadata and archive after GitHub release publication
+
+  outcome:
+    result: approved_for_github_minor_release
+    approved_claims:
+      - v1_2_0_stable
+      - l4_reusable_stable
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+      - downstream_artifact_certification
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained release approval.
