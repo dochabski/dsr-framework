@@ -8,8 +8,8 @@ metadata_record:
     for reviewable reuse and future publication.
 
     '
-  status: 1.3.0_stable
-  version: 1.3.0
+  status: 1.4.0_stable
+  version: 1.4.0
   owner:
     role: project_steward
     name: David Ochabski
@@ -103,7 +103,7 @@ repository_metadata:
     markdown_extension: .md
     json_schema_extension: .schema.json
     stable_identifier_style: lower_snake_case
-  release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.3.0
+  release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.4.0
   default_branch: main
   github:
     owner: dochabski
@@ -141,24 +141,24 @@ authorship_and_contribution:
 citation_metadata:
   preferred_citation_status: github_v1_release
   title: DSR Framework
-  version: 1.3.0
+  version: 1.4.0
   release_date: '2026-05-16'
   publication_year: '2026'
   authors:
   - Ochabski, David
   citation_file: CITATION.cff
   doi:
-    status: v1_3_0_zenodo_release_doi_published_not_l5_claim
-    value: 10.5281/zenodo.20238033
+    status: pending_v1_4_0_zenodo_publication_not_l5_claim
+    value: pending_until_zenodo_publication
     provider: Zenodo
-    record_url: https://zenodo.org/records/20238033
-    deposition_id: 20238033
+    record_url: pending_until_zenodo_publication
+    deposition_id: pending_until_zenodo_publication
   concept_doi:
     status: concept_record_available
     value: 10.5281/zenodo.19835423
     provider: Zenodo
     concept_recid: '19835423'
-  url: https://github.com/dochabski/dsr-framework/releases/tag/v1.3.0
+  url: https://github.com/dochabski/dsr-framework/releases/tag/v1.4.0
   abstract: 'The DSR Framework is a structured artifact package for Design Science Research documentation, review, evaluation,
     transparency, contribution positioning, and publication preparation.
 
@@ -183,8 +183,8 @@ citation_metadata:
     identifier_type: internal_corpus
     status: evidence_base_reference
   repository_url: https://github.com/dochabski/dsr-framework
-  archival_url: https://zenodo.org/records/20238033
-  v1_release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.3.0
+  archival_url: pending_until_v1_4_0_zenodo_publication
+  v1_release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.4.0
   l5_claimed: false
 license_and_reuse:
   default_license:
@@ -224,7 +224,7 @@ license_and_reuse:
   - LICENSES/Apache-2.0.txt
   - REUSE.toml
 versioning_and_release:
-  current_version: 1.3.0
+  current_version: 1.4.0
   semantic_versioning_policy:
     major: incompatible structural changes to the framework package or schemas
     minor: backward-compatible additions to models, vocabularies, templates, or records
@@ -238,13 +238,13 @@ versioning_and_release:
   - deprecated
   - archived
   release_readiness:
-    current_state: 1.3.0_stable
+    current_state: 1.4.0_stable
     release_candidate: false
     archival_publication_ready: false
     controlled_progression:
     - 0.1.0_public_draft
     - 1.0.0_rc.N
-    - 1.3.x_stable
+    - 1.x_stable
     current_package_conformance: l4_reusable_stable
     l5_status: not_claimed_for_v1_x_post_v1_l5_work
     required_before_release: []
@@ -258,6 +258,8 @@ versioning_and_release:
     - validation_passed
     - zenodo_deposition_published
     - zenodo_v1_3_0_deposition_published
+    - minimal_l1_l2_pathway_added
+    - v1_4_0_release_metadata_prepared
     completed_for_v1_0_0:
     - claim_level_traceability
     - canonical_worked_example
@@ -460,6 +462,12 @@ acceptance_criteria:
   criterion: The metadata aligns with CITATION.cff, .zenodo.json, package inventory, and manifest.
   status: pass
 change_history:
+- version: 1.4.0
+  date: '2026-05-16'
+  change_type: minor_release_metadata_update
+  description: Updated current release metadata for v1.4.0 after adding the minimal L1/L2 documentation pathway, templates, checklist, schema, example, and validator.
+  responsible_party: framework_maintainer
+  related_request: minimal_l1_l2_pathway_release
 - version: 1.3.0
   date: '2026-05-16'
   change_type: zenodo_publication_status_update

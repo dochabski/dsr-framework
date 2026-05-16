@@ -1,0 +1,169 @@
+# SPDX-License-Identifier: CC0-1.0
+minimal_l2_reviewable_documentation_record:
+  record_metadata:
+    record_id: example_minimal_l2_dsr_documentation_helper
+    record_type: minimal_l2_reviewable_documentation
+    schema_hint: schemas/minimal-l1-l2-documentation.schema.json
+    created_date: "2026-05-16"
+    updated_date: "2026-05-16"
+    responsible_party: dsr_framework_maintainers
+    review_status: reviewable_draft
+    conformance_target: l2_reviewable
+    full_l4_package_adopted: false
+    tailoring_rationale: "This example demonstrates L2 reviewability without the full L4 package structure."
+
+  identity:
+    artifact_id: example_minimal_l2_dsr_documentation_helper
+    title: Minimal DSR Documentation Helper Example
+    short_title: Minimal DSR Documentation Helper
+    version: "0.1.0-example"
+    repository_url: null
+    persistent_identifier: null
+    authors_or_creators:
+      - name: DSR Framework Maintainers
+        affiliation: null
+        orcid: null
+    license:
+      spdx_id: CC0-1.0
+      license_file: LICENSE
+      license_rationale: "The example is reusable documentation content."
+    maintenance_status: reviewable_draft
+
+  scope:
+    purpose: "Show how to document a small DSR artifact at L2 without adopting the full L4 package structure."
+    intended_audience:
+      - dsr_researcher
+      - reviewer
+      - doctoral_supervisor
+    artifact_type: documentation_template
+    artifact_boundary: "A single combined YAML record and README demonstrating the minimal L2 pathway."
+    in_scope:
+      - minimal metadata
+      - problem-to-contribution traceability
+      - evaluation planning
+    out_of_scope:
+      - full package automation
+      - archival publication workflow
+    non_goals:
+      - claiming L4 reusable-stable package status
+      - claiming L5 archival/publication-ready status
+
+  problem_space:
+    problem_instance: "A researcher needs to document a small DSR artifact for review but does not need the full repository package structure."
+    problem_class: "Low-burden reviewable documentation for early-stage or small DSR artifacts."
+    relevance_justification: "Without a minimal pathway, users may either over-adopt the full package structure or under-document artifacts in README-only form."
+    stakeholders:
+      - role: researcher
+        interest_or_burden: "Needs a feasible documentation burden."
+      - role: reviewer
+        interest_or_burden: "Needs enough structure to inspect claims and evidence."
+    context:
+      - dimension: repository_context
+        description: "A small artifact package or subfolder in a GitHub repository."
+    boundary_conditions:
+      - "Applies to documentation and review preparation, not to final archival release."
+      - "Does not replace full L4 package controls when reuse-stable package status is claimed."
+
+  solution_and_design_space:
+    input_knowledge:
+      - source_or_basis: DSR Framework conformance model
+        relevance: "Provides L1/L2/L4/L5 distinction and artifact documentation expectations."
+    objectives:
+      - objective_id: obj_001
+        statement: "Reduce documentation burden while preserving reviewability."
+        derived_from_problem: problem_instance
+    requirements:
+      - requirement_id: req_001
+        statement: "The record must state problem, artifact, evidence, contribution, and boundaries."
+        acceptance_criterion: "A reviewer can locate each required DSR element in the YAML record."
+        traces_to_objective: obj_001
+    artifact_or_design_entity:
+      artifact_name: Minimal DSR Documentation Helper Example
+      artifact_type: documentation_template
+      artifact_universal_or_instance: artifact_instantiation
+      artifact_boundary: "Example record only."
+      design_rationale: "A single file lowers the starting burden while preserving upgrade paths."
+    design_decisions:
+      - decision_id: dd_001
+        statement: "Use one combined YAML record rather than a full directory tree."
+        rationale: "This keeps the example minimal while preserving structured fields."
+        traces_to_requirement: req_001
+
+  demonstration_and_evaluation:
+    demonstration:
+      status: present
+      scenario_or_use_case: "A user copies this example and replaces placeholder content with their artifact details."
+    evaluation:
+      status: planned
+      evaluation_object: "Minimal YAML record completeness and traceability."
+      timing: ex_ante
+      setting: artificial
+      method_or_evidence_mode: checklist_review
+      criteria:
+        - criterion_id: ec_001
+          statement: "The record includes problem, artifact, evaluation, contribution, and boundary fields."
+          traces_to_requirement: req_001
+      findings_or_expected_evidence:
+        - finding_id: ef_001
+          statement: "The validator should pass for this example."
+          evidence_status: planned
+          traces_to_criterion: ec_001
+      limitations:
+        - "The example validates completeness, not empirical artifact utility."
+
+  contribution_and_reuse:
+    contribution_claim:
+      claim_id: cc_001
+      statement: "The example demonstrates a low-burden L2 DSR documentation pattern."
+      knowledge_scope: projectable_to_small_dsr_documentation_records
+      novelty_or_value: "Provides a bridge between README-only documentation and full L4 package adoption."
+      evidence_basis: "Template completeness and validator pass."
+    reuse_conditions:
+      - "Adapt field labels if a local protocol requires different naming, while preserving core traceability."
+    not_claimed:
+      - l4_reusable_stable_package_status
+      - l5_archival_publication_ready_status
+      - downstream_artifact_certification
+
+  traceability:
+    trace_edges:
+      - edge_id: tr_001
+        edge_type: problem_to_requirement
+        source_id: problem_instance
+        target_id: req_001
+        rationale: "The problem requires minimal but reviewable DSR fields."
+      - edge_id: tr_002
+        edge_type: requirement_to_design_decision
+        source_id: req_001
+        target_id: dd_001
+        rationale: "The combined record satisfies the low-burden requirement."
+      - edge_id: tr_003
+        edge_type: design_decision_to_evaluation
+        source_id: dd_001
+        target_id: ec_001
+        rationale: "The validator checks the combined record."
+      - edge_id: tr_004
+        edge_type: evaluation_to_contribution
+        source_id: ef_001
+        target_id: cc_001
+        rationale: "Passing validation supports the example's documentation-pattern claim."
+      - edge_id: tr_005
+        edge_type: contribution_to_boundary_condition
+        source_id: cc_001
+        target_id: boundary_conditions
+        rationale: "The claim is bounded to small documentation records."
+
+  review:
+    reviewer: null
+    review_date: null
+    review_result: pending
+    acceptance_criteria:
+      artifact_identity_clear: true
+      problem_instance_and_class_documented: true
+      stakeholder_or_audience_documented: true
+      requirements_trace_to_problem: true
+      artifact_traces_to_requirements: true
+      evaluation_traces_to_claims: true
+      contribution_bounded_by_evidence: true
+      limitations_documented: true
+    reviewer_notes: "Example record ready for local validation."

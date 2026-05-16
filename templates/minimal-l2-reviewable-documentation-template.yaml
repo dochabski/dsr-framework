@@ -1,0 +1,160 @@
+# SPDX-License-Identifier: CC0-1.0
+minimal_l2_reviewable_documentation_record:
+  record_metadata:
+    record_id: ""
+    record_type: minimal_l2_reviewable_documentation
+    schema_hint: schemas/minimal-l1-l2-documentation.schema.json
+    created_date: ""
+    updated_date: ""
+    responsible_party: ""
+    review_status: reviewable_draft
+    conformance_target: l2_reviewable
+    full_l4_package_adopted: false
+    tailoring_rationale: "Using minimal L2 reviewable pathway because the artifact needs reviewable claims and traceability but not the full L4 reusable-stable package structure."
+
+  identity:
+    artifact_id: ""
+    title: ""
+    short_title: ""
+    version: ""
+    repository_url: null
+    persistent_identifier: null
+    authors_or_creators:
+      - name: ""
+        affiliation: null
+        orcid: null
+    license:
+      spdx_id: ""
+      license_file: "LICENSE"
+      license_rationale: ""
+    maintenance_status: reviewable_draft
+
+  scope:
+    purpose: ""
+    intended_audience:
+      - ""
+    artifact_type: ""
+    artifact_boundary: ""
+    in_scope:
+      - ""
+    out_of_scope:
+      - ""
+    non_goals:
+      - ""
+
+  problem_space:
+    problem_instance: ""
+    problem_class: ""
+    relevance_justification: ""
+    stakeholders:
+      - role: ""
+        interest_or_burden: ""
+    context:
+      - dimension: ""
+        description: ""
+    boundary_conditions:
+      - ""
+
+  solution_and_design_space:
+    input_knowledge:
+      - source_or_basis: ""
+        relevance: ""
+    objectives:
+      - objective_id: obj_001
+        statement: ""
+        derived_from_problem: ""
+    requirements:
+      - requirement_id: req_001
+        statement: ""
+        acceptance_criterion: ""
+        traces_to_objective: obj_001
+    artifact_or_design_entity:
+      artifact_name: ""
+      artifact_type: ""
+      artifact_universal_or_instance: ""
+      artifact_boundary: ""
+      design_rationale: ""
+    design_decisions:
+      - decision_id: dd_001
+        statement: ""
+        rationale: ""
+        traces_to_requirement: req_001
+
+  demonstration_and_evaluation:
+    demonstration:
+      status: planned
+      scenario_or_use_case: ""
+    evaluation:
+      status: planned
+      evaluation_object: ""
+      timing: ""
+      setting: ""
+      method_or_evidence_mode: ""
+      criteria:
+        - criterion_id: ec_001
+          statement: ""
+          traces_to_requirement: req_001
+      findings_or_expected_evidence:
+        - finding_id: ef_001
+          statement: ""
+          evidence_status: planned
+          traces_to_criterion: ec_001
+      limitations:
+        - ""
+
+  contribution_and_reuse:
+    contribution_claim:
+      claim_id: cc_001
+      statement: ""
+      knowledge_scope: local_or_projectable_pending_review
+      novelty_or_value: ""
+      evidence_basis: ""
+    reuse_conditions:
+      - ""
+    not_claimed:
+      - l4_reusable_stable_package_status
+      - l5_archival_publication_ready_status
+      - downstream_artifact_certification
+
+  traceability:
+    trace_edges:
+      - edge_id: tr_001
+        edge_type: problem_to_requirement
+        source_id: problem_instance
+        target_id: req_001
+        rationale: ""
+      - edge_id: tr_002
+        edge_type: requirement_to_design_decision
+        source_id: req_001
+        target_id: dd_001
+        rationale: ""
+      - edge_id: tr_003
+        edge_type: design_decision_to_evaluation
+        source_id: dd_001
+        target_id: ec_001
+        rationale: ""
+      - edge_id: tr_004
+        edge_type: evaluation_to_contribution
+        source_id: ef_001
+        target_id: cc_001
+        rationale: ""
+      - edge_id: tr_005
+        edge_type: contribution_to_boundary_condition
+        source_id: cc_001
+        target_id: boundary_conditions
+        rationale: ""
+
+  review:
+    reviewer: null
+    review_date: null
+    review_result: pending
+    acceptance_criteria:
+      artifact_identity_clear: false
+      problem_instance_and_class_documented: false
+      stakeholder_or_audience_documented: false
+      requirements_trace_to_problem: false
+      artifact_traces_to_requirements: false
+      evaluation_traces_to_claims: false
+      contribution_bounded_by_evidence: false
+      limitations_documented: false
+    reviewer_notes: ""

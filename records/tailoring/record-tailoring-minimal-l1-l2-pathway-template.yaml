@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: CC0-1.0
+tailoring_record:
+  record_id: record_tailoring_minimal_l1_l2_pathway_TEMPLATE
+  record_class: tailoring
+  item_type: record_template
+  title: Minimal L1/L2 Pathway Tailoring Record Template
+  status: template
+  version: "0.1.0"
+  created_date: ""
+  responsible_party: ""
+
+  tailoring_target:
+    target_artifact_or_package: ""
+    target_conformance: l1_documented_or_l2_reviewable
+    full_l4_package_adopted: false
+    full_l4_package_not_adopted_reason: ""
+
+  retained_controls:
+    - artifact_identity
+    - purpose_and_scope
+    - audience
+    - license_decision
+    - conformance_declaration
+    - package_inventory_or_combined_record
+    - problem_artifact_evaluation_contribution_summary
+
+  deferred_controls:
+    - control: full_l4_directory_structure
+      rationale: ""
+      revisit_condition: "Adopt before claiming L4 reusable-stable package status."
+    - control: extensive_release_records
+      rationale: ""
+      revisit_condition: "Adopt before DOI release or L5 publication-readiness work."
+    - control: full_validation_automation
+      rationale: ""
+      revisit_condition: "Adopt before L3 exercisable or L4 reusable claims."
+
+  risk_assessment:
+    overclaiming_risk: medium
+    mitigation: "State explicitly that only L1 or L2 conformance is claimed."
+    reviewability_risk: low_to_medium
+    mitigation: "Use the minimal checklist and traceability fields."
+
+  approval:
+    approved_by: null
+    approval_date: null
+    approval_status: pending
+    notes: ""

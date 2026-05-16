@@ -76,6 +76,9 @@ SCHEMA_INSTANCE_PAIRS = {
         "records/dsr-transparency/record-dsr-transparency-crosswalk-0001.yaml",
         "examples/canonical-minimal-dsr-package/transparency-crosswalk.yaml",
     ],
+    "schemas/minimal-l1-l2-documentation.schema.json": [
+        "examples/minimal-l1-l2-package/minimal-documentation.yaml",
+    ],
 }
 
 V1_RELEASE_CANDIDATE_REQUIRED_PATHS = {

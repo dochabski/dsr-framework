@@ -7,12 +7,12 @@ package_inventory:
   title: DSR Framework Package Inventory
   purpose: Inventory all required, planned, and controlled files in the DSR Framework package and assign validation responsibilities
     for each file class and file entry.
-  status: 1.3.0_stable
-  version: 1.3.0
+  status: 1.4.0_stable
+  version: 1.4.0
   date: '2026-05-16'
   owner: framework_maintainer
   responsible_party: framework_maintainer
-  event_or_action: package_inventory_updated_for_v1_3_0_release
+  event_or_action: package_inventory_updated_for_v1_4_0_release
   package_conformance: l4_reusable_stable
   l5_claimed: false
   inventory_policy:
@@ -184,7 +184,7 @@ package_inventory:
   - directory_id: dir_004
     path: schemas
     purpose: JSON Schema validators for controlled YAML/JSON records.
-    expected_file_count_from_selection_table: 13
+    expected_file_count_from_selection_table: 10
     listed_files:
     - schemas/artifact-profile.schema.json
     - schemas/package-inventory.schema.json
@@ -195,16 +195,17 @@ package_inventory:
     - schemas/dsr-evaluation-report.schema.json
     - schemas/dsr-contribution-claim.schema.json
     - schemas/dsr-transparency-crosswalk.schema.json
+    - schemas/minimal-l1-l2-documentation.schema.json
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-27'
     listed_file_existence:
-      listed_count: 9
-      present_count: 9
+      listed_count: 10
+      present_count: 10
       missing_count: 0
   - directory_id: dir_005
     path: templates
     purpose: Reusable authoring templates.
-    expected_file_count_from_selection_table: 16
+    expected_file_count_from_selection_table: 19
     listed_files:
     - templates/artifact-profile-template.yaml
     - templates/package-inventory-template.yaml
@@ -222,16 +223,19 @@ package_inventory:
     - templates/contribution-positioning-record-template.yaml
     - templates/dsr-transparency-crosswalk-template.yaml
     - templates/review-record-template.yaml
+    - templates/minimal-l1-documentation-template.yaml
+    - templates/minimal-l2-reviewable-documentation-template.yaml
+    - templates/minimal-l1-l2-readme-template.md
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-27'
     listed_file_existence:
-      listed_count: 16
-      present_count: 16
+      listed_count: 19
+      present_count: 19
       missing_count: 0
   - directory_id: dir_006
     path: checklists
     purpose: Quality, readiness, and review checklists.
-    expected_file_count_from_selection_table: 8
+    expected_file_count_from_selection_table: 9
     listed_files:
     - checklists/dsr-minimum-viable-study-checklist.yaml
     - checklists/artifact-package-readiness-checklist.yaml
@@ -241,11 +245,12 @@ package_inventory:
     - checklists/reliability-checklist.yaml
     - checklists/replication-projectability-checklist.yaml
     - checklists/publication-readiness-checklist.yaml
+    - checklists/minimal-l1-l2-documentation-checklist.yaml
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-27'
     listed_file_existence:
-      listed_count: 8
-      present_count: 8
+      listed_count: 9
+      present_count: 9
       missing_count: 0
   - directory_id: dir_007
     path: docs/protocol
@@ -259,11 +264,12 @@ package_inventory:
     - docs/protocol/09-validity-reliability-replication-projectability.md
     - docs/protocol/10-transparency-and-reporting.md
     - docs/protocol/14-publication-and-review-guidance.md
+    - docs/protocol/l1-l2-minimal-documentation-pathway.md
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-27'
     listed_file_existence:
-      listed_count: 7
-      present_count: 7
+      listed_count: 8
+      present_count: 8
       missing_count: 0
   - directory_id: dir_008
     path: records/decisions
@@ -294,14 +300,15 @@ package_inventory:
   - directory_id: dir_010
     path: records/tailoring
     purpose: Tailoring and conformance adaptation records.
-    expected_file_count_from_selection_table: 1
+    expected_file_count_from_selection_table: 2
     listed_files:
     - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
+    - records/tailoring/record-tailoring-minimal-l1-l2-pathway-template.yaml
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 1
-      present_count: 1
+      listed_count: 2
+      present_count: 2
       missing_count: 0
   - directory_id: dir_011
     path: records/source-basis
@@ -378,7 +385,7 @@ package_inventory:
   - directory_id: dir_016
     path: records/releases
     purpose: Release records.
-    expected_file_count_from_selection_table: 26
+    expected_file_count_from_selection_table: 31
     listed_files:
     - records/releases/record-release-0001-v0-1-0.yaml
     - records/releases/record-metadata-freeze-0001-v1-0-0.yaml
@@ -406,11 +413,16 @@ package_inventory:
     - records/releases/record-release-approval-0006-v1-3-0.yaml
     - records/releases/github-release-notes-v1-3-0.md
     - records/releases/record-release-publication-verification-0001-v1-3-0.yaml
+    - records/releases/record-release-publication-verification-minimal-template.yaml
+    - records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    - records/releases/record-release-0008-v1-4-0.yaml
+    - records/releases/record-release-approval-0007-v1-4-0.yaml
+    - records/releases/github-release-notes-v1-4-0.md
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 26
-      present_count: 26
+      listed_count: 31
+      present_count: 31
       missing_count: 0
   - directory_id: dir_017
     path: records/preservation
@@ -440,7 +452,7 @@ package_inventory:
   - directory_id: dir_019
     path: examples
     purpose: Demonstration packages, not required package files.
-    expected_file_count_from_selection_table: 10
+    expected_file_count_from_selection_table: 12
     listed_files:
     - examples/canonical-minimal-dsr-package/README.md
     - examples/canonical-minimal-dsr-package/project-charter.md
@@ -452,11 +464,13 @@ package_inventory:
     - examples/canonical-minimal-dsr-package/transparency-crosswalk.yaml
     - examples/canonical-minimal-dsr-package/package-inventory.yaml
     - examples/canonical-minimal-dsr-package/validation-notes.md
+    - examples/minimal-l1-l2-package/README.md
+    - examples/minimal-l1-l2-package/minimal-documentation.yaml
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 10
-      present_count: 10
+      listed_count: 12
+      present_count: 12
       missing_count: 0
   - directory_id: dir_020
     path: .github/ISSUE_TEMPLATE
@@ -516,15 +530,16 @@ package_inventory:
   - directory_id: dir_024
     path: scripts
     purpose: Repository validation and maintenance tooling.
-    expected_file_count_from_selection_table: 2
+    expected_file_count_from_selection_table: 3
     listed_files:
     - scripts/validate-package.py
     - scripts/build-rubric-collection.py
+    - scripts/validate-minimal-l1-l2.py
     directory_status: exists_files_verified
     existence_audit_date: '2026-04-28'
     listed_file_existence:
-      listed_count: 2
-      present_count: 2
+      listed_count: 3
+      present_count: 3
       missing_count: 0
   - directory_id: dir_026
     path: docs
@@ -596,6 +611,7 @@ package_inventory:
     - rubrics/repository_documentation_conformance_rubric.yaml
     - rubrics/transparency_trace_quality_rubric.yaml
     - rubrics/dsr_assessment_rubrics_unified.yaml
+    - rubrics/dsr_assessment_rubrics_unified_sidecar.json
     directory_status: exists_files_verified
     existence_audit_date: '2026-05-16'
     listed_file_existence:
@@ -635,7 +651,7 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0003
     exists: true
-    current_status: present_v1_citation_metadata_frozen_1_3_0
+    current_status: present_v1_citation_metadata_frozen_1_4_0
     existence_audit_date: '2026-04-28'
   - path: CHANGELOG.md
     listed: true
@@ -683,7 +699,7 @@ package_inventory:
     listed: true
     inventory_entry_id: inv_0011
     exists: true
-    current_status: present_v1_metadata_frozen_1_3_0
+    current_status: present_v1_metadata_frozen_1_4_0
     existence_audit_date: '2026-04-28'
   - path: artifact-profile.yaml
     listed: true
@@ -8092,6 +8108,501 @@ package_inventory:
     - uses_declared_path_and_extension
     - distinguishes_provenance_from_canonical_rubric_artifacts
     - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0218
+    file_id: file_schemas_minimal_l1_l2_documentation_schema_json
+    selection_id: schemas_minimal_l1_l2_documentation_schema_json
+    path: schemas/minimal-l1-l2-documentation.schema.json
+    package_section: schemas
+    portion_type: json_schema
+    output_format: json_schema
+    purpose: Minimal L1/L2 documentation JSON Schema for combined downstream DSR records.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_json_schema
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0219
+    file_id: file_templates_minimal_l1_documentation_template_yaml
+    selection_id: templates_minimal_l1_documentation_template_yaml
+    path: templates/minimal-l1-documentation-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Starter template for minimal L1 documented DSR artifact records.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0220
+    file_id: file_templates_minimal_l2_reviewable_documentation_template_yaml
+    selection_id: templates_minimal_l2_reviewable_documentation_template_yaml
+    path: templates/minimal-l2-reviewable-documentation-template.yaml
+    package_section: templates
+    portion_type: template
+    output_format: yaml
+    purpose: Starter template for minimal L2 reviewable DSR artifact records.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0221
+    file_id: file_templates_minimal_l1_l2_readme_template_md
+    selection_id: templates_minimal_l1_l2_readme_template_md
+    path: templates/minimal-l1-l2-readme-template.md
+    package_section: templates
+    portion_type: template
+    output_format: markdown
+    purpose: README starter template for minimal L1/L2 DSR documentation packages.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0222
+    file_id: file_checklists_minimal_l1_l2_documentation_checklist_yaml
+    selection_id: checklists_minimal_l1_l2_documentation_checklist_yaml
+    path: checklists/minimal-l1-l2-documentation-checklist.yaml
+    package_section: checklists
+    portion_type: checklist
+    output_format: yaml
+    purpose: Checklist for reviewing minimal L1/L2 DSR documentation packages.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_checklist
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0223
+    file_id: file_docs_protocol_l1_l2_minimal_documentation_pathway_md
+    selection_id: docs_protocol_l1_l2_minimal_documentation_pathway_md
+    path: docs/protocol/l1-l2-minimal-documentation-pathway.md
+    package_section: docs/protocol
+    portion_type: protocol_documentation
+    output_format: markdown
+    purpose: Human-facing protocol page defining the minimal L1/L2 DSR documentation pathway.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0224
+    file_id: file_records_tailoring_record_tailoring_minimal_l1_l2_pathway_template_yaml
+    selection_id: records_tailoring_record_tailoring_minimal_l1_l2_pathway_template_yaml
+    path: records/tailoring/record-tailoring-minimal-l1-l2-pathway-template.yaml
+    package_section: records/tailoring
+    portion_type: tailoring_record_template
+    output_format: yaml
+    purpose: Template for documenting tailoring decisions when using the minimal L1/L2 pathway.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0225
+    file_id: file_records_releases_record_release_publication_verification_minimal_template_yaml
+    selection_id: records_releases_record_release_publication_verification_minimal_template_yaml
+    path: records/releases/record-release-publication-verification-minimal-template.yaml
+    package_section: records/releases
+    portion_type: release_publication_verification_template
+    output_format: yaml
+    purpose: Template for recording GitHub and Zenodo publication verification for a selected release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0226
+    file_id: file_examples_minimal_l1_l2_package_readme_md
+    selection_id: examples_minimal_l1_l2_package_readme_md
+    path: examples/minimal-l1-l2-package/README.md
+    package_section: examples
+    portion_type: example_documentation
+    output_format: markdown
+    purpose: README for the minimal L1/L2 documentation example package.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0227
+    file_id: file_examples_minimal_l1_l2_package_minimal_documentation_yaml
+    selection_id: examples_minimal_l1_l2_package_minimal_documentation_yaml
+    path: examples/minimal-l1-l2-package/minimal-documentation.yaml
+    package_section: examples
+    portion_type: example_record
+    output_format: yaml
+    purpose: Combined minimal L2 reviewable example record for the L1/L2 pathway.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0228
+    file_id: file_scripts_validate_minimal_l1_l2_py
+    selection_id: scripts_validate_minimal_l1_l2_py
+    path: scripts/validate-minimal-l1-l2.py
+    package_section: scripts
+    portion_type: validation_script
+    output_format: python
+    purpose: Lightweight validator for minimal L1/L2 DSR documentation packages.
+    default_conformance: l3
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_executable_validation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0229
+    file_id: file_records_releases_record_metadata_freeze_0007_v1_4_0_yaml
+    selection_id: records_releases_record_metadata_freeze_0007_v1_4_0_yaml
+    path: records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    package_section: records/releases
+    portion_type: metadata_freeze_record
+    output_format: yaml
+    purpose: Freeze v1.4.0 minor release metadata for the minimal L1/L2 documentation pathway release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0230
+    file_id: file_records_releases_record_release_0008_v1_4_0_yaml
+    selection_id: records_releases_record_release_0008_v1_4_0_yaml
+    path: records/releases/record-release-0008-v1-4-0.yaml
+    package_section: records/releases
+    portion_type: release_record
+    output_format: yaml
+    purpose: Retain v1.4.0 minor release record for the minimal L1/L2 documentation pathway release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0231
+    file_id: file_records_releases_record_release_approval_0007_v1_4_0_yaml
+    selection_id: records_releases_record_release_approval_0007_v1_4_0_yaml
+    path: records/releases/record-release-approval-0007-v1-4-0.yaml
+    package_section: records/releases
+    portion_type: release_approval_record
+    output_format: yaml
+    purpose: Retain v1.4.0 minor release approval for the L4 reusable-stable GitHub release.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
+  - inventory_entry_id: inv_0232
+    file_id: file_records_releases_github_release_notes_v1_4_0_md
+    selection_id: records_releases_github_release_notes_v1_4_0_md
+    path: records/releases/github-release-notes-v1-4-0.md
+    package_section: records/releases
+    portion_type: release_notes
+    output_format: markdown
+    purpose: Human-facing GitHub release notes for v1.4.0.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - README.md
+    - manifest.yaml
+    - package-inventory.yaml
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - supports_minimal_l1_l2_pathway_or_v1_4_0_release_scope
+    - keeps_l5_outside_v1_scope
+
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -8405,12 +8916,17 @@ package_inventory:
     change: Added the DSR rubric unified JSON sidecar and rubric-generation process/provenance files under rubrics/process.
     responsible_party: framework_maintainer
     review_status: rubric_sidecar_and_process_provenance_added
+  - version: 1.4.0
+    date: '2026-05-16'
+    change: Added the minimal L1/L2 documentation pathway, templates, checklist, schema, example, validator, and v1.4.0 release records.
+    responsible_party: framework_maintainer
+    review_status: v1_4_0_minor_release_records_created
   normalization_status:
-    status: 1.3.0_stable_metadata_frozen
+    status: 1.4.0_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 217
+    controlled_file_inventory_entries: 232
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -8455,19 +8971,23 @@ package_inventory:
     latest_minor_release_record: records/releases/record-release-0005-v1-1-0.yaml
     latest_minor_release_approval: records/releases/record-release-approval-0004-v1-1-0.yaml
     latest_minor_release_notes: records/releases/github-release-notes-v1-1-0.md
-    latest_current_metadata_freeze_record: records/releases/record-metadata-freeze-0006-v1-3-0.yaml
-    latest_current_release_record: records/releases/record-release-0007-v1-3-0.yaml
-    latest_current_release_approval: records/releases/record-release-approval-0006-v1-3-0.yaml
-    latest_current_release_notes: records/releases/github-release-notes-v1-3-0.md
+    latest_current_metadata_freeze_record: records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    latest_current_release_record: records/releases/record-release-0008-v1-4-0.yaml
+    latest_current_release_approval: records/releases/record-release-approval-0007-v1-4-0.yaml
+    latest_current_release_notes: records/releases/github-release-notes-v1-4-0.md
     latest_zenodo_publication_verification: records/releases/record-release-publication-verification-0001-v1-3-0.yaml
+    latest_minimal_l1_l2_pathway: docs/protocol/l1-l2-minimal-documentation-pathway.md
+    latest_minimal_l1_l2_schema: schemas/minimal-l1-l2-documentation.schema.json
+    latest_minimal_l1_l2_example: examples/minimal-l1-l2-package/minimal-documentation.yaml
+    latest_minimal_l1_l2_validator: scripts/validate-minimal-l1-l2.py
     v1_release_record_status: approved_for_github_release
     v1_release_approval_status: approved_for_github_release
     patch_release_status: approved_for_github_release_v1_0_2
-    minor_release_status: approved_for_github_release_v1_3_0
+    minor_release_status: approved_for_github_release_v1_4_0
     source_traceability_validation_counts: *id001
     github_repository: https://github.com/dochabski/dsr-framework
-    published_zenodo_doi: 10.5281/zenodo.20238033
-    zenodo_record_url: https://zenodo.org/records/20238033
+    published_zenodo_doi: pending_until_v1_4_0_zenodo_publication
+    zenodo_record_url: pending_until_v1_4_0_zenodo_publication
     published_zenodo_concept_doi: 10.5281/zenodo.19835423
     package_conformance: l4_reusable_stable
     l5_status: not_claimed_for_v1_x_post_v1_l5_work

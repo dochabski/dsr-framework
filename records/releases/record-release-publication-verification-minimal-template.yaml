@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: CC0-1.0
+release_publication_verification_record:
+  record_id: record_release_publication_verification_TEMPLATE_VERSION
+  record_class: release_publication_verification
+  item_type: record_template
+  title: Release Publication Verification Template
+  status: template
+  version: ""
+  verification_date: ""
+  responsible_party: framework_maintainer
+  target_release: ""
+  release_tag: ""
+  package_conformance: ""
+  l5_claimed: false
+
+  publication_targets:
+    github_release:
+      status: pending
+      release_url: ""
+      tag_commit: ""
+      release_title: ""
+    zenodo_release:
+      status: pending
+      deposition_id: null
+      record_url: ""
+      doi: ""
+      concept_doi: ""
+      published_version: ""
+      archive_file: ""
+      archive_size_bytes: null
+      archive_md5: ""
+      archive_sha256: ""
+
+  verification_basis:
+    release_record: ""
+    release_approval: ""
+    github_release_notes: ""
+    validation_summary: ""
+    zenodo_archive_source: ""
+
+  validation_commands:
+    - command: python scripts/validate-minimal-l1-l2.py examples/minimal-l1-l2-package --level l2
+      required_result: pass
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  publication_statement: >
+    The selected GitHub release has been archived on Zenodo as a DOI-backed
+    record. This verification records publication evidence for the release
+    without moving the release tag.
+
+  conformance_impact:
+    result: publication_verified
+    supported_claims: []
+    not_supported_claims:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+      - downstream_artifact_certification
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained publication-verification record for the same release.
