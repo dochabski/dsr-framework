@@ -4,11 +4,30 @@
 
 ## Unreleased
 
+- No unreleased changes.
+
+## [1.4.0] - 2026-05-16
+
+### Added
+
+- Added `docs/protocol/l1-l2-minimal-documentation-pathway.md` for users who need L1 documented or L2 reviewable DSR records without adopting the full L4 package structure.
+- Added minimal L1 and L2 YAML templates, a minimal pathway README template, checklist, JSON Schema, example package, and lightweight validator.
+- Added retained v1.4.0 metadata-freeze, release, release-approval, and GitHub release-note records.
 - Recorded Zenodo DOI `10.5281/zenodo.20238033` and publication verification for v1.3.0.
 - Added JSON sidecar for the unified DSR assessment rubric collection.
 - Added rubric-generation process/provenance files under `rubrics/process/`.
+
+### Changed
+
+- Updated release-facing metadata for the v1.4.0 minor release while preserving `l4_reusable_stable` conformance and `l5_claimed: false`.
 - Updated package inventory and rubric documentation while preserving individual rubric YAML files as canonical.
 
+### Validation
+
+- Minimal L2 example validation passes with `python scripts/validate-minimal-l1-l2.py examples/minimal-l1-l2-package --level l2`.
+- Public validation passes with controlled inventory alignment.
+- Release-candidate validation passes for the v1 L4 reusable-stable gate.
+- v1.4.0 does not claim external empirical reuse validation, downstream artifact validation, or L5 archival/publication-ready status.
 
 ## [1.3.0] - 2026-05-16
 

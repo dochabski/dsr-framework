@@ -1,0 +1,67 @@
+# SPDX-License-Identifier: CC0-1.0
+release_approval_record:
+  record_id: record_release_approval_0007_v1_4_0
+  record_class: release_approval
+  item_type: record
+  title: v1.4.0 Minor Release Approval
+  status: approved
+  version: "1.4.0"
+  approval_date: "2026-05-16"
+  responsible_party: framework_maintainer
+  target_release: v1.4.0
+  approved_release_tag: v1.4.0
+  approved_package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  approved_commit:
+    commit_sha: pending_until_release_preparation_commit
+    branch: main
+    approval_scope_note: >
+      This release-preparation branch adds the minimal L1/L2 documentation
+      pathway, starter templates, checklist, schema, example, validator, and
+      retained v1.4.0 metadata, release, and approval records. The exact
+      approved release commit is the final main-branch commit tagged as v1.4.0.
+
+  approval_basis:
+    minor_release_record: records/releases/record-release-0008-v1-4-0.yaml
+    minor_metadata_freeze: records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+    pathway_doc: docs/protocol/l1-l2-minimal-documentation-pathway.md
+    example_record: examples/minimal-l1-l2-package/minimal-documentation.yaml
+    v1_3_0_release_approval: records/releases/record-release-approval-0006-v1-3-0.yaml
+
+  validation_commands:
+    - command: python scripts/validate-minimal-l1-l2.py examples/minimal-l1-l2-package --level l2
+      required_result: pass
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  approval_statement: >
+    The DSR Framework v1.4.0 minor release is approved as an L4 reusable-stable
+    GitHub release. The release is not approved as L5 archival/publication-ready,
+    and the new minimal pathway does not certify downstream artifacts.
+
+  post_release_actions:
+    - tag release commit as v1.4.0
+    - create GitHub release using records/releases/github-release-notes-v1-4-0.md
+    - archive release on Zenodo
+    - record Zenodo DOI and archive fixity in a post-publication verification record
+
+  outcome:
+    result: approved_for_github_minor_release
+    approved_claims:
+      - v1_4_0_stable
+      - l4_reusable_stable
+      - minimal_l1_l2_pathway_available
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+      - downstream_artifact_certification
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained release approval.

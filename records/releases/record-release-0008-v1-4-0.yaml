@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_0008_v1_4_0
+  record_class: release_record
+  item_type: record
+  title: DSR Framework v1.4.0 Minor Release Record
+  status: approved
+  version: "1.4.0"
+  release_date: "2026-05-16"
+  responsible_party: framework_maintainer
+  release_tag: v1.4.0
+  release_status: "1.4.0_stable"
+  package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  release_scope:
+    included:
+      - v1_3_0_stable_package
+      - minimal_l1_l2_documentation_pathway
+      - minimal_l1_l2_templates
+      - minimal_l1_l2_checklist
+      - minimal_l1_l2_schema
+      - minimal_l1_l2_example
+      - minimal_l1_l2_validator
+      - release_metadata_updates
+    excluded:
+      - l5_archival_publication_ready_claim
+      - empirical_external_reuse_validation
+      - downstream_artifact_certification
+      - full_l4_package_obligation_for_minimal_pathway_users
+
+  minor_release_blockers: []
+
+  retained_evidence:
+    pathway_doc: docs/protocol/l1-l2-minimal-documentation-pathway.md
+    l1_template: templates/minimal-l1-documentation-template.yaml
+    l2_template: templates/minimal-l2-reviewable-documentation-template.yaml
+    readme_template: templates/minimal-l1-l2-readme-template.md
+    checklist: checklists/minimal-l1-l2-documentation-checklist.yaml
+    schema: schemas/minimal-l1-l2-documentation.schema.json
+    example_package: examples/minimal-l1-l2-package/README.md
+    example_record: examples/minimal-l1-l2-package/minimal-documentation.yaml
+    validator: scripts/validate-minimal-l1-l2.py
+    metadata_freeze: records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+
+  validation:
+    required_commands:
+      - python scripts/validate-minimal-l1-l2.py examples/minimal-l1-l2-package --level l2
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass
+
+  release_notes_summary:
+    - v1.4.0 adds a minimal viable L1/L2 documentation pathway.
+    - Adds L1 and L2 starter templates, README template, checklist, schema, example package, and validator.
+    - Keeps the DSR Framework host package at L4 reusable-stable conformance.
+    - Does not require downstream minimal-pathway users to adopt the full L4 package structure.
+    - Does not claim L5 archival/publication-ready status or downstream artifact certification.
+
+  known_limitations:
+    - L5 archival/publication-ready status is not claimed for v1.4.0.
+    - External empirical reuse validation is not claimed.
+    - The minimal pathway supports L1/L2 documentation only and does not certify L3, L4, or L5 status for downstream artifacts.
+    - Zenodo publication evidence will be retained in a post-publication verification record after release archiving.
+
+  outcome:
+    result: ready_for_github_minor_release
+    conformance_claim_supported: l4_reusable_stable
+    conformance_claim_not_supported: l5_archival_publication_ready

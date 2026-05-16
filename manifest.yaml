@@ -9,8 +9,8 @@ manifest:
     target, validation obligations, and traceability expectations for the Design Science Research Framework repository.
 
     '
-  status: 1.3.0_stable
-  version: 1.3.0
+  status: 1.4.0_stable
+  version: 1.4.0
   package:
     package_id: dsr_framework
     package_name: DSR Framework
@@ -28,8 +28,8 @@ manifest:
       '
     canonical_repository_role: source_of_truth_package
     repository_url: https://github.com/dochabski/dsr-framework
-    publication_status: 1.3.0_stable
-    intended_release: v1.3.0
+    publication_status: 1.4.0_stable
+    intended_release: v1.4.0
     license:
       spdx_id: CC0-1.0
       license_file: LICENSE
@@ -43,7 +43,7 @@ manifest:
     - .zenodo.json
     - codemeta.json
     normalization_status:
-      status: 1.3.0_stable_metadata_frozen
+      status: 1.4.0_stable_metadata_frozen
       normalized_at: '2026-04-27'
       structure_status: canonical_directories_populated_from_product_catalog
       required_root_file_status: all_required_root_files_present_as_draft_or_controlled_files
@@ -85,6 +85,11 @@ manifest:
       latest_rubric_generation_process: rubrics/process/README.md
       latest_rubric_collection_builder: scripts/build-rubric-collection.py
       rubric_collection_status: individual_rubrics_canonical_unified_collection_generated
+      latest_minimal_l1_l2_pathway: docs/protocol/l1-l2-minimal-documentation-pathway.md
+      latest_minimal_l1_l2_schema: schemas/minimal-l1-l2-documentation.schema.json
+      latest_minimal_l1_l2_example: examples/minimal-l1-l2-package/minimal-documentation.yaml
+      latest_minimal_l1_l2_validator: scripts/validate-minimal-l1-l2.py
+      minimal_l1_l2_pathway_status: low_burden_l1_l2_pathway_present_without_weakening_l4_package
       nested_artifact_status: dsr_theory_operational_kernel_self_application_validation_retained_l2_reviewable_draft
       latest_template_checklist_stabilization_review: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
       template_checklist_stabilization_status: reviewed_against_canonical_example_for_v1_preparation
@@ -107,14 +112,14 @@ manifest:
       latest_minor_release_record: records/releases/record-release-0005-v1-1-0.yaml
       latest_minor_release_approval: records/releases/record-release-approval-0004-v1-1-0.yaml
       latest_minor_release_notes: records/releases/github-release-notes-v1-1-0.md
-      latest_current_metadata_freeze_record: records/releases/record-metadata-freeze-0006-v1-3-0.yaml
-      latest_current_release_record: records/releases/record-release-0007-v1-3-0.yaml
-      latest_current_release_approval: records/releases/record-release-approval-0006-v1-3-0.yaml
-      latest_current_release_notes: records/releases/github-release-notes-v1-3-0.md
+      latest_current_metadata_freeze_record: records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+      latest_current_release_record: records/releases/record-release-0008-v1-4-0.yaml
+      latest_current_release_approval: records/releases/record-release-approval-0007-v1-4-0.yaml
+      latest_current_release_notes: records/releases/github-release-notes-v1-4-0.md
       v1_release_record_status: approved_for_github_release
       v1_release_approval_status: approved_for_github_release
       patch_release_status: approved_for_github_release_v1_0_2
-      minor_release_status: approved_for_github_release_v1_3_0
+      minor_release_status: approved_for_github_release_v1_4_0
       source_traceability_status: all_repaired_corpus_sources_have_substantive_non_source_basis_trace_objects
       source_traceability_validation_counts:
         total_corpus_sources: 71
@@ -125,8 +130,8 @@ manifest:
         evidence_status_counts:
           substantive: 142
       github_repository: https://github.com/dochabski/dsr-framework
-      published_zenodo_doi: 10.5281/zenodo.20238033
-      zenodo_record_url: https://zenodo.org/records/20238033
+      published_zenodo_doi: pending_until_v1_4_0_zenodo_publication
+      zenodo_record_url: pending_until_v1_4_0_zenodo_publication
       published_zenodo_concept_doi: 10.5281/zenodo.19835423
       latest_zenodo_publication_verification: records/releases/record-release-publication-verification-0001-v1-3-0.yaml
       latest_preservation_record: records/preservation/record-preservation-0001-v0-1-0.yaml
@@ -214,7 +219,7 @@ manifest:
       role: citation_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_citation_metadata_frozen_1_3_0
+      validation_status: present_v1_citation_metadata_frozen_1_4_0
       existence_audit_date: '2026-04-27'
     - path: CHANGELOG.md
       role: release_change_log
@@ -262,7 +267,7 @@ manifest:
       role: structured_project_metadata
       required: true
       expected_item_type: metadata_record
-      validation_status: present_v1_metadata_frozen_1_3_0
+      validation_status: present_v1_metadata_frozen_1_4_0
       existence_audit_date: '2026-04-27'
     - path: artifact-profile.yaml
       role: artifact_identity_scope_claims_and_reuse_constraints
@@ -822,6 +827,21 @@ manifest:
     to: https://zenodo.org/records/20238033
     relation: verifies_v1_3_0_zenodo_publication
     evidence_status: retained_publication_verification_record
+  - trace_id: tr_minimal_l1_l2_pathway_to_v1_4_0_metadata_freeze
+    from: docs/protocol/l1-l2-minimal-documentation-pathway.md
+    to: records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    relation: supports_v1_4_0_minor_metadata_freeze
+    evidence_status: retained_metadata_freeze_record
+  - trace_id: tr_v1_4_0_metadata_freeze_to_release_record
+    from: records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    to: records/releases/record-release-0008-v1-4-0.yaml
+    relation: supports_v1_4_0_minor_release_record
+    evidence_status: retained_release_record
+  - trace_id: tr_v1_4_0_release_record_to_release_approval
+    from: records/releases/record-release-0008-v1-4-0.yaml
+    to: records/releases/record-release-approval-0007-v1-4-0.yaml
+    relation: supports_v1_4_0_minor_release_approval
+    evidence_status: retained_release_approval_record
   - trace_id: tr_rubric_collection_sidecar_to_unified_collection
     from: rubrics/dsr_assessment_rubrics_unified_sidecar.json
     to: rubrics/dsr_assessment_rubrics_unified.yaml
@@ -910,6 +930,19 @@ manifest:
     - records/releases/record-release-approval-0006-v1-3-0.yaml
     - records/releases/github-release-notes-v1-3-0.md
     - records/releases/record-release-publication-verification-0001-v1-3-0.yaml
+    - docs/protocol/l1-l2-minimal-documentation-pathway.md
+    - templates/minimal-l1-documentation-template.yaml
+    - templates/minimal-l2-reviewable-documentation-template.yaml
+    - templates/minimal-l1-l2-readme-template.md
+    - checklists/minimal-l1-l2-documentation-checklist.yaml
+    - schemas/minimal-l1-l2-documentation.schema.json
+    - examples/minimal-l1-l2-package/README.md
+    - examples/minimal-l1-l2-package/minimal-documentation.yaml
+    - scripts/validate-minimal-l1-l2.py
+    - records/releases/record-metadata-freeze-0007-v1-4-0.yaml
+    - records/releases/record-release-0008-v1-4-0.yaml
+    - records/releases/record-release-approval-0007-v1-4-0.yaml
+    - records/releases/github-release-notes-v1-4-0.md
   acceptance_criteria:
   - criterion_id: ac_manifest_identity
     criterion: Manifest declares a stable package identity and root repository role.
@@ -984,6 +1017,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.4.0
+    date: '2026-05-16'
+    change_type: minimal_l1_l2_pathway_and_minor_release_records
+    description: Added the minimal L1/L2 documentation pathway, templates, checklist, schema, example, validator, and v1.4.0 release-facing metadata and retained release records.
+    responsible_party: framework_maintainer
+    related_request: minimal_l1_l2_pathway_release
   - version: 1.3.0-post-publication
     date: '2026-05-16'
     change_type: rubric_sidecar_and_process_provenance

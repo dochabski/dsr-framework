@@ -1,0 +1,85 @@
+# SPDX-License-Identifier: CC0-1.0
+checklist:
+  id: minimal_l1_l2_documentation_checklist
+  title: Minimal L1/L2 Documentation Checklist
+  status: draft
+  version: "0.1.0"
+  conformance_targets:
+    - l1_documented
+    - l2_reviewable
+  purpose: >
+    Provide a low-burden checklist for documenting or reviewing DSR artifacts
+    without requiring the full L4 reusable-stable package structure.
+  applicability:
+    use_when:
+      - early_stage_dsr_artifact
+      - lightweight_downstream_documentation
+      - prereview_packet
+      - coursework_or_dissertation_planning
+      - internal_lab_record
+    do_not_use_to_claim:
+      - l4_reusable_stable_package_status
+      - l5_archival_publication_ready_status
+      - empirical_validation_without_evidence
+      - downstream_artifact_certification
+  l1_items:
+    - id: l1_identity
+      label: Artifact identity is clear
+      required: true
+      pass_condition: Title, artifact ID, responsible party, version/date, and maintenance status are present.
+    - id: l1_scope
+      label: Purpose and scope are clear
+      required: true
+      pass_condition: Purpose, audience, artifact boundary, in-scope, out-of-scope, and non-goals are documented.
+    - id: l1_license
+      label: License decision is declared
+      required: true
+      pass_condition: License SPDX ID or documented restriction is present.
+    - id: l1_dsr_positioning
+      label: Basic DSR positioning is present
+      required: true
+      pass_condition: Problem, artifact, evaluation status, and contribution status are summarized without overclaiming.
+    - id: l1_tailoring
+      label: Tailoring rationale is explicit
+      required: true
+      pass_condition: The record says why full L4 package controls are not being used.
+  l2_items:
+    - id: l2_problem_instance_class
+      label: Problem instance and problem class are documented
+      required: true
+      pass_condition: The situated local problem and generalized problem class are both stated.
+    - id: l2_stakeholders_context
+      label: Stakeholders and context are documented
+      required: true
+      pass_condition: At least one stakeholder role and one context condition are present.
+    - id: l2_requirements_trace
+      label: Requirements trace to problem/context
+      required: true
+      pass_condition: Objectives or requirements cite the problem/context basis.
+    - id: l2_artifact_trace
+      label: Artifact/design decisions trace to requirements
+      required: true
+      pass_condition: Design decisions, features, or artifact components trace to requirements/objectives.
+    - id: l2_evaluation_trace
+      label: Evaluation criteria trace to artifact claims
+      required: true
+      pass_condition: Evaluation criteria, evidence plan, or findings trace to requirements, design decisions, or claims.
+    - id: l2_contribution_boundaries
+      label: Contribution claim is bounded
+      required: true
+      pass_condition: Contribution claim, evidence basis, knowledge scope, limitations, and boundary conditions are stated.
+    - id: l2_review_status
+      label: Review status is explicit
+      required: true
+      pass_condition: Reviewer or review status, acceptance criteria, and notes are present.
+  result_values:
+    - pass
+    - revise
+    - block
+    - not_applicable
+  recommended_review_output:
+    review_result: pending
+    blocking_items: []
+    revision_items: []
+    accepted_tailoring: false
+    reviewer_notes: ""

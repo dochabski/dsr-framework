@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: CC0-1.0
+metadata_freeze_record:
+  record_id: record_metadata_freeze_0007_v1_4_0
+  record_class: metadata_freeze
+  item_type: record
+  title: v1.4.0 Metadata Freeze Record
+  status: approved
+  version: "1.4.0"
+  freeze_date: "2026-05-16"
+  responsible_party: framework_maintainer
+  target_release: v1.4.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  minor_scope:
+    release_type: minor
+    prior_release: v1.3.0
+    release_purpose: >
+      Add a minimal viable L1/L2 documentation pathway for downstream users who
+      need documented or reviewable DSR artifact records without adopting the
+      full L4 reusable-stable package structure.
+    backward_compatible: true
+    conformance_change: none
+
+  frozen_fields:
+    release_version: "1.4.0"
+    release_status: "1.4.0_stable"
+    package_conformance: l4_reusable_stable
+    repository: https://github.com/dochabski/dsr-framework
+    license: CC0-1.0
+    archival_publication_ready: false
+
+  frozen_files:
+    - README.md
+    - CHANGELOG.md
+    - CITATION.cff
+    - .zenodo.json
+    - codemeta.json
+    - metadata.yaml
+    - manifest.yaml
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    - package-inventory.yaml
+    - docs/protocol/l1-l2-minimal-documentation-pathway.md
+    - templates/minimal-l1-documentation-template.yaml
+    - templates/minimal-l2-reviewable-documentation-template.yaml
+    - templates/minimal-l1-l2-readme-template.md
+    - checklists/minimal-l1-l2-documentation-checklist.yaml
+    - schemas/minimal-l1-l2-documentation.schema.json
+    - examples/minimal-l1-l2-package/README.md
+    - examples/minimal-l1-l2-package/minimal-documentation.yaml
+    - scripts/validate-minimal-l1-l2.py
+    - records/releases/record-release-0008-v1-4-0.yaml
+
+  evidence_records:
+    - docs/protocol/l1-l2-minimal-documentation-pathway.md
+    - examples/minimal-l1-l2-package/minimal-documentation.yaml
+    - records/tailoring/record-tailoring-minimal-l1-l2-pathway-template.yaml
+    - records/validation/validation-summary-latest.json
+
+  outcome:
+    result: metadata_frozen_for_v1_4_0_minor_release
+    supports: release_approval
+    does_not_support: l5_archival_publication_ready

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/dsr-framework/schemas/minimal-l1-l2-documentation.schema.json",
+  "title": "Minimal L1/L2 DSR Documentation Record",
+  "type": "object",
+  "oneOf": [
+    {"required": ["minimal_l1_documentation_record"]},
+    {"required": ["minimal_l2_reviewable_documentation_record"]}
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "reviewable_draft", "reviewed", "approved", "superseded", "pending"]
+    },
+    "conformanceLevel": {
+      "type": "string",
+      "enum": ["l1_documented", "l2_reviewable"]
+    },
+    "identity": {
+      "type": "object",
+      "required": ["artifact_id", "title", "version", "authors_or_creators", "license", "maintenance_status"],
+      "properties": {
+        "artifact_id": {"$ref": "#/$defs/nonEmptyString"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "short_title": {"type": "string"},
+        "version": {"$ref": "#/$defs/nonEmptyString"},
+        "repository_url": {"type": ["string", "null"]},
+        "persistent_identifier": {"type": ["string", "null"]},
+        "authors_or_creators": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": {"$ref": "#/$defs/nonEmptyString"},
+              "affiliation": {"type": ["string", "null"]},
+              "orcid": {"type": ["string", "null"]}
+            },
+            "additionalProperties": true
+          }
+        },
+        "license": {
+          "type": "object",
+          "required": ["spdx_id", "license_rationale"],
+          "properties": {
+            "spdx_id": {"$ref": "#/$defs/nonEmptyString"},
+            "license_file": {"type": "string"},
+            "license_rationale": {"$ref": "#/$defs/nonEmptyString"}
+          },
+          "additionalProperties": true
+        },
+        "maintenance_status": {"$ref": "#/$defs/status"}
+      },
+      "additionalProperties": true
+    },
+    "scope": {
+      "type": "object",
+      "required": ["purpose", "intended_audience", "artifact_type", "artifact_boundary"],
+      "properties": {
+        "purpose": {"$ref": "#/$defs/nonEmptyString"},
+        "intended_audience": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "artifact_type": {"$ref": "#/$defs/nonEmptyString"},
+        "artifact_boundary": {"$ref": "#/$defs/nonEmptyString"},
+        "in_scope": {"type": "array", "items": {"type": "string"}},
+        "out_of_scope": {"type": "array", "items": {"type": "string"}},
+        "non_goals": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "recordMetadata": {
+      "type": "object",
+      "required": ["record_id", "record_type", "responsible_party", "review_status", "conformance_target", "full_l4_package_adopted", "tailoring_rationale"],
+      "properties": {
+        "record_id": {"$ref": "#/$defs/nonEmptyString"},
+        "record_type": {"$ref": "#/$defs/nonEmptyString"},
+        "created_date": {"type": "string"},
+        "updated_date": {"type": "string"},
+        "responsible_party": {"$ref": "#/$defs/nonEmptyString"},
+        "review_status": {"$ref": "#/$defs/status"},
+        "conformance_target": {"$ref": "#/$defs/conformanceLevel"},
+        "full_l4_package_adopted": {"const": false},
+        "tailoring_rationale": {"$ref": "#/$defs/nonEmptyString"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "properties": {
+    "minimal_l1_documentation_record": {
+      "type": "object",
+      "required": ["record_metadata", "identity", "scope", "basic_dsr_positioning", "l1_acceptance_check"],
+      "properties": {
+        "record_metadata": {"$ref": "#/$defs/recordMetadata"},
+        "identity": {"$ref": "#/$defs/identity"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "basic_dsr_positioning": {"type": "object"},
+        "l1_acceptance_check": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "minimal_l2_reviewable_documentation_record": {
+      "type": "object",
+      "required": ["record_metadata", "identity", "scope", "problem_space", "solution_and_design_space", "demonstration_and_evaluation", "contribution_and_reuse", "traceability", "review"],
+      "properties": {
+        "record_metadata": {"$ref": "#/$defs/recordMetadata"},
+        "identity": {"$ref": "#/$defs/identity"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "problem_space": {"type": "object"},
+        "solution_and_design_space": {"type": "object"},
+        "demonstration_and_evaluation": {"type": "object"},
+        "contribution_and_reuse": {"type": "object"},
+        "traceability": {"type": "object"},
+        "review": {"type": "object"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
