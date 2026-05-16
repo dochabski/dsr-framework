@@ -25,7 +25,6 @@ release_record:
       - l5_archival_publication_ready_claim
       - external_empirical_reuse_validation
       - downstream_artifact_certification
-      - Zenodo publication action
 
   minor_release_blockers: []
 
@@ -35,6 +34,7 @@ release_record:
     rubric_collection_builder: scripts/build-rubric-collection.py
     metadata_freeze: records/releases/record-metadata-freeze-0006-v1-3-0.yaml
     validation_summary: records/validation/validation-summary-latest.json
+    publication_verification: records/releases/record-release-publication-verification-0001-v1-3-0.yaml
 
   validation:
     required_commands:
@@ -56,7 +56,7 @@ release_record:
     - External empirical reuse validation is not claimed.
     - The rubrics guide assessment and review but do not replace reviewer judgment.
     - The unified collection reports missing dependency references rather than fabricating absent rubrics.
-    - Zenodo publication is handled separately after GitHub release publication.
+    - Zenodo publication is verified in records/releases/record-release-publication-verification-0001-v1-3-0.yaml.
 
   outcome:
     result: ready_for_github_minor_release

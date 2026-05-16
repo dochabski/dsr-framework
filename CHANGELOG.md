@@ -4,7 +4,8 @@
 
 ## Unreleased
 
-- No unreleased changes.
+- Recorded Zenodo DOI `10.5281/zenodo.20238033` and publication verification for v1.3.0.
+
 
 ## [1.3.0] - 2026-05-16
 
