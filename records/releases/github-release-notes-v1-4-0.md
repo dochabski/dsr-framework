@@ -10,6 +10,12 @@ The new minimal pathway supports downstream `l1_documented` and `l2_reviewable` 
 
 This release does not claim `l5_archival_publication_ready` status.
 
+## DOI
+
+Zenodo DOI: [10.5281/zenodo.20241016](https://doi.org/10.5281/zenodo.20241016)
+
+Zenodo record: [https://zenodo.org/records/20241016](https://zenodo.org/records/20241016)
+
 ## Highlights
 
 - Added `docs/protocol/l1-l2-minimal-documentation-pathway.md`.
