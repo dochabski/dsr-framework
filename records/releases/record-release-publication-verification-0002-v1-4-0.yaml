@@ -1,0 +1,70 @@
+# SPDX-License-Identifier: CC0-1.0
+release_publication_verification_record:
+  record_id: record_release_publication_verification_0002_v1_4_0
+  record_class: release_publication_verification
+  item_type: record
+  title: v1.4.0 Release Publication Verification
+  status: approved
+  version: "1.4.0"
+  verification_date: "2026-05-16"
+  responsible_party: framework_maintainer
+  target_release: v1.4.0
+  release_tag: v1.4.0
+  package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  publication_targets:
+    github_release:
+      status: published
+      release_url: https://github.com/dochabski/dsr-framework/releases/tag/v1.4.0
+      tag_commit: a5b65119ca84f043f3f6323d31b62b09492bca79
+      release_title: DSR Framework v1.4.0
+    zenodo_release:
+      status: published
+      deposition_id: 20241016
+      record_url: https://zenodo.org/records/20241016
+      doi: 10.5281/zenodo.20241016
+      concept_doi: 10.5281/zenodo.19835423
+      published_version: "1.4.0"
+      archive_file: dsr-framework-v1.4.0.zip
+      archive_size_bytes: 1802659
+      archive_md5: 145d5343ce8bcc731c5969ab394a4500
+      archive_sha256: a10510bca520ea5ae317ed5f84e0a68b153e1d2002116a774cbb2b4ae41e7893
+
+  verification_basis:
+    release_record: records/releases/record-release-0008-v1-4-0.yaml
+    release_approval: records/releases/record-release-approval-0007-v1-4-0.yaml
+    github_release_notes: records/releases/github-release-notes-v1-4-0.md
+    validation_summary: records/validation/validation-summary-latest.json
+    zenodo_archive_source: git archive of tag v1.4.0
+
+  validation_commands:
+    - command: python scripts/validate-minimal-l1-l2.py examples/minimal-l1-l2-package --level l2
+      required_result: pass
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  publication_statement: >
+    The DSR Framework v1.4.0 GitHub release has been archived on Zenodo as a
+    DOI-backed software record. This verification records publication evidence
+    for v1.4.0 without changing the v1.4.0 release tag.
+
+  conformance_impact:
+    result: publication_verified
+    supported_claims:
+      - v1_4_0_stable
+      - l4_reusable_stable
+      - zenodo_doi_archived_release
+      - minimal_l1_l2_pathway_available
+    not_supported_claims:
+      - l5_archival_publication_ready
+      - empirical_external_reuse_validation
+      - downstream_artifact_certification
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained publication-verification record for the same release.

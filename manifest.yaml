@@ -130,10 +130,10 @@ manifest:
         evidence_status_counts:
           substantive: 142
       github_repository: https://github.com/dochabski/dsr-framework
-      published_zenodo_doi: pending_until_v1_4_0_zenodo_publication
-      zenodo_record_url: pending_until_v1_4_0_zenodo_publication
+      published_zenodo_doi: 10.5281/zenodo.20241016
+      zenodo_record_url: https://zenodo.org/records/20241016
       published_zenodo_concept_doi: 10.5281/zenodo.19835423
-      latest_zenodo_publication_verification: records/releases/record-release-publication-verification-0001-v1-3-0.yaml
+      latest_zenodo_publication_verification: records/releases/record-release-publication-verification-0002-v1-4-0.yaml
       latest_preservation_record: records/preservation/record-preservation-0001-v0-1-0.yaml
       preservation_record_status: public_draft_preservation_evidence_retained_l5_deferred
   owner:
@@ -842,6 +842,11 @@ manifest:
     to: records/releases/record-release-approval-0007-v1-4-0.yaml
     relation: supports_v1_4_0_minor_release_approval
     evidence_status: retained_release_approval_record
+  - trace_id: tr_v1_4_0_publication_verification_to_zenodo_record
+    from: records/releases/record-release-publication-verification-0002-v1-4-0.yaml
+    to: https://zenodo.org/records/20241016
+    relation: verifies_v1_4_0_zenodo_publication
+    evidence_status: retained_publication_verification_record
   - trace_id: tr_rubric_collection_sidecar_to_unified_collection
     from: rubrics/dsr_assessment_rubrics_unified_sidecar.json
     to: rubrics/dsr_assessment_rubrics_unified.yaml
@@ -1017,6 +1022,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.4.0-post-publication
+    date: '2026-05-16'
+    change_type: zenodo_publication_verification
+    description: Recorded v1.4.0 Zenodo DOI 10.5281/zenodo.20241016 and publication verification record.
+    responsible_party: framework_maintainer
+    related_request: zenodo_v1_4_0_publication_verification
   - version: 1.4.0
     date: '2026-05-16'
     change_type: minimal_l1_l2_pathway_and_minor_release_records
