@@ -6,6 +6,26 @@
 
 - No unreleased changes.
 
+## [1.3.0] - 2026-05-16
+
+### Added
+
+- Added `rubrics/` with 15 canonical individual DSR assessment rubric YAML files.
+- Added `rubrics/dsr_assessment_rubrics_unified.yaml` as a generated single-document collection for review, search, AI ingestion, and distribution convenience.
+- Added `rubrics/README.md` and `scripts/build-rubric-collection.py` for rubric source-of-truth policy and deterministic collection regeneration.
+- Added retained v1.3.0 metadata-freeze, release, release-approval, and GitHub release-note records.
+
+### Changed
+
+- Updated release-facing metadata for the v1.3.0 minor release while preserving `l4_reusable_stable` conformance and `l5_claimed: false`.
+- Updated repository inventory and validation summary to `210/210` controlled files after rubric and release records are added.
+
+### Validation
+
+- Public validation passes with controlled inventory alignment.
+- Release-candidate validation passes for the v1 L4 reusable-stable gate.
+- v1.3.0 does not claim external empirical reuse validation, downstream artifact validation, or L5 archival/publication-ready status.
+
 ## [1.2.0] - 2026-05-06
 
 ### Added

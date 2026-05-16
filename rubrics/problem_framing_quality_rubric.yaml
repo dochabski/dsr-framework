@@ -1,0 +1,1525 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: problem_framing_quality_rubric
+    label: Problem Framing Quality Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/problem_framing_quality_rubric.yaml
+    local_file_name: problem_framing_quality_rubric.yaml
+    assessment_target: problem_space.problem_framing
+    priority: core
+    lifecycle_phase: problem_framing
+    prompt_id: prompt_problem_framing_quality_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - problem_research_worthiness_rubric
+    - problem_solvability_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_and_trace_shape; adequacy_judgments_remain_human_review
+  assessment_scope:
+    primary_question: Is the problem represented clearly enough to support DSR design, evaluation, and contribution claims?
+    when_to_use:
+    - after raw problem capture
+    - after an initial problem_instance_statement and problem_class_statement have been drafted
+    - before objectives, requirements, and artifact design are finalized
+    - before committing to evaluation criteria or contribution claims
+    - whenever a problem representation has materially changed after stakeholder discovery, evidence review, design exploration,
+      or feasibility review
+    when_not_to_use:
+    - do not use as a substitute for problem_research_worthiness_rubric; a well-framed problem may still not be research-worthy
+    - do not use as a substitute for problem_solvability_rubric; a clearly framed problem may still be infeasible under known
+      constraints
+    - do not use to approve a solution, artifact architecture, or evaluation design
+    - do not use to score final contribution quality or final artifact utility
+    - do not use to force a wicked or contested situation into false precision
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - methodologist
+    - repository_reviewer
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - stakeholder_representative
+    unit_of_assessment: one_problem_space_problem_framing_record
+    boundary_conditions:
+    - The rubric assumes an artifact-centered DSR project is being considered or has passed preliminary research-worthiness
+      and solvability screening.
+    - The rubric evaluates representation quality, not whether the selected problem is important enough or feasible enough.
+    - The rubric supports socio-technical, organizational, higher education, compliance, quality assurance, information systems,
+      and research-infrastructure problem spaces.
+    - The rubric is compatible with iterative problem framing; high scores do not require final certainty, but they do require
+      explicit handling of uncertainty, ambiguity, and versioned representation change.
+    - The rubric treats problem framing as both a human-review construct and a machine-readable documentation object.
+    assumptions:
+    - Problem framing occurs before, during, and after early design exploration; it is not merely a one-time predesign activity.
+    - A DSR problem framing should connect a situated problem instance to a reusable problem class without erasing local constraints.
+    - The problem representation should be strong enough to support later requirement derivation, artifact boundary setting,
+      evaluation design, and contribution scoping.
+  source_grounding:
+    source_families_to_consult:
+    - maedche_et_al_2019_problem_space_conceptualization_extraction
+    - purao_2021_problem_source_and_problem_re_presentation_extraction
+    - wicked_problem_workflow
+    - concept_inventory.problem_space
+    - concept_inventory.context_space
+    - concept_inventory.traceability_terms
+    - dsr_operational_synthesis.problem_space_sections
+    - theory_of_design_science_research.consensus_commitments
+    - dsr_ontology_competency_questions.problem_space
+    - dsr_skos_controlled_vocabulary.process_terms_and_anti_pattern_terms
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - Wicked Problem Workflow.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - problem_research_worthiness_rubric.yaml
+    - problem_solvability_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major problem-framing rationale should cite at least one source_anchor_id, framework_anchor, repository_artifact,
+        or reviewer_judgment marker.
+      preferred: Use Maedche et al. (2019) anchors for problem-space concepts and stakeholder/need/goal/requirement relationships;
+        use Purao (2021) anchors for problem source, instance/class distinction, wickedness, representation change, and routine-design
+        risk; use Wicked Problem Workflow anchors for iterative capture and wickedness profiling.
+      do_not_do: Do not treat a well-written narrative, stakeholder preference, or reviewer intuition as source-supported
+        problem evidence unless it is linked to evidence and source anchors.
+    unsupported_claim_policy:
+      rule: Claims about problem clarity, motivation, severity, stakeholder burden, wickedness, boundary conditions, or representation
+        change must be marked unsupported when they lack evidence, source anchors, or explicit reviewer_judgment status.
+      effect: Unsupported claims trigger human_review and may activate non_compensatory_floor_rules.
+    source_supported_claims:
+    - claim_id: src_claim_problem_space_requires_core_concepts
+      claim: Problem-space conceptualization should include needs, goals, requirements, and stakeholders as fundamental concepts.
+      source_family: maedche_et_al_2019_problem_space_conceptualization_extraction
+      source_anchor_ids:
+      - maedche_et_al_2019:A09
+      - maedche_et_al_2019:A10
+      - maedche_et_al_2019:A11
+      - maedche_et_al_2019:A12
+      - maedche_et_al_2019:A13
+      obligation_status: recommended
+      use_in_rubric: supports problem_instance_clarity, stakeholder_burden_and_value, and problem_motivation_and_evidence
+    - claim_id: src_claim_problem_space_links_problem_and_solution_spaces
+      claim: DSR problem-space representation should support means-end movement between problem and solution spaces.
+      source_family: maedche_et_al_2019_problem_space_conceptualization_extraction
+      source_anchor_ids:
+      - maedche_et_al_2019:A02
+      - maedche_et_al_2019:A14
+      - maedche_et_al_2019:A18
+      obligation_status: recommended
+      use_in_rubric: supports the overall assessment target and later requirements traceability
+    - claim_id: src_claim_instance_and_generic_problem
+      claim: DSR problem specification should respect both the specific problem faced by external partners and the more general
+        version of the problem.
+      source_family: purao_2021_problem_source_and_problem_re_presentation_extraction
+      source_anchor_ids:
+      - purao_2021:A09
+      - purao_2021:A20
+      obligation_status: recommended
+      use_in_rubric: supports problem_instance_clarity and problem_class_abstraction
+    - claim_id: src_claim_problem_re_presentation
+      claim: Problem formulation in DSR evolves; problem solving can involve a change in representation that reveals previously
+        obscure truths.
+      source_family: purao_2021_problem_source_and_problem_re_presentation_extraction
+      source_anchor_ids:
+      - purao_2021:A06
+      - purao_2021:A18
+      - purao_2021:A19
+      obligation_status: recommended
+      use_in_rubric: supports representation_change_trace and wickedness_and_ambiguity_profile
+    - claim_id: src_claim_routine_design_threshold
+      claim: Problems that are readily structured and solved by existing disciplinary knowledge risk becoming routine design
+        rather than innovative DSR.
+      source_family: purao_2021_problem_source_and_problem_re_presentation_extraction
+      source_anchor_ids:
+      - purao_2021:A13
+      - purao_2021:A14
+      obligation_status: recommended
+      use_in_rubric: supports warnings against solution_in_disguise, overlocalization, and unexamined problem formulation
+    - claim_id: src_claim_wicked_problem_workflow
+      claim: Wicked problem handling requires raw situation capture, fact/interpretation/assumption separation, wickedness
+        profiling, problem instance/class distinction, stakeholder/context mapping, and boundary-condition registration.
+      source_family: wicked_problem_workflow
+      source_anchor_ids:
+      - wicked_problem_workflow:phase_1
+      - wicked_problem_workflow:phase_2
+      - wicked_problem_workflow:phase_3
+      - wicked_problem_workflow:phase_4
+      obligation_status: recommended
+      use_in_rubric: supports wickedness_and_ambiguity_profile, stakeholder_burden_and_value, and boundary_conditions
+    - claim_id: src_claim_minimum_dsr_record_trace
+      claim: A DSR record should preserve traceability from problem to requirement, design decision, evaluation, design knowledge,
+        contribution, and boundary conditions.
+      source_family: dsr_operational_synthesis
+      source_anchor_ids:
+      - operational_synthesis:1.core_definition
+      - operational_synthesis:2.minimum_dsr_record_architecture
+      obligation_status: recommended
+      use_in_rubric: supports traceability_requirements and validation_implications
+    reviewer_judgment_domains:
+    - whether a problem statement is sufficiently specific for design
+    - whether an abstraction is reusable without overgeneralizing
+    - whether evidence is adequate for severity or burden claims
+    - whether stakeholder value and harm are represented fairly
+    - whether ambiguity and wickedness are handled honestly
+    - whether boundary conditions are adequate for later contribution scoping
+  construct_definitions:
+  - term_id: problem_framing
+    preferred_label: Problem Framing
+    definition: The documented representation of a problematic situation as a DSR-relevant problem instance and problem class,
+      including motivation, stakeholders, wickedness, boundary conditions, and change trace.
+    source_or_status: framework_operational_definition
+    distinguish_from:
+    - problem_research_worthiness
+    - problem_solvability
+    - requirements_specification
+    - artifact_specification
+  - term_id: raw_problem_situation
+    preferred_label: Raw Problem Situation
+    definition: A preanalytic capture of the messy situation, symptoms, claims, facts, interpretations, assumptions, and unresolved
+      tensions before a stabilized problem frame is imposed.
+    source_or_status: wicked_problem_workflow
+    distinguish_from:
+    - problem_instance_statement
+    - solution_concept
+  - term_id: problem_instance
+    preferred_label: Problem Instance
+    definition: 'The situated local problem: where it occurs, who experiences it, under which constraints, through what suspected
+      mechanisms, and with what consequences.'
+    source_or_status: concept_inventory.problem_space
+    distinguish_from:
+    - problem_class
+    - problem_symptom
+    - solution_requirement
+  - term_id: problem_class
+    preferred_label: Problem Class
+    definition: The generalized recurring type of problem to which the local problem instance belongs, stated at a level that
+      can support reusable or projectable design knowledge.
+    source_or_status: concept_inventory.problem_space
+    distinguish_from:
+    - problem_instance
+    - domain_topic
+    - research_gap
+  - term_id: problem_motivation
+    preferred_label: Problem Motivation
+    definition: Evidence-backed explanation of why the problem matters, including practical relevance, stakeholder burden,
+      severity, frequency, institutional importance, scholarly gap, opportunity, or risk.
+    source_or_status: framework_operational_definition
+    distinguish_from:
+    - novelty_claim
+    - implementation_business_case
+  - term_id: stakeholder_burden_and_value
+    preferred_label: Stakeholder Burden and Value
+    definition: The represented distribution of harms, benefits, obligations, agency, resistance, and value across stakeholder
+      groups affected by the problem and candidate intervention.
+    source_or_status: maedche_et_al_2019_and_wicked_problem_workflow
+    distinguish_from:
+    - stakeholder_list_only
+    - sponsor_preference_only
+  - term_id: wickedness_profile
+    preferred_label: Wickedness Profile
+    definition: A structured account of ambiguity, stakeholder conflict, circular causality, shifting constraints, uncertain
+      stopping rules, uncertain evaluation criteria, political or ethical burden, and evolving problem understanding.
+    source_or_status: wicked_problem_workflow_and_purao_2021
+    distinguish_from:
+    - risk_register_only
+    - ordinary_project_complexity
+  - term_id: boundary_condition
+    preferred_label: Boundary Condition
+    definition: A contextual, organizational, technical, stakeholder, temporal, regulatory, evidentiary, or artifact-network
+      condition that limits where the problem frame, design requirements, evaluation claims, or contribution claims may apply.
+    source_or_status: concept_inventory.context_space
+    distinguish_from:
+    - constraint
+    - assumption
+    - scope_preference
+  - term_id: representation_change_trace
+    preferred_label: Representation Change Trace
+    definition: A versioned record of how the problem representation changed, why it changed, what evidence or stakeholder
+      input caused the change, and which downstream requirements or claims were affected.
+    source_or_status: purao_2021_problem_re_presentation_and_documentation_protocol
+    distinguish_from:
+    - ordinary_edit_history
+    - final_problem_statement_only
+  required_inputs:
+  - input_field: raw_problem_situation
+    description: Unfiltered situation capture, symptom inventory, claim ledger, assumptions, uncertainties, and initial problem
+      triggers.
+    obligation_status: required
+    accepted_format:
+    - markdown_text
+    - yaml_object
+    - claim_ledger_table
+    minimum_evidence: At least one raw situation note or claim ledger entry separating facts, interpretations, assumptions,
+      and stakeholder claims.
+  - input_field: problem_instance_statement
+    description: Situated statement identifying context, stakeholder groups, unwanted condition, suspected mechanisms or constraints,
+      and consequences.
+    obligation_status: required
+    accepted_format:
+    - structured_text
+    - yaml_object
+    minimum_evidence: One explicit problem_instance_statement with local context and affected stakeholder group.
+  - input_field: problem_class_statement
+    description: Generalized statement identifying the recurring problem class represented by the local instance.
+    obligation_status: required
+    accepted_format:
+    - structured_text
+    - yaml_object
+    minimum_evidence: One explicit problem_class_statement linked to the problem_instance_statement.
+  - input_field: stakeholder_claims
+    description: Claims by or about affected, responsible, resistant, sponsoring, evaluating, or impacted stakeholders.
+    obligation_status: required
+    accepted_format:
+    - stakeholder_map
+    - claim_ledger
+    - interview_summary
+    - meeting_notes
+    - source_anchor_records
+    minimum_evidence: At least two stakeholder roles or one justified rationale for why only one role is represented.
+  - input_field: problem_motivation_evidence
+    description: Evidence for relevance, severity, frequency, importance, risk, opportunity, or burden.
+    obligation_status: required
+    accepted_format:
+    - empirical_evidence
+    - field_observation
+    - document_review
+    - metric_snapshot
+    - literature_anchor
+    - expert_judgment
+    - stakeholder_testimony
+    minimum_evidence: At least one evidence item linked to a motivation claim.
+  - input_field: wickedness_profile
+    description: Structured account of ambiguity, conflict, circular causality, shifting constraints, uncertain criteria,
+      and evolving understanding.
+    obligation_status: recommended
+    accepted_format:
+    - yaml_object
+    - matrix
+    - wickedness_profile_table
+    minimum_evidence: A statement indicating which wickedness features are present, absent, unknown, or not applicable.
+  - input_field: boundary_conditions
+    description: Scope limits and conditions under which the problem frame is expected to hold or not hold.
+    obligation_status: required
+    accepted_format:
+    - yaml_array
+    - scope_register
+    - boundary_condition_table
+    minimum_evidence: At least one positive applicability condition and one negative or uncertain applicability condition.
+  - input_field: problem_representation_versions
+    description: Versioned record of problem framing changes and rationale.
+    obligation_status: recommended_initially_required_after_iteration
+    accepted_format:
+    - version_log
+    - change_trace
+    - decision_record
+    - commit_history_reference
+    minimum_evidence: Either a version trace or a statement that this is the initial representation with a planned trace mechanism.
+  required_outputs:
+  - output_field: problem_framing_rating
+    description: Weighted overall 0-4 score and categorical decision.
+    accepted_values:
+    - accept_framing
+    - accept_with_minor_revision
+    - reframe_before_design
+    - insufficient_for_dsr
+  - output_field: dimension_scores
+    description: Per-dimension 0-4 scores with rationale and evidence anchors.
+    accepted_values:
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+  - output_field: framing_gaps
+    description: Specific gaps preventing the problem representation from supporting design, evaluation, or contribution claims.
+    accepted_values:
+    - list_of_gap_records
+  - output_field: reframing_recommendations
+    description: Recommended actions for revising the problem statement, class abstraction, stakeholder account, wickedness
+      profile, boundary conditions, or trace.
+    accepted_values:
+    - list_of_recommendation_records
+  - output_field: problem_instance_to_class_trace
+    description: Explicit trace linking local problem instance to generalized problem class, supporting evidence, and boundary
+      conditions.
+    accepted_values:
+    - trace_record
+    - trace_subgraph
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, stakeholder erasure, ethical risk, unsupported severity claims, overclaiming,
+      or missing traceability.
+    accepted_values:
+    - none
+    - minor_review
+    - required_review
+    - blocking_review
+  assessment_dimensions:
+  - dimension_id: problem_instance_clarity
+    label: Problem Instance Clarity
+    definition: Specificity and internal coherence of the local problem statement, including setting, stakeholder groups,
+      unwanted condition, suspected mechanisms or constraints, and consequences.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - problem_instance_statement
+    - raw_problem_situation
+    - context_summary
+    - stakeholder_claims
+    - consequence_statement
+    level_descriptors:
+      score_0: No discernible problem instance is stated, or the record only names a broad topic, desired solution, or organizational
+        aspiration.
+      score_1: A local issue is mentioned, but the setting, affected stakeholders, mechanisms, or consequences are vague,
+        incomplete, or conflated with the proposed solution.
+      score_2: A plausible local problem instance is stated with basic context and affected stakeholders, but mechanisms,
+        constraints, or consequences remain thin or partly implicit.
+      score_3: A clear local problem instance identifies setting, stakeholder groups, unwanted condition, suspected mechanisms
+        or constraints, and consequences, with enough detail to support early objectives and requirements.
+      score_4: A sharply specified problem instance separates symptoms from underlying problem, identifies local context and
+        stakeholder burdens, articulates suspected causal/structural mechanisms, and preserves uncertainty without collapsing
+        into solution language.
+    minimum_evidence: Explicit problem_instance_statement naming local context, affected stakeholder group, unwanted condition,
+      and at least one consequence.
+    high_quality_evidence: Triangulated situation capture including raw notes, stakeholder claims, process/data artifacts,
+      context constraints, and explicit symptom/problem distinction.
+    weak_evidence_signals:
+    - statement begins with a desired tool or intervention
+    - affected actors are unnamed
+    - consequences are asserted but not specified
+    - mechanism language is absent
+    - problem is stated only as a missing artifact
+    calibration_anchor: A score of 3 requires a reader to understand what situation is problematic before seeing any proposed
+      artifact; a score of 4 also explains why the problem reproduces itself locally.
+    common_failure_modes:
+    - solution_in_disguise
+    - symptom_as_problem
+    - missing_context
+    - stakeholder_erasure
+    - consequence_vagueness
+    reviewer_notes: Do not penalize early-stage uncertainty when it is explicitly marked; penalize unstated uncertainty that
+      later claims depend on.
+  - dimension_id: problem_class_abstraction
+    label: Problem Class Abstraction
+    definition: Quality of abstraction from a situated problem instance to a recurring problem class capable of supporting
+      reusable, projectable, or generalizable design knowledge.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - problem_class_statement
+    - problem_instance_to_class_trace
+    - comparable_cases
+    - literature_or_practice_anchors
+    - boundary_conditions
+    level_descriptors:
+      score_0: No problem class is stated, or the class merely repeats the local case name.
+      score_1: A generalized label is present, but it is too broad, too local, or not clearly derived from the problem instance.
+      score_2: A plausible problem class is stated, but the abstraction path, inclusion criteria, or relationship to the local
+        instance is weak.
+      score_3: The problem class captures a recurring pattern across settings, is traceably abstracted from the local instance,
+        and is bounded enough to guide artifact design and evaluation.
+      score_4: The problem class is reusable without being overabstracted; it distinguishes essential mechanisms from local
+        contingencies, identifies analogous settings, and states inclusion/exclusion conditions for projectable design knowledge.
+    minimum_evidence: Explicit problem_class_statement and link from problem_instance_statement to problem_class_statement.
+    high_quality_evidence: Comparative rationale using prior cases, literature, domain analogs, stakeholder classes, and boundary
+      conditions showing why the abstraction is neither overlocal nor overbroad.
+    weak_evidence_signals:
+    - problem class is just a department name
+    - problem class is a universal social problem
+    - no explanation of abstraction logic
+    - local constraints disappear
+    - problem class is indistinguishable from solution category
+    calibration_anchor: A score of 3 requires a traceable instance-to-class move; a score of 4 requires clear abstraction
+      logic and applicability limits.
+    common_failure_modes:
+    - overlocalization
+    - overabstraction
+    - weak_problem_class_abstraction
+    - category_label_without_abstraction
+    - class_solution_conflation
+    reviewer_notes: This dimension should be interpreted alongside problem_research_worthiness_rubric because class abstraction
+      supports contribution potential but does not by itself prove novelty.
+  - dimension_id: problem_motivation_and_evidence
+    label: Problem Motivation and Evidence
+    definition: Adequacy of evidence showing why the problem matters, including relevance, severity, frequency, stakeholder
+      burden, institutional importance, risk, opportunity, scholarly gap, or methodological importance.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - relevance_justification
+    - severity_evidence
+    - frequency_evidence
+    - stakeholder_testimony
+    - documentary_evidence
+    - literature_anchor
+    - metric_snapshot
+    level_descriptors:
+      score_0: No motivation is provided, or importance is asserted without evidence.
+      score_1: Motivation is plausible but mostly rhetorical, anecdotal, or sponsor-driven, with little evidence linking the
+        problem to consequences.
+      score_2: Some evidence supports relevance or burden, but severity, frequency, risk, or importance remain weakly substantiated
+        or narrowly sourced.
+      score_3: The record provides credible evidence for why the problem matters, linked to affected stakeholders, organizational
+        or domain consequences, and problem-class relevance.
+      score_4: The record triangulates quantitative, qualitative, documentary, and/or literature evidence; distinguishes observed
+        facts from interpretations; and calibrates claims to evidence strength.
+    minimum_evidence: At least one evidence item linked to one motivation claim.
+    high_quality_evidence: Multiple evidence modes with source anchors, evidence quality notes, scope limitations, and explicit
+      distinction between stakeholder claims, observed facts, and reviewer judgment.
+    weak_evidence_signals:
+    - importance language without anchors
+    - only a sponsor preference
+    - only a generic literature gap
+    - unclear source of metrics
+    - evidence does not support claimed severity
+    calibration_anchor: A score of 3 requires support for practical or scholarly importance; a score of 4 requires calibrated,
+      triangulated evidence and clear evidence-to-claim fit.
+    common_failure_modes:
+    - evidence_free_severity
+    - streetlight_problem_selection
+    - novelty_assertion_without_research_front
+    - untraceable_motivation
+    - stakeholder_testimony_overgeneralization
+    reviewer_notes: Evidence sufficiency is a human judgment; machine checks should verify evidence presence and linkage,
+      not adequacy.
+  - dimension_id: stakeholder_burden_and_value
+    label: Stakeholder Burden and Value
+    definition: Representation of who is harmed, helped, responsible, resistant, able to influence change, or required to
+      live with consequences of the current problem and candidate intervention.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - stakeholder_claims
+    - stakeholder_map
+    - burden_value_table
+    - context_register
+    - affected_process_or_artifact_map
+    level_descriptors:
+      score_0: Stakeholders are absent, generic, or reduced to a single sponsor/user category without affected-group analysis.
+      score_1: Stakeholders are listed but their burdens, goals, incentives, authority, resistance, or value claims are mostly
+        unstated.
+      score_2: Major stakeholder groups and some burdens or values are represented, but coverage is uneven or affected/resistant
+        groups are weakly documented.
+      score_3: The record identifies affected, responsible, sponsoring, resistant, evaluating, and beneficiary stakeholder
+        roles where relevant, with burdens and value claims tied to the problem instance.
+      score_4: The stakeholder account captures plural and conflicting values, asymmetrical burdens, decision authority, resistance,
+        ethical exposure, and how stakeholder differences shape the problem class and boundary conditions.
+    minimum_evidence: At least two stakeholder roles or a justified single-stakeholder condition, with one burden or value
+      claim per role.
+    high_quality_evidence: Stakeholder map with goals, pains, incentives, decision rights, constraints, risk exposure, likely
+      resistance, and evidence anchors from interviews, documents, observations, or domain literature.
+    weak_evidence_signals:
+    - only project sponsor named
+    - students/end users omitted
+    - burdens described only from institutional perspective
+    - resistance treated as irrational
+    - benefits asserted for groups not consulted
+    calibration_anchor: A score of 3 requires role coverage and burden/value linkage; a score of 4 requires treatment of conflict,
+      power, asymmetry, and ethical exposure.
+    common_failure_modes:
+    - stakeholder_erasure
+    - single_actor_bias
+    - sponsor_capture
+    - value_monism
+    - burden_externalization
+    reviewer_notes: Do not require exhaustive stakeholder ethnography at early stages; require explicit coverage choices and
+      gaps.
+  - dimension_id: wickedness_and_ambiguity_profile
+    label: Wickedness and Ambiguity Profile
+    definition: Explicit handling of ambiguity, stakeholder conflict, circular causality, shifting constraints, uncertain
+      stopping rules, uncertain evaluation criteria, and evolving problem understanding.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - wickedness_profile
+    - claim_ledger
+    - causal_or_structural_map
+    - ambiguity_log
+    - assumption_register
+    - evaluation_uncertainty_notes
+    level_descriptors:
+      score_0: The record ignores ambiguity and treats the problem as simple despite evidence of complexity, conflict, or
+        uncertainty.
+      score_1: Some complexity is acknowledged, but ambiguity, stakeholder conflict, causal circularity, or uncertain criteria
+        are not analyzed.
+      score_2: A basic wickedness or ambiguity profile is present, but it is descriptive rather than operationally useful
+        for framing, requirements, or evaluation planning.
+      score_3: The record identifies major ambiguity sources, stakeholder conflicts, causal loops or structural dependencies,
+        shifting constraints, and uncertain criteria relevant to design and evaluation.
+      score_4: The record operationalizes wickedness by separating facts, interpretations, assumptions, contested claims,
+        causal hypotheses, and evaluation uncertainties, and shows how these affect reframing and later artifact/evaluation
+        choices.
+    minimum_evidence: Statement of which ambiguity or wickedness features are present, absent, unknown, or not applicable.
+    high_quality_evidence: Claim ledger plus causal/structural model, assumption register, stakeholder conflict map, evaluation-criteria
+      uncertainty, and versioned updates as understanding evolves.
+    weak_evidence_signals:
+    - complexity asserted as a label
+    - no distinction between facts and interpretations
+    - contested stakeholder claims collapsed into one narrative
+    - evaluation criteria assumed obvious
+    - linear cause implied without support
+    calibration_anchor: A score of 3 requires actionable wickedness profiling; a score of 4 requires traceable use of ambiguity
+      analysis to guide reframing and downstream design/evaluation choices.
+    common_failure_modes:
+    - wickedness_denial
+    - false_precision
+    - conflict_erasure
+    - causal_oversimplification
+    - premature_stabilization
+    reviewer_notes: A non-wicked problem is not automatically weak, but the record should justify why wickedness features
+      are absent or not relevant.
+  - dimension_id: boundary_conditions
+    label: Boundary Conditions
+    definition: Clarity of scope limits, contextual conditions, applicability conditions, negative applicability conditions,
+      and claim boundaries for the problem frame.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - boundary_conditions
+    - scope_statement
+    - context_register
+    - exclusion_conditions
+    - applicability_conditions
+    - claim_scope_notes
+    level_descriptors:
+      score_0: No boundary conditions are stated, or the problem is framed as universally applicable without limitation.
+      score_1: Some scope limits are stated, but they are generic, not linked to the problem frame, or omit negative applicability
+        conditions.
+      score_2: Boundary conditions identify basic context and scope, but do not clearly constrain problem-class abstraction,
+        stakeholder applicability, or later contribution claims.
+      score_3: Boundary conditions specify where the problem frame applies, where it may not apply, which contextual conditions
+        matter, and which claims should not be generalized.
+      score_4: 'Boundary conditions are multi-dimensional and traceable: organizational, technical, social, regulatory, temporal,
+        resource, stakeholder, artifact-network, evidence, and evaluation limits are stated with rationale and downstream
+        implications.'
+    minimum_evidence: At least one positive applicability condition and one negative or uncertain applicability condition.
+    high_quality_evidence: Boundary-condition register linking each condition to problem instance, problem class, stakeholder
+      group, evidence source, and downstream requirement/evaluation/contribution implications.
+    weak_evidence_signals:
+    - scope statement only names the organization
+    - no negative cases
+    - generalization claims exceed context
+    - constraints are listed but not connected to claims
+    - unclear relationship between boundary and problem class
+    calibration_anchor: A score of 3 requires meaningful applicability limits; a score of 4 requires boundary traceability
+      across problem, design, evaluation, and contribution claims.
+    common_failure_modes:
+    - unbounded_problem
+    - context_erasure
+    - overgeneralized_claim_scope
+    - hidden_exclusion_conditions
+    - boundary_condition_afterthought
+    reviewer_notes: Boundary conditions are not the same as project constraints; constraints may limit work, while boundary
+      conditions limit interpretation and applicability.
+  - dimension_id: representation_change_trace
+    label: Representation Change Trace
+    definition: Documentation of how the problem representation evolved during inquiry, including why it changed, what evidence
+      or stakeholder input caused the change, and what downstream artifacts were affected.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - problem_representation_versions
+    - change_log
+    - source_anchor_updates
+    - stakeholder_feedback
+    - decision_records
+    - problem_to_requirement_trace
+    level_descriptors:
+      score_0: No trace exists, and the record presents the current framing as if it had no history or uncertainty.
+      score_1: There is informal evidence of framing changes, but no versioned trace, rationale, or linkage to stakeholder/evidence
+        inputs.
+      score_2: A basic trace or initial-version statement exists, but changes are not consistently tied to evidence, stakeholder
+        input, or downstream implications.
+      score_3: The record documents major representation changes, reasons, evidence sources, stakeholder inputs, and affected
+        problem-instance/problem-class/boundary-condition fields.
+      score_4: 'The trace supports auditability and learning: it records alternatives considered, rejected frames, evidence
+        triggers, stakeholder disagreements, changed assumptions, and downstream effects on requirements, artifact boundaries,
+        evaluation criteria, and contribution scope.'
+    minimum_evidence: A version log or explicit statement that this is the initial framing with a planned change-trace mechanism.
+    high_quality_evidence: Versioned change trace with source anchors, rationale, actor/stakeholder input, prior and revised
+      statements, affected downstream objects, and decision records.
+    weak_evidence_signals:
+    - final statement only
+    - changes visible in text but not explained
+    - no rationale for reframing
+    - stakeholder input not linked
+    - downstream requirements unchanged despite changed problem
+    calibration_anchor: A score of 3 requires traceable major changes; a score of 4 requires audit-quality evolution evidence
+      and downstream impact tracking.
+    common_failure_modes:
+    - frozen_initial_framing
+    - ex_post_rationalization
+    - unversioned_reframing
+    - traceability_gap
+    - change_without_rationale
+    reviewer_notes: For a first framing pass, score 2 can be appropriate if the record is explicitly initial and includes
+      a credible plan for versioned tracing.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      integer_scores_only: true
+      score_meanings:
+        '0': absent_or_invalid
+        '1': weak_or_mostly_unsupported
+        '2': basic_but_incomplete
+        '3': adequate_for_next_stage
+        '4': strong_and_audit_ready
+    score_direction: higher_is_better
+    weight_sum_rule: dimension weights sum to 1.0
+    weights:
+      problem_instance_clarity: 0.18
+      problem_class_abstraction: 0.18
+      problem_motivation_and_evidence: 0.16
+      stakeholder_burden_and_value: 0.14
+      wickedness_and_ambiguity_profile: 0.12
+      boundary_conditions: 0.12
+      representation_change_trace: 0.1
+    weighted_score_formula: sum(dimension_score * dimension_weight)
+    missing_evidence_rule: If required evidence for a dimension is absent, score that dimension no higher than 1 unless the
+      absence is explicitly justified and not material to the project stage.
+    unsupported_claim_rule: Unsupported claims may be documented, but they must be marked as reviewer_judgment or hypothesis;
+      unsupported claims cannot justify scores above 2 for the affected dimension.
+    reverse_scoring_rule: No dimensions are reverse-scored in this rubric.
+    rounding_rule: Report weighted_score to two decimal places; do not round dimension scores.
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_problem_instance
+      condition: problem_instance_clarity == 0
+      maximum_decision: insufficient_for_dsr
+      rationale: A DSR problem frame cannot support design or evaluation if no local problem instance is represented.
+    - rule_id: floor_weak_problem_instance
+      condition: problem_instance_clarity <= 1
+      maximum_decision: reframe_before_design
+      rationale: A vague or solution-like local problem cannot support defensible requirements or artifact boundaries.
+    - rule_id: floor_missing_problem_class
+      condition: problem_class_abstraction == 0
+      maximum_decision: insufficient_for_dsr
+      rationale: Without a problem class, the record cannot support reusable design knowledge or contribution claims.
+    - rule_id: floor_weak_problem_class
+      condition: problem_class_abstraction <= 1
+      maximum_decision: reframe_before_design
+      rationale: Weak abstraction prevents later contribution scope from being defensible.
+    - rule_id: floor_no_motivation_evidence
+      condition: problem_motivation_and_evidence == 0
+      maximum_decision: reframe_before_design
+      rationale: A problem frame without motivation evidence cannot justify DSR design or evaluation effort.
+    - rule_id: floor_stakeholder_erasure
+      condition: stakeholder_burden_and_value <= 1 and stakeholder claims are central to problem motivation
+      maximum_decision: reframe_before_design
+      rationale: Stakeholder-erasing problem frames undermine relevance, ethics, and evaluation criteria.
+    - rule_id: floor_unbounded_broad_claim
+      condition: boundary_conditions <= 1 and contribution_or_problem_class_claim_scope is broad
+      maximum_decision: reframe_before_design
+      rationale: Unbounded problem frames invite overgeneralized design and contribution claims.
+    - rule_id: floor_missing_change_trace_after_iteration
+      condition: representation_change_trace == 0 and record indicates prior stakeholder discovery, feasibility review, or
+        design exploration
+      maximum_decision: accept_with_minor_revision
+      rationale: Prior reframing without traceability prevents auditability and later requirements/evaluation alignment.
+    - rule_id: floor_solution_in_disguise
+      condition: problem statement primarily specifies a desired artifact, method, or technology without a represented problematic
+        situation
+      maximum_decision: reframe_before_design
+      rationale: Solution-first framing weakens DSR problem grounding and may produce routine design overclaim.
+    - rule_id: floor_ethical_or_burden_ambiguity
+      condition: human_review_flags include ethical_risk or stakeholder_burden_unclear
+      maximum_decision: accept_with_minor_revision
+      rationale: Stakeholder burden and value ambiguity should not be hidden by high narrative clarity.
+  level_descriptors:
+    score_0:
+      label: absent_or_invalid
+      general_description: Required construct is missing, contradicted by the record, or represented only as a desired solution
+        or broad topic.
+      anchor_examples:
+      - a dashboard is needed
+      - student success is a problem
+      - improve compliance
+    score_1:
+      label: weak_or_mostly_unsupported
+      general_description: The construct is present in name but vague, unsupported, overlocal, overbroad, or not traceably
+        connected to the rest of the problem frame.
+      anchor_examples:
+      - some students struggle
+      - process is inefficient
+      - stakeholders are faculty and staff
+    score_2:
+      label: basic_but_incomplete
+      general_description: The construct is plausibly represented but has material gaps in evidence, stakeholder coverage,
+        boundary conditions, abstraction logic, or traceability.
+      anchor_examples:
+      - local problem stated but weak evidence
+      - problem class plausible but underjustified
+      - boundary conditions listed but not linked
+    score_3:
+      label: adequate_for_next_stage
+      general_description: The construct is sufficiently clear, supported, and traceable to proceed to objectives, requirements,
+        and early artifact design, with known gaps manageable.
+      anchor_examples:
+      - problem instance and problem class connected
+      - stakeholder burden evidenced
+      - scope limits usable
+    score_4:
+      label: strong_and_audit_ready
+      general_description: The construct is precise, evidence-linked, bounded, and audit-ready, preserving uncertainty and
+        showing implications for design, evaluation, and contribution.
+      anchor_examples:
+      - triangulated evidence
+      - well-bounded reusable problem class
+      - versioned reframing trace
+  decision_thresholds:
+    permitted_final_decision_values:
+    - accept_framing
+    - accept_with_minor_revision
+    - reframe_before_design
+    - insufficient_for_dsr
+    accept_framing:
+      weighted_score_minimum: 3.25
+      dimension_minimums:
+        problem_instance_clarity: 3
+        problem_class_abstraction: 3
+        problem_motivation_and_evidence: 3
+        stakeholder_burden_and_value: 2
+        wickedness_and_ambiguity_profile: 2
+        boundary_conditions: 3
+        representation_change_trace: 2
+      additional_conditions:
+      - no active non_compensatory_floor_rule
+      - no blocking_human_review_flag
+      - problem_instance_to_class_trace present
+      - boundary_conditions present and linked to claim scope
+      interpretation: Problem framing is strong enough to support objectives, requirements, early artifact specification,
+        and evaluation planning.
+    accept_with_minor_revision:
+      weighted_score_range: 2.75_to_3.24
+      dimension_minimums:
+        problem_instance_clarity: 2
+        problem_class_abstraction: 2
+        problem_motivation_and_evidence: 2
+        boundary_conditions: 2
+      additional_conditions:
+      - no missing problem_instance_statement
+      - no missing problem_class_statement
+      - no severe stakeholder_erasure
+      - revision items are bounded and unlikely to change artifact direction materially
+      interpretation: Problem framing is usable but should be revised before finalizing objectives, requirements, artifact
+        boundaries, or contribution scope.
+    reframe_before_design:
+      weighted_score_range: 1.75_to_2.74
+      typical_conditions:
+      - problem instance unclear
+      - problem class underdeveloped
+      - stakeholder burden weakly represented
+      - wickedness or boundary conditions under-specified
+      - motivation evidence thin
+      - traceability gaps likely to affect requirements or evaluation
+      interpretation: Do not finalize objectives, requirements, or artifact design until the problem representation is revised.
+    insufficient_for_dsr:
+      weighted_score_maximum: 1.74
+      typical_conditions:
+      - problem statement absent
+      - desired solution substituted for problem
+      - no problem class
+      - no evidence of relevance or burden
+      - no identifiable stakeholder or context
+      - problem framing cannot support DSR contribution claims
+      interpretation: The record is not yet sufficient as a DSR problem frame; return to raw situation capture and problem
+        formulation.
+    human_review_triggers:
+    - trigger_id: ambiguity_review
+      condition: wickedness_and_ambiguity_profile <= 2 and record contains contested stakeholder claims or uncertain evaluation
+        criteria
+      severity: required_review
+    - trigger_id: source_gap_review
+      condition: problem_motivation_and_evidence relies on unsupported or inaccessible source claims
+      severity: required_review
+    - trigger_id: ethical_risk_review
+      condition: stakeholder_burden_and_value indicates vulnerable, coerced, surveilled, or high-burden stakeholder groups
+      severity: blocking_review_if_unaddressed
+    - trigger_id: evidence_sufficiency_review
+      condition: severity, frequency, or value claims materially exceed evidence quality
+      severity: required_review
+    - trigger_id: overclaiming_review
+      condition: problem class or contribution scope is broader than boundary conditions support
+      severity: required_review
+    - trigger_id: routine_design_review
+      condition: problem is readily structured and solved by known techniques but framed as DSR without clear research-worthy
+        abstraction
+      severity: required_review
+  calibration_guidance:
+    reviewer_preparation:
+    - Read the raw_problem_situation, problem_instance_statement, problem_class_statement, stakeholder_claims, wickedness_profile,
+      boundary_conditions, and representation_change_trace before scoring.
+    - Review outputs from problem_research_worthiness_rubric and problem_solvability_rubric when available.
+    - Separate evidence presence from evidence adequacy; the former may be machine-checkable, while the latter is reviewer
+      judgment.
+    - Mark unsupported claims rather than silently discounting them.
+    calibration_rounds:
+    - round: 1
+      activity: independent_scoring
+      description: Each reviewer scores all seven dimensions independently and records evidence anchors for each score.
+    - round: 2
+      activity: anchor_case_alignment
+      description: Reviewers compare scores against the strong, borderline, and weak vignettes in this rubric.
+    - round: 3
+      activity: discrepancy_reconciliation
+      description: Scores differing by two or more points on any dimension require written reconciliation.
+    - round: 4
+      activity: floor_rule_check
+      description: Apply non-compensatory rules after dimension scoring, not before.
+    - round: 5
+      activity: reframing_action_review
+      description: Convert the lowest scoring dimensions into specific reframing recommendations.
+    anchor_examples:
+      strong:
+        summary: Problem instance specifies a local higher education quality-assurance process failure, links it to a reusable
+          class of evidence-alignment problems, triangulates audit findings and stakeholder interviews, maps faculty/student/accreditor
+          burdens, profiles ambiguity and conflicting criteria, bounds applicability, and records how the frame changed after
+          stakeholder discovery.
+        expected_scores:
+          problem_instance_clarity: 4
+          problem_class_abstraction: 4
+          problem_motivation_and_evidence: 4
+          stakeholder_burden_and_value: 4
+          wickedness_and_ambiguity_profile: 3
+          boundary_conditions: 4
+          representation_change_trace: 4
+        expected_decision: accept_framing
+      borderline:
+        summary: Problem instance describes a bottleneck in curriculum-change documentation and lists affected staff and faculty.
+          It has a plausible problem class and basic evidence, but the stakeholder burden is sponsor-heavy, ambiguity is underdeveloped,
+          and boundary conditions are mostly institutional.
+        expected_scores:
+          problem_instance_clarity: 3
+          problem_class_abstraction: 2
+          problem_motivation_and_evidence: 2
+          stakeholder_burden_and_value: 2
+          wickedness_and_ambiguity_profile: 1
+          boundary_conditions: 2
+          representation_change_trace: 1
+        expected_decision: reframe_before_design_or_accept_with_minor_revision_depending_on_floor_rules
+      weak:
+        summary: The record says the institution needs an AI dashboard to improve learning outcomes, but does not identify
+          a problematic situation, affected stakeholders, evidence of burden, problem class, wickedness profile, boundary
+          conditions, or how the frame was produced.
+        expected_scores:
+          problem_instance_clarity: 0
+          problem_class_abstraction: 0
+          problem_motivation_and_evidence: 1
+          stakeholder_burden_and_value: 0
+          wickedness_and_ambiguity_profile: 0
+          boundary_conditions: 0
+          representation_change_trace: 0
+        expected_decision: insufficient_for_dsr
+    inter_rater_reconciliation:
+      acceptable_variance: one_point_per_dimension_after_discussion
+      mandatory_reconciliation:
+      - two_point_or_greater_score_difference
+      - different_final_decision
+      - one_reviewer_invokes_floor_rule_and_another_does_not
+      - disagreement_about_stakeholder_erasure_or_ethical_risk
+      - disagreement_about_problem_instance_to_class_trace
+      recording_requirement: Store reconciliation notes in the rubric application record, not only in reviewer comments.
+    drift_checks:
+    - Periodically compare new scores against stored anchor cases.
+    - Check whether reviewers are rewarding polished prose without evidence.
+    - Check whether reviewers are over-penalizing early-stage uncertainty that is explicitly documented.
+    - Check whether stakeholder claims are being treated as empirical evidence without provenance.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      problem_instance_clarity:
+      - problem_instance_statement
+      - raw_problem_situation
+      - at_least_one_consequence
+      problem_class_abstraction:
+      - problem_class_statement
+      - problem_instance_to_class_trace
+      problem_motivation_and_evidence:
+      - relevance_or_severity_evidence
+      - evidence_to_claim_link
+      stakeholder_burden_and_value:
+      - stakeholder_roles
+      - burden_or_value_claims
+      wickedness_and_ambiguity_profile:
+      - ambiguity_or_wickedness_status
+      - assumption_or_claim_ledger
+      boundary_conditions:
+      - positive_applicability_condition
+      - negative_or_uncertain_applicability_condition
+      representation_change_trace:
+      - version_log_or_initial_version_statement
+    acceptable_evidence_modes:
+    - field_observation
+    - interview_or_focus_group
+    - stakeholder_testimony
+    - process_metric
+    - audit_or_compliance_finding
+    - document_analysis
+    - system_log_or_usage_data
+    - literature_synthesis
+    - prior_artifact_review
+    - expert_judgment
+    - case_comparison
+    - causal_or_structural_model
+    - claim_ledger
+    - change_log
+    source_anchor_requirements:
+    - Each evidence item should have a source_anchor_id, repository_reference, file_path, stakeholder_claim_id, or reviewer_judgment
+      marker.
+    - Every problem motivation claim should point to evidence.
+    - Every problem_instance_to_class trace should identify the abstraction rationale.
+    - Every boundary condition should identify whether it is source-supported, inferred, or reviewer-judged.
+    - Every representation change should identify the trigger for change.
+    evidence_quality_notes:
+    - Stakeholder testimony can support perceived burden but should not be treated as objective frequency evidence without
+      triangulation.
+    - Metrics can support frequency or severity but may not explain mechanisms or stakeholder values.
+    - Literature gaps can support research-front positioning but do not replace local problem motivation.
+    - Expert judgment is acceptable when labeled but should not be disguised as empirical evidence.
+    - Weak evidence does not invalidate a problem frame if uncertainty is explicitly bounded and used to guide next inquiry
+      steps.
+    evidence_to_claim_alignment_checks:
+    - Does the cited evidence support the exact severity, frequency, value, or burden claim being made?
+    - Does the problem class abstraction rely on evidence from more than the local instance, or is it labeled as provisional?
+    - Do boundary conditions limit the interpretation of evidence appropriately?
+    - Are contested stakeholder claims preserved instead of averaged into a false consensus?
+  anti_patterns_and_warnings:
+  - anti_pattern_id: symptom_as_problem
+    warning_condition: The record treats a visible symptom, metric decline, backlog, or complaint as the problem without representing
+      the underlying condition or mechanism.
+    severity: major_warning
+    detection_signal:
+    - problem statement names only an outcome
+    - no suspected mechanism
+    - no structural or causal explanation
+    - requirements jump directly from symptom
+    recommended_response: Separate symptoms from underlying problem hypotheses; add causal, structural, or process explanation
+      and mark uncertainty.
+  - anti_pattern_id: solution_in_disguise
+    warning_condition: The problem statement primarily specifies a preferred artifact, technology, dashboard, policy, workflow,
+      or intervention.
+    severity: blocking_if_unrevised
+    detection_signal:
+    - problem starts with need to build
+    - technology named before burden
+    - no alternative problem framings
+    - requirements precede problem analysis
+    recommended_response: Rewrite as a problematic situation and postpone artifact naming until solution-space grounding.
+  - anti_pattern_id: overlocalization
+    warning_condition: The problem frame is so local that it cannot support a reusable problem class or design knowledge contribution.
+    severity: major_warning
+    detection_signal:
+    - problem class repeats local unit
+    - no analogous settings
+    - local policy details treated as essence
+    recommended_response: Abstract the recurring mechanism, stakeholder relation, information-flow failure, governance problem,
+      or design need.
+  - anti_pattern_id: overabstraction
+    warning_condition: The problem frame is so broad that it erases the local situation and cannot guide design or evaluation.
+    severity: major_warning
+    detection_signal:
+    - problem class resembles a universal social issue
+    - no local constraints
+    - no actionable boundary
+    - stakeholder groups too generic
+    recommended_response: Reintroduce situated context, affected actors, mechanisms, and scope limits.
+  - anti_pattern_id: stakeholder_erasure
+    warning_condition: Affected or burdened stakeholders are omitted, generalized, or represented only through sponsor or
+      designer interests.
+    severity: blocking_if_material
+    detection_signal:
+    - only sponsor voice
+    - no end-user burden
+    - resistance ignored
+    - benefits claimed for unconsulted groups
+    recommended_response: Add stakeholder-role coverage and distinguish sponsor goals from affected-group burdens and values.
+  - anti_pattern_id: unbounded_problem
+    warning_condition: The problem frame lacks applicability limits or negative cases while making broad design, evaluation,
+      or contribution claims.
+    severity: major_warning
+    detection_signal:
+    - no boundary conditions
+    - universal language
+    - claim scope broader than evidence
+    - evaluation context not bounded
+    recommended_response: Add boundary conditions and align claim scope with evidence and context.
+  - anti_pattern_id: evidence_free_severity
+    warning_condition: The record uses strong importance, harm, frequency, risk, or urgency language without evidence anchors.
+    severity: major_warning
+    detection_signal:
+    - critical/urgent/severe asserted
+    - no metrics or testimony
+    - untraceable claims
+    recommended_response: Add evidence, downgrade claim strength, or mark as hypothesis requiring validation.
+  - anti_pattern_id: wickedness_denial
+    warning_condition: The record presents a contested or complex socio-technical problem as if goals, causes, and evaluation
+      criteria were obvious.
+    severity: warning
+    detection_signal:
+    - no ambiguity profile
+    - no contested claims
+    - no assumptions
+    - linear causal claim unsupported
+    recommended_response: Add wickedness profile and identify ambiguity, conflict, shifting constraints, or uncertain criteria.
+  - anti_pattern_id: frozen_initial_framing
+    warning_condition: The problem frame does not change despite evidence of stakeholder discovery, feasibility review, design
+      exploration, or new data.
+    severity: warning
+    detection_signal:
+    - no version history
+    - changed evidence not reflected
+    - downstream requirements unaffected by reframing
+    recommended_response: Add representation change trace and update downstream requirements, artifact boundaries, or evaluation
+      criteria.
+  - anti_pattern_id: false_precision
+    warning_condition: The problem frame uses precise causal or severity claims that exceed the available evidence.
+    severity: warning
+    detection_signal:
+    - causal certainty without evaluation
+    - exact percentages without source
+    - ambiguous stakeholder burden converted to numeric certainty
+    recommended_response: Calibrate language to evidence, add uncertainty markers, and specify what remains to be investigated.
+  traceability_requirements:
+  - trace_id: source_to_concept
+    description: Problem-space terms and claims should trace to source anchors, concept inventory entries, SKOS concepts,
+      or explicit reviewer judgment.
+    minimum_requirement: Each major claim in the problem frame has a provenance marker.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: raw_situation_to_problem_instance
+    description: Raw problem situation notes should trace to the finalized or provisional problem_instance_statement.
+    minimum_requirement: At least one raw situation element is linked to the problem instance.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: problem_instance_to_problem_class
+    description: The local problem instance should be explicitly abstracted to the problem class with rationale.
+    minimum_requirement: problem_instance_statement links to problem_class_statement through problem_instance_to_class_trace.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: stakeholder_claim_to_problem_motivation
+    description: Stakeholder claims should trace to burden, value, relevance, or motivation claims when used as evidence.
+    minimum_requirement: Every stakeholder-derived motivation claim includes stakeholder_claim_id or source_anchor_id.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: evidence_to_problem_claim
+    description: Metrics, observations, literature anchors, documents, or expert judgments should trace to the exact problem
+      claim supported.
+    minimum_requirement: problem_motivation_evidence includes evidence_to_claim links.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: problem_to_requirement
+    description: Once objectives and requirements are drafted, each requirement should trace to problem instance, problem
+      class, stakeholder burden, or boundary condition.
+    minimum_requirement: Not required before requirements are drafted; required once requirements exist.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: requirement_to_design_decision
+    description: Later design decisions should not float free from the problem frame; they should trace to requirements derived
+      from the problem.
+    minimum_requirement: Conditional on design decisions existing.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: design_decision_to_evaluation
+    description: Later evaluation criteria should reflect problem claims and design decisions; this trace becomes mandatory
+      during evaluation planning.
+    minimum_requirement: Conditional on evaluation plan existing.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: evaluation_to_design_knowledge
+    description: Later design knowledge claims should be bounded by the evaluated problem frame and evidence.
+    minimum_requirement: Conditional on evaluation evidence and contribution claim existing.
+    machine_actionable: false
+    human_judgment_required: true
+  - trace_id: design_knowledge_to_contribution
+    description: Contribution claims should not exceed the represented problem class and boundary conditions.
+    minimum_requirement: Contribution scope must cite problem_class and boundary_conditions.
+    machine_actionable: true
+    human_judgment_required: true
+  - trace_id: representation_change_to_downstream_objects
+    description: Problem frame changes should identify whether objectives, requirements, artifact boundaries, evaluation criteria,
+      or contribution claims are affected.
+    minimum_requirement: Each major problem representation version change includes affected_downstream_objects.
+    machine_actionable: true
+    human_judgment_required: true
+  validation_implications:
+    json_schema_fields:
+    - field_path: problem_space.problem_framing.raw_problem_situation
+      obligation_status: required
+      schema_implication: string_or_object_with_claim_ledger_allowed
+    - field_path: problem_space.problem_framing.problem_instance_statement
+      obligation_status: required
+      schema_implication: non_empty_string_or_structured_object
+    - field_path: problem_space.problem_framing.problem_class_statement
+      obligation_status: required
+      schema_implication: non_empty_string_or_structured_object
+    - field_path: problem_space.problem_framing.problem_instance_to_class_trace
+      obligation_status: required
+      schema_implication: array_or_object_with_source_target_rationale_fields
+    - field_path: problem_space.problem_framing.problem_motivation_evidence
+      obligation_status: required
+      schema_implication: array_min_items_1
+    - field_path: problem_space.problem_framing.stakeholder_claims
+      obligation_status: required
+      schema_implication: array_min_items_1_with_role_and_claim
+    - field_path: problem_space.problem_framing.wickedness_profile
+      obligation_status: recommended
+      schema_implication: object_with_presence_absence_unknown_status_values
+    - field_path: problem_space.problem_framing.boundary_conditions
+      obligation_status: required
+      schema_implication: array_min_items_1; prefer type, condition, rationale, applies_when, does_not_apply_when
+    - field_path: problem_space.problem_framing.problem_representation_versions
+      obligation_status: recommended_initially_required_after_iteration
+      schema_implication: array_of_version_records
+    shacl_shapes_or_warnings:
+    - shape_id: problem_framing_requires_problem_instance_shape
+      target_class: dsr:ProblemFraming
+      property_path: dsr:hasProblemInstanceStatement
+      severity: sh:Violation
+      message: Problem framing must include a problem instance statement.
+      machine_testable: true
+      human_judgment_required: false
+    - shape_id: problem_framing_requires_problem_class_shape
+      target_class: dsr:ProblemFraming
+      property_path: dsr:hasProblemClassStatement
+      severity: sh:Violation
+      message: Problem framing must include a problem class statement.
+      machine_testable: true
+      human_judgment_required: false
+    - shape_id: problem_instance_to_class_trace_shape
+      target_class: dsr:ProblemFraming
+      property_path: dsr:hasProblemInstanceToClassTrace
+      severity: sh:Violation
+      message: Problem instance and problem class should be explicitly linked.
+      machine_testable: true
+      human_judgment_required: true
+    - shape_id: problem_motivation_evidence_shape
+      target_class: dsr:ProblemFraming
+      property_path: dsr:hasProblemMotivationEvidence
+      severity: sh:Warning
+      message: Problem motivation should include evidence linked to claims.
+      machine_testable: true
+      human_judgment_required: true
+    - shape_id: stakeholder_burden_value_shape
+      target_class: dsr:ProblemFraming
+      property_path: dsr:hasStakeholderClaim
+      severity: sh:Warning
+      message: Problem framing should identify affected stakeholder roles and burden/value claims.
+      machine_testable: true
+      human_judgment_required: true
+    - shape_id: boundary_conditions_shape
+      target_class: dsr:ProblemFraming
+      property_path: dsr:hasBoundaryCondition
+      severity: sh:Warning
+      message: Problem framing should include boundary conditions and claim-scope limits.
+      machine_testable: true
+      human_judgment_required: true
+    - shape_id: representation_change_trace_shape
+      target_class: dsr:ProblemFraming
+      property_path: dsr:hasRepresentationChangeTrace
+      severity: sh:Info
+      message: Problem framing should include a representation change trace or mark the record as an initial framing.
+      machine_testable: true
+      human_judgment_required: true
+    controlled_vocabularies:
+    - vocabulary_id: problem_framing_decision_vocabulary
+      values:
+      - accept_framing
+      - accept_with_minor_revision
+      - reframe_before_design
+      - insufficient_for_dsr
+    - vocabulary_id: wickedness_feature_status_vocabulary
+      values:
+      - present
+      - absent
+      - unknown
+      - not_applicable
+      - contested
+    - vocabulary_id: evidence_mode_vocabulary
+      values:
+      - field_observation
+      - interview_or_focus_group
+      - stakeholder_testimony
+      - process_metric
+      - audit_or_compliance_finding
+      - document_analysis
+      - system_log_or_usage_data
+      - literature_synthesis
+      - expert_judgment
+      - case_comparison
+      - reviewer_judgment
+    - vocabulary_id: boundary_condition_type_vocabulary
+      values:
+      - organizational
+      - technical
+      - social
+      - regulatory
+      - temporal
+      - resource
+      - stakeholder
+      - artifact_network
+      - evidence
+      - evaluation
+      - knowledge_scope
+      - other
+    - vocabulary_id: traceability_edge_vocabulary
+      values:
+      - raw_situation_to_problem_instance
+      - problem_instance_to_problem_class
+      - stakeholder_claim_to_problem_motivation
+      - evidence_to_problem_claim
+      - problem_to_requirement
+      - requirement_to_design_decision
+      - design_decision_to_evaluation
+      - evaluation_to_design_knowledge
+      - design_knowledge_to_contribution
+      - representation_change_to_downstream_objects
+    python_validation_logic:
+    - check_id: check_dimension_weights_sum_to_one
+      description: Assert that assessment_dimensions weights sum to 1.0 within tolerance 0.0001.
+      machine_testable: true
+    - check_id: check_required_input_presence
+      description: Verify non-empty values for required inputs.
+      machine_testable: true
+    - check_id: check_problem_instance_to_class_trace_presence
+      description: Verify trace record exists and has source, target, and rationale fields.
+      machine_testable: true
+    - check_id: check_evidence_claim_link_presence
+      description: Verify each problem motivation evidence item links to at least one claim.
+      machine_testable: true
+    - check_id: check_floor_rule_candidates
+      description: Flag records that meet non-compensatory floor-rule patterns; do not auto-decide adequacy without reviewer
+        confirmation.
+      machine_testable: true
+      human_judgment_required: true
+    - check_id: check_solution_language_in_problem_statement
+      description: Search for candidate solution-first language such as dashboard, system, automate, implement, deploy, build,
+        tool, workflow, model, method, policy; flag for human review.
+      machine_testable: true
+      human_judgment_required: true
+    manual_review_only_checks:
+    - whether the problem class abstraction is substantively reusable
+    - whether the problem evidence is adequate for severity and importance claims
+    - whether stakeholder burdens and values are fairly represented
+    - whether wickedness analysis is sufficient rather than decorative
+    - whether boundary conditions adequately constrain contribution claims
+    - whether a reframing trace reflects genuine learning rather than ex post rationalization
+    repository_integration_notes:
+      proposed_file_path: rubrics/problem_framing_quality_rubric.yaml
+      related_schema_fields:
+      - problem_space.problem_framing
+      - problem_space.problem_instance
+      - problem_space.problem_class
+      - problem_space.problem_motivation
+      - problem_space.stakeholder_claims
+      - problem_space.wickedness_profile
+      - problem_space.boundary_conditions
+      - problem_space.problem_representation_versions
+      likely_shacl_implications:
+      - required problem instance and problem class presence as violations
+      - evidence, stakeholder, boundary, and change-trace checks as warnings or info unless the framework makes them mandatory
+        for a downstream artifact
+      source_crosswalk_implications:
+      - crosswalk Maedche et al. anchors to needs, goals, requirements, stakeholders, and problem-space model
+      - crosswalk Purao anchors to problem source, specific/generic problem distinction, wickedness, routine design threshold,
+        and problem re-presentation
+      - crosswalk Wicked Problem Workflow phases to raw situation capture, stakeholder/context mapping, causal modeling, boundary-condition
+        registration, and reframing practice
+      documentation_protocol_implications:
+      - record problem-framing versions as documentation artifacts
+      - store reviewer judgments separately from source-supported claims
+      - use stable IDs for stakeholder claims, evidence items, boundary conditions, and representation changes
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_problem_framing_higher_education_outcomes_evidence
+    label: Strong framing
+    brief_case: A university quality-assurance team identifies that course-level learning outcome evidence is inconsistently
+      mapped to program-level competency claims across programs, causing faculty burden, weak auditability, uneven evaluator
+      confidence, and difficulty producing reusable compliance evidence. The local instance is linked to a broader class of
+      evidence-alignment and traceability problems in educational quality systems. The record includes audit findings, faculty/staff
+      interviews, example artifacts, stakeholder burden analysis, ambiguity about acceptable evidence granularity, boundary
+      conditions for program types, and a versioned trace showing reframing from dashboard need to evidence-alignment problem.
+    scores:
+      problem_instance_clarity: 4
+      problem_class_abstraction: 4
+      problem_motivation_and_evidence: 4
+      stakeholder_burden_and_value: 4
+      wickedness_and_ambiguity_profile: 4
+      boundary_conditions: 4
+      representation_change_trace: 4
+    weighted_score: 4.0
+    decision: accept_framing
+    rationale: The frame is specific, evidence-linked, stakeholder-aware, bounded, and traceable enough to support requirements,
+      artifact specification, evaluation, and contribution claims.
+  - vignette_id: borderline_problem_framing_curriculum_review_bottleneck
+    label: Borderline or conditional framing
+    brief_case: The record states that curriculum review takes too long because documentation moves through several manual
+      handoffs. It identifies faculty, curriculum committee members, and administrative staff, includes basic cycle-time data,
+      and proposes a broad problem class of academic workflow inefficiency. However, it does not yet separate bottleneck symptoms
+      from underlying causes, does not include student or compliance stakeholder burdens, and gives only generic boundary
+      conditions.
+    scores:
+      problem_instance_clarity: 3
+      problem_class_abstraction: 2
+      problem_motivation_and_evidence: 2
+      stakeholder_burden_and_value: 2
+      wickedness_and_ambiguity_profile: 1
+      boundary_conditions: 2
+      representation_change_trace: 1
+    weighted_score: 2.04
+    decision: reframe_before_design
+    rationale: The local instance is usable, but abstraction, stakeholder burden, wickedness, and traceability gaps make it
+      premature to finalize artifact design.
+  - vignette_id: weak_problem_framing_ai_dashboard
+    label: Weak or not-ready framing
+    brief_case: The record says that the institution needs an AI dashboard to improve academic quality and help leaders make
+      better decisions. It does not state the problematic situation, stakeholder burdens, evidence, problem class, ambiguity,
+      boundary conditions, or change trace.
+    scores:
+      problem_instance_clarity: 0
+      problem_class_abstraction: 0
+      problem_motivation_and_evidence: 1
+      stakeholder_burden_and_value: 0
+      wickedness_and_ambiguity_profile: 0
+      boundary_conditions: 0
+      representation_change_trace: 0
+    weighted_score: 0.16
+    decision: insufficient_for_dsr
+    rationale: The record substitutes a solution concept for problem framing and cannot support DSR design, evaluation, or
+      contribution claims.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use the weighted score as a summary, not a replacement for dimension-level interpretation.
+    - A high score means the problem representation is ready for next-stage DSR work, not that the project should proceed
+      regardless of worthiness or solvability.
+    - Low dimension scores should be translated into reframing actions before design or evaluation commitments are made.
+    - Floor rules override weighted score when critical framing elements are missing.
+    - Treat a score of 2 as provisional adequacy with known gaps, not as failure.
+    relationship_to_adjacent_rubrics:
+    - adjacent_rubric_id: problem_research_worthiness_rubric
+      relationship: assesses whether the problem is worth treating as DSR; problem_framing_quality_rubric assesses whether
+        the problem is represented clearly enough after or alongside worthiness screening
+    - adjacent_rubric_id: problem_solvability_rubric
+      relationship: assesses whether the problem can plausibly be addressed under constraints; problem_framing_quality_rubric
+        assesses whether the problem representation is precise, bounded, and traceable enough for design and evaluation
+    - adjacent_rubric_id: context_stakeholder_adequacy_rubric
+      relationship: will deepen context, stakeholder, artifact-network, and boundary-condition assessment after problem framing
+    - adjacent_rubric_id: requirements_traceability_rubric
+      relationship: will assess whether objectives, requirements, design decisions, and evaluation criteria trace back to
+        the problem framing
+    known_limitations:
+    - The rubric cannot prove that the selected problem is novel, significant, feasible, ethical, or evaluable.
+    - The rubric cannot eliminate human judgment about adequacy, burden, value pluralism, or evidence sufficiency.
+    - The rubric can reward transparent uncertainty; it should not force premature closure on wicked or evolving problems.
+    - The rubric is a documentation-quality and framing-quality assessment, not a domain-specific diagnostic model.
+    what_not_to_infer:
+    - Do not infer that a high problem_framing_rating means the project is research-worthy; use problem_research_worthiness_rubric
+      for that decision.
+    - Do not infer that a high score means the project is feasible, resourced, governed, accessible, or evaluable; use problem_solvability_rubric
+      and later evaluation rubrics.
+    - Do not infer that stakeholder claims are true merely because they are represented; the rubric assesses representation
+      and traceability, not factual adjudication.
+    - Do not infer that a problem class is generalizable to all contexts; boundary conditions limit problem-class and contribution
+      scope.
+    - Do not infer that a polished final problem statement is better than a messy but traceable iterative framing.
+    - Do not infer that low wickedness is bad; a straightforward problem can score well if it justifiably lacks wickedness
+      features.
+    - Do not infer that the proposed artifact is appropriate; artifact specification and solution grounding require later
+      rubrics.
+    - Do not infer ethical acceptability from this rubric; ethical, privacy, security, and stakeholder-burden concerns may
+      require separate review.
+    recommended_reframing_actions_by_low_dimension:
+      problem_instance_clarity:
+      - rewrite the problem instance using context, stakeholders, unwanted condition, suspected mechanism, and consequences
+      - separate symptom statements from problem hypotheses
+      - remove solution language from the problem statement
+      problem_class_abstraction:
+      - state the recurring problem class
+      - list analogous contexts or cases
+      - identify essential mechanisms versus local contingencies
+      problem_motivation_and_evidence:
+      - add evidence for severity, frequency, burden, risk, or opportunity
+      - mark unsupported claims as hypotheses
+      - link each motivation claim to a source anchor
+      stakeholder_burden_and_value:
+      - map affected, responsible, resistant, beneficiary, and evaluator stakeholders
+      - separate sponsor value from affected-group burden
+      - identify conflicts and asymmetrical burdens
+      wickedness_and_ambiguity_profile:
+      - add claim ledger separating facts, interpretations, and assumptions
+      - identify contested claims and uncertain criteria
+      - map causal loops or structural dependencies
+      boundary_conditions:
+      - add positive and negative applicability conditions
+      - link conditions to problem class and contribution scope
+      - distinguish project constraints from interpretation boundaries
+      representation_change_trace:
+      - create versioned problem framing log
+      - document rejected problem frames
+      - link changes to evidence, stakeholder input, or feasibility discoveries
+  quality_control:
+    completeness_check:
+    - rubric_metadata contains id, label, version, status, generated_on, generated_by, intended_file_path, assessment_target,
+      priority, lifecycle_phase, prompt_id, and dependencies
+    - all required top-level sections are present
+    - all seven required dimensions are present
+    - each dimension includes 0-4 score descriptors
+    - weights sum to 1.0
+    - decision thresholds include all permitted decision values
+    - non_compensatory_floor_rules are present
+    - what_not_to_infer subsection is present
+    - at least three scoring vignettes are present
+    - validation implications distinguish machine-actionable checks from manual review
+    ambiguity_check:
+    - Reviewer judgment domains are explicitly listed.
+    - Unsupported claims are not treated as source-supported.
+    - Boundary conditions are not conflated with project constraints.
+    - Wickedness analysis preserves uncertainty rather than pretending to resolve it.
+    - Problem instance and problem class are not collapsed into one field.
+    source_gap_notes:
+    - Source anchors are represented as framework/source anchor identifiers, not full bibliographic citations.
+    - This rubric relies on the existing DSR extraction corpus and concept inventory; original-source verification is recommended
+      before converting warning-level guidance into SHACL violations.
+    - The representation_change_trace dimension is partially methodologically grounded in Purao's problem re-presentation
+      discussion and partially in the repository documentation protocol logic.
+    human_review_recommendation:
+      default: recommended
+      required_when:
+      - weighted_score below 2.75
+      - any floor rule is triggered
+      - stakeholder_burden_and_value <= 2
+      - problem_motivation_and_evidence <= 2
+      - boundary_conditions <= 2 and contribution scope is broad
+      - ethical_risk_review trigger is active
+      - routine_design_review trigger is active
+      not_required_when:
+      - all dimensions >= 3
+      - no floor rules triggered
+      - no unsupported critical claims
+      - no ethical, source-gap, or stakeholder-erasure review triggers
+    machine_readiness_check:
+    - All identifiers use lowercase snake_case.
+    - Dimension IDs match prompt-required IDs.
+    - Decision values match prompt-permitted values.
+    - Rubric is valid YAML.
+    - No hard validation is asserted for adequacy judgments that require human review.
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready draft generated from prompt_problem_framing_quality_rubric, rubric generation
+      spec v0.1.0, existing problem rubrics, DSR concept inventory, operational synthesis, Purao and Maedche extraction anchors,
+      and Wicked Problem Workflow.
+    changed_by: gpt_5_5_thinking

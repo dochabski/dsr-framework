@@ -1,0 +1,1097 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: contribution_quality_rubric
+    label: Design-Knowledge Contribution Quality Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/contribution_quality_rubric.yaml
+    local_file_name: contribution_quality_rubric.yaml
+    assessment_target: knowledge_space.contribution_claim
+    priority: core
+    lifecycle_phase: contribution_and_communication
+    prompt_id: prompt_contribution_quality_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - evaluation_alignment_quality_rubric
+    - artifact_specification_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_controlled_values; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Is the contribution claim a justified, reusable or projectable design-knowledge contribution rather
+      than only a local artifact report?
+    when_to_use:
+    - when drafting the DSR contribution statement
+    - when reviewing whether evaluation findings support design-knowledge claims
+    - when preparing a repository package for DSR contribution review
+    - after artifact specification and evaluation alignment have been completed or provisionally reviewed
+    - when revising a manuscript, thesis, repository README, practitioner guide, or contribution summary
+    - whenever new evaluation evidence changes the maturity, scope, or boundary conditions of a claim
+    when_not_to_use:
+    - do not use before the artifact or design entity is minimally specified
+    - do not use before there is at least some evaluation, demonstration, analysis, expert, case, field, or literature-based
+      evidence to inspect
+    - do not use as a substitute for evaluation_alignment_quality_rubric; contribution quality depends on but does not replace
+      evaluation alignment
+    - do not use as a substitute for artifact_specification_quality_rubric; this rubric assumes the contribution can be connected
+      to a discernible artifact or design entity
+    - do not use to certify statistical generalizability, production readiness, ethical approval, or legal compliance
+    - do not use to force every DSR contribution into theory-heavy form when the valid contribution is a method, principle,
+      pattern, evaluation insight, or artifact knowledge
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - journal_or_conference_reviewer
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - technical_implementer
+    - artifact_maintainer
+    - practitioner_audience_translator
+    unit_of_assessment: one_knowledge_space_contribution_claim_record_for_a_candidate_or_active_dsr_study
+    boundary_conditions:
+    - The rubric assesses the claim that enters the knowledge base, not merely the quality of the artifact, implementation,
+      or evaluation in isolation.
+    - The rubric supports artifact contributions, design principles, design patterns, design theories, frameworks, taxonomies,
+      methods, process models, evaluation knowledge, and mixed contribution forms.
+    - A contribution can be narrow, idiographic, exploratory, or early-stage and still score well when it is clear, evidence-bounded,
+      useful, and traceable.
+    - Machine validation may check identifiers, required fields, controlled values, trace links, and file presence; novelty,
+      evidence sufficiency, projectability, and overclaim risk remain human-review judgments.
+    - Claims should be calibrated to artifact maturity and evaluation evidence; contribution quality is not measured by breadth
+      alone.
+    assumptions:
+    - A DSR contribution should communicate reusable, projectable, or accumulable design knowledge rather than merely reporting
+      a local artifact.
+    - Contribution claims should be constrained by the artifact specification, evaluation findings, knowledge goal, knowledge
+      scope, novelty mode, and boundary conditions.
+    - Design knowledge may be embodied in an artifact, method, principle, pattern, theory, framework, taxonomy, evaluation
+      result, or process model, but it must be explicitly articulated.
+    - Repository-ready contribution documentation should preserve source anchors, evidence-to-claim traceability, and reviewer-judgment
+      boundaries.
+  source_grounding:
+    source_families_to_consult:
+    - akoka_comyn_wattiau_prat_storey_2023_paths_of_knowledge_types_extraction
+    - baskerville_baiyere_gregor_hevner_rossi_2018_dsr_contributions_extraction
+    - reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation_extraction
+    - schwartz_yahav_2021_knowledge_contribution_diagrams_extraction
+    - dsr_operational_synthesis.contribution_sections
+    - theory_of_design_science_research.knowledge_space_and_contribution_sections
+    - concept_inventory.knowledge_space
+    - concept_inventory.contribution_claim
+    - dsr_skos_controlled_vocabulary.knowledge_contribution_terms
+    - dsr_ontology_competency_questions.knowledge_space
+    - evaluation_alignment_quality_rubric
+    - artifact_specification_quality_rubric
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - evaluation_alignment_quality_rubric.yaml
+    - artifact_specification_quality_rubric.yaml
+    source_anchor_policy:
+      minimum: Each major contribution rationale should cite at least one source_anchor_id, framework_anchor, repository_artifact,
+        or reviewer_judgment marker.
+      preferred: Use extraction-record anchors for knowledge goal, knowledge scope, contribution type, evaluation evidence,
+        projectability, and accumulation claims where available.
+      do_not_do: Do not treat reviewer judgment, local stakeholder preference, or artifact success rhetoric as source-supported
+        design knowledge unless evidence and source anchors support that status.
+    unsupported_claim_policy:
+      rule: Claims about novelty, projectability, maturity, contribution type, and general usefulness must be marked unsupported
+        when they lack evidence or source anchors.
+      effect: Unsupported claims trigger human_review and may activate non_compensatory_floor_rules or major_claim_revision.
+    source_supported_claims:
+    - claim_id: src_claim_dsr_requires_design_knowledge_contribution
+      claim: DSR should communicate a design-knowledge contribution rather than only a local artifact report.
+      source_family: theory_of_design_science_research.consensus_commitments
+      source_anchor_ids:
+      - theory_synthesis:2.consensus_commitments.design_knowledge_contribution
+      obligation_status: required
+      use_in_rubric: supports contribution_object_clarity and routine_design_and_overclaim_risk
+    - claim_id: src_claim_knowledge_goal_scope_paths
+      claim: DSR knowledge contributions can be characterized by knowledge goals, knowledge scope, and paths of knowledge
+        types.
+      source_family: akoka_comyn_wattiau_prat_storey_2023_paths_of_knowledge_types_extraction
+      source_anchor_ids:
+      - akoka_et_al_2023:A03
+      - akoka_et_al_2023:A07
+      - akoka_et_al_2023:A08
+      - akoka_et_al_2023:A10
+      obligation_status: recommended
+      use_in_rubric: supports knowledge_goal_and_scope and accumulation_and_reuse_potential
+    - claim_id: src_claim_contribution_plurality
+      claim: DSR contributions may take multiple forms and should not be reduced only to conventional descriptive theory.
+      source_family: baskerville_baiyere_gregor_hevner_rossi_2018_dsr_contributions_extraction
+      source_anchor_ids:
+      - baskerville_et_al_2018:source_family
+      obligation_status: recommended
+      use_in_rubric: supports contribution_object_clarity and audience_and_communication_fit
+    - claim_id: src_claim_accumulation_codification
+      claim: DSR knowledge should be codified, comparable, reusable, replicable, and extendable to support cumulative science.
+      source_family: reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation_extraction
+      source_anchor_ids:
+      - reining_et_al_2022:source_family
+      - theory_synthesis:13.design_knowledge_codification_theory
+      obligation_status: recommended
+      use_in_rubric: supports accumulation_and_reuse_potential and validation_implications
+    - claim_id: src_claim_evidence_constrains_contribution
+      claim: Evaluation and demonstration evidence should constrain contribution claims rather than merely decorate them.
+      source_family: evaluation_alignment_quality_rubric
+      source_anchor_ids:
+      - evaluation_alignment_quality_rubric:findings_to_claims_trace
+      obligation_status: required
+      use_in_rubric: supports evidence_basis and routine_design_and_overclaim_risk
+    reviewer_judgment_domains:
+    - novelty sufficiency
+    - evidence sufficiency
+    - projectability plausibility
+    - maturity calibration
+    - audience fit
+    - overclaim risk
+    - whether local practice improvement rises to DSR contribution
+  construct_definitions:
+  - term_id: contribution_claim
+    preferred_label: Contribution Claim
+    definition: A stated claim about what design knowledge, artifact knowledge, evaluation knowledge, method knowledge, or
+      process knowledge the DSR study contributes beyond local artifact delivery.
+    controlled_vocabulary_alignment:
+    - knowledge_contribution_terms
+    - transparency_documentation_terms
+    do_not_conflate_with:
+    - artifact_output
+    - implementation_success
+    - evaluation_result
+    - manuscript_conclusion
+  - term_id: design_knowledge
+    preferred_label: Design Knowledge
+    definition: Prescriptive, explanatory, evaluative, methodological, or other DSR-relevant knowledge linking problem conditions,
+      artifact features, mechanisms, use conditions, effects, evidence, and boundary conditions.
+    controlled_vocabulary_alignment:
+    - knowledge_contribution_terms
+    do_not_conflate_with:
+    - raw_data
+    - stakeholder_preference
+    - uninterpreted_artifact_feature
+  - term_id: knowledge_goal
+    preferred_label: Knowledge Goal
+    definition: The purpose of the knowledge produced, such as definitional, descriptive, explanatory, predictive, prescriptive,
+      evaluative, methodological, or explanatory-predictive.
+    controlled_vocabulary_alignment:
+    - knowledge_goal_vocabulary
+    do_not_conflate_with:
+    - project_goal
+    - artifact_use_goal
+    - publication_goal
+  - term_id: knowledge_scope
+    preferred_label: Knowledge Scope
+    definition: The intended scope of the knowledge, including local/idiographic, projectable, class-level, nomothetic/general,
+      or otherwise bounded forms.
+    controlled_vocabulary_alignment:
+    - knowledge_scope_vocabulary
+    do_not_conflate_with:
+    - sample_size
+    - organizational_scope
+    - implementation_scope
+  - term_id: projectability
+    preferred_label: Projectability
+    definition: The disciplined claim that design knowledge may be responsibly projected, adapted, or reused beyond the local
+      case under stated conditions and limits.
+    controlled_vocabulary_alignment:
+    - projectability_statement
+    - boundary_condition
+    do_not_conflate_with:
+    - statistical_generalizability
+    - universal_applicability
+    - market_scalability
+  - term_id: routine_design_overclaim
+    preferred_label: Routine Design Overclaim
+    definition: A failure mode in which routine local artifact delivery or application of known techniques is presented as
+      DSR contribution without sufficient novelty, abstraction, evaluation, or design-knowledge articulation.
+    controlled_vocabulary_alignment:
+    - anti_pattern_terms
+    do_not_conflate_with:
+    - practice_relevance
+    - incremental_novelty
+    - domain_adaptation
+  required_inputs:
+  - input_field: contribution_claim
+    description: Primary statement of what the study contributes to DSR knowledge or practice-relevant design knowledge.
+    obligation_status: required
+    accepted_format: structured_text_or_yaml_object
+    minimum_evidence: Must identify contribution object, claim scope, and relation to design knowledge.
+  - input_field: design_knowledge
+    description: Codified design knowledge produced or refined by the study.
+    obligation_status: required
+    accepted_format: structured_text, design_principle, pattern, method, model, theory, taxonomy, framework, diagram, or repository
+      artifact
+    minimum_evidence: Must connect to artifact, evidence, and boundary conditions.
+  - input_field: artifact
+    description: Artifact universal/design entity or artifact family to which the contribution refers.
+    obligation_status: required
+    accepted_format: artifact_space reference or artifact specification identifier
+    minimum_evidence: Must distinguish artifact or design entity from local instantiation when relevant.
+  - input_field: evaluation_evidence
+    description: Evaluation, demonstration, analysis, expert, field, case, simulation, artifact-inspection, or literature
+      evidence that supports the contribution claim.
+    obligation_status: required
+    accepted_format: evaluation_space reference, evidence records, findings table, source anchors, or repository artifact
+    minimum_evidence: Must include evidence mode, evaluated object, findings, and evidence-to-claim relation.
+  - input_field: knowledge_goal
+    description: The goal of the knowledge being claimed.
+    obligation_status: required
+    accepted_format: controlled vocabulary value plus explanation
+    minimum_evidence: Must state at least one knowledge goal and explain fit to claim.
+  - input_field: knowledge_scope
+    description: The scope over which the knowledge is claimed to apply.
+    obligation_status: required
+    accepted_format: controlled vocabulary value plus boundary explanation
+    minimum_evidence: Must distinguish local/idiographic, projectable, class-level, or nomothetic scope.
+  - input_field: novelty_mode
+    description: The way in which the contribution advances or refines existing knowledge.
+    obligation_status: required
+    accepted_format: controlled vocabulary value plus comparison rationale
+    minimum_evidence: Must compare against prior work, prior artifact, existing method, design knowledge, or practice.
+  - input_field: boundary_conditions
+    description: Conditions that delimit use, transfer, applicability, non-applicability, and interpretation of the contribution.
+    obligation_status: required
+    accepted_format: boundary_condition_register or structured text
+    minimum_evidence: Must state positive or negative applicability limits and link them to evidence or context.
+  required_outputs:
+  - output_field: contribution_quality_rating
+    description: Weighted 0-4 rating plus decision category.
+    obligation_status: required
+  - output_field: contribution_type
+    description: Classified contribution object or mixed contribution profile.
+    obligation_status: required
+  - output_field: evidence_basis
+    description: Evidence modes and evidence-to-claim trace used to justify or limit the contribution claim.
+    obligation_status: required
+  - output_field: boundary_conditions
+    description: Reviewer-confirmed boundary, transfer, and non-applicability conditions.
+    obligation_status: required
+  - output_field: claim_revision_actions
+    description: Actionable revisions needed to improve the claim, evidence, scope, codification, or communication.
+    obligation_status: required
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, novelty uncertainty, or overclaiming.
+    obligation_status: required
+  assessment_dimensions:
+  - dimension_id: contribution_object_clarity
+    label: Contribution Object Clarity
+    definition: Clarity about what is being contributed to the DSR knowledge base, including whether the contribution is an
+      artifact, method, model, framework, design principle, design theory, taxonomy, evaluation knowledge, process knowledge,
+      or a clearly bounded combination.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: No contribution object is identifiable; the record only says that an artifact, implementation, pilot,
+      report, or local improvement was produced.
+    score_1_descriptor: A contribution object is asserted, but it is vague, conflated with a local implementation, or changes
+      across the record without explanation.
+    score_2_descriptor: The contribution object is partly identifiable, but important distinctions among artifact, instantiation,
+      evaluation finding, design knowledge, and communication output remain blurred.
+    score_3_descriptor: The contribution object is clearly identified and mostly distinguished from local artifact delivery,
+      with minor ambiguity about boundaries or contribution type.
+    score_4_descriptor: The contribution object is explicit, typed, bounded, and consistently distinguished from artifact
+      instantiation, evaluation evidence, design knowledge, and repository packaging.
+    minimum_evidence: &id001
+    - contribution_claim
+    - artifact_or_design_entity_reference
+    - contribution_type
+    - brief statement of what enters the knowledge base
+    high_quality_evidence:
+    - A contribution statement that identifies the object, type, granularity, and relation to the artifact specification.
+    - Crosswalk from contribution object to artifact_space, evaluation_space, and knowledge_space fields.
+    - Clear separation between local artifact delivery and reusable/projectable knowledge.
+    weak_evidence_signals:
+    - The contribution is described only as 'we built X'.
+    - The claimed contribution alternates among tool, method, theory, and results without reconciliation.
+    - The local implementation is treated as the contribution without abstraction.
+    calibration_anchor: Score 4 when a reviewer can point to one explicit contribution object and say exactly what kind of
+      design knowledge or artifact knowledge it represents.
+    common_failure_modes:
+    - artifact_delivery_as_contribution
+    - implementation_artifact_conflation
+    - contribution_object_drift
+    - label_without_definition
+    reviewer_notes: Do not penalize legitimate multi-object contributions when each object is named, scoped, and linked to
+      evidence. Penalize only unbounded or untraceable bundling.
+  - dimension_id: knowledge_goal_and_scope
+    label: Knowledge Goal and Scope
+    definition: Explicitness of the contribution's knowledge goal and scope, including whether the knowledge is prescriptive,
+      descriptive, explanatory, predictive, evaluative, methodological, definitional, idiographic, nomothetic, projectable,
+      or a staged path across knowledge types.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: No knowledge goal or scope is stated; the claim gives no basis for judging whether the contribution
+      is local, reusable, prescriptive, descriptive, or explanatory.
+    score_1_descriptor: Knowledge goal or scope is asserted in generic terms such as 'generalizable' or 'useful' without operational
+      meaning.
+    score_2_descriptor: Knowledge goal and scope are partially stated, but the record does not explain how local evidence
+      supports the intended degree of abstraction or projectability.
+    score_3_descriptor: Knowledge goal and scope are clear and mostly aligned with contribution evidence, with minor gaps
+      in terms, boundaries, or path-of-knowledge explanation.
+    score_4_descriptor: Knowledge goal and scope are explicit, controlled-vocabulary compatible, evidence-bounded, and connected
+      to contribution type, artifact type, and boundary conditions.
+    minimum_evidence: &id002
+    - knowledge_goal
+    - knowledge_scope
+    - contribution_claim
+    - boundary_conditions
+    high_quality_evidence:
+    - Use of controlled values for knowledge_goal and knowledge_scope.
+    - Explanation of how evidence supports movement from local findings to design knowledge.
+    - Trace from artifact/evaluation findings to the intended knowledge type.
+    weak_evidence_signals:
+    - Universal language without transfer logic.
+    - Confusion between evaluation results and design knowledge.
+    - Nomothetic claims based only on a single uninterpreted implementation.
+    calibration_anchor: Score 4 when the record makes the knowledge type and scope reviewable without requiring the reviewer
+      to infer them from prose.
+    common_failure_modes:
+    - scope_inflation
+    - knowledge_type_confusion
+    - case_to_universal_leap
+    - uncoded_contribution_path
+    reviewer_notes: A narrow idiographic contribution can score highly when the claim is appropriately scoped and useful.
+      Do not require nomothetic scope for high quality.
+  - dimension_id: novelty_mode_and_maturity
+    label: Novelty Mode and Maturity
+    definition: Quality of the explanation of how the contribution is novel or mature relative to existing DSR knowledge,
+      prior artifacts, prior methods, design principles, design theories, patterns, evaluation knowledge, or problem classes.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: No novelty or maturity claim is stated, or novelty is contradicted by the record.
+    score_1_descriptor: Novelty is asserted without comparison to prior work, prior artifacts, existing design knowledge,
+      or a research/practice front.
+    score_2_descriptor: Novelty mode is plausible but only partially evidenced; maturity level is unclear or not aligned with
+      the evidence base.
+    score_3_descriptor: Novelty mode and maturity are clearly stated, positioned against relevant prior work, and mostly aligned
+      with evidence and evaluation stage.
+    score_4_descriptor: Novelty mode, maturity, and relation to existing knowledge are explicitly positioned, evidence-supported,
+      and calibrated to contribution ambition.
+    minimum_evidence: &id003
+    - novelty_mode
+    - prior_work_or_prior_artifact_comparison
+    - maturity_level
+    - source_anchors_or_repository_artifacts
+    high_quality_evidence:
+    - Comparison against source-backed DSR literature or prior repository artifacts.
+    - Explicit maturity language such as exploratory, nascent, improved, refined, evaluated, validated, replicated, or accumulated.
+    - Explanation of whether novelty lies in artifact form, method, problem class, evaluation, theory, context, integration,
+      or codification.
+    weak_evidence_signals:
+    - 'Novelty by adjective only: novel, innovative, unique, first.'
+    - No account of similar methods, artifacts, or principles.
+    - Mature claims based on early prototypes or unaudited evidence.
+    calibration_anchor: Score 3 when novelty is clear and plausible; reserve 4 for claims that are also mature-calibrated
+      and tied to prior knowledge.
+    common_failure_modes:
+    - novelty_assertion_without_prior_work
+    - premature_maturity_claim
+    - routine_design_overclaim
+    - novelty_by_context_only_without_abstraction
+    reviewer_notes: Novelty may be incremental. Do not require radical novelty; require that the novelty mode be identifiable
+      and nontrivial relative to the stated contribution.
+  - dimension_id: evidence_basis
+    label: Evidence Basis
+    definition: Adequacy and traceability of evaluation, demonstration, analysis, literature, expert, field, case, simulation,
+      artifact-inspection, or repository evidence supporting the contribution claim.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: No evidence supports the contribution claim, or evidence is unavailable, inaccessible, or unrelated
+      to the claim.
+    score_1_descriptor: Evidence is present only as assertion, anecdote, output description, or unspecific reviewer judgment.
+    score_2_descriptor: Evidence partially supports the claim, but there are material gaps in evaluation alignment, traceability,
+      data quality, findings, or validity limitations.
+    score_3_descriptor: Evidence supports the main contribution claim and is traceable to evaluation or demonstration findings,
+      with limitations acknowledged.
+    score_4_descriptor: Evidence is strong, multi-faceted or well-justified for the claim type, traceable from findings to
+      design knowledge, and bounded by explicit validity and evidence-sufficiency notes.
+    minimum_evidence: &id004
+    - evaluation_evidence
+    - demonstration_or_use_evidence
+    - findings
+    - evidence_to_claim_trace
+    - validity_limitations
+    high_quality_evidence:
+    - Evaluation findings linked to requirements, artifact capacities, contribution elements, and boundary conditions.
+    - Evidence mode fits claim type and artifact maturity.
+    - Limitations and validity threats constrain rather than decorate the claim.
+    weak_evidence_signals:
+    - Screenshots, outputs, or narrative success stories without criteria.
+    - Evaluation findings not connected to contribution claims.
+    - Evidence from one setting used to claim broad projectability without rationale.
+    calibration_anchor: Because this dimension has the largest weight, score 4 only when evidence-to-claim alignment would
+      survive an independent methodological review.
+    common_failure_modes:
+    - contribution_claim_without_evidence
+    - claim_evidence_gap
+    - findings_as_decoration
+    - evaluation_mismatch
+    reviewer_notes: Analytical, expert, or artificial evidence can be adequate for early or conceptual claims. The score should
+      judge fit to claim, not privilege field trials automatically.
+  - dimension_id: projectability_and_boundary_conditions
+    label: Projectability and Boundary Conditions
+    definition: Quality of the logic that explains where, when, for whom, and under what conditions the design knowledge may
+      be reused, adapted, transferred, limited, or treated as non-applicable.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: No boundary conditions, projectability logic, transfer conditions, or non-applicability conditions
+      are stated.
+    score_1_descriptor: Boundary conditions are generic or defensive, with no clear connection to context, artifact capacities,
+      evaluation setting, or evidence limits.
+    score_2_descriptor: Some projectability or boundary logic is present, but transfer conditions, adaptation needs, or non-applicability
+      conditions remain underspecified.
+    score_3_descriptor: Projectability and boundary conditions are clear, mostly evidence-aligned, and adequate for responsible
+      reuse with minor gaps.
+    score_4_descriptor: Projectability is explicitly bounded by problem class, context, artifact specification, evidence mode,
+      stakeholder roles, adaptation guidance, and negative applicability conditions.
+    minimum_evidence: &id005
+    - boundary_conditions
+    - problem_class
+    - context_conditions
+    - artifact_boundary
+    - evaluation_scope_limits
+    - adaptation_guidance
+    high_quality_evidence:
+    - Positive and negative boundary conditions.
+    - Transfer logic from local instance to problem class.
+    - Explicit adaptation requirements for reuse.
+    - Warnings against overgeneralization.
+    weak_evidence_signals:
+    - Claims of general applicability without context conditions.
+    - Boundary conditions stated only as 'more research needed'.
+    - No indication of when the artifact or design knowledge should not be reused.
+    calibration_anchor: Score 4 when a prospective reuser could determine whether the contribution applies to their setting
+      and what adaptation evidence they need.
+    common_failure_modes:
+    - overgeneralization
+    - boundary_condition_absence
+    - unsupported_projectability
+    - reuse_without_adaptation_guidance
+    reviewer_notes: Projectability is not the same as statistical generalizability. Score the quality of responsible projection
+      and adaptation logic.
+  - dimension_id: audience_and_communication_fit
+    label: Audience and Communication Fit
+    definition: Fit between the contribution claim, its level of abstraction, evidence language, repository packaging, and
+      the needs of intended audiences such as researchers, reviewers, practitioners, managers, technical implementers, policy
+      audiences, maintainers, or students.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: No intended audience is identifiable, or the communication form prevents review or reuse.
+    score_1_descriptor: Audience is mentioned but the contribution is written in a way that is not usable by that audience.
+    score_2_descriptor: Communication is partly audience-aware but lacks either scholarly rigor, practitioner usability, technical
+      implementability, or repository clarity.
+    score_3_descriptor: Communication mostly fits intended audiences, with appropriate terminology, evidence summaries, and
+      actionable interpretation.
+    score_4_descriptor: Communication is explicitly audience-differentiated, reviewable, actionable, and compatible with scholarly,
+      practitioner, and repository reuse needs where relevant.
+    minimum_evidence: &id006
+    - intended_audience
+    - communication_artifact
+    - plain_language_or_technical_summary
+    - repository_packaging_notes
+    high_quality_evidence:
+    - Separate scholarly and practitioner interpretations where needed.
+    - Explicit claim language calibrated to evidence and audience role.
+    - Usable summaries, diagrams, tables, examples, or repository metadata.
+    weak_evidence_signals:
+    - Opaque jargon for practitioner-facing claims.
+    - Practitioner promises without implementation guidance.
+    - Scholarly claims without method/evidence detail.
+    - Repository files without orientation.
+    calibration_anchor: Score 3 when the primary audience can understand and evaluate the claim; score 4 when secondary audiences
+      are also appropriately served without diluting rigor.
+    common_failure_modes:
+    - audience_mismatch
+    - communication_without_claim_discipline
+    - jargon_opacity
+    - implementation_guidance_absence
+    reviewer_notes: A contribution may target one audience primarily. Do not penalize specialization unless the record claims
+      broader audience usefulness.
+  - dimension_id: accumulation_and_reuse_potential
+    label: Accumulation and Reuse Potential
+    definition: Extent to which the contribution is codified, comparable, extendable, replicable, reusable, or linkable to
+      cumulative DSR knowledge through source anchors, diagrams, patterns, design principles, materials, or traceable repository
+      artifacts.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: The contribution cannot be reused or accumulated because it is not codified beyond local narrative
+      or inaccessible outputs.
+    score_1_descriptor: Some codification exists, but key definitions, materials, traces, or comparison points are absent.
+    score_2_descriptor: Reuse potential is plausible but incomplete; the contribution can be read but not easily compared,
+      extended, replicated, or operationalized.
+    score_3_descriptor: The contribution is sufficiently codified for review, comparison, adaptation, or extension, with minor
+      material or trace gaps.
+    score_4_descriptor: The contribution is strongly codified through explicit constructs, principles, patterns, diagrams,
+      source anchors, repository artifacts, and reuse/replication guidance.
+    minimum_evidence: &id007
+    - codified_design_knowledge
+    - source_anchors
+    - repository_artifacts
+    - reuse_materials
+    - comparison_or_extension_points
+    high_quality_evidence:
+    - Design principle, pattern, CIMO statement, contribution diagram, path of knowledge types, reusable method, or structured
+      repository package.
+    - Traceability from sources to concept fields and from evaluation to contribution.
+    - Explicit relation to prior and future accumulation.
+    weak_evidence_signals:
+    - Contribution buried in prose.
+    - No source anchors or reusable materials.
+    - Only local report narrative.
+    - No indication how another study could compare or extend it.
+    calibration_anchor: Score 4 when the contribution can realistically be indexed, compared, reused, or extended by another
+      DSR project.
+    common_failure_modes:
+    - non_codified_knowledge
+    - unanchored_contribution
+    - replication_material_gap
+    - isolated_case_report
+    reviewer_notes: Do not require executable code for conceptual artifacts; require codification appropriate to artifact
+      and contribution type.
+  - dimension_id: routine_design_and_overclaim_risk
+    label: Routine Design and Overclaim Risk
+    definition: Degree to which the record controls the risk that the contribution is only routine application of known techniques
+      or that claims exceed the artifact specification, evaluation evidence, maturity, scope, or boundary conditions.
+    weight: 0.08
+    required: true
+    score_direction: higher_is_better
+    score_0_descriptor: 'Severe risk: the record presents routine local design, implementation, or consulting work as a DSR
+      contribution, or makes broad claims unsupported by evidence.'
+    score_1_descriptor: 'High risk: the record includes some DSR terminology but relies on assertion, artifact delivery, or
+      inflated generality rather than contribution discipline.'
+    score_2_descriptor: 'Moderate risk: the record has plausible contribution elements but still contains overclaiming, weak
+      evidence boundaries, or routine-design ambiguity.'
+    score_3_descriptor: 'Low risk: the record largely controls routine-design and overclaim risks through evidence-bounded
+      language and explicit limitations.'
+    score_4_descriptor: 'Very low risk: the record actively distinguishes routine design from DSR contribution, calibrates
+      claims to evidence, and flags residual limits or human-review needs.'
+    minimum_evidence: &id008
+    - routine_design_risk_assessment
+    - overclaim_checks
+    - claim_limitations
+    - evidence_to_claim_trace
+    high_quality_evidence:
+    - Explicit check for routine design, local consulting, artifact-only reporting, overgeneralization, and unsupported contribution
+      claims.
+    - Claims revised downward when evidence is weak.
+    - Human-review triggers for novelty, evidence sufficiency, and projectability.
+    weak_evidence_signals:
+    - Success language exceeds findings.
+    - Contribution claim ignores failed, mixed, or limited evidence.
+    - Local artifact delivery is framed as reusable design knowledge without abstraction.
+    calibration_anchor: This dimension is reverse-risk framed but scored higher when risk is better controlled. A score below
+      2 should trigger at least major_claim_revision.
+    common_failure_modes:
+    - routine_design_overclaim
+    - artifact_delivery_as_contribution
+    - overclaim_from_weak_evidence
+    - unsupported_generalization
+    reviewer_notes: Use this as a safeguard dimension. Strong scores elsewhere should not hide severe overclaiming.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      score_0: absent_or_blocked
+      score_1: weak_or_asserted
+      score_2: conditional_or_partially_supported
+      score_3: strong_or_adequately_supported
+      score_4: very_strong_or_exemplary
+    score_direction: higher_scores_indicate_stronger_contribution_quality_except_that_routine_design_and_overclaim_risk_is_scored_as_risk_control
+    weight_sum_rule:
+      expected_sum: 1.0
+      actual_sum: 1.0
+      tolerance: 0.001
+      rule: Weights must sum to 1.0 before automated scoring is accepted.
+    weighted_score_formula: sum(dimension_score * dimension_weight) for all scored dimensions
+    missing_evidence_rule:
+      required_dimension_missing: score_missing_required_dimension_as_0_and_trigger_human_review
+      missing_source_anchor: do_not_score_above_2_for_source_supported_claims_without_source_anchor_or_repository_artifact_reference
+      missing_evaluation_evidence: do_not_score_evidence_basis_above_1_when_no_evidence_record_or_findings_trace_exists
+    reverse_scoring_rule:
+      dimension: routine_design_and_overclaim_risk
+      interpretation: score_0 means severe uncontrolled risk; score_4 means very low or well-controlled risk
+      do_not_invert_again: true
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_contribution_claim
+      condition: contribution_claim absent or contribution_object_clarity score == 0
+      maximum_overall_score: 1.5
+      forced_decision: not_a_dsr_contribution_as_framed
+    - rule_id: floor_missing_evidence_basis
+      condition: evidence_basis score <= 1
+      maximum_overall_score: 2.0
+      forced_decision: major_claim_revision
+    - rule_id: floor_uncontrolled_overclaim
+      condition: routine_design_and_overclaim_risk score <= 1
+      maximum_overall_score: 2.0
+      forced_decision: major_claim_revision
+    - rule_id: floor_no_boundary_conditions
+      condition: projectability_and_boundary_conditions score == 0 and knowledge_scope claims beyond local setting
+      maximum_overall_score: 2.0
+      forced_decision: major_claim_revision
+    - rule_id: floor_artifact_only_report
+      condition: artifact_delivery_as_contribution anti_pattern present with no design_knowledge codification
+      maximum_overall_score: 1.5
+      forced_decision: not_a_dsr_contribution_as_framed
+  level_descriptors:
+    score_0:
+      label: absent_or_blocked
+      general_meaning: The contribution claim is missing, unreviewable, unsupported, or blocked by severe overclaiming.
+      anchor_example: A record only states that a dashboard was built and deployed locally, with no design knowledge, evaluation
+        evidence, or boundary conditions.
+    score_1:
+      label: weak_or_asserted
+      general_meaning: The contribution claim is asserted but weakly specified, weakly evidenced, or mainly local artifact
+        reporting.
+      anchor_example: A prototype is described as innovative and useful, but contribution type and evidence-to-claim trace
+        are vague.
+    score_2:
+      label: conditional_or_partially_supported
+      general_meaning: The contribution is plausible but incomplete; it needs claim revision, stronger boundaries, better
+        evidence trace, or clearer codification.
+      anchor_example: A method is presented with some evaluation and applicability notes, but novelty, maturity, and reuse
+        guidance are only partially specified.
+    score_3:
+      label: strong_or_adequately_supported
+      general_meaning: The contribution is clear, evidence-bounded, mostly codified, and usable for review or constrained
+        reuse.
+      anchor_example: A design principle or method is linked to artifact specification, evaluation findings, knowledge scope,
+        and boundary conditions.
+    score_4:
+      label: very_strong_or_exemplary
+      general_meaning: The contribution is explicit, source-grounded, evidence-calibrated, projectable, audience-fit, codified,
+        and accumulation-ready.
+      anchor_example: A contribution package includes a design principle/pattern or method, contribution diagram, evidence-to-claim
+        trace, boundaries, adaptation guidance, and repository artifacts.
+    borderline_cases:
+    - A highly useful local artifact with weak abstraction should usually score no higher than 2 until design knowledge is
+      articulated.
+    - A conceptually elegant design theory with no evidence basis should usually trigger major_claim_revision.
+    - A narrow idiographic contribution may score 3 or 4 when clearly scoped and well evidenced.
+  decision_thresholds:
+    contribution_ready:
+      weighted_score_minimum: 3.25
+      additional_conditions:
+      - no required dimension below 3
+      - evidence_basis >= 3
+      - routine_design_and_overclaim_risk >= 3
+      - projectability_and_boundary_conditions >= 3
+      - no blocking_issue anti_patterns
+      meaning: Contribution claim is ready for repository packaging or scholarly/practitioner communication, subject to normal
+        review.
+    minor_claim_revision:
+      weighted_score_range: 2.75_to_3.24
+      additional_conditions:
+      - no required dimension below 2
+      - evidence_basis >= 2
+      - routine_design_and_overclaim_risk >= 2
+      - floor rules not triggered
+      meaning: Contribution is basically viable but needs localized clarification, evidence-trace tightening, boundary additions,
+        or communication edits.
+    major_claim_revision:
+      weighted_score_range: 1.75_to_2.74
+      additional_conditions:
+      - one or more required dimensions below 2 or a non-compensatory floor rule is triggered
+      meaning: Contribution may be salvageable, but claim scope, evidence basis, novelty/maturity, projectability, or codification
+        requires substantive revision.
+    not_a_dsr_contribution_as_framed:
+      weighted_score_maximum: 1.74
+      additional_conditions:
+      - missing contribution claim
+      - artifact_delivery_as_contribution without design knowledge
+      - uncontrolled routine_design_overclaim
+      - evidence_basis score == 0
+      meaning: As framed, the record is a local artifact report, routine design report, or unsupported claim rather than a
+        justified DSR contribution.
+    human_review_triggers:
+    - ambiguity about contribution object
+    - source gaps in novelty or prior-work positioning
+    - ethical risk or stakeholder burden embedded in contribution claims
+    - evidence sufficiency uncertainty
+    - projectability or generality language exceeding evidence
+    - conflict between artifact_specification_quality_rubric and contribution claim
+    - conflict between evaluation_alignment_quality_rubric and evidence_basis
+  calibration_guidance:
+    reviewer_preparation:
+    - Read the artifact specification, evaluation alignment record, and contribution claim before scoring.
+    - Identify whether each claim is source-supported, repository-supported, or reviewer judgment.
+    - Confirm that the claimed contribution is not merely the artifact instantiation or a local implementation outcome.
+    - Check whether evaluation findings constrain the claim scope.
+    anchor_examples:
+      strong: A study contributes a design pattern for curriculum-outcome traceability, with artifact specification, evaluation
+        findings from expert review and pilot use, problem-class scope, adaptation guidance, boundary conditions, and repository
+        templates.
+      borderline: A study contributes a workflow method that appears useful and is evaluated in one case, but novelty is weakly
+        positioned and transfer conditions are generic.
+      weak: A study reports a locally deployed advising dashboard and claims broad DSR contribution without design knowledge,
+        evidence-to-claim trace, or boundary conditions.
+    calibration_rounds:
+    - 'Round 1: independently score two strong and two weak contribution records using only provided evidence.'
+    - 'Round 2: reconcile disagreements on evidence_basis, projectability, and routine_design_and_overclaim_risk.'
+    - 'Round 3: test whether reviewers apply the same distinction between local artifact report and design-knowledge contribution.'
+    inter_rater_reconciliation:
+    - If scores differ by more than 1 point on evidence_basis, require explicit discussion of evidence-to-claim fit.
+    - If scores differ by more than 1 point on knowledge_goal_and_scope, require review of controlled vocabulary use.
+    - If one reviewer identifies routine_design_overclaim and another does not, resolve before computing final decision.
+    drift_checks:
+    - Periodically compare recent high-scoring records against anchor cases.
+    - Check whether reviewers are rewarding broad claims more than well-bounded claims.
+    - Check whether conceptual artifacts are being unfairly penalized for lacking field trials when their claims are appropriately
+      analytical or methodological.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      contribution_object_clarity: *id001
+      knowledge_goal_and_scope: *id002
+      novelty_mode_and_maturity: *id003
+      evidence_basis: *id004
+      projectability_and_boundary_conditions: *id005
+      audience_and_communication_fit: *id006
+      accumulation_and_reuse_potential: *id007
+      routine_design_and_overclaim_risk: *id008
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Contribution type and knowledge-goal claims should cite source anchors or controlled vocabulary entries where available.
+    - Novelty and maturity claims should cite prior work, repository artifacts, literature synthesis, or reviewer judgment
+      explicitly marked as such.
+    - Evidence-to-claim links should cite evaluation findings, demonstration records, validation results, or artifact-inspection
+      notes.
+    - Boundary and projectability statements should cite context records, evaluation limitations, or source-supported projectability
+      logic.
+    evidence_quality_notes:
+    - Evidence quality is judged relative to claim type and maturity, not by a universal hierarchy.
+    - Field evidence strengthens claims about naturalistic use but is not mandatory for conceptual, methodological, or early
+      formative contributions.
+    - Stakeholder claims can support relevance and usability but should not by themselves establish general design knowledge.
+    - Repository artifacts improve reuse potential only when they are understandable, versioned, and linked to contribution
+      claims.
+    insufficient_evidence_effects:
+    - 'Unsupported contribution object: maximum contribution_object_clarity score 1.'
+    - 'No evaluation or demonstration evidence: maximum evidence_basis score 1.'
+    - 'No boundary conditions for projectable claim: maximum projectability_and_boundary_conditions score 1.'
+    - 'No prior work comparison: maximum novelty_mode_and_maturity score 2.'
+  anti_patterns_and_warnings:
+  - anti_pattern_id: routine_design_overclaim
+    warning_condition: Routine local design, configuration, consulting, or implementation is presented as DSR contribution
+      without novelty, abstraction, or evidence-bounded design knowledge.
+    severity: blocking_issue
+    recommended_response: Reframe as practice project or articulate and evidence a genuine design-knowledge contribution.
+  - anti_pattern_id: contribution_claim_without_evidence
+    warning_condition: The record makes contribution claims without evaluation, demonstration, analytical, expert, field,
+      case, literature, or repository evidence.
+    severity: blocking_issue
+    recommended_response: Add evidence-to-claim trace or downgrade the claim to a conjecture, design proposal, or planned
+      contribution.
+  - anti_pattern_id: artifact_delivery_as_contribution
+    warning_condition: The artifact, prototype, implementation, or deliverable is treated as the full contribution without
+      identifying reusable/projectable design knowledge.
+    severity: major_warning
+    recommended_response: Distinguish artifact output from design knowledge, contribution object, evaluation findings, and
+      boundary conditions.
+  - anti_pattern_id: overgeneralization
+    warning_condition: The contribution claims broad applicability, generality, or transferability beyond evidence, context,
+      and boundary conditions.
+    severity: major_warning
+    recommended_response: Limit claim scope, add transfer logic, add negative boundary conditions, or collect stronger evidence.
+  - anti_pattern_id: non_codified_knowledge
+    warning_condition: Design knowledge is present only implicitly in prose, discussion, or artifact behavior and is not codified
+      for review or reuse.
+    severity: warning
+    recommended_response: Codify as a design principle, pattern, method, model, taxonomy, contribution diagram, CIMO statement,
+      trace, or reusable repository artifact.
+  - anti_pattern_id: evidence_as_decoration
+    warning_condition: Findings are listed but do not constrain, justify, or revise the contribution claim.
+    severity: major_warning
+    recommended_response: Create an explicit findings_to_design_knowledge and design_knowledge_to_contribution trace.
+  - anti_pattern_id: audience_mismatch
+    warning_condition: Contribution language does not fit the audiences claimed to benefit from it.
+    severity: warning
+    recommended_response: Add audience-specific interpretation, practitioner guidance, technical implementation notes, or
+      scholarly method detail as needed.
+  traceability_requirements:
+  - trace_id: source_to_concept
+    description: Source anchors or repository artifacts should support controlled terms, contribution categories, novelty
+      positioning, and evidence claims.
+    minimum_required: true
+    machine_checkable: partial
+    manual_review_needed: adequacy_of_source_support
+  - trace_id: concept_to_schema_field
+    description: Contribution concepts should map to knowledge_space.contribution_claim, knowledge_goal, knowledge_scope,
+      novelty_mode, evidence_basis, and boundary_conditions fields.
+    minimum_required: true
+    machine_checkable: 'yes'
+    manual_review_needed: semantic_fit
+  - trace_id: problem_to_requirement
+    description: Contribution should remain interpretable against the problem class and requirements that motivated artifact
+      design.
+    minimum_required: recommended
+    machine_checkable: partial
+    manual_review_needed: problem_contribution_fit
+  - trace_id: requirement_to_design_decision
+    description: Contribution elements should not contradict the requirements and design decisions that shaped the artifact.
+    minimum_required: recommended
+    machine_checkable: partial
+    manual_review_needed: substantive_alignment
+  - trace_id: design_decision_to_evaluation
+    description: Design decisions relevant to the contribution should have evaluation, demonstration, analysis, or inspection
+      evidence where claims depend on them.
+    minimum_required: true
+    machine_checkable: partial
+    manual_review_needed: evidence_sufficiency
+  - trace_id: evaluation_to_design_knowledge
+    description: Evaluation findings should be interpreted into design knowledge, not merely listed as results.
+    minimum_required: true
+    machine_checkable: partial
+    manual_review_needed: interpretive_validity
+  - trace_id: design_knowledge_to_contribution
+    description: The contribution claim must point to codified design knowledge and specify scope, novelty, and boundary conditions.
+    minimum_required: true
+    machine_checkable: partial
+    manual_review_needed: claim_quality
+  - trace_id: evidence_to_claim
+    description: Each major claim should cite evidence records and identify unsupported or reviewer-judgment components.
+    minimum_required: true
+    machine_checkable: partial
+    manual_review_needed: claim_evidence_fit
+  validation_implications:
+    json_schema_fields:
+      knowledge_space.contribution_claim:
+        required: true
+        type: object_or_string
+        notes: Should include claim_text, contribution_type, contribution_object, source_anchors, evidence_basis, and boundary_conditions.
+      knowledge_space.design_knowledge:
+        required: true
+        type: array_or_object
+        notes: Should allow design_principle, design_pattern, method, model, taxonomy, framework, design_theory, evaluation_knowledge,
+          process_knowledge, or mixed forms.
+      knowledge_space.knowledge_goal:
+        required: true
+        controlled_vocabulary: knowledge_goal_vocabulary
+      knowledge_space.knowledge_scope:
+        required: true
+        controlled_vocabulary: knowledge_scope_vocabulary
+      knowledge_space.novelty_mode:
+        required: true
+        controlled_vocabulary: novelty_mode_vocabulary
+      knowledge_space.evidence_basis:
+        required: true
+        type: array
+        notes: Should reference evaluation_space findings or other evidence records.
+      knowledge_space.boundary_conditions:
+        required: true
+        type: array
+    shacl_shapes_or_warnings:
+    - shape_id: ContributionClaimShape
+      severity: violation_for_missing_required_fields
+      checks:
+      - has contribution_claim
+      - has contribution_type
+      - has evidence_basis
+      - has knowledge_goal
+      - has knowledge_scope
+      - has boundary_conditions
+    - shape_id: EvidenceToClaimTraceShape
+      severity: warning_or_violation_depending_on_claim_scope
+      checks:
+      - each major contribution claim should link to at least one evidence record
+      - claims marked nomothetic or broad_projectable should link to boundary conditions and evidence limitations
+    - shape_id: OverclaimWarningShape
+      severity: manual_review
+      checks:
+      - broad projectability language with only local evidence
+      - contribution_type absent while artifact is present
+      - design_knowledge absent while contribution_claim present
+    controlled_vocabularies:
+    - contribution_type_vocabulary
+    - knowledge_goal_vocabulary
+    - knowledge_scope_vocabulary
+    - novelty_mode_vocabulary
+    - evidence_mode_vocabulary
+    - boundary_condition_vocabulary
+    - audience_role_vocabulary
+    - anti_pattern_terms
+    python_validation_logic:
+    - verify all required top-level rubric sections exist
+    - verify weights sum to 1.0
+    - verify every dimension has score_0_descriptor through score_4_descriptor
+    - flag contribution_claim records without evidence_basis
+    - flag knowledge_scope values suggesting broad projectability when boundary_conditions are empty
+    - flag contribution_type artifact_only when design_knowledge is empty
+    - flag unsupported_claim markers without human_review flag
+    manual_review_only_checks:
+    - adequacy of novelty claim
+    - whether evidence is sufficient for contribution scope
+    - whether projectability is plausible
+    - whether artifact delivery has been transformed into design knowledge
+    - whether communication is audience-fit
+    - whether overclaiming is present despite schema completeness
+    repository_integration_notes:
+      proposed_file_path: rubrics/contribution_quality_rubric.yaml
+      related_schema_fields:
+      - knowledge_space.contribution_claim
+      - knowledge_space.design_knowledge
+      - knowledge_space.knowledge_goal
+      - knowledge_space.knowledge_scope
+      - knowledge_space.novelty_mode
+      - knowledge_space.evidence_basis
+      - knowledge_space.boundary_conditions
+      - communication_space.contribution_summary
+      source_crosswalk_implications:
+      - map Akoka path-of-knowledge-types terms to knowledge_goal, knowledge_scope, and contribution path fields
+      - map Baskerville contribution plurality terms to contribution_type and genre fields
+      - map Reining accumulation terms to codification, reuse, and comparison fields
+      - map KCD artifacts to contribution visualization and component-level trace fields
+  examples_or_scoring_vignettes:
+  - case_id: strong_contribution_ready
+    case_label: Exemplary projectable design pattern contribution
+    brief_description: A higher education DSR study contributes a design pattern for course-level to program-level outcome
+      contribution mapping. It specifies the artifact universal, includes a pilot implementation, expert review, evaluation
+      criteria, contribution diagram, boundary conditions for curriculum governance settings, and adaptation guidance.
+    indicative_scores:
+      contribution_object_clarity: 4
+      knowledge_goal_and_scope: 4
+      novelty_mode_and_maturity: 3
+      evidence_basis: 3
+      projectability_and_boundary_conditions: 4
+      audience_and_communication_fit: 4
+      accumulation_and_reuse_potential: 4
+      routine_design_and_overclaim_risk: 4
+    likely_decision: contribution_ready
+    reviewer_note: The contribution is narrow enough to be responsible and codified enough for reuse.
+  - case_id: borderline_minor_or_major_revision
+    case_label: Useful method with incomplete novelty and boundary logic
+    brief_description: A study contributes a workflow method for evidence tagging in accreditation review. It has a clear
+      method and one case demonstration, but novelty is weakly positioned, the evidence-to-claim trace is partial, and boundary
+      conditions are mostly generic.
+    indicative_scores:
+      contribution_object_clarity: 3
+      knowledge_goal_and_scope: 3
+      novelty_mode_and_maturity: 2
+      evidence_basis: 2
+      projectability_and_boundary_conditions: 2
+      audience_and_communication_fit: 3
+      accumulation_and_reuse_potential: 2
+      routine_design_and_overclaim_risk: 2
+    likely_decision: major_claim_revision
+    reviewer_note: Potential DSR contribution exists, but claim scope and novelty positioning must be tightened before release.
+  - case_id: weak_not_dsr_contribution_as_framed
+    case_label: Local dashboard artifact report
+    brief_description: A project reports that a dashboard was built for one office and users liked it. It claims broad contribution
+      to institutional analytics without artifact abstraction, evaluation criteria, design knowledge, or boundaries.
+    indicative_scores:
+      contribution_object_clarity: 1
+      knowledge_goal_and_scope: 1
+      novelty_mode_and_maturity: 1
+      evidence_basis: 1
+      projectability_and_boundary_conditions: 0
+      audience_and_communication_fit: 2
+      accumulation_and_reuse_potential: 1
+      routine_design_and_overclaim_risk: 0
+    likely_decision: not_a_dsr_contribution_as_framed
+    reviewer_note: This may be a useful practice artifact, but it is not yet framed as a DSR contribution.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Read the weighted score only after checking floor rules.
+    - High contribution quality means the claim is clear, evidence-bounded, scoped, codified, and reusable/projectable enough
+      for its stated ambition.
+    - A low score may indicate under-documentation, not necessarily absence of value.
+    - Dimension scores should be interpreted in relation to artifact maturity and claim type.
+    what_not_to_infer:
+    - Do not infer that a high score proves the artifact works in all settings.
+    - Do not infer statistical generalizability from projectability.
+    - Do not infer ethical, legal, privacy, security, or institutional approval.
+    - Do not infer that the contribution is more valuable because it is broader; well-bounded contributions can be stronger.
+    - Do not infer that field evaluation is always required; evidence must fit claim type and maturity.
+    - Do not infer that schema completeness eliminates the need for human review.
+    - Do not infer that a local practice improvement is DSR merely because it uses DSR terminology.
+    relationship_to_adjacent_rubrics:
+      artifact_specification_quality_rubric: Contribution quality depends on clear artifact/design-entity specification; use
+        the artifact rubric to check artifact ontology and boundaries.
+      evaluation_alignment_quality_rubric: Contribution quality depends on evidence-to-claim alignment; use the evaluation
+        rubric to check evaluation design and findings trace.
+      projectability_boundary_conditions_rubric: This rubric checks projectability as part of contribution quality; use the
+        projectability rubric for deeper transfer and adaptation review.
+      transparency_trace_quality_rubric: This rubric checks contribution transparency only locally; use the transparency rubric
+        for whole-record documentation adequacy.
+      reliability_replication_readiness_rubric: Accumulation potential here is preliminary; use the replication rubric when
+        materials and procedures need reproducibility review.
+    known_limitations:
+    - The rubric cannot determine novelty automatically.
+    - The rubric cannot substitute for expert review of source literature.
+    - The rubric may need domain-specific calibration for humanities, arts, policy, engineering, education, and information
+      systems DSR.
+    - The rubric assumes access to artifact specification and evaluation records; isolated contribution summaries may score
+      lower because required context is absent.
+  quality_control:
+    completeness_check:
+    - all required top-level sections present
+    - all eight required dimensions present
+    - all dimensions include score descriptors 0-4
+    - weights sum to 1.0
+    - required inputs and outputs match prompt_contribution_quality_rubric
+    - decision values match permitted values
+    - anti-patterns include routine_design_overclaim, contribution_claim_without_evidence, artifact_delivery_as_contribution,
+      overgeneralization, and non_codified_knowledge
+    ambiguity_check:
+    - flag unclear contribution object
+    - flag mixed contribution types without explanation
+    - flag knowledge scope not matched to evidence
+    - flag novelty claims without comparison
+    - flag broad projectability without boundary conditions
+    human_review_recommendation:
+      default: true
+      reason: Contribution quality requires judgment about novelty, evidence sufficiency, maturity, projectability, and overclaim
+        risk.
+    source_gap_notes:
+    - Exact source-anchor IDs for Baskerville et al. contribution plurality, Reining accumulation criteria, and Schwartz/Yahav
+      knowledge contribution diagrams should be verified against the unified extraction corpus before promoting this rubric
+      from draft to approved.
+    - If artifact_specification_quality_rubric is not yet generated or approved, treat dependency references as planned integration
+      points.
+    release_checklist:
+    - validate YAML syntax
+    - run repository schema validation when available
+    - confirm source anchors resolve
+    - confirm anti-pattern IDs match SKOS controlled vocabulary
+    - review with at least one DSR methodologist and one intended repository user
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready draft generated from rubric generation prompt bank and DSR framework source context.
+    changed_by: gpt_5_5_thinking

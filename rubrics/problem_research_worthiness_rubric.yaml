@@ -1,0 +1,1130 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: problem_research_worthiness_rubric
+    label: Problem Research-Worthiness Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/problem_research_worthiness_rubric.yaml
+    local_file_name: problem_research_worthiness_rubric.yaml
+    assessment_target: problem_space.research_worthiness
+    priority: core
+    lifecycle_phase: problem_selection_and_framing
+    prompt_id: prompt_problem_research_worthiness_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+  assessment_scope:
+    primary_question: Is this problem worth treating as DSR rather than routine practice improvement or consulting?
+    when_to_use:
+    - before artifact development
+    - after an initial problem_instance has been stated
+    - after a candidate problem_class has been stated
+    - before committing substantial effort to requirements, artifact specification, or evaluation design
+    when_not_to_use:
+    - do not use as a substitute for full problem_framing_quality_rubric scoring
+    - do not use after artifact development as a post hoc justification unless the problem formulation is being explicitly
+      audited
+    - do not use to decide whether a routine operational improvement is valuable; use it only to decide whether the work is
+      research-worthy as DSR
+    - do not use as a standalone ethical, privacy, governance, or feasibility approval
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    unit_of_assessment: one_candidate_dsr_problem_space_record
+    boundary_conditions:
+    - The rubric assumes the proposed work is artifact-centered or could plausibly become artifact-centered.
+    - The rubric assesses research-worthiness at the problem-selection stage, not final contribution quality.
+    - The rubric can be used for higher education, information systems, quality assurance, compliance, organizational process,
+      and other socio-technical DSR problem spaces.
+    - The rubric distinguishes practice-generated problems from literature-gap-only problems; both may be DSR-worthy when
+      the record shows novelty, significance, tractability, abstraction, and contribution potential.
+  source_grounding:
+    source_families_to_consult:
+    - concept_inventory.problem_space
+    - purao_2021_problem_source_and_research_worthiness_extraction
+    - dsr_operational_synthesis.problem_space_sections
+    - theory_of_design_science_research.consensus_commitments
+    - dsr_skos_controlled_vocabulary.problem_space_and_anti_pattern_terms
+    - dsr_ontology_competency_questions.problem_space
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    source_anchor_policy:
+      minimum: Each major rationale should cite at least one source_anchor_id, framework_anchor, or reviewer_judgment marker.
+      preferred: Use source anchors from Purao (2021), concept inventory anchors, and operational synthesis anchors for problem-space
+        claims.
+      do_not_do: Do not treat reviewer judgment as source-supported evidence.
+    unsupported_claim_policy:
+      rule: Claims about novelty, significance, tractability, and routine_design_risk must be marked unsupported when they
+        lack evidence or source anchors.
+      effect: Unsupported claims trigger human_review and may activate non_compensatory_floor_rules.
+    source_supported_claims:
+    - claim_id: src_claim_problem_quality_required
+      claim: Problem quality is a necessary part of effective and impactful DSR.
+      source_family: purao_2021_problem_source_and_research_worthiness_extraction
+      source_anchor_ids:
+      - purao_2021:A01
+      obligation_status: recommended
+      use_in_rubric: justifies assessing research-worthiness before artifact development
+    - claim_id: src_claim_worthiness_dimensions
+      claim: Novelty, significance, and tractability are research-worthiness dimensions for assessing research problems.
+      source_family: purao_2021_problem_source_and_research_worthiness_extraction
+      source_anchor_ids:
+      - purao_2021:A03
+      obligation_status: recommended
+      use_in_rubric: justifies core dimensions novelty, significance, and tractability
+    - claim_id: src_claim_practice_generated_problems
+      claim: DSR problems may be practice-generated and should not be reduced to literature-gap finding alone.
+      source_family: purao_2021_problem_source_and_research_worthiness_extraction
+      source_anchor_ids:
+      - purao_2021:A05
+      obligation_status: recommended
+      use_in_rubric: allows practice-origin problems while requiring research-front positioning
+    - claim_id: src_claim_instance_and_class
+      claim: DSR problem formulation should articulate both the specific local problem and the generic or archetypal problem
+        class.
+      source_family: purao_2021_problem_source_and_research_worthiness_extraction
+      source_anchor_ids:
+      - purao_2021:A09
+      - purao_2021:A20
+      obligation_status: recommended
+      use_in_rubric: supports problem_class_abstraction dimension and traceability requirements
+    - claim_id: src_claim_research_front
+      claim: Practice-generated problems should be positioned against the research front to avoid repeating settled knowledge.
+      source_family: purao_2021_problem_source_and_research_worthiness_extraction
+      source_anchor_ids:
+      - purao_2021:A14
+      obligation_status: recommended
+      use_in_rubric: supports research_front_positioning dimension
+    - claim_id: src_claim_routine_design_threshold
+      claim: Routine design risk is a warning condition when the work is merely the local application of known techniques
+        without a knowledge contribution.
+      source_family: purao_2021_problem_source_and_research_worthiness_extraction
+      source_anchor_ids:
+      - purao_2021:A13
+      obligation_status: recommended
+      use_in_rubric: supports reverse-scored routine_design_risk dimension and floor rules
+    - claim_id: src_claim_problem_space_structure
+      claim: Problem-space theory requires explicit representation of stakeholders, needs, goals, requirements, context, boundary
+        conditions, and significance.
+      source_family: dsr_operational_synthesis.problem_space_sections
+      source_anchor_ids:
+      - operational_synthesis:5.problem_space_theory
+      obligation_status: recommended
+      use_in_rubric: supports evidence requirements and traceability expectations
+    reviewer_judgment_claims:
+    - claim_id: judgment_claim_sufficiency
+      claim: Whether the evidence is sufficient to establish novelty, significance, tractability, and research-front fit requires
+        expert review.
+      reason: Adequacy and fit cannot be fully determined by schema validation.
+    - claim_id: judgment_claim_ethics
+      claim: Whether a significant problem should be pursued despite ethical, stakeholder-burden, privacy, governance, or
+        political risks requires human review.
+      reason: Responsible-design tradeoffs are contextual and value-laden.
+  construct_definitions:
+  - term_id: research_worthiness
+    preferred_label: Research-worthiness
+    definition: The degree to which a candidate problem is justified as a DSR research problem rather than only a local improvement,
+      consulting, or implementation task.
+    source_anchor_ids:
+    - purao_2021:A01
+    - purao_2021:A03
+    status: recommended
+  - term_id: problem_instance
+    preferred_label: Problem instance
+    definition: The situated local problem, including context, stakeholders, unwanted condition, consequences, constraints,
+      and evidence of need.
+    source_anchor_ids:
+    - purao_2021:A09
+    - operational_synthesis:5.problem_space_theory
+    status: recommended
+  - term_id: problem_class
+    preferred_label: Problem class
+    definition: The abstract, reusable, or archetypal class of similar problems to which the local problem instance belongs.
+    source_anchor_ids:
+    - purao_2021:A09
+    - purao_2021:A20
+    status: recommended
+  - term_id: novelty
+    preferred_label: Novelty
+    definition: The extent to which the problem framing, expected artifact, method, evaluation approach, or design knowledge
+      advances beyond settled knowledge or routine application.
+    source_anchor_ids:
+    - purao_2021:A03
+    - purao_2021:A14
+    status: recommended
+  - term_id: significance
+    preferred_label: Significance
+    definition: The practical, stakeholder, organizational, societal, scholarly, or methodological importance of the candidate
+      DSR problem.
+    source_anchor_ids:
+    - purao_2021:A03
+    - operational_synthesis:5.problem_space_theory
+    status: recommended
+  - term_id: tractability
+    preferred_label: Tractability
+    definition: The credible ability to investigate, design, demonstrate, and evaluate a DSR artifact or design entity under
+      the stated constraints.
+    source_anchor_ids:
+    - purao_2021:A03
+    - purao_2021:A16
+    status: recommended
+  - term_id: research_front_positioning
+    preferred_label: Research-front positioning
+    definition: The explicit placement of the candidate problem against prior research, unresolved gaps, known obstacles,
+      current practice, and relevant design-knowledge streams.
+    source_anchor_ids:
+    - purao_2021:A14
+    status: recommended
+  - term_id: routine_design_risk
+    preferred_label: Routine design risk
+    definition: The risk that the proposed work is only a local application, implementation, or configuration of known techniques
+      without a plausible DSR knowledge contribution.
+    source_anchor_ids:
+    - purao_2021:A13
+    status: recommended
+  required_inputs:
+  - input_field: problem_instance
+    description: Situated statement of the local problem, including affected stakeholders, context, unwanted condition, and
+      consequences.
+    obligation_status: required
+    accepted_format:
+    - structured_yaml_object
+    - short_text_with_source_anchors
+    minimum_evidence: At least one concrete setting, stakeholder group, problem condition, and consequence.
+  - input_field: problem_class
+    description: Abstract or generic problem class to which the instance belongs.
+    obligation_status: required
+    accepted_format:
+    - structured_yaml_object
+    - short_text_with_abstraction_rationale
+    minimum_evidence: Explicit abstraction from the local case to a reusable class of similar problems.
+  - input_field: relevance_justification
+    description: Evidence that the problem matters to practice, stakeholders, organizations, society, scholarship, or methodology.
+    obligation_status: required
+    accepted_format:
+    - source_anchored_claims
+    - stakeholder_evidence
+    - empirical_evidence
+    - literature_synthesis
+    minimum_evidence: At least one evidence-supported reason the problem matters.
+  - input_field: research_front_or_gap
+    description: Prior research, design knowledge, artifact lineage, practice gap, methodological gap, or unresolved front
+      against which novelty is judged.
+    obligation_status: required
+    accepted_format:
+    - literature_synthesis
+    - artifact_scan
+    - source_anchor_list
+    - expert_review_note
+    minimum_evidence: At least one explicit comparison to prior work, current practice, or unresolved knowledge need.
+  - input_field: candidate_contribution_claim
+    description: Initial claim about what the DSR work may contribute beyond the local problem.
+    obligation_status: required
+    accepted_format:
+    - claim_object
+    - short_text
+    minimum_evidence: Statement of possible design knowledge, method, artifact class, evaluation insight, or contribution
+      type.
+  - input_field: constraints
+    description: Known constraints on access, data, time, governance, evaluation, resources, ethics, privacy, security, and
+      stakeholder burden.
+    obligation_status: required
+    accepted_format:
+    - list
+    - structured_yaml_object
+    minimum_evidence: At least one constraint class or an explicit no_known_constraints statement with reviewer confidence.
+  required_outputs:
+  - output_field: overall_research_worthiness_rating
+    description: Weighted 0-4 rating after floor rules.
+    accepted_values:
+    - 0.0_to_4.0_numeric
+    required: true
+  - output_field: novelty_rationale
+    description: Reviewer rationale for novelty score and evidence sufficiency.
+    accepted_values:
+    - short_text_with_source_anchors_or_reviewer_judgment
+    required: true
+  - output_field: significance_rationale
+    description: Reviewer rationale for significance score and stakeholder/practice/scholarly evidence.
+    accepted_values:
+    - short_text_with_source_anchors_or_reviewer_judgment
+    required: true
+  - output_field: tractability_rationale
+    description: Reviewer rationale for tractability score and constraints.
+    accepted_values:
+    - short_text_with_source_anchors_or_reviewer_judgment
+    required: true
+  - output_field: routine_design_risk
+    description: Risk classification and evidence for whether the problem is DSR-worthy or only routine design.
+    accepted_values:
+    - low
+    - moderate
+    - high
+    - blocking
+    required: true
+  - output_field: decision
+    description: Final decision after weighted score and non-compensatory floor rules.
+    accepted_values:
+    - proceed
+    - proceed_with_constraints
+    - reframe
+    - treat_as_practice_project
+    - reject_or_defer
+    required: true
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, and overclaiming.
+    accepted_values:
+    - list_of_flag_objects
+    required: true
+  assessment_dimensions:
+  - dimension_id: novelty
+    label: Novelty
+    definition: Extent to which the problem framing, expected artifact, method, evaluation, or design knowledge advances beyond
+      settled knowledge.
+    weight: 0.25
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - purao_2021:A03
+    - purao_2021:A14
+    evidence_needed: At least one comparison to prior research, current practice, prior artifacts, or settled techniques.
+    level_descriptors:
+      score_0_descriptor: No novelty claim is present, or the record shows the problem is already fully solved by routine
+        application of known techniques.
+      score_1_descriptor: Novelty is asserted but not evidenced; the problem appears to repeat known work, localize an existing
+        solution, or rely on generic innovation language.
+      score_2_descriptor: Some novelty is plausible, but the record does not yet show whether novelty lies in problem framing,
+        artifact type, method, evaluation, context, or design knowledge.
+      score_3_descriptor: The record identifies a credible novelty locus and compares it to prior research, practice, or artifact
+        families sufficiently for early-stage DSR screening.
+      score_4_descriptor: The record gives a compelling, source-grounded novelty argument, including what is settled, what
+        is unresolved, why the candidate problem opens a meaningful DSR contribution path, and what kind of design knowledge
+        could be new.
+    minimum_evidence: At least one comparison to prior research, current practice, prior artifacts, or settled techniques.
+    high_quality_evidence:
+    - research_front_or_gap includes source anchors
+    - candidate_contribution_claim names the novelty locus
+    - artifact or design-knowledge novelty is distinguished from implementation novelty
+    - alternative explanations for novelty are considered
+    weak_evidence_signals:
+    - phrases such as 'no one has done this here' without external comparison
+    - novelty based only on new software adoption
+    - novelty based only on stakeholder preference
+    - no distinction between local novelty and research novelty
+    calibration_anchor: A strong case identifies a known class of accreditation evidence-trace problems and argues that the
+      proposed design entity would produce reusable traceability knowledge not already supplied by existing compliance dashboards.
+    common_failure_modes:
+    - novelty_assertion_without_research_front
+    - local_first_time_as_research_novelty
+    - tool_adoption_mislabeled_as_methodological_contribution
+    - unclear_contribution_object
+    reviewer_notes: Score novelty conservatively when evidence only shows local unfamiliarity. Give higher scores only when
+      the novelty locus is explicit and compared against a research or artifact front.
+  - dimension_id: significance
+    label: Significance
+    definition: Practical, stakeholder, organizational, societal, scholarly, or methodological importance of the candidate
+      problem.
+    weight: 0.25
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - purao_2021:A03
+    - operational_synthesis:5.problem_space_theory
+    evidence_needed: At least one source-supported or stakeholder-supported statement of why the problem matters.
+    level_descriptors:
+      score_0_descriptor: No significance rationale is present, or the stated problem has no clear stakeholder, practice,
+        scholarly, or methodological importance.
+      score_1_descriptor: Significance is asserted but weakly evidenced; the problem appears to be a convenience topic, preference,
+        or minor local annoyance.
+      score_2_descriptor: The problem has plausible importance for a local setting or stakeholder group, but evidence of severity,
+        frequency, cost, risk, opportunity, or scholarly relevance is incomplete.
+      score_3_descriptor: The problem is clearly important to identifiable stakeholders, organizational processes, scholarly
+        discourse, methodological practice, or public/accountability concerns.
+      score_4_descriptor: The problem is highly significant across multiple justified dimensions, such as stakeholder burden,
+        institutional risk, methodological gap, compliance consequence, societal value, or cumulative DSR value.
+    minimum_evidence: At least one source-supported or stakeholder-supported statement of why the problem matters.
+    high_quality_evidence:
+    - evidence includes stakeholder burden, institutional risk, frequency, severity, cost, compliance exposure, or scholarly
+      gap
+    - significance is tied to problem_instance and problem_class
+    - the rationale distinguishes practical value from research value
+    - negative consequences of not acting are stated
+    weak_evidence_signals:
+    - significance based only on reviewer enthusiasm
+    - importance framed only as efficiency without consequences
+    - stakeholders unnamed or generic
+    - no evidence that the problem matters beyond a single requester
+    calibration_anchor: A strong higher education case shows that inconsistent program-learning-outcome evidence creates audit
+      risk, faculty workload burden, and weak reusable knowledge about evidence-to-competency mapping.
+    common_failure_modes:
+    - streetlight_problem_selection
+    - stakeholder_erasure
+    - minor_local_preference_as_major_problem
+    - significance_without_evidence
+    reviewer_notes: Do not require societal significance for every project; methodological, stakeholder, organizational, or
+      scholarly significance can be sufficient when well evidenced.
+  - dimension_id: tractability
+    label: Tractability
+    definition: Credible ability to investigate, design, demonstrate, and evaluate the candidate problem within constraints.
+    weight: 0.2
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - purao_2021:A03
+    - purao_2021:A16
+    evidence_needed: At least one constraints record and one plausible path for investigation, design, demonstration, or evaluation.
+    level_descriptors:
+      score_0_descriptor: The problem cannot currently be investigated, designed for, demonstrated, or evaluated under known
+        constraints.
+      score_1_descriptor: Major access, resource, governance, data, ethical, technical, or evaluation barriers are unresolved,
+        and the record lacks mitigation.
+      score_2_descriptor: The problem may be tractable if scope, access, resources, governance, or evaluation plans are constrained,
+        but key feasibility assumptions remain unverified.
+      score_3_descriptor: The record gives a credible route for investigation, artifact development, demonstration, and evaluation
+        within stated constraints.
+      score_4_descriptor: The record gives a robust tractability case, including access, governance, data, resources, evaluation
+        path, stakeholder participation, constraint mitigations, and feasible project boundaries.
+    minimum_evidence: At least one constraints record and one plausible path for investigation, design, demonstration, or
+      evaluation.
+    high_quality_evidence:
+    - constraints are classified and linked to scope decisions
+    - access and governance assumptions are evidenced
+    - candidate evaluation route is plausible
+    - known limitations are acknowledged rather than hidden
+    weak_evidence_signals:
+    - no access to necessary data or users
+    - evaluation assumed but not described
+    - scope too broad for available resources
+    - governance or ethics risks ignored
+    calibration_anchor: A strong case identifies available institutional records, stakeholder reviewers, feasible prototype
+      boundaries, and an evaluable outcome such as evidence completeness or reviewer agreement.
+    common_failure_modes:
+    - false_feasibility
+    - access_assumption
+    - unevaluable_problem
+    - overbroad_scope
+    - governance_blind_spot
+    reviewer_notes: High significance and novelty do not compensate for a problem that cannot be investigated or evaluated
+      responsibly.
+  - dimension_id: problem_class_abstraction
+    label: Problem-class abstraction
+    definition: Quality of abstraction from the situated problem instance to a reusable problem class.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - purao_2021:A09
+    - purao_2021:A20
+    - operational_synthesis:5.problem_space_theory
+    evidence_needed: Explicit problem_instance and problem_class fields plus a statement of how the instance abstracts to
+      the class.
+    level_descriptors:
+      score_0_descriptor: No problem_class is stated; the record contains only a local complaint, task, or implementation
+        request.
+      score_1_descriptor: A problem_class label is present but merely repeats the local case or uses an overbroad category
+        with no abstraction rationale.
+      score_2_descriptor: The record gives a plausible generic problem class but weakly explains how the local instance maps
+        to it or where its boundaries are.
+      score_3_descriptor: The record clearly abstracts from the local problem_instance to a reusable problem_class with boundary
+        conditions and examples of similar cases.
+      score_4_descriptor: 'The abstraction is precise, projectable, and useful for design knowledge: it identifies recurring
+        mechanisms, stakeholder roles, constraints, failure patterns, and non-applicability conditions.'
+    minimum_evidence: Explicit problem_instance and problem_class fields plus a statement of how the instance abstracts to
+      the class.
+    high_quality_evidence:
+    - abstraction preserves local details while identifying reusable mechanisms
+    - problem class is neither too narrow nor too broad
+    - boundary conditions and negative cases are stated
+    - the candidate contribution maps to the problem class
+    weak_evidence_signals:
+    - problem class is a renamed local setting
+    - problem class is a vague domain such as 'higher education quality'
+    - no mechanism connects instance and class
+    - abstraction erases stakeholder or context constraints
+    calibration_anchor: A strong case maps 'Course X lacks a usable evidence map' to 'programs need auditable mappings from
+      distributed course-level evidence to program-level competency claims under accreditation constraints.'
+    common_failure_modes:
+    - weak_problem_class_abstraction
+    - overlocalization
+    - overabstraction
+    - problem_class_label_without_mapping
+    reviewer_notes: Problem-class abstraction supports projectability, but it does not by itself prove generalizability.
+  - dimension_id: research_front_positioning
+    label: Research-front positioning
+    definition: Explicit positioning against prior research, current gap, unresolved front, prior artifacts, or current practice.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - purao_2021:A05
+    - purao_2021:A14
+    evidence_needed: At least one source-anchored or artifact-anchored statement of prior work, current practice, or unresolved
+      problem front.
+    level_descriptors:
+      score_0_descriptor: No research_front_or_gap is stated.
+      score_1_descriptor: The record lists generic literature or practice context but does not explain what is known, settled,
+        unresolved, or inadequate.
+      score_2_descriptor: The record gives a partial research-front or practice-front statement, but it lacks source anchors,
+        artifact comparison, or a clear gap-to-contribution relation.
+      score_3_descriptor: The record clearly positions the candidate problem against prior research, prior artifacts, current
+        practice, or unresolved design knowledge.
+      score_4_descriptor: The record provides a concise but robust research-front account showing prior attempts, known limitations,
+        unsettled design questions, and why this problem is positioned for DSR contribution.
+    minimum_evidence: At least one source-anchored or artifact-anchored statement of prior work, current practice, or unresolved
+      problem front.
+    high_quality_evidence:
+    - research_front_or_gap names prior research streams or artifact families
+    - current practice limitations are evidenced
+    - the candidate problem is connected to a contribution path
+    - the record distinguishes practice-generated problem origin from research-front positioning
+    weak_evidence_signals:
+    - literature listed without synthesis
+    - research gap phrased as 'little research exists' without search evidence
+    - front described only as local dissatisfaction
+    - no link between gap and artifact/design knowledge
+    calibration_anchor: A strong case compares existing assessment-management systems, accreditation-reporting literature,
+      and DSR traceability methods before stating the unresolved design problem.
+    common_failure_modes:
+    - novelty_assertion_without_research_front
+    - literature_dump_without_positioning
+    - practice_gap_without_knowledge_gap
+    - artifact_scan_absence
+    reviewer_notes: Do not penalize a practice-origin problem for not beginning with a literature gap; penalize it only when
+      it remains unpositioned against prior research or current artifact/practice knowledge.
+  - dimension_id: routine_design_risk
+    label: Routine design risk
+    definition: Risk that the work is only local application of known techniques without research contribution; reverse-scored
+      so higher scores mean lower routine-design risk.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better_reverse_scored_from_risk
+    source_anchor_ids:
+    - purao_2021:A13
+    - purao_2021:A14
+    evidence_needed: A routine_design_screen explaining why the problem is not merely local implementation or consulting.
+    level_descriptors:
+      score_0_descriptor: 'Blocking routine-design risk: the proposed work is plainly a local implementation, configuration,
+        consulting task, or standard improvement with no credible DSR contribution path.'
+      score_1_descriptor: 'High routine-design risk: the record asserts research value, but the work appears to apply known
+        techniques locally without new problem framing, artifact design, evaluation, or design knowledge.'
+      score_2_descriptor: 'Moderate routine-design risk: the work may become DSR-worthy if reframed around a reusable artifact,
+        method, evaluation insight, or design knowledge contribution.'
+      score_3_descriptor: 'Low routine-design risk: the record distinguishes local delivery from potential DSR contribution
+        and identifies a plausible reusable design-knowledge path.'
+      score_4_descriptor: 'Very low routine-design risk: the problem is clearly framed as DSR, with a nonlocal contribution
+        path, artifact/design-entity focus, research-front positioning, and evidence that the work exceeds routine application.'
+    minimum_evidence: A routine_design_screen explaining why the problem is not merely local implementation or consulting.
+    high_quality_evidence:
+    - candidate_contribution_claim is distinct from artifact delivery
+    - research-front positioning shows what is not routine
+    - problem class and reusable design knowledge are explicit
+    - expected evaluation can produce knowledge beyond local success
+    weak_evidence_signals:
+    - deliverable is only a dashboard, form, workflow, or report
+    - success is only local adoption
+    - no contribution beyond implementation
+    - known tool applied in known way to local setting
+    calibration_anchor: A strong case separates 'build a dashboard for our program' from 'develop and evaluate a reusable
+      evidence-trace design pattern for distributed curriculum assurance.'
+    common_failure_modes:
+    - routine_design_overclaim
+    - artifact_delivery_as_contribution
+    - consulting_project_rebranded_as_research
+    - implementation_success_as_knowledge_contribution
+    reviewer_notes: This dimension is reverse-scored. Score 4 means low risk; score 0 means blocking risk.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      integer_scores_required_by_dimension: true
+      overall_score_precision: 2
+      default_level_meanings:
+        '0': absent_or_blocked
+        '1': weak_or_asserted
+        '2': conditional_or_partially_supported
+        '3': strong_or_adequately_supported
+        '4': very_strong_or_exemplary
+    score_direction: higher_is_better_after_reverse_scoring
+    weight_sum_rule:
+      required_sum: 1.0
+      actual_sum: 1.0
+      tolerance: 0.0001
+    weighted_score_formula: sum(dimension_score * dimension_weight)
+    reverse_scoring_rule:
+      dimension_id: routine_design_risk
+      interpretation: Reviewer scores the adequacy of protection against routine-design risk; 4 means very low risk and 0
+        means blocking routine-design risk.
+      do_not_recalculate: Do not invert this score again during aggregation.
+    missing_evidence_rule:
+      required_inputs_missing: If any required input is absent, mark missing_input_flag and apply the relevant floor rule.
+      dimension_evidence_missing: If minimum evidence for a dimension is absent, assign 0 or 1 for that dimension even if
+        the narrative is persuasive.
+      unsupported_claims: Unsupported claims may be recorded but must not raise scores above 2 without source anchors, artifact
+        evidence, stakeholder evidence, or explicit expert reviewer judgment.
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_problem_instance
+      condition: problem_instance is absent
+      maximum_overall_rating: 1.5
+      allowed_decisions:
+      - reframe
+      - reject_or_defer
+      rationale: A DSR problem cannot be screened without a situated problem instance.
+    - rule_id: floor_missing_problem_class
+      condition: problem_class is absent or not abstracted from the problem_instance
+      maximum_overall_rating: 2.0
+      allowed_decisions:
+      - reframe
+      - treat_as_practice_project
+      - reject_or_defer
+      rationale: Projectable DSR knowledge requires movement from local instance to problem class.
+    - rule_id: floor_no_research_front_and_low_novelty
+      condition: research_front_positioning <= 1 and novelty <= 1
+      maximum_overall_rating: 2.0
+      allowed_decisions:
+      - reframe
+      - treat_as_practice_project
+      rationale: Novelty cannot be established when no research, practice, or artifact front is articulated.
+    - rule_id: floor_high_routine_design_risk
+      condition: routine_design_risk <= 1
+      maximum_overall_rating: 2.0
+      allowed_decisions:
+      - treat_as_practice_project
+      - reframe
+      rationale: Routine local application cannot be rescued by high local significance alone.
+    - rule_id: floor_tractability_blocked
+      condition: tractability == 0
+      maximum_overall_rating: 1.5
+      allowed_decisions:
+      - reject_or_defer
+      - reframe
+      rationale: A problem that cannot currently be investigated, designed for, demonstrated, or evaluated should not proceed
+        as DSR.
+    - rule_id: floor_significance_absent
+      condition: significance == 0
+      maximum_overall_rating: 1.5
+      allowed_decisions:
+      - reject_or_defer
+      - reframe
+      rationale: A DSR problem requires practical, stakeholder, scholarly, methodological, or societal significance.
+    - rule_id: floor_unsupported_overclaiming
+      condition: candidate_contribution_claim is broad but novelty, evidence, or research_front support is weak
+      maximum_overall_rating: 2.5
+      allowed_decisions:
+      - proceed_with_constraints
+      - reframe
+      - treat_as_practice_project
+      rationale: Overclaiming must be corrected before high research-worthiness can be assigned.
+  level_descriptors:
+    score_0: absent_or_blocked
+    score_1: weak_or_asserted
+    score_2: conditional_or_partially_supported
+    score_3: strong_or_adequately_supported
+    score_4: very_strong_or_exemplary
+    anchor_examples:
+      score_4: A well-evidenced DSR problem with explicit instance, class, significance, research-front positioning, tractability,
+        and low routine-design risk.
+      score_3: A credible DSR problem with adequate evidence and only minor gaps.
+      score_2: A plausible but underdeveloped candidate requiring reframing, additional evidence, or narrowed constraints.
+      score_1: A weakly asserted candidate that is more likely practice improvement unless substantially reframed.
+      score_0: A blocked or absent problem formulation.
+    borderline_cases:
+    - A locally significant compliance pain point with weak research-front positioning should usually score around 2 unless
+      a reusable design-knowledge contribution is articulated.
+    - A theoretically novel but inaccessible problem should be capped by tractability.
+    - A known technique applied in a new institutional unit should not score high on novelty unless the problem class, design
+      entity, evaluation, or design knowledge differs materially.
+  decision_thresholds:
+    decision_values:
+    - proceed
+    - proceed_with_constraints
+    - reframe
+    - treat_as_practice_project
+    - reject_or_defer
+    proceed_or_ready_threshold:
+      decision: proceed
+      weighted_score_minimum: 3.25
+      required_dimension_floors:
+        novelty: 3
+        significance: 3
+        tractability: 2
+        problem_class_abstraction: 3
+        research_front_positioning: 3
+        routine_design_risk: 3
+      additional_conditions:
+      - no blocking_issue human_review_flags
+      - no non_compensatory_floor_rule active
+      - candidate_contribution_claim identifies a plausible DSR contribution path
+    revise_threshold:
+      decision: proceed_with_constraints
+      weighted_score_range:
+      - 2.6
+      - 3.24
+      conditions:
+      - no blocking tractability or significance condition
+      - gaps can be resolved without changing the basic problem class
+      - routine_design_risk >= 2
+    reframe_threshold:
+      decision: reframe
+      weighted_score_range:
+      - 1.8
+      - 2.59
+      conditions:
+      - problem may become DSR-worthy after reframing
+      - problem_instance or problem_class may need revision
+      - research_front_or_gap may be insufficient
+    practice_project_threshold:
+      decision: treat_as_practice_project
+      conditions:
+      - routine_design_risk <= 1
+      - novelty <= 1 and significance is mainly local
+      - candidate_contribution_claim collapses into artifact delivery or consulting output
+    stop_or_reframe_threshold:
+      decision: reject_or_defer
+      weighted_score_maximum: 1.79
+      conditions:
+      - significance absent
+      - tractability blocked
+      - problem is not artifact-centered and cannot be reframed as DSR
+      - ethical, governance, access, or evidence constraints make responsible inquiry impossible at this time
+    dimension_floor_rules: See scoring_model.non_compensatory_floor_rules.
+    human_review_triggers:
+    - trigger_id: ambiguity_trigger
+      condition: reviewer cannot distinguish problem_instance, problem_class, artifact idea, and contribution claim
+      severity: major_warning
+    - trigger_id: source_gap_trigger
+      condition: novelty or research-front positioning relies on unsupported claims
+      severity: major_warning
+    - trigger_id: ethical_risk_trigger
+      condition: problem involves identifiable stakeholders, sensitive data, coercive incentives, privacy/security risk, or
+        high stakeholder burden
+      severity: major_warning
+    - trigger_id: evidence_sufficiency_trigger
+      condition: significance or tractability depends on anecdotal or single-stakeholder claims only
+      severity: warning
+    - trigger_id: overclaiming_trigger
+      condition: candidate_contribution_claim exceeds novelty, evidence, evaluation possibility, or projectability support
+      severity: major_warning
+    - trigger_id: routine_design_trigger
+      condition: work appears to be implementation, consulting, configuration, or local process improvement only
+      severity: blocking_issue
+  calibration_guidance:
+    reviewer_preparation:
+    - Review the problem_instance, problem_class, relevance_justification, research_front_or_gap, candidate_contribution_claim,
+      and constraints before scoring.
+    - Identify which claims are source-supported and which are reviewer judgment.
+    - Score each dimension independently before calculating the weighted score.
+    - Apply non_compensatory_floor_rules after weighted scoring.
+    anchor_examples:
+    - anchor_id: strong_anchor
+      rating_band: proceed
+      summary: A practice-origin problem is mapped to a recurring problem class, positioned against prior research and existing
+        artifacts, shown to matter to multiple stakeholders, and scoped for feasible design and evaluation.
+      expected_pattern:
+        novelty: 3_or_4
+        significance: 3_or_4
+        tractability: 3_or_4
+        problem_class_abstraction: 3_or_4
+        research_front_positioning: 3_or_4
+        routine_design_risk: 3_or_4
+    - anchor_id: borderline_anchor
+      rating_band: proceed_with_constraints_or_reframe
+      summary: A locally important institutional problem is plausible but has thin research-front positioning and a contribution
+        claim that may collapse into implementation.
+      expected_pattern:
+        novelty: '2'
+        significance: '3'
+        tractability: 2_or_3
+        problem_class_abstraction: '2'
+        research_front_positioning: 1_or_2
+        routine_design_risk: '2'
+    - anchor_id: weak_anchor
+      rating_band: treat_as_practice_project_or_reject_or_defer
+      summary: A requested local dashboard, form, or workflow is useful but lacks problem-class abstraction, research-front
+        positioning, and contribution beyond delivery.
+      expected_pattern:
+        novelty: 0_or_1
+        significance: 1_or_2
+        tractability: 2_or_3
+        problem_class_abstraction: 0_or_1
+        research_front_positioning: 0_or_1
+        routine_design_risk: 0_or_1
+    calibration_rounds:
+    - 'Round 1: score three known examples independently.'
+    - 'Round 2: compare dimension-level disagreements larger than one point.'
+    - 'Round 3: reconcile source-supported evidence vs reviewer judgment and update notes.'
+    - 'Round 4: reapply floor rules and check decision consistency.'
+    inter_rater_reconciliation:
+    - When reviewers differ by two or more points on novelty, require explicit comparison to research_front_or_gap.
+    - When reviewers differ on routine_design_risk, require a written distinction between local deliverable and design-knowledge
+      contribution.
+    - When reviewers differ on tractability, separate access feasibility from evaluation feasibility.
+    drift_checks:
+    - Check that novelty standards do not drift toward local novelty only.
+    - Check that practice-generated problems are not unfairly penalized for not beginning from literature gaps.
+    - Check that high significance does not mask routine-design risk.
+    - Check that schema presence does not get mistaken for evidence adequacy.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      novelty: At least one comparison to prior research, current practice, prior artifacts, or settled techniques.
+      significance: At least one source-supported or stakeholder-supported statement of why the problem matters.
+      tractability: At least one constraints record and one plausible path for investigation, design, demonstration, or evaluation.
+      problem_class_abstraction: Explicit problem_instance and problem_class fields plus a statement of how the instance abstracts
+        to the class.
+      research_front_positioning: At least one source-anchored or artifact-anchored statement of prior work, current practice,
+        or unresolved problem front.
+      routine_design_risk: A routine_design_screen explaining why the problem is not merely local implementation or consulting.
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Each high score on novelty or research_front_positioning should include source anchors or artifact/practice-front evidence.
+    - Each high score on significance should include stakeholder, institutional, scholarly, methodological, societal, or empirical
+      evidence.
+    - Each high score on tractability should include constraints and a plausible evidence-generation route.
+    - Each low routine_design_risk assessment should include a contribution path beyond local delivery.
+    evidence_quality_notes:
+    - Stakeholder claims are acceptable for relevance but weak alone for novelty.
+    - Literature lists are weak unless synthesized into a research-front position.
+    - A local problem can be research-worthy when it is abstracted to a problem class and positioned for reusable design knowledge.
+    - Reviewer judgment can support scoring but should be explicitly marked as such.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: streetlight_problem_selection
+    warning_condition: The problem is selected because evidence is easy to access or tools are familiar, not because the problem
+      is significant and research-worthy.
+    severity: major_warning
+    recommended_response: Require a revised relevance_justification and significance rationale.
+  - anti_pattern_id: myopic_problem_formulation
+    warning_condition: The framing remains trapped in the local stakeholder's immediate problem statement and does not explore
+      broader mechanisms or problem classes.
+    severity: major_warning
+    recommended_response: Develop problem_class abstraction and boundary conditions.
+  - anti_pattern_id: routine_design_overclaim
+    warning_condition: A routine implementation, configuration, dashboard, workflow, or consulting deliverable is described
+      as DSR without a contribution path.
+    severity: blocking_issue
+    recommended_response: Treat as practice project or reframe around reusable artifact/design knowledge and evaluation.
+  - anti_pattern_id: weak_problem_class_abstraction
+    warning_condition: The problem_class is absent, vague, overbroad, or merely a restatement of the local instance.
+    severity: major_warning
+    recommended_response: Write an instance-to-class abstraction rationale and identify similar cases or mechanisms.
+  - anti_pattern_id: novelty_assertion_without_research_front
+    warning_condition: Novelty is claimed without comparison to prior research, prior artifacts, current practice, or unresolved
+      design knowledge.
+    severity: major_warning
+    recommended_response: Add research_front_or_gap evidence and revise novelty_rationale.
+  - anti_pattern_id: practice_gap_without_knowledge_gap
+    warning_condition: The problem matters locally but the record does not explain what could be learned beyond solving the
+      local case.
+    severity: warning
+    recommended_response: Clarify candidate_contribution_claim and projectability path.
+  - anti_pattern_id: tractability_optimism
+    warning_condition: The record assumes access, data, approvals, stakeholder participation, or evaluation feasibility without
+      evidence.
+    severity: major_warning
+    recommended_response: Add constraints, prerequisites, and a feasible evaluation route.
+  traceability_requirements:
+  - trace_id: source_to_concept
+    required: true
+    description: Map each major construct to source anchors or framework anchors.
+    minimum_trace: construct_definitions.term_id -> source_anchor_ids
+  - trace_id: concept_to_schema_field
+    required: true
+    description: Map assessed concepts to problem_space schema fields.
+    minimum_trace: research_worthiness dimensions -> problem_space.research_worthiness.*
+  - trace_id: problem_instance_to_problem_class
+    required: true
+    description: Show how the situated problem abstracts to the problem class.
+    minimum_trace: problem_instance -> abstracts_to -> problem_class
+  - trace_id: problem_to_requirement
+    required: false
+    description: Not required for initial research-worthiness, but note likely problem-to-requirement implications when visible.
+    minimum_trace: problem factor -> possible objective or requirement
+  - trace_id: requirement_to_design_decision
+    required: false
+    description: Not required at this stage; flag if premature design decisions are driving problem formulation.
+    minimum_trace: possible requirement -> candidate design decision
+  - trace_id: design_decision_to_evaluation
+    required: false
+    description: Not required at this stage; evaluate in downstream rubrics.
+    minimum_trace: candidate design decision -> possible evaluation criterion
+  - trace_id: evaluation_to_design_knowledge
+    required: false
+    description: At this stage, require only a plausible future evidence route.
+    minimum_trace: candidate evaluation route -> possible design knowledge
+  - trace_id: design_knowledge_to_contribution
+    required: true
+    description: The candidate_contribution_claim should indicate how solving the problem may produce reusable or projectable
+      design knowledge.
+    minimum_trace: candidate design knowledge -> candidate_contribution_claim
+  - trace_id: evidence_to_claim
+    required: true
+    description: Evidence should support significance, novelty, tractability, routine-design screening, and decision.
+    minimum_trace: evidence item -> dimension score rationale
+  validation_implications:
+    json_schema_fields:
+    - field_path: problem_space.research_worthiness.overall_research_worthiness_rating
+      type: number
+      minimum: 0
+      maximum: 4
+      required: true
+    - field_path: problem_space.research_worthiness.dimension_scores
+      type: object
+      required_keys:
+      - novelty
+      - significance
+      - tractability
+      - problem_class_abstraction
+      - research_front_positioning
+      - routine_design_risk
+      required: true
+    - field_path: problem_space.research_worthiness.decision
+      type: string
+      enum:
+      - proceed
+      - proceed_with_constraints
+      - reframe
+      - treat_as_practice_project
+      - reject_or_defer
+      required: true
+    - field_path: problem_space.research_worthiness.human_review_flags
+      type: array
+      required: true
+    - field_path: problem_space.problem_instance
+      type: object_or_string
+      required: true
+    - field_path: problem_space.problem_class
+      type: object_or_string
+      required: true
+    - field_path: problem_space.research_front_or_gap
+      type: object_or_string
+      required: true
+    - field_path: problem_space.constraints
+      type: array_or_object
+      required: true
+    shacl_shapes_or_warnings:
+    - shape_id: dsr:ProblemResearchWorthinessShape
+      target_class: dsr:ProblemSpace
+      severity: sh:Warning
+      message: ProblemSpace should include research-worthiness scoring fields before artifact development.
+      machine_validatable: true
+    - shape_id: dsr:ProblemInstancePresenceShape
+      target_class: dsr:ProblemSpace
+      property_path: dsr:hasProblemInstance
+      min_count: 1
+      severity: sh:Warning
+      machine_validatable: true
+    - shape_id: dsr:ProblemClassPresenceShape
+      target_class: dsr:ProblemSpace
+      property_path: dsr:abstractsToProblemClass
+      min_count: 1
+      severity: sh:Warning
+      machine_validatable: true
+    - shape_id: dsr:ResearchFrontPresenceShape
+      target_class: dsr:ProblemSpace
+      property_path: dsr:hasResearchFront
+      min_count: 1
+      severity: sh:Warning
+      machine_validatable: true
+    - shape_id: dsr:RoutineDesignRiskReviewShape
+      target_class: dsr:ProblemSpace
+      severity: sh:Warning
+      message: Routine-design risk detection requires manual review of contribution claims and evidence.
+      machine_validatable: false
+    controlled_vocabularies:
+    - vocabulary_id: research_worthiness_dimension_scheme
+      values:
+      - novelty
+      - significance
+      - tractability
+      - problem_class_abstraction
+      - research_front_positioning
+      - routine_design_risk
+    - vocabulary_id: research_worthiness_decision_values
+      values:
+      - proceed
+      - proceed_with_constraints
+      - reframe
+      - treat_as_practice_project
+      - reject_or_defer
+    - vocabulary_id: research_worthiness_human_review_flag_values
+      values:
+      - ambiguity
+      - source_gap
+      - ethical_risk
+      - evidence_sufficiency
+      - overclaiming
+      - routine_design
+    python_validation_logic:
+    - validate_required_inputs_present
+    - validate_dimension_score_range_0_to_4
+    - validate_weights_sum_to_1
+    - calculate_weighted_score
+    - apply_non_compensatory_floor_rules
+    - validate_decision_value_enum
+    - warn_if_high_scores_lack_source_anchors
+    - warn_if_routine_design_risk_low_but_decision_is_proceed
+    manual_review_only_checks:
+    - adequacy_of_novelty_evidence
+    - adequacy_of_significance_evidence
+    - research_front_fit
+    - ethical_acceptability
+    - whether_candidate_contribution_is_genuine_dsr_design_knowledge
+    - whether_problem_class_abstraction_is neither too local nor too broad
+    - whether routine_design_risk is being underreported
+    source_crosswalk_implications:
+    - source: purao_2021
+      crosswalk_items:
+      - research_worthiness_dimension_scheme
+      - problem_instance
+      - problem_class
+      - research_front
+      - routine_design_overclaim_warning
+      - problem_representation_trace
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_exemplary_higher_education
+    label: Exemplary or strong
+    scenario: A university quality-assurance team proposes a DSR project to design and evaluate a reusable evidence-trace
+      artifact that maps course-level learning evidence to program-level competency claims across programs.
+    evidence_summary: The record identifies a local accreditation burden, abstracts it to a recurring program-evidence traceability
+      problem class, compares current assessment systems and DSR traceability literature, states stakeholder and compliance
+      significance, and shows access to sample records and reviewers.
+    illustrative_scores:
+      novelty: 4
+      significance: 4
+      tractability: 3
+      problem_class_abstraction: 4
+      research_front_positioning: 3
+      routine_design_risk: 4
+    weighted_score: 3.8
+    decision: proceed
+    rationale: The problem is significant, research-positioned, feasible, and plausibly capable of producing reusable design
+      knowledge beyond the local implementation.
+  - vignette_id: borderline_conditional_higher_education
+    label: Borderline or conditional
+    scenario: A department wants to build an advising-risk dashboard because current advising notes are inconsistent and student
+      support actions are hard to coordinate.
+    evidence_summary: The issue is locally important and likely tractable, but the record has weak research-front positioning
+      and has not yet abstracted the problem beyond one department or shown what design knowledge would be produced.
+    illustrative_scores:
+      novelty: 2
+      significance: 3
+      tractability: 3
+      problem_class_abstraction: 2
+      research_front_positioning: 1
+      routine_design_risk: 2
+    weighted_score: 2.35
+    decision: reframe
+    rationale: The project may become DSR-worthy if reframed around a reusable design pattern, artifact class, or evaluation
+      insight rather than local dashboard delivery.
+  - vignette_id: weak_not_ready_higher_education
+    label: Weak or not ready
+    scenario: A unit requests automation of a spreadsheet-based annual report using a known workflow tool.
+    evidence_summary: The work is useful but lacks a research-front account, problem-class abstraction, novelty rationale,
+      and contribution beyond local implementation.
+    illustrative_scores:
+      novelty: 1
+      significance: 2
+      tractability: 3
+      problem_class_abstraction: 0
+      research_front_positioning: 0
+      routine_design_risk: 0
+    weighted_score: 1.35
+    decision: treat_as_practice_project
+    rationale: The work should be managed as routine practice improvement unless it is substantially reframed around reusable
+      design knowledge and evaluated accordingly.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use the overall weighted score as an initial summary, not as a substitute for dimension-level review.
+    - Always inspect floor rules before accepting a proceed decision.
+    - A score near 2 means the problem may be worth developing but is not yet sufficiently framed for DSR.
+    - A high tractability score does not compensate for low novelty or high routine-design risk.
+    - A high significance score does not by itself make a problem DSR-worthy.
+    what_not_to_infer:
+    - Do not infer that a high research-worthiness score proves the final artifact will be successful.
+    - Do not infer that the problem is ethically acceptable, governable, or low risk without responsible-design review.
+    - Do not infer that the candidate contribution is already valid or publishable; this rubric assesses early problem-worthiness
+      only.
+    - Do not infer that a low score means the practical problem is unimportant; it may be better treated as practice improvement,
+      consulting, operations, or prerequisite work.
+    - Do not infer empirical validity from the presence of source anchors; anchors support claims but do not replace evaluation.
+    - Do not infer generalizability from problem_class_abstraction; projectability and boundary conditions require later review.
+    - Do not infer that machine-validatable fields can determine adequacy, novelty, significance, or ethical acceptability
+      without human judgment.
+    relationship_to_adjacent_rubrics:
+    - rubric_id: problem_solvability_rubric
+      relationship: Use next when research-worthiness is plausible but feasibility, access, governance, resources, or evaluation
+        route need deeper screening.
+    - rubric_id: problem_framing_quality_rubric
+      relationship: Use next to assess whether the problem representation is sufficiently clear for objectives, requirements,
+        artifact design, and contribution claims.
+    - rubric_id: requirements_traceability_rubric
+      relationship: Use after problem framing to evaluate whether objectives and requirements are traceably derived.
+    - rubric_id: contribution_quality_rubric
+      relationship: Use later to assess whether the eventual contribution claim is justified, reusable, projectable, and evidence-supported.
+    known_limitations:
+    - The rubric is an ex ante screening tool and should be revisited as the problem representation changes.
+    - The rubric relies on human judgment for adequacy, source interpretation, and routine-design screening.
+    - The rubric may need domain-specific calibration for clinical, legal, high-risk, classified, or highly regulated contexts.
+    - The rubric does not replace institutional review, stakeholder governance, or data/privacy/security review.
+  quality_control:
+    completeness_check:
+    - All required_inputs are represented.
+    - All required_outputs are represented.
+    - All six required assessment_dimensions are present.
+    - Every dimension has score descriptors for 0, 1, 2, 3, and 4.
+    - Weights sum to 1.0.
+    - Decision values match the prompt.
+    - At least three scoring vignettes are included.
+    - what_not_to_infer is included under interpretation_guidance.
+    ambiguity_check:
+    - Confirm problem_instance and problem_class are not conflated.
+    - Confirm novelty and research_front_positioning are scored separately.
+    - Confirm routine_design_risk is reverse-scored correctly.
+    - Confirm unsupported claims are not treated as source-supported.
+    - Confirm soft source guidance is not converted into hard SHACL violations without support.
+    human_review_recommendation:
+      recommended: true
+      reason: Research-worthiness, novelty, significance, problem-class abstraction, and routine-design risk require expert
+        human review.
+    source_gap_notes:
+    - Purao anchors support novelty, significance, tractability, problem instance/class articulation, research-front positioning,
+      and routine design screening.
+    - Operational synthesis anchors support broader problem-space architecture and traceability expectations.
+    - Downstream ontology, SKOS, schema, and SHACL implications should be reconciled against current repo files before release.
+    machine_readiness_check:
+      yaml_parseable: true
+      weights_sum_to_1: true
+      schema_ready: partial
+      manual_review_required: true
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready draft generated from prompt_problem_research_worthiness_rubric, rubric generation
+      spec v0.1.0, Purao problem-space extraction, operational synthesis, and concept-inventory conventions.
+    changed_by: gpt_5_5_thinking

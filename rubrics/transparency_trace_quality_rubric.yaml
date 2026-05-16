@@ -1,0 +1,1398 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: transparency_trace_quality_rubric
+    label: Transparency Trace Quality Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/transparency_trace_quality_rubric.yaml
+    local_file_name: transparency_trace_quality_rubric.yaml
+    assessment_target: communication_space.transparency_trace
+    priority: core
+    lifecycle_phase: documentation_and_communication
+    prompt_id: prompt_transparency_trace_quality_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - design_rationale_build_trace_rubric
+    - evaluation_alignment_quality_rubric
+    - contribution_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_source_anchors_and_burden_markers; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Does the DSR record provide enough process, problem-space, solution-space, build, evaluation, and contribution
+      transparency for review, reuse, and trust?
+    when_to_use:
+    - throughout DSR documentation rather than only at final reporting
+    - before repository release, scholarly communication, thesis review, practitioner handoff, or reuse packaging
+    - when auditing whether a DSR record supports reviewability, trust, source anchoring, reuse, replication, or projectability
+    - after major changes to problem framing, solution grounding, artifact build, evaluation design, evaluation findings,
+      contribution claims, or source materials
+    - when deciding whether withheld, sensitive, proprietary, or high-volume materials have been responsibly summarized and
+      bounded
+    when_not_to_use:
+    - do not use as a substitute for design_rationale_build_trace_rubric; this rubric checks transparency across the whole
+      DSR record, not detailed build-rationale adequacy alone
+    - do not use as a substitute for evaluation_alignment_quality_rubric; transparent evaluation documentation may still be
+      methodologically misaligned
+    - do not use as a substitute for contribution_quality_rubric; transparent contribution documentation may still overclaim
+      or lack novelty
+    - do not use to require public release of confidential, private, proprietary, unsafe, or ethically sensitive materials
+      when responsible restricted disclosure is appropriate
+    - do not treat a high score as proof that the artifact is effective, generalizable, ethical, legally compliant, or production-ready
+    - do not impose the six transparency forms as a rigid universal checklist when a form is explicitly not applicable and
+      the non-applicability rationale is reviewable
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - journal_or_conference_reviewer
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - artifact_designer
+    - technical_implementer
+    - evaluation_lead
+    - artifact_maintainer
+    - replication_or_reuse_reviewer
+    - documentation_engineer
+    unit_of_assessment: one_communication_space_transparency_trace_record_for_a_candidate_active_or_completed_dsr_study
+    boundary_conditions:
+    - The rubric assesses the transparency trace of a DSR record, not the substantive correctness of every claim in the record.
+    - Transparency quality is judged relative to artifact risk, claim scope, stakeholder burden, confidentiality constraints,
+      evidence maturity, and intended audience.
+    - The six transparency forms are treated as documentation forms to consider and justify, not as absolute public-disclosure
+      obligations.
+    - Machine validation may check field presence, identifiers, source anchors, trace links, missing rationale, and overload/underload
+      signals; adequacy, proportionality, evidence sufficiency, and responsible redaction remain human-review judgments.
+    - A transparent record may still contain provisional, partial, or negative findings when those limitations are explicitly
+      documented and linked to claims.
+    assumptions:
+    - Research transparency in DSR must make the production of artifacts and design knowledge inspectable enough for review,
+      reuse, critique, accumulation, and trust.
+    - Transparency includes process, problem-space, solution-space, build, evaluation, and contribution documentation, plus
+      source anchors and traceability edges across those spaces.
+    - Transparency can fail through opacity, unsupported claims, artifact black boxing, ex-post DSR-ification, or excessive
+      documentation that prevents practical review.
+    - Responsible transparency may require summarization, redaction, access controls, or non-public evidence registries rather
+      than unrestricted disclosure.
+  source_grounding:
+    source_families_to_consult:
+    - hevner_et_al_2024_transparency_in_design_science_research_extraction
+    - vom_brocke_maedche_2019_dsr_grid_six_core_dimensions_extraction
+    - vom_brocke_gau_maedche_2021_journaling_dsr_process_extraction
+    - concept_inventory.communication_space_and_transparency_documentation_terms
+    - dsr_skos_controlled_vocabulary.transparency_documentation_terms
+    - dsr_ontology_competency_questions.communication_and_traceability_questions
+    - documentation_protocol
+    - design_rationale_build_trace_rubric
+    - evaluation_alignment_quality_rubric
+    - contribution_quality_rubric
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - design_rationale_build_trace_rubric.yaml
+    - evaluation_alignment_quality_rubric.yaml
+    - contribution_quality_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major transparency judgment should cite a source_anchor_id, repository artifact, trace edge, evidence
+        record, or explicit reviewer_judgment marker.
+      preferred: Use Hevner et al. (2024) anchors for six transparency forms; use DSR Grid and journaling anchors for planning,
+        communication, and process-log support; use adjacent rubrics for build, evaluation, and contribution dependencies.
+      do_not_do: Do not treat missing public disclosure as a defect when the record supplies a credible transparency constraint,
+        protected evidence summary, and review pathway.
+    unsupported_claim_policy:
+      rule: Claims without source anchors, evidence records, trace edges, or explicit reviewer_judgment labels must be marked
+        unsupported_claim.
+      effect: Unsupported claims trigger human_review and may activate non_compensatory_floor_rules when they affect artifact,
+        evaluation, contribution, reuse, or projectability claims.
+    source_supported_claims:
+    - claim_id: src_claim_six_transparency_forms
+      claim: A DSR Transparency Framework can be organized around process, problem-space, solution-space, build, evaluation,
+        and contribution transparency.
+      source_family: hevner_et_al_2024_transparency_in_design_science_research_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A01
+      - hevner_et_al_2024:A05
+      obligation_status: recommended
+      framework_use: Define the primary transparency dimensions, while allowing justified not_applicable handling and proportional
+        disclosure.
+    - claim_id: src_claim_process_transparency
+      claim: Process transparency concerns activities, reasons, outcomes, emergent decisions, and context in the generation
+        of artifacts and design knowledge.
+      source_family: hevner_et_al_2024_transparency_in_design_science_research_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A06
+      obligation_status: recommended
+      framework_use: Support the process_transparency dimension and journaling trace requirements.
+    - claim_id: src_claim_problem_solution_build_evaluation_contribution_forms
+      claim: Problem, solution, build, evaluation, and contribution transparency require distinct documentation of scope,
+        knowledge grounding, design construction, evaluation evidence, and science/practice impacts.
+      source_family: hevner_et_al_2024_transparency_in_design_science_research_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A07
+      - hevner_et_al_2024:A08
+      - hevner_et_al_2024:A09
+      - hevner_et_al_2024:A10
+      - hevner_et_al_2024:A11
+      obligation_status: recommended
+      framework_use: Support dimensions for problem_space_transparency, solution_space_transparency, build_transparency, evaluation_transparency,
+        and contribution_transparency.
+    - claim_id: src_claim_avoid_rigid_checklist
+      claim: Detailed prescriptive DSR transparency checklists are premature; transparency rules should be guidance- and review-oriented
+        rather than automatic hard failures.
+      source_family: hevner_et_al_2024_transparency_in_design_science_research_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A13
+      obligation_status: conditional
+      framework_use: Keep most validation implications at warning, info, or manual_review severity rather than hard SHACL
+        violations.
+    - claim_id: src_claim_journaling_supports_traceability
+      claim: Journaling the DSR process supports transparency about the making of design knowledge by recording activities,
+        decisions, rationale, and evolution over time.
+      source_family: vom_brocke_gau_maedche_2021_journaling_dsr_process_extraction
+      source_anchor_ids:
+      - vom_brocke_gau_maedche_2021:A01
+      - vom_brocke_gau_maedche_2021:A03
+      - vom_brocke_gau_maedche_2021:A06
+      obligation_status: recommended
+      framework_use: Support process_trace, decision_trace, and versioned transparency records.
+    - claim_id: src_claim_dsr_grid_reporting
+      claim: The DSR Grid supports planning and communicating DSR projects through dimensions such as problem, input knowledge,
+        process, key concepts, solution, and output knowledge.
+      source_family: vom_brocke_maedche_2019_dsr_grid_six_core_dimensions_extraction
+      source_anchor_ids:
+      - vom_brocke_maedche_2019:A01
+      - vom_brocke_maedche_2019:A07
+      obligation_status: recommended
+      framework_use: Support crosswalk from DSR record spaces to communication transparency fields.
+  construct_definitions:
+  - term_id: transparency_trace
+    label: Transparency Trace
+    definition: A documentation structure that records what was done, why, with what evidence, under what constraints, and
+      with which source anchors or trace links across DSR process, problem, solution, build, evaluation, and contribution
+      spaces.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A01
+    - concept_inventory.communication_space
+  - term_id: process_transparency
+    label: Process Transparency
+    definition: Transparency about method, sequence, iteration, decisions, roles, researcher/stakeholder involvement, and
+      changes during the DSR process.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A06
+    - vom_brocke_gau_maedche_2021:A03
+  - term_id: problem_space_transparency
+    label: Problem-Space Transparency
+    definition: Transparency about problem instance, problem class, motivation, scope, assumptions, stakeholders, requirements,
+      boundary conditions, and changes in problem representation.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A07
+  - term_id: solution_space_transparency
+    label: Solution-Space Transparency
+    definition: Transparency about input knowledge, knowledge bases, prior artifacts, theories, technologies, solution alternatives,
+      design options, and selected solution logic.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A08
+  - term_id: build_transparency
+    label: Build Transparency
+    definition: Transparency about artifact construction, design search, design rationale, implementation choices, versioning,
+      collaboration, and build evidence.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A09
+    - design_rationale_build_trace_rubric
+  - term_id: evaluation_transparency
+    label: Evaluation Transparency
+    definition: Transparency about evaluation object, criteria, evidence, data, methods, measures, findings, validity limits,
+      stakeholder confidence, and links from findings to claims.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A10
+    - evaluation_alignment_quality_rubric
+  - term_id: contribution_transparency
+    label: Contribution Transparency
+    definition: Transparency about contribution object, novelty, design knowledge, evidence basis, knowledge scope, audience,
+      boundary conditions, and science/practice implications.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A11
+    - contribution_quality_rubric
+  - term_id: source_anchor
+    label: Source Anchor
+    definition: A stable identifier linking a claim, definition, evidence statement, decision, or rubric judgment to a source
+      record, repository artifact, file location, or reviewable evidence item.
+    controlled_vocabulary_status: required
+    source_support:
+    - dsr_source_operational_extraction_template
+    - documentation_protocol
+  - term_id: transparency_burden_balance
+    label: Transparency Burden Balance
+    definition: The proportionality judgment that documentation is neither too opaque for review nor too voluminous, redundant,
+      sensitive, or unusable for its intended audience.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - hevner_et_al_2024:A13
+  - term_id: traceability_edge
+    label: Traceability Edge
+    definition: A typed link connecting source, concept, problem, requirement, design decision, artifact component, evaluation
+      evidence, finding, design knowledge, or contribution claim.
+    controlled_vocabulary_status: recommended
+    source_support:
+    - concept_inventory.traceability_terms
+    - dsr_ontology_competency_questions
+  required_inputs:
+  - input_field: process_trace
+    description: Process documentation covering method, sequence, iteration, decisions, researcher roles, stakeholder roles,
+      and material changes.
+    obligation_status: required
+    accepted_format:
+    - yaml_record
+    - markdown_log
+    - repository_artifact
+    - decision_log
+    - version_history
+    minimum_evidence: At least one process record with dated or versioned activities and source anchors or reviewer_judgment
+      labels for material decisions.
+  - input_field: problem_space_trace
+    description: Problem-space documentation covering problem instance, problem class, motivation, assumptions, stakeholders,
+      boundary conditions, and framing changes.
+    obligation_status: required
+    accepted_format:
+    - yaml_record
+    - problem_statement
+    - stakeholder_claim_ledger
+    - boundary_condition_register
+    minimum_evidence: Problem instance and problem class are stated and linked to motivation, assumptions, and boundary conditions.
+  - input_field: solution_space_trace
+    description: Solution-space documentation covering input knowledge, prior artifacts, theories, methods, technologies,
+      alternatives, and selected design logic.
+    obligation_status: required
+    accepted_format:
+    - yaml_record
+    - source_crosswalk
+    - literature_matrix
+    - solution_alternative_table
+    - design_option_log
+    minimum_evidence: Input knowledge and at least one considered alternative or prior artifact are linked to design reasoning.
+  - input_field: build_trace
+    description: Build documentation covering design decisions, rationale, implementation/construction evidence, versions,
+      dependencies, and changes.
+    obligation_status: required
+    accepted_format:
+    - yaml_record
+    - design_decision_log
+    - commit_history
+    - build_notes
+    - prototype_documentation
+    - artifact_specification
+    minimum_evidence: Material design decisions and build versions are identifiable and linked to rationale or requirements.
+  - input_field: evaluation_trace
+    description: Evaluation documentation covering object, criteria, methods, measures, data/evidence, findings, validity
+      threats, and limitations.
+    obligation_status: required
+    accepted_format:
+    - yaml_record
+    - evaluation_plan
+    - analysis_record
+    - evidence_table
+    - findings_to_claims_matrix
+    minimum_evidence: Evaluation object, criteria, evidence mode, findings, and limitations are documented or explicitly marked
+      not_yet_evaluated with rationale.
+  - input_field: contribution_trace
+    description: Contribution documentation covering contribution object, novelty, evidence basis, knowledge goal, knowledge
+      scope, boundary conditions, and audience.
+    obligation_status: required
+    accepted_format:
+    - yaml_record
+    - contribution_statement
+    - design_knowledge_record
+    - projectability_statement
+    - audience_crosswalk
+    minimum_evidence: Contribution claim is explicitly linked to artifact, evaluation evidence, boundary conditions, and intended
+      audience.
+  - input_field: source_anchors
+    description: Stable anchors for source-supported claims, repository artifacts, evidence records, and reviewer judgments.
+    obligation_status: required
+    accepted_format:
+    - source_anchor_list
+    - citation_anchor_id
+    - file_reference
+    - traceability_edge
+    - reviewer_judgment_marker
+    minimum_evidence: Material claims include source_anchor_id, evidence_id, repository artifact path, or reviewer_judgment
+      marker.
+  - input_field: transparency_constraints
+    description: Restrictions or mitigations affecting disclosure, including privacy, confidentiality, IP, proprietary information,
+      security, safety, stakeholder burden, or information overload.
+    obligation_status: conditional
+    accepted_format:
+    - yaml_record
+    - risk_register
+    - redaction_note
+    - access_control_note
+    - ethics_or_governance_note
+    minimum_evidence: Required when materials are withheld, summarized, redacted, sensitive, proprietary, unsafe to release,
+      or too voluminous for direct inclusion.
+  required_outputs:
+  - output_field: transparency_rating
+    description: Weighted overall transparency score and final decision value.
+    accepted_values:
+    - transparency_ready
+    - minor_trace_gaps
+    - major_trace_revision_needed
+    - not_reviewable
+  - output_field: trace_gaps
+    description: List of missing, weak, ambiguous, unsupported, or broken transparency traces by dimension.
+  - output_field: overload_risks
+    description: List of documentation burden, redundancy, audience usability, privacy, or evidence-volume concerns that reduce
+      transparency in practice.
+  - output_field: source_anchor_gaps
+    description: Material claims lacking source anchors, evidence anchors, repository file references, or reviewer judgment
+      labels.
+  - output_field: documentation_actions
+    description: Prioritized actions needed to improve reviewability, source anchoring, traceability, responsible disclosure,
+      and reuse readiness.
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, overclaiming, transparency burden,
+      and confidentiality constraints.
+  assessment_dimensions:
+  - dimension_id: process_transparency
+    label: Process Transparency
+    definition: Transparency about method, sequence, iteration, decisions, and roles of researchers and stakeholders.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Process log, decision log, method description, role record, iteration/version history, and anchors for
+      material process decisions.
+    level_descriptors:
+      score_0: No reviewable process trace is provided, or the process is reconstructed only after the fact without dated/versioned
+        evidence.
+      score_1: The record gives a general narrative of activities but omits sequencing, decisions, actor roles, iteration,
+        or rationale for material changes.
+      score_2: The record documents major steps and some decisions, but iteration, stakeholder involvement, rationale, or
+        deviations remain incomplete or weakly anchored.
+      score_3: The record documents method, sequence, iteration, material decisions, roles, and major changes with adequate
+        anchors and reviewable rationale.
+      score_4: The record provides a coherent, versioned, source-anchored process trace that makes design knowledge production
+        inspectable without excessive burden.
+    score_0_descriptor: No reviewable process trace is provided, or the process is reconstructed only after the fact without
+      dated/versioned evidence.
+    score_1_descriptor: The record gives a general narrative of activities but omits sequencing, decisions, actor roles, iteration,
+      or rationale for material changes.
+    score_2_descriptor: The record documents major steps and some decisions, but iteration, stakeholder involvement, rationale,
+      or deviations remain incomplete or weakly anchored.
+    score_3_descriptor: The record documents method, sequence, iteration, material decisions, roles, and major changes with
+      adequate anchors and reviewable rationale.
+    score_4_descriptor: The record provides a coherent, versioned, source-anchored process trace that makes design knowledge
+      production inspectable without excessive burden.
+    minimum_evidence: Process log, decision log, method description, role record, iteration/version history, and anchors for
+      material process decisions.
+    high_quality_evidence:
+    - dated or versioned process entries
+    - explicit links from process steps to outputs and design decisions
+    - records of stakeholder/researcher roles and decision rights
+    - notes on deviations, failed paths, and learning across iterations
+    - clear distinction between planned method and actual process followed
+    weak_evidence_signals:
+    - method asserted but not traced
+    - process described only in polished final narrative
+    - missing role or decision ownership
+    - no record of changes, failures, or deviations
+    - evidence appears created only for ex-post justification
+    calibration_anchor: A score_3 record lets a reviewer reconstruct what happened, why material changes occurred, and who
+      participated without needing private memory from the project team.
+    common_failure_modes:
+    - ex_post_dsrification
+    - process_black_box
+    - decision_ownership_absence
+    - iteration_erasure
+    - method_claim_without_trace
+    reviewer_notes: Score process transparency as documentation of actual inquiry, not as conformity to a single ideal DSR
+      method sequence.
+  - dimension_id: problem_space_transparency
+    label: Problem-Space Transparency
+    definition: Transparency about problem instance, problem class, motivation, assumptions, stakeholder claims, boundary
+      conditions, and changes in the problem representation.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Problem instance, problem class, relevance evidence, assumptions, stakeholder claims, boundary conditions,
+      and problem-framing change trace.
+    level_descriptors:
+      score_0: The problem space is absent, only implied by the solution, or impossible to distinguish from the artifact being
+        proposed.
+      score_1: The record states a problem but gives little evidence about setting, stakeholders, problem class, assumptions,
+        motivation, or boundary conditions.
+      score_2: The record states instance and class with partial motivation and assumptions, but changes, stakeholder claims,
+        or boundary conditions are weakly traced.
+      score_3: The record clearly documents problem instance, class, motivation, assumptions, stakeholders, boundary conditions,
+        and material framing changes with adequate anchors.
+      score_4: The record provides a source-anchored, version-aware problem-space trace that supports requirement derivation,
+        evaluation interpretation, and bounded contribution claims.
+    score_0_descriptor: The problem space is absent, only implied by the solution, or impossible to distinguish from the artifact
+      being proposed.
+    score_1_descriptor: The record states a problem but gives little evidence about setting, stakeholders, problem class,
+      assumptions, motivation, or boundary conditions.
+    score_2_descriptor: The record states instance and class with partial motivation and assumptions, but changes, stakeholder
+      claims, or boundary conditions are weakly traced.
+    score_3_descriptor: The record clearly documents problem instance, class, motivation, assumptions, stakeholders, boundary
+      conditions, and material framing changes with adequate anchors.
+    score_4_descriptor: The record provides a source-anchored, version-aware problem-space trace that supports requirement
+      derivation, evaluation interpretation, and bounded contribution claims.
+    minimum_evidence: Problem instance, problem class, relevance evidence, assumptions, stakeholder claims, boundary conditions,
+      and problem-framing change trace.
+    high_quality_evidence:
+    - explicit problem_instance to problem_class trace
+    - stakeholder and context evidence for motivation
+    - assumption and uncertainty register
+    - boundary conditions and non-applicability notes
+    - versioned record of problem representation changes
+    weak_evidence_signals:
+    - solution-in-disguise problem framing
+    - only local anecdote without problem class
+    - problem class asserted without evidence
+    - stakeholder burden erased
+    - framing changes not documented
+    calibration_anchor: A score_3 problem trace supports later claims about why the artifact was needed and where the claim
+      applies without requiring the reviewer to infer the problem from the solution.
+    common_failure_modes:
+    - solution_in_disguise
+    - weak_problem_class_abstraction
+    - stakeholder_erasure
+    - boundary_condition_absence
+    - assumption_opacity
+    reviewer_notes: Use this dimension to assess transparency of problem representation, not the final worthiness or solvability
+      of the problem.
+  - dimension_id: solution_space_transparency
+    label: Solution-Space Transparency
+    definition: Transparency about input knowledge, alternatives, prior artifacts, theories, technologies, methods, design
+      patterns, and design options considered.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Input knowledge registry, prior artifact review, solution alternative table, design pattern/theory/provenance
+      links, and knowledge-to-design trace edges.
+    level_descriptors:
+      score_0: No solution-space grounding is documented; the artifact appears invented without visible input knowledge, alternatives,
+        or prior work.
+      score_1: The record names theories, technologies, or prior artifacts but gives little explanation of relevance, selection,
+        rejection, or design uptake.
+      score_2: The record documents some input knowledge and alternatives, but coverage, critique, provenance, or links to
+        design choices are incomplete.
+      score_3: The record adequately documents source-backed input knowledge, prior artifacts, alternatives, selection rationale,
+        and knowledge-to-design links.
+      score_4: The record offers a reusable, source-anchored solution-space map showing how prior knowledge, alternatives,
+        and critiques shaped requirements, design decisions, and evaluation criteria.
+    score_0_descriptor: No solution-space grounding is documented; the artifact appears invented without visible input knowledge,
+      alternatives, or prior work.
+    score_1_descriptor: The record names theories, technologies, or prior artifacts but gives little explanation of relevance,
+      selection, rejection, or design uptake.
+    score_2_descriptor: The record documents some input knowledge and alternatives, but coverage, critique, provenance, or
+      links to design choices are incomplete.
+    score_3_descriptor: The record adequately documents source-backed input knowledge, prior artifacts, alternatives, selection
+      rationale, and knowledge-to-design links.
+    score_4_descriptor: The record offers a reusable, source-anchored solution-space map showing how prior knowledge, alternatives,
+      and critiques shaped requirements, design decisions, and evaluation criteria.
+    minimum_evidence: Input knowledge registry, prior artifact review, solution alternative table, design pattern/theory/provenance
+      links, and knowledge-to-design trace edges.
+    high_quality_evidence:
+    - source-anchored input knowledge records
+    - explicit alternatives considered and rationale for selected path
+    - prior artifact and design pattern coverage with provenance
+    - links from sources to requirements, design decisions, or evaluation criteria
+    - critique of known limitations and adaptation needs
+    weak_evidence_signals:
+    - theory name-dropping
+    - single-solution fixation
+    - prior artifact neglect
+    - weak provenance for input knowledge
+    - no trace from knowledge to design
+    calibration_anchor: A score_3 record lets a reviewer see why the artifact's solution logic was selected over plausible
+      alternatives and which knowledge base supports that choice.
+    common_failure_modes:
+    - black_box_invention
+    - theory_name_dropping
+    - prior_artifact_neglect
+    - single_solution_fixation
+    - weak_solution_grounding
+    reviewer_notes: Score transparency of the solution-space record; use input_knowledge_solution_grounding_rubric for deeper
+      substantive evaluation of grounding quality.
+  - dimension_id: build_transparency
+    label: Build Transparency
+    definition: Transparency about artifact construction, design rationale, implementation, versioning, dependencies, conformance
+      evidence, and iteration.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Design decision log, rationale records, build evidence, version history, conformance checks, implementation
+      notes, dependency register, and links to artifact specification.
+    level_descriptors:
+      score_0: The artifact build is opaque; no reviewable construction, rationale, implementation, or version trace is supplied.
+      score_1: The record describes the finished artifact but provides little evidence about how it was built, why design
+        decisions were made, or what versions exist.
+      score_2: The record documents some design decisions and build steps but omits important rationale, alternatives, conformance
+        evidence, dependencies, or version changes.
+      score_3: The record adequately documents material build decisions, rationale, alternatives, construction evidence, versioning,
+        and links to requirements or artifact specifications.
+      score_4: The record provides a reviewable, reuse-oriented build trace connecting requirements, design rationale, implementation/construction
+        materials, conformance checks, and versioned changes.
+    score_0_descriptor: The artifact build is opaque; no reviewable construction, rationale, implementation, or version trace
+      is supplied.
+    score_1_descriptor: The record describes the finished artifact but provides little evidence about how it was built, why
+      design decisions were made, or what versions exist.
+    score_2_descriptor: The record documents some design decisions and build steps but omits important rationale, alternatives,
+      conformance evidence, dependencies, or version changes.
+    score_3_descriptor: The record adequately documents material build decisions, rationale, alternatives, construction evidence,
+      versioning, and links to requirements or artifact specifications.
+    score_4_descriptor: The record provides a reviewable, reuse-oriented build trace connecting requirements, design rationale,
+      implementation/construction materials, conformance checks, and versioned changes.
+    minimum_evidence: Design decision log, rationale records, build evidence, version history, conformance checks, implementation
+      notes, dependency register, and links to artifact specification.
+    high_quality_evidence:
+    - material design decisions with stable identifiers
+    - rationale linked to problem, requirements, input knowledge, and constraints
+    - artifact versions and change summaries
+    - evidence of construction or conformance to specification
+    - repository paths for build materials or responsible redaction notes
+    weak_evidence_signals:
+    - artifact black box
+    - implementation-only documentation without design rationale
+    - untracked versions
+    - missing dependency or conformance evidence
+    - creative/design search hidden behind final artifact description
+    calibration_anchor: A score_3 record would allow a competent reviewer or maintainer to understand how the artifact was
+      produced and why major design choices were made, even if not all confidential details are public.
+    common_failure_modes:
+    - artifact_black_box
+    - rationale_absence
+    - alternative_erasure
+    - untracked_versioning
+    - build_evidence_absence
+    reviewer_notes: Use adjacent design_rationale_build_trace_rubric for deeper scoring of build rationale and reproducibility;
+      this dimension checks whether the build is transparent enough for whole-record review.
+  - dimension_id: evaluation_transparency
+    label: Evaluation Transparency
+    definition: Transparency about evaluation object, criteria, data, methods, measures, findings, validity threats, limitations,
+      and links from findings to claims.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Evaluation plan/report, artifact/evaluation object, criteria, evidence mode, data or evidence summary,
+      methods, measures, findings, limitations, validity threats, and findings-to-claims matrix.
+    level_descriptors:
+      score_0: Evaluation documentation is absent, inaccessible, or disconnected from artifact and contribution claims.
+      score_1: The record asserts that evaluation occurred but does not clearly document object, criteria, evidence, methods,
+        findings, or limitations.
+      score_2: The record documents evaluation object, criteria, and some findings, but evidence mode, data handling, validity
+        threats, limitations, or findings-to-claims links are incomplete.
+      score_3: The record adequately documents evaluation object, criteria, evidence mode, methods, measures, findings, limitations,
+        and links from findings to claims.
+      score_4: The record provides a source-anchored, claim-calibrated evaluation trace that supports audit, reuse, validity
+        review, and disciplined interpretation of positive, negative, or mixed findings.
+    score_0_descriptor: Evaluation documentation is absent, inaccessible, or disconnected from artifact and contribution claims.
+    score_1_descriptor: The record asserts that evaluation occurred but does not clearly document object, criteria, evidence,
+      methods, findings, or limitations.
+    score_2_descriptor: The record documents evaluation object, criteria, and some findings, but evidence mode, data handling,
+      validity threats, limitations, or findings-to-claims links are incomplete.
+    score_3_descriptor: The record adequately documents evaluation object, criteria, evidence mode, methods, measures, findings,
+      limitations, and links from findings to claims.
+    score_4_descriptor: The record provides a source-anchored, claim-calibrated evaluation trace that supports audit, reuse,
+      validity review, and disciplined interpretation of positive, negative, or mixed findings.
+    minimum_evidence: Evaluation plan/report, artifact/evaluation object, criteria, evidence mode, data or evidence summary,
+      methods, measures, findings, limitations, validity threats, and findings-to-claims matrix.
+    high_quality_evidence:
+    - explicit evaluation object and claim type
+    - criteria, measures, or qualitative judgment standards
+    - evidence source, data, method, and analysis trace
+    - validity threats, limitations, and uncertainty notes
+    - findings linked to contribution, use, utility, or projectability claims
+    weak_evidence_signals:
+    - evaluation theater
+    - findings reported without criteria
+    - evidence mode unclear
+    - limitations hidden or generic
+    - claims stronger than evaluation evidence supports
+    calibration_anchor: A score_3 evaluation trace lets a reviewer see what was evaluated, by what standard, with what evidence,
+      and how far the findings can support the claims.
+    common_failure_modes:
+    - evidence_opacity
+    - criteria_absence
+    - findings_to_claims_gap
+    - validity_threat_silence
+    - unsupported_effectiveness_claim
+    reviewer_notes: Score transparency and traceability of evaluation documentation; use evaluation_alignment_quality_rubric
+      for deeper assessment of evaluation design fit.
+  - dimension_id: contribution_transparency
+    label: Contribution Transparency
+    definition: Transparency about contribution object, novelty, design knowledge, evidence, scope, audience, and boundary
+      conditions.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Contribution statement, design knowledge record, novelty rationale, evidence-to-claim links, knowledge
+      goal/scope, boundary conditions, projectability statement, and audience crosswalk.
+    level_descriptors:
+      score_0: No explicit contribution trace is provided, or the contribution is indistinguishable from local artifact delivery.
+      score_1: The record asserts a contribution but does not clarify contribution object, novelty, evidence basis, scope,
+        audience, or boundaries.
+      score_2: The record identifies contribution object and some evidence, but novelty, knowledge goal/scope, boundary conditions,
+        or audience-specific communication remain incomplete.
+      score_3: The record adequately documents contribution object, novelty mode, evidence basis, knowledge scope, boundary
+        conditions, and intended audience with trace links.
+      score_4: The record provides a disciplined, source-anchored contribution trace that calibrates design knowledge, artifact
+        evidence, novelty, boundary conditions, reuse/projectability, and audience communication.
+    score_0_descriptor: No explicit contribution trace is provided, or the contribution is indistinguishable from local artifact
+      delivery.
+    score_1_descriptor: The record asserts a contribution but does not clarify contribution object, novelty, evidence basis,
+      scope, audience, or boundaries.
+    score_2_descriptor: The record identifies contribution object and some evidence, but novelty, knowledge goal/scope, boundary
+      conditions, or audience-specific communication remain incomplete.
+    score_3_descriptor: The record adequately documents contribution object, novelty mode, evidence basis, knowledge scope,
+      boundary conditions, and intended audience with trace links.
+    score_4_descriptor: The record provides a disciplined, source-anchored contribution trace that calibrates design knowledge,
+      artifact evidence, novelty, boundary conditions, reuse/projectability, and audience communication.
+    minimum_evidence: Contribution statement, design knowledge record, novelty rationale, evidence-to-claim links, knowledge
+      goal/scope, boundary conditions, projectability statement, and audience crosswalk.
+    high_quality_evidence:
+    - explicit contribution object and knowledge goal/scope
+    - links from artifact and evaluation evidence to contribution claim
+    - novelty mode and maturity level
+    - scope, boundary conditions, and non-applicability conditions
+    - communication notes for scholarly and practice audiences
+    weak_evidence_signals:
+    - local artifact report presented as general design knowledge
+    - novelty assertion without comparison or evidence
+    - overbroad contribution claim
+    - missing boundary conditions
+    - audience mismatch or unclear knowledge object
+    calibration_anchor: A score_3 contribution trace lets a reviewer understand what knowledge is being contributed, why it
+      is not merely local implementation, and what evidence and boundaries govern the claim.
+    common_failure_modes:
+    - routine_design_overclaim
+    - contribution_object_blur
+    - unsupported_novelty_claim
+    - boundary_condition_absence
+    - audience_mismatch
+    reviewer_notes: Use contribution_quality_rubric to judge contribution adequacy; this dimension checks whether the claim
+      is transparent, anchored, and bounded.
+  - dimension_id: source_anchor_and_traceability_quality
+    label: Source Anchor and Traceability Quality
+    definition: Quality of source anchors and traceability edges linking sources, concepts, problems, requirements, design
+      decisions, evaluations, findings, and contribution claims without unsupported claims.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Source anchor registry, evidence IDs, traceability edge list, crosswalks, repository paths, claim-to-evidence
+      matrix, and reviewer judgment markers.
+    level_descriptors:
+      score_0: Material claims lack source anchors or traceability edges, making the record not reviewable.
+      score_1: Some anchors exist, but they are inconsistent, vague, broken, not stable, or disconnected from claims they
+        supposedly support.
+      score_2: Anchors and trace edges cover many record elements but leave material source-supported claims, evidence records,
+        or judgment calls insufficiently marked.
+      score_3: Material claims, evidence records, design decisions, findings, and contribution claims are adequately linked
+        through stable anchors or explicit reviewer_judgment labels.
+      score_4: The record provides a coherent, machine-readable trace graph with stable anchors, typed traceability edges,
+        gap flags, and clear separation between source-supported claims and reviewer judgment.
+    score_0_descriptor: Material claims lack source anchors or traceability edges, making the record not reviewable.
+    score_1_descriptor: Some anchors exist, but they are inconsistent, vague, broken, not stable, or disconnected from claims
+      they supposedly support.
+    score_2_descriptor: Anchors and trace edges cover many record elements but leave material source-supported claims, evidence
+      records, or judgment calls insufficiently marked.
+    score_3_descriptor: Material claims, evidence records, design decisions, findings, and contribution claims are adequately
+      linked through stable anchors or explicit reviewer_judgment labels.
+    score_4_descriptor: The record provides a coherent, machine-readable trace graph with stable anchors, typed traceability
+      edges, gap flags, and clear separation between source-supported claims and reviewer judgment.
+    minimum_evidence: Source anchor registry, evidence IDs, traceability edge list, crosswalks, repository paths, claim-to-evidence
+      matrix, and reviewer judgment markers.
+    high_quality_evidence:
+    - stable source_anchor_id or evidence_id values
+    - typed traceability edges across DSR spaces
+    - explicit unsupported_claim flags
+    - source-supported claims distinguished from reviewer judgment
+    - crosswalk to schema, ontology, SKOS, SHACL, or documentation protocol fields
+    weak_evidence_signals:
+    - citation dumping without claim links
+    - broken or ambiguous anchors
+    - source-supported and reviewer judgment claims mixed together
+    - orphan claims or orphan evidence
+    - traceability theater
+    calibration_anchor: A score_3 trace lets a reviewer verify the source or evidence basis for material claims without reverse-engineering
+      the whole record.
+    common_failure_modes:
+    - weak_traceability
+    - unsupported_claim
+    - orphan_claim
+    - broken_source_anchor
+    - reviewer_judgment_unmarked
+    reviewer_notes: This dimension can activate floor rules because strong prose elsewhere cannot compensate for missing or
+      broken anchors on material claims.
+  - dimension_id: transparency_burden_balance
+    label: Transparency Burden Balance
+    definition: Avoidance of both opacity and excessive, unusable documentation detail, with appropriate summarization, redaction,
+      access controls, and audience fit.
+    weight: 0.04
+    required: false
+    score_direction: higher_is_better
+    evidence_needed: Documentation map, disclosure constraints, summaries, index/navigation aids, redaction notes, access
+      controls, evidence registry, and reviewer guidance.
+    level_descriptors:
+      score_0: The record is either too opaque to review or so overloaded, sensitive, redundant, or disorganized that reviewers
+        cannot use it responsibly.
+      score_1: The record provides some materials but lacks usable organization, proportional detail, redaction rationale,
+        or audience pathways.
+      score_2: The record is partly usable but contains avoidable overload, underload, redundancy, unclear access constraints,
+        or weak navigation for reviewers.
+      score_3: The record balances sufficient detail with usable structure, summaries, source anchors, confidentiality handling,
+        and audience-relevant documentation paths.
+      score_4: 'The record is highly reviewable and proportionate: sensitive details are responsibly handled, evidence volume
+        is navigable, summaries preserve traceability, and different users can find the level of detail they need.'
+    score_0_descriptor: The record is either too opaque to review or so overloaded, sensitive, redundant, or disorganized
+      that reviewers cannot use it responsibly.
+    score_1_descriptor: The record provides some materials but lacks usable organization, proportional detail, redaction rationale,
+      or audience pathways.
+    score_2_descriptor: The record is partly usable but contains avoidable overload, underload, redundancy, unclear access
+      constraints, or weak navigation for reviewers.
+    score_3_descriptor: The record balances sufficient detail with usable structure, summaries, source anchors, confidentiality
+      handling, and audience-relevant documentation paths.
+    score_4_descriptor: 'The record is highly reviewable and proportionate: sensitive details are responsibly handled, evidence
+      volume is navigable, summaries preserve traceability, and different users can find the level of detail they need.'
+    minimum_evidence: Documentation map, disclosure constraints, summaries, index/navigation aids, redaction notes, access
+      controls, evidence registry, and reviewer guidance.
+    high_quality_evidence:
+    - clear documentation map or table of contents
+    - summary plus drill-down structure
+    - redaction or access-control rationale when needed
+    - audience-specific documentation pathways
+    - explicit overload/underload risk checks
+    weak_evidence_signals:
+    - large undifferentiated document dumps
+    - missing summaries for complex evidence
+    - public disclosure of sensitive details without need
+    - opaque claims justified by unavailable materials
+    - excessive detail unrelated to claims
+    calibration_anchor: A score_3 record gives reviewers enough detail to verify claims while avoiding needless exposure,
+      noise, or burden.
+    common_failure_modes:
+    - transparency_overload
+    - transparency_underload
+    - unusable_document_dump
+    - unjustified_redaction
+    - audience_unfit_documentation
+    reviewer_notes: This dimension is lower weight but can still trigger human review where burden, confidentiality, or information
+      overload undermines trust and reuse.
+  scoring_model:
+    scale:
+      0: absent_or_blocked
+      1: weak_or_asserted
+      2: conditional_or_partially_supported
+      3: strong_or_adequately_supported
+      4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weighted_score_formula: sum(dimension_score_0_to_4 * dimension_weight)
+    weighted_score_range:
+    - 0.0
+    - 4.0
+    weight_sum_rule:
+      expected_sum: 1.0
+      actual_sum: 1.0
+      tolerance: 0.0001
+    missing_evidence_rule: If a required dimension lacks minimum evidence, assign score_0 or score_1 unless a not_applicable
+      rationale is explicit, source-anchored, and accepted by human review.
+    reverse_scoring_rule: No dimension is reverse-scored; burden balance is scored positively for proportionate transparency.
+    aggregation_notes:
+    - Calculate weighted score after applying non_compensatory_floor_rules.
+    - A high weighted score cannot override blocking missing evidence, broken source anchors for material claims, or unsupported
+      overclaiming.
+    - Optional transparency_burden_balance is still included in the default weight model because it affects reviewability
+      and trust.
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_required_transparency_form
+      condition: any required dimension among process_transparency, problem_space_transparency, solution_space_transparency,
+        build_transparency, evaluation_transparency, contribution_transparency, or source_anchor_and_traceability_quality
+        scores 0 without accepted not_applicable rationale
+      maximum_decision: major_trace_revision_needed
+      maximum_weighted_score_after_floor: 2.49
+      rationale: A core missing transparency form prevents full review even if other documentation is strong.
+    - rule_id: floor_not_reviewable_source_anchors
+      condition: source_anchor_and_traceability_quality score is 0
+      maximum_decision: not_reviewable
+      maximum_weighted_score_after_floor: 1.49
+      rationale: Material claims cannot be reviewed without stable anchors or traceability labels.
+    - rule_id: floor_unsupported_overclaim
+      condition: unsupported_claim affects artifact utility, evaluation findings, contribution novelty, projectability, safety,
+        privacy, or stakeholder impact
+      maximum_decision: major_trace_revision_needed
+      maximum_weighted_score_after_floor: 2.49
+      rationale: Unsupported overclaiming undermines trust and cannot be compensated by other transparent sections.
+    - rule_id: floor_evaluation_or_contribution_absent_for_final_claims
+      condition: final repository release or scholarly communication makes contribution, utility, effectiveness, reuse, or
+        projectability claims while evaluation_transparency or contribution_transparency scores below 2
+      maximum_decision: major_trace_revision_needed
+      maximum_weighted_score_after_floor: 2.49
+      rationale: Final claims require minimally reviewable evaluation and contribution traces.
+    - rule_id: floor_confidentiality_without_review_path
+      condition: material evidence is withheld for confidentiality, privacy, security, IP, or burden reasons but no summary,
+        access condition, redaction rationale, or reviewer pathway is provided
+      maximum_decision: major_trace_revision_needed
+      maximum_weighted_score_after_floor: 2.49
+      rationale: Responsible restriction is allowed, but opaque withholding prevents review.
+    - rule_id: floor_ex_post_dsrification
+      condition: record shows a completed local implementation framed retrospectively as DSR without process, design, evaluation,
+        or contribution trace adequate to support the reframing
+      maximum_decision: not_reviewable
+      maximum_weighted_score_after_floor: 1.49
+      rationale: Retrospective DSR claims without transparency trace are not reviewable as DSR.
+  level_descriptors:
+    score_0: absent, blocked, unreviewable, or incompatible with the transparency target
+    score_1: weak, asserted, generic, incomplete, or substantially unsupported
+    score_2: partially documented and conditionally reviewable but missing material anchors, links, limits, or proportionality
+      controls
+    score_3: adequately documented, reviewable, source-anchored, and proportionate for the stated claim scope
+    score_4: exemplary, reusable, well indexed, source-anchored, crosswalked, and proportionate with strong traceability across
+      DSR spaces
+    anchor_examples:
+      score_4_anchor: A repository package with source-anchored problem, solution, build, evaluation, and contribution traces;
+        versioned decision logs; findings-to-claims matrix; and responsible redaction notes.
+      score_3_anchor: A manuscript and repository folder that let reviewers verify what was done, why, what evidence supports
+        claims, and what boundaries apply, though not optimized for replication or automated validation.
+      score_2_anchor: A readable report with some trace links but missing change history, source anchors for major claims,
+        or full evaluation/contribution boundaries.
+      score_1_anchor: A polished narrative with sparse evidence, weak source anchoring, and little insight into actual process,
+        alternatives, or evaluation limits.
+      score_0_anchor: A local implementation story with no reviewable DSR trace.
+    borderline_cases:
+    - A study may score 2 rather than 3 when transparency is strong in prose but lacks stable anchors or typed traceability
+      edges.
+    - A study may score 3 rather than 2 when sensitive materials are responsibly summarized and reviewable through a controlled
+      pathway.
+    - A study may score 2 rather than 1 when a transparency form is incomplete but the missing material is explicitly scoped
+      as availability_limited_with_action_items.
+  decision_thresholds:
+    final_decision_values:
+    - transparency_ready
+    - minor_trace_gaps
+    - major_trace_revision_needed
+    - not_reviewable
+    weighted_score_thresholds:
+    - decision: transparency_ready
+      minimum_weighted_score: 3.25
+      additional_conditions:
+      - no required dimension below 3 except transparency_burden_balance may be 2 with documented mitigation
+      - source_anchor_and_traceability_quality must be at least 3
+      - no active blocking_issue or unresolved unsupported overclaim
+      - confidentiality or redaction constraints have reviewable summaries or access pathways
+      interpretation: The transparency trace is ready for repository release, scholarly review, or reuse-oriented communication
+        with normal editorial refinement.
+    - decision: minor_trace_gaps
+      minimum_weighted_score: 2.75
+      maximum_weighted_score: 3.24
+      additional_conditions:
+      - no required dimension below 2
+      - source_anchor_and_traceability_quality must be at least 2
+      - gaps are localized and do not affect core contribution, evaluation, or artifact claims
+      interpretation: The record is broadly reviewable but needs targeted documentation improvements before full release or
+        strong reuse claims.
+    - decision: major_trace_revision_needed
+      minimum_weighted_score: 1.75
+      maximum_weighted_score: 2.74
+      additional_conditions:
+      - one or more core transparency forms are weak, partially missing, or materially under-anchored
+      - unsupported claims, redaction gaps, or trace breaks materially affect reviewability
+      interpretation: The record requires substantial transparency repair before claims can be trusted or reused.
+    - decision: not_reviewable
+      maximum_weighted_score: 1.74
+      additional_conditions:
+      - source_anchor_and_traceability_quality is 0 or floor_not_reviewable_source_anchors applies
+      - multiple core transparency forms are absent
+      - record is dominated by ex-post, unsupported, or opaque claims
+      interpretation: The record cannot currently support DSR review, reuse, or trust claims.
+    dimension_floor_rules:
+    - Any required dimension scored 0 requires explicit remediation before transparency_ready is possible.
+    - source_anchor_and_traceability_quality below 2 prevents transparency_ready.
+    - evaluation_transparency below 2 prevents transparency_ready when evaluation or utility claims are made.
+    - contribution_transparency below 2 prevents transparency_ready when design-knowledge contribution claims are made.
+    - build_transparency below 2 prevents transparency_ready when artifact construction, reuse, or replication claims are
+      made.
+    human_review_triggers:
+    - ambiguity_level_medium_or_high
+    - source_anchor_gap_for_material_claim
+    - ethical_privacy_security_ip_or_proprietary_constraint
+    - evidence_sufficiency_dispute
+    - overclaiming_or_projectability_claim_beyond_evidence
+    - potential_ex_post_dsrification
+    - transparency_overload_or_underload
+    - conflict_between_public_transparency_and_responsible_redaction
+  calibration_guidance:
+    reviewer_preparation:
+    - Read the DSR record once for narrative coherence before scoring individual dimensions.
+    - 'Identify the claim scope: planning record, active build, evaluation report, contribution claim, repository release,
+      or reuse package.'
+    - List all material claims and verify that each is source-anchored, evidence-anchored, repository-anchored, or marked
+      reviewer_judgment.
+    - Apply adjacent rubrics where the transparency trace depends on build, evaluation, or contribution adequacy.
+    - Distinguish transparency gaps from substantive methodological weaknesses; record both but score only transparency quality
+      here.
+    anchor_cases:
+      strong_anchor_case: A DSR repository package includes a structured YAML transparency trace, decision log, source crosswalk,
+        problem-to-requirement-to-design-to-evaluation trace, findings-to-claims matrix, contribution statement, boundary
+        conditions, and redaction notes. Most dimensions score 3 or 4.
+      borderline_anchor_case: A DSR manuscript explains process and evaluation well but has weak source anchors for contribution
+        novelty and little documentation of solution alternatives. Score around 2 to 3 depending on materiality of the gaps.
+      weak_anchor_case: A project presents a useful local tool and a success story but lacks problem-class trace, source grounding,
+        build rationale, evaluation details, and contribution boundaries. Most dimensions score 0 or 1.
+    calibration_rounds:
+    - 'Round 1: score independently using only documented evidence, not project team memory.'
+    - 'Round 2: compare dimension scores and identify disagreements caused by missing anchors versus disagreement about adequacy.'
+    - 'Round 3: apply floor rules and agree on documentation_actions before assigning final decision value.'
+    inter_rater_reconciliation:
+    - If score differences exceed one point on any required dimension, reviewers must cite the evidence or missing evidence
+      driving the difference.
+    - If one reviewer treats a field as not_applicable and another treats it as missing, require a written not_applicable
+      rationale and source/claim-scope justification.
+    - If confidentiality constraints are present, score transparency of the review pathway rather than demanding unrestricted
+      disclosure.
+    drift_checks:
+    - Check quarterly or per release whether dimension weights still match the repository rubric-generation spec.
+    - Compare decisions across at least three completed rubrics to ensure transparency_ready is not being granted without
+      source-anchor quality.
+    - Audit whether reviewers are punishing responsible redaction or rewarding unusable document volume.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      process_transparency: process_trace with dated/versioned activities, decisions, roles, and change rationale
+      problem_space_transparency: problem instance, problem class, motivation, assumptions, boundary conditions, and framing-change
+        trace
+      solution_space_transparency: input knowledge, prior artifacts/theories/methods/technologies, alternatives, and knowledge-to-design
+        trace
+      build_transparency: design decisions, build evidence, rationale, implementation/construction notes, and versioning
+      evaluation_transparency: evaluation object, criteria, evidence mode, methods, findings, validity threats, and limitations
+      contribution_transparency: contribution object, novelty/evidence basis, knowledge goal/scope, boundary conditions, and
+        audience
+      source_anchor_and_traceability_quality: stable source anchors, evidence IDs, repository paths, typed traceability edges,
+        and reviewer_judgment labels
+      transparency_burden_balance: documentation map, summaries, access/redaction rationale, and reviewer navigation aids
+    acceptable_evidence_modes:
+    - source_anchor
+    - repository_artifact
+    - validation_result
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Every material source-supported claim should cite a stable source_anchor_id or equivalent evidence identifier.
+    - Every reviewer judgment should be marked reviewer_judgment rather than disguised as source-supported evidence.
+    - Every contribution, evaluation, reuse, or projectability claim should link to evidence and boundary conditions.
+    - Every withheld material needed for review should have a redaction, access, summary, or non-disclosure rationale.
+    evidence_quality_notes:
+    - Evidence quality includes relevance, provenance, specificity, accessibility, and fit to the claim being made.
+    - Public availability is not required when disclosure would be irresponsible; reviewability and responsible accountability
+      are required.
+    - Traceability should favor stable identifiers and typed edges over unstructured prose references.
+    - Transparency is not maximized by including everything; it is maximized by enabling reliable review of material claims.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: weak_traceability
+    warning_condition: Claims, decisions, findings, or contributions are stated without stable trace links to sources, evidence,
+      or reviewer judgment.
+    severity: major_warning
+    recommended_response: Create source anchors, evidence IDs, repository path references, and typed traceability edges for
+      material claims.
+  - anti_pattern_id: unsupported_claim
+    warning_condition: A claim about problem importance, artifact capability, evaluation result, contribution novelty, utility,
+      or projectability lacks evidence or reviewer_judgment labeling.
+    severity: blocking_issue
+    recommended_response: Either supply evidence and anchors, downgrade the claim, or mark it as speculative/reviewer_judgment
+      with appropriate limits.
+  - anti_pattern_id: artifact_black_box
+    warning_condition: The artifact is described by name or outcome, but construction, rationale, capacity, design decisions,
+      or versioning are not reviewable.
+    severity: major_warning
+    recommended_response: Add build transparency records, design-decision identifiers, rationale links, and versioned construction
+      evidence.
+  - anti_pattern_id: transparency_overload
+    warning_condition: The record includes excessive, redundant, unindexed, irrelevant, or sensitive material that makes review
+      harder or riskier.
+    severity: warning
+    recommended_response: Create summaries, indexes, evidence maps, relevance filters, redaction notes, and audience-specific
+      navigation.
+  - anti_pattern_id: transparency_underload
+    warning_condition: The record is too thin, generic, narrative-only, or polished to allow source-based review of material
+      claims.
+    severity: major_warning
+    recommended_response: Add minimum records for process, problem, solution, build, evaluation, contribution, and source-anchor
+      traceability.
+  - anti_pattern_id: ex_post_dsrification
+    warning_condition: A completed project is retrospectively framed as DSR without adequate process, design, evaluation,
+      or contribution trace.
+    severity: blocking_issue
+    recommended_response: Reconstruct only source-supported traceable elements, mark retrospective inferences, and downgrade
+      claims that cannot be evidenced.
+  - anti_pattern_id: traceability_theater
+    warning_condition: Many links or citations exist, but they do not actually support the claims they are attached to.
+    severity: major_warning
+    recommended_response: Audit claim-to-evidence fit and remove, repair, or reclassify misleading anchors.
+  - anti_pattern_id: unjustified_redaction
+    warning_condition: Material evidence is withheld without a clear confidentiality, privacy, security, IP, safety, or stakeholder-burden
+      rationale.
+    severity: major_warning
+    recommended_response: Document the constraint, provide a safe summary, and define an appropriate reviewer access pathway
+      if possible.
+  traceability_requirements:
+  - trace_type: source_to_concept
+    minimum_requirement: Concept definitions and transparency forms should link to source anchors or framework concept IDs.
+    expected_edges:
+    - source_anchor_id -> construct_definition
+    - concept_inventory_id -> rubric_dimension
+    machine_checkable: true
+    manual_review_needed: true
+  - trace_type: concept_to_schema_field
+    minimum_requirement: Transparency concepts should crosswalk to YAML fields, JSON Schema properties, SKOS terms, or SHACL
+      warnings where appropriate.
+    expected_edges:
+    - rubric_dimension -> schema_field
+    - rubric_dimension -> skos_term
+    - rubric_dimension -> shacl_shape_or_warning
+    machine_checkable: true
+    manual_review_needed: false
+  - trace_type: problem_to_requirement
+    minimum_requirement: Problem-space trace should connect problem instance/class, assumptions, stakeholder claims, and boundary
+      conditions to objectives or requirements where the record makes design claims.
+    expected_edges:
+    - problem_factor -> objective
+    - stakeholder_need -> requirement
+    - boundary_condition -> requirement_scope
+    machine_checkable: true
+    manual_review_needed: true
+  - trace_type: requirement_to_design_decision
+    minimum_requirement: Material requirements should link to design decisions, artifact capacities, or justified non-implementation
+      decisions.
+    expected_edges:
+    - requirement -> design_decision
+    - requirement -> capacity_specification
+    - requirement -> deferred_decision
+    machine_checkable: true
+    manual_review_needed: true
+  - trace_type: design_decision_to_evaluation
+    minimum_requirement: Design decisions or artifact capacities supporting claims should link to evaluation criteria, methods,
+      measures, or inspection evidence.
+    expected_edges:
+    - design_decision -> evaluation_criterion
+    - capacity -> measure
+    - artifact_component -> inspection_evidence
+    machine_checkable: true
+    manual_review_needed: true
+  - trace_type: evaluation_to_design_knowledge
+    minimum_requirement: Evaluation findings should link to design knowledge records with confidence, limitations, and boundary
+      conditions.
+    expected_edges:
+    - finding -> design_knowledge_claim
+    - limitation -> boundary_condition
+    - validity_threat -> claim_scope_limit
+    machine_checkable: true
+    manual_review_needed: true
+  - trace_type: design_knowledge_to_contribution
+    minimum_requirement: Contribution claims should link to design knowledge, artifact evidence, novelty rationale, audience,
+      and scope conditions.
+    expected_edges:
+    - design_knowledge_claim -> contribution_claim
+    - artifact -> contribution_object
+    - boundary_condition -> contribution_scope
+    machine_checkable: true
+    manual_review_needed: true
+  - trace_type: evidence_to_claim
+    minimum_requirement: Every material claim should have an evidence, source, repository artifact, or reviewer judgment anchor.
+    expected_edges:
+    - source_anchor -> claim
+    - evidence_record -> claim
+    - reviewer_judgment -> claim
+    machine_checkable: true
+    manual_review_needed: true
+  validation_implications:
+    json_schema_fields:
+    - field_path: communication_space.transparency_trace.process_trace
+      obligation_status: required
+      validation_type: presence_and_array_or_object_shape
+      severity: warning
+    - field_path: communication_space.transparency_trace.problem_space_trace
+      obligation_status: required
+      validation_type: presence_and_reference_to_problem_space
+      severity: warning
+    - field_path: communication_space.transparency_trace.solution_space_trace
+      obligation_status: required
+      validation_type: presence_and_reference_to_solution_space
+      severity: warning
+    - field_path: communication_space.transparency_trace.build_trace
+      obligation_status: required
+      validation_type: presence_and_reference_to_design_or_artifact_space
+      severity: warning
+    - field_path: communication_space.transparency_trace.evaluation_trace
+      obligation_status: required_if_evaluation_or_utility_claims_are_present
+      validation_type: conditional_presence
+      severity: major_warning
+    - field_path: communication_space.transparency_trace.contribution_trace
+      obligation_status: required_if_contribution_claim_is_present
+      validation_type: conditional_presence
+      severity: major_warning
+    - field_path: communication_space.transparency_trace.source_anchors
+      obligation_status: required
+      validation_type: presence_stable_identifier_pattern_and_minimum_cardinality
+      severity: major_warning
+    - field_path: communication_space.transparency_trace.transparency_constraints
+      obligation_status: conditional
+      validation_type: required_when_materials_are_withheld_or_redacted
+      severity: warning
+    shacl_shapes_or_warnings:
+    - shape_id: communication_space_requires_transparency_trace_warning_shape
+      target_class: dsr:DSRStudy
+      severity: sh:Warning
+      rule: warn when communication_space.transparency_trace is absent
+      manual_review_required: false
+    - shape_id: transparency_trace_requires_six_forms_warning_shape
+      target_class: dsr:TransparencyTrace
+      severity: sh:Warning
+      rule: warn when process, problem, solution, build, evaluation, or contribution trace records are missing without not_applicable
+        rationale
+      manual_review_required: true
+    - shape_id: source_anchor_required_for_material_claim_shape
+      target_class: dsr:Claim
+      severity: sh:Warning
+      rule: warn when a material claim lacks source_anchor, evidence_anchor, repository_artifact, or reviewer_judgment marker
+      manual_review_required: true
+    - shape_id: withheld_material_requires_transparency_constraint_shape
+      target_class: dsr:EvidenceRecord
+      severity: sh:Info
+      rule: info when evidence is withheld and transparency_constraint is present; warn when withheld without rationale
+      manual_review_required: true
+    controlled_vocabularies:
+    - vocabulary_id: transparency_form_vocabulary
+      required_terms:
+      - process_transparency
+      - problem_space_transparency
+      - solution_space_transparency
+      - build_transparency
+      - evaluation_transparency
+      - contribution_transparency
+    - vocabulary_id: transparency_constraint_type_vocabulary
+      suggested_terms:
+      - privacy
+      - security
+      - intellectual_property
+      - proprietary_information
+      - ethical_risk
+      - stakeholder_burden
+      - information_overload
+      - safety
+      - legal_or_regulatory
+    - vocabulary_id: traceability_edge_type_vocabulary
+      suggested_terms:
+      - supports
+      - derived_from
+      - constrains
+      - evaluated_by
+      - evidences
+      - limits
+      - abstracts_to
+      - instantiates
+      - communicates
+    - vocabulary_id: transparency_decision_value_vocabulary
+      required_terms:
+      - transparency_ready
+      - minor_trace_gaps
+      - major_trace_revision_needed
+      - not_reviewable
+    python_validation_logic:
+    - check weights sum to 1.0
+    - check each assessment_dimension has score_0 through score_4 descriptors
+    - check all required_inputs are represented in required_outputs or traceability_requirements
+    - check all material claims have one of source_anchor_id, evidence_id, repository_path, or reviewer_judgment marker
+    - check decision value belongs to transparency_decision_value_vocabulary
+    - check floor rules after calculating weighted score
+    - flag transparency_overload when evidence artifact count exceeds configured threshold without an index or summary
+    - flag transparency_underload when required trace sections are empty or only generic text
+    manual_review_only_checks:
+    - adequacy of source-to-claim fit
+    - proportionality of documentation detail to claim scope
+    - whether redaction or access restriction is responsible
+    - whether a not_applicable rationale is methodologically acceptable
+    - whether evidence sufficiency supports evaluation or contribution claims
+    - whether transparency burden or confidentiality constraints create ethical or stakeholder risks
+    source_crosswalk_implications:
+    - Map Hevner et al. (2024) anchors A01 and A05 through A11 to transparency_form_vocabulary.
+    - Map vom Brocke and Maedche DSR Grid dimensions to transparency forms as crosswalked framework inference, not direct
+      source equivalence unless source anchors support it.
+    - Map journaling records to process_transparency, build_transparency, decision_trace, and design_knowledge_making_trace
+      fields.
+    - Map adjacent rubric outputs to transparency trace evidence rather than duplicating full scoring logic.
+  examples_or_scoring_vignettes:
+  - vignette_id: exemplary_repository_release
+    case_type: strong
+    description: A DSR study releases a repository package with YAML records for problem, context, input knowledge, requirements,
+      artifact specification, build trace, evaluation findings, contribution claim, source anchors, and validation results.
+      Sensitive interview evidence is summarized with access constraints and a redaction rationale.
+    likely_dimension_scores:
+      process_transparency: 4
+      problem_space_transparency: 4
+      solution_space_transparency: 3
+      build_transparency: 4
+      evaluation_transparency: 3
+      contribution_transparency: 4
+      source_anchor_and_traceability_quality: 4
+      transparency_burden_balance: 3
+    likely_decision: transparency_ready
+    calibration_notes: The record is reviewable and source-anchored. Minor limitations in evaluation transparency may remain
+      acceptable if claims are properly bounded.
+  - vignette_id: borderline_manuscript_with_trace_gaps
+    case_type: borderline
+    description: A manuscript clearly explains the DSR method, problem, evaluation, and contribution, but solution alternatives
+      are thin, build rationale is summarized in prose only, and several novelty claims cite broad literature without precise
+      anchors.
+    likely_dimension_scores:
+      process_transparency: 3
+      problem_space_transparency: 3
+      solution_space_transparency: 2
+      build_transparency: 2
+      evaluation_transparency: 3
+      contribution_transparency: 2
+      source_anchor_and_traceability_quality: 2
+      transparency_burden_balance: 3
+    likely_decision: minor_trace_gaps
+    calibration_notes: The record is conditionally reviewable but should add source anchors, build-decision identifiers, and
+      a clearer solution-space trace before repository release.
+  - vignette_id: weak_local_tool_success_story
+    case_type: weak
+    description: A team reports that a dashboard improved reporting speed. The write-up names DSR after the project, but there
+      is no problem-class abstraction, input-knowledge trace, build rationale, evaluation criteria, source anchors, or contribution
+      boundary statement.
+    likely_dimension_scores:
+      process_transparency: 1
+      problem_space_transparency: 1
+      solution_space_transparency: 0
+      build_transparency: 1
+      evaluation_transparency: 1
+      contribution_transparency: 0
+      source_anchor_and_traceability_quality: 0
+      transparency_burden_balance: 2
+    likely_decision: not_reviewable
+    calibration_notes: The source_anchor floor rule applies. Treat as a local practice report unless source-supported reconstruction
+      can establish a DSR transparency trace.
+  - vignette_id: sensitive_field_evaluation_with_responsible_redaction
+    case_type: conditional_strong
+    description: A DSR study evaluates a socio-technical intervention using confidential organizational data. Raw data cannot
+      be released, but the record provides de-identified summaries, evaluation criteria, analysis scripts where safe, data
+      provenance, redaction rationale, access conditions, and findings-to-claims links.
+    likely_dimension_scores:
+      process_transparency: 3
+      problem_space_transparency: 3
+      solution_space_transparency: 3
+      build_transparency: 3
+      evaluation_transparency: 3
+      contribution_transparency: 3
+      source_anchor_and_traceability_quality: 3
+      transparency_burden_balance: 4
+    likely_decision: transparency_ready
+    calibration_notes: Do not penalize non-public raw evidence when responsible redaction and review pathways preserve evidence-to-claim
+      reviewability.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Scores indicate reviewability and trace quality, not artifact success or contribution significance by themselves.
+    - 'Dimension scores should be interpreted in relation to claim scope: early-stage DSR can be transparent with provisional
+      evaluation or contribution claims if limitations are explicit.'
+    - A score_3 means adequate for ordinary review; score_4 means unusually strong for reuse, crosswalk, validation, or replication-oriented
+      repository work.
+    - Low transparency_burden_balance can reduce practical trust even when many documents exist.
+    what_not_to_infer:
+    - Do not infer that a high transparency score proves the artifact is useful, valid, effective, ethical, secure, legally
+      compliant, or production-ready.
+    - Do not infer that a high transparency score proves the contribution is novel or important; use contribution_quality_rubric
+      for that judgment.
+    - Do not infer that transparent evaluation documentation means the evaluation design is aligned; use evaluation_alignment_quality_rubric
+      for that judgment.
+    - Do not infer that public release of all materials is required; responsible transparency may use redaction, controlled
+      access, summaries, or non-disclosure rationales.
+    - Do not infer that missing one transparency form always means failure; not_applicable or availability_limited can be acceptable
+      when justified, bounded, and reviewed.
+    - Do not infer that long documentation is better documentation; usability, source anchoring, proportionality, and evidence-to-claim
+      fit matter more than volume.
+    - Do not infer that source anchors automatically support the attached claim; claim-to-source fit still requires human
+      review.
+    relationship_to_adjacent_rubrics:
+      design_rationale_build_trace_rubric: Provides deeper review of build rationale, alternatives, iteration, versioning,
+        and reproducibility markers used by build_transparency.
+      evaluation_alignment_quality_rubric: Provides deeper review of whether evaluation object, claim type, criteria, methods,
+        evidence, and findings align, beyond evaluation documentation transparency.
+      contribution_quality_rubric: Provides deeper review of contribution object, novelty, evidence basis, projectability,
+        audience fit, and overclaim risk, beyond contribution trace visibility.
+      repository_documentation_conformance_rubric: Should consume this rubric's outputs when checking package-level file placement,
+        naming, schema conformance, and validation readiness.
+      reliability_replication_readiness_rubric: Depends on transparency trace quality because replication and reliability
+        review require reviewable materials, procedures, measures, and boundary conditions.
+    known_limitations:
+    - The rubric cannot fully automate adequacy judgments about proportional disclosure, evidence sufficiency, or source-to-claim
+      fit.
+    - The six transparency forms are source-grounded but should not be enforced as a rigid checklist when genre, phase, or
+      confidentiality constraints justify variation.
+    - The rubric assumes the DSR framework's source-anchor and traceability infrastructure; projects without that infrastructure
+      may need adapter mappings.
+    - The rubric is designed for DSR operationalization records and may need adjustment for non-DSR research genres or purely
+      practical improvement records.
+  quality_control:
+    completeness_check:
+    - Confirm all required top-level sections are present.
+    - Confirm all eight required dimensions are present with weights summing to 1.0.
+    - Confirm every dimension has score_0 through score_4 descriptors, minimum evidence, high-quality evidence, weak-evidence
+      signals, calibration anchor, common failure modes, and reviewer notes.
+    - Confirm required_inputs include process_trace, problem_space_trace, solution_space_trace, build_trace, evaluation_trace,
+      contribution_trace, and source_anchors.
+    - Confirm decision values are limited to transparency_ready, minor_trace_gaps, major_trace_revision_needed, and not_reviewable.
+    ambiguity_check:
+    - Flag any material claim with ambiguous source support.
+    - Flag any not_applicable transparency form for human review.
+    - Flag any redaction or withheld evidence without rationale.
+    - Flag any dimension scored from project-team memory rather than documentation.
+    human_review_recommendation:
+      default: human_review_required_for_final_decision
+      rationale: Machine checks can verify presence, identifiers, and some trace patterns; adequacy, proportionality, confidentiality,
+        and source-to-claim fit require human judgment.
+    source_gap_notes:
+    - Hevner et al. (2024) supports the six transparency forms but cautions against premature rigid checklists; validation
+      severity should generally be warnings/manual review rather than hard errors.
+    - DSR Grid crosswalks should be marked as framework inference unless direct source anchors support equivalence.
+    - Documentation protocol integration should be checked against current repository conventions before final approval.
+    repository_integration_checks:
+    - Place this file at rubrics/transparency_trace_quality_rubric.yaml.
+    - Add rubric ID to any rubric index, schema enum, or documentation navigation file.
+    - Cross-reference this rubric from reliability_replication_readiness_rubric and repository_documentation_conformance_rubric
+      when those are generated or revised.
+    - Consider adding transparency trace fields to DSR study YAML templates and JSON Schema.
+    - Add SKOS terms for transparency forms and anti-patterns if missing.
+    - Add warning-level SHACL shapes for absent transparency trace, missing anchors, and withheld evidence without rationale.
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial generated repository-ready rubric for transparency trace quality.
+    changed_by: gpt_5_5_thinking
