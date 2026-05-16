@@ -14,6 +14,10 @@ The individual `*_rubric.yaml` files are the canonical editable rubric records. 
 `dsr_assessment_rubrics_unified.yaml` preserves each rubric as a distinct collection item for review, search, AI ingestion,
 and distribution convenience.
 
+The generated file `dsr_assessment_rubrics_unified_sidecar.json` records collection metadata, dependency references, integrity
+checks, and source-file summaries for the unified YAML collection. The `process/` directory preserves generation-process
+provenance files used to create the individual rubric YAML files.
+
 Regenerate the unified collection with:
 
 ```bash

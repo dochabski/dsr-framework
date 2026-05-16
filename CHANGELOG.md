@@ -5,6 +5,9 @@
 ## Unreleased
 
 - Recorded Zenodo DOI `10.5281/zenodo.20238033` and publication verification for v1.3.0.
+- Added JSON sidecar for the unified DSR assessment rubric collection.
+- Added rubric-generation process/provenance files under `rubrics/process/`.
+- Updated package inventory and rubric documentation while preserving individual rubric YAML files as canonical.
 
 
 ## [1.3.0] - 2026-05-16

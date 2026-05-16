@@ -1,0 +1,1442 @@
+rubric_generation_spec:
+  metadata:
+    id: dsr_rubric_generation_spec_v0_1_0
+    title: DSR Framework Rubric Generation Specification
+    version: 0.1.0-draft
+    generated_on: '2026-05-09'
+    generated_by: GPT-5.5 Thinking
+    normative_status: planning_specification_for_future_rubric_artifacts
+    primary_repository: https://github.com/dochabski/dsr-framework
+    documentation_protocol_repository: https://github.com/dochabski/documentation-protocol
+    intended_repository_directory: rubrics/
+    purpose: Specify the required elements, structure, and generation expectations for individually generated DSR assessment
+      rubrics.
+    usage_note: Use this specification to generate one fully developed rubric at a time so that each rubric has sufficient
+      space for scoring levels, anchors, weights, calibration guidance, and decision thresholds.
+  repo_context_rules:
+  - Distinguish DSR theory from this repository's operationalization of DSR.
+  - Prefer repository artifacts and source-backed extraction records when assigning terms, identifiers, controlled values,
+    and validation implications.
+  - Preserve source-supported distinctions and do not convert soft guidance into hard validation unless the source and framework
+    explicitly support that obligation level.
+  - Use stable ASCII lowercase snake_case identifiers for YAML keys, rubric IDs, dimension IDs, validation rule IDs, and file
+    names.
+  - Every assessment claim should be traceable to source anchors, framework concepts, or explicitly labeled reviewer judgment.
+  - Rubrics should support human review and machine-readable validation, but should not pretend that human judgment can be
+    eliminated for adequacy, significance, novelty, ethics, or evidence sufficiency.
+  global_rubric_artifact_requirements:
+    required_top_level_sections:
+    - rubric_metadata
+    - assessment_scope
+    - source_grounding
+    - construct_definitions
+    - required_inputs
+    - required_outputs
+    - assessment_dimensions
+    - scoring_model
+    - level_descriptors
+    - evidence_requirements
+    - calibration_guidance
+    - decision_thresholds
+    - interpretation_guidance
+    - anti_patterns_and_warnings
+    - traceability_requirements
+    - validation_implications
+    - examples_or_scoring_vignettes
+    - quality_control
+    - revision_history
+    each_rubric_must_include:
+      rubric_metadata:
+      - id
+      - label
+      - version
+      - status
+      - generated_on
+      - generated_by
+      - intended_file_path
+      - assessment_target
+      - priority
+      - lifecycle_phase
+      assessment_scope:
+      - primary_question
+      - when_to_use
+      - when_not_to_use
+      - intended_users
+      - unit_of_assessment
+      - boundary_conditions
+      source_grounding:
+      - source_families_to_consult
+      - required_framework_files
+      - source_anchor_policy
+      - unsupported_claim_policy
+      construct_definitions:
+      - controlled_terms
+      - local_definitions
+      - distinctions_to_preserve
+      - terms_not_to_conflate
+      required_inputs:
+      - input_field
+      - description
+      - obligation_status
+      - accepted_format
+      - minimum_evidence
+      required_outputs:
+      - rating_fields
+      - decision_fields
+      - gap_fields
+      - recommended_actions
+      - human_review_flags
+      assessment_dimensions:
+      - dimension_id
+      - label
+      - definition
+      - weight
+      - score_direction
+      - required
+      - evidence_needed
+      - level_descriptors
+      - calibration_notes
+      - common_failure_modes
+      scoring_model:
+      - scale
+      - score_direction
+      - weight_sum_rule
+      - missing_evidence_rule
+      - reverse_scoring_rule
+      - non_compensatory_floor_rules
+      level_descriptors:
+      - score_0
+      - score_1
+      - score_2
+      - score_3
+      - score_4
+      - anchor_examples
+      - borderline_cases
+      evidence_requirements:
+      - minimum_evidence_by_dimension
+      - acceptable_evidence_modes
+      - source_anchor_requirements
+      - evidence_quality_notes
+      calibration_guidance:
+      - reviewer_preparation
+      - anchor_examples
+      - calibration_rounds
+      - inter_rater_reconciliation
+      - drift_checks
+      decision_thresholds:
+      - proceed_or_ready_threshold
+      - revise_threshold
+      - stop_or_reframe_threshold
+      - dimension_floor_rules
+      - human_review_triggers
+      interpretation_guidance:
+      - how_to_read_scores
+      - what_not_to_infer
+      - relationship_to_adjacent_rubrics
+      - known_limitations
+      anti_patterns_and_warnings:
+      - anti_pattern_id
+      - warning_condition
+      - severity
+      - recommended_response
+      traceability_requirements:
+      - source_to_concept
+      - concept_to_schema_field
+      - problem_to_requirement
+      - requirement_to_design_decision
+      - design_decision_to_evaluation
+      - evaluation_to_design_knowledge
+      - design_knowledge_to_contribution
+      - evidence_to_claim
+      validation_implications:
+      - json_schema_fields
+      - shacl_shapes_or_warnings
+      - controlled_vocabularies
+      - python_validation_logic
+      - manual_review_only_checks
+      examples_or_scoring_vignettes:
+      - valid_example
+      - borderline_example
+      - invalid_or_warning_example
+      quality_control:
+      - completeness_check
+      - ambiguity_check
+      - human_review_recommendation
+      - source_gap_notes
+      revision_history:
+      - version
+      - date
+      - change_summary
+      - changed_by
+    each_dimension_must_include:
+    - dimension_id
+    - label
+    - definition
+    - weight
+    - required
+    - score_direction
+    - score_0_descriptor
+    - score_1_descriptor
+    - score_2_descriptor
+    - score_3_descriptor
+    - score_4_descriptor
+    - minimum_evidence
+    - high_quality_evidence
+    - weak_evidence_signals
+    - calibration_anchor
+    - common_failure_modes
+    - reviewer_notes
+  controlled_vocabularies:
+    priority_values:
+    - core
+    - recommended
+    - advanced
+    - source_dependent
+    rubric_status_values:
+    - planned
+    - draft
+    - review_ready
+    - approved
+    - deprecated
+    obligation_status_values:
+    - required
+    - recommended
+    - optional
+    - conditional
+    - contested
+    - not_addressed
+    - not_applicable
+    ambiguity_values:
+    - low
+    - medium
+    - high
+    score_scale_default:
+      '0': absent_or_blocked
+      '1': weak_or_asserted
+      '2': conditional_or_partially_supported
+      '3': strong_or_adequately_supported
+      '4': very_strong_or_exemplary
+    severity_values:
+    - info
+    - warning
+    - major_warning
+    - blocking_issue
+    evidence_mode_values:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    decision_value_policy: Each rubric may define its own final decision values, but must map them to proceed/ready, revise/constrain,
+      reframe/prepare, or stop/not-ready categories.
+  recommended_output_file_pattern: rubrics/{rubric_id}.yaml
+  rubric_backlog:
+  - generation_order: 1
+    id: problem_research_worthiness_rubric
+    label: Problem Research-Worthiness Rubric
+    priority: core
+    lifecycle_phase: problem_selection_and_framing
+    assessment_target: problem_space.research_worthiness
+    primary_question: Is this problem worth treating as DSR rather than routine practice improvement or consulting?
+    output_path: rubrics/problem_research_worthiness_rubric.yaml
+    when_to_use: Before artifact development, after an initial problem instance and candidate problem class have been stated.
+    required_inputs:
+    - problem_instance
+    - problem_class
+    - relevance_justification
+    - research_front_or_gap
+    - candidate_contribution_claim
+    - constraints
+    required_outputs:
+    - overall_research_worthiness_rating
+    - novelty_rationale
+    - significance_rationale
+    - tractability_rationale
+    - routine_design_risk
+    - decision
+    dimensions:
+    - id: novelty
+      default_weight: 0.25
+      required: true
+      description: Extent to which the problem framing, expected artifact, method, evaluation, or design knowledge advances
+        beyond settled knowledge.
+    - id: significance
+      default_weight: 0.25
+      required: true
+      description: Practical, stakeholder, organizational, societal, scholarly, or methodological importance.
+    - id: tractability
+      default_weight: 0.2
+      required: true
+      description: Credible ability to investigate, design, demonstrate, and evaluate within constraints.
+    - id: problem_class_abstraction
+      default_weight: 0.1
+      required: true
+      description: Quality of abstraction from situated problem instance to reusable problem class.
+    - id: research_front_positioning
+      default_weight: 0.1
+      required: true
+      description: Explicit positioning against prior research, current gap, or unresolved front.
+    - id: routine_design_risk
+      default_weight: 0.1
+      required: true
+      reverse_scored: true
+      description: Risk that the work is only local application of known techniques without research contribution.
+    decision_values:
+    - proceed
+    - proceed_with_constraints
+    - reframe
+    - treat_as_practice_project
+    - reject_or_defer
+    anti_patterns:
+    - streetlight_problem_selection
+    - myopic_problem_formulation
+    - routine_design_overclaim
+    - weak_problem_class_abstraction
+    - novelty_assertion_without_research_front
+    dependencies: []
+    source_families_to_consult:
+    - concept_inventory.problem_space
+    - Purao problem-source and research-worthiness extraction
+    - DSR Operational Synthesis problem-space sections
+    - Theory of DSR consensus commitments
+    prompt_id: prompt_problem_research_worthiness_rubric
+  - generation_order: 2
+    id: problem_solvability_rubric
+    label: Problem Solvability Rubric
+    priority: core
+    lifecycle_phase: problem_selection_and_framing
+    assessment_target: problem_space.solvability_assessment
+    primary_question: Can this DSR problem plausibly be addressed through an artifact, intervention, or design entity under
+      known constraints?
+    output_path: rubrics/problem_solvability_rubric.yaml
+    when_to_use: Before detailed requirements and artifact design; revisit after access, governance, or resource conditions
+      change.
+    required_inputs:
+    - problem_instance
+    - problem_class
+    - stakeholders
+    - context
+    - resources
+    - governance_conditions
+    - access_conditions
+    - candidate_evaluation_route
+    required_outputs:
+    - overall_solvability_rating
+    - blockers
+    - mitigations
+    - scope_constraints
+    - decision
+    dimensions:
+    - id: feasibility
+      default_weight: 0.15
+      required: true
+      description: Plausibility under time, technique, data, and methodological constraints.
+    - id: access
+      default_weight: 0.15
+      required: true
+      description: Access to people, settings, systems, documents, data, or practices needed for design and evaluation.
+    - id: resource_sufficiency
+      default_weight: 0.15
+      required: true
+      description: Availability of financial, human, technical, data, infrastructure, and expertise resources.
+    - id: governance_readiness
+      default_weight: 0.15
+      required: true
+      description: Decision rights, approvals, accountability, ownership, privacy, security, IP, and maintenance feasibility.
+    - id: operational_intervention_capacity
+      default_weight: 0.15
+      required: true
+      description: Capacity of the setting to absorb prototype, pilot, implementation, or process change.
+    - id: evaluation_possibility
+      default_weight: 0.15
+      required: true
+      description: Credibility of evaluating success, utility, failure, or learning.
+    - id: risk_payoff_balance
+      default_weight: 0.05
+      required: true
+      description: Balance of expected benefit against risk, burden, reversibility, and opportunity cost.
+    - id: knowledge_contribution_potential
+      default_weight: 0.05
+      required: true
+      description: Potential for projectable or reusable design knowledge from solving the problem.
+    decision_values:
+    - proceed
+    - proceed_with_scope_constraints
+    - prepare_prerequisites
+    - reframe
+    - abandon_or_defer
+    anti_patterns:
+    - false_feasibility
+    - access_assumption
+    - governance_blind_spot
+    - unevaluable_problem
+    - overbroad_problem_scope
+    dependencies:
+    - problem_research_worthiness_rubric
+    source_families_to_consult:
+    - concept_inventory.solvability_assessment
+    - DSR externalities and prerequisite-space records
+    - Purao solvability and tractability extraction
+    - Wicked Problem Workflow
+    prompt_id: prompt_problem_solvability_rubric
+  - generation_order: 3
+    id: problem_framing_quality_rubric
+    label: Problem Framing Quality Rubric
+    priority: core
+    lifecycle_phase: problem_framing
+    assessment_target: problem_space.problem_framing
+    primary_question: Is the problem represented clearly enough to support DSR design, evaluation, and contribution claims?
+    output_path: rubrics/problem_framing_quality_rubric.yaml
+    when_to_use: After raw problem capture and before objectives, requirements, and artifact design are finalized.
+    required_inputs:
+    - raw_problem_situation
+    - problem_instance_statement
+    - problem_class_statement
+    - stakeholder_claims
+    - wickedness_profile
+    - boundary_conditions
+    required_outputs:
+    - problem_framing_rating
+    - framing_gaps
+    - reframing_recommendations
+    - problem_instance_to_class_trace
+    dimensions:
+    - id: problem_instance_clarity
+      default_weight: 0.18
+      required: true
+      description: Specificity of local setting, stakeholders, unwanted condition, mechanisms, and consequences.
+    - id: problem_class_abstraction
+      default_weight: 0.18
+      required: true
+      description: Quality of abstraction from local instance to recurring problem class.
+    - id: problem_motivation_and_evidence
+      default_weight: 0.16
+      required: true
+      description: Evidence for relevance, severity, frequency, or importance.
+    - id: stakeholder_burden_and_value
+      default_weight: 0.14
+      required: true
+      description: Representation of who is harmed, helped, responsible, resistant, or affected.
+    - id: wickedness_and_ambiguity_profile
+      default_weight: 0.12
+      required: true
+      description: Explicit handling of ambiguity, conflict, circular causality, shifting constraints, and uncertain criteria.
+    - id: boundary_conditions
+      default_weight: 0.12
+      required: true
+      description: Scope limits, contextual conditions, and negative applicability conditions.
+    - id: representation_change_trace
+      default_weight: 0.1
+      required: false
+      description: Documentation of how the problem representation evolved during inquiry.
+    decision_values:
+    - accept_framing
+    - accept_with_minor_revision
+    - reframe_before_design
+    - insufficient_for_dsr
+    anti_patterns:
+    - symptom_as_problem
+    - solution_in_disguise
+    - overlocalization
+    - overabstraction
+    - stakeholder_erasure
+    - unbounded_problem
+    dependencies:
+    - problem_research_worthiness_rubric
+    - problem_solvability_rubric
+    source_families_to_consult:
+    - Maedche et al. problem-space conceptualization extraction
+    - Purao problem-source extraction
+    - Wicked Problem Workflow
+    - concept_inventory.problem_space
+    prompt_id: prompt_problem_framing_quality_rubric
+  - generation_order: 4
+    id: context_stakeholder_adequacy_rubric
+    label: Context and Stakeholder Adequacy Rubric
+    priority: core
+    lifecycle_phase: contextualization
+    assessment_target: context_space
+    primary_question: Does the DSR record describe context, stakeholders, artifact networks, and boundary conditions well
+      enough to interpret design and evaluation claims?
+    output_path: rubrics/context_stakeholder_adequacy_rubric.yaml
+    when_to_use: During problem framing, artifact design, evaluation planning, and contribution scoping.
+    required_inputs:
+    - context_description
+    - stakeholder_map
+    - artifact_network
+    - boundary_condition_register
+    - governance_and_resource_context
+    required_outputs:
+    - context_adequacy_rating
+    - stakeholder_coverage_gaps
+    - boundary_condition_gaps
+    - projectability_constraints
+    dimensions:
+    - id: context_completeness
+      default_weight: 0.18
+      required: true
+      description: Coverage of organizational, technical, social, regulatory, temporal, cultural, resource, and governance
+        context.
+    - id: stakeholder_role_coverage
+      default_weight: 0.18
+      required: true
+      description: Identification of users, sponsors, managers, reviewers, technical implementers, affected groups, and maintainers.
+    - id: stakeholder_goals_incentives_and_burdens
+      default_weight: 0.14
+      required: true
+      description: Attention to goals, pains, incentives, authority, constraints, risks, and resistance.
+    - id: artifact_network_mapping
+      default_weight: 0.14
+      required: true
+      description: Mapping neighboring systems, documents, processes, metrics, and practices.
+    - id: boundary_conditions_and_claim_scope
+      default_weight: 0.16
+      required: true
+      description: Explicit boundaries for validity, transfer, use, and contribution claims.
+    - id: context_to_design_implications
+      default_weight: 0.12
+      required: true
+      description: Trace from contextual conditions to objectives, requirements, design decisions, or evaluation design.
+    - id: context_change_readiness
+      default_weight: 0.08
+      required: false
+      description: Awareness of changes likely to affect artifact use, maintenance, or evaluation.
+    decision_values:
+    - adequate
+    - adequate_with_gaps
+    - requires_context_revision
+    - insufficient_for_claims
+    anti_patterns:
+    - context_as_background_only
+    - stakeholder_tokenism
+    - boundary_condition_absence
+    - artifact_network_blindness
+    - unsupported_projectability
+    dependencies:
+    - problem_framing_quality_rubric
+    source_families_to_consult:
+    - zur Heiden context extraction
+    - Hevner transparency extraction
+    - concept_inventory.context_space
+    - Wicked Problem Workflow
+    prompt_id: prompt_context_stakeholder_adequacy_rubric
+  - generation_order: 5
+    id: requirements_traceability_rubric
+    label: Requirements Traceability Rubric
+    priority: core
+    lifecycle_phase: requirements_and_design_targeting
+    assessment_target: design_space.requirements_trace
+    primary_question: Are objectives, requirements, acceptance criteria, design decisions, and evaluation criteria traceably
+      derived from the problem and context?
+    output_path: rubrics/requirements_traceability_rubric.yaml
+    when_to_use: After problem/context formulation and before or during artifact specification.
+    required_inputs:
+    - problem_factors
+    - stakeholder_needs
+    - objectives
+    - requirements
+    - acceptance_criteria
+    - design_decisions
+    - evaluation_criteria
+    required_outputs:
+    - traceability_rating
+    - broken_trace_links
+    - unjustified_requirements
+    - untested_requirements
+    - revision_actions
+    dimensions:
+    - id: problem_to_objective_trace
+      default_weight: 0.18
+      required: true
+      description: Evidence that objectives respond to problem factors and stakeholder needs.
+    - id: objective_to_requirement_trace
+      default_weight: 0.16
+      required: true
+      description: Translation of objectives into clear functional, nonfunctional, design, or meta-requirements.
+    - id: acceptance_criterion_quality
+      default_weight: 0.16
+      required: true
+      description: Testability, specificity, and relevance of acceptance criteria.
+    - id: requirement_to_design_decision_trace
+      default_weight: 0.16
+      required: true
+      description: Links from each key requirement to one or more design decisions or artifact capacities.
+    - id: requirement_to_evaluation_alignment
+      default_weight: 0.16
+      required: true
+      description: Links from requirements to evaluation criteria, methods, measures, and findings.
+    - id: change_control_and_rationale
+      default_weight: 0.1
+      required: false
+      description: Trace of requirement changes, rationale, and effect on artifact/evaluation.
+    - id: coverage_and_gap_analysis
+      default_weight: 0.08
+      required: true
+      description: Detection of orphan requirements, orphan design decisions, and untested acceptance criteria.
+    decision_values:
+    - trace_ready
+    - minor_trace_gaps
+    - major_trace_revision_needed
+    - not_traceable
+    anti_patterns:
+    - solution_drift
+    - orphan_requirement
+    - untested_requirement
+    - acceptance_criteria_absence
+    - traceability_theater
+    dependencies:
+    - problem_framing_quality_rubric
+    - context_stakeholder_adequacy_rubric
+    source_families_to_consult:
+    - DSR Operational Synthesis traceability edges
+    - Alismail objectives framework extraction
+    - Maedche problem-space extraction
+    - concept_inventory.requirement
+    prompt_id: prompt_requirements_traceability_rubric
+  - generation_order: 6
+    id: input_knowledge_solution_grounding_rubric
+    label: Input Knowledge and Solution-Grounding Rubric
+    priority: core
+    lifecycle_phase: solution_space_grounding
+    assessment_target: solution_space.input_knowledge
+    primary_question: Is the artifact grounded in relevant prior knowledge, kernel theories, prior artifacts, methods, technologies,
+      and design patterns?
+    output_path: rubrics/input_knowledge_solution_grounding_rubric.yaml
+    when_to_use: Before artifact design finalization and again when writing the contribution and rigor sections.
+    required_inputs:
+    - kernel_theories
+    - prior_artifacts
+    - design_patterns
+    - methods
+    - technologies
+    - solution_alternatives
+    - prior_solution_critique
+    required_outputs:
+    - solution_grounding_rating
+    - knowledge_gaps
+    - alternative_search_gaps
+    - rationale_strength
+    - misfit_warnings
+    dimensions:
+    - id: kernel_theory_and_descriptive_knowledge_fit
+      default_weight: 0.16
+      required: true
+      description: Relevance and appropriate use of descriptive or explanatory knowledge.
+    - id: prior_artifact_and_design_knowledge_coverage
+      default_weight: 0.16
+      required: true
+      description: Engagement with relevant prior artifacts, design principles, patterns, methods, and architectures.
+    - id: solution_alternative_search
+      default_weight: 0.16
+      required: true
+      description: Evidence that multiple feasible design options were considered.
+    - id: problem_solution_fit
+      default_weight: 0.18
+      required: true
+      description: Alignment between problem mechanisms and selected solution logic.
+    - id: source_quality_and_provenance
+      default_weight: 0.12
+      required: true
+      description: Credibility, provenance, and relevance of source knowledge.
+    - id: prior_solution_critique
+      default_weight: 0.12
+      required: true
+      description: Explanation of why existing solutions are insufficient or require adaptation.
+    - id: knowledge_to_design_trace
+      default_weight: 0.1
+      required: true
+      description: Explicit trace from input knowledge to requirements, design decisions, or evaluation criteria.
+    decision_values:
+    - well_grounded
+    - grounded_with_gaps
+    - requires_solution_space_revision
+    - ungrounded
+    anti_patterns:
+    - black_box_invention
+    - theory_name_dropping
+    - prior_artifact_neglect
+    - single_solution_fixation
+    - weak_solution_grounding
+    dependencies:
+    - requirements_traceability_rubric
+    source_families_to_consult:
+    - Theory of DSR rigor through knowledge base
+    - Feine machine-executable descriptive knowledge extraction
+    - Leimeister design pattern extraction
+    - DSR Operational Synthesis solution_space
+    prompt_id: prompt_input_knowledge_solution_grounding_rubric
+  - generation_order: 7
+    id: artifact_specification_quality_rubric
+    label: Artifact Specification Quality Rubric
+    priority: core
+    lifecycle_phase: artifact_specification
+    assessment_target: artifact_space
+    primary_question: Is the DSR artifact or design entity specified clearly enough to distinguish reusable design knowledge
+      from concrete implementation?
+    output_path: rubrics/artifact_specification_quality_rubric.yaml
+    when_to_use: During artifact definition, prototype design, repository packaging, and artifact/contribution review.
+    required_inputs:
+    - artifact_name
+    - artifact_type
+    - artifact_universal
+    - artifact_instantiation
+    - capacity_specification
+    - make_plan
+    - use_plan
+    - artifact_boundary
+    required_outputs:
+    - artifact_specification_rating
+    - artifact_boundary_gaps
+    - make_use_capacity_gaps
+    - instantiation_trace
+    dimensions:
+    - id: artifact_universal_vs_instantiation_distinction
+      default_weight: 0.18
+      required: true
+      description: Clear distinction between reusable artifact/design entity and concrete prototype or implementation.
+    - id: artifact_type_classification
+      default_weight: 0.1
+      required: true
+      description: Appropriate artifact type such as construct, model, method, instantiation, design principle, framework,
+        taxonomy, pattern, or architecture.
+    - id: artifact_boundary_and_scope
+      default_weight: 0.12
+      required: true
+      description: Definition of what the artifact includes, excludes, depends on, and assumes.
+    - id: capacity_specification
+      default_weight: 0.16
+      required: true
+      description: Functions, affordances, constraints, quality attributes, and expected capacities.
+    - id: make_plan_quality
+      default_weight: 0.14
+      required: true
+      description: Procedure and evidence for producing or maintaining the artifact.
+    - id: use_plan_quality
+      default_weight: 0.14
+      required: true
+      description: User roles, use context, steps, preconditions, and intended effects.
+    - id: make_use_and_usage_effect_claims
+      default_weight: 0.1
+      required: true
+      description: Separation of claims about making the artifact, using it, and producing intended effects.
+    - id: artifact_network_fit
+      default_weight: 0.06
+      required: false
+      description: Integration with neighboring artifacts, systems, processes, or practices.
+    decision_values:
+    - specification_ready
+    - minor_specification_gaps
+    - major_specification_revision_needed
+    - artifact_not_specified
+    anti_patterns:
+    - artifact_black_box
+    - implementation_artifact_conflation
+    - capacity_absence
+    - make_plan_absence
+    - use_plan_absence
+    - artifact_boundary_blur
+    dependencies:
+    - input_knowledge_solution_grounding_rubric
+    - requirements_traceability_rubric
+    source_families_to_consult:
+    - Weigand artifact ontology extraction
+    - Weber DSR artifact discussion
+    - concept_inventory.artifact_space
+    - DSR Operational Synthesis artifact operationalization
+    prompt_id: prompt_artifact_specification_quality_rubric
+  - generation_order: 8
+    id: design_rationale_build_trace_rubric
+    label: Design Rationale and Build Trace Rubric
+    priority: recommended
+    lifecycle_phase: design_and_build
+    assessment_target: design_space.design_rationale_and_build_trace
+    primary_question: Does the record explain why the artifact was designed as it was and how it was built or iterated?
+    output_path: rubrics/design_rationale_build_trace_rubric.yaml
+    when_to_use: During iterative build cycles and when preparing transparency or repository documentation.
+    required_inputs:
+    - design_decisions
+    - alternatives_considered
+    - rationale
+    - iteration_log
+    - build_evidence
+    - version_history
+    - design_constraints
+    required_outputs:
+    - build_trace_rating
+    - rationale_gaps
+    - alternative_gaps
+    - iteration_trace_gaps
+    - documentation_actions
+    dimensions:
+    - id: design_decision_identification
+      default_weight: 0.14
+      required: true
+      description: Clarity of major design decisions and their identifiers.
+    - id: rationale_quality
+      default_weight: 0.18
+      required: true
+      description: Justification using problem, requirements, input knowledge, constraints, and expected mechanisms.
+    - id: alternative_consideration
+      default_weight: 0.14
+      required: true
+      description: Documentation of rejected or deferred alternatives and reasons.
+    - id: iteration_and_learning_trace
+      default_weight: 0.16
+      required: true
+      description: Trace of build-evaluate-learn cycles and design changes.
+    - id: build_evidence_and_conformance
+      default_weight: 0.16
+      required: true
+      description: Evidence that the artifact or prototype conforms to specification.
+    - id: versioning_and_reproducibility
+      default_weight: 0.12
+      required: false
+      description: Version history, reproducible build steps, and dependency documentation.
+    - id: transparency_without_overload
+      default_weight: 0.1
+      required: true
+      description: Appropriate detail sufficient for review and reuse without unhelpful noise.
+    decision_values:
+    - trace_ready
+    - trace_ready_with_gaps
+    - requires_build_trace_revision
+    - build_trace_missing
+    anti_patterns:
+    - artifact_black_box
+    - decision_rationale_absence
+    - alternative_blindness
+    - ex_post_rationalization
+    - transparency_overload
+    dependencies:
+    - artifact_specification_quality_rubric
+    source_families_to_consult:
+    - Hevner transparency extraction
+    - vom Brocke journaling extraction
+    - Baskerville creativity/iteration extraction
+    - documentation protocol
+    prompt_id: prompt_design_rationale_build_trace_rubric
+  - generation_order: 9
+    id: demonstration_use_readiness_rubric
+    label: Demonstration and Use Readiness Rubric
+    priority: recommended
+    lifecycle_phase: demonstration_and_use
+    assessment_target: demonstration_and_use
+    primary_question: Is the artifact ready to be demonstrated or used in a setting that can produce meaningful evidence?
+    output_path: rubrics/demonstration_use_readiness_rubric.yaml
+    when_to_use: Before pilot, scenario demonstration, field use, lab evaluation, or proof-of-value activity.
+    required_inputs:
+    - artifact_instantiation
+    - use_case
+    - user_roles
+    - setting
+    - tasks
+    - use_plan
+    - support_materials
+    - risk_controls
+    required_outputs:
+    - demonstration_readiness_rating
+    - use_gaps
+    - participant_or_user_readiness_gaps
+    - safe_use_conditions
+    dimensions:
+    - id: use_case_clarity
+      default_weight: 0.14
+      required: true
+      description: Specific task, scenario, process, or use case for demonstration.
+    - id: user_and_stakeholder_readiness
+      default_weight: 0.14
+      required: true
+      description: Preparedness of users, evaluators, sponsors, or participants.
+    - id: setting_fit
+      default_weight: 0.12
+      required: true
+      description: Fit between demonstration setting and intended claim.
+    - id: prototype_or_instantiation_maturity
+      default_weight: 0.14
+      required: true
+      description: Adequacy of artifact maturity for the intended demonstration.
+    - id: use_plan_operationality
+      default_weight: 0.16
+      required: true
+      description: Clarity of steps, preconditions, support, and expected interactions.
+    - id: evidence_capture_readiness
+      default_weight: 0.16
+      required: true
+      description: Ability to capture observations, measures, feedback, logs, or other use evidence.
+    - id: risk_and_burden_controls
+      default_weight: 0.14
+      required: true
+      description: Controls for stakeholder burden, privacy, safety, disruption, and unintended effects.
+    decision_values:
+    - ready_for_demonstration
+    - ready_with_controls
+    - revise_before_demonstration
+    - not_ready
+    anti_patterns:
+    - demo_without_use_case
+    - prototype_maturity_mismatch
+    - evidence_capture_gap
+    - user_burden_neglect
+    - setting_claim_mismatch
+    dependencies:
+    - artifact_specification_quality_rubric
+    - evaluation_alignment_quality_rubric
+    source_families_to_consult:
+    - Johannesson and Perjons demonstration/use sections
+    - Weber DSR build/evaluate logic
+    - DSR Operational Synthesis demonstration_and_use
+    prompt_id: prompt_demonstration_use_readiness_rubric
+  - generation_order: 10
+    id: evaluation_alignment_quality_rubric
+    label: Evaluation Alignment Quality Rubric
+    priority: core
+    lifecycle_phase: evaluation_planning_and_reporting
+    assessment_target: evaluation_space
+    primary_question: Does the evaluation design align artifact, claim type, criteria, timing, setting, evidence mode, stakeholders,
+      and contribution claim?
+    output_path: rubrics/evaluation_alignment_quality_rubric.yaml
+    when_to_use: During evaluation planning, before data collection, and while reviewing evaluation findings.
+    required_inputs:
+    - artifact_or_instantiation
+    - claim_types
+    - evaluation_object
+    - criteria
+    - timing
+    - setting
+    - evidence_mode
+    - stakeholders
+    - findings
+    required_outputs:
+    - evaluation_alignment_rating
+    - alignment_gaps
+    - validity_threats
+    - evidence_to_claim_trace
+    - revision_actions
+    dimensions:
+    - id: evaluation_object_clarity
+      default_weight: 0.12
+      required: true
+      description: 'Clear specification of what is evaluated: artifact universal, instantiation, method, use plan, design
+        knowledge, or effect.'
+    - id: claim_type_alignment
+      default_weight: 0.14
+      required: true
+      description: Alignment with make claim, use claim, usage-effect claim, contribution claim, or design-knowledge claim.
+    - id: criteria_and_measure_quality
+      default_weight: 0.16
+      required: true
+      description: Appropriate evaluation criteria, measures, thresholds, and qualitative judgment anchors.
+    - id: timing_and_function_fit
+      default_weight: 0.12
+      required: true
+      description: Fit of ex ante/ex post and formative/summative evaluation to maturity and claim.
+    - id: setting_and_evidence_mode_fit
+      default_weight: 0.14
+      required: true
+      description: Fit of artificial/naturalistic, analytical/empirical, expert/field/simulation/case/experiment evidence.
+    - id: stakeholder_and_audience_alignment
+      default_weight: 0.1
+      required: true
+      description: Appropriate stakeholder involvement for utility, validity, and adoption claims.
+    - id: validity_threat_identification
+      default_weight: 0.1
+      required: true
+      description: Identification of limitations, confounds, bias, generalization boundaries, and evidence weaknesses.
+    - id: findings_to_claims_trace
+      default_weight: 0.12
+      required: true
+      description: Explicit trace from results/findings to design knowledge and contribution claims.
+    decision_values:
+    - evaluation_aligned
+    - minor_alignment_gaps
+    - major_alignment_revision_needed
+    - evaluation_misaligned
+    anti_patterns:
+    - evaluation_mismatch
+    - criterion_absence
+    - claim_evidence_gap
+    - overclaim_from_weak_evidence
+    - stakeholder_mismatch
+    dependencies:
+    - requirements_traceability_rubric
+    - artifact_specification_quality_rubric
+    source_families_to_consult:
+    - Akoka 2017 evaluation knowledge types extraction
+    - Johannesson and Perjons evaluation sections
+    - Sjoestroem software-embedded evaluation extraction
+    - concept_inventory.evaluation_space
+    prompt_id: prompt_evaluation_alignment_quality_rubric
+  - generation_order: 11
+    id: contribution_quality_rubric
+    label: Design-Knowledge Contribution Quality Rubric
+    priority: core
+    lifecycle_phase: contribution_and_communication
+    assessment_target: knowledge_space.contribution_claim
+    primary_question: Is the contribution claim a justified, reusable or projectable design-knowledge contribution rather
+      than only a local artifact report?
+    output_path: rubrics/contribution_quality_rubric.yaml
+    when_to_use: When drafting, reviewing, or repository-packaging the DSR contribution.
+    required_inputs:
+    - contribution_claim
+    - design_knowledge
+    - artifact
+    - evaluation_evidence
+    - knowledge_goal
+    - knowledge_scope
+    - novelty_mode
+    - boundary_conditions
+    required_outputs:
+    - contribution_quality_rating
+    - contribution_type
+    - evidence_basis
+    - boundary_conditions
+    - claim_revision_actions
+    dimensions:
+    - id: contribution_object_clarity
+      default_weight: 0.14
+      required: true
+      description: 'Clarity about what is contributed: artifact, method, model, framework, principle, theory, evaluation knowledge,
+        or process knowledge.'
+    - id: knowledge_goal_and_scope
+      default_weight: 0.14
+      required: true
+      description: Explicit goal and scope of knowledge, such as prescriptive/descriptive/explanatory and idiographic/nomothetic.
+    - id: novelty_mode_and_maturity
+      default_weight: 0.14
+      required: true
+      description: Contribution novelty, maturity, and relation to existing DSR knowledge.
+    - id: evidence_basis
+      default_weight: 0.16
+      required: true
+      description: Evaluation, demonstration, analysis, literature, expert, field, or case evidence supporting the claim.
+    - id: projectability_and_boundary_conditions
+      default_weight: 0.14
+      required: true
+      description: Reusable scope, transfer conditions, limits, and adaptation guidance.
+    - id: audience_and_communication_fit
+      default_weight: 0.1
+      required: true
+      description: Fit to researcher, reviewer, practitioner, manager, technical implementer, or policy audience.
+    - id: accumulation_and_reuse_potential
+      default_weight: 0.1
+      required: true
+      description: Codifiability, comparability, extension, replication, or reuse potential.
+    - id: routine_design_and_overclaim_risk
+      default_weight: 0.08
+      required: true
+      reverse_scored: true
+      description: Risk that claims exceed evidence or collapse into routine design.
+    decision_values:
+    - contribution_ready
+    - minor_claim_revision
+    - major_claim_revision
+    - not_a_dsr_contribution_as_framed
+    anti_patterns:
+    - routine_design_overclaim
+    - contribution_claim_without_evidence
+    - artifact_delivery_as_contribution
+    - overgeneralization
+    - non_codified_knowledge
+    dependencies:
+    - evaluation_alignment_quality_rubric
+    - artifact_specification_quality_rubric
+    source_families_to_consult:
+    - Akoka paths of knowledge types extraction
+    - Baskerville DSR contributions extraction
+    - Reining knowledge accumulation extraction
+    - KCD extraction
+    - DSR Operational Synthesis contribution sections
+    prompt_id: prompt_contribution_quality_rubric
+  - generation_order: 12
+    id: projectability_boundary_conditions_rubric
+    label: Projectability and Boundary-Conditions Rubric
+    priority: recommended
+    lifecycle_phase: contribution_scoping_and_reuse
+    assessment_target: knowledge_space.projectability_statement
+    primary_question: Are transfer, reuse, adaptation, and non-applicability conditions stated well enough for responsible
+      use beyond the local case?
+    output_path: rubrics/projectability_boundary_conditions_rubric.yaml
+    when_to_use: When interpreting evaluation results, making contribution claims, or preparing reusable repository artifacts.
+    required_inputs:
+    - problem_class
+    - context
+    - artifact_boundary
+    - evaluation_setting
+    - findings
+    - boundary_conditions
+    - adaptation_guidance
+    required_outputs:
+    - projectability_rating
+    - transfer_conditions
+    - non_applicability_conditions
+    - adaptation_requirements
+    - overgeneralization_warnings
+    dimensions:
+    - id: problem_class_transfer_logic
+      default_weight: 0.16
+      required: true
+      description: Quality of reasoning from local problem instance to broader problem class.
+    - id: context_condition_mapping
+      default_weight: 0.16
+      required: true
+      description: Identification of contextual conditions required for transfer or reuse.
+    - id: artifact_adaptation_guidance
+      default_weight: 0.14
+      required: true
+      description: Guidance for adapting the artifact, method, use plan, or capacity specification.
+    - id: evaluation_scope_limits
+      default_weight: 0.14
+      required: true
+      description: Alignment of projectability claims with evaluation setting, sample, evidence mode, and findings.
+    - id: negative_boundary_conditions
+      default_weight: 0.14
+      required: true
+      description: Conditions under which the artifact or design knowledge should not be used or should be used cautiously.
+    - id: reuse_materials_and_traceability
+      default_weight: 0.12
+      required: false
+      description: Availability of artifacts, templates, traces, examples, or scripts supporting reuse.
+    - id: overgeneralization_control
+      default_weight: 0.14
+      required: true
+      description: Controls against claiming more generality than evidence supports.
+    decision_values:
+    - projectability_ready
+    - projectable_with_limits
+    - requires_boundary_revision
+    - not_projectable_as_claimed
+    anti_patterns:
+    - overgeneralization
+    - boundary_condition_absence
+    - case_to_universal_leap
+    - reuse_without_adaptation_guidance
+    - unsupported_projectability
+    dependencies:
+    - context_stakeholder_adequacy_rubric
+    - evaluation_alignment_quality_rubric
+    - contribution_quality_rubric
+    source_families_to_consult:
+    - Baskerville projectability discussion
+    - Reining knowledge accumulation extraction
+    - zur Heiden context extraction
+    - DSR Operational Synthesis boundary conditions
+    prompt_id: prompt_projectability_boundary_conditions_rubric
+  - generation_order: 13
+    id: reliability_replication_readiness_rubric
+    label: Reliability and Replication Readiness Rubric
+    priority: recommended
+    lifecycle_phase: validity_reliability_and_accumulation
+    assessment_target: validity_reliability_space
+    primary_question: Can the artifact, method, measure, design knowledge, process, or evaluation be reliably assessed or
+      replicated under stated conditions?
+    output_path: rubrics/reliability_replication_readiness_rubric.yaml
+    when_to_use: Before publication, repository release, replication study design, or cumulative knowledge synthesis.
+    required_inputs:
+    - reliability_target
+    - artifact_or_method_materials
+    - procedure
+    - measures
+    - evaluation_protocol
+    - boundary_conditions
+    - versioning
+    required_outputs:
+    - reliability_readiness_rating
+    - replication_readiness_rating
+    - replication_type_fit
+    - missing_materials
+    - reliability_risks
+    dimensions:
+    - id: reliability_target_clarity
+      default_weight: 0.14
+      required: true
+      description: Clarity of whether reliability concerns artifact, method, measure, evaluator, process, implementation,
+        or design knowledge.
+    - id: synchronic_reliability_support
+      default_weight: 0.12
+      required: true
+      description: Support for consistent assessment or use at a given time or across evaluators/settings.
+    - id: diachronic_reliability_support
+      default_weight: 0.12
+      required: true
+      description: Support for stable interpretation, reuse, or assessment over time and versions.
+    - id: replication_type_fit
+      default_weight: 0.14
+      required: true
+      description: Fit of intended replication type, such as test, redesign, adaptation, explanation, recreation, or meta-replication.
+    - id: materials_and_procedure_availability
+      default_weight: 0.18
+      required: true
+      description: Completeness of artifacts, data, protocols, code, templates, instructions, and environment notes.
+    - id: measure_and_evaluation_reproducibility
+      default_weight: 0.14
+      required: true
+      description: Ability to reproduce measures, criteria, analysis, and evaluation procedures.
+    - id: boundary_and_variation_documentation
+      default_weight: 0.1
+      required: true
+      description: Documentation of conditions, expected variation, and acceptable adaptations.
+    - id: accumulation_value
+      default_weight: 0.06
+      required: false
+      description: Contribution to cumulative DSR knowledge through comparability, codification, or reuse.
+    decision_values:
+    - replication_ready
+    - replication_ready_with_limits
+    - materials_revision_needed
+    - not_replication_ready
+    anti_patterns:
+    - non_codified_knowledge
+    - missing_materials
+    - untracked_versioning
+    - measure_opacity
+    - replication_type_mismatch
+    dependencies:
+    - contribution_quality_rubric
+    - transparency_trace_quality_rubric
+    source_families_to_consult:
+    - Storey reliability extraction
+    - Brendel replication study types extraction
+    - Reining knowledge accumulation extraction
+    - concept_inventory.validity_reliability_terms
+    prompt_id: prompt_reliability_replication_readiness_rubric
+  - generation_order: 14
+    id: transparency_trace_quality_rubric
+    label: Transparency Trace Quality Rubric
+    priority: core
+    lifecycle_phase: documentation_and_communication
+    assessment_target: communication_space.transparency_trace
+    primary_question: Does the DSR record provide enough process, problem-space, solution-space, build, evaluation, and contribution
+      transparency for review, reuse, and trust?
+    output_path: rubrics/transparency_trace_quality_rubric.yaml
+    when_to_use: Throughout documentation and before repository release or scholarly communication.
+    required_inputs:
+    - process_trace
+    - problem_space_trace
+    - solution_space_trace
+    - build_trace
+    - evaluation_trace
+    - contribution_trace
+    - source_anchors
+    required_outputs:
+    - transparency_rating
+    - trace_gaps
+    - overload_risks
+    - source_anchor_gaps
+    - documentation_actions
+    dimensions:
+    - id: process_transparency
+      default_weight: 0.14
+      required: true
+      description: Transparency about method, sequence, iteration, decisions, and role of researchers/stakeholders.
+    - id: problem_space_transparency
+      default_weight: 0.14
+      required: true
+      description: Transparency about problem instance, class, motivation, assumptions, and changes.
+    - id: solution_space_transparency
+      default_weight: 0.14
+      required: true
+      description: Transparency about input knowledge, alternatives, prior artifacts, theories, and design options.
+    - id: build_transparency
+      default_weight: 0.14
+      required: true
+      description: Transparency about artifact construction, design rationale, implementation, and versioning.
+    - id: evaluation_transparency
+      default_weight: 0.16
+      required: true
+      description: Transparency about evaluation object, criteria, data, methods, findings, and limitations.
+    - id: contribution_transparency
+      default_weight: 0.14
+      required: true
+      description: Transparency about contribution object, novelty, evidence, scope, and boundary conditions.
+    - id: source_anchor_and_traceability_quality
+      default_weight: 0.1
+      required: true
+      description: Use of source anchors and traceability edges without unsupported claims.
+    - id: transparency_burden_balance
+      default_weight: 0.04
+      required: false
+      description: Avoidance of both opacity and excessive, unusable documentation detail.
+    decision_values:
+    - transparency_ready
+    - minor_trace_gaps
+    - major_trace_revision_needed
+    - not_reviewable
+    anti_patterns:
+    - weak_traceability
+    - unsupported_claim
+    - artifact_black_box
+    - transparency_overload
+    - transparency_underload
+    dependencies:
+    - design_rationale_build_trace_rubric
+    - evaluation_alignment_quality_rubric
+    - contribution_quality_rubric
+    source_families_to_consult:
+    - Hevner transparency extraction
+    - vom Brocke and Maedche DSR Grid extraction
+    - vom Brocke journaling extraction
+    - documentation protocol
+    prompt_id: prompt_transparency_trace_quality_rubric
+  - generation_order: 15
+    id: responsible_design_constraints_rubric
+    label: Responsible Design Constraints Rubric
+    priority: recommended
+    lifecycle_phase: responsible_design_and_governance
+    assessment_target: responsible_design_constraints
+    primary_question: Are ethical, privacy, security, IP, maintenance, sustainability, and stakeholder-burden constraints
+      identified and managed?
+    output_path: rubrics/responsible_design_constraints_rubric.yaml
+    when_to_use: During problem framing, artifact specification, use planning, evaluation planning, and repository release.
+    required_inputs:
+    - stakeholder_burden_assessment
+    - privacy_constraints
+    - security_constraints
+    - ethical_constraints
+    - ip_constraints
+    - maintenance_plan
+    - risk_register
+    required_outputs:
+    - responsible_design_rating
+    - constraint_gaps
+    - risk_controls
+    - human_review_flags
+    - release_conditions
+    dimensions:
+    - id: ethical_risk_and_stakeholder_burden
+      default_weight: 0.18
+      required: true
+      description: Identification and mitigation of harms, burdens, inequities, consent issues, and affected stakeholder risks.
+    - id: privacy_and_data_governance
+      default_weight: 0.16
+      required: true
+      description: Privacy, data minimization, access, retention, confidentiality, and governance controls.
+    - id: security_and_misuse_risk
+      default_weight: 0.14
+      required: true
+      description: Security threats, misuse potential, abuse cases, and protective design choices.
+    - id: intellectual_property_and_licensing
+      default_weight: 0.1
+      required: false
+      description: IP status, licensing, reuse permissions, and restrictions.
+    - id: maintenance_and_sustainability
+      default_weight: 0.14
+      required: true
+      description: Maintenance owner, lifecycle, update path, support burden, and sustainability.
+    - id: governance_and_accountability
+      default_weight: 0.14
+      required: true
+      description: Decision rights, accountability, escalation, approvals, and compliance controls.
+    - id: constraint_to_design_trace
+      default_weight: 0.14
+      required: true
+      description: Trace from responsible-design constraints to requirements, design decisions, use plan, and evaluation controls.
+    decision_values:
+    - responsible_design_ready
+    - ready_with_controls
+    - requires_risk_revision
+    - do_not_proceed
+    anti_patterns:
+    - ethics_as_afterthought
+    - privacy_blindness
+    - security_blindness
+    - stakeholder_burden_externalization
+    - artifact_maintenance_neglect
+    dependencies:
+    - context_stakeholder_adequacy_rubric
+    - artifact_specification_quality_rubric
+    - demonstration_use_readiness_rubric
+    source_families_to_consult:
+    - responsible-design constraints in source extraction template
+    - Hevner transparency extraction
+    - concept_inventory.anti_pattern_terms
+    - documentation protocol
+    prompt_id: prompt_responsible_design_constraints_rubric
+  - generation_order: 16
+    id: repository_documentation_conformance_rubric
+    label: Repository Documentation Conformance Rubric
+    priority: advanced
+    lifecycle_phase: repository_packaging_and_validation
+    assessment_target: repository_package
+    primary_question: Does the repository artifact conform to the DSR framework documentation protocol, naming, traceability,
+      schema, and validation expectations?
+    output_path: rubrics/repository_documentation_conformance_rubric.yaml
+    when_to_use: Before committing or releasing framework artifacts such as rubrics, schemas, examples, ontology files, crosswalks,
+      or source extractions.
+    required_inputs:
+    - target_file_paths
+    - naming_and_identifier_policy
+    - schema_or_template
+    - source_anchors
+    - crosswalk_entries
+    - validation_results
+    - examples
+    required_outputs:
+    - repository_conformance_rating
+    - path_and_naming_gaps
+    - schema_gaps
+    - traceability_gaps
+    - validation_actions
+    dimensions:
+    - id: file_placement_and_naming
+      default_weight: 0.12
+      required: true
+      description: Conformance to repository paths, stable IDs, lowercase snake_case, and file naming conventions.
+    - id: schema_and_template_alignment
+      default_weight: 0.16
+      required: true
+      description: Alignment with YAML templates, JSON Schema, ontology, SKOS, or SHACL targets.
+    - id: source_anchor_and_crosswalk_completeness
+      default_weight: 0.16
+      required: true
+      description: Trace from claims to source anchors and downstream file implications.
+    - id: validation_readiness
+      default_weight: 0.14
+      required: true
+      description: Availability of machine-checkable fields, controlled values, and validation expectations.
+    - id: example_and_fixture_quality
+      default_weight: 0.12
+      required: false
+      description: Presence of examples, fixtures, or test cases showing valid and invalid records.
+    - id: human_review_and_ambiguity_flags
+      default_weight: 0.1
+      required: true
+      description: Human-review recommendations, ambiguity flags, and soft-vs-hard rule distinction.
+    - id: documentation_protocol_alignment
+      default_weight: 0.12
+      required: true
+      description: Alignment with the documentation protocol and DSR repo operationalization conventions.
+    - id: license_provenance_and_versioning
+      default_weight: 0.08
+      required: false
+      description: License, provenance, version history, generated-by fields, and change notes.
+    decision_values:
+    - repository_ready
+    - minor_revision
+    - major_revision
+    - do_not_commit
+    anti_patterns:
+    - orphan_artifact
+    - identifier_drift
+    - source_anchor_absence
+    - schema_drift
+    - validation_gap
+    - undocumented_generation
+    dependencies:
+    - transparency_trace_quality_rubric
+    source_families_to_consult:
+    - documentation protocol repository
+    - dsr-framework artifacts directory
+    - source extraction template
+    - concept inventory identifier policy
+    - ontology/schema/SHACL files
+    prompt_id: prompt_repository_documentation_conformance_rubric

@@ -99,7 +99,7 @@ The organized framework package uses the following top-level structure.
 | `schemas/` | JSON Schema files for structured validation. |
 | `templates/` | Reusable project, artifact, evaluation, contribution, and transparency templates. |
 | `checklists/` | Quality, readiness, transparency, evaluation, contribution, reliability, and projectability checklists. |
-| `rubrics/` | DSR assessment rubrics and generated unified rubric collection. |
+| `rubrics/` | DSR assessment rubrics, generated unified rubric collection, sidecar manifest, and generation-process provenance. |
 | `docs/protocol/` | Human-facing protocol documentation. |
 | `docs/wicked-problem-resolution-workflow.md` | Human-facing process artifact for approaching wicked problems through DSR-oriented problem framing, artifact design, evaluation, and design-knowledge capture. |
 | `records/` | Retained evidence of decisions, source basis, tailoring, reviews, evaluations, releases, and preservation. |

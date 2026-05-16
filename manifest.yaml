@@ -81,6 +81,8 @@ manifest:
       latest_wicked_problem_resolution_workflow: docs/wicked-problem-resolution-workflow.md
       wicked_problem_resolution_workflow_status: controlled_process_artifact_present
       latest_rubric_collection: rubrics/dsr_assessment_rubrics_unified.yaml
+      latest_rubric_collection_sidecar: rubrics/dsr_assessment_rubrics_unified_sidecar.json
+      latest_rubric_generation_process: rubrics/process/README.md
       latest_rubric_collection_builder: scripts/build-rubric-collection.py
       rubric_collection_status: individual_rubrics_canonical_unified_collection_generated
       nested_artifact_status: dsr_theory_operational_kernel_self_application_validation_retained_l2_reviewable_draft
@@ -820,6 +822,16 @@ manifest:
     to: https://zenodo.org/records/20238033
     relation: verifies_v1_3_0_zenodo_publication
     evidence_status: retained_publication_verification_record
+  - trace_id: tr_rubric_collection_sidecar_to_unified_collection
+    from: rubrics/dsr_assessment_rubrics_unified_sidecar.json
+    to: rubrics/dsr_assessment_rubrics_unified.yaml
+    relation: summarizes_integrity_and_dependency_metadata_for
+    evidence_status: generated_sidecar_manifest
+  - trace_id: tr_rubric_process_to_canonical_rubrics
+    from: rubrics/process/README.md
+    to: rubrics/README.md
+    relation: preserves_generation_process_provenance_for
+    evidence_status: retained_process_provenance
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -886,6 +898,12 @@ manifest:
     - records/tailoring/record-tailoring-0001-public-draft-conformance-scope.yaml
     - rubrics/README.md
     - rubrics/dsr_assessment_rubrics_unified.yaml
+    - rubrics/dsr_assessment_rubrics_unified_sidecar.json
+    - rubrics/process/README.md
+    - rubrics/process/dsr_rubric_generation_index_v0_1_0.md
+    - rubrics/process/dsr_rubric_generation_spec_v0_1_0.yaml
+    - rubrics/process/dsr_rubric_generation_prompts_v0_1_0.txt
+    - rubrics/process/prompt_stub_2026-05-15.txt
     - scripts/build-rubric-collection.py
     - records/releases/record-metadata-freeze-0006-v1-3-0.yaml
     - records/releases/record-release-0007-v1-3-0.yaml
@@ -966,6 +984,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.3.0-post-publication
+    date: '2026-05-16'
+    change_type: rubric_sidecar_and_process_provenance
+    description: Added the DSR rubric unified JSON sidecar and rubric-generation process/provenance files under rubrics/process.
+    responsible_party: framework_maintainer
+    related_request: rubric_sidecar_and_process_provenance
   - version: 1.3.0-post-publication
     date: '2026-05-16'
     change_type: zenodo_publication_verification
