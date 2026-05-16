@@ -1,0 +1,1271 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: repository_documentation_conformance_rubric
+    label: Repository Documentation Conformance Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/repository_documentation_conformance_rubric.yaml
+    local_file_name: repository_documentation_conformance_rubric.yaml
+    assessment_target: repository_package
+    priority: advanced
+    lifecycle_phase: repository_packaging_and_validation
+    prompt_id: prompt_repository_documentation_conformance_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - transparency_trace_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      validation_policy: machine_validation_checks_structure_identifiers_controlled_values_trace_shape_and_parseability; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Does the repository artifact conform to the DSR framework documentation protocol, naming, traceability,
+      schema, and validation expectations?
+    when_to_use:
+    - before committing or releasing framework artifacts such as rubrics, schemas, examples, ontology files, crosswalks, source
+      extractions, templates, or validation scripts
+    - during pull request or pre-release review of repository package artifacts
+    - after schema, ontology, SKOS, SHACL, template, or documentation-protocol changes that may affect existing artifacts
+    - when a generated artifact needs to be checked for naming, source anchoring, crosswalk completeness, validation readiness,
+      examples, and provenance
+    - when preparing an artifact for public release, archival deposit, DOI registration, or reuse by another researcher
+    when_not_to_use:
+    - do not use as a substitute for substantive DSR quality review of problem, context, artifact, evaluation, contribution,
+      reliability, or responsible-design adequacy
+    - do not use as proof that an artifact is theoretically valid, empirically supported, ethically acceptable, or practically
+      useful
+    - do not use before there is a concrete repository artifact or package candidate to inspect
+    - do not use to force all guidance into hard validation rules when the framework or source only supports soft guidance
+    - do not use to bypass maintainer review, security review, license review, or documentation-protocol governance decisions
+    intended_users:
+    - dsr_framework_maintainer
+    - repository_reviewer
+    - documentation_protocol_reviewer
+    - rubric_author
+    - schema_author
+    - ontology_engineer
+    - knowledge_engineer
+    - validation_script_author
+    - release_manager
+    - doctoral_student
+    - faculty_advisor
+    unit_of_assessment: one_repository_artifact_or_artifact_package_ready_for_commit_or_release_review
+    boundary_conditions:
+    - The rubric evaluates repository conformance, traceability, and validation readiness, not the intrinsic scholarly quality
+      of the DSR artifact.
+    - Repository artifacts may include YAML rubrics, JSON Schemas, SHACL shapes, SKOS vocabularies, ontology files, source
+      extraction records, crosswalks, examples, fixtures, or human-facing documentation that points to structured source files.
+    - A high score requires both machine-readable consistency and enough human-review information to avoid false precision.
+    - Some protocol expectations may be tailored by repository maturity level; tailoring must be explicit and versioned.
+    - Machine validation should test parseability, required fields, identifiers, controlled values, trace links, and file
+      presence; adequacy, materiality, source sufficiency, and soft/hard rule interpretation remain human-review judgments.
+    assumptions:
+    - Repository artifacts are part of a package architecture rather than isolated files.
+    - Structured YAML, JSON, RDF, TTL, or machine-readable source files should usually function as source-of-truth artifacts,
+      while Markdown documentation should explain, render, or guide their use.
+    - Traceability from source anchors to concepts, schema fields, validation implications, examples, and release notes is
+      a repository quality requirement.
+    - The documentation protocol and DSR framework operationalization may evolve; conformance should be version-specific.
+  source_grounding:
+    source_families_to_consult:
+    - documentation_protocol_repository
+    - dsr_framework_artifacts_directory
+    - dsr_framework_generation_spec
+    - dsr_rubric_generation_spec_v0_1_0
+    - dsr_rubric_generation_prompt_bank_v0_1_0
+    - dsr_source_operational_extraction_template
+    - concept_inventory_identifier_policy
+    - dsr_skos_controlled_vocabulary
+    - dsr_ontology_competency_questions
+    - ontology_schema_shacl_files
+    - transparency_trace_quality_rubric
+    required_framework_files:
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - dsr_rubric_generation_index_v0_1_0.md
+    - concept-inventory_v2.yaml
+    - dsr-source-operational-extraction-template.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - dsr-ontology.ttl
+    - dsr-shapes.ttl
+    - documentation-protocol repository files
+    - dsr-framework artifacts directory files
+    source_anchor_policy:
+      minimum: Every substantive conformance claim should cite or point to a source_anchor_id, framework_anchor, repository_artifact,
+        validation_result, or reviewer_judgment marker.
+      preferred: Use repository artifacts and documentation-protocol files for file architecture and naming claims; use source
+        extraction records, concept inventory, SKOS, ontology, and SHACL files for DSR concept and validation implications.
+      do_not_do: Do not treat general source-family references, undocumented repository habits, or reviewer memory as sufficient
+        evidence for a conformance obligation.
+    unsupported_claim_policy:
+      rule: Claims about repository readiness, source support, schema conformance, documentation-protocol alignment, validation
+        readiness, license status, or release readiness must be marked unsupported when evidence is missing.
+      effect: Unsupported conformance claims trigger human_review and may activate non_compensatory_floor_rules, especially
+        when source anchors, schema alignment, validation results, or license provenance are missing.
+    source_supported_claims:
+    - claim_id: src_claim_generation_spec_requires_traceable_rubrics
+      claim: Rubrics should distinguish source-supported claims from reviewer judgment, use stable identifiers, include scoring
+        anchors and floor rules, and support both machine validation and human review.
+      source_family: dsr_rubric_generation_spec_v0_1_0
+      framework_anchor: rubric_generation_spec.repo_context_rules_and_global_requirements
+      support_type: planning_specification
+    - claim_id: src_claim_repository_conformance_rubric_scope
+      claim: The repository documentation conformance rubric assesses target paths, naming policy, schema/template alignment,
+        source anchors, crosswalk entries, validation results, and examples.
+      source_family: prompt_repository_documentation_conformance_rubric
+      framework_anchor: prompt_bank.prompt_repository_documentation_conformance_rubric
+      support_type: task_prompt
+    - claim_id: src_claim_structured_source_preference
+      claim: Repository package artifacts should preserve structured source files and connect human-facing documentation to
+        machine-readable records where applicable.
+      source_family: documentation_protocol_repository_and_dsr_framework_generation_spec
+      framework_anchor: source_authority.documentation_protocol_alignment.repository_source_of_truth_rule
+      support_type: repository_protocol
+    - claim_id: src_claim_transparency_trace_dependency
+      claim: Repository conformance depends on transparency trace quality because review, reuse, trust, validation, and release
+        readiness require traceable documentation.
+      source_family: transparency_trace_quality_rubric_and_hevner_transparency_extraction
+      framework_anchor: transparency_trace_quality_rubric.source_anchor_and_traceability_quality
+      support_type: adjacent_rubric_dependency
+  construct_definitions:
+  - term_id: repository_package
+    label: Repository Package
+    definition: A coherent set of repository files, metadata, structured records, validation artifacts, examples, and documentation
+      intended to function together as a reviewable and reusable DSR framework artifact.
+    distinctions:
+    - not_the_same_as_single_file
+    - not_the_same_as_final_scholarly_contribution
+  - term_id: repository_artifact
+    label: Repository Artifact
+    definition: A file or file group in the repository that expresses a rubric, schema, vocabulary, ontology, template, crosswalk,
+      extraction record, example, checklist, model, specification, or documentation unit.
+    distinctions:
+    - may_be_machine_readable
+    - may_be_human_facing
+    - should_have_declared_package_role
+  - term_id: source_anchor
+    label: Source Anchor
+    definition: A stable reference to a source-supported claim, framework concept, repository artifact, validation result,
+      or reviewer judgment used to ground a repository claim.
+    distinctions:
+    - source_supported_claim
+    - repository_artifact_reference
+    - reviewer_judgment_marker
+  - term_id: crosswalk_entry
+    label: Crosswalk Entry
+    definition: A trace record linking source claims, framework concepts, schema fields, vocabulary terms, ontology/SHACL
+      implications, examples, or downstream files.
+    distinctions:
+    - concept_to_schema
+    - source_to_concept
+    - schema_to_validation
+    - artifact_to_documentation
+  - term_id: validation_readiness
+    label: Validation Readiness
+    definition: The degree to which a repository artifact can be checked by parsers, JSON Schema, SHACL, controlled vocabulary
+      validation, Python scripts, and manual review triggers.
+    distinctions:
+    - machine_checkable_structure
+    - manual_review_only_adequacy
+  - term_id: documentation_protocol_alignment
+    label: Documentation Protocol Alignment
+    definition: The degree to which an artifact follows declared repository architecture, structured-source rules, naming
+      and metadata conventions, conformance records, review workflow, and release discipline.
+    distinctions:
+    - formatting_conformance
+    - package_architecture_conformance
+    - traceability_conformance
+  required_inputs:
+  - input_field: target_file_paths
+    description: Declared file paths or intended paths for the repository artifact and any companion files.
+    obligation_status: required
+    accepted_format: list_of_paths
+    minimum_evidence: At least one intended_file_path or target_path matching the artifact id and type.
+  - input_field: naming_and_identifier_policy
+    description: Policy or statement governing stable IDs, lowercase snake_case identifiers, file naming, and path conventions.
+    obligation_status: required
+    accepted_format: structured_policy_reference_or_text
+    minimum_evidence: Explicit statement of expected identifier and filename conventions.
+  - input_field: schema_or_template
+    description: Applicable YAML template, JSON Schema, ontology, SKOS vocabulary, SHACL shape, or other structure used to
+      evaluate the artifact.
+    obligation_status: required
+    accepted_format: schema_id_template_id_path_or_uri
+    minimum_evidence: A resolvable or named schema/template target with version or status where available.
+  - input_field: source_anchors
+    description: Source anchors, framework anchors, repository artifact references, validation results, or reviewer_judgment
+      markers supporting substantive claims.
+    obligation_status: required
+    accepted_format: list_of_anchor_records
+    minimum_evidence: At least one anchor per major conformance claim family.
+  - input_field: crosswalk_entries
+    description: Mappings among source claims, framework concepts, schema fields, validation implications, examples, and downstream
+      files.
+    obligation_status: required
+    accepted_format: list_or_table_of_crosswalk_records
+    minimum_evidence: Crosswalks for material fields, validation implications, and affected repository artifacts.
+  - input_field: validation_results
+    description: YAML parse results, schema validation outputs, SHACL reports, vocabulary checks, Python validation output,
+      or documented validation expectations.
+    obligation_status: required
+    accepted_format: validation_report_or_structured_summary
+    minimum_evidence: Parseability status and validation/warning summary.
+  - input_field: examples
+    description: Examples, fixtures, or test cases showing valid, borderline, invalid, or warning-producing records.
+    obligation_status: recommended
+    accepted_format: list_of_example_paths_or_inline_vignettes
+    minimum_evidence: At least one example or explicit justification for why examples are deferred.
+  required_outputs:
+  - output_field: repository_conformance_rating
+    description: Weighted rating and controlled decision value for repository conformance.
+    accepted_values:
+    - repository_ready
+    - minor_revision
+    - major_revision
+    - do_not_commit
+  - output_field: path_and_naming_gaps
+    description: Specific path, filename, identifier, directory-role, manifest, or package-inventory issues.
+  - output_field: schema_gaps
+    description: Template, schema, controlled vocabulary, ontology, SKOS, or SHACL alignment gaps.
+  - output_field: traceability_gaps
+    description: Missing or weak source anchors, crosswalks, claim-to-evidence links, or downstream file implications.
+  - output_field: validation_actions
+    description: Required machine-validation, manual-review, fixture-generation, schema-update, or release-blocking actions.
+  - output_field: human_review_flags
+    description: Ambiguity, source-gap, ethical-risk, evidence-sufficiency, license, and overclaim triggers requiring human
+      review.
+  assessment_dimensions:
+  - dimension_id: file_placement_and_naming
+    label: File Placement and Naming
+    definition: Conformance of the repository artifact to intended paths, stable identifiers, lowercase snake_case names,
+      extension conventions, and directory responsibilities.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id001
+    - target_file_paths
+    - intended_file_path metadata
+    - local_file_name or generated_file_name
+    - identifier policy statement
+    - directory responsibility or package role
+    - evidence that identifiers are stable and ASCII lowercase snake_case
+    score_0_descriptor: No target path, file name, or machine-facing identifier is declared, or the declared path conflicts
+      with the artifact type.
+    score_1_descriptor: A path or filename is present, but naming conventions, directory role, or identifier alignment are
+      mostly unsupported or inconsistent.
+    score_2_descriptor: The artifact has a plausible path and mostly stable identifiers, but there are unresolved naming,
+      directory, or manifest inconsistencies.
+    score_3_descriptor: The artifact has correct path placement, stable lowercase snake_case identifiers, and only minor documentation
+      or manifest gaps.
+    score_4_descriptor: The artifact is placed, named, inventoried, and cross-referenced consistently across metadata, manifest/package
+      inventory, schemas, examples, and change records.
+    level_descriptors:
+      score_0: No target path, file name, or machine-facing identifier is declared, or the declared path conflicts with the
+        artifact type.
+      score_1: A path or filename is present, but naming conventions, directory role, or identifier alignment are mostly unsupported
+        or inconsistent.
+      score_2: The artifact has a plausible path and mostly stable identifiers, but there are unresolved naming, directory,
+        or manifest inconsistencies.
+      score_3: The artifact has correct path placement, stable lowercase snake_case identifiers, and only minor documentation
+        or manifest gaps.
+      score_4: The artifact is placed, named, inventoried, and cross-referenced consistently across metadata, manifest/package
+        inventory, schemas, examples, and change records.
+    minimum_evidence: *id001
+    high_quality_evidence:
+    - manifest or package inventory links every target file to a declared role
+    - file paths align with canonical repository directories
+    - rubric id, filename, and internal identifiers match without drift
+    - renames or migrations have explicit change records
+    - no spaces, mixed case, or unstable generated IDs in machine-facing keys
+    weak_evidence_signals:
+    - filename and rubric id differ without rationale
+    - artifact appears in an ad hoc directory
+    - camelCase, title case, punctuation, or opaque IDs are used for machine-facing identifiers
+    - directory placement is inferred from convenience rather than repository architecture
+    - no package inventory or manifest reference exists
+    calibration_anchor: Score 3 when the artifact is in a plausible canonical path and identifiers are internally consistent;
+      score 4 when placement, names, manifest entries, and migration/version notes are all aligned.
+    common_failure_modes:
+    - identifier_drift
+    - path_drift
+    - orphan_artifact
+    - ad_hoc_repository_placement
+    - unstable_generated_identifier
+    reviewer_notes: Treat repository path and identifier conformance as partly machine-checkable. Still review whether the
+      artifact's directory role is semantically correct.
+  - dimension_id: schema_and_template_alignment
+    label: Schema and Template Alignment
+    definition: Alignment of the artifact with the applicable YAML template, JSON Schema, ontology, SKOS vocabulary, SHACL
+      shapes, and related repository conventions.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id002
+    - schema_or_template reference
+    - template version or schema id
+    - field-to-schema mapping
+    - controlled vocabulary references
+    - ontology or SKOS term references where applicable
+    - validation result or conformance note
+    score_0_descriptor: No applicable schema, template, ontology, or controlled vocabulary is identified; the artifact cannot
+      be meaningfully validated.
+    score_1_descriptor: A schema or template is mentioned, but alignment is mostly asserted and required sections or field
+      semantics are missing.
+    score_2_descriptor: The artifact partially follows the template but has material schema, vocabulary, or ontology gaps
+      requiring revision before reliable reuse.
+    score_3_descriptor: The artifact substantially follows the applicable template/schema and has explicit notes for any justified
+      deviations or soft-rule warnings.
+    score_4_descriptor: The artifact is fully template-aligned, schema-aware, vocabulary-consistent, and explicit about JSON
+      Schema, SKOS, ontology, and SHACL consequences.
+    level_descriptors:
+      score_0: No applicable schema, template, ontology, or controlled vocabulary is identified; the artifact cannot be meaningfully
+        validated.
+      score_1: A schema or template is mentioned, but alignment is mostly asserted and required sections or field semantics
+        are missing.
+      score_2: The artifact partially follows the template but has material schema, vocabulary, or ontology gaps requiring
+        revision before reliable reuse.
+      score_3: The artifact substantially follows the applicable template/schema and has explicit notes for any justified
+        deviations or soft-rule warnings.
+      score_4: The artifact is fully template-aligned, schema-aware, vocabulary-consistent, and explicit about JSON Schema,
+        SKOS, ontology, and SHACL consequences.
+    minimum_evidence: *id002
+    high_quality_evidence:
+    - artifact parses as valid YAML or JSON
+    - all required top-level sections and required fields are present
+    - field names match declared schema/template definitions
+    - controlled values are drawn from current vocabulary sets
+    - ontology/SKOS/SHACL implications are recorded without over-hardening soft guidance
+    weak_evidence_signals:
+    - schema id is missing or outdated
+    - fields are renamed locally without crosswalk
+    - template-required sections are absent
+    - controlled values are invented ad hoc
+    - SHACL or JSON Schema implications are asserted without explicit support
+    calibration_anchor: Score 3 when the artifact aligns with the current template and can be validated with manageable warnings;
+      score 4 when schema, vocabulary, ontology, and validation implications are explicitly synchronized.
+    common_failure_modes:
+    - schema_drift
+    - template_drift
+    - controlled_vocabulary_drift
+    - field_semantics_blur
+    - over_hardened_validation_rule
+    reviewer_notes: Check formal parseability first, then inspect whether semantic alignment is genuine. A file can be syntactically
+      valid while still misaligned with the DSR schema model.
+  - dimension_id: source_anchor_and_crosswalk_completeness
+    label: Source Anchor and Crosswalk Completeness
+    definition: Completeness of trace links from repository claims to source anchors, framework concepts, schema fields, crosswalk
+      entries, and downstream file implications.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id003
+    - source_anchors
+    - framework_anchors
+    - crosswalk_entries
+    - claim-to-source trace table
+    - concept-to-schema-field trace
+    - downstream affected files or update notes
+    score_0_descriptor: The artifact has no source anchors, crosswalk entries, or claim-to-source trace for substantive repository
+      or DSR claims.
+    score_1_descriptor: Some sources or crosswalks are mentioned, but most claims cannot be traced to anchors, concepts, or
+      downstream implications.
+    score_2_descriptor: Major claims have partial traceability, but some key fields, validation implications, or repository
+      dependencies remain unlinked.
+    score_3_descriptor: Most substantive claims are anchored and crosswalked, with only minor gaps in downstream implication
+      tracking.
+    score_4_descriptor: All material claims, concepts, fields, validation implications, and affected files are connected through
+      stable source anchors and crosswalk entries.
+    level_descriptors:
+      score_0: The artifact has no source anchors, crosswalk entries, or claim-to-source trace for substantive repository
+        or DSR claims.
+      score_1: Some sources or crosswalks are mentioned, but most claims cannot be traced to anchors, concepts, or downstream
+        implications.
+      score_2: Major claims have partial traceability, but some key fields, validation implications, or repository dependencies
+        remain unlinked.
+      score_3: Most substantive claims are anchored and crosswalked, with only minor gaps in downstream implication tracking.
+      score_4: All material claims, concepts, fields, validation implications, and affected files are connected through stable
+        source anchors and crosswalk entries.
+    minimum_evidence: *id003
+    high_quality_evidence:
+    - each substantive claim has a source anchor, repository artifact reference, validation result, or reviewer_judgment marker
+    - crosswalk entries connect source claims to concepts, schema fields, vocabularies, and validation implications
+    - unsupported claims are explicitly marked
+    - trace links are stable and resolvable
+    - downstream files needing update are listed
+    weak_evidence_signals:
+    - claims cite a source family but not an anchor
+    - crosswalk entries are missing or not keyed to stable ids
+    - source-supported claims and reviewer judgments are mixed together
+    - downstream schema/vocabulary/ontology implications are omitted
+    - trace links point to deprecated or renamed identifiers
+    calibration_anchor: Score 3 when major claims and fields are traceable; score 4 when source, concept, schema, validation,
+      and downstream repository crosswalks form a reviewable chain.
+    common_failure_modes:
+    - source_anchor_absence
+    - crosswalk_gap
+    - unsupported_repository_claim
+    - traceability_theater
+    - downstream_update_blindness
+    reviewer_notes: Look for evidence-to-claim discipline. Do not credit generic citations as adequate crosswalks when no
+      specific source anchor or field implication is recorded.
+  - dimension_id: validation_readiness
+    label: Validation Readiness
+    definition: Availability of machine-checkable fields, controlled values, validation expectations, severity assignments,
+      and manual-review separation.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id004
+    - validation_results
+    - machine_checkable_fields
+    - controlled_values
+    - json_schema_expectations
+    - shacl_warning_or_shape notes
+    - manual_review_only checks
+    - validation severity levels
+    score_0_descriptor: The artifact is not parseable or has no explicit validation expectations.
+    score_1_descriptor: The artifact is parseable but lacks enough controlled fields, severity rules, or validation targets
+      for dependable checking.
+    score_2_descriptor: Basic validation is possible, but material fields, controlled values, trace checks, or floor-rule
+      tests are incomplete.
+    score_3_descriptor: The artifact supports reliable validation of structure, identifiers, required fields, controlled values,
+      and most trace expectations.
+    score_4_descriptor: The artifact is validation-ready with explicit machine checks, severity assignments, manual-review
+      boundaries, fixture support, and non-compensatory floor-rule logic.
+    level_descriptors:
+      score_0: The artifact is not parseable or has no explicit validation expectations.
+      score_1: The artifact is parseable but lacks enough controlled fields, severity rules, or validation targets for dependable
+        checking.
+      score_2: Basic validation is possible, but material fields, controlled values, trace checks, or floor-rule tests are
+        incomplete.
+      score_3: The artifact supports reliable validation of structure, identifiers, required fields, controlled values, and
+        most trace expectations.
+      score_4: The artifact is validation-ready with explicit machine checks, severity assignments, manual-review boundaries,
+        fixture support, and non-compensatory floor-rule logic.
+    minimum_evidence: *id004
+    high_quality_evidence:
+    - YAML parse has passed
+    - required fields can be checked by scripts or schemas
+    - controlled values are enumerated
+    - validation failures and warnings have severity levels
+    - manual-review-only criteria are clearly separated from machine-checkable criteria
+    - floor rules are representable as validation warnings or blocking checks where appropriate
+    weak_evidence_signals:
+    - validation is described only as a future intention
+    - machine-checkable and judgment-based criteria are conflated
+    - controlled values are not enumerated
+    - severity levels are missing
+    - validation rules require information not present in the artifact
+    calibration_anchor: Score 3 when validation can check presence, identifiers, controlled values, and basic trace links;
+      score 4 when validation logic, severity, and manual review boundaries are complete.
+    common_failure_modes:
+    - validation_gap
+    - manual_judgment_as_machine_rule
+    - missing_controlled_values
+    - unparseable_yaml
+    - severity_absence
+    reviewer_notes: Validation readiness does not equal substantive adequacy. Machine checks can test structure and consistency;
+      reviewers still judge evidence sufficiency, risk, and semantic fit.
+  - dimension_id: example_and_fixture_quality
+    label: Example and Fixture Quality
+    definition: Presence and quality of examples, fixtures, test cases, or demonstration records showing valid, borderline,
+      and invalid or warning-producing artifacts.
+    weight: 0.12
+    required: false
+    score_direction: higher_is_better
+    evidence_needed: &id005
+    - examples
+    - valid_fixture
+    - borderline_fixture
+    - invalid_or_warning_fixture
+    - expected_validation_outputs
+    - example-to-schema mapping
+    score_0_descriptor: No examples, fixtures, or test cases are provided.
+    score_1_descriptor: Examples are present but are informal, non-validated, or limited to a single happy path.
+    score_2_descriptor: Examples cover some expected use, but borderline, invalid, or warning cases are missing or not linked
+      to expected validation behavior.
+    score_3_descriptor: Examples include valid and warning cases and are mostly aligned with schema/template expectations.
+    score_4_descriptor: Examples and fixtures cover valid, borderline, invalid, and warning cases, include expected validation
+      outputs, and are synchronized with schema/template versions.
+    level_descriptors:
+      score_0: No examples, fixtures, or test cases are provided.
+      score_1: Examples are present but are informal, non-validated, or limited to a single happy path.
+      score_2: Examples cover some expected use, but borderline, invalid, or warning cases are missing or not linked to expected
+        validation behavior.
+      score_3: Examples include valid and warning cases and are mostly aligned with schema/template expectations.
+      score_4: Examples and fixtures cover valid, borderline, invalid, and warning cases, include expected validation outputs,
+        and are synchronized with schema/template versions.
+    minimum_evidence: *id005
+    high_quality_evidence:
+    - examples cover strong, borderline, and weak cases
+    - fixtures are small enough for test use but realistic enough for review
+    - expected validation outputs are stated
+    - examples demonstrate both human review and machine validation behavior
+    - fixtures are kept versioned with the schema/template
+    weak_evidence_signals:
+    - only one happy-path example exists
+    - examples are prose-only and cannot be validated
+    - invalid cases are absent
+    - examples contain fields not defined in the schema
+    - expected pass/fail/warning behavior is not documented
+    calibration_anchor: Score 3 when examples show expected use and common warnings; score 4 when fixtures can be used directly
+      in validation tests and reviewer calibration.
+    common_failure_modes:
+    - example_absence
+    - happy_path_only_fixture
+    - fixture_schema_drift
+    - invalid_case_absence
+    - non_executable_example
+    reviewer_notes: This dimension may be less critical for early drafts, but release-ready repository artifacts should include
+      fixtures or examples sufficient to test expected behavior.
+  - dimension_id: human_review_and_ambiguity_flags
+    label: Human Review and Ambiguity Flags
+    definition: Quality of human-review triggers, ambiguity flags, source-gap notes, ethical/risk alerts, and separation between
+      soft guidance and hard requirements.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id006
+    - human_review_flags
+    - ambiguity_level values
+    - source_gap_notes
+    - ethical_or_risk flags
+    - unsupported_claim markers
+    - soft_vs_hard_rule distinctions
+    score_0_descriptor: No human-review, ambiguity, source-gap, or unsupported-claim mechanism is present.
+    score_1_descriptor: Human review is named but triggers are vague and ambiguity/source-gap handling is weak.
+    score_2_descriptor: Some ambiguity and source-gap flags exist, but important soft/hard rule distinctions or risk triggers
+      are incomplete.
+    score_3_descriptor: Human-review triggers, ambiguity levels, and unsupported-claim markers are mostly clear and usable.
+    score_4_descriptor: Human-review routing is precise, evidence-aware, risk-sensitive, and explicit about ambiguity, source
+      gaps, reviewer judgment, and soft-versus-hard validation boundaries.
+    level_descriptors:
+      score_0: No human-review, ambiguity, source-gap, or unsupported-claim mechanism is present.
+      score_1: Human review is named but triggers are vague and ambiguity/source-gap handling is weak.
+      score_2: Some ambiguity and source-gap flags exist, but important soft/hard rule distinctions or risk triggers are incomplete.
+      score_3: Human-review triggers, ambiguity levels, and unsupported-claim markers are mostly clear and usable.
+      score_4: Human-review routing is precise, evidence-aware, risk-sensitive, and explicit about ambiguity, source gaps,
+        reviewer judgment, and soft-versus-hard validation boundaries.
+    minimum_evidence: *id006
+    high_quality_evidence:
+    - ambiguous or judgment-heavy issues are marked for human review
+    - source gaps and unsupported claims are explicit
+    - ethical, privacy, security, IP, or stakeholder-burden triggers are retained where material
+    - soft recommendations are not encoded as hard violations without support
+    - review responsibilities and escalation conditions are stated
+    weak_evidence_signals:
+    - ambiguity is hidden by precise-looking scoring
+    - human review is mentioned generically but no triggers are defined
+    - reviewer judgment is treated as if source-supported
+    - ethical or provenance concerns are omitted
+    - optional guidance is treated as mandatory without support
+    calibration_anchor: Score 3 when the artifact reliably flags ambiguity and source gaps; score 4 when review triggers,
+      escalation, and soft/hard rule boundaries are precise and actionable.
+    common_failure_modes:
+    - ambiguity_erasure
+    - source_gap_blindness
+    - soft_rule_hardening
+    - reviewer_judgment_masking
+    - risk_flag_absence
+    reviewer_notes: This dimension protects the repository from false precision. Reward explicit uncertainty and responsible
+      human review routing.
+  - dimension_id: documentation_protocol_alignment
+    label: Documentation Protocol Alignment
+    definition: Alignment with repository documentation protocol conventions, including structured-source preference, package
+      architecture, reviewability, traceability, and release discipline.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id007
+    - documentation_protocol_reference
+    - package architecture mapping
+    - manifest or inventory reference
+    - review workflow or conformance declaration
+    - human-facing documentation link where applicable
+    - structured source file link where applicable
+    score_0_descriptor: No documentation protocol or repository package architecture is referenced.
+    score_1_descriptor: Documentation protocol alignment is asserted but not mapped to actual files, roles, source-of-truth
+      rules, or review records.
+    score_2_descriptor: The artifact partially aligns with protocol conventions but has material gaps in manifest, inventory,
+      structured-source, or review workflow integration.
+    score_3_descriptor: The artifact mostly aligns with protocol expectations, with clear structured-source, documentation,
+      and repository package placement.
+    score_4_descriptor: The artifact is fully integrated into documentation protocol architecture, including structured source,
+      human documentation, manifest/package inventory, crosswalks, review state, and release/tailoring notes.
+    level_descriptors:
+      score_0: No documentation protocol or repository package architecture is referenced.
+      score_1: Documentation protocol alignment is asserted but not mapped to actual files, roles, source-of-truth rules,
+        or review records.
+      score_2: The artifact partially aligns with protocol conventions but has material gaps in manifest, inventory, structured-source,
+        or review workflow integration.
+      score_3: The artifact mostly aligns with protocol expectations, with clear structured-source, documentation, and repository
+        package placement.
+      score_4: The artifact is fully integrated into documentation protocol architecture, including structured source, human
+        documentation, manifest/package inventory, crosswalks, review state, and release/tailoring notes.
+    minimum_evidence: *id007
+    high_quality_evidence:
+    - structured YAML/JSON source is primary when appropriate
+    - Markdown or docs files link back to structured source artifacts
+    - artifact belongs to declared repository product/package architecture
+    - conformance level, tailoring, or review status is recorded
+    - package inventory, manifest, and crosswalk expectations are acknowledged
+    weak_evidence_signals:
+    - artifact is standalone without package context
+    - human-facing docs are disconnected from structured source
+    - repository architecture is ignored
+    - review or release state is not declared
+    - protocol obligations are asserted but not mapped to files or records
+    calibration_anchor: Score 3 when the artifact fits the documentation protocol and package architecture with minor gaps;
+      score 4 when it is fully integrated into manifest, inventory, docs, crosswalks, and review/release workflow.
+    common_failure_modes:
+    - documentation_protocol_drift
+    - structured_source_absence
+    - manifest_gap
+    - review_state_absence
+    - package_architecture_mismatch
+    reviewer_notes: Protocol alignment is not only formatting. It includes package role, source-of-truth discipline, reviewability,
+      release readiness, and documentation trace behavior.
+  - dimension_id: license_provenance_and_versioning
+    label: License, Provenance, and Versioning
+    definition: Completeness of license declaration, generation provenance, version history, change notes, contributor/generated-by
+      metadata, and reuse restrictions.
+    weight: 0.08
+    required: false
+    score_direction: higher_is_better
+    evidence_needed: &id008
+    - license identifier
+    - generated_by or author metadata
+    - generated_on or date
+    - version
+    - status
+    - revision_history
+    - source_provenance
+    - reuse or restriction note
+    score_0_descriptor: No license, provenance, version, generation date, or revision history is present.
+    score_1_descriptor: Some provenance or version information exists, but license, source, or change history is materially
+      incomplete.
+    score_2_descriptor: Basic provenance and version metadata are present, but release readiness is limited by missing license,
+      contributor, or change details.
+    score_3_descriptor: License, provenance, version, status, date, and revision history are mostly complete with minor repository-synchronization
+      gaps.
+    score_4_descriptor: License, provenance, versioning, generated-by/authorship, source basis, changelog alignment, and reuse
+      restrictions are complete and release-ready.
+    level_descriptors:
+      score_0: No license, provenance, version, generation date, or revision history is present.
+      score_1: Some provenance or version information exists, but license, source, or change history is materially incomplete.
+      score_2: Basic provenance and version metadata are present, but release readiness is limited by missing license, contributor,
+        or change details.
+      score_3: License, provenance, version, status, date, and revision history are mostly complete with minor repository-synchronization
+        gaps.
+      score_4: License, provenance, versioning, generated-by/authorship, source basis, changelog alignment, and reuse restrictions
+        are complete and release-ready.
+    minimum_evidence: *id008
+    high_quality_evidence:
+    - SPDX-compatible license or license reference is present
+    - version and status are explicit
+    - generated_by/authorship and generation date are recorded
+    - revision history explains changes
+    - source provenance is retained
+    - reuse constraints or third-party source limitations are noted
+    weak_evidence_signals:
+    - no license or unclear license
+    - version and generated_on are missing
+    - changes are not recorded
+    - generated content is not distinguished from source quotations
+    - third-party provenance or reuse restrictions are ignored
+    calibration_anchor: Score 3 when license, version, date, status, and provenance are sufficient for internal review; score
+      4 when they are release-ready and synchronized with repository metadata and changelog practices.
+    common_failure_modes:
+    - undocumented_generation
+    - license_absence
+    - version_drift
+    - provenance_gap
+    - change_history_absence
+    reviewer_notes: Treat missing license/provenance as a release-readiness problem even when substantive rubric content is
+      otherwise strong.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      integer_scores_only: true
+      score_0: absent_or_blocked
+      score_1: weak_or_asserted
+      score_2: conditional_or_partially_supported
+      score_3: strong_or_adequately_supported
+      score_4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule: weights_must_sum_to_1_0
+    weights_sum: 1.0
+    weighted_score_formula: sum(dimension_score_0_to_4 * dimension_weight)
+    normalized_percent_formula: weighted_score / 4.0 * 100
+    missing_evidence_rule: If required evidence for a dimension is absent, the dimension score should normally be 0 or 1 unless
+      a documented not_applicable rationale is accepted by human review.
+    reverse_scoring_rule: No reverse-scored dimensions are used in this rubric.
+    score_rounding_rule: Keep the weighted score to two decimal places and retain individual dimension scores for audit.
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_target_file_path
+      condition: target_file_paths is absent or the intended file path cannot be determined
+      maximum_decision: major_revision
+      maximum_weighted_score: 2.4
+      rationale: A repository artifact cannot be conformance-reviewed without a declared path or package role.
+    - rule_id: floor_unparseable_or_invalid_yaml
+      condition: the primary structured artifact is unparseable or syntactically invalid
+      maximum_decision: do_not_commit
+      maximum_weighted_score: 1.9
+      rationale: Unparseable structured artifacts cannot be safely committed as repository-ready YAML/JSON/RDF records.
+    - rule_id: floor_missing_source_anchor_trace
+      condition: source_anchor_and_crosswalk_completeness score is 0 or no substantive claim has a source/framework/reviewer
+        marker
+      maximum_decision: major_revision
+      maximum_weighted_score: 2.2
+      rationale: Critical traceability gaps cannot be offset by strong formatting or examples.
+    - rule_id: floor_schema_or_template_absence
+      condition: schema_and_template_alignment score is 0 for an artifact type that has an applicable template or schema
+      maximum_decision: major_revision
+      maximum_weighted_score: 2.3
+      rationale: Repository artifacts must conform to declared structural expectations or document justified tailoring.
+    - rule_id: floor_validation_absence_for_release
+      condition: validation_readiness score is below 2 for a release candidate
+      maximum_decision: major_revision
+      maximum_weighted_score: 2.5
+      rationale: Release candidates require at least basic parseability, field, identifier, and controlled-value checks.
+    - rule_id: floor_license_or_provenance_absence_for_public_release
+      condition: license_provenance_and_versioning score is below 2 for a public release or archival deposit
+      maximum_decision: major_revision
+      maximum_weighted_score: 2.6
+      rationale: Public reuse requires license, provenance, and version metadata.
+    - rule_id: floor_hard_soft_rule_conflation
+      condition: soft recommendations are encoded as blocking validation rules without source/framework support
+      maximum_decision: major_revision
+      maximum_weighted_score: 2.4
+      rationale: The framework requires separation between source-supported obligations, soft guidance, and reviewer judgment.
+    - rule_id: floor_critical_security_or_sensitive_exposure
+      condition: artifact exposes sensitive, restricted, proprietary, or security-relevant content in a way requiring redaction
+        or governance review
+      maximum_decision: do_not_commit
+      maximum_weighted_score: 1.9
+      rationale: Repository conformance cannot compensate for unsafe release content.
+  level_descriptors:
+    score_0:
+      label: absent_or_blocked
+      general_descriptor: Required conformance evidence is absent, the artifact cannot be validated, or a blocking package/release
+        issue exists.
+      anchor_examples:
+      - unparseable_yaml
+      - no_target_path
+      - no_source_anchors
+      - no_schema_reference
+    score_1:
+      label: weak_or_asserted
+      general_descriptor: Conformance is mostly asserted rather than evidenced; key fields, anchors, validation logic, or
+        repository mappings are missing.
+      anchor_examples:
+      - filename_present_but_identifier_drift
+      - schema_named_without_mapping
+      - generic_human_review_note
+    score_2:
+      label: conditional_or_partially_supported
+      general_descriptor: The artifact is partly conformant but has material gaps requiring revision before dependable reuse
+        or release.
+      anchor_examples:
+      - partial_crosswalk
+      - basic_parseability_without_full_validation
+      - examples_without_invalid_fixtures
+    score_3:
+      label: strong_or_adequately_supported
+      general_descriptor: The artifact is substantially conformant and reviewable, with only minor gaps or manageable warnings.
+      anchor_examples:
+      - clear_path_schema_trace
+      - validation_warnings_documented
+      - human_review_flags_present
+    score_4:
+      label: very_strong_or_exemplary
+      general_descriptor: The artifact is repository-ready, traceable, validation-ready, well-exampled, and release-disciplined
+        for its maturity level.
+      anchor_examples:
+      - manifested_and_crosswalked
+      - schema_and_fixture_synchronized
+      - license_version_and_provenance_complete
+    borderline_cases:
+    - 'A generated rubric is parseable and well structured but lacks source-anchor crosswalks: usually score 2 overall and
+      decision major_revision.'
+    - 'A schema file validates but has no examples or invalid fixtures: may be minor_revision if not release-critical.'
+    - 'A human-facing Markdown guide is excellent but disconnected from structured source files: normally no higher than minor_revision
+      until source-of-truth links are restored.'
+  decision_thresholds:
+    decision_values:
+    - repository_ready
+    - minor_revision
+    - major_revision
+    - do_not_commit
+    repository_ready:
+      weighted_score_range: 3.50_to_4.00
+      minimum_dimension_scores:
+        file_placement_and_naming: 3
+        schema_and_template_alignment: 3
+        source_anchor_and_crosswalk_completeness: 3
+        validation_readiness: 3
+        human_review_and_ambiguity_flags: 3
+        documentation_protocol_alignment: 3
+      allowed_open_issues: minor_nonblocking_documentation_or_fixture_enhancements_only
+      required_condition: no_active_non_compensatory_floor_rule
+    minor_revision:
+      weighted_score_range: 2.80_to_3.49
+      interpretation: Artifact is mostly conformant but should be revised before release or merged with warnings/tailoring
+        notes.
+      typical_actions:
+      - fix_minor_naming_or_manifest_gaps
+      - add_missing_examples
+      - clarify_review_flags
+      - update_crosswalk_notes
+    major_revision:
+      weighted_score_range: 2.00_to_2.79
+      interpretation: Artifact has material conformance, traceability, schema, or validation gaps that should be corrected
+        before commit or release.
+      typical_actions:
+      - repair_schema_alignment
+      - add_source_anchors
+      - create_crosswalk_entries
+      - rerun_validation
+      - resolve_floor_rule
+    do_not_commit:
+      weighted_score_range: 0.00_to_1.99
+      interpretation: Artifact is not safe or ready for repository commit/release because core structure, validation, traceability,
+        or governance evidence is absent or blocking.
+      typical_actions:
+      - do_not_merge
+      - return_to_author
+      - repair_parseability
+      - remove_sensitive_content
+      - establish_schema_and_trace
+    human_review_triggers:
+    - any non_compensatory_floor_rule is active
+    - source_anchor_and_crosswalk_completeness score below 3
+    - validation_readiness score below 3 for release candidates
+    - schema_and_template_alignment score below 3 for machine-readable artifacts
+    - license_provenance_and_versioning score below 2 for public release
+    - unsupported_claim markers remain unresolved
+    - ethical, privacy, security, IP, or stakeholder-burden flags are present
+    - reviewer detects hardening of soft guidance into unsupported validation error
+  calibration_guidance:
+    reviewer_preparation:
+    - Confirm the artifact type and maturity level before scoring.
+    - Open the target artifact, its schema/template, package inventory or manifest, and any referenced crosswalks or examples.
+    - Run or inspect available validation results before assigning validation_readiness.
+    - Identify which claims are source_supported, repository_artifact_supported, validation_supported, or reviewer_judgment.
+    - Apply non_compensatory_floor_rules before interpreting the weighted score.
+    anchor_examples:
+      strong: A rubric YAML file is in rubrics/, has matching id and filename, follows the generation spec, includes source-grounding
+        and crosswalks, validates against expected structure, includes strong/borderline/weak vignettes, and has version/license/provenance
+        metadata.
+      borderline: A schema-aligned YAML artifact is parseable and correctly named, but crosswalk entries and invalid fixtures
+        are incomplete; the artifact may be commit-worthy as a draft but not release-ready.
+      weak: A generated artifact has useful prose but uses unstable identifiers, lacks source anchors, has no schema/template
+        reference, cannot be validated, and has no revision history or license/provenance metadata.
+    calibration_rounds:
+    - 'Round 1: reviewers independently score two known-good and two known-problem artifacts.'
+    - 'Round 2: compare dimension-level disagreements and refine evidence interpretations.'
+    - 'Round 3: apply the rubric to a new artifact and document any ambiguous scoring cases as future examples.'
+    inter_rater_reconciliation:
+    - Resolve score disagreements by checking evidence presence first, then source-anchor specificity, then judgment-based
+      adequacy.
+    - When evidence exists but adequacy is contested, record reviewer_judgment and human_review_flag rather than altering
+      machine-readable facts.
+    - Do not average away a floor-rule condition; decide whether the rule applies before finalizing the rating.
+    drift_checks:
+    - Recheck this rubric after schema, ontology, SKOS, SHACL, documentation-protocol, or repository-architecture changes.
+    - Compare generated artifacts against the current prompt bank and generation spec rather than older examples alone.
+    - Monitor for identifier drift between filename, id, crosswalk entries, and validation scripts.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      file_placement_and_naming: *id001
+      schema_and_template_alignment: *id002
+      source_anchor_and_crosswalk_completeness: *id003
+      validation_readiness: *id004
+      example_and_fixture_quality: *id005
+      human_review_and_ambiguity_flags: *id006
+      documentation_protocol_alignment: *id007
+      license_provenance_and_versioning: *id008
+    acceptable_evidence_modes:
+    - source_anchor
+    - framework_anchor
+    - repository_artifact
+    - validation_result
+    - artifact_inspection
+    - crosswalk_entry
+    - controlled_vocabulary
+    - schema_reference
+    - shacl_report
+    - json_schema_validation
+    - python_validation_output
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Use source_anchor or framework_anchor for claims derived from DSR theory, extraction records, concept inventory, ontology,
+      SKOS, SHACL, or documentation protocol.
+    - Use repository_artifact references for claims about actual file placement, naming, manifests, examples, or validation
+      scripts.
+    - Use reviewer_judgment only for adequacy, proportionality, source sufficiency, semantic fit, ethical risk, or ambiguity
+      interpretation.
+    - Do not cite a source family when a specific anchor, file path, schema id, or validation result is needed.
+    evidence_quality_notes:
+    - File existence alone is not evidence of conformance unless path role, naming, metadata, and validation status are checked.
+    - A passing parser result is not evidence of schema, ontology, or documentation-protocol alignment.
+    - Crosswalk completeness is judged against material claims and downstream implications, not against the number of crosswalk
+      rows.
+    - Examples should demonstrate both acceptable and problematic records where feasible.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: orphan_artifact
+    warning_condition: A file exists without manifest/package-inventory entry, crosswalk reference, dependency statement,
+      or documentation link.
+    severity: major_warning
+    recommended_response: Add package inventory/manifest entry, declare package role, and link to relevant schema, docs, and
+      crosswalks.
+  - anti_pattern_id: identifier_drift
+    warning_condition: Filename, internal id, schema id, crosswalk key, or validation-script reference use different identifiers
+      for the same artifact.
+    severity: major_warning
+    recommended_response: Normalize to a stable lowercase snake_case id and add migration notes for any renamed artifact.
+  - anti_pattern_id: source_anchor_absence
+    warning_condition: Substantive claims lack source anchors, framework anchors, validation results, or reviewer_judgment
+      markers.
+    severity: blocking_issue
+    recommended_response: Add claim-to-anchor traces or mark claims as unsupported and route for human review.
+  - anti_pattern_id: schema_drift
+    warning_condition: Artifact fields, controlled values, or nested structures differ from the current schema/template without
+      documented tailoring.
+    severity: major_warning
+    recommended_response: Update artifact, schema, or crosswalk; document version-specific tailoring where needed.
+  - anti_pattern_id: validation_gap
+    warning_condition: The artifact cannot be checked for parseability, required fields, identifiers, controlled values, or
+      trace shape.
+    severity: major_warning
+    recommended_response: Add validation expectations, run parser/schema checks, and separate manual-review-only criteria.
+  - anti_pattern_id: undocumented_generation
+    warning_condition: Generated or revised content lacks generated_by, generated_on, version, source basis, or revision history.
+    severity: warning
+    recommended_response: Add provenance and revision history before merge or release.
+  - anti_pattern_id: soft_rule_hardening
+    warning_condition: Recommended or conditional guidance is encoded as a blocking validation error without source/framework
+      support.
+    severity: major_warning
+    recommended_response: Downgrade to warning/manual review unless the framework explicitly supports a hard validation rule.
+  - anti_pattern_id: happy_path_only_fixture
+    warning_condition: Examples show only valid cases and cannot test warnings, invalid records, or borderline review cases.
+    severity: warning
+    recommended_response: Add borderline and invalid fixtures with expected validation outputs.
+  traceability_requirements:
+  - trace_type: source_to_concept
+    required: true
+    description: Substantive DSR or documentation-protocol claims should map to source anchors, framework anchors, or concept
+      inventory entries.
+  - trace_type: concept_to_schema_field
+    required: true
+    description: Framework concepts used in artifacts should map to schema/template fields where machine-readable representation
+      is expected.
+  - trace_type: artifact_to_repository_path
+    required: true
+    description: Each repository artifact should have a declared intended path and package role.
+  - trace_type: artifact_to_manifest_or_inventory
+    required: true
+    description: Package files should be discoverable through manifest or package inventory records when applicable.
+  - trace_type: claim_to_source_anchor
+    required: true
+    description: Claims about DSR definitions, required fields, validation obligations, or protocol alignment must be anchored
+      or marked as reviewer_judgment.
+  - trace_type: schema_to_validation_result
+    required: true
+    description: Schema/template expectations should connect to validation outputs, warnings, or manual review notes.
+  - trace_type: artifact_to_examples_or_fixtures
+    required: false
+    description: Release-ready artifacts should link to valid, borderline, and invalid examples or explain why examples are
+      deferred.
+  - trace_type: artifact_to_revision_history
+    required: true
+    description: Versioned artifacts should retain generation, revision, and change-summary records.
+  - trace_type: documentation_to_structured_source
+    required: true
+    description: Human-facing documentation should identify the structured source artifact it explains or renders when applicable.
+  - trace_type: validation_to_manual_review_flag
+    required: true
+    description: Validation reports should distinguish machine-checkable failures/warnings from adequacy judgments requiring
+      human review.
+  validation_implications:
+    json_schema_fields:
+    - rubric.rubric_metadata.id
+    - rubric.rubric_metadata.intended_file_path
+    - rubric.rubric_metadata.prompt_id
+    - rubric.rubric_metadata.depends_on
+    - rubric.assessment_scope.primary_question
+    - rubric.source_grounding.source_families_to_consult
+    - rubric.required_inputs
+    - rubric.required_outputs
+    - rubric.assessment_dimensions[].dimension_id
+    - rubric.assessment_dimensions[].weight
+    - rubric.assessment_dimensions[].score_0_descriptor
+    - rubric.assessment_dimensions[].score_4_descriptor
+    - rubric.scoring_model.non_compensatory_floor_rules
+    - rubric.decision_thresholds.decision_values
+    - rubric.interpretation_guidance.what_not_to_infer
+    - rubric.quality_control
+    - rubric.revision_history
+    shacl_shapes_or_warnings:
+    - shape_or_warning_id: repository_artifact_requires_identifier_shape
+      severity: violation
+      target: repository_artifact
+      logic: Require stable id, intended file path, version, status, and generated_on/generated_by metadata for structured
+        artifacts.
+    - shape_or_warning_id: repository_artifact_requires_source_anchor_warning
+      severity: warning
+      target: source_supported_claim
+      logic: Warn when a substantive claim lacks source_anchor, framework_anchor, validation_result, repository_artifact,
+        or reviewer_judgment marker.
+    - shape_or_warning_id: repository_artifact_identifier_snake_case_shape
+      severity: violation
+      target: machine_facing_identifier
+      logic: Check ASCII lowercase snake_case identifier pattern where the artifact declares machine-facing ids.
+    - shape_or_warning_id: repository_artifact_validation_readiness_warning
+      severity: warning
+      target: repository_package
+      logic: Warn when parseability, schema validation, controlled-value validation, or manual-review checks are absent.
+    - shape_or_warning_id: repository_artifact_soft_rule_hardening_warning
+      severity: warning
+      target: validation_rule
+      logic: Warn when a rule is blocking but its obligation status is recommended, optional, conditional, or reviewer_judgment.
+    controlled_vocabularies:
+      decision_values:
+      - repository_ready
+      - minor_revision
+      - major_revision
+      - do_not_commit
+      severity_values:
+      - info
+      - warning
+      - major_warning
+      - blocking_issue
+      obligation_status_values:
+      - required
+      - recommended
+      - optional
+      - conditional
+      - contested
+      - not_addressed
+      - not_applicable
+      ambiguity_values:
+      - low
+      - medium
+      - high
+      evidence_mode_values:
+      - source_anchor
+      - framework_anchor
+      - repository_artifact
+      - validation_result
+      - artifact_inspection
+      - schema_reference
+      - crosswalk_entry
+      - reviewer_judgment
+    python_validation_logic:
+    - check_yaml_parseable
+    - check_required_top_level_sections_present
+    - check_rubric_id_matches_filename
+    - check_intended_file_path_matches_expected_pattern
+    - check_dimension_ids_unique_and_snake_case
+    - check_dimension_weights_sum_to_one
+    - check_all_dimensions_have_score_0_to_4_descriptors
+    - check_decision_values_in_controlled_vocabulary
+    - check_required_inputs_and_outputs_present
+    - check_non_compensatory_floor_rules_present
+    - warn_if_source_anchor_crosswalk_missing
+    - warn_if_schema_or_template_reference_missing
+    - warn_if_validation_results_missing
+    - warn_if_examples_or_fixtures_missing_for_release_candidate
+    - warn_if_revision_history_missing
+    - warn_if_license_or_provenance_missing
+    manual_review_only_checks:
+    - semantic_correctness_of_directory_role
+    - adequacy_of_source_anchor_specificity
+    - sufficiency_of_crosswalk_coverage
+    - whether_soft_guidance_has_been_over_hardened
+    - materiality_of_schema_deviations
+    - release_readiness_given_repository_maturity_level
+    - license_and_third_party_provenance_acceptability
+    - ethical_privacy_security_or_sensitive_content_risk
+    - clarity_and_usefulness_of_examples_for_reviewer_calibration
+    repository_integration_notes:
+      proposed_file_path: rubrics/repository_documentation_conformance_rubric.yaml
+      related_schema_fields:
+      - repository_package.target_file_paths
+      - repository_package.naming_and_identifier_policy
+      - repository_package.schema_or_template
+      - repository_package.source_anchors
+      - repository_package.crosswalk_entries
+      - repository_package.validation_results
+      - repository_package.examples
+      - metadata.generated_by
+      - metadata.generated_on
+      - metadata.revision_history
+      likely_crosswalk_updates:
+      - crosswalks/rubric-to-schema-fields.yaml
+      - crosswalks/source-to-framework-alignment.yaml
+      - crosswalks/rubric-to-validation-rules.yaml
+      - docs/rubrics/repository_documentation_conformance.md
+      - package-inventory.yaml
+      - manifest.yaml
+      documentation_protocol_notes:
+      - Retain structured YAML as the source artifact.
+      - Human-facing documentation should link back to this rubric file rather than becoming the authoritative source.
+      - Reviewers should record any local tailoring or maturity-level exception before release.
+      - Do not convert every rubric warning into a schema violation; preserve manual-review-only judgment boundaries.
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_repository_ready_rubric_artifact
+    label: Exemplary / repository_ready
+    summary: A rubric file is placed in rubrics/, has a matching lowercase snake_case id and filename, follows the generation
+      spec, includes all required sections and 0-4 anchors, lists source anchors and crosswalks, validates as YAML, includes
+      strong/borderline/weak vignettes, and records version/license/provenance.
+    illustrative_scores:
+      file_placement_and_naming: 4
+      schema_and_template_alignment: 4
+      source_anchor_and_crosswalk_completeness: 4
+      validation_readiness: 4
+      example_and_fixture_quality: 3
+      human_review_and_ambiguity_flags: 4
+      documentation_protocol_alignment: 4
+      license_provenance_and_versioning: 4
+    weighted_score: 3.88
+    decision: repository_ready
+    notes: Remaining improvement is to add additional executable invalid fixtures, but no floor rule is active.
+  - vignette_id: borderline_minor_revision_schema_artifact
+    label: Borderline / minor_revision
+    summary: A schema-aligned YAML artifact is correctly named and parseable, but crosswalk entries are incomplete, invalid
+      fixtures are missing, and human-review triggers are present but generic.
+    illustrative_scores:
+      file_placement_and_naming: 3
+      schema_and_template_alignment: 3
+      source_anchor_and_crosswalk_completeness: 2
+      validation_readiness: 3
+      example_and_fixture_quality: 2
+      human_review_and_ambiguity_flags: 2
+      documentation_protocol_alignment: 3
+      license_provenance_and_versioning: 3
+    weighted_score: 2.65
+    decision: major_revision
+    notes: Although the weighted score is near minor_revision, the source-anchor/crosswalk score activates a traceability
+      floor rule unless reviewer accepts limited-scope draft status.
+  - vignette_id: weak_do_not_commit_generated_file
+    label: Weak / do_not_commit
+    summary: A useful prose-heavy generated file has no schema/template reference, no source anchors, no validation output,
+      inconsistent filename and internal id, no examples, and no revision history.
+    illustrative_scores:
+      file_placement_and_naming: 1
+      schema_and_template_alignment: 0
+      source_anchor_and_crosswalk_completeness: 0
+      validation_readiness: 0
+      example_and_fixture_quality: 0
+      human_review_and_ambiguity_flags: 1
+      documentation_protocol_alignment: 1
+      license_provenance_and_versioning: 0
+    weighted_score: 0.42
+    decision: do_not_commit
+    notes: 'Multiple blocking floor rules apply: schema/template absence, source-anchor absence, validation absence, and provenance
+      absence.'
+  - vignette_id: release_candidate_with_license_gap
+    label: Conditional / major_revision_for_release
+    summary: An ontology vocabulary artifact is schema-aligned, validated, and crosswalked, but lacks license, contributor
+      provenance, and version synchronization with release metadata.
+    illustrative_scores:
+      file_placement_and_naming: 4
+      schema_and_template_alignment: 4
+      source_anchor_and_crosswalk_completeness: 3
+      validation_readiness: 4
+      example_and_fixture_quality: 3
+      human_review_and_ambiguity_flags: 3
+      documentation_protocol_alignment: 3
+      license_provenance_and_versioning: 1
+    weighted_score: 3.36
+    decision: major_revision
+    notes: For public release, the license/provenance floor rule caps the decision despite strong technical conformance.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Start with individual dimension scores, then apply non-compensatory floor rules, then interpret the weighted score.
+    - A repository_ready decision requires both high weighted score and absence of critical floor-rule conditions.
+    - Scores assess conformance evidence for the artifact's stated maturity level; draft artifacts may be acceptable with
+      documented gaps, while release artifacts require stronger validation, examples, provenance, and license evidence.
+    - Use dimension-level gaps to produce concrete revision actions rather than treating the score as a generic quality label.
+    what_not_to_infer:
+    - Do not infer that a repository_ready artifact is theoretically true, empirically validated, ethically approved, secure,
+      legally cleared, or practically effective.
+    - Do not infer that schema-valid means DSR-valid; schema validation checks structure and controlled values, not adequacy
+      of evidence or contribution quality.
+    - Do not infer that a source anchor proves a claim unless the anchor actually supports the specific claim being made.
+    - Do not infer that high documentation conformance eliminates the need for adjacent rubrics such as transparency_trace_quality_rubric,
+      responsible_design_constraints_rubric, evaluation_alignment_quality_rubric, or contribution_quality_rubric.
+    - Do not infer that missing examples make every draft unusable; example requirements should be calibrated to maturity
+      and release intent.
+    - Do not infer that a low score means the artifact has no value; it may simply be unready for repository commit or release.
+    relationship_to_adjacent_rubrics:
+      transparency_trace_quality_rubric: Primary dependency; this rubric inspects repository packaging and validation conformance,
+        while transparency_trace_quality_rubric assesses whether process, problem, solution, build, evaluation, contribution,
+        and source traces are substantively transparent.
+      responsible_design_constraints_rubric: Use when repository artifacts carry ethical, privacy, security, IP, maintenance,
+        sustainability, or stakeholder-burden implications.
+      reliability_replication_readiness_rubric: Use when repository materials claim replicability, reproducibility, reuse,
+        or long-term reliability.
+      contribution_quality_rubric: Use when repository conformance supports, but does not prove, a design-knowledge contribution
+        claim.
+      artifact_specification_quality_rubric: Use when the repository artifact being packaged is itself a DSR artifact or design
+        entity requiring make/use/capacity specification.
+    known_limitations:
+    - The rubric cannot determine whether the documentation protocol repository has changed unless the current repository
+      state is inspected.
+    - The rubric can over-privilege well-packaged artifacts unless reviewers separately assess substantive DSR quality.
+    - Automated validation cannot judge adequacy of source support, ethical acceptability, or evidence sufficiency.
+    - Repository architecture may evolve; conformance should always be assessed against a declared version or commit context.
+  quality_control:
+    completeness_check:
+    - rubric_metadata contains id, label, version, status, generated_on, generated_by, intended_file_path, assessment_target,
+      priority, lifecycle_phase, prompt_id, and depends_on
+    - all required top-level sections from the rubric generation spec are present
+    - all eight required dimensions are present
+    - each dimension has score descriptors for 0, 1, 2, 3, and 4
+    - dimension weights sum to 1.0
+    - decision values are repository_ready, minor_revision, major_revision, and do_not_commit
+    - anti-patterns include orphan_artifact, identifier_drift, source_anchor_absence, schema_drift, validation_gap, and undocumented_generation
+    - interpretation_guidance includes what_not_to_infer
+    - revision_history is present
+    ambiguity_check:
+    - distinguish source_supported_claims from reviewer_judgment
+    - distinguish machine validation from human adequacy review
+    - distinguish structured source artifacts from human-facing documentation
+    - distinguish repository conformance from substantive DSR quality
+    - distinguish release-blocking requirements from draft-stage warnings
+    - distinguish soft guidance from hard validation obligations
+    human_review_recommendation:
+      required: true
+      reason: Repository conformance includes semantic fit, source sufficiency, protocol alignment, license/provenance acceptability,
+        and release-readiness judgments that cannot be fully machine-validated.
+    source_gap_notes:
+    - If the current documentation protocol repository cannot be inspected, treat documentation_protocol_alignment claims
+      as provisional and mark for follow-up review.
+    - If schema, ontology, SKOS, or SHACL files are absent or evolving, score schema_and_template_alignment against the best
+      declared artifact version and record a source_gap.
+    - If a repository artifact predates the current generation spec, do not assume nonconformance without checking migration
+      or tailoring records.
+    - If transparency_trace_quality_rubric is unavailable, use provisional traceability checks and mark dependency_review_needed.
+    machine_readiness_check:
+      yaml_parseable: true
+      stable_ids: true
+      weights_sum_to_1_0: true
+      required_sections_present: true
+      manual_review_fields_present: true
+      decision_values_controlled: true
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready draft generated from the rubric generation prompt, generation specification,
+      DSR repository/package conformance expectations, source-anchor and crosswalk logic, validation-readiness requirements,
+      and documentation-protocol alignment requirements.
+    changed_by: gpt_5_5_thinking

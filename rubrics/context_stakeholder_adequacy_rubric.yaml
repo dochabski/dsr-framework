@@ -1,0 +1,1252 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: context_stakeholder_adequacy_rubric
+    label: Context and Stakeholder Adequacy Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/context_stakeholder_adequacy_rubric.yaml
+    local_file_name: context_stakeholder_adequacy_rubric.yaml
+    assessment_target: context_space
+    priority: core
+    lifecycle_phase: contextualization
+    prompt_id: prompt_context_stakeholder_adequacy_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - problem_framing_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_and_trace_shape; adequacy_judgments_remain_human_review
+  assessment_scope:
+    primary_question: Does the DSR record describe context, stakeholders, artifact networks, and boundary conditions well enough to interpret design and evaluation
+      claims?
+    when_to_use:
+    - during problem framing after a preliminary problem_instance and problem_class are available
+    - during artifact design when contextual constraints, stakeholder roles, or neighboring systems may shape requirements
+    - during evaluation planning when claims depend on setting, participant, organizational, technical, or governance conditions
+    - during contribution scoping when projectability, boundary conditions, and non-applicability conditions must be stated
+    - whenever the operating context materially changes after stakeholder discovery, field access changes, governance decisions, implementation changes, or evaluation
+      findings
+    when_not_to_use:
+    - do not use as a substitute for problem_framing_quality_rubric; a context record can be detailed while the problem remains poorly framed
+    - do not use as a substitute for requirements_traceability_rubric; this rubric checks whether context implications are traceable, not whether all requirements
+      are well formed
+    - do not use as a complete ethical, privacy, security, or governance approval
+    - do not treat a high score as proof that the artifact will transfer to another setting
+    - do not use to force confidential, sensitive, or politically risky stakeholder information into public disclosure when responsible redaction is required
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - stakeholder_representative
+    - technical_implementer
+    - artifact_maintainer
+    unit_of_assessment: one_context_space_record_for_a_candidate_or_active_dsr_study
+    boundary_conditions:
+    - The rubric assumes a problem framing exists or is being developed; it evaluates contextual adequacy rather than problem worthiness.
+    - The rubric supports socio-technical, higher education, information systems, compliance, quality assurance, organizational process, and research-infrastructure
+      DSR settings.
+    - Contextual completeness is judged relative to the claims being made; not every DSR record needs exhaustive detail about every possible contextual category.
+    - Stakeholder adequacy includes affected and burdened groups, not only direct users or project sponsors.
+    - Machine validation may check the existence and linkage of context records, stakeholder records, boundary-condition fields, and trace edges; adequacy, materiality,
+      and risk remain human-review judgments.
+    assumptions:
+    - Context is not mere background description; it is part of the evidential boundary for artifact design, use, evaluation, and contribution claims.
+    - Stakeholder analysis should include goals, incentives, burdens, authority, likely resistance, and maintenance responsibilities when those factors are material
+      to design or evaluation.
+    - Artifact-network mapping is necessary when the design entity depends on or changes neighboring systems, documents, workflows, metrics, policies, data flows,
+      or practices.
+    - Context can change because of the artifact, because of organizational dynamics, or because of external conditions; records should preserve anticipated change
+      and update triggers.
+  source_grounding:
+    source_families_to_consult:
+    - zur_heiden_2020_context_dsr_extraction
+    - hevner_et_al_2024_transparency_in_dsr_extraction
+    - concept_inventory.context_space
+    - concept_inventory.stakeholder
+    - concept_inventory.artifact_network
+    - concept_inventory.boundary_condition
+    - wicked_problem_workflow.phase_3_stakeholder_and_context_system
+    - wicked_problem_workflow.phase_4_structural_model
+    - dsr_operational_synthesis.context_and_transparency_sections
+    - theory_of_design_science_research.context_problem_space_and_transparency_sections
+    - problem_framing_quality_rubric
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - Wicked Problem Workflow.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - problem_framing_quality_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major context, stakeholder, artifact-network, boundary-condition, and projectability rationale should cite at least one source_anchor_id, framework_anchor,
+        repository_artifact, or reviewer_judgment marker.
+      preferred: Use zur Heiden (2020) anchors for context dimensions, context-to-design implication tracing, anticipated context change, and problem-class generalization;
+        use Hevner et al. (2024) anchors for problem-space transparency, evaluation transparency, and limits on overly prescriptive transparency checklists.
+      do_not_do: Do not treat stakeholder preference, organizational lore, or reviewer intuition as source-supported context evidence unless linked to field evidence,
+        documents, observations, source anchors, or explicit reviewer_judgment status.
+    unsupported_claim_policy:
+      rule: Claims about context fit, stakeholder coverage, artifact-network dependencies, boundary conditions, projectability, or context-driven design implications
+        must be marked unsupported when they lack evidence, source anchors, or explicit reviewer_judgment status.
+      effect: Unsupported context claims trigger human_review and may activate non_compensatory_floor_rules, especially for projectability claims and evaluation claims
+        that rely on unstated contextual assumptions.
+    source_supported_claims:
+    - claim_id: src_claim_context_dimensions
+      claim: Context should be represented through material people, organizational, and technological dimensions, with additional regulatory, temporal, cultural,
+        resource, and governance dimensions added when they affect artifact design, use, or evaluation.
+      source_family: zur_heiden_2020_context_dsr_extraction
+      source_anchor_ids:
+      - zur_heiden_2020:A06
+      - zur_heiden_2020:A08
+      - zur_heiden_2020:A10
+      obligation_status: recommended
+      use_in_rubric: justifies context_completeness and reviewer checks for missing material context dimensions
+    - claim_id: src_claim_context_to_design_implications
+      claim: A DSR record should not merely describe context; it should show how material contextual characteristics inform design implications.
+      source_family: zur_heiden_2020_context_dsr_extraction
+      source_anchor_ids:
+      - zur_heiden_2020:A09
+      - zur_heiden_2020:A10
+      obligation_status: recommended
+      use_in_rubric: justifies context_to_design_implications and warning-level validation for context-design trace gaps
+    - claim_id: src_claim_context_change
+      claim: A context-aware DSR record should specify anticipated changes of context resulting from the artifact and its design.
+      source_family: zur_heiden_2020_context_dsr_extraction
+      source_anchor_ids:
+      - zur_heiden_2020:A11
+      obligation_status: recommended
+      use_in_rubric: justifies context_change_readiness
+    - claim_id: src_claim_problem_class_generalization
+      claim: Generalization and projectability claims should connect findings and artifacts to an explicit abstract class of problems rather than leaping from one
+        local case to universal applicability.
+      source_family: zur_heiden_2020_context_dsr_extraction
+      source_anchor_ids:
+      - zur_heiden_2020:A12
+      - zur_heiden_2020:A14
+      obligation_status: recommended
+      use_in_rubric: justifies boundary_conditions_and_claim_scope and unsupported_projectability warnings
+    - claim_id: src_claim_problem_space_transparency
+      claim: Problem-space transparency includes bounded research scope in an application context, improvement goals, timeframe, stakeholders, resources, requirements,
+        evaluation criteria, problem class, and problem instance.
+      source_family: hevner_et_al_2024_transparency_in_dsr_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A01
+      - hevner_et_al_2024:A07
+      obligation_status: recommended
+      use_in_rubric: justifies context/stakeholder coverage and traceability to requirements and evaluation criteria
+    - claim_id: src_claim_evaluation_transparency
+      claim: Evaluation transparency should support stakeholder confidence and should address both technical artifact qualities and behavioral qualities of human
+        interaction.
+      source_family: hevner_et_al_2024_transparency_in_dsr_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A10
+      obligation_status: recommended
+      use_in_rubric: justifies stakeholder and evaluation-claim interpretation requirements
+    - claim_id: src_claim_checklist_caution
+      claim: Detailed prescriptive transparency checklists for DSR are premature; context-related validation should distinguish machine-checkable presence/trace conditions
+        from human adequacy judgments.
+      source_family: hevner_et_al_2024_transparency_in_dsr_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A13
+      obligation_status: caution
+      use_in_rubric: prevents soft context guidance from becoming unjustified hard SHACL violations
+    - claim_id: src_claim_context_space_definition
+      claim: The framework treats context_space as the organizational, technical, social, regulatory, temporal, cultural, resource, stakeholder, and artifact-network
+        conditions bounding DSR claims.
+      source_family: concept_inventory.context_space
+      source_anchor_ids:
+      - concept_inventory:context_space
+      obligation_status: required
+      use_in_rubric: grounds construct definitions and required inputs
+  construct_definitions:
+  - term_id: context_space
+    preferred_label: Context Space
+    definition: The organizational, technical, social, regulatory, temporal, cultural, resource, stakeholder, and artifact-network conditions bounding DSR design,
+      use, evaluation, contribution, and projectability claims.
+    source_anchor_ids:
+    - concept_inventory:context_space
+    - hevner_et_al_2024:A07
+    representation:
+    - yaml_field
+    - json_schema_property
+    - owl_class
+    - shacl_node_shape
+  - term_id: context
+    preferred_label: Context
+    definition: The specific conditions under which a DSR artifact is designed, instantiated, evaluated, maintained, and expected to work or transfer.
+    source_anchor_ids:
+    - concept_inventory:context
+    - zur_heiden_2020:A06
+    - zur_heiden_2020:A10
+    representation:
+    - yaml_field
+    - json_schema_property
+    - owl_class
+  - term_id: stakeholder
+    preferred_label: Stakeholder
+    definition: An actor or group affected by, involved in, evaluating, funding, governing, using, reviewing, implementing, maintaining, or burdened by the DSR artifact
+      and its resulting design knowledge.
+    source_anchor_ids:
+    - concept_inventory:stakeholder
+    - hevner_et_al_2024:A07
+    representation:
+    - yaml_field
+    - json_schema_property
+    - owl_class
+  - term_id: artifact_network
+    preferred_label: Artifact Network
+    definition: The neighboring systems, documents, infrastructures, data flows, processes, metrics, practices, governance arrangements, and use plans within which
+      an artifact functions.
+    source_anchor_ids:
+    - concept_inventory:artifact_network
+    representation:
+    - yaml_field
+    - json_schema_property
+    - owl_class
+  - term_id: boundary_condition
+    preferred_label: Boundary Condition
+    definition: A condition of context, use, stakeholder class, artifact network, domain, time, resource, governance, evidence mode, or evaluation setting that limits
+      where a claim applies.
+    source_anchor_ids:
+    - concept_inventory:boundary_condition
+    - zur_heiden_2020:A12
+    - zur_heiden_2020:A14
+    representation:
+    - yaml_field
+    - json_schema_property
+    - owl_class
+  - term_id: context_to_design_implication
+    preferred_label: Context-to-Design Implication
+    definition: A traceable explanation of how a contextual condition shaped an objective, requirement, design decision, artifact capacity, use plan, evaluation criterion,
+      or claim boundary.
+    source_anchor_ids:
+    - zur_heiden_2020:A09
+    - zur_heiden_2020:A10
+    representation:
+    - traceability_edge
+    - yaml_field
+    - shacl_warning
+  - term_id: projectability_constraint
+    preferred_label: Projectability Constraint
+    definition: A stated limit on where, how, under what adaptation requirements, and with what cautions design knowledge or an artifact may be reused beyond the
+      local case.
+    source_anchor_ids:
+    - concept_inventory:projectability_statement
+    - zur_heiden_2020:A12
+    representation:
+    - yaml_field
+    - json_schema_property
+    - manual_review_check
+  required_inputs:
+  - input_field: context_description
+    description: Structured description of material organizational, technical, social, regulatory, temporal, cultural, resource, and governance conditions.
+    obligation_status: required
+    accepted_format:
+    - structured_yaml_object
+    - markdown_section_with_subheadings
+    - context_register_table
+    minimum_evidence: At least one context record with context dimensions, source anchors or reviewer_judgment markers, and notes on materiality to the DSR claim.
+  - input_field: stakeholder_map
+    description: Map of stakeholder groups and roles, including direct users, sponsors, managers, reviewers, technical implementers, affected groups, maintainers,
+      and groups bearing risk or burden.
+    obligation_status: required
+    accepted_format:
+    - stakeholder_table
+    - role_map
+    - actor_network_diagram
+    - yaml_array
+    minimum_evidence: Stakeholder groups are named by role, relationship to artifact, involvement status, and evidence source.
+  - input_field: artifact_network
+    description: Representation of neighboring systems, documents, data, workflows, metrics, practices, policies, and infrastructures that the design entity depends
+      on, changes, or must interoperate with.
+    obligation_status: required_when_artifact_depends_on_or_changes_other_artifacts
+    accepted_format:
+    - artifact_network_table
+    - process_map
+    - system_context_diagram
+    - yaml_array
+    minimum_evidence: Material neighboring artifacts and dependencies are listed with direction of dependency and design/evaluation relevance.
+  - input_field: boundary_condition_register
+    description: Register of claim-scope boundaries, non-applicability conditions, transfer limits, evaluation-scope constraints, and assumptions.
+    obligation_status: required
+    accepted_format:
+    - boundary_condition_table
+    - yaml_array
+    - claim_scope_matrix
+    minimum_evidence: Each major design, use, evaluation, or contribution claim has at least one stated boundary condition or a justified note explaining why no material
+      boundary is known.
+  - input_field: governance_and_resource_context
+    description: Description of decision rights, approvals, policies, privacy/security/IP constraints, resource access, staffing, infrastructure, data access, and
+      maintenance responsibilities.
+    obligation_status: required_when_material
+    accepted_format:
+    - governance_register
+    - resource_register
+    - risk_control_table
+    - yaml_object
+    minimum_evidence: Material governance and resource factors are listed with owner, constraint type, and implication for design, evaluation, or maintenance.
+  required_outputs:
+  - output_field: context_adequacy_rating
+    description: Overall rating derived from weighted dimension scores and floor rules.
+    allowed_values:
+    - adequate
+    - adequate_with_gaps
+    - requires_context_revision
+    - insufficient_for_claims
+  - output_field: stakeholder_coverage_gaps
+    description: List of missing, underspecified, tokenized, or unsupported stakeholder groups or roles.
+    allowed_values: list_of_gap_records
+  - output_field: boundary_condition_gaps
+    description: List of missing or unsupported boundaries for validity, transfer, use, evaluation, or contribution claims.
+    allowed_values: list_of_gap_records
+  - output_field: projectability_constraints
+    description: Conditions limiting reuse, transfer, adaptation, and contribution claims beyond the local context.
+    allowed_values: list_of_constraint_records
+  - output_field: context_to_design_trace_gaps
+    description: List of material context factors that lack links to objectives, requirements, design decisions, use plans, or evaluation criteria.
+    allowed_values: list_of_trace_gap_records
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical or stakeholder risk, evidence insufficiency, overclaiming, privacy/security/IP sensitivity, and redaction
+      needs.
+    allowed_values:
+    - ambiguity
+    - source_gap
+    - ethical_risk
+    - stakeholder_burden
+    - evidence_insufficiency
+    - overclaiming
+    - privacy_security_ip
+    - redaction_needed
+  assessment_dimensions:
+  - dimension_id: context_completeness
+    label: Context Completeness
+    definition: Coverage and materiality assessment of organizational, technical, social, regulatory, temporal, cultural, resource, and governance context conditions
+      relevant to artifact design, use, evaluation, and contribution claims.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - context_description
+    - context_register
+    - governance_and_resource_context
+    - source_anchors
+    - materiality_notes
+    level_descriptors:
+      score_0: No context is described, or context is limited to a generic setting label such as higher education, company, department, or software system.
+      score_1: Context is mentioned as background, but material dimensions are missing, vague, or disconnected from the artifact and claims.
+      score_2: Basic context dimensions are described, usually people, organization, and technology, but coverage is uneven and materiality is not consistently explained.
+      score_3: Material context dimensions are identified with enough specificity to interpret problem, design, use, and evaluation claims, including governance and
+        resource conditions when relevant.
+      score_4: Context is represented as an integrated, source-anchored context model that distinguishes material from nonmaterial conditions, identifies dependencies
+        among conditions, and explains implications for design, evaluation, maintenance, and projectability.
+    minimum_evidence: Explicit context_description covering at least the material setting, people/user context, organizational context, technical context, and any
+      known governance/resource constraints.
+    high_quality_evidence: Triangulated context register using field notes, stakeholder evidence, policy/system documents, resource constraints, governance rules,
+      and explicit materiality judgments for each context dimension.
+    weak_evidence_signals:
+    - context treated as scenery or background only
+    - only institution or domain is named
+    - people and organizational dimensions are absent
+    - technical environment is unspecified despite technical claims
+    - governance, data, or resource constraints are omitted despite relevance
+    calibration_anchor: A score of 3 requires enough context for a reviewer to interpret the artifact and evaluation claim; a score of 4 requires an integrated context
+      model with evidence and materiality judgments.
+    common_failure_modes:
+    - context_as_background_only
+    - missing_people_context
+    - missing_organization_context
+    - missing_technology_context
+    - governance_blindness
+    - resource_blindness
+    reviewer_notes: Do not require exhaustive context disclosure when conditions are immaterial or sensitive; require explicit redaction notes or materiality rationale
+      when important details are omitted.
+  - dimension_id: stakeholder_role_coverage
+    label: Stakeholder Role Coverage
+    definition: Identification and role differentiation of users, sponsors, managers, reviewers, technical implementers, affected groups, maintainers, and other actors
+      who shape or are shaped by the artifact and its evaluation.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - stakeholder_map
+    - role_descriptions
+    - involvement_status
+    - artifact_relationship
+    - evidence_source
+    level_descriptors:
+      score_0: No stakeholder groups are identified, or all stakeholders are collapsed into an undifferentiated user or customer.
+      score_1: One or two obvious stakeholder groups are named, but roles, authority, affectedness, or relationship to the artifact are unclear.
+      score_2: Several stakeholder groups are identified, but important roles such as maintainers, technical implementers, reviewers, affected non-users, or sponsors
+        may be missing.
+      score_3: Material stakeholder roles are identified and differentiated by relationship to artifact design, use, evaluation, governance, risk, maintenance, or
+        contribution interpretation.
+      score_4: Stakeholder coverage is systematic and includes direct users, indirect affected groups, sponsors, decision makers, implementers, maintainers, reviewers,
+        burdened groups, and contested or resistant actors, with evidence for inclusion and exclusion.
+    minimum_evidence: Stakeholder_map naming direct users, sponsors/decision makers, implementers, affected groups, and maintainers when these roles are material.
+    high_quality_evidence: Stakeholder role matrix with actor group, role, authority, affectedness, involvement in design/evaluation, burden/risk exposure, maintenance
+      responsibility, evidence source, and missing-representation notes.
+    weak_evidence_signals:
+    - stakeholders listed only as names without roles
+    - sponsor and user roles are conflated
+    - affected non-users are omitted
+    - maintainers are omitted despite post-deployment claims
+    - reviewer or regulator audiences are absent despite compliance claims
+    calibration_anchor: A score of 3 requires role coverage sufficient to interpret use and evaluation claims; a score of 4 requires coverage of indirect, burdened,
+      maintaining, and resistant stakeholders as well as direct users.
+    common_failure_modes:
+    - stakeholder_tokenism
+    - stakeholder_erasure
+    - user_sponsor_conflation
+    - affected_group_absence
+    - maintainer_absence
+    reviewer_notes: Stakeholder role adequacy is claim-relative; a small pilot may need fewer stakeholder classes than a broad institutional contribution claim, but
+      any excluded role class should be acknowledged.
+  - dimension_id: stakeholder_goals_incentives_and_burdens
+    label: Stakeholder Goals, Incentives, and Burdens
+    definition: Attention to stakeholder goals, pains, incentives, authority, constraints, risk exposure, resistance, adoption burden, maintenance burden, and potential
+      value distribution.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - stakeholder_profiles
+    - goals_and_pains
+    - incentive_analysis
+    - burden_risk_notes
+    - authority_constraints
+    level_descriptors:
+      score_0: No stakeholder goals, incentives, burdens, or constraints are described.
+      score_1: Stakeholder needs or preferences are asserted in broad terms, but incentives, authority, resistance, or burdens are mostly absent.
+      score_2: Major stakeholder goals and pains are described, but incentives, burden distribution, authority, constraints, or resistance are incomplete.
+      score_3: Stakeholder goals, incentives, authority, constraints, risks, burdens, and likely resistance are documented well enough to inform design, use, evaluation,
+        and adoption claims.
+      score_4: Stakeholder analysis explains value and burden distribution across stakeholder classes, identifies misaligned incentives and contested interests, and
+        links those conditions to design requirements, use plans, risk controls, and evaluation criteria.
+    minimum_evidence: At least the major stakeholder groups have stated goals/pains and at least one burden, risk, constraint, authority, or incentive note.
+    high_quality_evidence: Stakeholder profile table with goals, pains, incentives, authority, constraints, adoption burden, maintenance burden, risk exposure, resistance/acceptance
+      assumptions, and evidence basis.
+    weak_evidence_signals:
+    - stakeholder goals asserted without source
+    - all stakeholders are assumed to benefit equally
+    - resistance treated as user error
+    - burden shifted to invisible actors
+    - authority and decision rights unspecified
+    calibration_anchor: A score of 3 requires stakeholder analysis to support adoption and evaluation interpretation; a score of 4 requires explicit treatment of
+      conflicts, burden distribution, and incentive misalignment.
+    common_failure_modes:
+    - stakeholder_tokenism
+    - burden_erasure
+    - incentive_blindness
+    - authority_blindness
+    - one_sided_value_claim
+    reviewer_notes: Do not infer stakeholder consent, acceptance, or benefit from role inclusion alone. Consent, participation quality, and acceptability require
+      separate evidence or review.
+  - dimension_id: artifact_network_mapping
+    label: Artifact Network Mapping
+    definition: Mapping of neighboring systems, documents, processes, data flows, metrics, policies, infrastructures, practices, and use arrangements that the artifact
+      depends on, changes, or must interoperate with.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - artifact_network
+    - system_context_diagram
+    - process_map
+    - dependency_table
+    - interface_or_document_inventory
+    level_descriptors:
+      score_0: No artifact network or neighboring systems are identified, despite artifact claims that imply interaction with an environment.
+      score_1: Some neighboring tools, documents, or processes are mentioned, but dependencies, direction of influence, or relevance are unclear.
+      score_2: A basic artifact network is listed, but interfaces, process dependencies, data/document flows, metrics, or practice changes are unevenly captured.
+      score_3: Material neighboring artifacts, systems, documents, processes, metrics, and practices are mapped with their dependencies and implications for design,
+        use, evaluation, or maintenance.
+      score_4: The artifact network is modeled as a socio-technical dependency structure, including upstream and downstream artifacts, data/document flows, process
+        couplings, metrics, governance touchpoints, failure points, and maintenance/update responsibilities.
+    minimum_evidence: Artifact_network record naming material neighboring systems, documents, processes, metrics, practices, or infrastructures and the direction
+      of dependency or influence.
+    high_quality_evidence: Diagram or structured register showing artifact relationships, interfaces, process dependencies, data/document flows, institutional metrics,
+      governance points, and design/evaluation implications.
+    weak_evidence_signals:
+    - only the central artifact is described
+    - integration points are unnamed
+    - documents or metrics affected by the artifact are omitted
+    - workflow dependencies are not mapped
+    - maintenance dependencies are hidden
+    calibration_anchor: A score of 3 requires enough network mapping to identify where the artifact will operate and what it touches; a score of 4 requires explicit
+      socio-technical dependency and maintenance mapping.
+    common_failure_modes:
+    - artifact_network_blindness
+    - orphan_artifact
+    - integration_blindness
+    - process_dependency_gap
+    - metric_dependency_gap
+    reviewer_notes: Do not require technical architecture detail for conceptual artifacts unless the claim depends on operational integration; do require artifact-network
+      boundaries for any implementation, use, or evaluation claim.
+  - dimension_id: boundary_conditions_and_claim_scope
+    label: Boundary Conditions and Claim Scope
+    definition: Explicitness and evidence alignment of boundaries for validity, transfer, use, evaluation, contribution, projectability, and non-applicability claims.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - boundary_condition_register
+    - claim_scope_matrix
+    - evaluation_scope_notes
+    - projectability_constraints
+    - non_applicability_conditions
+    level_descriptors:
+      score_0: No boundary conditions or claim-scope limits are stated, or the record implies universal applicability without support.
+      score_1: Boundaries are mentioned generically, but they do not clearly limit specific design, use, evaluation, or contribution claims.
+      score_2: Some boundary conditions are stated, but they are incomplete, weakly linked to claims, or omit negative/non-applicability conditions.
+      score_3: Material boundary conditions are explicitly linked to design, use, evaluation, transfer, and contribution claims, including limits on context, stakeholder
+        class, artifact network, evidence mode, and problem class.
+      score_4: Boundary conditions form a claim-scope model that states applicability, transfer conditions, adaptation requirements, non-applicability conditions,
+        evidence limits, and overclaim controls for each major design and contribution claim.
+    minimum_evidence: Boundary_condition_register with at least one boundary or justified no-known-boundary note for each major artifact, evaluation, use, and contribution
+      claim.
+    high_quality_evidence: Claim-by-claim scope matrix linking claims to context conditions, stakeholder classes, artifact-network dependencies, evaluation evidence,
+      transfer/adaptation limits, and non-applicability conditions.
+    weak_evidence_signals:
+    - general phrases like may vary by context
+    - evaluation setting not linked to claim scope
+    - no negative boundaries
+    - case findings presented as universal
+    - transfer conditions are absent despite projectability claims
+    calibration_anchor: A score of 3 requires boundaries sufficient to prevent overgeneralization; a score of 4 requires claim-specific applicability, adaptation,
+      and non-applicability logic.
+    common_failure_modes:
+    - boundary_condition_absence
+    - unsupported_projectability
+    - case_to_universal_leap
+    - overgeneralization
+    - unbounded_claim_scope
+    reviewer_notes: Boundary conditions are not evidence of weak work; they are part of responsible claim making. Penalize absent boundaries more than explicit, well-justified
+      limits.
+  - dimension_id: context_to_design_implications
+    label: Context-to-Design Implications
+    definition: Traceability from material contextual conditions and stakeholder findings to objectives, requirements, design decisions, artifact capacities, use
+      plans, evaluation criteria, or claim boundaries.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - context_to_design_trace
+    - objectives
+    - requirements
+    - design_decisions
+    - evaluation_criteria
+    - rationale_records
+    level_descriptors:
+      score_0: No trace exists from context or stakeholder analysis to design, requirements, evaluation, or claim boundaries.
+      score_1: Context is described and design choices are described, but their relationship is implicit, post hoc, or unsupported.
+      score_2: Some contextual factors are linked to objectives, requirements, or design decisions, but the trace is partial, uneven, or lacks rationale.
+      score_3: Material contextual conditions and stakeholder findings are traceably linked to objectives, requirements, design decisions, use/evaluation plans, or
+        claim boundaries with rationale.
+      score_4: 'Context-to-design logic is systematic: each material context condition has a disposition such as translated to requirement, accommodated by design
+        decision, controlled in evaluation, bounded out, monitored for change, or judged immaterial with rationale.'
+    minimum_evidence: At least the highest-materiality context conditions have links to objectives, requirements, design decisions, evaluation criteria, or boundary
+      conditions.
+    high_quality_evidence: Context implication matrix with context factor, stakeholder evidence, materiality rationale, affected objective/requirement/design decision/evaluation
+      criterion, and trace status.
+    weak_evidence_signals:
+    - context and design sections are both present but disconnected
+    - requirements appear without contextual rationale
+    - design decisions are justified only by convenience
+    - evaluation criteria ignore setting constraints
+    - context factors have no disposition
+    calibration_anchor: A score of 3 requires a reviewer to see how context shaped the design or evaluation; a score of 4 requires trace coverage and explicit disposition
+      for material context conditions.
+    common_failure_modes:
+    - context_design_trace_gap
+    - traceability_theater
+    - orphan_requirement
+    - solution_drift
+    - evaluation_context_mismatch
+    reviewer_notes: Do not demand that every context detail generate a requirement. Demand a reasoned disposition for context factors that are material to the claim.
+  - dimension_id: context_change_readiness
+    label: Context Change Readiness
+    definition: Awareness of contextual changes likely to affect artifact use, stakeholder burden, maintenance, evaluation, governance, or claim validity, including
+      anticipated changes caused by the artifact itself.
+    weight: 0.08
+    required: false
+    score_direction: higher_is_better
+    evidence_needed:
+    - anticipated_context_changes
+    - monitoring_triggers
+    - maintenance_plan
+    - risk_register
+    - update_conditions
+    level_descriptors:
+      score_0: No context-change risks, assumptions, update triggers, or artifact-caused contextual changes are considered.
+      score_1: Change is mentioned generally, but likely changes, triggers, monitoring responsibilities, or design/evaluation consequences are not stated.
+      score_2: Some likely context changes or risks are identified, but readiness actions, owners, or claim implications are incomplete.
+      score_3: Likely context changes, artifact-caused changes, maintenance implications, and evaluation/claim update triggers are identified with basic responsibilities
+        or monitoring plans.
+      score_4: The record includes a context-change model covering anticipated artifact effects, external changes, stakeholder turnover, policy/system changes, maintenance/update
+        responsibilities, monitoring triggers, and rules for revising requirements, evaluation, and contribution claims.
+    minimum_evidence: At least one anticipated context change or change trigger is documented, or a justified statement explains why context change is not material
+      at this stage.
+    high_quality_evidence: Change-readiness register with change type, likelihood or trigger, affected stakeholder/artifact/network condition, owner, monitoring evidence,
+      and implication for design, evaluation, maintenance, or claim scope.
+    weak_evidence_signals:
+    - context treated as static
+    - no maintenance owner despite deployment claims
+    - policy or system changes ignored
+    - stakeholder turnover ignored
+    - artifact-caused workflow changes absent
+    calibration_anchor: A score of 3 requires actionable awareness of changes that could affect use or evaluation; a score of 4 requires an explicit monitoring and
+      update logic.
+    common_failure_modes:
+    - context_change_blindness
+    - maintenance_neglect
+    - static_context_assumption
+    - evaluation_drift
+    - post_deployment_burden_gap
+    reviewer_notes: Because this dimension is recommended rather than universally required, a low score should not automatically block early conceptual work unless
+      the record makes implementation, maintenance, field evaluation, or projectability claims.
+  scoring_model:
+    scale:
+      minimum_score: 0
+      maximum_score: 4
+      score_type: integer_or_half_step_at_reviewer_discretion
+      score_labels:
+        '0': absent_or_unusable
+        '1': very_weak
+        '2': partially_adequate
+        '3': adequate
+        '4': exemplary
+    score_direction: higher_is_better
+    weight_sum_rule:
+      expected_sum: 1.0
+      actual_sum: 1.0
+      rule: Weighted score equals the sum of dimension_score divided by 4 times dimension_weight, reported on a 0_to_1 scale, plus optional 0_to_4 equivalent.
+    missing_evidence_rule: If required evidence for a required dimension is absent, score that dimension no higher than 1 regardless of narrative quality. If evidence
+      exists but lacks source anchors or explicit reviewer_judgment markers, score no higher than 2 unless the reviewer documents why source anchoring is impossible
+      or inappropriate.
+    reverse_scoring_rule: No dimensions are reverse-scored in this rubric. Anti-pattern risk is handled through warnings and floor rules rather than reverse scoring.
+    aggregation_formula:
+      weighted_score_0_to_1: sum((dimension_score / 4.0) * dimension_weight)
+      weighted_score_0_to_4: weighted_score_0_to_1 * 4.0
+      rounding: round_to_two_decimals_for_reporting; preserve raw values in machine output if available
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_context_description
+      condition: context_completeness_score <= 1
+      maximum_decision: requires_context_revision
+      rationale: A DSR claim cannot be responsibly interpreted when context is absent or merely generic.
+    - rule_id: floor_missing_stakeholder_coverage
+      condition: stakeholder_role_coverage_score <= 1 and artifact_use_or_evaluation_claims_are_present
+      maximum_decision: requires_context_revision
+      rationale: Use and evaluation claims require minimally adequate stakeholder role coverage.
+    - rule_id: floor_no_boundary_conditions
+      condition: boundary_conditions_and_claim_scope_score == 0
+      maximum_decision: insufficient_for_claims
+      rationale: Unbounded validity, transfer, use, or contribution claims cannot be offset by detailed context elsewhere.
+    - rule_id: floor_unsupported_projectability
+      condition: projectability_or_transfer_claim_present and boundary_conditions_and_claim_scope_score < 3
+      maximum_decision: adequate_with_gaps
+      rationale: Projectability claims require explicit boundaries and transfer/adaptation conditions.
+    - rule_id: floor_context_design_trace_gap
+      condition: context_to_design_implications_score <= 1 and requirements_or_design_decisions_are_present
+      maximum_decision: requires_context_revision
+      rationale: Context description alone is insufficient when it does not inform design or evaluation logic.
+    - rule_id: floor_artifact_network_absence
+      condition: artifact_depends_on_neighboring_systems_or_workflows and artifact_network_mapping_score <= 1
+      maximum_decision: requires_context_revision
+      rationale: Interdependent artifacts cannot be evaluated responsibly when their operating network is not represented.
+    - rule_id: floor_ethical_or_sensitive_context_gap
+      condition: ethical_privacy_security_ip_or_stakeholder_burden_risk_flag == true and relevant context_or_stakeholder_evidence_is_absent
+      maximum_decision: insufficient_for_claims
+      rationale: High-risk context gaps require human review before claims are accepted.
+    human_review_override: Reviewers may lower the final decision when evidence is ambiguous, sensitive, contradictory, or ethically risky. Reviewers should not raise
+      the decision above a floor rule without documenting an override rationale.
+  level_descriptors:
+    score_0: Absent, unusable, or contradicts known evidence.
+    score_1: Present only as vague narrative, generic background, or unsupported assertion.
+    score_2: Partially adequate; enough to proceed with caution, but important gaps remain.
+    score_3: Adequate for current lifecycle phase; material context and stakeholder claims are interpretable and traceable.
+    score_4: Exemplary; source-anchored, integrated, claim-relative, traceable, and explicitly bounded.
+    anchor_examples:
+    - Score 4 context descriptions include materiality judgments and links to design/evaluation implications.
+    - Score 3 stakeholder maps include material roles and sufficient evidence to interpret use and evaluation claims.
+    - Score 2 artifact networks list some dependencies but do not yet support strong projectability or implementation claims.
+    - Score 1 boundary conditions are generic disclaimers rather than claim-specific limits.
+    - Score 0 should be used when a required construct is absent or unusable for review.
+    borderline_cases:
+    - A small conceptual DSR study may score 3 on artifact_network_mapping with a concise artifact-network note if no operational integration claims are made.
+    - An early-stage study may score 2 on context_change_readiness without blocking progress if no deployment, maintenance, or field evaluation claim is made.
+    - A confidential institutional setting may score 3 or 4 despite redactions if material context is responsibly abstracted and redaction rationale is documented.
+  decision_thresholds:
+    decision_values:
+    - adequate
+    - adequate_with_gaps
+    - requires_context_revision
+    - insufficient_for_claims
+    adequate:
+      weighted_score_0_to_1: '>= 0.80'
+      minimum_dimension_scores:
+        context_completeness: 3
+        stakeholder_role_coverage: 3
+        boundary_conditions_and_claim_scope: 3
+        context_to_design_implications: 3
+      conditions:
+      - no active non_compensatory_floor_rule
+      - no unresolved human_review flag for ethical risk, stakeholder burden, privacy/security/IP, or unsupported projectability
+      - artifact_network_mapping score >= 3 when operational integration, field use, or implementation claims are present
+      interpretation: The context_space record is strong enough to support design, evaluation, and contribution interpretation at the current lifecycle phase.
+    adequate_with_gaps:
+      weighted_score_0_to_1: '>= 0.65 and < 0.80'
+      conditions:
+      - no floor rule limiting decision to requires_context_revision or insufficient_for_claims
+      - gaps are specific, bounded, and unlikely to invalidate immediate next-step design or evaluation planning
+      interpretation: The record can proceed with targeted revisions or constraints, but claim scope should remain conservative.
+    requires_context_revision:
+      weighted_score_0_to_1: '>= 0.45 and < 0.65, or any revision-level floor rule is triggered'
+      conditions:
+      - material context, stakeholder, artifact-network, boundary, or trace gaps could distort design or evaluation claims
+      - revision actions are identifiable and feasible
+      interpretation: Revise the context_space record before using it to derive requirements, finalize design decisions, or make evaluation/contribution claims.
+    insufficient_for_claims:
+      weighted_score_0_to_1: < 0.45, or any insufficient-level floor rule is triggered
+      conditions:
+      - context is absent or unusable for claim interpretation
+      - boundaries are absent while broad claims are made
+      - high-risk stakeholder, governance, privacy/security/IP, or burden issues lack adequate evidence
+      interpretation: Do not use the record to support design, evaluation, transfer, or contribution claims until context and stakeholder evidence are rebuilt.
+    dimension_floor_rules:
+    - Any required dimension scored 0 should trigger human_review.
+    - Any required dimension scored below 2 should produce a concrete revision action.
+    - A score below 3 on boundary_conditions_and_claim_scope prevents an adequate decision when transfer, projectability, or contribution generalization claims are
+      present.
+    - A score below 3 on stakeholder_goals_incentives_and_burdens prevents an adequate decision when adoption, use, burden reduction, or stakeholder value claims
+      are central.
+    human_review_triggers:
+    - ambiguity about who is affected or burdened
+    - source gaps in context or stakeholder evidence
+    - ethical, privacy, security, intellectual_property, or governance risk
+    - claims of projectability unsupported by context and boundary evidence
+    - context-sensitive evidence cannot be publicly disclosed and requires redaction judgment
+    - artifact network involves institutional systems, data flows, compliance obligations, or maintenance duties not yet reviewed
+    - stakeholder resistance, conflicting goals, or burden redistribution is likely but undocumented
+  calibration_guidance:
+    reviewer_preparation:
+    - Review the problem_framing_quality_rubric output before scoring context adequacy.
+    - 'Identify the major claims that depend on context: design, use, evaluation, contribution, projectability, maintenance, and stakeholder value claims.'
+    - Mark whether the record is early conceptual, prototype, field evaluation, deployment, or contribution-writing stage; calibrate expected evidence accordingly.
+    - Separate machine-checkable presence of fields from human judgment about adequacy and materiality.
+    anchor_examples:
+    - anchor_id: strong_context_anchor
+      description: A DSR record includes a context register, stakeholder role matrix, artifact-network diagram, boundary-condition register, and context-to-requirement/design/evaluation
+        traces with source anchors.
+      expected_scores:
+        context_completeness: 4
+        stakeholder_role_coverage: 4
+        stakeholder_goals_incentives_and_burdens: 4
+        artifact_network_mapping: 4
+        boundary_conditions_and_claim_scope: 4
+        context_to_design_implications: 4
+        context_change_readiness: 3
+    - anchor_id: borderline_context_anchor
+      description: A record names the setting, users, sponsors, and systems, but lacks affected non-users, maintainers, non-applicability conditions, and trace links
+        to evaluation criteria.
+      expected_scores:
+        context_completeness: 2
+        stakeholder_role_coverage: 2
+        stakeholder_goals_incentives_and_burdens: 2
+        artifact_network_mapping: 2
+        boundary_conditions_and_claim_scope: 2
+        context_to_design_implications: 2
+        context_change_readiness: 1
+    - anchor_id: weak_context_anchor
+      description: A record says the artifact will help universities broadly but does not describe the local setting, stakeholder roles, adjacent systems, boundaries,
+        or design implications.
+      expected_scores:
+        context_completeness: 1
+        stakeholder_role_coverage: 1
+        stakeholder_goals_incentives_and_burdens: 0
+        artifact_network_mapping: 0
+        boundary_conditions_and_claim_scope: 0
+        context_to_design_implications: 0
+        context_change_readiness: 0
+    calibration_rounds:
+    - 'Round 1: Each reviewer scores independently and records evidence for scores below 3 or above 3.'
+    - 'Round 2: Reviewers compare floor-rule triggers before debating weighted totals.'
+    - 'Round 3: Reviewers reconcile materiality judgments for context dimensions, stakeholder exclusions, artifact-network boundaries, and projectability claims.'
+    - 'Round 4: Record final score, decision value, gap list, and any reviewer_judgment markers that substitute for source anchors.'
+    inter_rater_reconciliation:
+    - If reviewers differ by more than 1 point on a dimension, identify the exact evidence each reviewer used.
+    - Resolve whether the disagreement is about field presence, source quality, materiality, lifecycle-stage expectations, or claim scope.
+    - Do not average away a floor-rule dispute; resolve the floor rule first.
+    drift_checks:
+    - Recalibrate after three to five uses of the rubric or whenever adjacent rubrics change.
+    - Check whether reviewers are penalizing appropriate redaction as missing context.
+    - Check whether reviewers are over-rewarding long narrative context without traceability to design and claims.
+    - Check whether stakeholder maps routinely omit maintainers, indirect affected groups, or burdened groups.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      context_completeness: Explicit context_description covering at least the material setting, people/user context, organizational context, technical context, and
+        any known governance/resource constraints.
+      stakeholder_role_coverage: Stakeholder_map naming direct users, sponsors/decision makers, implementers, affected groups, and maintainers when these roles are
+        material.
+      stakeholder_goals_incentives_and_burdens: At least the major stakeholder groups have stated goals/pains and at least one burden, risk, constraint, authority,
+        or incentive note.
+      artifact_network_mapping: Artifact_network record naming material neighboring systems, documents, processes, metrics, practices, or infrastructures and the
+        direction of dependency or influence.
+      boundary_conditions_and_claim_scope: Boundary_condition_register with at least one boundary or justified no-known-boundary note for each major artifact, evaluation,
+        use, and contribution claim.
+      context_to_design_implications: At least the highest-materiality context conditions have links to objectives, requirements, design decisions, evaluation criteria,
+        or boundary conditions.
+      context_change_readiness: At least one anticipated context change or change trigger is documented, or a justified statement explains why context change is not
+        material at this stage.
+    acceptable_evidence_modes:
+    - stakeholder_interview_or_focus_group
+    - observation_or_field_note
+    - process_document
+    - policy_or_governance_document
+    - system_or_architecture_document
+    - workflow_or_process_map
+    - data_or_metric_inventory
+    - artifact_network_diagram
+    - resource_or_access_record
+    - risk_register
+    - evaluation_plan
+    - source_extraction_anchor
+    - reviewer_judgment_with_rationale
+    source_anchor_requirements:
+    - Each major context claim should include source_anchor_id, repository_artifact_reference, or reviewer_judgment marker.
+    - Each stakeholder role included or excluded should have a rationale or evidence note when material to claims.
+    - Each projectability or transfer claim should cite boundary_condition_register entries and evaluation scope evidence.
+    - Each context-to-design implication should identify the source context factor and target objective, requirement, design decision, evaluation criterion, or claim
+      boundary.
+    evidence_quality_notes:
+    - High-quality evidence is specific, situated, source-anchored, claim-relative, and explicit about uncertainty.
+    - Weak evidence uses generic institutional descriptions, assumes user benefit, hides burden distribution, or omits artifact-network dependencies.
+    - Confidential or sensitive evidence may be abstracted, but the record should state what was redacted, why, and whether reviewers can access a protected version.
+    - Reviewer judgment can supplement but should not replace available documentary, field, or stakeholder evidence.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: context_as_background_only
+    warning_condition: The record contains context narrative but does not use it to bound claims or shape design, use, or evaluation choices.
+    severity: major_warning
+    recommended_response: Create a context-to-design implication matrix and revise claim boundaries.
+    related_dimensions:
+    - context_completeness
+    - context_to_design_implications
+    source_anchor_ids:
+    - zur_heiden_2020:A09
+    - zur_heiden_2020:A10
+  - anti_pattern_id: stakeholder_tokenism
+    warning_condition: Stakeholders are listed as labels or consulted superficially without goals, authority, burdens, risks, or role in design/evaluation interpretation.
+    severity: major_warning
+    recommended_response: Replace generic stakeholder list with role-specific stakeholder profiles and burden/value notes.
+    related_dimensions:
+    - stakeholder_role_coverage
+    - stakeholder_goals_incentives_and_burdens
+    source_anchor_ids:
+    - hevner_et_al_2024:A07
+    - hevner_et_al_2024:A10
+  - anti_pattern_id: boundary_condition_absence
+    warning_condition: The record makes design, evaluation, transfer, use, or contribution claims without explicit applicability limits.
+    severity: critical_warning
+    recommended_response: Add a boundary-condition register and claim-scope matrix before accepting claims.
+    related_dimensions:
+    - boundary_conditions_and_claim_scope
+    source_anchor_ids:
+    - zur_heiden_2020:A12
+    - zur_heiden_2020:A14
+  - anti_pattern_id: artifact_network_blindness
+    warning_condition: The central artifact is described without neighboring systems, documents, metrics, processes, or practices that determine its use and effects.
+    severity: major_warning
+    recommended_response: Map the artifact network and identify dependencies, interfaces, process couplings, and maintenance implications.
+    related_dimensions:
+    - artifact_network_mapping
+    source_anchor_ids:
+    - concept_inventory:artifact_network
+  - anti_pattern_id: unsupported_projectability
+    warning_condition: The record implies broad transfer or reusable contribution without problem-class abstraction, boundary conditions, context match logic, or
+      evaluation-scope limits.
+    severity: critical_warning
+    recommended_response: Restrict contribution claims or add projectability constraints and adaptation conditions.
+    related_dimensions:
+    - boundary_conditions_and_claim_scope
+    - context_completeness
+    source_anchor_ids:
+    - zur_heiden_2020:A12
+    - concept_inventory:projectability_statement
+  - anti_pattern_id: context_design_trace_gap
+    warning_condition: Context is described, but objectives, requirements, design decisions, and evaluation criteria do not show how context mattered.
+    severity: major_warning
+    recommended_response: Trace material context factors to requirements, design decisions, evaluation criteria, or explicit bounded-out decisions.
+    related_dimensions:
+    - context_to_design_implications
+    source_anchor_ids:
+    - zur_heiden_2020:A09
+    - zur_heiden_2020:A10
+  - anti_pattern_id: context_change_blindness
+    warning_condition: The record assumes a static context despite deployment, use, maintenance, or artifact-caused change claims.
+    severity: moderate_warning
+    recommended_response: Add anticipated context changes, monitoring triggers, and maintenance/update responsibilities.
+    related_dimensions:
+    - context_change_readiness
+    source_anchor_ids:
+    - zur_heiden_2020:A11
+  - anti_pattern_id: confidentiality_as_context_absence
+    warning_condition: Sensitive context is omitted without abstraction, redaction rationale, or protected-review path.
+    severity: moderate_warning
+    recommended_response: Add responsible abstraction, redaction notes, and reviewer access instructions where appropriate.
+    related_dimensions:
+    - context_completeness
+    - boundary_conditions_and_claim_scope
+    source_anchor_ids:
+    - hevner_et_al_2024:A13
+  traceability_requirements:
+  - trace_id: trace_source_to_context_concept
+    trace_type: source_to_concept
+    required: true
+    description: Material context claims should trace to source anchors, field evidence, repository artifacts, or reviewer_judgment markers.
+    minimum_fields:
+    - claim_id
+    - context_factor_id
+    - evidence_source
+    - source_anchor_id_or_judgment_marker
+  - trace_id: trace_context_to_stakeholder
+    trace_type: context_to_stakeholder
+    required: true
+    description: Stakeholder roles should be linked to the context conditions, workflows, systems, governance arrangements, or burdens that make them material.
+    minimum_fields:
+    - context_factor_id
+    - stakeholder_group_id
+    - role
+    - materiality_rationale
+  - trace_id: trace_context_to_requirement
+    trace_type: problem_to_requirement
+    required: true
+    description: Material context and stakeholder conditions should trace to objectives or requirements when they shape design targets.
+    minimum_fields:
+    - context_factor_id
+    - objective_or_requirement_id
+    - trace_rationale
+  - trace_id: trace_context_to_design_decision
+    trace_type: requirement_to_design_decision
+    required: true
+    description: Context-derived requirements should trace to design decisions, artifact capacities, or use-plan constraints.
+    minimum_fields:
+    - context_factor_id
+    - requirement_id
+    - design_decision_id
+    - rationale
+  - trace_id: trace_context_to_evaluation
+    trace_type: design_decision_to_evaluation
+    required: true
+    description: Evaluation criteria, setting, participants, and evidence modes should trace to context and stakeholder conditions when claims depend on them.
+    minimum_fields:
+    - context_factor_id
+    - evaluation_criterion_id
+    - evaluation_setting_id
+    - claim_id
+  - trace_id: trace_boundary_to_contribution
+    trace_type: design_knowledge_to_contribution
+    required: true
+    description: Contribution and projectability claims should trace to boundary conditions, problem class, context conditions, and evaluation evidence.
+    minimum_fields:
+    - claim_id
+    - boundary_condition_id
+    - problem_class_id
+    - evidence_basis_id
+  - trace_id: trace_artifact_network_to_use_plan
+    trace_type: artifact_network_to_use_plan
+    required: required_when_artifact_network_is_material
+    description: Neighboring artifacts, systems, documents, processes, metrics, and governance points should trace to use-plan steps or maintenance responsibilities
+      when material.
+    minimum_fields:
+    - artifact_network_node_id
+    - dependency_type
+    - use_plan_step_id_or_maintenance_owner
+    - risk_or_constraint
+  validation_implications:
+    json_schema_fields:
+    - field_path: context_space.context_description
+      validation_type: required_object
+      severity: violation_for_missing_field
+      notes: Schema can require the object; adequacy of content remains manual review.
+    - field_path: context_space.context_dimensions[]
+      validation_type: array_of_controlled_dimension_records
+      severity: warning_if_empty
+      controlled_values:
+      - organizational
+      - technical
+      - social
+      - regulatory
+      - temporal
+      - cultural
+      - resource
+      - governance
+      - people
+      - technology
+      - other
+    - field_path: context_space.stakeholders[]
+      validation_type: array_of_stakeholder_records
+      severity: violation_if_missing_for_use_or_evaluation_claims
+      required_subfields:
+      - stakeholder_group_id
+      - role
+      - relationship_to_artifact
+      - evidence_source_or_judgment_marker
+    - field_path: context_space.artifact_network[]
+      validation_type: array_of_dependency_records
+      severity: warning_or_violation_when_integration_claims_present
+      required_subfields:
+      - network_node_id
+      - node_type
+      - dependency_type
+      - design_or_evaluation_relevance
+    - field_path: context_space.boundary_conditions[]
+      validation_type: array_of_claim_scope_records
+      severity: violation_if_empty_when_contribution_or_projectability_claims_present
+      required_subfields:
+      - boundary_condition_id
+      - claim_id
+      - condition_type
+      - applicability_effect
+    - field_path: context_space.context_to_design_implications[]
+      validation_type: trace_array
+      severity: warning_if_material_context_has_no_trace
+      required_subfields:
+      - context_factor_id
+      - target_type
+      - target_id
+      - rationale
+    - field_path: context_space.anticipated_context_changes[]
+      validation_type: array_of_change_records
+      severity: info_or_warning_when_deployment_or_maintenance_claims_present
+      required_subfields:
+      - change_id
+      - trigger_or_source
+      - affected_claim_or_artifact
+      - monitoring_or_owner
+    shacl_shapes_or_warnings:
+    - shape_id: context_space_shape
+      target_class: dsr:ContextSpace
+      constraint: require at least one dsr:hasContext record
+      severity: sh:Violation
+      manual_review: false
+    - shape_id: stakeholder_presence_shape
+      target_class: dsr:DSRStudy
+      constraint: require stakeholder records when use, evaluation, or contribution claims reference stakeholders
+      severity: sh:Warning_or_sh:Violation_depending_on_claim_type
+      manual_review: true
+    - shape_id: boundary_condition_shape
+      target_class: dsr:ContributionClaim
+      constraint: warn or violate when contribution or projectability claims lack boundary conditions
+      severity: sh:Warning_for_local_claims; sh:Violation_for_broad_projectability_claims
+      manual_review: true
+    - shape_id: context_to_design_trace_shape
+      target_class: dsr:ContextDimension
+      constraint: warn when material context factors lack links to requirements, design decisions, evaluation criteria, or boundary conditions
+      severity: sh:Warning
+      manual_review: true
+    - shape_id: artifact_network_shape
+      target_class: dsr:ArtifactInstantiation
+      constraint: warn when implementation, integration, field evaluation, or maintenance claims exist without artifact-network nodes
+      severity: sh:Warning
+      manual_review: true
+    controlled_vocabularies:
+    - context_dimension_vocabulary
+    - stakeholder_role_vocabulary
+    - relationship_to_artifact_vocabulary
+    - artifact_network_node_type_vocabulary
+    - boundary_condition_type_vocabulary
+    - claim_type_vocabulary
+    - traceability_edge_vocabulary
+    - evidence_mode_vocabulary
+    - obligation_status_vocabulary
+    - human_review_flag_vocabulary
+    python_validation_logic:
+    - calculate_weighted_score_and_decision_thresholds
+    - verify_weights_sum_to_1_0
+    - check_required_dimensions_present
+    - detect_empty_required_input_fields
+    - flag_projectability_claims_without_boundary_conditions
+    - flag_context_factors_without_trace_disposition
+    - flag_stakeholder_roles_missing_goals_or_burden_fields
+    - flag_artifact_network_absence_when_integration_or_field_evaluation_claims_present
+    - apply_non_compensatory_floor_rules
+    manual_review_only_checks:
+    - adequacy of context materiality judgments
+    - quality of stakeholder representation and participation
+    - ethical acceptability of burden distribution
+    - sufficiency of evidence for projectability claims
+    - whether redactions preserve enough context for review
+    - whether context-to-design implications are persuasive rather than merely linked
+    - whether boundaries are appropriately conservative relative to evidence
+    repository_integration_notes:
+      proposed_file_path: rubrics/context_stakeholder_adequacy_rubric.yaml
+      related_schema_fields:
+      - context_space
+      - context_space.context_description
+      - context_space.context_dimensions
+      - context_space.stakeholders
+      - context_space.artifact_network
+      - context_space.boundary_conditions
+      - context_space.context_to_design_implications
+      - context_space.anticipated_context_changes
+      likely_crosswalk_targets:
+      - concept_inventory.context_space
+      - concept_inventory.stakeholder
+      - concept_inventory.artifact_network
+      - concept_inventory.boundary_condition
+      - concept_inventory.projectability_statement
+      - dsr_skos_controlled_vocabulary.process_terms
+      - dsr_skos_controlled_vocabulary.transparency_documentation_terms
+  examples_or_scoring_vignettes:
+  - vignette_id: exemplary_strong_context
+    label: Exemplary strong context record
+    case_summary: A higher education DSR study proposes a curriculum-aligned quality-assurance artifact. The record identifies institutional governance, accreditation
+      constraints, Canvas/CourseLeaf/Concourse dependencies, faculty and reviewer roles, student and maintainer burdens, data-access limits, artifact-network dependencies,
+      and claim-specific boundaries. Context factors trace to requirements, design decisions, evaluation criteria, and projectability constraints.
+    indicative_scores:
+      context_completeness: 4
+      stakeholder_role_coverage: 4
+      stakeholder_goals_incentives_and_burdens: 4
+      artifact_network_mapping: 4
+      boundary_conditions_and_claim_scope: 4
+      context_to_design_implications: 4
+      context_change_readiness: 3
+    expected_decision: adequate
+    why: The record supports design and evaluation interpretation and explicitly bounds claims beyond the local setting.
+    revision_actions:
+    - Maintain update triggers for governance, system, and policy changes.
+  - vignette_id: borderline_conditional_context
+    label: Borderline context record with manageable gaps
+    case_summary: A DSR study describes the local department, primary users, sponsor, and technical environment. It lists major systems but not document flows or
+      metrics. Stakeholder goals are partly described, but maintainers and affected non-users are missing. Boundary conditions mention institutional setting and pilot
+      scope but do not yet define adaptation requirements.
+    indicative_scores:
+      context_completeness: 2
+      stakeholder_role_coverage: 2
+      stakeholder_goals_incentives_and_burdens: 2
+      artifact_network_mapping: 2
+      boundary_conditions_and_claim_scope: 2
+      context_to_design_implications: 2
+      context_change_readiness: 1
+    expected_decision: adequate_with_gaps
+    why: The record may support continued early design work, but projectability and evaluation claims should remain limited until stakeholder, artifact-network, and
+      boundary gaps are resolved.
+    revision_actions:
+    - Add maintainer and affected-group profiles.
+    - Map document, metric, and workflow dependencies.
+    - Link pilot constraints to evaluation and contribution claim scope.
+  - vignette_id: weak_not_ready_context
+    label: Weak context record not ready for claims
+    case_summary: A record states that universities need an AI workflow and claims it will improve quality assurance broadly. It does not specify local context, stakeholder
+      roles, governance or resource constraints, neighboring systems, boundary conditions, or how context shaped the design. It provides no evidence for transfer
+      beyond the case.
+    indicative_scores:
+      context_completeness: 1
+      stakeholder_role_coverage: 1
+      stakeholder_goals_incentives_and_burdens: 0
+      artifact_network_mapping: 0
+      boundary_conditions_and_claim_scope: 0
+      context_to_design_implications: 0
+      context_change_readiness: 0
+    expected_decision: insufficient_for_claims
+    why: Critical context, stakeholder, boundary, and trace evidence is absent, and broad projectability claims are unsupported.
+    revision_actions:
+    - Rebuild context description from field, system, policy, and stakeholder evidence.
+    - Create stakeholder map and burden/value analysis.
+    - Add artifact-network map and boundary-condition register.
+    - Restrict contribution claims until context evidence is adequate.
+  - vignette_id: confidential_context_with_responsible_redaction
+    label: Sensitive context with responsible abstraction
+    case_summary: A compliance-oriented DSR record cannot disclose some institutional policies or system details publicly. It provides abstracted context dimensions,
+      protected source anchors, reviewer-access notes, redaction rationale, boundary conditions, and trace links from nonpublic governance constraints to design decisions
+      and evaluation limits.
+    indicative_scores:
+      context_completeness: 3
+      stakeholder_role_coverage: 3
+      stakeholder_goals_incentives_and_burdens: 3
+      artifact_network_mapping: 3
+      boundary_conditions_and_claim_scope: 4
+      context_to_design_implications: 3
+      context_change_readiness: 2
+    expected_decision: adequate_with_gaps
+    why: Responsible redaction does not automatically lower adequacy when material implications remain interpretable and reviewers have a protected path to verify
+      evidence.
+    revision_actions:
+    - Confirm protected-review access for sensitive evidence.
+    - Monitor whether redaction prevents external projectability interpretation.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use the weighted score to summarize adequacy, but interpret the final decision through floor rules and human-review flags.
+    - A high context score means the context_space record is adequate for interpreting claims at the current lifecycle phase; it does not independently validate the
+      artifact or contribution.
+    - Lower scores should be converted into targeted revision actions, especially missing stakeholders, boundary gaps, artifact-network gaps, and context-to-design
+      trace gaps.
+    - The threshold for adequacy rises when the record makes broad contribution, projectability, field evaluation, implementation, or stakeholder value claims.
+    what_not_to_infer:
+    - Do not infer that the artifact is useful, effective, ethical, adopted, or transferable merely because context is well documented.
+    - Do not infer stakeholder consent, participation quality, or benefit from the presence of a stakeholder map.
+    - Do not infer that a boundary condition is empirically validated merely because it is stated.
+    - Do not infer that all relevant context has been captured; the rubric assesses adequacy relative to current claims and lifecycle phase.
+    - Do not infer that machine validation can determine contextual adequacy, stakeholder representativeness, ethical acceptability, or projectability sufficiency.
+    - Do not infer that a low score means the project should be abandoned; it may mean the context record must be revised before stronger design/evaluation/contribution
+      claims are made.
+    - Do not infer that redacted context is inadequate when responsible abstraction and protected-review evidence are provided.
+    relationship_to_adjacent_rubrics:
+      problem_framing_quality_rubric: This rubric depends on problem framing and extends stakeholder and boundary analysis into the broader context_space.
+      requirements_traceability_rubric: This rubric checks whether context implications exist; the requirements rubric checks whether objectives, requirements, design
+        decisions, and evaluation criteria are traceably and well formed.
+      artifact_specification_quality_rubric: Artifact-network findings and use-context constraints should feed artifact boundary, capacity, make-plan, and use-plan
+        specification.
+      evaluation_alignment_quality_rubric: Evaluation setting, participants, criteria, and evidence modes should reflect context and stakeholder analysis.
+      projectability_boundary_conditions_rubric: This rubric identifies boundaries and projectability constraints; the projectability rubric assesses transfer/reuse/adaptation
+        logic in greater detail.
+    known_limitations:
+    - The rubric is not a full stakeholder-participation or co-design quality instrument.
+    - The rubric does not replace domain-specific compliance, privacy, security, IP, accessibility, or ethics review.
+    - The rubric assumes the repository's DSR ontology and controlled vocabulary are still evolving; validation implications should be treated as draft guidance.
+    - The rubric cannot guarantee completeness of context in wicked or changing environments.
+  quality_control:
+    completeness_check:
+    - All seven required dimensions are present.
+    - Weights sum to 1.0.
+    - Every dimension includes 0-4 descriptors, evidence requirements, calibration anchor, weak-evidence signals, failure modes, and reviewer notes.
+    - Required inputs and outputs match the rubric generation prompt.
+    - Decision values match adequate, adequate_with_gaps, requires_context_revision, and insufficient_for_claims.
+    - At least three scoring vignettes are included.
+    - The what_not_to_infer section is present.
+    ambiguity_check:
+    - Identify which context fields are source-supported, which are inferred, and which are reviewer judgment.
+    - Flag ambiguous stakeholder roles, governance boundaries, and artifact-network dependencies.
+    - Flag generic context language that may hide material variation.
+    - Flag confidentiality or redaction cases that require protected-review handling.
+    human_review_recommendation:
+      default: human_review_recommended_for_all_scores_below_adequate
+      always_review_when:
+      - boundary_conditions_and_claim_scope < 3 and broad contribution claims are present
+      - stakeholder_goals_incentives_and_burdens < 3 and user value or burden reduction claims are present
+      - ethical, privacy, security, IP, governance, or burden risks are present
+      - context evidence is redacted, contested, stale, or based primarily on reviewer judgment
+    source_gap_notes:
+    - The zur Heiden context extraction supports context-dimension and context-to-design guidance primarily as recommended reporting guidance, not as universal hard
+      validation.
+    - The Hevner transparency extraction cautions against premature detailed checklists; use SHACL/JSON Schema for presence and trace structure, not final adequacy.
+    - The concept inventory provides framework definitions but does not by itself supply empirical evidence for a specific project's context claims.
+    machine_readability_check:
+    - All identifiers use lowercase snake_case.
+    - Decision values and anti-pattern IDs are controlled values.
+    - Dimension IDs match the generation index and prompt.
+    - No free-text score labels replace numeric 0-4 descriptors.
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial generated repository-ready draft for context_stakeholder_adequacy_rubric.
+    changed_by: gpt_5_5_thinking

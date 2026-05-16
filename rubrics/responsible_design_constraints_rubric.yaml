@@ -1,0 +1,1146 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: responsible_design_constraints_rubric
+    label: Responsible Design Constraints Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/responsible_design_constraints_rubric.yaml
+    local_file_name: responsible_design_constraints_rubric.yaml
+    assessment_target: responsible_design_constraints
+    priority: recommended
+    lifecycle_phase: responsible_design_and_governance
+    prompt_id: prompt_responsible_design_constraints_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - context_stakeholder_adequacy_rubric
+    - artifact_specification_quality_rubric
+    - demonstration_use_readiness_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_controlled_values; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+      responsible_release_policy: public_repository_release_may_require_redaction_or_controlled_disclosure_for_sensitive_details
+  assessment_scope:
+    primary_question: Are ethical, privacy, security, IP, maintenance, sustainability, and stakeholder-burden constraints identified and managed?
+    when_to_use:
+    - during problem framing when affected stakeholders, harms, burdens, consent issues, or governance constraints are being discovered
+    - during artifact specification when privacy, security, IP, maintenance, or sustainability constraints shape artifact capacities and boundaries
+    - during use planning before demonstration, field use, pilot, scenario walk-through, proof of concept, or proof of value
+    - during evaluation planning before collecting data, observing users, logging activity, or reporting findings
+    - before repository release, public sharing, reuse, adaptation, or practitioner handoff
+    - whenever artifact scope, data use, stakeholder exposure, ownership, licensing, security posture, or maintenance responsibility materially
+      changes
+    when_not_to_use:
+    - do not use as a substitute for institutional review board, legal, privacy office, security review, accessibility review, records-retention,
+      procurement, or contractual approval when those are required
+    - do not use as a substitute for context_stakeholder_adequacy_rubric; stakeholder identification must be adequate before burdens can be responsibly
+      assessed
+    - do not use as a substitute for artifact_specification_quality_rubric; artifact boundaries and capacities must be specified enough to identify
+      constraints
+    - do not use as a substitute for demonstration_use_readiness_rubric; this rubric evaluates responsible-design constraints, not readiness to
+      produce meaningful evidence
+    - do not treat a high score as proof that all harms have been prevented, that legal compliance is complete, or that the artifact is ethically
+      justified in every receiving context
+    - do not force confidential security details, sensitive risk information, personal data, or proprietary material into public release when
+      controlled disclosure is the responsible action
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - privacy_or_data_governance_reviewer
+    - security_reviewer
+    - legal_or_ip_reviewer
+    - artifact_designer
+    - technical_implementer
+    - evaluation_lead
+    - artifact_maintainer
+    - stakeholder_representative
+    unit_of_assessment: one_responsible_design_constraints_record_for_a_candidate_active_or_release_ready_dsr_study
+    boundary_conditions:
+    - The rubric assesses whether responsible-design constraints are identified, mitigated, assigned, traced, and release-bounded; it does not
+      itself grant ethical, legal, security, or institutional approval.
+    - Responsible-design depth should be proportionate to artifact risk, data sensitivity, stakeholder burden, evaluation exposure, public release
+      scope, and reuse ambitions.
+    - Low-risk conceptual rubrics, templates, taxonomies, and process maps can score well with lighter controls when they explicitly justify why
+      heavier controls are not applicable.
+    - Data-intensive, human-participant, compliance-sensitive, security-sensitive, minors-involved, workplace-monitoring, or automated-decision
+      artifacts require stronger evidence, documented approvals, and human review.
+    - Machine validation can test presence, identifiers, controlled values, status fields, trace links, and missing critical sections; ethical
+      adequacy, privacy reasonableness, security sufficiency, burden proportionality, and overclaiming require human judgment.
+    assumptions:
+    - Responsible design is cross-cutting across problem framing, artifact specification, use planning, evaluation planning, contribution scoping,
+      and repository release.
+    - Constraints are not merely barriers; they are design inputs that should shape requirements, artifact boundaries, use plans, evaluation controls,
+      release conditions, and maintenance responsibilities.
+    - Stakeholder burden includes direct and indirect burden, including time, cognitive load, surveillance exposure, inequitable effects, operational
+      disruption, maintenance workload, and opportunity cost.
+    - A responsible DSR record distinguishes source-supported constraints, institutional policy constraints, stakeholder claims, practitioner
+      judgment, and reviewer judgment.
+  source_grounding:
+    source_families_to_consult:
+    - responsible_design_constraints_in_source_extraction_template
+    - hevner_et_al_2024_transparency_in_dsr_extraction
+    - concept_inventory.anti_pattern_terms
+    - concept_inventory.context_space
+    - concept_inventory.artifact_space
+    - concept_inventory.evaluation_space
+    - documentation_protocol
+    - context_stakeholder_adequacy_rubric
+    - artifact_specification_quality_rubric
+    - demonstration_use_readiness_rubric
+    required_framework_files:
+    - dsr-source-operational-extraction-template.yaml
+    - concept-inventory_v2.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    source_anchor_policy:
+      minimum: Every major responsible-design claim should cite a source_anchor_id, framework_anchor, institutional_policy_reference, stakeholder_claim_id,
+        repository_artifact_id, or reviewer_judgment marker.
+      preferred: Use source anchors for DSR transparency, context, stakeholder burden, artifact boundaries, evaluation controls, traceability,
+        anti-patterns, and documentation-protocol obligations.
+      do_not_do: Do not present a reviewer assumption, undocumented practice, or general ethical intuition as source-supported evidence.
+      redaction_note: Sensitive security, privacy, legal, or stakeholder-risk details may be represented by controlled references, summaries,
+        or non-public annex identifiers rather than full public disclosure.
+    unsupported_claim_policy:
+      rule: Claims that a constraint is resolved, acceptable, compliant, approved, secure, private, maintainable, licensed, or low-risk must be
+        marked unsupported unless evidence and owner/status are present.
+      effect: Unsupported claims trigger human_review and may activate non_compensatory_floor_rules.
+      examples:
+      - privacy_risk_low_without_data_inventory
+      - security_risk_low_without_threat_or_misuse_review
+      - stakeholder_burden_acceptable_without_burden_assessment
+      - open_reuse_permitted_without_license_or_ip_status
+      - sustainable_after_release_without_maintenance_owner
+    source_supported_claims:
+    - claim_id: src_claim_responsible_design_constraints_are_design_inputs
+      claim: Responsible-design constraints should be treated as design inputs that shape artifact specification, use planning, evaluation controls,
+        and release conditions.
+      support_type: framework_synthesis_plus_prompt_specification
+      source_family: responsible_design_constraints_prompt_and_dsr_operationalization
+      claim_status: framework_supported
+    - claim_id: src_claim_transparency_requires_reviewable_risk_trace
+      claim: DSR transparency requires enough traceability for review, reuse, and trust while avoiding disclosure of sensitive details that should
+        be controlled.
+      support_type: dsr_transparency_and_documentation_protocol
+      source_family: hevner_transparency_extraction_and_documentation_protocol
+      claim_status: source_supported_at_framework_level
+    - claim_id: src_claim_machine_validation_is_limited
+      claim: Machine validation can check presence, consistency, controlled values, trace shape, and missing fields, but ethical adequacy and
+        evidence sufficiency require human review.
+      support_type: rubric_generation_specification
+      source_family: dsr_rubric_generation_spec_v0_1_0
+      claim_status: framework_supported
+  construct_definitions:
+  - term_id: responsible_design_constraints
+    label: Responsible design constraints
+    definition: Ethical, privacy, security, IP, maintenance, sustainability, governance, and stakeholder-burden conditions that should shape artifact
+      design, use, evaluation, contribution, and release.
+    distinctions_to_preserve:
+    - constraint_identification_vs_constraint_mitigation
+    - design_control_vs_evaluation_control
+    - public_documentation_vs_controlled_disclosure
+    - source_supported_claim_vs_reviewer_judgment
+    - local_policy_compliance_vs_general_ethical_acceptability
+    terms_not_to_conflate:
+    - low_documented_risk
+    - low_actual_risk
+    - approval
+    - adequacy
+    - legal_compliance
+    - ethical_justification
+  - term_id: stakeholder_burden
+    label: Stakeholder burden
+    definition: Costs, harms, effort, risk, exposure, inequity, disruption, maintenance load, or opportunity cost borne by users, maintainers,
+      affected groups, evaluators, or adjacent stakeholders.
+    distinctions_to_preserve:
+    - direct_user_burden_vs_affected_non_user_burden
+    - short_term_pilot_burden_vs_long_term_maintenance_burden
+    - individual_burden_vs_institutional_burden
+    terms_not_to_conflate:
+    - stakeholder_preference
+    - stakeholder_consent
+    - stakeholder_benefit
+  - term_id: risk_control
+    label: Risk control
+    definition: A documented mitigation, design change, process guardrail, access control, governance approval, evaluation safeguard, release
+      condition, or monitoring practice linked to an identified responsible-design risk.
+    distinctions_to_preserve:
+    - preventive_control_vs_detective_control_vs_corrective_control
+    - planned_control_vs_implemented_control_vs_verified_control
+    - technical_control_vs_policy_or_process_control
+    terms_not_to_conflate:
+    - risk_acknowledgment
+    - aspirational_principle
+    - unassigned_action_item
+  - term_id: release_condition
+    label: Release condition
+    definition: A condition that must be satisfied, constrained, redacted, reviewed, approved, or monitored before artifact use, evaluation, repository
+      publication, or reuse.
+    distinctions_to_preserve:
+    - internal_release_vs_public_release
+    - research_use_vs_operational_use
+    - prototype_release_vs_production_or_institutional_handoff
+    terms_not_to_conflate:
+    - recommendation
+    - documentation_note
+    - general_caveat
+  required_inputs:
+  - input_field: stakeholder_burden_assessment
+    description: Assessment of direct and indirect burden, harms, inequities, consent issues, benefits, affected groups, and mitigations.
+    obligation_status: required
+    accepted_format: structured_yaml_record_or_table_with_stakeholder_ids_burden_types_evidence_sources_and_controls
+    minimum_evidence: stakeholder groups, burden types, severity or likelihood rating, evidence source, control owner, status, and unresolved
+      gaps
+  - input_field: privacy_constraints
+    description: Data categories, data minimization, lawful or institutional basis, access controls, retention, confidentiality, disclosure, redaction,
+      and governance requirements.
+    obligation_status: required_when_data_or_identifiable_context_is_used
+    accepted_format: data_inventory_privacy_impact_note_or_privacy_control_register
+    minimum_evidence: data elements or data classes, sensitivity, access roles, storage, retention, sharing, and privacy controls
+  - input_field: security_constraints
+    description: Security threat, misuse, abuse, access, integrity, availability, dependency, and sensitive-release constraints.
+    obligation_status: required_when_artifact_or_documentation_can_be_misused_or_exposes_systems_data_or_people
+    accepted_format: threat_model_misuse_case_register_security_review_note_or_control_register
+    minimum_evidence: threats or misuse cases, affected assets, controls, residual risks, and escalation route
+  - input_field: ethical_constraints
+    description: Ethical constraints involving harm, fairness, autonomy, consent, justice, accessibility, transparency, workload, power relations,
+      vulnerable groups, or social consequences.
+    obligation_status: required
+    accepted_format: ethical_risk_register_human_subjects_review_note_or_design_constraint_table
+    minimum_evidence: risk statements, affected groups, mitigations, consent or notice conditions, and reviewer judgment or approval status
+  - input_field: ip_constraints
+    description: Intellectual property, ownership, licensing, reuse, citation, third-party dependency, data rights, and contributor-rights constraints.
+    obligation_status: conditional
+    accepted_format: license_file_ip_status_table_dependency_license_scan_or_permission_log
+    minimum_evidence: license or ownership status, third-party material list, reuse permission status, citation obligations, and restrictions
+  - input_field: maintenance_plan
+    description: Plan for maintenance owner, update path, support model, sustainability, deprecation, documentation, monitoring, and burden distribution.
+    obligation_status: required_for_artifacts_released_for_use_reuse_or_evaluation
+    accepted_format: maintenance_plan_release_plan_lifecycle_table_or_repository_maintainer_record
+    minimum_evidence: owner, update triggers, support expectations, lifecycle status, dependencies, and deprecation route
+  - input_field: risk_register
+    description: Integrated register of responsible-design risks, severity, likelihood, evidence, controls, owners, residual risk, review triggers,
+      and release conditions.
+    obligation_status: required
+    accepted_format: structured_yaml_risk_register_or_table
+    minimum_evidence: risk_id, risk_type, description, affected stakeholders/assets, severity, likelihood, control, owner, status, and trace links
+  required_outputs:
+    rating_fields:
+    - responsible_design_rating
+    - weighted_score
+    - dimension_scores
+    - floor_rule_results
+    - residual_risk_summary
+    decision_fields:
+    - decision
+    - responsible_design_ready
+    - ready_with_controls
+    - requires_risk_revision
+    - do_not_proceed
+    gap_fields:
+    - constraint_gaps
+    - missing_controls
+    - unassigned_risks
+    - unsupported_low_risk_claims
+    - release_blockers
+    - traceability_gaps
+    recommended_actions:
+    - risk_controls
+    - design_revisions
+    - privacy_security_or_ethical_review_actions
+    - licensing_or_ip_actions
+    - maintenance_actions
+    - release_conditions
+    human_review_flags:
+    - ethical_risk
+    - privacy_risk
+    - security_risk
+    - ip_uncertainty
+    - maintenance_burden
+    - governance_gap
+    - sensitive_release_detail
+    - evidence_sufficiency
+    - overclaiming
+  assessment_dimensions:
+  - dimension_id: ethical_risk_and_stakeholder_burden
+    label: Ethical Risk and Stakeholder Burden
+    definition: Identification and mitigation of harms, burdens, inequities, consent issues, accessibility issues, and affected stakeholder risks.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id001
+    - stakeholder_burden_assessment
+    - ethical_constraints
+    - risk_register
+    - affected_stakeholder_ids
+    - mitigation_status
+    level_descriptors:
+      score_0: No ethical-risk or stakeholder-burden assessment is present, or the record denies risk without evidence despite affected stakeholders.
+      score_1: Ethical risks or burdens are named generically, but affected groups, severity, likelihood, controls, or consent/notice issues are
+        mostly absent.
+      score_2: Some affected stakeholders, harms, burdens, or inequities are identified with partial mitigations, but coverage is incomplete or
+        residual risk is not clearly owned.
+      score_3: Material harms, burdens, inequities, accessibility issues, consent or notice issues, affected non-users, controls, owners, and
+        residual risks are adequately documented.
+      score_4: The record provides a proportional, evidence-backed burden and ethics analysis that includes affected and marginalized stakeholders,
+        tradeoffs, consent or notice logic, mitigation effectiveness, escalation triggers, and release limits.
+    minimum_evidence: *id001
+    high_quality_evidence:
+    - mapped direct and indirect stakeholders including affected non-users and maintainers
+    - burden types with severity, likelihood, reversibility, duration, and evidence source
+    - documented mitigations linked to artifact requirements, use controls, evaluation procedures, or release conditions
+    - explicit residual risk and human-review status
+    weak_evidence_signals:
+    - only direct users are considered
+    - benefits are asserted while burdens are not allocated
+    - consent, notice, accessibility, workload, equity, or power relations are missing
+    - risk is described as minimal without a rationale or evidence
+    calibration_anchor: A strong score requires reviewers to see who may be harmed or burdened, how the artifact design responds, who owns the
+      controls, and what residual risk remains.
+    calibration_notes:
+    - Score the record as written, not the reviewer's confidence that the project team probably has undocumented controls.
+    - Treat a control as present only when the record identifies the constraint, responsible owner, mitigation or design response, and current
+      status.
+    - For low-risk conceptual artifacts, proportional controls may be sufficient; for human-subject, data-intensive, security-sensitive, or institutional
+      release artifacts, expect stronger evidence and explicit approvals.
+    common_failure_modes:
+    - ethics_as_afterthought
+    - stakeholder_burden_externalization
+    - stakeholder_erasure
+    - benefit_burden_asymmetry
+    - unsupported_minimal_risk_claim
+    reviewer_notes: When stakeholders are vulnerable, coerced, evaluated by authority figures, or unable to opt out, default to human_review even
+      if controls are documented.
+  - dimension_id: privacy_and_data_governance
+    label: Privacy and Data Governance
+    definition: Privacy, data minimization, access, retention, confidentiality, sharing, redaction, and governance controls for data or contextual
+      information used by the artifact or evaluation.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id002
+    - privacy_constraints
+    - data_inventory
+    - access_roles
+    - retention_or_disposal_rule
+    - confidentiality_or_redaction_controls
+    level_descriptors:
+      score_0: No privacy or data-governance record is present despite use of data, people, records, logs, screenshots, institutional information,
+        or identifiable context.
+      score_1: Privacy is acknowledged in generic language, but data categories, access roles, retention, sharing, or confidentiality controls
+        are not specified.
+      score_2: A partial data inventory or privacy-control note exists, but minimization, retention, access, reuse, redaction, or governance status
+        remains incomplete.
+      score_3: Data categories, sensitivity, minimization, access, storage, retention, confidentiality, sharing, and governance controls are adequately
+        specified and traced to use and evaluation plans.
+      score_4: The record provides a comprehensive privacy and data-governance account with data-flow logic, minimization rationale, role-based
+        access, retention/disposal, redaction strategy, reuse limits, review status, and residual risk monitoring.
+    minimum_evidence: *id002
+    high_quality_evidence:
+    - data inventory or data-flow map distinguishing personal, sensitive, confidential, proprietary, and public data
+    - data minimization rationale tied to requirements and evaluation criteria
+    - access, storage, retention, disposal, redaction, and sharing controls
+    - governance owner and review status
+    weak_evidence_signals:
+    - states no private data without documenting data categories
+    - uses screenshots, logs, or institutional records without redaction logic
+    - confuses anonymization, de-identification, and access limitation
+    - omits retention, disposal, or reuse restrictions
+    calibration_anchor: A strong score requires an independent reviewer to know what data exists, why it is needed, who can access it, how long
+      it persists, how it is protected, and what may be released.
+    calibration_notes:
+    - Score the record as written, not the reviewer's confidence that the project team probably has undocumented controls.
+    - Treat a control as present only when the record identifies the constraint, responsible owner, mitigation or design response, and current
+      status.
+    - For low-risk conceptual artifacts, proportional controls may be sufficient; for human-subject, data-intensive, security-sensitive, or institutional
+      release artifacts, expect stronger evidence and explicit approvals.
+    common_failure_modes:
+    - privacy_blindness
+    - data_inventory_absence
+    - retention_absence
+    - confidentiality_gap
+    - uncontrolled_reuse
+    reviewer_notes: If the record involves student, employee, patient, minor, regulated, proprietary, or identifiable data, privacy adequacy should
+      be manually reviewed regardless of the weighted score.
+  - dimension_id: security_and_misuse_risk
+    label: Security and Misuse Risk
+    definition: Security threats, misuse potential, abuse cases, operational disruption, sensitive disclosure, and protective design choices related
+      to the artifact, data, documentation, or release package.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id003
+    - security_constraints
+    - misuse_cases
+    - affected_assets
+    - protective_controls
+    - residual_risk_status
+    level_descriptors:
+      score_0: No security or misuse-risk review is present despite technical, procedural, data, governance, or repository-release exposure.
+      score_1: Security or misuse is mentioned generically, but plausible threats, assets, adversarial uses, access paths, or controls are not
+        specified.
+      score_2: Some threats, misuse cases, or controls are listed, but the record lacks prioritization, ownership, implementation status, or residual-risk
+        handling.
+      score_3: Material security threats, misuse cases, affected assets, protective controls, owners, implementation status, and release constraints
+        are adequately documented.
+      score_4: The record includes a proportional threat and misuse model, abuse cases, protective-by-design decisions, control verification,
+        residual risk, incident or escalation path, and redaction or controlled-disclosure logic.
+    minimum_evidence: *id003
+    high_quality_evidence:
+    - threat or misuse case register tied to artifact capacities and release context
+    - security controls such as access, least privilege, dependency review, secret handling, redaction, monitoring, or safe defaults
+    - misuse analysis for harmful adaptation or abusive use beyond intended users
+    - control owner, status, and review trigger
+    weak_evidence_signals:
+    - security assumed because artifact is conceptual or internal
+    - misuse risks ignored for public templates, prompts, code, datasets, or process artifacts
+    - controls are named but not linked to threats
+    - sensitive implementation details are either over-disclosed or entirely undocumented
+    calibration_anchor: A strong score makes clear how the artifact could be attacked, misused, or operationally disruptive, and how design or
+      release choices reduce that risk.
+    calibration_notes:
+    - Score the record as written, not the reviewer's confidence that the project team probably has undocumented controls.
+    - Treat a control as present only when the record identifies the constraint, responsible owner, mitigation or design response, and current
+      status.
+    - For low-risk conceptual artifacts, proportional controls may be sufficient; for human-subject, data-intensive, security-sensitive, or institutional
+      release artifacts, expect stronger evidence and explicit approvals.
+    common_failure_modes:
+    - security_blindness
+    - misuse_case_absence
+    - unbounded_public_release
+    - control_without_threat
+    - sensitive_detail_overexposure
+    reviewer_notes: Do not require public disclosure of exploit details or sensitive architectures; require a reviewable controlled reference
+      and release condition when details are restricted.
+  - dimension_id: intellectual_property_and_licensing
+    label: Intellectual Property and Licensing
+    definition: IP status, licensing, ownership, reuse permissions, third-party material, dependency obligations, citation duties, and restrictions
+      on release or adaptation.
+    weight: 0.1
+    required: false
+    score_direction: higher_is_better
+    evidence_needed: &id004
+    - ip_constraints
+    - license_or_rights_statement
+    - third_party_materials_or_dependencies
+    - reuse_permission_status
+    level_descriptors:
+      score_0: No IP, ownership, license, or reuse-permission record is present despite planned publication, reuse, code release, artifact sharing,
+        third-party material, or derivative work.
+      score_1: A license or ownership position is asserted, but supporting file, permission record, dependency review, or restriction analysis
+        is absent.
+      score_2: Some IP or licensing evidence is present, but third-party materials, contributor rights, dependency licenses, reuse permissions,
+        or release restrictions are incomplete.
+      score_3: Ownership, license, third-party materials, dependencies, citation obligations, reuse permissions, and restrictions are adequately
+        documented for the intended release or use.
+      score_4: The record provides a clear IP and licensing package with license file, provenance, contributor status, third-party audit, permission
+        records, compatibility notes, reuse conditions, and public/private release boundaries.
+    minimum_evidence: *id004
+    high_quality_evidence:
+    - license file or rights statement aligned with intended repository release
+    - third-party artifact, dataset, template, code, image, standard, or source material register
+    - dependency license or permission review
+    - reuse, derivative, attribution, and non-disclosure restrictions
+    weak_evidence_signals:
+    - assumes open reuse because material is available online
+    - mentions citation but not license or permission
+    - uses third-party code, data, figures, prompts, templates, or proprietary examples without rights review
+    - repository release path conflicts with license restrictions
+    calibration_anchor: A strong score lets a maintainer know what may be shared, reused, modified, cited, or withheld, and under what license
+      or permission basis.
+    calibration_notes:
+    - Score the record as written, not the reviewer's confidence that the project team probably has undocumented controls.
+    - Treat a control as present only when the record identifies the constraint, responsible owner, mitigation or design response, and current
+      status.
+    - For low-risk conceptual artifacts, proportional controls may be sufficient; for human-subject, data-intensive, security-sensitive, or institutional
+      release artifacts, expect stronger evidence and explicit approvals.
+    common_failure_modes:
+    - license_absence
+    - permission_gap
+    - third_party_material_blindness
+    - proprietary_detail_leakage
+    - reuse_rights_overclaim
+    reviewer_notes: Score as not_applicable only when the record plausibly contains no release, reuse, third-party material, derivative work,
+      or ownership issue; otherwise score the evidence.
+  - dimension_id: maintenance_and_sustainability
+    label: Maintenance and Sustainability
+    definition: Maintenance owner, lifecycle state, update path, support burden, dependency stewardship, deprecation route, sustainability, and
+      long-term responsible-use conditions.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id005
+    - maintenance_plan
+    - artifact_owner
+    - lifecycle_status
+    - update_triggers
+    - support_boundaries
+    - deprecation_route
+    level_descriptors:
+      score_0: No maintenance or sustainability plan is present for an artifact intended for demonstration, use, reuse, release, or institutional
+        handoff.
+      score_1: Maintenance is mentioned, but owner, update triggers, support expectations, lifecycle status, dependency risks, or deprecation
+        path are absent.
+      score_2: A partial maintenance plan exists, but support burden, update path, sustainability constraints, dependency changes, or handoff
+        responsibilities remain unclear.
+      score_3: Maintenance owner, lifecycle status, update triggers, support expectations, dependency monitoring, documentation, and deprecation
+        or retirement route are adequately documented.
+      score_4: The record provides a sustainability-aware lifecycle plan with owner capacity, release cadence, dependency governance, support
+        boundaries, burden allocation, monitoring, deprecation logic, and adaptation guidance for reuse contexts.
+    minimum_evidence: *id005
+    high_quality_evidence:
+    - named owner or maintainer role with accountability and capacity assumptions
+    - update triggers tied to policy, source changes, schema changes, dependencies, or evaluation findings
+    - support expectations and burden allocation for users, maintainers, and implementing units
+    - deprecation, archival, rollback, or replacement conditions
+    weak_evidence_signals:
+    - assumes future maintainers will emerge
+    - release creates support obligations without owner or capacity
+    - maintenance burden is shifted to users or institutional staff without acknowledgment
+    - no path for updating stale rubrics, templates, code, data, or controlled vocabularies
+    calibration_anchor: 'A strong score makes the artifact''s future state reviewable: who maintains it, what changes trigger updates, who bears
+      support load, and when it should be deprecated.'
+    calibration_notes:
+    - Score the record as written, not the reviewer's confidence that the project team probably has undocumented controls.
+    - Treat a control as present only when the record identifies the constraint, responsible owner, mitigation or design response, and current
+      status.
+    - For low-risk conceptual artifacts, proportional controls may be sufficient; for human-subject, data-intensive, security-sensitive, or institutional
+      release artifacts, expect stronger evidence and explicit approvals.
+    common_failure_modes:
+    - artifact_maintenance_neglect
+    - orphan_artifact
+    - unsupported_release
+    - dependency_staleness
+    - maintenance_burden_externalization
+    reviewer_notes: For one-time exploratory prototypes, maintenance may be narrow, but the record should still state whether the artifact will
+      be retired, archived, or unsupported.
+  - dimension_id: governance_and_accountability
+    label: Governance and Accountability
+    definition: Decision rights, approval path, accountability, escalation, compliance controls, monitoring, review triggers, and responsibility
+      for unresolved constraints.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id006
+    - governance_roles
+    - decision_rights
+    - approval_or_review_status
+    - escalation_path
+    - compliance_controls
+    level_descriptors:
+      score_0: No governance or accountability record is present even though responsible-design decisions affect stakeholders, data, systems,
+        release, evaluation, or maintenance.
+      score_1: Governance is referenced generically, but decision rights, approvals, accountability, escalation, or compliance controls are not
+        specified.
+      score_2: Some governance roles or approvals are identified, but owner authority, escalation, review triggers, unresolved risks, or compliance
+        obligations remain incomplete.
+      score_3: Decision rights, accountable owners, approval or review status, escalation paths, compliance controls, unresolved risks, and monitoring
+        triggers are adequately documented.
+      score_4: The record provides a robust accountability model with role authority, approval evidence, escalation logic, control monitoring,
+        exception handling, compliance mapping, and governance updates across the artifact lifecycle.
+    minimum_evidence: *id006
+    high_quality_evidence:
+    - role/accountability matrix for design, data, security, ethics, IP, evaluation, release, and maintenance decisions
+    - approval status or review routing for required institutional, partner, legal, privacy, or security checks
+    - escalation path for unresolved, high, or changing risks
+    - review triggers tied to scope change, risk level, release mode, or new evidence
+    weak_evidence_signals:
+    - governance treated as implicit because the project has a sponsor
+    - approvals are assumed rather than evidenced
+    - unresolved risks have no owner
+    - no escalation route exists for ethical, privacy, security, IP, or maintenance disputes
+    calibration_anchor: A strong score lets reviewers see who can decide, who is accountable, who must approve, and what happens when risk changes
+      or controls fail.
+    calibration_notes:
+    - Score the record as written, not the reviewer's confidence that the project team probably has undocumented controls.
+    - Treat a control as present only when the record identifies the constraint, responsible owner, mitigation or design response, and current
+      status.
+    - For low-risk conceptual artifacts, proportional controls may be sufficient; for human-subject, data-intensive, security-sensitive, or institutional
+      release artifacts, expect stronger evidence and explicit approvals.
+    common_failure_modes:
+    - governance_blind_spot
+    - approval_assumption
+    - unowned_risk
+    - accountability_diffusion
+    - no_escalation_path
+    reviewer_notes: Governance should include practice-partner accountability where the artifact affects institutional operations or stakeholder
+      burdens beyond the researcher.
+  - dimension_id: constraint_to_design_trace
+    label: Constraint-to-Design Trace
+    definition: Trace from responsible-design constraints to objectives, requirements, design decisions, artifact boundaries, use plans, evaluation
+      controls, contribution limits, and release conditions.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id007
+    - risk_register
+    - constraint_ids
+    - requirement_ids
+    - design_decision_ids
+    - use_plan_ids
+    - evaluation_control_ids
+    - release_condition_ids
+    level_descriptors:
+      score_0: Constraints, if present, are not traced to requirements, design decisions, use plans, evaluation controls, release conditions,
+        or contribution limits.
+      score_1: Some trace links are asserted, but they are sparse, generic, unidirectional, or not connected to specific constraints and design
+        responses.
+      score_2: Partial traceability exists for major constraints, but gaps remain for evaluation controls, use conditions, release limits, maintenance,
+        or contribution claims.
+      score_3: Material constraints are adequately traced to requirements, design decisions, use plan, evaluation controls, release conditions,
+        and residual-risk statements.
+      score_4: The record provides a complete, versioned, bidirectional trace from each material responsible-design constraint to requirements,
+        artifact boundaries, design decisions, use/evaluation controls, release conditions, and contribution/projectability limits, with gap checks
+        and update triggers.
+    minimum_evidence: *id007
+    high_quality_evidence:
+    - stable IDs for constraints, risks, requirements, controls, owners, and trace edges
+    - links from each material constraint to artifact specification or design decision
+    - links from each material constraint to use, demonstration, evaluation, repository release, or contribution scope where relevant
+    - coverage report identifying orphan constraints, unsupported controls, and claims that outrun constraints
+    weak_evidence_signals:
+    - constraint list exists but does not change design
+    - controls exist without trace to risks
+    - risk assessment is disconnected from evaluation or release
+    - traceability is present only as narrative without stable IDs
+    calibration_anchor: A strong score requires constraints to function as design requirements and claim limits, not as detached risk notes.
+    calibration_notes:
+    - Score the record as written, not the reviewer's confidence that the project team probably has undocumented controls.
+    - Treat a control as present only when the record identifies the constraint, responsible owner, mitigation or design response, and current
+      status.
+    - For low-risk conceptual artifacts, proportional controls may be sufficient; for human-subject, data-intensive, security-sensitive, or institutional
+      release artifacts, expect stronger evidence and explicit approvals.
+    common_failure_modes:
+    - traceability_theater
+    - orphan_constraint
+    - control_without_trace
+    - release_condition_absence
+    - unsupported_overclaim
+    reviewer_notes: If traceability is missing for critical privacy, security, ethical, or maintenance constraints, cap the overall decision even
+      when individual risk narratives are strong.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      score_0: absent_or_blocked
+      score_1: weak_or_asserted
+      score_2: conditional_or_partially_supported
+      score_3: strong_or_adequately_supported
+      score_4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule: assessment_dimension_weights_must_sum_to_1_0
+    weight_sum: 1.0
+    missing_evidence_rule: Score missing required evidence as 0 for the affected dimension unless the record explicitly justifies non_applicability
+      and the reviewer accepts that justification.
+    reverse_scoring_rule: No dimensions are reverse-scored in this rubric; anti-patterns and unresolved risks are handled through floor rules
+      and warnings.
+    score_calculation: weighted_score = sum(dimension_score * dimension_weight) for all dimensions; optional or not_applicable IP items require
+      documented non_applicability and may be reweighted only by explicit reviewer decision.
+    non_compensatory_floor_rules:
+    - floor_rule_id: fr_blocking_unmanaged_high_risk
+      condition: Any high-severity ethical, privacy, security, or stakeholder-burden risk is identified but lacks an owner, control, or release
+        condition.
+      effect: overall_decision_cannot_exceed_requires_risk_revision; if active use or public release is planned, decision_must_be_do_not_proceed_until_resolved
+    - floor_rule_id: fr_no_risk_register
+      condition: risk_register is absent or contains no stable risk identifiers.
+      effect: overall_decision_cannot_exceed_requires_risk_revision
+    - floor_rule_id: fr_privacy_missing_for_data_use
+      condition: artifact or evaluation uses personal, confidential, regulated, proprietary, student, employee, patient, minor, or identifiable
+        contextual data without privacy_constraints.
+      effect: overall_decision_must_be_do_not_proceed_for_use_or_release; weighted score may be reported only as diagnostic
+    - floor_rule_id: fr_security_missing_for_sensitive_release
+      condition: artifact, code, template, dataset, documentation, or process can plausibly enable misuse or expose systems/data and no security_or_misuse_review
+        is present.
+      effect: overall_decision_cannot_exceed_requires_risk_revision
+    - floor_rule_id: fr_missing_critical_traceability
+      condition: constraint_to_design_trace score is below 2, or critical constraints are not traced to design/use/evaluation/release controls.
+      effect: overall_decision_cannot_exceed_requires_risk_revision
+    - floor_rule_id: fr_unlicensed_public_release
+      condition: public release or reuse is planned but IP/license status for artifact, data, code, or third-party materials is unknown.
+      effect: overall_decision_cannot_exceed_ready_with_controls; release_condition_must_include_rights_review
+    - floor_rule_id: fr_no_maintenance_owner_for_released_artifact
+      condition: artifact is intended for reuse, repository release, institutional deployment, or ongoing evaluation but has no maintenance owner
+        or deprecation route.
+      effect: overall_decision_cannot_exceed_ready_with_controls; if operational dependency is created, cannot exceed_requires_risk_revision
+    - floor_rule_id: fr_unsupported_low_risk_or_compliance_claim
+      condition: record claims low risk, compliance, approval, security, privacy, or ethical acceptability without evidence.
+      effect: trigger_human_review; overall_decision_cannot_exceed_ready_with_controls
+  level_descriptors:
+    score_0: Absent, blocked, contradictory, or unmanaged; no reviewable evidence for the dimension.
+    score_1: Weak, generic, or asserted; material fields are missing and controls are not reviewable.
+    score_2: Partially supported; some evidence and controls exist but important gaps, unowned risks, or trace weaknesses remain.
+    score_3: Adequately supported; material risks and controls are documented, owned, traced, and proportionate for the claim scope.
+    score_4: Exemplary; evidence is comprehensive, proportionate, source-anchored, traceable, owner-assigned, release-bounded, and lifecycle-aware.
+    anchor_examples:
+    - 'score_4_example: a data-intensive student-success artifact has a data inventory, privacy review, threat model, stakeholder burden analysis,
+      IP review, maintenance plan, governance owner, and complete trace from constraints to design/evaluation/release conditions.'
+    - 'score_2_example: a process rubric identifies privacy and stakeholder burden risks but lacks retention rules, maintenance owner, and trace
+      from constraints to use plan.'
+    - 'score_0_example: a repository release includes templates, examples, data screenshots, and automation scripts with no risk register, license
+      review, or privacy/security controls.'
+    borderline_cases:
+    - Conceptual artifacts with no personal data may receive high privacy scores only when a documented non_applicability rationale explains why
+      no data-governance controls are needed.
+    - Internal prototypes may be ready_with_controls when risks are known and controlled for a bounded demonstration, even if not ready for public
+      release.
+    - Sensitive security details may be withheld from public YAML when a controlled reference, owner, and review status are documented.
+  decision_thresholds:
+    decision_values:
+    - responsible_design_ready
+    - ready_with_controls
+    - requires_risk_revision
+    - do_not_proceed
+    responsible_design_ready:
+      weighted_score_minimum: 3.5
+      required_dimension_minimum: 3
+      constraint_to_design_trace_minimum: 3
+      floor_rules: no_blocking_or_major_unresolved_floor_rule_active
+      meaning: The record is responsibly documented for the stated use, evaluation, or release scope, subject to any external approvals separately
+        required.
+    ready_with_controls:
+      weighted_score_minimum: 2.75
+      required_dimension_minimum: 2
+      constraint_to_design_trace_minimum: 2
+      floor_rules: no_do_not_proceed_floor_rule_active; controls and release conditions documented
+      meaning: The artifact may proceed only under specified controls, release conditions, monitoring, or review actions.
+    requires_risk_revision:
+      weighted_score_range: 1.75_to_2.74_or_floor_rule_limited
+      meaning: Material responsible-design gaps require revision before broader use, evaluation, repository release, or contribution claims.
+      required_action: Revise risk register, controls, ownership, approvals, traceability, or release conditions and rescore.
+    do_not_proceed:
+      weighted_score_maximum: 1.74
+      or_condition: blocking floor rule active for current use, evaluation, or release scope
+      meaning: The artifact or release should not proceed as framed because critical risks, controls, approvals, or traceability are absent.
+      required_action: Stop, reframe scope, obtain required reviews, redesign controls, or restrict release before resubmission.
+    human_review_triggers:
+    - any ethical_risk_and_stakeholder_burden score below 3 for a project involving vulnerable, coerced, evaluated, minor, or asymmetrically powerful
+      stakeholder relationships
+    - any privacy_and_data_governance score below 3 when personal, confidential, regulated, student, employee, patient, minor, or identifiable
+      contextual data is used
+    - any security_and_misuse_risk score below 3 for public release, automation, code, prompt, dataset, operational workflow, or system-access
+      artifact
+    - any unresolved IP or licensing uncertainty before repository release or reuse guidance
+    - any maintenance_and_sustainability score below 2 for an artifact expected to be reused or operationally depended upon
+    - any governance_and_accountability score below 2 when institutional, partner, legal, privacy, or security approval is likely required
+    - any unsupported claim that a constraint is low-risk, approved, compliant, secure, private, ethical, or sustainable
+    - any conflict between openness/transparency and responsible redaction or controlled disclosure
+  calibration_guidance:
+    reviewer_preparation:
+    - Review the problem framing, context and stakeholder record, artifact specification, demonstration/use plan, evaluation plan, and intended
+      release mode before scoring.
+    - Identify whether the artifact is conceptual, procedural, technical, data-intensive, human-facing, institutional, public, or operational;
+      use this to calibrate proportional evidence expectations.
+    - Separate source-supported constraints, institutional or legal requirements, stakeholder claims, artifact-team assertions, and reviewer judgment.
+    - Check whether sensitive details need controlled disclosure rather than public text.
+    anchor_examples:
+      strong: A higher-education learning analytics artifact has a stakeholder-burden table, data inventory, privacy controls, misuse model, IP/license
+        review, named maintenance owner, governance approvals, and trace links from each risk to requirements, design choices, use constraints,
+        evaluation controls, and release conditions.
+      borderline: A rubric artifact for internal quality review has clear ethical and maintenance concerns and some controls, but privacy is handled
+        by a generic no-personal-data statement, IP status is not confirmed for examples, and constraint-to-design trace is partial; score likely
+        ready_with_controls or requires_risk_revision.
+      weak: A public repository release includes templates, example records, and automation scripts while claiming no risk; it lacks a risk register,
+        privacy review, license evidence, misuse review, maintenance owner, and traceability; score do_not_proceed for release.
+    calibration_rounds:
+    - 'Round 1: each reviewer independently scores all dimensions and records evidence gaps and floor-rule triggers.'
+    - 'Round 2: reviewers compare low-score dimensions, unresolved high-risk items, and unsupported low-risk claims before discussing weighted
+      score.'
+    - 'Round 3: reviewers reconcile decision value, release conditions, and human-review flags; unresolved disagreement should be logged as reviewer_judgment_conflict.'
+    inter_rater_reconciliation:
+    - Do not average away a blocking floor rule; resolve the floor rule first.
+    - When reviewers disagree by two or more score points on any required dimension, require an evidence-specific rationale and update the gap
+      list.
+    - When one reviewer identifies an affected stakeholder group or misuse case omitted by others, rescore after adding or explicitly rejecting
+      that item with rationale.
+    drift_checks:
+    - Recalibrate after changes in artifact scope, data categories, user group, release mode, evaluation setting, institutional policy, dependency
+      stack, or maintenance ownership.
+    - Review whether a prior ready_with_controls decision has drifted into requires_risk_revision because controls were not implemented or conditions
+      changed.
+    - Check for documentation drift between public repository files and controlled risk or approval records.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      ethical_risk_and_stakeholder_burden: *id001
+      privacy_and_data_governance: *id002
+      security_and_misuse_risk: *id003
+      intellectual_property_and_licensing: *id004
+      maintenance_and_sustainability: *id005
+      governance_and_accountability: *id006
+      constraint_to_design_trace: *id007
+    acceptable_evidence_modes:
+    - source_anchor
+    - institutional_policy_reference
+    - expert
+    - field
+    - case
+    - artifact_inspection
+    - repository_artifact
+    - validation_result
+    - stakeholder_claim
+    - approval_record
+    - risk_register_entry
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Use source anchors for DSR-framework concepts and claims about transparency, stakeholder/context adequacy, artifact boundaries, evaluation
+      controls, traceability, and anti-patterns.
+    - Use institutional_policy_reference or approval_record for project-specific legal, privacy, IRB, security, accessibility, records, procurement,
+      or IP obligations.
+    - Use reviewer_judgment only for adequacy interpretations, proportionality, residual risk, and ambiguous cases; do not mislabel reviewer judgment
+      as source-supported.
+    evidence_quality_notes:
+    - Evidence quality depends on fit to the actual artifact, data, stakeholders, use context, release mode, and claim scope.
+    - A policy citation without trace to the artifact is weak evidence; a control without owner/status is weak evidence.
+    - For sensitive information, evidence may be referenced through controlled annex IDs rather than fully disclosed in the public file.
+    - Absence of observed harm is not sufficient evidence of responsible design when exposure, surveillance, misuse, data, maintenance, or inequity
+      risks are plausible.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: ethics_as_afterthought
+    warning_condition: Ethics are discussed only after artifact design, use plan, or evaluation design is already fixed.
+    severity: major_warning
+    recommended_response: Reopen design decisions and trace ethical constraints to requirements, use controls, evaluation controls, and release
+      conditions.
+  - anti_pattern_id: privacy_blindness
+    warning_condition: Record claims no privacy risk while using data, logs, screenshots, institutional context, stakeholder statements, or identifiable
+      examples without a data inventory.
+    severity: blocking_issue
+    recommended_response: Create privacy constraints, data inventory, minimization rationale, access/retention controls, and redaction/reuse limits
+      before use or release.
+  - anti_pattern_id: security_blindness
+    warning_condition: Artifact capabilities, release materials, or documentation can be misused or expose systems but no threat or misuse review
+      exists.
+    severity: major_warning
+    recommended_response: Add misuse cases, affected assets, protective controls, release limits, and security review triggers.
+  - anti_pattern_id: stakeholder_burden_externalization
+    warning_condition: Benefits accrue to researchers, sponsors, or institutions while effort, risk, or maintenance burden is shifted to users,
+      staff, students, maintainers, or affected non-users without acknowledgement or mitigation.
+    severity: major_warning
+    recommended_response: Revise stakeholder-burden assessment, add burden controls, and document residual risk acceptance or non-use conditions.
+  - anti_pattern_id: artifact_maintenance_neglect
+    warning_condition: Artifact is released, reused, piloted, or operationalized without owner, update path, support boundary, or deprecation
+      route.
+    severity: major_warning
+    recommended_response: Add maintenance owner, lifecycle status, support expectations, update triggers, dependency monitoring, and deprecation
+      conditions.
+  - anti_pattern_id: responsible_design_theater
+    warning_condition: The record contains values statements, disclaimers, or generic ethics language but no specific risks, controls, owners,
+      or trace links.
+    severity: major_warning
+    recommended_response: Replace generic statements with risk-specific evidence, controls, ownership, traceability, and release conditions.
+  - anti_pattern_id: over_redaction_opacity
+    warning_condition: Responsible-design evidence is withheld entirely on sensitivity grounds, preventing review of whether controls exist.
+    severity: warning
+    recommended_response: Provide controlled references, abstracted summaries, review status, and owner fields without exposing sensitive details.
+  - anti_pattern_id: unsupported_responsibility_overclaim
+    warning_condition: The record claims ethical acceptability, compliance, privacy, security, sustainability, or low risk without evidence or
+      review status.
+    severity: major_warning
+    recommended_response: Mark claim as unsupported, add evidence or reviewer_judgment, and constrain release decision until resolved.
+  traceability_requirements:
+  - trace_id: tr_stakeholder_to_burden_to_control
+    source: stakeholder_id
+    edge: has_burden_or_risk
+    target: risk_id
+    then_trace_to:
+    - control_id
+    - owner_id
+    - release_condition_id
+    minimum_obligation: required_for_material_burdens
+  - trace_id: tr_privacy_constraint_to_data_and_requirement
+    source: privacy_constraint_id
+    edge: constrains
+    target: data_element_or_data_class_id
+    then_trace_to:
+    - requirement_id
+    - access_control_id
+    - retention_rule_id
+    - evaluation_control_id
+    minimum_obligation: required_when_data_is_used
+  - trace_id: tr_security_threat_to_design_decision
+    source: security_threat_or_misuse_case_id
+    edge: mitigated_by
+    target: design_decision_or_control_id
+    then_trace_to:
+    - artifact_boundary_id
+    - release_condition_id
+    - monitoring_or_escalation_id
+    minimum_obligation: required_when_misuse_or_system_exposure_is_plausible
+  - trace_id: tr_ip_constraint_to_release_condition
+    source: ip_or_license_constraint_id
+    edge: limits
+    target: release_condition_id
+    then_trace_to:
+    - license_file
+    - third_party_material_id
+    - reuse_guidance_id
+    minimum_obligation: conditional_for_public_release_or_reuse
+  - trace_id: tr_maintenance_constraint_to_owner_and_lifecycle
+    source: maintenance_constraint_id
+    edge: assigned_to
+    target: maintenance_owner_id
+    then_trace_to:
+    - update_trigger_id
+    - support_boundary_id
+    - deprecation_route_id
+    minimum_obligation: required_for_release_or_reuse
+  - trace_id: tr_governance_requirement_to_approval
+    source: governance_or_compliance_requirement_id
+    edge: requires_review_or_approval
+    target: approval_or_review_record_id
+    then_trace_to:
+    - accountable_role_id
+    - escalation_path_id
+    - status
+    minimum_obligation: required_when_governance_or_approval_is_material
+  - trace_id: tr_responsible_design_constraint_to_contribution_limit
+    source: responsible_constraint_id
+    edge: limits_claim
+    target: contribution_claim_or_projectability_statement_id
+    then_trace_to:
+    - boundary_condition_id
+    - what_not_to_infer_entry_id
+    minimum_obligation: required_when_constraints_limit_reuse_or_claim_scope
+  validation_implications:
+    json_schema_fields:
+    - field: responsible_design_constraints.risk_register
+      type: array
+      minimum_items: 1
+      validation_level: required
+      notes: Each entry should include risk_id, risk_type, affected_stakeholder_or_asset, severity, likelihood, control_id, owner_id, status,
+        and residual_risk.
+    - field: responsible_design_constraints.privacy_constraints
+      type: array
+      validation_level: conditional_required
+      condition: data_inventory_present_or_artifact_uses_data
+      notes: Schema can check field presence; adequacy and legal basis require manual review.
+    - field: responsible_design_constraints.security_constraints
+      type: array
+      validation_level: conditional_required
+      condition: artifact_has_code_automation_system_access_public_release_or_misuse_potential
+      notes: Schema can check presence of threat/misuse entries, not control sufficiency.
+    - field: responsible_design_constraints.ip_constraints
+      type: array
+      validation_level: conditional_required
+      condition: public_release_reuse_third_party_materials_or_dependencies_present
+      notes: Check license identifiers and rights status where possible.
+    - field: responsible_design_constraints.maintenance_plan
+      type: object
+      validation_level: conditional_required
+      condition: artifact_intended_for_release_reuse_or_ongoing_use
+      notes: Require owner, lifecycle_status, update_triggers, support_boundaries, and deprecation_route.
+    - field: responsible_design_constraints.constraint_trace
+      type: array
+      validation_level: required
+      notes: Trace entries should connect constraint_id to requirement_id, design_decision_id, use_plan_id, evaluation_control_id, release_condition_id,
+        or contribution_limit_id as relevant.
+    shacl_shapes_or_warnings:
+    - ResponsibleDesignConstraintsShape should require risk_register and constraint_trace minimum counts for records with active artifact/use/evaluation/release
+      plans.
+    - PrivacyConstraintShape should be conditionally triggered when data_inventory, evaluation_data, participant_data, logs, screenshots, or identifiable_context
+      fields are present.
+    - SecurityMisuseConstraintShape should emit warning or violation when public_release, executable_artifact, automation, or system_access fields
+      are present without security_constraints.
+    - MaintenancePlanShape should be conditionally triggered when release_status is public, reusable, pilot, field_use, or operational_handoff.
+    - IPLicenseShape should warn when license, third_party_materials, dependency_license, or reuse_permission fields are missing for public repository
+      release.
+    - ConstraintTraceCoverageShape should warn on orphan risks, orphan controls, unowned controls, missing residual risk, or unsupported low-risk
+      claims.
+    controlled_vocabularies:
+      risk_type_values:
+      - ethical
+      - stakeholder_burden
+      - privacy
+      - data_governance
+      - security
+      - misuse
+      - ip
+      - maintenance
+      - sustainability
+      - governance
+      - compliance
+      - accessibility
+      - release
+      risk_status_values:
+      - identified
+      - analyzing
+      - mitigation_planned
+      - control_implemented
+      - verified
+      - accepted_with_rationale
+      - deferred
+      - blocked
+      - not_applicable
+      severity_values:
+      - info
+      - warning
+      - major_warning
+      - blocking_issue
+      release_condition_values:
+      - no_release
+      - internal_only
+      - release_after_review
+      - release_with_redaction
+      - release_with_controls
+      - public_release_allowed
+      - public_release_not_allowed
+      review_status_values:
+      - not_started
+      - not_required_with_rationale
+      - requested
+      - in_review
+      - approved
+      - approved_with_conditions
+      - rejected
+      - expired
+      - unknown
+    python_validation_logic:
+    - assert_dimension_weights_sum_to_1_0
+    - flag_missing_required_input_fields
+    - flag_risks_without_owner_control_or_status
+    - flag_low_risk_claims_without_evidence
+    - flag_public_release_without_license_or_ip_status
+    - flag_data_use_without_privacy_constraints
+    - flag_release_or_reuse_without_maintenance_plan
+    - flag_constraints_without_trace_edges
+    - compute_weighted_score_and_apply_floor_rules
+    manual_review_only_checks:
+    - ethical acceptability and proportionality of residual risk
+    - adequacy of stakeholder-burden mitigation
+    - privacy reasonableness and legal or institutional compliance
+    - security-control sufficiency and responsible redaction boundaries
+    - IP/license interpretation when rights are ambiguous
+    - maintenance sustainability and burden fairness
+    - whether release conditions are sufficient for the actual receiving context
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_responsible_design_ready
+    label: Exemplary strong case
+    scenario: A higher-education program-mapping artifact uses course and program records plus stakeholder interviews to support curriculum-quality
+      review. The team documents affected roles, data classes, privacy controls, misuse cases, license status for templates, a maintenance owner,
+      governance approvals, and trace links from each responsible-design constraint to requirements, artifact boundaries, evaluation controls,
+      and release conditions.
+    expected_scores:
+      ethical_risk_and_stakeholder_burden: 4
+      privacy_and_data_governance: 4
+      security_and_misuse_risk: 3
+      intellectual_property_and_licensing: 3
+      maintenance_and_sustainability: 4
+      governance_and_accountability: 4
+      constraint_to_design_trace: 4
+    expected_decision: responsible_design_ready
+    calibration_note: Minor security details may be controlled rather than public, but the record gives enough reference, owner, and review-status
+      evidence to support review.
+  - vignette_id: borderline_ready_with_controls
+    label: Borderline conditional case
+    scenario: A repository-ready rubric artifact has an ethical-risk note and maintenance plan, but examples may include institutional policy
+      language, IP status for one example source is unclear, and the privacy rationale states that no personal data are used without documenting
+      the example-data classes. The risk register exists but trace links to release conditions are incomplete.
+    expected_scores:
+      ethical_risk_and_stakeholder_burden: 3
+      privacy_and_data_governance: 2
+      security_and_misuse_risk: 2
+      intellectual_property_and_licensing: 1
+      maintenance_and_sustainability: 3
+      governance_and_accountability: 2
+      constraint_to_design_trace: 2
+    expected_decision: ready_with_controls_or_requires_risk_revision
+    calibration_note: 'The release may proceed only after controls are documented: remove or license examples, add data-class rationale, and complete
+      trace to release conditions.'
+  - vignette_id: weak_do_not_proceed
+    label: Weak not-ready case
+    scenario: A public artifact release contains automation scripts, screenshots of internal systems, sample data, and a claim that the artifact
+      is safe and generalizable. It lacks stakeholder-burden assessment, privacy constraints, security/misuse review, IP/license review, maintenance
+      owner, governance review, and trace links from risks to controls.
+    expected_scores:
+      ethical_risk_and_stakeholder_burden: 0
+      privacy_and_data_governance: 0
+      security_and_misuse_risk: 0
+      intellectual_property_and_licensing: 0
+      maintenance_and_sustainability: 0
+      governance_and_accountability: 0
+      constraint_to_design_trace: 0
+    expected_decision: do_not_proceed
+    calibration_note: Blocking floor rules apply even if the artifact appears useful or technically correct.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use the weighted score as a diagnostic summary, not as a substitute for floor rules or release conditions.
+    - A high overall score means the responsible-design record is strong for the stated scope, not that the artifact is universally safe, lawful,
+      ethical, effective, or reusable.
+    - Dimension scores should be read alongside human_review_flags, residual_risk_summary, and release_conditions.
+    - A low score may mean the artifact should be redesigned, the scope should be narrowed, or evidence should be added before use, evaluation,
+      release, or contribution claims.
+    what_not_to_infer:
+    - Do not infer IRB approval, legal approval, cybersecurity approval, privacy-office approval, accessibility approval, procurement approval,
+      or partner authorization from this rubric score.
+    - Do not infer that all ethical risks, stakeholder burdens, privacy risks, security risks, or misuse risks have been eliminated.
+    - Do not infer that an artifact is effective, useful, valid, reliable, projectable, maintainable in all contexts, or contribution-worthy.
+    - Do not infer that public disclosure of all risk details is required; responsible controlled disclosure may be appropriate.
+    - Do not infer that a low-risk score in one context applies to another context, stakeholder group, data category, release mode, or institutional
+      setting.
+    - Do not infer that a documented control is implemented or effective unless implementation and verification status are explicitly recorded.
+    relationship_to_adjacent_rubrics:
+      context_stakeholder_adequacy_rubric: Provides stakeholder, context, artifact-network, and boundary-condition inputs needed to identify burdens
+        and governance constraints.
+      artifact_specification_quality_rubric: Provides artifact boundary, capacity, make plan, use plan, and artifact-network information needed
+        to identify constraints.
+      demonstration_use_readiness_rubric: Uses responsible-design controls to decide whether demonstration or use can proceed in a setting that
+        can produce meaningful evidence.
+      requirements_traceability_rubric: Provides trace discipline for converting responsible-design constraints into requirements, acceptance
+        criteria, design decisions, and evaluation controls.
+      evaluation_alignment_quality_rubric: Uses privacy, ethical, security, burden, and governance constraints to bound evidence collection and
+        findings-to-claims logic.
+      projectability_boundary_conditions_rubric: Uses residual risks and release conditions to limit transfer, adaptation, and non-applicability
+        claims.
+    known_limitations:
+    - The rubric is a documentation and review instrument, not a legal, ethical, privacy, or security certification process.
+    - The rubric is intentionally conservative about public release when risks, rights, data, or controls are uncertain.
+    - Responsible design depends on local institutional policies, legal context, stakeholder relationships, and implementation setting, which
+      may change after scoring.
+    - Some responsible-design judgments require subject-matter experts or authorities outside the DSR research team.
+  quality_control:
+    completeness_check:
+    - all_required_inputs_present_or_explicitly_justified_as_not_applicable
+    - all_seven_dimensions_scored_0_to_4
+    - weights_sum_to_1_0
+    - risk_register_contains_stable_ids_owners_controls_status_and_residual_risk
+    - floor_rules_evaluated_before_final_decision
+    - release_conditions_present_for_any_use_evaluation_repository_publication_or_reuse
+    - human_review_flags_populated_for_ambiguity_source_gaps_ethical_risk_privacy_security_ip_maintenance_governance_or_overclaiming
+    ambiguity_check:
+    - mark ambiguous risk likelihood, severity, policy applicability, license status, approval status, or stakeholder impact as ambiguity_level_medium_or_high
+    - do not silently treat unknowns as low risk
+    - record reviewer_judgment when adequacy, proportionality, or residual risk acceptance cannot be machine validated
+    human_review_recommendation:
+      default: recommended_for_any_active_use_evaluation_public_release_or_reuse
+      mandatory_when:
+      - personal_confidential_regulated_student_employee_patient_minor_or_identifiable_data_is_used
+      - stakeholder_vulnerability_or_power_asymmetry_is_material
+      - security_or_misuse_risk_is_plausible
+      - ip_license_or_reuse_status_is_uncertain
+      - artifact_will_be_publicly_released_or_operationally_depended_on
+      - weighted_score_conflicts_with_a_floor_rule
+      - claim_of_low_risk_or_compliance_is_unsupported
+    source_gap_notes:
+    - Add specific source anchors from responsible-design, ethics, privacy, security, licensing, maintenance, and governance literature if the
+      framework later formalizes source-specific constraints.
+    - Current rubric uses framework-level responsible-design, transparency, context, artifact, evaluation, and documentation-protocol logic rather
+      than domain-specific legal advice.
+    - If a project domain has specialized standards or policies, add institutional_policy_reference entries rather than hard-coding them into
+      this generic DSR rubric.
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial generated repository-ready rubric for responsible design constraints with seven weighted dimensions, non-compensatory
+      floor rules, validation implications, and scoring vignettes.
+    changed_by: gpt_5_5_thinking

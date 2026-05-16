@@ -1,0 +1,1378 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: input_knowledge_solution_grounding_rubric
+    label: Input Knowledge and Solution-Grounding Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/input_knowledge_solution_grounding_rubric.yaml
+    local_file_name: input_knowledge_solution_grounding_rubric.yaml
+    assessment_target: solution_space.input_knowledge
+    priority: core
+    lifecycle_phase: solution_space_grounding
+    prompt_id: prompt_input_knowledge_solution_grounding_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - requirements_traceability_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_coverage; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Is the artifact grounded in relevant prior knowledge, kernel theories, prior artifacts, methods, technologies, and design
+      patterns?
+    when_to_use:
+    - before artifact design finalization
+    - after preliminary problem framing and requirements traceability have identified objectives, requirements, and acceptance criteria
+    - during solution-space exploration when alternative artifact logics, technologies, methods, or design patterns are being compared
+    - again when writing rigor, contribution, related-work, design-rationale, or knowledge-base sections
+    - whenever new prior artifacts, theories, technologies, regulatory constraints, or methods materially affect the artifact design
+    when_not_to_use:
+    - do not use before a minimally adequate problem_instance, problem_class, context record, and requirements trace exist
+    - do not use as a general literature-review quality rubric; score only knowledge used to ground artifact design and solution selection
+    - do not use as proof that the selected artifact works; evaluation quality is handled by later evaluation rubrics
+    - do not use to treat theory references as automatically rigorous; appropriateness and design uptake must be assessed
+    - do not use to force every project into a theory-heavy form when artifact grounding is legitimately based on prior artifacts, methods, design
+      patterns, standards, or practitioner knowledge
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - artifact_designer
+    - requirements_analyst
+    - evaluation_lead
+    unit_of_assessment: one_solution_space_input_knowledge_record_for_a_candidate_or_active_dsr_study
+    boundary_conditions:
+    - The rubric assesses whether the proposed artifact is grounded in relevant prior knowledge, not whether the artifact is fully specified or
+      evaluated.
+    - Grounding may come from scholarly literature, source extraction records, prior artifacts, standards, methods, technologies, design patterns,
+      practitioner knowledge, or repository artifacts when provenance and relevance are explicit.
+    - Context-sensitive DSR work may legitimately use local practitioner knowledge, but such knowledge must be marked as stakeholder_claim, expert,
+      field, case, or reviewer_judgment rather than source-supported scholarly evidence.
+    - Machine validation may check the presence, identifiers, source anchors, provenance fields, trace edges, and coverage reports; substantive
+      relevance, sufficiency, novelty, and misfit risks require human review.
+    - Solution-space grounding should be proportionate to artifact risk, claim scope, stakeholder burden, and contribution ambition.
+    assumptions:
+    - Input knowledge is a rigor anchor linking the problem space, requirements, and design decisions to the wider knowledge base.
+    - A grounded artifact does not merely cite theories or prior systems; it explains how prior knowledge shapes design options, requirements,
+      design decisions, capacities, and evaluation criteria.
+    - Problem-solution fit requires attention to problem mechanisms, context, stakeholder needs, and boundary conditions, not only topical similarity
+      between sources and the artifact domain.
+    - Prior solutions should be critiqued for adaptation need, insufficiency, transfer limits, and evidence quality rather than dismissed through
+      novelty rhetoric.
+  source_grounding:
+    source_families_to_consult:
+    - theory_of_design_science_research.rigor_through_knowledge_base
+    - feine_morana_maedche_2019_machine_executable_descriptive_knowledge_extraction
+    - leimeister_dickhaut_janson_2021_design_pattern_bridge_problem_solution_space_extraction
+    - dsr_operational_synthesis.solution_space_sections
+    - concept_inventory.solution_space
+    - concept_inventory.input_knowledge
+    - concept_inventory.design_pattern
+    - concept_inventory.traceability_edge_vocabulary
+    - requirements_traceability_rubric
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - dsr_ontology_competency_questions.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - requirements_traceability_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major grounding claim should cite at least one source_anchor_id, framework_anchor, repository_artifact, or reviewer_judgment
+        marker.
+      preferred: Use Feine et al. anchors for descriptive-to-prescriptive knowledge transformation, Leimeister et al. anchors for design patterns
+        and solution-space/problem-space bridging, and theory/operational synthesis anchors for input-knowledge rigor.
+      do_not_do: Do not treat a bibliography entry, theory name, vendor page, implementation precedent, or pattern label as sufficient evidence
+        of design grounding without a relevance rationale and design uptake trace.
+    unsupported_claim_policy:
+      rule: Claims about theory fit, prior artifact coverage, alternatives considered, problem-solution fit, source quality, prior-solution insufficiency,
+        or knowledge-to-design trace must be marked unsupported when they lack evidence, source anchors, repository artifacts, or explicit reviewer_judgment
+        status.
+      effect: Unsupported grounding claims trigger human_review and may activate non_compensatory_floor_rules, especially when the artifact makes
+        causal, safety-critical, transferability, or contribution claims.
+    source_supported_claims:
+    - claim_id: src_claim_input_knowledge_is_rigor_anchor
+      claim: Input knowledge includes kernel theories, descriptive knowledge, design theories, prior artifacts, technologies, methods, design
+        patterns, and practitioner knowledge and functions as a rigor anchor for DSR.
+      source_family: theory_of_design_science_research
+      source_anchor_ids:
+      - theory_synthesis:1.definitional_nucleus
+      - theory_synthesis:2.consensus_commitments.rigor_through_knowledge_base
+      obligation_status: recommended
+      use_in_rubric: justifies the overall assessment target and the source_quality, theory_fit, and knowledge_to_design_trace dimensions
+    - claim_id: src_claim_solution_space_contains_design_knowledge_assets
+      claim: Solution-space contents include artifacts, design patterns, theories, activities, evaluation cycles, kernel theories, and creative
+        insights used for solving related problems.
+      source_family: leimeister_dickhaut_janson_2021_design_pattern_extraction
+      source_anchor_ids:
+      - leimeister_et_al_2021:A12
+      obligation_status: recommended
+      use_in_rubric: justifies prior_artifact_and_design_knowledge_coverage and solution_alternative_search
+    - claim_id: src_claim_design_patterns_bridge_problem_and_solution_space
+      claim: Design patterns bridge problem-space and solution-space by packaging problem, solution, procedure, effects, target state, and selection
+        rationale.
+      source_family: leimeister_dickhaut_janson_2021_design_pattern_extraction
+      source_anchor_ids:
+      - leimeister_et_al_2021:A03
+      - leimeister_et_al_2021:A14
+      - leimeister_et_al_2021:A17
+      obligation_status: recommended
+      use_in_rubric: supports scoring of design pattern coverage, problem_solution_fit, and knowledge_to_design_trace
+    - claim_id: src_claim_descriptive_and_prescriptive_knowledge_distinction
+      claim: Descriptive what-knowledge about phenomena should be distinguished from prescriptive how-to knowledge about human-built artifacts.
+      source_family: feine_morana_maedche_2019_machine_executable_descriptive_knowledge_extraction
+      source_anchor_ids:
+      - feine_et_al_2019:A03
+      obligation_status: recommended
+      use_in_rubric: supports construct definitions and scoring of kernel_theory_and_descriptive_knowledge_fit
+    - claim_id: src_claim_descriptive_knowledge_can_be_transformed_into_design_rules
+      claim: Textual descriptive knowledge can be transformed into prescriptive design rules with actions, artifact properties, boundary conditions,
+        design characteristics, influencing factors, outcomes, and recommendations.
+      source_family: feine_morana_maedche_2019_machine_executable_descriptive_knowledge_extraction
+      source_anchor_ids:
+      - feine_et_al_2019:A07
+      - feine_et_al_2019:A08
+      - feine_et_al_2019:A09
+      obligation_status: recommended
+      use_in_rubric: supports knowledge_to_design_trace and problem_solution_fit scoring
+    - claim_id: src_claim_reference_links_and_conflicts_matter
+      claim: Configuration systems can expose recommendations, conflicts, and reference links, and source limitations warn against overclaiming
+        when evaluation or causal detail is missing.
+      source_family: feine_morana_maedche_2019_machine_executable_descriptive_knowledge_extraction
+      source_anchor_ids:
+      - feine_et_al_2019:A12
+      - feine_et_al_2019:A15
+      obligation_status: recommended
+      use_in_rubric: supports source provenance checks, conflict handling, and anti-pattern warnings
+    - claim_id: src_claim_solution_space_transparency
+      claim: Solution-space transparency includes literature grounding, kernel theories, prior artifacts, technologies, design patterns, alternatives,
+        and selection rationale.
+      source_family: dsr_operational_synthesis
+      source_anchor_ids:
+      - operational_synthesis:6.transparency_and_repository_documentation
+      - operational_synthesis:2.minimum_dsr_record_architecture
+      obligation_status: recommended
+      use_in_rubric: justifies evidence requirements, alternative search, and repository integration notes
+    - claim_id: src_claim_traceability_dependency
+      claim: Input knowledge should be traceable to requirements, design decisions, evaluation criteria, design knowledge, contribution claims,
+        and evidence-to-claim links when those downstream claims are made.
+      source_family: requirements_traceability_rubric_and_concept_inventory
+      source_anchor_ids:
+      - concept_inventory:traceability_edge_vocabulary
+      - requirements_traceability_rubric:traceability_requirements
+      obligation_status: recommended
+      use_in_rubric: justifies knowledge_to_design_trace and non-compensatory floor rules for missing trace links
+  construct_definitions:
+  - term_id: solution_space
+    preferred_label: Solution Space
+    definition: The design alternatives, input knowledge, theories, technologies, methods, prior artifacts, design principles, design patterns,
+      and candidate solution logics used to ground an artifact or design entity.
+    source_support:
+    - concept_inventory.solution_space
+    - theory_synthesis:3.1.ontological_layers
+    - leimeister_et_al_2021:A12
+    use_in_this_rubric: Container construct for the assessed input knowledge and alternative-search record.
+  - term_id: input_knowledge
+    preferred_label: Input Knowledge
+    definition: The prior descriptive, explanatory, prescriptive, theoretical, practitioner, technical, methodological, or artifact knowledge
+      used to justify and guide artifact design and evaluation.
+    source_support:
+    - concept_inventory.input_knowledge
+    - theory_synthesis:1.definitional_nucleus
+    - theory_synthesis:2.consensus_commitments.rigor_through_knowledge_base
+    use_in_this_rubric: Primary assessment target.
+  - term_id: kernel_theory
+    preferred_label: Kernel Theory
+    definition: A descriptive, explanatory, predictive, behavioral, social, organizational, technical, or domain theory used to explain problem
+      mechanisms or justify solution mechanisms.
+    source_support:
+    - concept_inventory.kernel_theory
+    - theory_synthesis:2.consensus_commitments.rigor_through_knowledge_base
+    - leimeister_et_al_2021:A12
+    use_in_this_rubric: Assessed under kernel_theory_and_descriptive_knowledge_fit.
+  - term_id: descriptive_knowledge
+    preferred_label: Descriptive Knowledge
+    definition: What-knowledge about phenomena, contexts, users, mechanisms, constraints, behaviors, or outcomes that may inform prescriptive
+      artifact design.
+    source_support:
+    - feine_et_al_2019:A03
+    - feine_et_al_2019:A07
+    - feine_et_al_2019:A08
+    use_in_this_rubric: Used to assess whether problem mechanisms and contextual conditions are appropriately translated into design logic.
+  - term_id: prior_artifact
+    preferred_label: Prior Artifact
+    definition: An existing artifact, prototype, system, method, model, architecture, intervention, process, framework, taxonomy, or implementation
+      precedent relevant to the candidate artifact.
+    source_support:
+    - concept_inventory.artifact_space
+    - theory_synthesis:2.consensus_commitments.rigor_through_knowledge_base
+    use_in_this_rubric: Assessed under prior_artifact_and_design_knowledge_coverage and prior_solution_critique.
+  - term_id: design_pattern
+    preferred_label: Design Pattern
+    definition: A reusable problem-solution representation that includes context, forces, solution guidance, rationale, consequences, target state,
+      and conditions of use.
+    source_support:
+    - leimeister_et_al_2021:A03
+    - leimeister_et_al_2021:A09
+    - leimeister_et_al_2021:A14
+    use_in_this_rubric: Used to bridge prior design knowledge with problem-solution fit and knowledge-to-design trace.
+  - term_id: solution_alternative
+    preferred_label: Solution Alternative
+    definition: A plausible competing, complementary, adapted, or rejected artifact approach, technology, method, pattern, or design route considered
+      before selecting the artifact logic.
+    source_support:
+    - concept_inventory.solution_alternative
+    - dsr_operational_synthesis.solution_space
+    use_in_this_rubric: Assessed under solution_alternative_search.
+  - term_id: prior_solution_critique
+    preferred_label: Prior Solution Critique
+    definition: A reasoned explanation of why existing artifacts, technologies, methods, patterns, or approaches are insufficient, risky, incomplete,
+      unsuitable, overlocal, overgeneral, obsolete, or require adaptation.
+    source_support:
+    - reviewer_judgment
+    - leimeister_et_al_2021:A13
+    - feine_et_al_2019:A15
+    use_in_this_rubric: Assessed under prior_solution_critique and used to distinguish justified novelty from prior-artifact neglect.
+  - term_id: source_provenance
+    preferred_label: Source Provenance
+    definition: Documentation of where input knowledge came from, what type of evidence it represents, how credible it is, what limitations apply,
+      and how it is used in the design record.
+    source_support:
+    - concept_inventory.source_anchor
+    - feine_et_al_2019:A12
+    - feine_et_al_2019:A15
+    use_in_this_rubric: Assessed under source_quality_and_provenance.
+  - term_id: knowledge_to_design_trace
+    preferred_label: Knowledge-to-Design Trace
+    definition: An explicit edge, rationale, or record linking input knowledge to requirements, design decisions, artifact capacities, evaluation
+      criteria, or contribution claims.
+    source_support:
+    - concept_inventory.traceability_edge_vocabulary
+    - requirements_traceability_rubric:traceability_requirements
+    - feine_et_al_2019:A07
+    use_in_this_rubric: Assessed as a dedicated dimension and used in non-compensatory floor rules.
+  - distinctions_to_preserve:
+    - input_knowledge_vs_output_knowledge
+    - descriptive_knowledge_vs_prescriptive_design_knowledge
+    - kernel_theory_vs_theory_name_dropping
+    - prior_artifact_vs_candidate_artifact
+    - design_pattern_vs_design_principle
+    - solution_alternative_vs_final_design_decision
+    - source_presence_vs_source_relevance
+    - trace_link_presence_vs_trace_rationale_quality
+    - source_supported_claim_vs_reviewer_judgment
+    - machine_validation_error_vs_human_adequacy_judgment
+  - terms_not_to_conflate:
+    - do_not_conflate:
+      - literature_review
+      - solution_space_grounding
+      reason: A literature review may summarize prior work; solution-space grounding must show how selected knowledge informs design options,
+        requirements, decisions, and evaluation criteria.
+    - do_not_conflate:
+      - kernel_theory
+      - design_pattern
+      reason: Kernel theories typically explain phenomena or mechanisms; design patterns package reusable problem-solution guidance.
+    - do_not_conflate:
+      - prior_artifact
+      - prior_solution_critique
+      reason: Listing prior artifacts is not the same as explaining their limits, fit, adaptation needs, or rejection rationale.
+    - do_not_conflate:
+      - source_quality
+      - source_quantity
+      reason: Many weak or irrelevant citations do not compensate for absence of credible, relevant, provenance-rich grounding.
+    - do_not_conflate:
+      - technology_choice
+      - design_rationale
+      reason: Selecting a technology is not sufficient unless the choice is justified by problem mechanisms, requirements, constraints, alternatives,
+        and source evidence.
+  required_inputs:
+  - input_field: kernel_theories
+    description: Theories, conceptual models, explanatory mechanisms, or domain models used to understand the problem and justify the artifact
+      logic.
+    obligation_status: required_when_the_artifact_claims_mechanistic_or_explanatory_fit; otherwise recommended
+    accepted_format: list of structured records with ids, citation/source anchors, fit rationale, limitations, and downstream trace links
+    minimum_evidence: at least one relevant theory or explicit rationale for why theory-based grounding is not material to the artifact claim
+  - input_field: descriptive_knowledge
+    description: Empirical, descriptive, contextual, stakeholder, domain, or practitioner knowledge about the problem phenomena, mechanisms, use
+      setting, or constraints.
+    obligation_status: required
+    accepted_format: structured knowledge records with source type, evidence mode, source_anchor_id, confidence, and problem/context links
+    minimum_evidence: descriptive knowledge linked to at least each core problem mechanism or stakeholder/context condition used in design rationale
+  - input_field: prior_artifacts
+    description: Existing artifacts, systems, interventions, tools, methods, models, architectures, frameworks, processes, or implementations
+      relevant to the candidate design entity.
+    obligation_status: required
+    accepted_format: list of prior_artifact records with type, source/provenance, relevance, evidence of use/evaluation where available, and comparison
+      notes
+    minimum_evidence: representative prior artifacts or a documented search showing no close analogs found
+  - input_field: design_patterns
+    description: Reusable problem-solution schemas, patterns, design principles, method fragments, architectural patterns, or documented practices
+      used to shape the solution.
+    obligation_status: required_when_available_or_claimed; otherwise recommended
+    accepted_format: pattern records with context, problem, solution, forces, rationale, consequences, applicability conditions, and source anchors
+    minimum_evidence: pattern, principle, or method-fragment rationale for core recurring design problems, or explicit no-pattern-found rationale
+  - input_field: methods
+    description: Research, design, development, analysis, evaluation, synthesis, modeling, or implementation methods used to search and ground
+      the solution.
+    obligation_status: required
+    accepted_format: method records with purpose, source/provenance, fit rationale, constraints, and expected outputs
+    minimum_evidence: method source, method-selection rationale, and relationship to solution-space search or design decision making
+  - input_field: technologies
+    description: Technical platforms, tools, standards, data sources, APIs, infrastructures, or implementation technologies considered or selected.
+    obligation_status: required_when_technology_materially_shapes_the_artifact; otherwise conditional
+    accepted_format: technology records with role, constraints, alternatives, maturity, risks, dependencies, source/provenance, and selection
+      rationale
+    minimum_evidence: technology fit rationale and comparison to at least one alternative or a documented reason alternatives were unavailable
+  - input_field: solution_alternatives
+    description: Candidate approaches, rejected designs, deferred options, competing technologies, alternative patterns, or different artifact
+      types considered.
+    obligation_status: required
+    accepted_format: alternative records with alternative_id, description, evidence, strengths, weaknesses, fit, risks, rejection/selection rationale,
+      and trace links
+    minimum_evidence: at least two plausible alternatives for core design logic unless a single-option constraint is explicitly justified
+  - input_field: prior_solution_critique
+    description: Structured explanation of why prior solutions, artifacts, patterns, methods, or technologies are insufficient or need adaptation
+      for the present problem and context.
+    obligation_status: required
+    accepted_format: critique records tied to prior_artifact_id, pattern_id, method_id, or technology_id with fit, gap, limitation, evidence,
+      and implication fields
+    minimum_evidence: critique of all prior solutions used to motivate novelty, adaptation, artifact boundary, or contribution claim
+  - input_field: knowledge_to_design_trace_graph
+    description: Repository-readable links from input knowledge to objectives, requirements, acceptance criteria, design decisions, capacities,
+      evaluation criteria, and later contribution claims.
+    obligation_status: required
+    accepted_format: yaml list, RDF graph, traceability matrix, spreadsheet export, or generated trace report using stable identifiers and edge
+      types
+    minimum_evidence: for every core design decision, at least one upstream knowledge source or explicit reviewer_judgment rationale
+  required_outputs:
+  - output_field: solution_grounding_rating
+    description: 'Final decision value: well_grounded, grounded_with_gaps, requires_solution_space_revision, or ungrounded.'
+    obligation_status: required
+  - output_field: weighted_score
+    description: Weighted 0-4 score before non-compensatory floor rules are applied.
+    obligation_status: required
+  - output_field: adjusted_rating_after_floor_rules
+    description: Final rating after floor rules, blocking issues, and human-review triggers are applied.
+    obligation_status: required
+  - output_field: knowledge_gaps
+    description: Missing, weak, outdated, irrelevant, low-provenance, or insufficiently translated knowledge needed to justify the artifact.
+    obligation_status: required
+  - output_field: alternative_search_gaps
+    description: Missing alternatives, weak comparison rationale, unjustified single-solution fixation, or underexplored design routes.
+    obligation_status: required
+  - output_field: rationale_strength
+    description: Reviewer assessment of the strength of the chain from prior knowledge to problem mechanism, solution logic, design decision,
+      and evaluation criterion.
+    obligation_status: required
+  - output_field: misfit_warnings
+    description: Warnings for theory-artifact mismatch, context-transfer mismatch, evidence insufficiency, source limitations, ethical or governance
+      risk, and overclaiming.
+    obligation_status: required
+  - output_field: source_quality_flags
+    description: Flags for low-quality, outdated, non-peer-reviewed, vendor-only, inaccessible, ambiguous, or insufficiently cited sources when
+      material to a claim.
+    obligation_status: required
+  - output_field: trace_repair_actions
+    description: Prioritized actions for linking input knowledge to requirements, design decisions, evaluation criteria, and contribution claims.
+    obligation_status: required
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, overclaiming, and solution-space misfit.
+    obligation_status: required
+  assessment_dimensions:
+  - dimension_id: kernel_theory_and_descriptive_knowledge_fit
+    label: Kernel Theory and Descriptive Knowledge Fit
+    definition: Relevance and appropriate use of kernel theories, descriptive knowledge, explanatory mechanisms, empirical findings, and domain
+      knowledge to ground artifact logic.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - kernel_theory_id or descriptive_knowledge_id
+    - source_anchor_id or reviewer_judgment marker
+    - problem mechanism or context link
+    - fit rationale
+    - limitations or boundary conditions
+    - downstream requirement/design/evaluation link where material
+    level_descriptors:
+      score_0: No kernel theory, descriptive knowledge, empirical/domain evidence, or explicit no-theory rationale is provided for the artifact
+        logic.
+      score_1: Theories or descriptive sources are named, but their relevance to the problem mechanism, context, or artifact logic is asserted
+        rather than explained.
+      score_2: Some relevant descriptive or theoretical knowledge is present, but coverage is uneven, translation into design implications is
+        thin, or limitations are missing.
+      score_3: Relevant theories or descriptive knowledge are clearly linked to problem mechanisms, stakeholder/context conditions, and most core
+        design implications; minor gaps are disclosed.
+      score_4: Theory and descriptive knowledge are well selected, triangulated where appropriate, translated into explicit design mechanisms
+        or rules, bounded by source limitations, and traced to requirements, decisions, or evaluation criteria.
+    minimum_evidence:
+    - kernel_theory_id or descriptive_knowledge_id
+    - source_anchor_id or reviewer_judgment marker
+    - problem mechanism or context link
+    - fit rationale
+    - limitations or boundary conditions
+    - downstream requirement/design/evaluation link where material
+    high_quality_evidence:
+    - clear mechanism-to-design rationale
+    - distinction between descriptive and prescriptive knowledge
+    - source anchors with evidence quality notes
+    - explicit boundary conditions and limitations
+    - translation into requirements, design rules, or evaluation criteria
+    weak_evidence_signals:
+    - theory names used decoratively
+    - empirical claims without source anchors
+    - domain anecdotes treated as theory
+    - no limitations
+    - design logic not connected to problem mechanisms
+    calibration_anchor: Score 3 when a reviewer can reconstruct how the theory or descriptive knowledge informs core artifact logic; score 4 only
+      when translation, limitations, and downstream traces are explicit.
+    common_failure_modes:
+    - theory_name_dropping
+    - descriptive_knowledge_absence
+    - mechanism_mismatch
+    - evidence_overextension
+    - causal_claim_without_basis
+    reviewer_notes: Check whether the theory or descriptive source would change at least one requirement, design decision, boundary condition,
+      or evaluation criterion. If not, it may be decorative rather than grounding knowledge.
+  - dimension_id: prior_artifact_and_design_knowledge_coverage
+    label: Prior Artifact and Design Knowledge Coverage
+    definition: Engagement with relevant prior artifacts, design principles, design patterns, methods, architectures, frameworks, standards, and
+      implementation precedents.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - prior_artifact_id or design_knowledge_id
+    - artifact/design knowledge type
+    - source/provenance
+    - comparison to candidate artifact
+    - relevance rationale
+    - coverage gap note
+    level_descriptors:
+      score_0: No prior artifacts, design principles, patterns, methods, architectures, standards, or implementation precedents are considered.
+      score_1: A few prior artifacts or design knowledge assets are mentioned, but coverage appears opportunistic, outdated, or unrelated to core
+        artifact choices.
+      score_2: Relevant prior artifacts or design knowledge are partly covered, but important artifact classes, patterns, methods, or implementation
+        precedents are missing or weakly compared.
+      score_3: The record covers the main relevant prior artifacts and design knowledge families and explains their relevance to the candidate
+        artifact with only minor disclosed gaps.
+      score_4: The record provides systematic, provenance-rich, and context-aware coverage of relevant prior artifacts and design knowledge, including
+        patterns, methods, architectures, evaluation status, transfer limits, and implications for the candidate artifact.
+    minimum_evidence:
+    - prior_artifact_id or design_knowledge_id
+    - artifact/design knowledge type
+    - source/provenance
+    - comparison to candidate artifact
+    - relevance rationale
+    - coverage gap note
+    high_quality_evidence:
+    - explicit search strategy or selection rationale
+    - coverage of both scholarly and practitioner artifacts when relevant
+    - pattern/method/architecture comparison
+    - evidence of prior artifact evaluation or adoption
+    - gap analysis against candidate artifact requirements
+    weak_evidence_signals:
+    - only cites general background literature
+    - ignores obvious existing systems or methods
+    - vendor/example links without provenance
+    - no comparison dimensions
+    - no evaluation status for cited artifacts
+    calibration_anchor: Score 3 when major prior artifact families are represented and compared; score 4 when coverage is systematic enough to
+      support design reuse, adaptation, and gap claims.
+    common_failure_modes:
+    - prior_artifact_neglect
+    - not_invented_here_bias
+    - pattern_absence
+    - architecture_blindness
+    - shallow_prior_work_scan
+    reviewer_notes: Look for both similarity and dissimilarity. Prior artifacts can support reuse, adaptation, rejection, or boundary-setting;
+      they should not merely be listed.
+  - dimension_id: solution_alternative_search
+    label: Solution Alternative Search
+    definition: Evidence that multiple feasible design options, artifact types, methods, technologies, or solution routes were considered before
+      selecting the candidate artifact logic.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - solution_alternative_id
+    - alternative description
+    - comparison criteria
+    - strengths and weaknesses
+    - source/provenance where relevant
+    - selection or rejection rationale
+    - constraint or feasibility notes
+    level_descriptors:
+      score_0: No alternatives are documented; the candidate solution appears predetermined or assumed.
+      score_1: Alternatives are mentioned only superficially, with no comparison criteria, evidence, or rejection rationale.
+      score_2: Some alternatives are documented, but comparison is incomplete, one-sided, or missing material methods, technologies, artifact
+        types, or stakeholder/context constraints.
+      score_3: Multiple plausible alternatives are compared using problem-relevant criteria, and selection/rejection rationale is mostly clear
+        and evidence-informed.
+      score_4: Alternative search is broad enough for the claim scope, includes credible competing and complementary options, evaluates tradeoffs
+        and constraints, documents rejected/deferred options, and traces selection to requirements, context, and knowledge sources.
+    minimum_evidence:
+    - solution_alternative_id
+    - alternative description
+    - comparison criteria
+    - strengths and weaknesses
+    - source/provenance where relevant
+    - selection or rejection rationale
+    - constraint or feasibility notes
+    high_quality_evidence:
+    - comparison matrix or decision log
+    - explicit search and inclusion/exclusion criteria
+    - stakeholder/context constraints in tradeoff analysis
+    - documentation of rejected and deferred alternatives
+    - clear link to requirements and risk profile
+    weak_evidence_signals:
+    - single_solution_fixation
+    - alternatives invented after the fact
+    - comparison criteria favor chosen solution by construction
+    - no consideration of lower-risk or simpler alternatives
+    - technology-first justification
+    calibration_anchor: Score 3 when the chosen solution can be defended against at least two plausible alternatives; score 4 when the search
+      also explains tradeoffs, constraints, and deferred options.
+    common_failure_modes:
+    - single_solution_fixation
+    - ex_post_rationalization
+    - alternative_blindness
+    - technology_determinism
+    - solution_drift
+    reviewer_notes: A single alternative may be acceptable only when external constraints make the choice genuinely fixed; the constraint and
+      its implications must be documented.
+  - dimension_id: problem_solution_fit
+    label: Problem-Solution Fit
+    definition: Alignment between documented problem mechanisms, stakeholder/context conditions, requirements, and the selected solution logic
+      or artifact capacity.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - problem_factor_id or mechanism_id
+    - stakeholder/context link where material
+    - selected solution logic
+    - requirement or capacity link
+    - fit rationale
+    - boundary condition
+    - misfit or risk note
+    level_descriptors:
+      score_0: The selected solution logic is not connected to the documented problem, requirements, or context, or it addresses a different problem.
+      score_1: Problem-solution fit is asserted in general terms, but mechanism, stakeholder/context, and requirement alignment are weak or circular.
+      score_2: The solution fits some problem factors or requirements, but important mechanisms, stakeholder needs, boundary conditions, or constraints
+        are unresolved.
+      score_3: The selected solution logic aligns well with documented problem mechanisms, requirements, and context; known misfits or residual
+        risks are disclosed.
+      score_4: Problem-solution fit is explicit, mechanism-aware, stakeholder/context-sensitive, bounded, and traceable from problem factors through
+        requirements to capacities, design decisions, and evaluation criteria.
+    minimum_evidence:
+    - problem_factor_id or mechanism_id
+    - stakeholder/context link where material
+    - selected solution logic
+    - requirement or capacity link
+    - fit rationale
+    - boundary condition
+    - misfit or risk note
+    high_quality_evidence:
+    - problem mechanism to artifact capacity map
+    - fit/misfit register
+    - boundary-condition-aware rationale
+    - stakeholder burden/value consideration
+    - links to evaluation criteria that can test fit
+    weak_evidence_signals:
+    - solution in disguise
+    - generic artifact copied into a local context
+    - problem mechanism ignored
+    - contextual constraints omitted
+    - fit inferred from topical similarity only
+    calibration_anchor: Score 3 when fit is persuasive for the main problem mechanisms; score 4 when fit is traceable, bounded, and evaluation-ready.
+    common_failure_modes:
+    - problem_solution_mismatch
+    - solution_in_disguise
+    - context_transfer_error
+    - mechanism_gap
+    - unsupported_projectability
+    reviewer_notes: This is the highest-weight dimension because an artifact can be well sourced yet still be misfit to the actual problem. Do
+      not let citation density substitute for fit.
+  - dimension_id: source_quality_and_provenance
+    label: Source Quality and Provenance
+    definition: Credibility, provenance, recency where relevant, source type, accessibility, evidence mode, and claim-specific relevance of the
+      knowledge used for solution grounding.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - source_id or repository_artifact_id
+    - source type or evidence mode
+    - citation/source anchor
+    - credibility or review status
+    - relevance rationale
+    - limitations
+    - confidence or human review flag when needed
+    level_descriptors:
+      score_0: Sources are absent, inaccessible, unverifiable, or so poorly documented that grounding claims cannot be reviewed.
+      score_1: Sources are weakly cited or low-provenance; credibility, relevance, or limitations are mostly unclear.
+      score_2: Sources are partly credible and relevant, but provenance, source type, limitations, or claim-specific relevance is uneven.
+      score_3: Most material sources are credible, provenance-rich, accessible enough for review, and linked to the claims they support; minor
+        source gaps are disclosed.
+      score_4: Source quality is strong across scholarly, practitioner, artifact, technical, and field evidence as appropriate; provenance, limitations,
+        evidence mode, confidence, and source-to-claim relevance are explicit and auditable.
+    minimum_evidence:
+    - source_id or repository_artifact_id
+    - source type or evidence mode
+    - citation/source anchor
+    - credibility or review status
+    - relevance rationale
+    - limitations
+    - confidence or human review flag when needed
+    high_quality_evidence:
+    - stable source identifiers and citation anchors
+    - evidence mode classification
+    - source limitations and confidence
+    - distinction between peer-reviewed, practitioner, vendor, field, and reviewer sources
+    - source-to-claim mapping
+    weak_evidence_signals:
+    - bibliography without anchors
+    - vendor claims treated as neutral evidence
+    - outdated technical sources for current technologies
+    - unclear provenance
+    - sources cited for claims they do not support
+    calibration_anchor: Score 3 when material claims are auditable and source limitations are visible; score 4 when provenance supports downstream
+      reuse, validation, and review.
+    common_failure_modes:
+    - low_provenance_source
+    - citation_padding
+    - vendor_claim_overreliance
+    - source_claim_mismatch
+    - unreviewable_source
+    reviewer_notes: High-quality practitioner or field evidence may be valid when properly labeled; do not penalize non-peer-reviewed sources
+      automatically, but require transparent provenance and fit.
+  - dimension_id: prior_solution_critique
+    label: Prior Solution Critique
+    definition: Explanation of why existing solutions, artifacts, methods, patterns, or technologies are insufficient, unsuitable, incomplete,
+      risky, obsolete, overlocal, overgeneral, or require adaptation.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - prior_solution_id
+    - comparison target
+    - gap or limitation
+    - evidence/source
+    - adaptation implication
+    - risk or boundary condition
+    - effect on candidate artifact
+    level_descriptors:
+      score_0: No critique of existing solutions is provided, even though prior solutions or analogs exist or are claimed.
+      score_1: Existing solutions are dismissed through unsupported novelty, preference, or convenience claims.
+      score_2: Some limitations of prior solutions are identified, but critique is incomplete, weakly evidenced, or not connected to the candidate
+        artifact design.
+      score_3: The record explains why relevant prior solutions are insufficient or require adaptation and links critique to artifact scope, requirements,
+        or design decisions.
+      score_4: Prior solution critique is balanced, evidence-based, context-aware, and traceable to specific adaptations, exclusions, requirements,
+        risks, boundary conditions, and contribution claims.
+    minimum_evidence:
+    - prior_solution_id
+    - comparison target
+    - gap or limitation
+    - evidence/source
+    - adaptation implication
+    - risk or boundary condition
+    - effect on candidate artifact
+    high_quality_evidence:
+    - structured prior-solution comparison
+    - evidence-backed insufficiency or adaptation rationale
+    - attention to transfer and context limits
+    - balanced account of strengths and weaknesses
+    - trace from critique to design changes
+    weak_evidence_signals:
+    - claims that no one has done this without search evidence
+    - strawman comparison
+    - prior solution ignored because it is inconvenient
+    - local preference framed as research gap
+    - critique not used in design
+    calibration_anchor: Score 3 when critique explains adaptation need; score 4 when critique directly shapes artifact boundary, requirements,
+      design decisions, and contribution positioning.
+    common_failure_modes:
+    - prior_artifact_neglect
+    - novelty_by_omission
+    - strawman_prior_solution
+    - routine_design_overclaim
+    - overlocalization
+    reviewer_notes: The critique should avoid both dismissal and uncritical borrowing. Prior solutions may be strong but not fit the present context
+      or problem class.
+  - dimension_id: knowledge_to_design_trace
+    label: Knowledge-to-Design Trace
+    definition: Explicit trace from input knowledge to requirements, acceptance criteria, design decisions, artifact capacities, evaluation criteria,
+      or contribution claims.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - input_knowledge_id
+    - trace edge type
+    - target requirement/design_decision/evaluation_criterion/capacity id
+    - rationale text
+    - source_anchor_id or reviewer_judgment marker
+    - coverage/gap status
+    level_descriptors:
+      score_0: No trace links connect input knowledge to requirements, design decisions, capacities, or evaluation criteria.
+      score_1: Trace links exist only as labels, citations, or matrix entries without rationale or coverage checks.
+      score_2: Some input knowledge is traced to design targets, but links are incomplete, inconsistently typed, or weakly rationalized.
+      score_3: Most material input knowledge is explicitly traced to requirements, design decisions, capacities, or evaluation criteria with credible
+        rationale and minor disclosed gaps.
+      score_4: The record provides complete, machine-readable and reviewer-interpretable traceability from input knowledge through requirements
+        and design decisions to evaluation criteria and contribution-relevant claims, with coverage and gap checks.
+    minimum_evidence:
+    - input_knowledge_id
+    - trace edge type
+    - target requirement/design_decision/evaluation_criterion/capacity id
+    - rationale text
+    - source_anchor_id or reviewer_judgment marker
+    - coverage/gap status
+    high_quality_evidence:
+    - bidirectional trace graph or matrix
+    - typed traceability edges
+    - rationale for each material edge
+    - coverage analysis for orphan knowledge and unsupported design decisions
+    - integration with requirements_traceability_rubric
+    weak_evidence_signals:
+    - traceability theater
+    - citation-to-feature links without rationale
+    - orphan design decisions
+    - knowledge sources with no design uptake
+    - design decisions with no upstream knowledge
+    calibration_anchor: Score 3 when the reviewer can follow most core design decisions back to input knowledge; score 4 when the trace is complete,
+      typed, auditable, and aligned with requirements/evaluation.
+    common_failure_modes:
+    - traceability_theater
+    - orphan_input_knowledge
+    - orphan_design_decision
+    - unsupported_design_choice
+    - knowledge_claim_without_design_uptake
+    reviewer_notes: This dimension may have a lower numeric weight, but missing trace can activate floor rules because it undermines auditability
+      of all other grounding claims.
+  scoring_model:
+    scale:
+      0: absent_or_blocked
+      1: weak_or_asserted
+      2: conditional_or_partially_supported
+      3: strong_or_adequately_supported
+      4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule: assessment_dimension weights must sum to 1.0
+    weighted_score_formula: sum(dimension_score * dimension_weight) for all seven dimensions before floor rules
+    missing_evidence_rule: If evidence required for a dimension is absent, assign score_0 or score_1 even when the narrative is plausible.
+    reverse_scoring_rule: No dimensions are reverse-scored in this rubric; anti-patterns may still trigger floor rules or human-review flags.
+    rounding_rule: Report weighted_score to two decimal places; do not round before applying floor rules.
+    non_compensatory_floor_rules:
+    - rule_id: floor_no_input_knowledge_record
+      condition: No input_knowledge, prior_artifact, descriptive_knowledge, or solution_space record exists.
+      maximum_rating: ungrounded
+      rationale: Grounding cannot be inferred from artifact existence or implementation activity.
+    - rule_id: floor_problem_solution_fit_absent
+      condition: problem_solution_fit score is 0 or 1.
+      maximum_rating: requires_solution_space_revision
+      rationale: A well-sourced solution that does not fit the documented problem cannot be treated as well grounded.
+    - rule_id: floor_source_provenance_blocked
+      condition: source_quality_and_provenance score is 0 or sources are inaccessible/unverifiable for material claims.
+      maximum_rating: requires_solution_space_revision
+      rationale: Claims cannot be audited without sufficient source provenance.
+    - rule_id: floor_trace_missing_for_core_design_claims
+      condition: knowledge_to_design_trace score is 0 or 1 while the artifact claims rigorous knowledge grounding, contribution, transferability,
+        or evaluation readiness.
+      maximum_rating: requires_solution_space_revision
+      rationale: Grounding must be inspectably connected to requirements, decisions, capacities, or evaluation criteria.
+    - rule_id: floor_single_solution_fixation
+      condition: solution_alternative_search score is 0 or 1 and no documented external constraint justifies a single-option route.
+      maximum_rating: grounded_with_gaps
+      rationale: Alternative blindness may hide routine design, overclaiming, or misfit risk.
+    - rule_id: floor_prior_artifact_neglect
+      condition: prior_artifact_and_design_knowledge_coverage score is 0 or 1 in a domain where obvious prior artifacts, standards, methods, or
+        patterns exist.
+      maximum_rating: requires_solution_space_revision
+      rationale: The artifact cannot be positioned or justified against the knowledge base when major prior solutions are ignored.
+    - rule_id: floor_high_risk_without_evidence
+      condition: Artifact affects safety, privacy, legal compliance, stakeholder burden, or institutional risk and lacks high-quality source grounding
+        or expert review.
+      maximum_rating: requires_solution_space_revision
+      rationale: High-risk design choices require stronger provenance and human review.
+    - rule_id: floor_overclaiming
+      condition: The record claims novelty, transferability, causal mechanism, or contribution beyond the evidence base.
+      maximum_rating: grounded_with_gaps
+      rationale: Overclaiming must be corrected before the solution-space grounding can support downstream contribution claims.
+  level_descriptors:
+    score_0: Absent, blocked, or not reviewable; no credible evidence supports the dimension.
+    score_1: Weak, asserted, decorative, or low-provenance; minimal evidence exists but cannot support design grounding claims.
+    score_2: Partially supported; some relevant evidence exists but important gaps, weak rationale, or limited traceability remain.
+    score_3: Adequately supported; evidence and rationale are strong enough for ordinary DSR review with minor disclosed gaps.
+    score_4: Exemplary; evidence, rationale, provenance, limitations, alternatives, and trace links are robust, auditable, and reusable.
+    anchor_examples:
+      score_4_general_anchor: A design record triangulates kernel theory, empirical problem evidence, prior artifacts, patterns, and alternatives,
+        then traces them to requirements, design decisions, and evaluation criteria.
+      score_2_general_anchor: A design record cites relevant prior work and lists alternatives, but the design implications and selection rationale
+        are uneven.
+      score_0_general_anchor: A design record presents an artifact idea with no cited knowledge base, no prior artifact comparison, and no alternatives.
+    borderline_cases:
+    - A project with excellent practitioner evidence but weak scholarly literature may score 3 when provenance, role, limitations, and design
+      uptake are clear.
+    - A project with a strong literature review may score only 2 if the reviewed knowledge is not translated into design implications.
+    - A project with one externally mandated technology may still score 3 on alternatives if alternative implementation, governance, method, or
+      pattern routes were considered.
+  decision_thresholds:
+    decision_values:
+    - well_grounded
+    - grounded_with_gaps
+    - requires_solution_space_revision
+    - ungrounded
+    well_grounded:
+      weighted_score_minimum: 3.25
+      required_conditions:
+      - no active non_compensatory_floor_rule
+      - problem_solution_fit score >= 3
+      - source_quality_and_provenance score >= 3
+      - knowledge_to_design_trace score >= 3
+      - no unresolved blocking human_review_flags
+      interpretation: The artifact is sufficiently grounded for artifact specification, design-rationale writing, and later evaluation planning,
+        subject to ordinary review.
+    grounded_with_gaps:
+      weighted_score_range: 2.50_to_3.24
+      allowed_conditions:
+      - minor gaps in alternatives, coverage, provenance, or traceability are documented
+      - no core fit or source-provenance floor rule is active
+      - revision actions are feasible before final artifact claims are made
+      interpretation: The artifact may proceed with explicit gap repair, source strengthening, or trace cleanup before strong rigor or contribution
+        claims are made.
+    requires_solution_space_revision:
+      weighted_score_range: 1.75_to_2.49 or any major floor rule short of total absence
+      trigger_conditions:
+      - problem_solution_fit is weak
+      - source provenance is inadequate for material claims
+      - prior artifacts or alternatives are materially underexplored
+      - knowledge_to_design trace is insufficient for core design claims
+      - prior solution critique is needed to avoid routine design or overclaiming
+      interpretation: Artifact design should not be finalized until the solution-space record is revised.
+    ungrounded:
+      weighted_score_maximum: 1.74
+      trigger_conditions:
+      - input knowledge is absent or not reviewable
+      - artifact idea is primarily asserted or solution-first
+      - no meaningful prior artifact/design knowledge review exists
+      - no credible problem-solution fit or trace is available
+      interpretation: The artifact is not ready for DSR design finalization and should be reframed or returned to problem/solution-space discovery.
+    dimension_floor_rules:
+    - If problem_solution_fit <= 1, final decision cannot exceed requires_solution_space_revision.
+    - If source_quality_and_provenance = 0, final decision cannot exceed requires_solution_space_revision.
+    - If knowledge_to_design_trace <= 1 and rigorous grounding is claimed, final decision cannot exceed requires_solution_space_revision.
+    - If solution_alternative_search <= 1 without a justified external constraint, final decision cannot exceed grounded_with_gaps.
+    - If prior_artifact_and_design_knowledge_coverage <= 1 in a mature artifact domain, final decision cannot exceed requires_solution_space_revision.
+    human_review_triggers:
+    - ambiguity_about_theory_or_pattern_fit
+    - source_gap_for_material_design_claim
+    - ethical_privacy_security_or_stakeholder_burden_risk
+    - low_provenance_or_inaccessible_source_used_for_core_claim
+    - evidence_sufficiency_dispute
+    - novelty_or_transferability_overclaim
+    - routine_design_risk_due_to_prior_solution_neglect
+    - solution_space_conflict_or_unresolved_source_disagreement
+  calibration_guidance:
+    reviewer_preparation:
+    - Review the problem_framing_quality_rubric and requirements_traceability_rubric outputs before scoring.
+    - Inspect the solution_space, input_knowledge, prior_artifact, design_pattern, method, technology, and alternative records.
+    - Check whether the artifact claims descriptive fit, prescriptive utility, transferability, novelty, evaluation readiness, or contribution;
+      claim scope should affect evidence expectations.
+    - Sample source anchors for high-stakes or high-weight claims rather than relying on the bibliography or citation count.
+    - Distinguish repository-supported facts from reviewer judgment and domain expertise.
+    anchor_examples:
+      strong_anchor: A higher-education learning-outcomes artifact uses learning analytics evidence, curriculum-mapping methods, prior CLO-PLO
+        mapping tools, relevant competency frameworks, and multiple visualization alternatives; it explains why existing tools fail for traceable
+        contribution scoring and links selected design patterns to requirements and evaluation criteria.
+      borderline_anchor: A compliance workflow artifact cites relevant quality-management methods and one prior tool, but alternatives are thin,
+        prior-solution critique is mostly local, and the theory-to-design trace only covers some requirements.
+      weak_anchor: A project proposes a new dashboard because stakeholders want one, with minimal literature, no prior dashboards compared, no
+        source provenance, and no explanation of why dashboarding addresses the actual problem mechanism.
+    calibration_rounds:
+    - 'Round 1: Independently score one strong, one borderline, and one weak case using only documented evidence.'
+    - 'Round 2: Compare dimension-level disagreements and identify whether they arise from evidence interpretation, source confidence, or different
+      expectations about traceability.'
+    - 'Round 3: Re-score after clarifying floor rules and source-supported versus reviewer-judgment distinctions.'
+    inter_rater_reconciliation:
+    - Discuss all differences of two or more points on any dimension.
+    - Treat problem_solution_fit, source_quality_and_provenance, and knowledge_to_design_trace disagreements as priority issues because they can
+      activate floor rules.
+    - Record minority opinions when source credibility, pattern fit, or prior solution critique remains contested.
+    drift_checks:
+    - Recalibrate after every five to ten scored projects or whenever a new artifact domain is introduced.
+    - Watch for citation-count inflation being mistaken for source quality.
+    - Watch for increasingly permissive treatment of missing alternatives as projects become implementation-heavy.
+    - Compare final ratings with later artifact_specification_quality and evaluation_alignment_quality scores to identify systematic under- or
+      over-scoring.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      kernel_theory_and_descriptive_knowledge_fit:
+      - kernel_theory_id or descriptive_knowledge_id
+      - source_anchor_id or reviewer_judgment marker
+      - problem mechanism or context link
+      - fit rationale
+      - limitations or boundary conditions
+      - downstream requirement/design/evaluation link where material
+      prior_artifact_and_design_knowledge_coverage:
+      - prior_artifact_id or design_knowledge_id
+      - artifact/design knowledge type
+      - source/provenance
+      - comparison to candidate artifact
+      - relevance rationale
+      - coverage gap note
+      solution_alternative_search:
+      - solution_alternative_id
+      - alternative description
+      - comparison criteria
+      - strengths and weaknesses
+      - source/provenance where relevant
+      - selection or rejection rationale
+      - constraint or feasibility notes
+      problem_solution_fit:
+      - problem_factor_id or mechanism_id
+      - stakeholder/context link where material
+      - selected solution logic
+      - requirement or capacity link
+      - fit rationale
+      - boundary condition
+      - misfit or risk note
+      source_quality_and_provenance:
+      - source_id or repository_artifact_id
+      - source type or evidence mode
+      - citation/source anchor
+      - credibility or review status
+      - relevance rationale
+      - limitations
+      - confidence or human review flag when needed
+      prior_solution_critique:
+      - prior_solution_id
+      - comparison target
+      - gap or limitation
+      - evidence/source
+      - adaptation implication
+      - risk or boundary condition
+      - effect on candidate artifact
+      knowledge_to_design_trace:
+      - input_knowledge_id
+      - trace edge type
+      - target requirement/design_decision/evaluation_criterion/capacity id
+      - rationale text
+      - source_anchor_id or reviewer_judgment marker
+      - coverage/gap status
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Every material source-supported claim should include source_anchor_id or equivalent repository source pointer.
+    - Every reviewer judgment should be marked reviewer_judgment rather than represented as source-supported fact.
+    - Every source used to justify a design decision should identify source type, evidence mode, limitation, and downstream design implication.
+    - Source anchors are especially required for theory fit, prior artifact critique, source limitations, and claimed novelty or insufficiency
+      of existing solutions.
+    evidence_quality_notes:
+    - Peer-reviewed sources are useful but not sufficient unless they support the specific grounding claim being made.
+    - Practitioner and stakeholder evidence may be strong when provenance, role, context, and limitations are explicit.
+    - Vendor documentation should usually support technical feasibility or feature behavior, not independent claims about efficacy or contribution.
+    - Recent technical standards, APIs, regulations, and platform documentation may require freshness checks outside this rubric when they materially
+      affect design choices.
+    - Weak evidence should not be converted into hard validation failure unless the framework explicitly requires the field or the claim is material
+      to downstream design/evaluation/contribution.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: black_box_invention
+    warning_condition: Artifact design appears invented without visible knowledge base, prior artifact comparison, or design rationale.
+    severity: blocking_issue
+    recommended_response: Require input_knowledge records, prior artifact scan, alternative comparison, and knowledge_to_design trace before design
+      finalization.
+  - anti_pattern_id: theory_name_dropping
+    warning_condition: Theories are named but do not shape requirements, design decisions, mechanisms, or evaluation criteria.
+    severity: major_warning
+    recommended_response: Require a theory-fit rationale and downstream trace or remove the theory from grounding claims.
+  - anti_pattern_id: prior_artifact_neglect
+    warning_condition: Obvious prior artifacts, standards, methods, patterns, or implementations are absent from the solution-space record.
+    severity: major_warning
+    recommended_response: Perform or document a prior-artifact search and compare implications for reuse, adaptation, and novelty.
+  - anti_pattern_id: single_solution_fixation
+    warning_condition: Only one solution route is considered without documented external constraint or rationale.
+    severity: major_warning
+    recommended_response: Document competing, complementary, simpler, safer, or deferred alternatives and selection criteria.
+  - anti_pattern_id: weak_solution_grounding
+    warning_condition: Input knowledge exists but is too generic, low-provenance, or disconnected from the artifact design.
+    severity: major_warning
+    recommended_response: Strengthen source relevance, design implication, and traceability for material claims.
+  - anti_pattern_id: citation_padding
+    warning_condition: Large numbers of citations obscure weak relevance, poor provenance, or lack of design uptake.
+    severity: warning
+    recommended_response: Score source_quality based on claim-specific relevance and provenance, not quantity.
+  - anti_pattern_id: design_pattern_misuse
+    warning_condition: Pattern labels are borrowed without context, forces, rationale, consequences, or applicability conditions.
+    severity: warning
+    recommended_response: Require pattern fields that bridge problem-space and solution-space, or classify the source as a weaker analogy.
+  - anti_pattern_id: vendor_claim_overreliance
+    warning_condition: Vendor or platform sources are used to support efficacy, utility, or contribution claims beyond technical capability.
+    severity: major_warning
+    recommended_response: Limit vendor evidence to technical affordances unless corroborated by independent evaluation or reviewer judgment.
+  - anti_pattern_id: novelty_by_omission
+    warning_condition: The record claims novelty because prior solutions were not searched, represented, or critiqued.
+    severity: blocking_issue
+    recommended_response: Block strong grounding or contribution claims until prior artifact/design knowledge coverage is repaired.
+  - anti_pattern_id: traceability_theater
+    warning_condition: Trace links exist but do not explain substantive derivation, design uptake, fit, or evidence support.
+    severity: major_warning
+    recommended_response: Sample trace rationales and require explanation for links supporting core requirements, design decisions, and evaluation
+      criteria.
+  traceability_requirements:
+  - trace_id: source_to_concept
+    description: Each material source should map to one or more framework concepts such as input_knowledge, kernel_theory, prior_artifact, design_pattern,
+      method, technology, or solution_alternative.
+    minimum_trace: source_id -> framework_concept_id with source_anchor_id and relevance rationale
+    validation_status: machine_check_presence; human_review_relevance
+  - trace_id: concept_to_schema_field
+    description: Each controlled concept used in the solution-space record should map to a YAML/schema field or repository artifact record.
+    minimum_trace: concept_id -> schema_field or yaml_path
+    validation_status: machine_check_possible
+  - trace_id: knowledge_to_problem_factor
+    description: Kernel theories and descriptive knowledge should link to the problem mechanism, stakeholder need, context condition, or boundary
+      condition they explain.
+    minimum_trace: input_knowledge_id -> problem_factor_id or context_condition_id
+    validation_status: machine_check_presence; human_review_fit
+  - trace_id: knowledge_to_requirement
+    description: Input knowledge should support or constrain requirements when those requirements depend on prior theory, prior artifacts, methods,
+      technologies, or patterns.
+    minimum_trace: input_knowledge_id -> requirement_id with rationale
+    validation_status: machine_check_presence; human_review_adequacy
+  - trace_id: knowledge_to_design_decision
+    description: Design decisions should cite the input knowledge, prior artifact comparison, pattern, method, technology, or alternative rationale
+      that justifies them.
+    minimum_trace: input_knowledge_id or alternative_id -> design_decision_id
+    validation_status: machine_check_presence; human_review_adequacy
+  - trace_id: alternative_to_design_decision
+    description: Selected, rejected, and deferred alternatives should link to the decision they informed and the reason for their status.
+    minimum_trace: solution_alternative_id -> design_decision_id with status selected/rejected/deferred and rationale
+    validation_status: machine_check_possible; human_review_tradeoff_quality
+  - trace_id: design_decision_to_evaluation
+    description: Design decisions grounded in input knowledge should be testable or inspectable through evaluation criteria when they support
+      utility, contribution, or transferability claims.
+    minimum_trace: design_decision_id -> evaluation_criterion_id or justified_deferral
+    validation_status: machine_check_presence; human_review_evaluation_fit
+  - trace_id: evidence_to_claim
+    description: Evidence used to claim a source is sufficient, a prior solution is inadequate, or a selected solution is fit should link to the
+      relevant assessment claim.
+    minimum_trace: source_anchor_id or evidence_id -> grounding_claim_id
+    validation_status: machine_check_presence; human_review_source_claim_fit
+  - trace_id: design_knowledge_to_contribution
+    description: When solution-space grounding supports a later contribution claim, the record should link design knowledge to contribution object,
+      knowledge goal, scope, and evidence basis.
+    minimum_trace: design_knowledge_id -> contribution_claim_id with boundary conditions
+    validation_status: machine_check_possible; human_review_required
+  validation_implications:
+    json_schema_fields:
+    - field: solution_space.input_knowledge
+      expected_type: array_of_objects
+      recommended_required_subfields:
+      - id
+      - knowledge_type
+      - source_id
+      - source_anchor_ids
+      - relevance_rationale
+      - limitations
+      - downstream_trace_links
+      validation_note: Schema can require fields and value types but cannot determine substantive fit.
+    - field: solution_space.prior_artifacts
+      expected_type: array_of_objects
+      recommended_required_subfields:
+      - id
+      - artifact_type
+      - source_or_provenance
+      - comparison_to_candidate_artifact
+      - evaluation_status_or_unknown
+      - fit_or_gap_note
+      validation_note: Schema can flag missing prior_artifact records when field is required by project type, but adequacy remains human-reviewed.
+    - field: solution_space.design_patterns
+      expected_type: array_of_objects
+      recommended_required_subfields:
+      - id
+      - problem_context
+      - solution_guidance
+      - rationale
+      - consequences
+      - applicability_conditions
+      - source_anchor_ids
+      validation_note: Pattern completeness can be checked structurally; pattern appropriateness requires reviewer judgment.
+    - field: solution_space.solution_alternatives
+      expected_type: array_of_objects
+      recommended_required_subfields:
+      - id
+      - description
+      - status
+      - comparison_criteria
+      - strengths
+      - weaknesses
+      - selection_or_rejection_rationale
+      validation_note: Machine checks can detect absent alternatives or missing statuses.
+    - field: solution_space.prior_solution_critique
+      expected_type: array_of_objects
+      recommended_required_subfields:
+      - prior_solution_id
+      - limitation_or_gap
+      - evidence
+      - adaptation_implication
+      - affected_requirement_or_decision
+      validation_note: Critique quality remains manual review.
+    - field: traceability.knowledge_to_design_trace
+      expected_type: array_of_edges
+      recommended_required_subfields:
+      - source_id
+      - target_id
+      - edge_type
+      - rationale
+      - evidence_id_or_source_anchor_id
+      validation_note: Can check orphan links, invalid ids, and edge type vocabulary.
+    shacl_shapes_or_warnings:
+    - shape_id: solution_space_requires_input_knowledge_warning
+      severity: sh:Warning
+      condition: solution_space exists but has no input_knowledge records
+      manual_review_needed: true
+    - shape_id: input_knowledge_requires_source_anchor_warning
+      severity: sh:Warning
+      condition: input_knowledge record lacks source_anchor_id, repository_artifact_id, or reviewer_judgment marker
+      manual_review_needed: false
+    - shape_id: design_decision_requires_knowledge_trace_warning
+      severity: sh:Warning
+      condition: core design_decision lacks upstream input_knowledge, requirement, constraint, or reviewer_judgment edge
+      manual_review_needed: true
+    - shape_id: single_solution_fixation_info
+      severity: sh:Info
+      condition: candidate artifact has fewer than two solution_alternative records
+      manual_review_needed: true
+    - shape_id: source_claim_provenance_warning
+      severity: sh:Warning
+      condition: source record lacks evidence_mode, source_type, or limitation note for a material design claim
+      manual_review_needed: true
+    controlled_vocabularies:
+    - knowledge_type_vocabulary
+    - evidence_mode_vocabulary
+    - source_type_vocabulary
+    - artifact_type_vocabulary
+    - design_pattern_vocabulary
+    - solution_alternative_status_vocabulary
+    - traceability_edge_vocabulary
+    - decision_value_vocabulary
+    - anti_pattern_vocabulary
+    python_validation_logic:
+    - verify assessment_dimension weights sum to 1.0
+    - verify every required input field is represented or explicitly marked not_applicable with rationale
+    - detect input_knowledge records without source/provenance markers
+    - detect design_decisions without upstream input_knowledge or requirement links
+    - detect solution_alternatives without status selected/rejected/deferred
+    - detect prior_artifacts with no comparison or critique fields
+    - detect source anchors referenced by grounding claims but absent from source registry
+    - compute weighted_score and apply floor rules to produce adjusted_rating_after_floor_rules
+    manual_review_only_checks:
+    - adequacy of theory fit to problem mechanisms
+    - whether prior artifact coverage is sufficient for the artifact domain
+    - quality and fairness of alternative comparison criteria
+    - whether source limitations undermine design claims
+    - whether prior solution critique is balanced rather than rhetorical
+    - whether trace links represent substantive design uptake or traceability theater
+    - ethical, privacy, security, governance, and stakeholder burden implications of imported knowledge or reused patterns
+    repository_integration_notes:
+      proposed_file_path: rubrics/input_knowledge_solution_grounding_rubric.yaml
+      related_schema_fields:
+      - solution_space.input_knowledge
+      - solution_space.kernel_theories
+      - solution_space.prior_artifacts
+      - solution_space.design_patterns
+      - solution_space.methods
+      - solution_space.technologies
+      - solution_space.solution_alternatives
+      - solution_space.prior_solution_critique
+      - traceability.knowledge_to_design_trace
+      likely_crosswalk_updates:
+      - map Feine et al. machine-executable descriptive knowledge anchors to descriptive_knowledge and knowledge_to_design_trace terms
+      - map Leimeister et al. design pattern anchors to design_pattern, solution_space, and problem_solution_fit terms
+      - map Theory of DSR rigor-through-knowledge-base anchor to input_knowledge source-grounding policy
+      - map Operational Synthesis solution_space transparency anchor to repository template fields
+      likely_documentation_updates:
+      - docs/solution-space-grounding.md
+      - docs/rubrics/input-knowledge-solution-grounding.md
+      - crosswalks/source-to-framework-alignment.yaml
+      - templates/dsr-project-template.yaml
+      - schemas/dsr-project.schema.json
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_exemplary_solution_grounding
+    label: Exemplary/strong
+    case_summary: A higher-education program-outcomes artifact is grounded in competency-based education literature, curriculum mapping methods,
+      prior CLO-PLO mapping tools, design patterns for traceability and visualization, stakeholder evidence from QA reviewers and faculty, and
+      multiple technology alternatives. The record critiques existing dashboards for weak contribution tracing and poor evaluator calibration,
+      then links selected design patterns to requirements and evaluation criteria.
+    expected_scores:
+      kernel_theory_and_descriptive_knowledge_fit: 4
+      prior_artifact_and_design_knowledge_coverage: 4
+      solution_alternative_search: 3
+      problem_solution_fit: 4
+      source_quality_and_provenance: 4
+      prior_solution_critique: 4
+      knowledge_to_design_trace: 4
+    expected_decision: well_grounded
+    why: The artifact shows source provenance, alternative comparison, prior-solution critique, and explicit knowledge-to-design trace.
+  - vignette_id: borderline_conditional_solution_grounding
+    label: Borderline/conditional
+    case_summary: A compliance process artifact uses quality-management concepts, one institutional benchmark, and a selected workflow technology.
+      It has reasonable descriptive problem evidence and some requirements links, but prior artifacts are only lightly scanned, alternatives are
+      limited to two tools, and critique of existing solutions is mostly anecdotal.
+    expected_scores:
+      kernel_theory_and_descriptive_knowledge_fit: 3
+      prior_artifact_and_design_knowledge_coverage: 2
+      solution_alternative_search: 2
+      problem_solution_fit: 3
+      source_quality_and_provenance: 3
+      prior_solution_critique: 2
+      knowledge_to_design_trace: 2
+    expected_decision: grounded_with_gaps
+    why: The design can continue only if prior-artifact coverage, alternatives, critique, and trace links are strengthened before strong rigor
+      or contribution claims are made.
+  - vignette_id: weak_not_ready_solution_grounding
+    label: Weak/not-ready
+    case_summary: A project proposes an AI advising chatbot because chatbots are popular. It cites a few general AI articles, does not compare
+      existing advising tools, does not identify domain mechanisms, does not document alternatives, and has no trace from input knowledge to requirements
+      or evaluation criteria.
+    expected_scores:
+      kernel_theory_and_descriptive_knowledge_fit: 1
+      prior_artifact_and_design_knowledge_coverage: 0
+      solution_alternative_search: 0
+      problem_solution_fit: 1
+      source_quality_and_provenance: 1
+      prior_solution_critique: 0
+      knowledge_to_design_trace: 0
+    expected_decision: ungrounded
+    why: The artifact is solution-first, weakly sourced, and lacks alternative search, prior-solution critique, and knowledge-to-design trace.
+  - vignette_id: single_option_constraint_case
+    label: Constrained but potentially acceptable
+    case_summary: A university must use an already licensed workflow platform, but the design team compares alternative process models, data structures,
+      rubric workflows, governance routes, and evaluation approaches inside that constraint. The record explains the licensing constraint and
+      still traces knowledge to decisions.
+    expected_scores:
+      kernel_theory_and_descriptive_knowledge_fit: 3
+      prior_artifact_and_design_knowledge_coverage: 3
+      solution_alternative_search: 3
+      problem_solution_fit: 3
+      source_quality_and_provenance: 3
+      prior_solution_critique: 3
+      knowledge_to_design_trace: 3
+    expected_decision: grounded_with_gaps
+    why: A mandated technology does not eliminate alternative search; it shifts alternatives to configuration, process, governance, design pattern,
+      and evaluation choices.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use the weighted score as a summary indicator only after reviewing dimension scores and floor rules.
+    - Treat problem_solution_fit as especially important because a strongly sourced solution can still be inappropriate for the represented problem.
+    - Treat knowledge_to_design_trace as an auditability requirement; its lower weight does not mean it is optional.
+    - Do not use citation quantity as a proxy for source quality, relevance, or design uptake.
+    - Use human_review_flags to decide whether additional domain, methodological, ethical, technical, or stakeholder review is required.
+    what_not_to_infer:
+    - A high score does not prove the artifact works; it only indicates that the proposed artifact is well grounded in relevant prior knowledge
+      before or during design.
+    - A high score does not prove novelty, contribution quality, evaluation validity, implementation readiness, ethical acceptability, or stakeholder
+      acceptance.
+    - A high score does not mean all possible prior artifacts or theories have been exhaustively reviewed.
+    - A low score does not mean the artifact idea is bad; it means the solution-space grounding record is not yet adequate for DSR claims.
+    - A source-supported claim does not automatically imply a hard validation rule; obligation severity depends on framework policy and claim
+      materiality.
+    - A machine-valid trace link does not prove substantive fit; reviewers must inspect rationale and evidence-to-claim alignment.
+    relationship_to_adjacent_rubrics:
+    - rubric_id: requirements_traceability_rubric
+      relationship: This rubric depends on requirements_traceability_rubric because input knowledge should be linked to requirements, design decisions,
+        and evaluation criteria rather than floating as background literature.
+    - rubric_id: artifact_specification_quality_rubric
+      relationship: Use next to assess whether the grounded artifact/design entity is specified clearly enough to distinguish artifact universal,
+        instantiation, capacities, make plan, and use plan.
+    - rubric_id: design_rationale_build_trace_rubric
+      relationship: Use later to assess whether design decisions and build iterations preserve the rationale emerging from input knowledge and
+        alternatives.
+    - rubric_id: evaluation_alignment_quality_rubric
+      relationship: Use later to test whether evaluation criteria and evidence modes assess the claims implied by the grounded artifact logic.
+    - rubric_id: contribution_quality_rubric
+      relationship: Use later to assess whether the design knowledge and contribution claim are appropriately positioned against the same knowledge
+        base.
+    known_limitations:
+    - The rubric cannot determine literature search exhaustiveness without domain-specific search protocols.
+    - The rubric may need domain-specific calibration for clinical, legal, security, privacy, accreditation, or high-risk institutional contexts.
+    - The rubric assumes an artifact-centered DSR workflow; projects with unusual DSR genres may require adjusted evidence expectations.
+    - The source-anchor IDs listed in source_grounding are intended as framework trace anchors and should be reconciled against the current source
+      registry before release.
+  quality_control:
+    completeness_check:
+    - All required_inputs are represented.
+    - All required_outputs are represented.
+    - All seven required assessment_dimensions are present.
+    - Every dimension has score descriptors for 0, 1, 2, 3, and 4.
+    - Weights sum to 1.0.
+    - 'Decision values match the prompt: well_grounded, grounded_with_gaps, requires_solution_space_revision, ungrounded.'
+    - At least three scoring vignettes are included.
+    - what_not_to_infer is included under interpretation_guidance.
+    - Non-compensatory floor rules are included.
+    - Validation implications distinguish machine-actionable checks from manual review.
+    ambiguity_check:
+    - Check whether kernel_theory, descriptive_knowledge, prior_artifact, design_pattern, method, and technology are used consistently.
+    - Check whether source-supported claims are separated from reviewer_judgment.
+    - Check whether prior solution critique is evidence-based rather than rhetorical.
+    - Check whether alternatives are real alternatives rather than minor variants of the selected solution.
+    - Check whether solution-space grounding claims are calibrated to artifact risk and contribution ambition.
+    human_review_recommendation:
+      recommended: true
+      reason: Solution-space grounding requires expert judgment about theory fit, prior artifact coverage, source relevance, alternative adequacy,
+        prior solution critique, and whether trace links represent substantive design uptake.
+    source_gap_notes:
+    - Feine et al. anchors support descriptive-to-prescriptive knowledge transformation and machine-executable knowledge representation, but do
+      not imply every DSR artifact must be machine-executable.
+    - Leimeister et al. anchors support design patterns as a bridge between problem-space and solution-space, but not every artifact domain will
+      have mature design patterns.
+    - Theory and operational synthesis anchors support rigor through the knowledge base and solution-space transparency, but repository-specific
+      validation severity remains an operational design choice.
+    - The requirements_traceability_rubric dependency should be synchronized if traceability edge vocabulary changes.
+    release_readiness_checks:
+    - YAML parses without errors.
+    - All identifiers use lowercase snake_case.
+    - Weights sum to 1.0.
+    - No soft recommendation is stated as a hard SHACL violation without source/framework support.
+    - what_not_to_infer section is present.
+    - Rubric metadata intended_file_path equals rubrics/input_knowledge_solution_grounding_rubric.yaml.
+    machine_readiness_check:
+      yaml_parseable: true
+      weights_sum_to_1: true
+      schema_ready: partial
+      manual_review_required: true
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready draft generated from prompt_input_knowledge_solution_grounding_rubric, rubric generation spec v0.1.0,
+      prior rubric conventions, Theory of DSR rigor-through-knowledge-base synthesis, Feine machine-executable descriptive knowledge extraction,
+      Leimeister design pattern extraction, and DSR Operational Synthesis solution-space logic.
+    changed_by: gpt_5_5_thinking

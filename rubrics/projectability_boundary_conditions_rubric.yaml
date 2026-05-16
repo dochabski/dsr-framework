@@ -1,0 +1,969 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: projectability_boundary_conditions_rubric
+    label: Projectability and Boundary-Conditions Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/projectability_boundary_conditions_rubric.yaml
+    local_file_name: projectability_boundary_conditions_rubric.yaml
+    assessment_target: knowledge_space.projectability_statement
+    priority: recommended
+    lifecycle_phase: contribution_scoping_and_reuse
+    prompt_id: prompt_projectability_boundary_conditions_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - context_stakeholder_adequacy_rubric
+    - evaluation_alignment_quality_rubric
+    - contribution_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_controlled_values; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Are transfer, reuse, adaptation, and non-applicability conditions stated well enough for responsible
+      use beyond the local case?
+    when_to_use:
+    - when interpreting evaluation results
+    - when making contribution claims
+    - when preparing reusable repository artifacts
+    - when deciding whether artifact knowledge may be reused in a new context
+    - when a manuscript, thesis, repository package, or practitioner guide makes transfer or adaptation claims
+    - whenever new findings, stakeholder feedback, context changes, or reuse attempts change the boundary conditions
+    when_not_to_use:
+    - do not use before a minimally adequate context record, evaluation record, and contribution claim exist
+    - do not use as a substitute for evaluation_alignment_quality_rubric; this rubric constrains reuse claims rather than
+      evaluating the original study design
+    - do not use as a substitute for contribution_quality_rubric; projectability is one part of contribution quality, not
+      the whole contribution claim
+    - do not use to certify statistical generalizability unless the study design separately supports statistical inference
+    - do not use to approve ethical, legal, privacy, security, or governance acceptability in a receiving context
+    - do not treat a high projectability score as proof that direct copying will work without local adaptation
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - journal_or_conference_reviewer
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - technical_implementer
+    - artifact_maintainer
+    - replication_or_reuse_reviewer
+    - practitioner_audience_translator
+    unit_of_assessment: one_knowledge_space_projectability_statement_for_a_candidate_or_completed_dsr_study
+    boundary_conditions:
+    - The rubric assesses projectability, transfer, reuse, adaptation, and non-applicability statements, not whether the artifact
+      itself is effective in every setting.
+    - The rubric supports conceptual artifacts, methods, process models, rubrics, frameworks, taxonomies, software prototypes,
+      socio-technical interventions, design principles, and design theories.
+    - Projectability can be narrow and still strong when transfer conditions, adaptation requirements, evidence limits, and
+      non-use conditions are explicit.
+    - Machine validation can check fields, identifiers, controlled values, trace links, and missing conditions; substantive
+      transfer reasoning and evidence sufficiency require human review.
+    - The record should distinguish responsible projectability from statistical generalization, marketing claims, implementation
+      replication, and routine local copying.
+    assumptions:
+    - A projectability statement explains where, why, how, and under what constraints design knowledge might be reused beyond
+      the local case.
+    - Boundary conditions are interpretive limits on claims, not merely project constraints.
+    - Reuse usually requires adaptation; responsible reuse documentation should state what may be modified, what must be preserved,
+      and what must be reevaluated.
+    - Evaluation findings constrain projectability claims; unsupported transfer claims should trigger revision regardless
+      of average score.
+  source_grounding:
+    source_families_to_consult:
+    - baskerville_projectability_discussion
+    - reining_knowledge_accumulation_extraction
+    - zur_heiden_context_extraction
+    - dsr_operational_synthesis.boundary_conditions
+    - concept_inventory.context_space
+    - concept_inventory.knowledge_space
+    - concept_inventory.projectability_statement
+    - dsr_skos_controlled_vocabulary.validity_reliability_terms
+    - dsr_ontology_competency_questions.problem_context_evaluation_and_contribution
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    source_anchor_policy:
+      minimum: Every major projectability rationale should cite at least one source_anchor_id, framework_anchor, repository_artifact,
+        or reviewer_judgment marker.
+      preferred: Use source anchors from projectability, context, knowledge accumulation, evaluation, and contribution extraction
+        records when available.
+      do_not_do: Do not treat reviewer judgment, local preference, implementation success, or practitioner enthusiasm as source-supported
+        transfer evidence.
+    unsupported_claim_policy:
+      rule: Claims about transfer, reuse, adaptation, applicability, non-applicability, and generality must be marked unsupported
+        when they lack evidence-to-claim traceability.
+      effect: Unsupported projectability claims trigger human_review and may activate non_compensatory_floor_rules.
+      claim_language: Prefer bounded language such as 'projectable under stated conditions' over unbounded language such as
+        'generalizable' unless the evidence warrants generalization.
+    source_supported_claims:
+    - claim_id: src_claim_projectability_requires_boundaries
+      claim: Projectability claims should be stated with explicit context, scope, and boundary conditions rather than inferred
+        from artifact existence.
+      source_family: dsr_operational_synthesis.boundary_conditions
+      framework_anchor: operational_synthesis:boundary_conditions
+      obligation_status: recommended
+      use_in_rubric: supports context_condition_mapping, negative_boundary_conditions, and overgeneralization_control
+    - claim_id: src_claim_accumulation_requires_codification
+      claim: Accumulation and reuse of design knowledge require codified knowledge, traceability, and comparable records.
+      source_family: reining_knowledge_accumulation_extraction
+      framework_anchor: source_family:reining_knowledge_accumulation
+      obligation_status: recommended
+      use_in_rubric: supports reuse_materials_and_traceability and overgeneralization_control
+    - claim_id: src_claim_context_shapes_transfer
+      claim: Context is not mere background; contextual conditions shape interpretation of artifact use, evaluation, and contribution
+        claims.
+      source_family: zur_heiden_context_extraction
+      framework_anchor: source_family:zur_heiden_context
+      obligation_status: recommended
+      use_in_rubric: supports context_condition_mapping and evaluation_scope_limits
+    - claim_id: src_claim_contribution_must_exceed_local_report
+      claim: A DSR contribution should communicate reusable, projectable, or accumulable design knowledge rather than merely
+        reporting a local artifact.
+      source_family: baskerville_projectability_discussion
+      framework_anchor: source_family:baskerville_dsr_contributions
+      obligation_status: recommended
+      use_in_rubric: supports problem_class_transfer_logic and overgeneralization_control
+    reviewer_judgment_domains:
+    - adequacy_of_transfer_logic
+    - materiality_of_context_conditions
+    - sufficiency_of_adaptation_guidance
+    - severity_of_negative_boundary_conditions
+    - whether_claim_scope_exceeds_evidence
+    - whether_sensitive_context_details_need_redaction
+  construct_definitions:
+  - term_id: projectability_statement
+    label: Projectability Statement
+    definition: A bounded claim about whether and how artifact knowledge, design knowledge, or a design entity may be transferred,
+      reused, adapted, or treated as non-applicable beyond the local case.
+    distinctions_to_preserve:
+    - projectability_is_not_statistical_generalizability
+    - projectability_is_not_production_readiness
+    - projectability_is_not_direct_copying
+    - projectability_requires_boundary_conditions
+  - term_id: transfer_condition
+    label: Transfer Condition
+    definition: A contextual, stakeholder, artifact, evaluation, governance, resource, or mechanism condition that must hold,
+      should hold, or should be checked before reuse.
+  - term_id: adaptation_requirement
+    label: Adaptation Requirement
+    definition: A required or recommended change to an artifact, method, use plan, capacity specification, evidence plan,
+      or supporting material for responsible use in a new context.
+  - term_id: negative_boundary_condition
+    label: Negative Boundary Condition
+    definition: A condition under which an artifact or design-knowledge claim should not be applied, should be treated as
+      untested, or should be used only with strong caution and additional evaluation.
+  - term_id: overgeneralization
+    label: Overgeneralization
+    definition: A claim failure in which transfer, reuse, generality, maturity, or effectiveness is asserted beyond the scope
+      supported by evidence, context, or evaluation findings.
+  required_inputs:
+  - input_field: problem_class
+    description: The reusable or recurring problem class to which the local case is claimed to belong.
+    obligation_status: required
+    accepted_format: text_or_structured_problem_class_record
+    minimum_evidence: Problem class identifier, local instance link, and abstraction rationale.
+  - input_field: context
+    description: Context record covering organizational, technical, social, regulatory, temporal, resource, governance, stakeholder,
+      and artifact-network conditions material to transfer.
+    obligation_status: required
+    accepted_format: context_space_record_or_condition_matrix
+    minimum_evidence: Material context conditions and trace to claims.
+  - input_field: artifact_boundary
+    description: Statement of what the artifact or design entity includes, excludes, depends on, and assumes.
+    obligation_status: required
+    accepted_format: artifact_boundary_record
+    minimum_evidence: Included elements, excluded elements, dependencies, assumptions, and artifact/instantiation distinction
+      where applicable.
+  - input_field: evaluation_setting
+    description: Evaluation setting, object, evidence mode, timing, stakeholder participants, and findings used to support
+      or limit projectability.
+    obligation_status: required
+    accepted_format: evaluation_space_record_or_evaluation_summary
+    minimum_evidence: Setting, evidence mode, findings, and limitations.
+  - input_field: findings
+    description: Findings, results, observations, expert judgments, field evidence, analytics, or validation results that
+      support or constrain claims.
+    obligation_status: required
+    accepted_format: findings_record_with_evidence_to_claim_links
+    minimum_evidence: At least one finding linked to a projectability claim or limitation.
+  - input_field: boundary_conditions
+    description: Positive, negative, uncertain, and untested applicability conditions.
+    obligation_status: required
+    accepted_format: boundary_condition_register
+    minimum_evidence: At least positive applicability and negative/non-applicability conditions.
+  - input_field: adaptation_guidance
+    description: Guidance for tailoring the artifact, method, use plan, make plan, capacity specification, or evaluation before
+      reuse.
+    obligation_status: required
+    accepted_format: adaptation_guide_or_structured_notes
+    minimum_evidence: What may change, what must not change, and what should be checked after adaptation.
+  required_outputs:
+  - output_field: projectability_rating
+    description: Weighted score and categorical decision value.
+    accepted_values:
+    - projectability_ready
+    - projectable_with_limits
+    - requires_boundary_revision
+    - not_projectable_as_claimed
+  - output_field: transfer_conditions
+    description: Structured list of necessary, enabling, optional, risky, blocking, unknown, and untested transfer conditions.
+  - output_field: non_applicability_conditions
+    description: Conditions under which the artifact or design knowledge should not be used, should be adapted cautiously,
+      or should be treated as unsupported.
+  - output_field: adaptation_requirements
+    description: Required and recommended adaptation actions before reuse.
+  - output_field: overgeneralization_warnings
+    description: Claim-specific warnings where proposed scope exceeds evidence or traceability.
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical/governance risk, evidence insufficiency, and overclaiming.
+  assessment_dimensions:
+  - dimension_id: problem_class_transfer_logic
+    label: Problem-Class Transfer Logic
+    definition: Quality of reasoning from the local problem instance to a broader problem class for which transfer, adaptation,
+      or reuse might be warranted.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - problem_instance_statement
+    - problem_class_statement
+    - instance_to_class_abstraction_trace
+    - candidate_transfer_targets
+    - transfer_rationale
+    - boundary_condition_register
+    level_descriptors:
+      score_0: No problem class is stated, or the record leaps from one local case to universal applicability without abstraction
+        logic.
+      score_1: A broad problem class is named, but transfer logic is mostly asserted, generic, or based only on surface similarity
+        to the local case.
+      score_2: The record identifies a plausible problem class and some transfer-relevant similarities, but omits material
+        differences, mechanisms, or exclusion conditions.
+      score_3: The record explains why the local instance belongs to a reusable problem class, identifies transfer-relevant
+        mechanisms and constraints, and states where the class boundary is uncertain.
+      score_4: The record gives a well-bounded transfer argument linking local mechanisms, stakeholder burdens, context conditions,
+        artifact capacities, evaluation findings, and negative cases to a clearly delimited problem class.
+    minimum_evidence: Problem instance, problem class, at least one transfer-relevant mechanism, and at least one condition
+      limiting class membership.
+    high_quality_evidence: A traceable instance-to-class abstraction record with mechanism mapping, positive and negative
+      cases, stakeholder/context conditions, and explicit confidence or uncertainty notes.
+    weak_evidence_signals:
+    - local success treated as proof of broad applicability
+    - problem class stated only as a topic label
+    - no comparison between candidate contexts
+    - no mechanism or causal/functional explanation
+    - negative cases omitted
+    calibration_anchor: A score of 3 requires explicit reasoning from local instance to class; a score of 4 requires transfer
+      logic that also constrains where the class does not apply.
+    common_failure_modes:
+    - case_to_universal_leap
+    - overabstraction
+    - overlocalization
+    - mechanism_opacity
+    - problem_class_boundary_blur
+    reviewer_notes: Do not reward broad language by itself. Projectability improves when the scope is narrower but better
+      justified.
+  - dimension_id: context_condition_mapping
+    label: Context-Condition Mapping
+    definition: Identification of contextual conditions required, helpful, risky, or blocking for transfer, reuse, adaptation,
+      or non-applicability.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - context_description
+    - stakeholder_map
+    - artifact_network
+    - governance_and_resource_context
+    - context_to_claim_trace
+    - transfer_condition_table
+    level_descriptors:
+      score_0: No material context conditions are documented, or context is treated as irrelevant background.
+      score_1: Context is described generally, but transfer conditions are not distinguished from incidental local details.
+      score_2: Some transfer-relevant context conditions are identified, but mapping is incomplete, weakly organized, or not
+        linked to claims.
+      score_3: Material organizational, technical, social, regulatory, temporal, resource, governance, stakeholder, and artifact-network
+        conditions are mapped to transfer or reuse claims.
+      score_4: The record provides a structured condition map distinguishing necessary, enabling, optional, risky, blocking,
+        and unknown conditions, with trace links to evidence, artifact capacities, and evaluation limits.
+    minimum_evidence: A context register that distinguishes at least necessary/enabling conditions from uncertain or blocking
+      conditions.
+    high_quality_evidence: A context-condition matrix with condition type, source/evidence, affected artifact capacity, transfer
+      implication, confidence level, and review trigger.
+    weak_evidence_signals:
+    - context named only by organization or sector
+    - stakeholders omitted from transfer conditions
+    - technical dependencies not mapped
+    - governance or policy dependencies ignored
+    - conditions listed but not linked to claims
+    calibration_anchor: A score of 3 requires context conditions linked to transfer claims; a score of 4 requires condition
+      typing and traceability.
+    common_failure_modes:
+    - context_as_background_only
+    - artifact_network_blindness
+    - unsupported_projectability
+    - condition_granularity_mismatch
+    - stakeholder_context_erasure
+    reviewer_notes: Context-condition mapping should be proportionate to claim scope. Narrow claims need fewer mapped conditions;
+      broad claims need stronger mapping.
+  - dimension_id: artifact_adaptation_guidance
+    label: Artifact Adaptation Guidance
+    definition: Guidance for adapting the artifact, method, use plan, make plan, capacity specification, or surrounding practices
+      when used outside the original case.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - artifact_boundary
+    - artifact_type
+    - capacity_specification
+    - make_plan
+    - use_plan
+    - adaptation_guidance
+    - configuration_parameters
+    - non_adaptable_elements
+    level_descriptors:
+      score_0: No adaptation guidance is provided, or the record implies direct reuse without modification regardless of context.
+      score_1: Adaptation is mentioned, but guidance is vague, non-operational, or limited to a general warning to adjust
+        locally.
+      score_2: Some artifact components or use steps are identified as adaptable, but required adaptations, constraints, and
+        risks are only partially specified.
+      score_3: The record identifies adaptable and non-adaptable components, expected configuration choices, local tailoring
+        steps, and constraints on maintaining artifact integrity.
+      score_4: The record gives actionable adaptation guidance with component-level tailoring rules, parameter ranges, make/use-plan
+        adjustments, capacity impacts, validation checks, and examples of valid and invalid adaptations.
+    minimum_evidence: Identification of what may be adapted, what should not be adapted, and what must be checked after adaptation.
+    high_quality_evidence: Adaptation guide or template linked to artifact components, requirements, use plan, capacity specification,
+      evaluation criteria, and boundary conditions.
+    weak_evidence_signals:
+    - reuse instructions copied from local implementation notes
+    - no distinction between artifact universal and local instantiation
+    - adaptation risks ignored
+    - configuration parameters unspecified
+    - no post-adaptation validation checks
+    calibration_anchor: A score of 3 requires operational adaptation guidance; a score of 4 requires guidance that preserves
+      artifact integrity while supporting legitimate local tailoring.
+    common_failure_modes:
+    - reuse_without_adaptation_guidance
+    - implementation_artifact_conflation
+    - artifact_boundary_blur
+    - capacity_drift
+    - unvalidated_tailoring
+    reviewer_notes: Do not require software-style configuration for every artifact type. Conceptual artifacts, rubrics, taxonomies,
+      and methods can still state adaptation rules.
+  - dimension_id: evaluation_scope_limits
+    label: Evaluation Scope Limits
+    definition: Alignment of projectability claims with evaluation setting, evaluation object, sample, timing, evidence mode,
+      criteria, findings, and validity threats.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - evaluation_setting
+    - evaluation_object
+    - evaluation_timing
+    - evidence_mode
+    - findings
+    - validity_threats
+    - findings_to_claims_trace
+    - claim_scope_statement
+    level_descriptors:
+      score_0: Projectability claims are made without evaluation evidence, or findings are generalized beyond any stated evaluation
+        setting.
+      score_1: Evaluation is mentioned, but the claim does not acknowledge sample, setting, evidence-mode, timing, or validity
+        limits.
+      score_2: Some limits of the evaluation are stated, but the connection between findings and transfer claims remains partial
+        or uneven.
+      score_3: Projectability claims are explicitly constrained by evaluation object, timing, setting, evidence mode, criteria,
+        findings, and identified validity threats.
+      score_4: The record provides a disciplined findings-to-claims trace showing which projectability claims are supported,
+        which remain tentative, which require additional evaluation, and which are not supported.
+    minimum_evidence: Evaluation summary with setting, evidence mode, findings, and explicit constraints on claim scope.
+    high_quality_evidence: A findings-to-projectability matrix linking each claim to evaluation evidence, confidence, validity
+      threats, and additional evidence needed for broader transfer.
+    weak_evidence_signals:
+    - pilot success treated as field effectiveness
+    - expert review treated as adoption evidence
+    - artificial setting generalized to naturalistic setting
+    - sample or setting omitted
+    - validity threats not connected to claim limits
+    calibration_anchor: A score of 3 requires evaluation limits to constrain claims; a score of 4 requires claim-by-claim
+      support and unsupported-claim tracking.
+    common_failure_modes:
+    - unsupported_projectability
+    - evaluation_claim_mismatch
+    - findings_overread
+    - validity_threat_suppression
+    - claim_scope_inflation
+    reviewer_notes: Early-stage analytical, artificial, or expert evidence can support limited projectability claims when
+      those limits are explicit.
+  - dimension_id: negative_boundary_conditions
+    label: Negative Boundary Conditions
+    definition: Conditions under which the artifact, method, design knowledge, or contribution claim should not be used, should
+      be adapted cautiously, or should be treated as untested.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - non_applicability_conditions
+    - risk_conditions
+    - exclusion_conditions
+    - untested_conditions
+    - ethical_or_governance_constraints
+    - stakeholder_burden_notes
+    level_descriptors:
+      score_0: No negative boundary conditions are stated despite transfer, reuse, or projectability claims.
+      score_1: Negative boundaries are generic, such as 'may not work everywhere,' without actionable criteria.
+      score_2: Some non-applicability or caution conditions are listed, but they are incomplete, not prioritized, or not tied
+        to risk or evidence.
+      score_3: The record states clear non-applicability, caution, and untested conditions and links them to context, artifact,
+        stakeholder, governance, or evaluation evidence.
+      score_4: The record includes robust negative-case logic with blocking conditions, misuse risks, adaptation cautions,
+        untested cases, monitoring triggers, and responsible non-use guidance.
+    minimum_evidence: At least one explicit non-applicability condition and one caution or untested condition.
+    high_quality_evidence: Negative boundary register with condition type, rationale, evidence, affected claims, risk severity,
+      and recommended response.
+    weak_evidence_signals:
+    - only positive applicability conditions
+    - risks stated without non-use conditions
+    - absence of stakeholder burden review
+    - no distinction between untested and known-not-applicable
+    - boundary conditions added as boilerplate
+    calibration_anchor: A score of 3 requires clear negative conditions; a score of 4 requires operational non-use and caution
+      guidance.
+    common_failure_modes:
+    - boundary_condition_absence
+    - positive_case_bias
+    - non_use_silence
+    - misuse_risk_blindness
+    - untested_case_erasure
+    reviewer_notes: Negative boundary conditions are not a weakness; they strengthen responsible reuse and prevent overclaiming.
+  - dimension_id: reuse_materials_and_traceability
+    label: Reuse Materials and Traceability
+    definition: Availability and traceability of artifacts, templates, examples, scripts, measures, protocols, records, or
+      guidance that support responsible reuse, adaptation, review, or accumulation.
+    weight: 0.12
+    required: false
+    score_direction: higher_is_better
+    evidence_needed:
+    - repository_artifacts
+    - templates
+    - examples
+    - scripts
+    - protocols
+    - traceability_edges
+    - source_anchors
+    - version_history
+    - license_or_reuse_permissions
+    level_descriptors:
+      score_0: No reuse materials, trace links, examples, or procedural documentation are available.
+      score_1: Some materials are mentioned, but they are incomplete, inaccessible, unversioned, or disconnected from claims.
+      score_2: Basic reuse materials exist, but traceability among artifact, context, requirements, evaluation, and contribution
+        claims is incomplete.
+      score_3: The record provides reusable materials with stable identifiers, version notes, examples, source anchors, and
+        trace links sufficient for informed reuse.
+      score_4: The record provides a repository-ready reuse package with templates, examples, protocols, validation checks,
+        versioned traces, source anchors, and clear adaptation/reuse permissions.
+    minimum_evidence: At least one reusable artifact or guidance object plus stable identifiers linking it to the projectability
+      statement.
+    high_quality_evidence: A complete reuse package with README or index, artifact files, examples, validation notes, traceability
+      map, source anchors, and version/license information.
+    weak_evidence_signals:
+    - artifact described but not available
+    - templates lack examples
+    - no source anchors
+    - version history absent
+    - materials cannot be linked to claims
+    calibration_anchor: A score of 3 requires materials sufficient for informed reuse; a score of 4 requires a coherent repository
+      package.
+    common_failure_modes:
+    - non_codified_knowledge
+    - traceability_gap
+    - missing_materials
+    - source_anchor_absence
+    - unversioned_reuse_package
+    reviewer_notes: This dimension is marked recommended rather than strictly required because some early-stage projectability
+      claims may be conceptual, but missing materials should constrain reuse claims.
+  - dimension_id: overgeneralization_control
+    label: Overgeneralization Control
+    definition: Controls that prevent the record from claiming more transferability, generality, maturity, effectiveness,
+      or reuse value than the evidence supports.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - claim_scope_statement
+    - evidence_to_claim_trace
+    - unsupported_claims_register
+    - confidence_levels
+    - overgeneralization_warnings
+    - human_review_flags
+    level_descriptors:
+      score_0: The record makes broad projectability claims that contradict or exceed the evidence, with no warnings or limits.
+      score_1: Some limiting language is present, but overgeneralization risks are not systematically identified or acted
+        on.
+      score_2: The record identifies several overclaim risks, but controls are incomplete, weakly linked to evidence, or not
+        reflected in final decision values.
+      score_3: The record constrains claims using evidence-to-claim traceability, confidence levels, unsupported-claim notes,
+        and human-review triggers.
+      score_4: The record actively controls overgeneralization through claim-by-claim evidence grading, boundary-condition
+        enforcement, negative-case checks, decision thresholds, and revision actions before repository release.
+    minimum_evidence: Explicit claim-scope limits and at least one overgeneralization warning linked to evidence sufficiency.
+    high_quality_evidence: Evidence-to-claim matrix with supported, partially supported, unsupported, and disallowed claims;
+      confidence levels; reviewer notes; and decision implications.
+    weak_evidence_signals:
+    - strong claims with low evidence
+    - generality implied by polished wording
+    - unsupported transfer targets
+    - no reviewer flags for evidence gaps
+    - claim scope not updated after evaluation limits
+    calibration_anchor: A score of 3 requires active claim constraint; a score of 4 requires overclaim prevention to affect
+      decision thresholds and revision actions.
+    common_failure_modes:
+    - overgeneralization
+    - unsupported_projectability
+    - claim_evidence_mismatch
+    - boundary_condition_theater
+    - maturity_inflation
+    reviewer_notes: Overgeneralization control should protect both scholarly credibility and practitioner safety. Treat cautious,
+      bounded claims as stronger than expansive unsupported claims.
+  scoring_model:
+    scale: 0_to_4
+    score_direction: higher_is_better
+    score_meaning:
+      '0': absent_or_blocked
+      '1': weak_or_asserted
+      '2': conditional_or_partially_supported
+      '3': strong_or_adequately_supported
+      '4': very_strong_or_exemplary
+    weight_sum_rule: dimension_weights_sum_to_1_0
+    weight_total: 1.0
+    weighted_score_formula: sum(dimension_score * dimension_weight)
+    missing_evidence_rule: If evidence needed for a required dimension is absent, assign score_0 or score_1 and activate a
+      human_review_flag.
+    reverse_scoring_rule: No dimension is reverse-scored in this rubric; overgeneralization_control is scored positively as
+      quality of control.
+    rounding_rule: Round weighted_score to two decimal places for reporting; preserve raw dimension scores for audit.
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_problem_class
+      condition: problem_class_transfer_logic == 0
+      maximum_decision: not_projectable_as_claimed
+      rationale: Transfer cannot be assessed without a problem class or equivalent abstraction target.
+    - rule_id: floor_missing_boundary_conditions
+      condition: negative_boundary_conditions <= 1
+      maximum_decision: requires_boundary_revision
+      rationale: Responsible reuse requires negative, caution, or untested applicability conditions.
+    - rule_id: floor_unsupported_evaluation_scope
+      condition: evaluation_scope_limits <= 1 and any_transfer_or_effectiveness_claim_is_made
+      maximum_decision: requires_boundary_revision
+      rationale: Evaluation findings must constrain projectability and effectiveness claims.
+    - rule_id: floor_unsupported_overclaim
+      condition: overgeneralization_control <= 1 or unsupported_projectability_claim_present == true
+      maximum_decision: requires_boundary_revision
+      rationale: Unsupported overclaiming cannot be offset by strong reuse materials or context description.
+    - rule_id: floor_direct_reuse_without_guidance
+      condition: artifact_adaptation_guidance <= 1 and reuse_or_transfer_claim_requires_adaptation == true
+      maximum_decision: projectable_with_limits
+      rationale: When adaptation is necessary, absence of adaptation guidance prevents readiness for responsible reuse.
+  decision_thresholds:
+    projectability_ready:
+      weighted_score_minimum: 3.5
+      required_dimension_minimums:
+        problem_class_transfer_logic: 3
+        context_condition_mapping: 3
+        artifact_adaptation_guidance: 3
+        evaluation_scope_limits: 3
+        negative_boundary_conditions: 3
+        overgeneralization_control: 3
+      allowed_conditions: No blocking floor rules, no unresolved unsupported projectability claims, and reuse_materials_and_traceability
+        >= 2.
+    projectable_with_limits:
+      weighted_score_minimum: 2.6
+      weighted_score_maximum: 3.49
+      required_dimension_minimums:
+        problem_class_transfer_logic: 2
+        context_condition_mapping: 2
+        evaluation_scope_limits: 2
+        negative_boundary_conditions: 2
+        overgeneralization_control: 2
+      allowed_conditions: Claims must be explicitly limited; unresolved gaps must be recorded as adaptation, evaluation, or
+        boundary revision actions.
+    requires_boundary_revision:
+      weighted_score_minimum: 1.6
+      weighted_score_maximum: 2.59
+      condition: The projectability statement has partial support but needs boundary, adaptation, evaluation-scope, or overclaim
+        revision before release.
+    not_projectable_as_claimed:
+      weighted_score_maximum: 1.59
+      condition: Transfer, reuse, or applicability claims are absent, unsupported, contradicted by evidence, or blocked by
+        floor rules.
+    human_review_triggers:
+    - any_required_dimension_score_below_2
+    - unsupported_projectability_claim_present
+    - context_conditions_material_but_unmapped
+    - ethical_privacy_security_or_governance_risk_in_transfer_context
+    - evidence_mode_too_weak_for_claim_scope
+    - negative_boundary_conditions_absent
+    - adaptation_guidance_absent_when_adaptation_is_expected
+    - reviewer_disagreement_on_problem_class_boundary
+  calibration_guidance:
+    reviewer_preparation:
+    - Review the context_stakeholder_adequacy_rubric result before scoring context_condition_mapping.
+    - Review the evaluation_alignment_quality_rubric result before scoring evaluation_scope_limits.
+    - Review the contribution_quality_rubric result before scoring overgeneralization_control.
+    - Separate source-supported claims, evaluation-supported claims, repository-artifact evidence, stakeholder claims, and
+      reviewer judgment.
+    - Check whether the receiving context is being treated as identical to the original case without justification.
+    anchor_examples:
+      strong: A field-tested advising workflow artifact specifies the student-success problem class, identifies required data-governance
+        and advising-capacity conditions, distinguishes adaptable templates from non-adaptable privacy controls, limits claims
+        to institutions with comparable data and advising structures, lists settings where it should not be used, and includes
+        templates, trace links, and evaluation limitations.
+      borderline: A course-learning-outcome mapping method has a plausible problem class and basic context limits, but adaptation
+        guidance and negative boundary conditions are general. It may be projectable with limits after adding a transfer-condition
+        matrix and unsupported-claim warnings.
+      weak: A local reporting dashboard is described as useful for all higher education assessment offices because it worked
+        in one department. Context, problem class, adaptation requirements, negative cases, and evaluation limits are missing.
+    calibration_rounds:
+    - 'Round 1: reviewers independently score the three anchor examples and compare dimension-level variance.'
+    - 'Round 2: reviewers jointly inspect one real repository record and identify floor-rule triggers before discussing weighted
+      score.'
+    - 'Round 3: reviewers reconcile disagreements on problem-class scope, negative boundaries, and overclaim language.'
+    inter_rater_reconciliation:
+    - If reviewers differ by more than one point on a required dimension, require a written rationale and evidence reference.
+    - Resolve disagreements by inspecting trace links before averaging scores.
+    - When uncertainty remains, score conservatively and add a human_review_flag rather than expanding claim scope.
+    drift_checks:
+    - Recheck scoring after major evaluation findings, artifact changes, or reuse attempts.
+    - Audit whether repeated use of boilerplate boundary language is inflating scores.
+    - Compare projectability scores against actual later adaptation outcomes when available.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      problem_class_transfer_logic: Problem instance, problem class, at least one transfer-relevant mechanism, and at least
+        one condition limiting class membership.
+      context_condition_mapping: A context register that distinguishes at least necessary/enabling conditions from uncertain
+        or blocking conditions.
+      artifact_adaptation_guidance: Identification of what may be adapted, what should not be adapted, and what must be checked
+        after adaptation.
+      evaluation_scope_limits: Evaluation summary with setting, evidence mode, findings, and explicit constraints on claim
+        scope.
+      negative_boundary_conditions: At least one explicit non-applicability condition and one caution or untested condition.
+      reuse_materials_and_traceability: At least one reusable artifact or guidance object plus stable identifiers linking
+        it to the projectability statement.
+      overgeneralization_control: Explicit claim-scope limits and at least one overgeneralization warning linked to evidence
+        sufficiency.
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Major projectability claims should cite source anchors or framework anchors where available.
+    - Evidence from local findings should be linked to evaluation records, not only summarized narratively.
+    - Reviewer judgment may be used, but it must be labeled as reviewer_judgment and not presented as source-supported evidence.
+    evidence_quality_notes:
+    - Field evidence generally supports stronger transfer claims than artificial demonstration, but only when contexts are
+      sufficiently mapped.
+    - Expert review can support plausibility or coherence, but should not be overread as naturalistic effectiveness.
+    - Repository materials support reuse readiness, but do not by themselves prove transfer validity.
+    - Stakeholder claims are important but require triangulation before supporting broad projectability.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: overgeneralization
+    warning_condition: The record claims transfer, generality, effectiveness, or applicability beyond the evidence and stated
+      boundaries.
+    severity: blocking_issue
+    recommended_response: Constrain claim scope, add evidence-to-claim trace, or lower decision to requires_boundary_revision
+      or not_projectable_as_claimed.
+  - anti_pattern_id: boundary_condition_absence
+    warning_condition: Positive, negative, uncertain, or untested boundary conditions are missing.
+    severity: blocking_issue
+    recommended_response: Create a boundary-condition register before releasing the projectability statement.
+  - anti_pattern_id: case_to_universal_leap
+    warning_condition: A single local artifact or case is treated as broadly applicable without problem-class abstraction
+      or context comparison.
+    severity: major_warning
+    recommended_response: Add instance-to-class abstraction logic and identify transfer-relevant mechanisms and negative cases.
+  - anti_pattern_id: reuse_without_adaptation_guidance
+    warning_condition: The record invites reuse but does not explain what to adapt, preserve, validate, or avoid.
+    severity: major_warning
+    recommended_response: Add adaptation guidance linked to artifact components, use plan, capacity specification, and evaluation
+      criteria.
+  - anti_pattern_id: unsupported_projectability
+    warning_condition: Transfer or reuse claims lack source anchors, findings, repository materials, or reviewer-judgment
+      labels.
+    severity: blocking_issue
+    recommended_response: Mark unsupported claims, add evidence, or remove the claim.
+  - anti_pattern_id: context_erasure
+    warning_condition: Context is described as background only and does not shape claim scope or transfer conditions.
+    severity: major_warning
+    recommended_response: Map context conditions to artifact capacities, evaluation findings, and transfer claims.
+  - anti_pattern_id: negative_case_silence
+    warning_condition: No settings, users, contexts, or use cases are identified where the artifact should not be applied.
+    severity: major_warning
+    recommended_response: Add non-applicability, caution, and untested-condition statements.
+  traceability_requirements:
+  - trace_id: trace_problem_instance_to_problem_class
+    description: Each projectability claim should trace from local problem instance to stated problem class.
+  - trace_id: trace_context_condition_to_transfer_claim
+    description: Each material context condition should indicate whether it supports, limits, blocks, or remains unknown for
+      transfer.
+  - trace_id: trace_artifact_boundary_to_adaptation_requirement
+    description: Adaptation requirements should link to artifact boundary, component, capacity, use plan, make plan, or evaluation
+      criterion.
+  - trace_id: trace_evaluation_finding_to_claim_scope
+    description: Each transfer, reuse, or effectiveness claim should link to evaluation findings and evidence limits.
+  - trace_id: trace_boundary_condition_to_non_applicability_condition
+    description: Negative boundary conditions should be traceable to context, risk, evidence gaps, stakeholder burden, or
+      artifact limitations.
+  - trace_id: trace_reuse_material_to_repository_artifact
+    description: Reusable materials should have stable identifiers, file paths, version notes, and links to the claims they
+      support.
+  - trace_id: trace_unsupported_claim_to_revision_action
+    description: Unsupported or overgeneralized claims should be linked to revision actions, additional evidence needs, or
+      claim removal.
+  validation_implications:
+    json_schema_fields:
+    - knowledge_space.projectability_statement.problem_class
+    - knowledge_space.projectability_statement.transfer_conditions
+    - knowledge_space.projectability_statement.non_applicability_conditions
+    - knowledge_space.projectability_statement.adaptation_requirements
+    - knowledge_space.projectability_statement.evidence_to_claim_trace
+    - knowledge_space.projectability_statement.overgeneralization_warnings
+    - knowledge_space.projectability_statement.decision
+    - knowledge_space.projectability_statement.human_review_flags
+    shacl_shapes_or_warnings:
+    - shape_id: projectability_statement_requires_problem_class_shape
+      severity: violation
+      machine_checkable: true
+      description: A projectability statement must reference at least one problem_class.
+    - shape_id: projectability_statement_requires_boundary_conditions_shape
+      severity: violation
+      machine_checkable: true
+      description: A projectability statement must include boundary_conditions or a linked boundary_condition_register.
+    - shape_id: projectability_statement_requires_non_applicability_warning_shape
+      severity: warning
+      machine_checkable: true
+      description: Warn when non_applicability_conditions are empty.
+    - shape_id: projectability_claim_evidence_trace_warning_shape
+      severity: warning
+      machine_checkable: partially
+      description: Warn when transfer or reuse claims lack evidence_to_claim_trace references.
+    - shape_id: overgeneralization_manual_review_shape
+      severity: manual_review
+      machine_checkable: false
+      description: Human reviewers must judge whether claim scope exceeds evidence.
+    controlled_vocabularies:
+      decision_values:
+      - projectability_ready
+      - projectable_with_limits
+      - requires_boundary_revision
+      - not_projectable_as_claimed
+      transfer_condition_types:
+      - necessary
+      - enabling
+      - optional
+      - risky
+      - blocking
+      - unknown
+      - untested
+      claim_support_status:
+      - supported
+      - partially_supported
+      - unsupported
+      - contradicted
+      - not_applicable
+      - requires_additional_evaluation
+      evidence_mode_values:
+      - source_anchor
+      - literature_synthesis
+      - empirical
+      - expert
+      - field
+      - case
+      - simulation
+      - experiment
+      - analytics
+      - artifact_inspection
+      - conceptual_argument
+      - stakeholder_claim
+      - repository_artifact
+      - validation_result
+      - reviewer_judgment
+    python_validation_logic:
+    - check_dimension_weights_sum_to_one
+    - check_required_inputs_present
+    - check_required_dimension_scores_present
+    - check_decision_value_in_controlled_vocabulary
+    - check_floor_rules_against_dimension_scores
+    - warn_if_negative_boundary_conditions_empty
+    - warn_if_reuse_claim_present_without_adaptation_guidance
+    - warn_if_projectability_claim_present_without_evidence_trace
+    manual_review_only_checks:
+    - adequacy_of_problem_class_transfer_logic
+    - materiality_of_context_conditions
+    - sufficiency_of_evaluation_evidence_for_claim_scope
+    - severity_of_negative_boundary_conditions
+    - responsible_redaction_of_sensitive_context_details
+    - whether_overgeneralization_is_present
+    repository_integration_notes:
+      proposed_file_path: rubrics/projectability_boundary_conditions_rubric.yaml
+      related_schema_fields:
+      - knowledge_space.projectability_statement
+      - context_space.boundary_conditions
+      - evaluation_space.findings_to_claims_trace
+      - artifact_space.artifact_boundary
+      - communication_space.reuse_package
+      likely_crosswalk_updates:
+      - crosswalks/rubric-to-schema-fields.yaml
+      - crosswalks/source-to-framework-alignment.yaml
+      - docs/rubrics/projectability_boundary_conditions.md
+      documentation_protocol_notes:
+      - Retain stable identifiers for dimensions and anti-patterns.
+      - Use source anchors for source-supported claims and reviewer_judgment for interpretive assessments.
+      - Do not convert the adequacy of projectability reasoning into a hard machine validation rule.
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_projectability_statement
+    label: Strong / projectability_ready
+    summary: A DSR method for curriculum evidence mapping is evaluated in two programs, identifies a broader problem class
+      of traceable outcome-evidence alignment, maps necessary context conditions, provides adaptation templates, lists non-use
+      cases, and links findings to bounded transfer claims.
+    illustrative_scores:
+      problem_class_transfer_logic: 4
+      context_condition_mapping: 4
+      artifact_adaptation_guidance: 4
+      evaluation_scope_limits: 3
+      negative_boundary_conditions: 4
+      reuse_materials_and_traceability: 4
+      overgeneralization_control: 4
+    decision: projectability_ready
+    notes: The claim remains bounded to programs with comparable curriculum governance and data availability.
+  - vignette_id: borderline_projectability_statement
+    label: Borderline / projectable_with_limits
+    summary: A rubric for judging AI-assisted assessment artifacts has plausible transfer logic and useful examples, but evaluation
+      evidence comes from one expert panel and negative boundary conditions are incomplete.
+    illustrative_scores:
+      problem_class_transfer_logic: 3
+      context_condition_mapping: 2
+      artifact_adaptation_guidance: 3
+      evaluation_scope_limits: 2
+      negative_boundary_conditions: 2
+      reuse_materials_and_traceability: 3
+      overgeneralization_control: 2
+    decision: projectable_with_limits
+    notes: Release may proceed only with explicit limits and revision actions for additional field evaluation and non-applicability
+      conditions.
+  - vignette_id: weak_projectability_statement
+    label: Weak / not_projectable_as_claimed
+    summary: A local compliance dashboard is described as generalizable to all institutions because it improved reporting
+      speed in one office. The record lacks problem-class abstraction, context mapping, adaptation guidance, evaluation limits,
+      and negative cases.
+    illustrative_scores:
+      problem_class_transfer_logic: 1
+      context_condition_mapping: 0
+      artifact_adaptation_guidance: 0
+      evaluation_scope_limits: 1
+      negative_boundary_conditions: 0
+      reuse_materials_and_traceability: 1
+      overgeneralization_control: 0
+    decision: not_projectable_as_claimed
+    notes: The contribution may still be documented as a local artifact report, but the projectability claim must be removed
+      or rebuilt.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Weighted score indicates overall projectability-documentation quality, subject to non-compensatory floor rules.
+    - 'Dimension scores should be read diagnostically: a low context score points to transfer-condition work; a low evaluation-score
+      score points to claim-scope discipline.'
+    - A narrow, cautious projectability statement can receive a higher score than a broad but weakly supported claim.
+    - Reuse_materials_and_traceability is recommended rather than strictly required, but weak reuse materials should lower
+      practical reuse confidence.
+    what_not_to_infer:
+    - Do not infer that the artifact will work in a new setting merely because projectability documentation scores well.
+    - Do not infer statistical generalizability unless the evaluation design separately warrants statistical inference.
+    - Do not infer production readiness, implementation feasibility, ethical approval, privacy compliance, security adequacy,
+      or legal clearance.
+    - Do not infer that direct copying is appropriate; high projectability often requires explicit adaptation.
+    - Do not infer that broad scope is better than narrow scope; responsible boundaries may deliberately narrow claims.
+    - Do not infer that machine validation can decide the adequacy of transfer logic or evidence sufficiency without human
+      review.
+    relationship_to_adjacent_rubrics:
+      context_stakeholder_adequacy_rubric: Feeds context conditions, stakeholder conditions, artifact network, and boundary-condition
+        evidence.
+      evaluation_alignment_quality_rubric: Feeds evaluation limits, evidence modes, findings-to-claims trace, and validity-threat
+        constraints.
+      contribution_quality_rubric: Uses projectability and boundary-condition quality when judging whether the contribution
+        is reusable, projectable, or accumulable design knowledge.
+      artifact_specification_quality_rubric: Feeds artifact boundary, use plan, make plan, capacity specification, and adaptation
+        targets.
+      reliability_replication_readiness_rubric: Extends reuse-materials and boundary-condition documentation toward replication
+        and cumulative knowledge synthesis.
+    known_limitations:
+    - The rubric evaluates documentation and reasoning quality, not actual future success in every receiving setting.
+    - Some projectability judgments are source-dependent and field-dependent; reviewers should record uncertainty.
+    - Highly sensitive contexts may require abstracted or redacted context-condition documentation.
+    - Early-stage artifacts can be projectable only with appropriately limited claims.
+  quality_control:
+    completeness_check:
+    - all_required_inputs_present
+    - all_required_outputs_defined
+    - all_seven_dimensions_scored
+    - all_dimension_weights_sum_to_1_0
+    - all_dimensions_include_0_to_4_descriptors
+    - decision_value_selected_from_controlled_vocabulary
+    - non_compensatory_floor_rules_checked
+    - what_not_to_infer_present
+    ambiguity_check:
+    - problem_class_boundary_ambiguous
+    - context_conditions_under_specified
+    - artifact_boundary_unclear
+    - evaluation_findings_inadequate_for_claim_scope
+    - adaptation_guidance_insufficient
+    - negative_cases_missing
+    human_review_recommendation:
+      default: recommended
+      required_when:
+      - any_required_dimension_below_2
+      - unsupported_projectability_claim_present
+      - context_transfer_conditions_sensitive_or_ambiguous
+      - evidence_mode_does_not_match_claim_scope
+      - generalizability_language_used
+      - negative_boundary_conditions_absent
+    source_gap_notes:
+    - Use reviewer_judgment markers when a source family is unavailable or when a claim is local and not source-supported.
+    - Record missing source anchors as source_gap rather than silently presenting claims as grounded.
+    - Where source anchors are added later, update source_grounding.source_supported_claims and traceability_requirements.
+    release_readiness_checklist:
+    - The projectability statement includes positive and negative conditions.
+    - All transfer claims have evidence-to-claim trace links.
+    - All reuse guidance distinguishes direct reuse from adaptation.
+    - Overgeneralization warnings are resolved or explicitly retained as release limitations.
+    - Repository reuse materials, if present, have stable paths and version notes.
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial generated draft for projectability and boundary-condition assessment.
+    changed_by: gpt_5_5_thinking

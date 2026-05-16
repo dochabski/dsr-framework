@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: CC0-1.0
+metadata_freeze_record:
+  record_id: record_metadata_freeze_0006_v1_3_0
+  record_class: metadata_freeze
+  item_type: record
+  title: v1.3.0 Metadata Freeze Record
+  status: approved
+  version: "1.3.0"
+  freeze_date: "2026-05-16"
+  responsible_party: framework_maintainer
+  target_release: v1.3.0
+  target_package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  minor_scope:
+    release_type: minor
+    prior_release: v1.2.0
+    release_purpose: >
+      Package the DSR assessment rubric set and generated unified rubric collection
+      as a controlled, citable v1.3.0 GitHub release.
+    backward_compatible: true
+    conformance_change: none
+
+  frozen_fields:
+    release_version: "1.3.0"
+    release_status: "1.3.0_stable"
+    package_conformance: l4_reusable_stable
+    repository: https://github.com/dochabski/dsr-framework
+    license: CC0-1.0
+    archival_publication_ready: false
+
+  frozen_files:
+    - README.md
+    - CHANGELOG.md
+    - CITATION.cff
+    - .zenodo.json
+    - codemeta.json
+    - metadata.yaml
+    - manifest.yaml
+    - artifact-profile.yaml
+    - conformance-declaration.yaml
+    - package-inventory.yaml
+    - records/releases/record-release-0007-v1-3-0.yaml
+
+  evidence_records:
+    - rubrics/README.md
+    - rubrics/dsr_assessment_rubrics_unified.yaml
+    - scripts/build-rubric-collection.py
+    - records/validation/validation-summary-latest.json
+
+  outcome:
+    result: metadata_frozen_for_v1_3_0_minor_release
+    supports: release_approval
+    does_not_support: l5_archival_publication_ready

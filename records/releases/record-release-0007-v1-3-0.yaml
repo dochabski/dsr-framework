@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_0007_v1_3_0
+  record_class: release_record
+  item_type: record
+  title: DSR Framework v1.3.0 Minor Release Record
+  status: approved
+  version: "1.3.0"
+  release_date: "2026-05-16"
+  responsible_party: framework_maintainer
+  release_tag: v1.3.0
+  release_status: "1.3.0_stable"
+  package_conformance: l4_reusable_stable
+  l5_claimed: false
+
+  release_scope:
+    included:
+      - v1_2_0_stable_package
+      - individual_dsr_assessment_rubrics
+      - generated_unified_rubric_collection
+      - rubric_collection_builder
+      - validation_summary
+      - release_metadata_updates
+    excluded:
+      - l5_archival_publication_ready_claim
+      - external_empirical_reuse_validation
+      - downstream_artifact_certification
+      - Zenodo publication action
+
+  minor_release_blockers: []
+
+  retained_evidence:
+    rubric_directory_readme: rubrics/README.md
+    unified_rubric_collection: rubrics/dsr_assessment_rubrics_unified.yaml
+    rubric_collection_builder: scripts/build-rubric-collection.py
+    metadata_freeze: records/releases/record-metadata-freeze-0006-v1-3-0.yaml
+    validation_summary: records/validation/validation-summary-latest.json
+
+  validation:
+    required_commands:
+      - python scripts/build-rubric-collection.py --date 2026-05-16
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass
+
+  release_notes_summary:
+    - v1.3.0 adds 15 canonical individual DSR assessment rubric YAML files.
+    - Adds a generated unified rubric collection for review, search, AI ingestion, and distribution convenience.
+    - Keeps individual rubric files as the canonical editable source of truth.
+    - Preserves L4 reusable-stable package conformance for the host package.
+    - Does not claim L5 archival/publication-ready status or empirical downstream utility.
+
+  known_limitations:
+    - L5 archival/publication-ready status is not claimed for v1.3.0.
+    - External empirical reuse validation is not claimed.
+    - The rubrics guide assessment and review but do not replace reviewer judgment.
+    - The unified collection reports missing dependency references rather than fabricating absent rubrics.
+    - Zenodo publication is handled separately after GitHub release publication.
+
+  outcome:
+    result: ready_for_github_minor_release
+    conformance_claim_supported: l4_reusable_stable
+    conformance_claim_not_supported: l5_archival_publication_ready

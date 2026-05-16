@@ -1,0 +1,1227 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: evaluation_alignment_quality_rubric
+    label: Evaluation Alignment Quality Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/evaluation_alignment_quality_rubric.yaml
+    local_file_name: evaluation_alignment_quality_rubric.yaml
+    assessment_target: evaluation_space
+    priority: core
+    lifecycle_phase: evaluation_planning_and_reporting
+    prompt_id: prompt_evaluation_alignment_quality_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - requirements_traceability_rubric
+    - artifact_specification_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_controlled_values; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Does the evaluation design align artifact, claim type, criteria, timing, setting, evidence mode, stakeholders,
+      and contribution claim?
+    when_to_use:
+    - during evaluation planning before data collection
+    - when selecting evaluation criteria, measures, evidence modes, and stakeholder participants
+    - while reviewing whether collected findings can support planned claims
+    - before reporting utility, effectiveness, adoption, projectability, or design-knowledge contribution claims
+    - whenever artifact maturity, claim type, evaluation setting, stakeholder access, or evidence mode materially changes
+    when_not_to_use:
+    - do not use before the artifact or evaluation object is minimally specified
+    - do not use as a substitute for artifact_specification_quality_rubric; this rubric checks evaluation alignment rather
+      than artifact ontology as such
+    - do not use as a substitute for requirements_traceability_rubric; this rubric assumes objectives, requirements, and acceptance
+      criteria are already traceable enough to evaluate
+    - do not use to certify final contribution quality; use contribution_quality_rubric after findings and design knowledge
+      are interpreted
+    - do not use to certify ethical, privacy, security, or legal compliance; use responsible_design_constraints_rubric when
+      those risks are material
+    - do not treat a high score as proof that the artifact works; it indicates evaluation design alignment and evidence-to-claim
+      discipline
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - evaluation_lead
+    - artifact_designer
+    - technical_implementer
+    - stakeholder_representative
+    - journal_or_conference_reviewer
+    unit_of_assessment: one_evaluation_space_record_or_evaluation_plan_for_a_candidate_or_active_dsr_study
+    boundary_conditions:
+    - The rubric assesses alignment among evaluation object, claim type, criteria, timing, setting, evidence mode, stakeholders,
+      findings, and contribution claim.
+    - A project may score highly for an early artificial or analytical evaluation when claims are appropriately limited to
+      feasibility, internal coherence, or expected utility.
+    - Naturalistic or longitudinal evidence is not always required, but claims about field effectiveness, adoption, organizational
+      impact, or projectability require evidence modes capable of supporting those claims.
+    - The rubric supports conceptual artifacts, methods, models, taxonomies, software prototypes, process interventions, socio-technical
+      interventions, design principles, and design theories.
+    - Machine validation may check fields, identifiers, controlled vocabularies, and trace links; adequacy of evidence, validity
+      threat severity, stakeholder fit, and overclaiming remain human-review judgments.
+    assumptions:
+    - Evaluation is not merely a late-stage proof activity; it can be formative, summative, ex ante, ex post, artificial,
+      naturalistic, analytical, empirical, expert, or field-based.
+    - Different claims require different evaluation objects, criteria, evidence modes, and stakeholder confidence levels.
+    - Findings should constrain contribution claims rather than being treated as decorative support.
+    - Evaluation transparency should preserve enough detail for review, reuse, and claim interpretation without forcing unsafe
+      or disproportionate disclosure.
+  source_grounding:
+    source_families_to_consult:
+    - akoka_comyn_wattiau_prat_storey_2017_evaluating_knowledge_types_dsr
+    - johannesson_perjons_2021_evaluation_sections
+    - sjostrom_kruse_haj_bolouri_flensburg_2018_software_embedded_evaluation_support
+    - concept_inventory.evaluation_space
+    - concept_inventory.evaluation_evidence
+    - concept_inventory.contribution_claim
+    - theory_of_design_science_research.evaluation_alignment_propositions
+    - dsr_operational_synthesis.evaluation_sections
+    - dsr_skos_controlled_vocabulary.evaluation_terms
+    - dsr_ontology_competency_questions.evaluation_space
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - requirements_traceability_rubric.yaml
+    - artifact_specification_quality_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major evaluation-alignment rationale should cite at least one source_anchor_id, framework_anchor, repository_artifact,
+        or reviewer_judgment marker.
+      preferred: Use Akoka et al. (2017) anchors for evaluation criteria and knowledge-type-specific evaluation, Johannesson
+        and Perjons anchors for DSR evaluation activities and knowledge types, and software-embedded evaluation anchors when
+        evaluating instrumented or analytics-rich artifacts.
+      do_not_do: Do not treat the presence of an evaluation method label as source-supported evidence that the method fits
+        the claim.
+    unsupported_claim_policy:
+      rule: Claims about utility, effectiveness, adoption, transfer, projectability, or contribution must be marked unsupported
+        or under_supported when evaluation evidence does not fit the claim type.
+      effect: Unsupported or overbroad claims trigger human_review and may activate non_compensatory_floor_rules.
+      documentation: Reviewer judgments must be stored separately from source-supported claims and evaluation findings.
+    source_supported_claims:
+    - claim_id: src_claim_evaluation_criteria_depend_on_knowledge_type
+      claim: Evaluation criteria and methods should be selected with attention to the type of DSR knowledge or contribution
+        being evaluated.
+      source_family: akoka_comyn_wattiau_prat_storey_2017_evaluating_knowledge_types_dsr
+      source_anchor_ids:
+      - akoka_2017:A02
+      - akoka_2017:A03
+      - akoka_2017:A11
+      - akoka_2017:A13
+      obligation_status: recommended
+      use_in_rubric: supports criteria_and_measure_quality and claim_type_alignment
+    - claim_id: src_claim_evaluation_alignment_proposition
+      claim: Evaluation quality depends on alignment among artifact maturity, claim type, evaluation timing, evaluation setting,
+        criterion, and stakeholder confidence requirement.
+      source_family: theory_of_design_science_research.evaluation_alignment_propositions
+      source_anchor_ids:
+      - theory_synthesis:17.P4
+      obligation_status: recommended
+      use_in_rubric: supports overall rubric construct and non-compensatory rules
+    - claim_id: src_claim_timing_setting_claim_fit
+      claim: Ex ante/artificial evaluation can support feasibility and efficacy claims, while ex post/naturalistic evaluation
+        is stronger for effectiveness, adoption, and projectability claims.
+      source_family: theory_of_design_science_research.evaluation_alignment_propositions
+      source_anchor_ids:
+      - theory_synthesis:17.P5
+      obligation_status: recommended
+      use_in_rubric: supports timing_and_function_fit and setting_and_evidence_mode_fit
+    - claim_id: src_claim_evaluation_evidence_distinct_from_contribution_claim
+      claim: Evaluation evidence should be distinguished from the contribution claim it supports; artifact utility alone is
+        not sufficient without contribution articulation, and contribution articulation is weak without artifact or evaluation
+        grounding.
+      source_family: theory_of_design_science_research.evaluation_and_contribution_distinction
+      source_anchor_ids:
+      - theory_synthesis:17.P6
+      obligation_status: recommended
+      use_in_rubric: supports findings_to_claims_trace and what_not_to_infer
+  construct_definitions:
+  - term_id: evaluation_space
+    preferred_label: Evaluation Space
+    definition: The part of a DSR record that specifies evaluation object, criteria, timing, setting, evidence mode, stakeholders,
+      data or findings, validity threats, and evidence-to-claim trace.
+    source_or_framework_anchor: concept_inventory.evaluation_space
+    ambiguity_level: low
+  - term_id: evaluation_object
+    preferred_label: Evaluation Object
+    definition: The thing evaluated, such as artifact universal, instantiation, method, use plan, design knowledge, usage
+      effect, evaluation instrument, or a bounded composite.
+    source_or_framework_anchor: concept_inventory.evaluation_object
+    ambiguity_level: medium
+  - term_id: claim_type
+    preferred_label: Claim Type
+    definition: The class of assertion the evaluation is meant to support, including make claim, use claim, usage-effect claim,
+      contribution claim, and design-knowledge claim.
+    source_or_framework_anchor: concept_inventory.claim_type
+    ambiguity_level: medium
+  - term_id: evaluation_timing
+    preferred_label: Evaluation Timing
+    definition: Temporal relation between evaluation and artifact development or use, including ex ante, ex post, formative,
+      summative, prospective, retrospective, or iterative evaluation.
+    source_or_framework_anchor: dsr_skos_controlled_vocabulary.evaluation_terms
+    ambiguity_level: medium
+  - term_id: evidence_mode
+    preferred_label: Evidence Mode
+    definition: The mode by which evaluation evidence is produced or interpreted, such as analytical, empirical, expert, field,
+      case, simulation, experiment, analytics, artifact inspection, or conceptual argument.
+    source_or_framework_anchor: dsr_skos_controlled_vocabulary.evaluation_terms
+    ambiguity_level: medium
+  - term_id: findings_to_claims_trace
+    preferred_label: Findings-to-Claims Trace
+    definition: A documented linkage from evaluation findings to supported, narrowed, rejected, deferred, or revised claims
+      and to resulting design knowledge or contribution statements.
+    source_or_framework_anchor: concept_inventory.traceability_terms
+    ambiguity_level: low
+  - controlled_terms:
+    - artifact_universal
+    - artifact_instantiation
+    - make_claim
+    - use_claim
+    - usage_effect_claim
+    - contribution_claim
+    - design_knowledge_claim
+    - ex_ante_evaluation
+    - ex_post_evaluation
+    - formative_evaluation
+    - summative_evaluation
+    - artificial_evaluation
+    - naturalistic_evaluation
+    distinctions_to_preserve:
+    - artifact_universal_vs_artifact_instantiation
+    - evaluation_evidence_vs_contribution_claim
+    - criterion_vs_measure_vs_threshold
+    - field_evidence_vs_simulation_evidence
+    - expert_judgment_vs_user_evidence
+    - formative_learning_vs_summative_claim_support
+    - local_findings_vs_projectable_design_knowledge
+    terms_not_to_conflate:
+    - demonstration_and_evaluation
+    - prototype_maturity_and_evaluation_success
+    - artifact_quality_and_organizational_effectiveness
+    - stakeholder_satisfaction_and_design_knowledge_contribution
+    - evidence_presence_and_evidence_sufficiency
+  required_inputs:
+  - input_field: artifact_or_instantiation
+    description: Reference to the artifact universal/design entity, concrete instantiation, prototype, method, use plan, or
+      design knowledge object under evaluation.
+    obligation_status: required
+    accepted_format: identifier plus short narrative reference
+    minimum_evidence: artifact_id or instantiation_id and artifact_type or target_type
+  - input_field: claim_types
+    description: List of intended claims, including make, use, usage-effect, contribution, or design-knowledge claims.
+    obligation_status: required
+    accepted_format: controlled_vocabulary_array plus claim_statement
+    minimum_evidence: at least one explicit claim_type and claim_statement
+  - input_field: evaluation_object
+    description: The bounded object or phenomenon being evaluated.
+    obligation_status: required
+    accepted_format: object record with id, type, boundary, version_or_state, and relation to artifact
+    minimum_evidence: object type and boundary statement
+  - input_field: criteria
+    description: Evaluation criteria, measures, thresholds, rubrics, qualitative anchors, or decision rules.
+    obligation_status: required
+    accepted_format: criteria table or structured list
+    minimum_evidence: criterion id, definition, measure or judgment method, and linked claim
+  - input_field: timing
+    description: Evaluation timing and function, such as ex ante/ex post and formative/summative.
+    obligation_status: required
+    accepted_format: controlled value plus rationale
+    minimum_evidence: timing category and fit rationale
+  - input_field: setting
+    description: Artificial, naturalistic, laboratory, field, organizational, simulation, analytic, or case setting in which
+      evidence is produced.
+    obligation_status: required
+    accepted_format: setting description with contextual boundary
+    minimum_evidence: setting type and context description
+  - input_field: evidence_mode
+    description: Evidence mode such as analytical, empirical, expert, field, case, simulation, experiment, analytics, artifact
+      inspection, or conceptual argument.
+    obligation_status: required
+    accepted_format: controlled value plus evidence source
+    minimum_evidence: evidence_mode and data_or_judgment_source
+  - input_field: stakeholders
+    description: Stakeholder roles involved in evaluation or affected by claims.
+    obligation_status: required
+    accepted_format: stakeholder role map or participant/reviewer selection table
+    minimum_evidence: roles and selection rationale for material stakeholders
+  - input_field: findings
+    description: Planned findings structure before data collection or actual findings after data collection.
+    obligation_status: conditional
+    accepted_format: findings table, planned evidence-to-claim matrix, or results narrative
+    minimum_evidence: planned finding categories before evaluation; actual findings after evaluation
+  required_outputs:
+  - output_field: evaluation_alignment_rating
+    description: Weighted overall rating and categorical decision value.
+    accepted_values:
+    - evaluation_aligned
+    - minor_alignment_gaps
+    - major_alignment_revision_needed
+    - evaluation_misaligned
+  - output_field: alignment_gaps
+    description: List of mismatches among evaluation object, claim type, criteria, timing, setting, evidence mode, stakeholders,
+      findings, and contribution claim.
+  - output_field: validity_threats
+    description: Structured list of limitations, confounds, bias risks, measurement weaknesses, and boundary conditions.
+  - output_field: evidence_to_claim_trace
+    description: Trace linking criteria, measures, data or findings, claim types, design knowledge, contribution claim, and
+      revision actions.
+  - output_field: revision_actions
+    description: Recommended actions to revise claims, evidence mode, stakeholder involvement, criteria, timing, setting,
+      or artifact scope.
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, overclaiming, and stakeholder burden.
+  assessment_dimensions:
+  - dimension_id: evaluation_object_clarity
+    label: Evaluation Object Clarity
+    definition: 'Clarity about what is being evaluated: artifact universal/design entity, artifact instantiation, method,
+      use plan, design knowledge, usage effect, or a bounded combination of these.'
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - evaluation_object_id
+    - artifact_or_instantiation_reference
+    - artifact_type_or_evaluation_target_type
+    - object_boundary_statement
+    - claim_scope_link
+    level_descriptors:
+      score_0: No evaluation object is identified, or the evaluation object is only implied by narrative references to the
+        project.
+      score_1: An evaluation object is named, but artifact universal, instantiation, method, use plan, design knowledge, and
+        effect are conflated.
+      score_2: The evaluation object is partly specified, but boundaries, abstraction level, or relation to the artifact record
+        remain ambiguous.
+      score_3: The evaluation object is clearly specified and linked to the relevant artifact, instantiation, use plan, method,
+        design knowledge, or effect.
+      score_4: The evaluation object is explicitly bounded, typed, versioned where applicable, linked to claims and requirements,
+        and distinguished from adjacent objects that are not being evaluated.
+    minimum_evidence:
+    - named evaluation_object
+    - reference to artifact_or_instantiation
+    - short boundary statement
+    high_quality_evidence:
+    - artifact universal and instantiation are distinguished
+    - evaluation target version or state is identified
+    - object boundary is linked to requirements and claims
+    - explicit exclusion of non-evaluated artifact aspects
+    weak_evidence_signals:
+    - the evaluation says 'the system was evaluated' without specifying which system version or artifact layer
+    - use outcomes are treated as artifact quality without an intervening use plan
+    - design knowledge is claimed from evaluation of only a local implementation without abstraction
+    calibration_anchor: Score 3 when a reviewer can identify exactly what object the evidence bears on, even if some versioning
+      or exclusion detail remains incomplete.
+    common_failure_modes:
+    - artifact_instantiation_conflation
+    - implicit_evaluation_target
+    - object_boundary_blur
+    - method_artifact_effect_conflation
+    reviewer_notes: Do not penalize a record for evaluating multiple objects when the objects are explicitly separated and
+      each has a corresponding claim.
+  - dimension_id: claim_type_alignment
+    label: Claim-Type Alignment
+    definition: Fit between the evaluation design and the kind of claim being made, including make claims, use claims, usage-effect
+      claims, contribution claims, and design-knowledge claims.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - claim_type_list
+    - claim_statement_by_type
+    - evaluation_method_by_claim
+    - evidence_strength_by_claim
+    - claim_limitation_statement
+    level_descriptors:
+      score_0: Claims are absent, generic, or cannot be connected to the evaluation design.
+      score_1: Claims are asserted but their type is unclear; the evaluation method may support a different claim than the
+        one stated.
+      score_2: Some claim types are identified, but evidence and evaluation procedures are unevenly aligned with them.
+      score_3: Major claim types are explicit and the evaluation design is appropriate for the stated make, use, effect, contribution,
+        or design-knowledge claims.
+      score_4: Each claim type has a bounded evidence strategy, expected inference pattern, limitation statement, and downstream
+        contribution linkage.
+    minimum_evidence:
+    - claim_types
+    - evaluation_method_or_evidence_mode_for_each_major_claim
+    - statement of unsupported or deferred claims
+    high_quality_evidence:
+    - make, use, usage-effect, contribution, and design-knowledge claims are separated where relevant
+    - claim scope is matched to evidence strength
+    - unsupported claims are explicitly withheld
+    - claim revision actions are tied to evidence gaps
+    weak_evidence_signals:
+    - an expert review of artifact structure is used to claim field effectiveness
+    - user satisfaction is used to infer design-theory contribution without design-knowledge trace
+    - pilot feasibility is presented as general effectiveness
+    calibration_anchor: Score 3 when the evaluation could plausibly support every major claim stated in the record, even if
+      some minor claims need narrowing.
+    common_failure_modes:
+    - claim_evidence_gap
+    - make_claim_use_claim_conflation
+    - contribution_claim_without_evaluation_basis
+    - field_effectiveness_overclaim
+    reviewer_notes: This dimension is central. A severe claim-evidence mismatch should trigger a floor rule even when measures
+      and setting descriptions are otherwise strong.
+  - dimension_id: criteria_and_measure_quality
+    label: Criteria and Measure Quality
+    definition: Appropriateness, clarity, and reviewability of evaluation criteria, measures, thresholds, qualitative judgment
+      anchors, and data-collection procedures.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - evaluation_criteria
+    - measure_definitions
+    - thresholds_or_judgment_anchors
+    - data_collection_plan
+    - analysis_or_interpretation_plan
+    level_descriptors:
+      score_0: No evaluation criteria, measures, or judgment anchors are specified.
+      score_1: Criteria are generic or aspirational, such as useful, efficient, or good, without operational meaning.
+      score_2: Criteria and measures are partially operationalized but incomplete, weakly justified, or not clearly linked
+        to requirements and claims.
+      score_3: Criteria, measures, thresholds, and qualitative anchors are appropriate to the artifact, requirements, stakeholders,
+        and claim types.
+      score_4: Criteria and measures are explicit, justified, triangulated where useful, feasible to apply, and include decision
+        thresholds, qualitative anchors, reliability considerations, and analysis logic.
+    minimum_evidence:
+    - at least one criterion for each major evaluation claim
+    - measurement or judgment method
+    - threshold, rubric, or qualitative anchor where applicable
+    high_quality_evidence:
+    - criteria derive from requirements and stakeholder concerns
+    - measures are reliable enough for the claim
+    - qualitative criteria have coding or review anchors
+    - thresholds distinguish success, partial success, failure, and learning
+    weak_evidence_signals:
+    - criterion labels are present without definitions
+    - instrument validity or measure reliability is assumed
+    - criteria privilege technical performance while ignoring stakeholder utility when utility is claimed
+    - all criteria are post hoc interpretations of favorable findings
+    calibration_anchor: Score 3 when criteria and measures are sufficiently defined that a second reviewer could apply them
+      consistently to the same evidence.
+    common_failure_modes:
+    - criterion_absence
+    - measure_ambiguity
+    - threshold_absence
+    - post_hoc_success_criteria
+    - single_metric_overreach
+    reviewer_notes: A criterion may be quantitative, qualitative, analytical, expert-based, or interpretive. Penalize lack
+      of operational anchoring, not the absence of numeric metrics as such.
+  - dimension_id: timing_and_function_fit
+    label: Timing and Function Fit
+    definition: Fit between evaluation timing/function and artifact maturity, including ex ante/ex post, formative/summative,
+      prospective/retrospective, and build-learn-use roles.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - evaluation_timing
+    - evaluation_function
+    - artifact_maturity_state
+    - formative_or_summative_role
+    - timing_rationale
+    level_descriptors:
+      score_0: Evaluation timing and function are not described.
+      score_1: Timing labels are present but disconnected from artifact maturity or claim type.
+      score_2: Timing and function are partly reasonable but leave ambiguity about whether the evaluation is formative, summative,
+        ex ante, ex post, or both.
+      score_3: Evaluation timing and function fit artifact maturity and claim type, with formative and summative roles distinguished
+        where relevant.
+      score_4: The evaluation plan uses a coherent sequence of timing/function choices, such as ex ante analytical review
+        before pilot use and ex post naturalistic evidence before effect or projectability claims.
+    minimum_evidence:
+    - timing category
+    - evaluation function
+    - artifact maturity stage
+    - rationale for why this timing can support the claim
+    high_quality_evidence:
+    - ex ante evidence is used for feasibility or predicted utility claims
+    - ex post evidence is used for effects or use claims when appropriate
+    - formative feedback is not overclaimed as summative proof
+    - evaluation sequence is documented across iterations
+    weak_evidence_signals:
+    - early expert review is used as final validation
+    - a summative field claim is made before real use has occurred
+    - artifact changes after data collection are not addressed
+    - timing categories are used as labels without changing inference logic
+    calibration_anchor: Score 3 when the evaluation function is credible for the artifact's maturity and does not require
+      evidence that the timing could not produce.
+    common_failure_modes:
+    - formative_summative_conflation
+    - premature_summative_claim
+    - artifact_maturity_mismatch
+    - evaluation_sequence_gap
+    reviewer_notes: Early-stage DSR can score strongly if it uses early evaluation for appropriately limited claims.
+  - dimension_id: setting_and_evidence_mode_fit
+    label: Setting and Evidence-Mode Fit
+    definition: Fit between evaluation setting and evidence mode, including artificial/naturalistic, analytical/empirical,
+      expert, field, simulation, case, experiment, analytics, artifact inspection, and conceptual evidence.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - evaluation_setting
+    - evidence_mode
+    - participant_or_data_source_description
+    - setting_rationale
+    - evidence_mode_limitations
+    level_descriptors:
+      score_0: No setting or evidence mode is specified.
+      score_1: Setting or evidence mode is named but not justified or matched to the claim.
+      score_2: The setting and evidence mode are plausible for some claims but insufficient, underspecified, or mismatched
+        for others.
+      score_3: Setting and evidence mode fit the evaluation object, artifact maturity, stakeholders, and claims, with limitations
+        stated.
+      score_4: The evaluation design deliberately combines or sequences evidence modes to support bounded claims, address
+        validity threats, and distinguish artificial from naturalistic inference.
+    minimum_evidence:
+    - setting classification
+    - evidence mode classification
+    - data source or participant basis
+    - claim-fit rationale
+    high_quality_evidence:
+    - artificial and naturalistic settings are not conflated
+    - analytical, empirical, expert, field, simulation, case, or experiment evidence is justified
+    - evidence mode supports the needed inference strength
+    - evidence mode limitations are included in contribution boundaries
+    weak_evidence_signals:
+    - lab task evidence is generalized to institutional adoption
+    - expert inspection is used as if it were user evidence
+    - simulation assumptions are not documented
+    - case evidence lacks context boundaries
+    calibration_anchor: Score 3 when the evidence mode is sufficient for the stated claim scope, even if it would be insufficient
+      for broader claims.
+    common_failure_modes:
+    - setting_claim_mismatch
+    - evidence_mode_mismatch
+    - artificial_naturalistic_conflation
+    - expert_user_conflation
+    - simulation_assumption_gap
+    reviewer_notes: Artificial or analytical evaluation is not weak by default; it is weak only when the claims require naturalistic,
+      empirical, stakeholder, or longitudinal evidence.
+  - dimension_id: stakeholder_and_audience_alignment
+    label: Stakeholder and Audience Alignment
+    definition: Appropriateness of stakeholder involvement, participant selection, affected-group consideration, and audience
+      fit for utility, validity, adoption, and contribution claims.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - stakeholder_roles
+    - participant_selection_rationale
+    - affected_stakeholder_consideration
+    - audience_for_findings
+    - stakeholder_limitations
+    level_descriptors:
+      score_0: Relevant stakeholders or audiences are absent from the evaluation design.
+      score_1: Stakeholders are listed but their role in evaluation, evidence interpretation, or claim audience is unclear.
+      score_2: Some appropriate stakeholders are included, but important affected groups, maintainers, implementers, evaluators,
+        or audiences are missing or weakly justified.
+      score_3: Stakeholder roles and audience needs are aligned with the evaluation purpose and claims, including direct users
+        or affected parties when material.
+      score_4: The evaluation design explicitly differentiates users, sponsors, implementers, maintainers, reviewers, affected
+        groups, and scholarly/practitioner audiences, with role-specific evidence needs and burden controls.
+    minimum_evidence:
+    - stakeholder role map for evaluation
+    - participant or reviewer selection rationale
+    - audience for findings and contribution claims
+    high_quality_evidence:
+    - stakeholders are selected because they can assess relevant criteria
+    - affected and burdened groups are considered
+    - utility claims include credible user or practice evidence
+    - scholarly and practitioner audiences are not conflated
+    weak_evidence_signals:
+    - only project sponsors are treated as stakeholders
+    - technical experts judge adoption without users or maintainers
+    - stakeholder burden is ignored
+    - review audience is unspecified
+    calibration_anchor: Score 3 when stakeholder involvement is proportionate to the claim and no material stakeholder category
+      is missing without rationale.
+    common_failure_modes:
+    - stakeholder_mismatch
+    - stakeholder_tokenism
+    - audience_conflation
+    - affected_group_erasure
+    - participant_selection_gap
+    reviewer_notes: Stakeholder involvement can be indirect when justified, but claims about use, burden, adoption, or institutional
+      fit require evidence from those positioned to assess them.
+  - dimension_id: validity_threat_identification
+    label: Validity Threat Identification
+    definition: Identification and handling of limitations, confounds, bias, uncertainty, generalization boundaries, construct-validity
+      issues, measurement weaknesses, and evidence insufficiencies.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - validity_threat_register
+    - limitations
+    - bias_or_confound_assessment
+    - boundary_conditions
+    - mitigation_or_disclosure_plan
+    level_descriptors:
+      score_0: No validity threats, limitations, or boundaries are identified.
+      score_1: Threats are mentioned generically but do not alter interpretation of findings or claims.
+      score_2: Some validity threats are identified, but key confounds, bias sources, measurement weaknesses, or generalization
+        limits are missing.
+      score_3: Material validity threats are identified and connected to mitigation, interpretation, claim limitation, or
+        future evaluation actions.
+      score_4: The evaluation includes a structured threat model covering claim-specific validity, measurement quality, bias,
+        confounding, contextual limits, alternative explanations, and residual uncertainty.
+    minimum_evidence:
+    - limitations or validity_threats section
+    - threat-to-claim linkage
+    - mitigation or disclosure action
+    high_quality_evidence:
+    - threats are specific to artifact, method, setting, data, stakeholders, and claims
+    - alternative explanations are considered
+    - measurement and interpretation weaknesses are documented
+    - residual uncertainty is carried into contribution boundaries
+    weak_evidence_signals:
+    - limitations are boilerplate
+    - only sample size is mentioned when construct or measurement validity is also material
+    - threats do not affect claimed conclusions
+    - generalization boundaries are ignored
+    calibration_anchor: Score 3 when the record gives reviewers enough information to understand how threats constrain interpretation.
+    common_failure_modes:
+    - validity_threat_absence
+    - boilerplate_limitations
+    - unaddressed_confound
+    - bias_blindness
+    - unsupported_generalization
+    reviewer_notes: This rubric does not require exhaustive validity theory; it requires threats material to the specific
+      artifact, evidence, and claims.
+  - dimension_id: findings_to_claims_trace
+    label: Findings-to-Claims Trace
+    definition: Explicit trace from evaluation results and findings to design knowledge, contribution claims, claim revisions,
+      boundary conditions, and next actions.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed:
+    - findings
+    - evidence_to_claim_trace
+    - claim_revision_actions
+    - design_knowledge_output_link
+    - contribution_claim_link
+    level_descriptors:
+      score_0: Findings are absent or disconnected from claims.
+      score_1: Findings are summarized but not linked to specific claims, criteria, or contribution statements.
+      score_2: Some findings are linked to claims, but traceability is incomplete, selective, or does not address contradictory
+        evidence.
+      score_3: Major findings are explicitly linked to criteria, claims, design knowledge, contribution scope, and revision
+        actions.
+      score_4: The record provides a complete evidence-to-claim trace, including negative or mixed findings, claim narrowing,
+        design-knowledge abstraction, boundary conditions, and open questions for accumulation or replication.
+    minimum_evidence:
+    - findings table or narrative
+    - trace links from findings to criteria and claims
+    - revision or claim-status output
+    high_quality_evidence:
+    - each claim is supported, narrowed, rejected, or deferred based on findings
+    - mixed findings are not suppressed
+    - design knowledge is explicitly derived from evidence
+    - contribution claims cite evaluation evidence and limitations
+    weak_evidence_signals:
+    - findings are used only rhetorically
+    - negative evidence is ignored
+    - contribution claims are unchanged despite weak or mixed results
+    - trace links stop at evaluation criteria and do not reach design knowledge
+    calibration_anchor: Score 3 when a reviewer can follow how evidence changes or supports the contribution claim.
+    common_failure_modes:
+    - findings_claims_gap
+    - selective_evidence_trace
+    - negative_evidence_suppression
+    - contribution_overclaim
+    - revision_action_absence
+    reviewer_notes: This dimension applies both before data collection as planned traceability and after data collection as
+      actual findings-to-claims mapping.
+  scoring_model:
+    scale:
+      minimum_score: 0
+      maximum_score: 4
+      score_0: absent_or_blocked
+      score_1: weak_or_asserted
+      score_2: conditional_or_partially_supported
+      score_3: strong_or_adequately_supported
+      score_4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule: weights_sum_to_1_0
+    weight_sum: 1.0
+    weighted_score_formula: sum(dimension_score * dimension_weight) for all required dimensions, after applying missing_evidence_rule
+      and floor rules
+    missing_evidence_rule:
+      required_dimension_missing_evidence: score_0_for_that_dimension_and_human_review_required
+      conditional_input_missing_before_data_collection: allow_planned_trace_with_flag; reassess_after_findings_exist
+      missing_claim_type: activate_floor_rule_claim_type_absence
+      missing_evaluation_object: activate_floor_rule_evaluation_object_absence
+    reverse_scoring_rule: none; all dimensions are positive-scored
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_evaluation_object
+      condition: evaluation_object_clarity_score == 0
+      maximum_overall_decision: evaluation_misaligned
+      maximum_weighted_score: 1.9
+      rationale: Evaluation cannot be aligned when the evaluated object is absent.
+    - rule_id: floor_claim_type_absence
+      condition: claim_type_alignment_score == 0
+      maximum_overall_decision: evaluation_misaligned
+      maximum_weighted_score: 1.9
+      rationale: Evidence cannot be interpreted without knowing which claims it is meant to support.
+    - rule_id: floor_criterion_absence
+      condition: criteria_and_measure_quality_score == 0
+      maximum_overall_decision: major_alignment_revision_needed
+      maximum_weighted_score: 2.1
+      rationale: Evaluation without criteria cannot support reviewable findings.
+    - rule_id: floor_severe_claim_evidence_mismatch
+      condition: claim_type_alignment_score <= 1 and findings_to_claims_trace_score <= 1
+      maximum_overall_decision: evaluation_misaligned
+      maximum_weighted_score: 1.9
+      rationale: Severe claim-evidence mismatch cannot be offset by strong documentation elsewhere.
+    - rule_id: floor_unsupported_overclaim
+      condition: overclaim_from_weak_evidence_detected == true
+      maximum_overall_decision: major_alignment_revision_needed
+      maximum_weighted_score: 2.4
+      rationale: Claims must be narrowed or evidence strengthened before alignment can be accepted.
+    - rule_id: floor_unhandled_material_validity_threat
+      condition: validity_threat_identification_score <= 1 and high_claim_scope == true
+      maximum_overall_decision: major_alignment_revision_needed
+      maximum_weighted_score: 2.4
+      rationale: High-scope claims require explicit threat handling and boundary conditions.
+  level_descriptors:
+    score_0: The evaluation design is absent or blocked; core object, claim, criteria, or evidence structure is missing.
+    score_1: The evaluation design is mostly asserted; labels are present but alignment among claims, criteria, timing, setting,
+      evidence, and stakeholders is weak.
+    score_2: The evaluation design is partially aligned but has material gaps that require revision before strong claims can
+      be made.
+    score_3: The evaluation design is adequately aligned for the stated claim scope, with clear criteria, evidence mode, stakeholder
+      fit, and validity boundaries.
+    score_4: 'The evaluation design is exemplary: claim-specific, evidence-disciplined, stakeholder-aware, validity-conscious,
+      and traceable from findings to design knowledge and contribution claims.'
+    anchor_examples:
+    - 'score_4: A staged evaluation separates ex ante expert inspection of a method from ex post field pilot evidence for
+      use claims and explicitly narrows contribution claims based on mixed findings.'
+    - 'score_3: A pilot evaluation clearly links criteria and stakeholder feedback to bounded utility claims, but has limited
+      triangulation.'
+    - 'score_2: Criteria and findings exist, but setting and claim scope are mismatched for projectability claims.'
+    - 'score_1: The plan says the artifact will be evaluated for usefulness but does not define usefulness or who judges it.'
+    - 'score_0: No evaluation plan or findings-to-claims structure exists.'
+    borderline_cases:
+    - A purely analytical evaluation may be score_3 or score_4 if the claims are limited to internal consistency, feasibility,
+      or theoretical fit.
+    - A naturalistic field pilot may still score_2 if it lacks criteria, validity threat handling, or evidence-to-claim trace.
+    - A stakeholder workshop may support use-plan or adoption insights but not broad effect claims unless paired with suitable
+      evidence.
+  decision_thresholds:
+    evaluation_aligned:
+      weighted_score_minimum: 3.25
+      required_dimension_minimum: 3
+      allowed_floor_rules: []
+      interpretation: Evaluation design is aligned enough to support planned or reported claims within stated boundaries.
+    minor_alignment_gaps:
+      weighted_score_minimum: 2.75
+      required_dimension_minimum: 2
+      allowed_floor_rules:
+      - none_or_minor_only
+      interpretation: Evaluation design is usable after targeted revisions or claim narrowing.
+    major_alignment_revision_needed:
+      weighted_score_minimum: 2.0
+      required_dimension_minimum: 1
+      allowed_floor_rules:
+      - floor_criterion_absence
+      - floor_unsupported_overclaim
+      - floor_unhandled_material_validity_threat
+      interpretation: Major redesign of criteria, evidence mode, stakeholder involvement, timing, setting, or claim scope
+        is required.
+    evaluation_misaligned:
+      weighted_score_below: 2.0
+      or_condition: missing evaluation object, absent claim type, or severe claim-evidence mismatch
+      interpretation: Evaluation cannot support DSR claims as framed.
+    dimension_floor_rules:
+    - floor_missing_evaluation_object
+    - floor_claim_type_absence
+    - floor_criterion_absence
+    - floor_severe_claim_evidence_mismatch
+    - floor_unsupported_overclaim
+    - floor_unhandled_material_validity_threat
+    human_review_triggers:
+    - ambiguity_about_evaluation_object
+    - source_gap_for_evaluation_criteria
+    - ethical_or_stakeholder_burden_risk
+    - evidence_sufficiency_uncertainty
+    - possible_overclaiming
+    - mixed_or_negative_findings
+    - claim_scope_extends_beyond_setting
+    - stakeholder_group_missing_without_rationale
+    - controlled_vocabulary_value_unknown_or_contested
+  calibration_guidance:
+    reviewer_preparation:
+    - Review the artifact specification, requirements trace, and intended contribution claim before scoring.
+    - Identify each claim type before judging whether evidence fits it.
+    - Separate evaluation plan quality from artifact quality and from final contribution quality.
+    - Record reviewer_judgment separately from source-supported claims.
+    anchor_examples:
+      strong: An evaluation plan for a higher education CLO-to-PLO contribution-map artifact specifies that the evaluated
+        object is the mapping method and prototype dashboard, uses expert review for construct validity, pilot use by program
+        reviewers for use-plan utility, analytics for task completion, and explicit trace from findings to design-principle
+        revisions.
+      borderline: A prototype is piloted with users and produces positive satisfaction data, but criteria are vague and the
+        record claims institutional effectiveness without field outcome evidence. Score likely falls in minor_alignment_gaps
+        or major_alignment_revision_needed depending on claim narrowing.
+      weak: The record says the artifact was evaluated because stakeholders liked it, but no artifact version, claim type,
+        criteria, evidence mode, or findings-to-claims trace is provided.
+    calibration_rounds:
+    - 'Round 1: two reviewers independently score all dimensions using only documented evidence.'
+    - 'Round 2: reviewers compare dimension-level disagreements of two or more score points and identify missing evidence
+      versus interpretive disagreement.'
+    - 'Round 3: reviewers reconcile floor-rule activation and final decision value.'
+    - 'Round 4: record unresolved disagreements as human_review flags rather than forcing false precision.'
+    inter_rater_reconciliation:
+    - Require explicit rationale for scores of 0 or 4.
+    - When disagreement concerns evidence sufficiency, retain the lower score unless additional documented evidence is supplied.
+    - When disagreement concerns claim scope, revise or split the claim before rescoring.
+    drift_checks:
+    - Periodically rescore one prior strong, borderline, and weak case.
+    - Check that reviewers are not treating naturalistic evaluation as automatically superior to artificial evaluation.
+    - Check that reviewers are not treating presence of metrics as equivalent to appropriate measures.
+    - Check that reviewers preserve the distinction between evaluation evidence and contribution claim.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      evaluation_object_clarity:
+      - named evaluation_object
+      - reference to artifact_or_instantiation
+      - short boundary statement
+      claim_type_alignment:
+      - claim_types
+      - evaluation_method_or_evidence_mode_for_each_major_claim
+      - statement of unsupported or deferred claims
+      criteria_and_measure_quality:
+      - at least one criterion for each major evaluation claim
+      - measurement or judgment method
+      - threshold, rubric, or qualitative anchor where applicable
+      timing_and_function_fit:
+      - timing category
+      - evaluation function
+      - artifact maturity stage
+      - rationale for why this timing can support the claim
+      setting_and_evidence_mode_fit:
+      - setting classification
+      - evidence mode classification
+      - data source or participant basis
+      - claim-fit rationale
+      stakeholder_and_audience_alignment:
+      - stakeholder role map for evaluation
+      - participant or reviewer selection rationale
+      - audience for findings and contribution claims
+      validity_threat_identification:
+      - limitations or validity_threats section
+      - threat-to-claim linkage
+      - mitigation or disclosure action
+      findings_to_claims_trace:
+      - findings table or narrative
+      - trace links from findings to criteria and claims
+      - revision or claim-status output
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Every evaluation criterion derived from prior DSR theory or source extraction should include source_anchor_id or source_family
+      reference.
+    - Every reviewer judgment about fit, sufficiency, or overclaiming should be marked reviewer_judgment.
+    - Every contribution claim supported by evaluation should link to one or more finding_id, criterion_id, and evidence_record_id.
+    evidence_quality_notes:
+    - Evidence is evaluated relative to claim type; weak evidence for one claim may be strong evidence for another narrower
+      claim.
+    - Qualitative evidence can be high quality when sampling, prompts, coding, role selection, and judgment anchors are adequate.
+    - Quantitative measures are not automatically stronger than qualitative evidence if they do not fit the construct or claim.
+    - Mixed, negative, or ambiguous findings should be preserved and used to narrow or revise claims.
+    pre_data_collection_evidence:
+    - planned evaluation_object
+    - planned claim_type
+    - planned criteria and measures
+    - planned evidence_mode and setting
+    - planned stakeholder roles
+    - planned evidence_to_claim_trace
+    post_data_collection_evidence:
+    - actual findings
+    - deviations from evaluation plan
+    - criterion-level results
+    - validity threats and limitations
+    - claim support status
+    - revision actions and design knowledge outputs
+  anti_patterns_and_warnings:
+  - anti_pattern_id: evaluation_mismatch
+    warning_condition: evaluation method, timing, setting, or evidence mode cannot support the claim type
+    severity: blocking_issue
+    recommended_response: narrow the claim, change evidence mode, add evaluation stage, or reclassify the evaluation purpose
+  - anti_pattern_id: criterion_absence
+    warning_condition: evaluation criteria, measures, thresholds, or qualitative anchors are missing or only aspirational
+    severity: major_warning
+    recommended_response: derive criteria from requirements, artifact capacities, stakeholder concerns, and claim types
+  - anti_pattern_id: claim_evidence_gap
+    warning_condition: findings are not explicitly linked to claim types or contribution claims
+    severity: blocking_issue
+    recommended_response: construct an evidence_to_claim_trace and mark unsupported claims as deferred or unsupported
+  - anti_pattern_id: overclaim_from_weak_evidence
+    warning_condition: evaluation evidence is used to make claims broader than setting, sample, evidence mode, or validity
+      threats allow
+    severity: blocking_issue
+    recommended_response: narrow contribution scope, add boundary conditions, or collect stronger evidence
+  - anti_pattern_id: stakeholder_mismatch
+    warning_condition: stakeholders involved in evaluation cannot credibly judge the criteria or claims assigned to them
+    severity: major_warning
+    recommended_response: revise stakeholder participation, distinguish expert from user evidence, or narrow stakeholder-facing
+      claims
+  - anti_pattern_id: artificial_naturalistic_conflation
+    warning_condition: artificial, analytical, or simulation evidence is reported as if it were naturalistic field evidence
+    severity: major_warning
+    recommended_response: state setting limitations and restrict claims to what the evidence mode can support
+  - anti_pattern_id: formative_summative_conflation
+    warning_condition: formative feedback or design iteration is treated as final summative validation
+    severity: major_warning
+    recommended_response: separate learning evidence from claim-support evidence and add summative evaluation if needed
+  traceability_requirements:
+  - trace_id: artifact_to_evaluation_object
+    source_node: artifact_or_instantiation
+    target_node: evaluation_object
+    required: true
+    minimum_trace_fields:
+    - artifact_id
+    - evaluation_object_id
+    - artifact_version_or_state
+    - object_boundary
+  - trace_id: requirement_to_evaluation_criterion
+    source_node: requirement_or_acceptance_criterion
+    target_node: evaluation_criterion
+    required: true
+    minimum_trace_fields:
+    - requirement_id
+    - criterion_id
+    - rationale
+    - source_anchor_or_reviewer_judgment
+  - trace_id: claim_type_to_evidence_mode
+    source_node: claim_type
+    target_node: evidence_mode
+    required: true
+    minimum_trace_fields:
+    - claim_id
+    - claim_type
+    - evidence_mode
+    - fit_rationale
+  - trace_id: criterion_to_measure_or_judgment_anchor
+    source_node: evaluation_criterion
+    target_node: measure_or_judgment_anchor
+    required: true
+    minimum_trace_fields:
+    - criterion_id
+    - measure_id_or_anchor_id
+    - threshold_or_interpretation_rule
+  - trace_id: finding_to_claim
+    source_node: finding
+    target_node: claim
+    required: conditional_after_findings_exist
+    minimum_trace_fields:
+    - finding_id
+    - criterion_id
+    - claim_id
+    - support_status
+    - limitation
+  - trace_id: evaluation_to_design_knowledge
+    source_node: evaluation_finding
+    target_node: design_knowledge
+    required: conditional_for_contribution_claims
+    minimum_trace_fields:
+    - finding_id
+    - design_knowledge_id
+    - abstraction_logic
+    - boundary_condition
+  - trace_id: design_knowledge_to_contribution
+    source_node: design_knowledge
+    target_node: contribution_claim
+    required: conditional_for_contribution_claims
+    minimum_trace_fields:
+    - design_knowledge_id
+    - contribution_claim_id
+    - knowledge_goal
+    - knowledge_scope
+    - evidence_basis
+  validation_implications:
+    json_schema_fields:
+    - evaluation_space.evaluation_object.id
+    - evaluation_space.evaluation_object.type
+    - evaluation_space.claim_types[]
+    - evaluation_space.criteria[].criterion_id
+    - evaluation_space.criteria[].measure_or_anchor
+    - evaluation_space.timing
+    - evaluation_space.setting
+    - evaluation_space.evidence_mode
+    - evaluation_space.stakeholders[]
+    - evaluation_space.validity_threats[]
+    - evaluation_space.evidence_to_claim_trace[]
+    - evaluation_space.findings[]
+    shacl_shapes_or_warnings:
+    - shape_id: evaluation_space_requires_object_claim_and_criteria_shape
+      severity: violation
+      checks:
+      - min_count_evaluation_object_1
+      - min_count_claim_type_1
+      - min_count_criterion_1
+      manual_review_required: false
+    - shape_id: evaluation_claim_evidence_trace_shape
+      severity: warning
+      checks:
+      - each_claim_has_evidence_mode
+      - each_post_evaluation_claim_has_finding_or_limitation
+      manual_review_required: true
+    - shape_id: evaluation_timing_setting_controlled_values_shape
+      severity: violation
+      checks:
+      - timing_in_controlled_vocabulary
+      - setting_in_controlled_vocabulary
+      - evidence_mode_in_controlled_vocabulary
+      manual_review_required: false
+    - shape_id: evaluation_overclaim_warning_shape
+      severity: warning
+      checks:
+      - field_effectiveness_claim_requires_naturalistic_or_field_evidence_or_explicit_limitation
+      manual_review_required: true
+    controlled_vocabularies:
+      evaluation_object_type:
+      - artifact_universal
+      - artifact_instantiation
+      - method
+      - use_plan
+      - capacity_specification
+      - design_knowledge
+      - usage_effect
+      - evaluation_instrument
+      - composite
+      claim_type:
+      - make_claim
+      - use_claim
+      - usage_effect_claim
+      - contribution_claim
+      - design_knowledge_claim
+      - projectability_claim
+      - feasibility_claim
+      - utility_claim
+      evaluation_timing:
+      - ex_ante
+      - ex_post
+      - formative
+      - summative
+      - prospective
+      - retrospective
+      - iterative
+      evaluation_setting:
+      - artificial
+      - naturalistic
+      - laboratory
+      - field
+      - simulation
+      - case_setting
+      - organizational_setting
+      - repository_review
+      - analytical_setting
+      evidence_mode:
+      - analytical
+      - empirical
+      - expert
+      - field
+      - case
+      - simulation
+      - experiment
+      - analytics
+      - artifact_inspection
+      - conceptual_argument
+      - stakeholder_claim
+      - validation_result
+      claim_support_status:
+      - supported
+      - partially_supported
+      - not_supported
+      - contradicted
+      - deferred
+      - unsupported
+      - not_evaluated
+    python_validation_logic:
+    - verify dimension weights sum to 1.0
+    - check required inputs exist
+    - check every criterion has criterion_id, linked claim, and measure_or_anchor
+    - check every claim has a claim_type and support_status after findings exist
+    - flag claims containing projectability, effectiveness, adoption, or impact when evidence_mode and setting are insufficient
+      or no limitation is supplied
+    - flag criteria without requirement or stakeholder rationale when requirements_traceability_rubric is available
+    - flag evidence_to_claim_trace entries pointing to missing finding_id, criterion_id, or claim_id
+    manual_review_only_checks:
+    - whether evaluation criteria are substantively appropriate
+    - whether measures are valid and reliable enough for the claim
+    - whether stakeholder involvement is adequate
+    - whether validity threats are material or sufficiently mitigated
+    - whether a contribution claim is overbroad
+    - whether negative or mixed findings require claim revision
+    repository_integration_notes:
+      proposed_file_path: rubrics/evaluation_alignment_quality_rubric.yaml
+      related_schema_fields:
+      - evaluation_space
+      - artifact_space
+      - design_space.requirements_trace
+      - knowledge_space.contribution_claim
+      likely_crosswalk_files:
+      - crosswalks/source-to-framework-alignment.yaml
+      - crosswalks/rubric-to-schema-fields.yaml
+      - crosswalks/rubric-to-shacl-shapes.yaml
+      likely_docs:
+      - docs/evaluation-guidance.md
+      - docs/rubrics/evaluation-alignment-quality.md
+  examples_or_scoring_vignettes:
+  - case_id: strong_evaluation_alignment_case
+    label: Strong / exemplary
+    scenario: A DSR study evaluates a program-learning-outcome contribution-mapping method and prototype dashboard. The evaluation
+      object distinguishes the reusable mapping method from one dashboard implementation. Claims are split into make feasibility,
+      reviewer use utility, and bounded design-knowledge contribution. Expert review assesses construct validity, pilot users
+      assess task utility, analytics document completion/error rates, and interviews capture stakeholder burden. Findings
+      are mapped to claims and mixed results narrow the contribution statement.
+    likely_dimension_pattern:
+      evaluation_object_clarity: 4
+      claim_type_alignment: 4
+      criteria_and_measure_quality: 3
+      timing_and_function_fit: 4
+      setting_and_evidence_mode_fit: 4
+      stakeholder_and_audience_alignment: 4
+      validity_threat_identification: 3
+      findings_to_claims_trace: 4
+    likely_decision: evaluation_aligned
+    calibration_note: High score depends on claim separation and evidence-to-claim trace, not merely on using multiple methods.
+  - case_id: borderline_evaluation_alignment_case
+    label: Borderline / conditional
+    scenario: A prototype workflow is tested in a simulated setting with three expert reviewers and one sponsor. The record
+      has criteria for feasibility and usability but claims likely institutional adoption. User evidence and naturalistic
+      context are absent, though the record acknowledges this limitation.
+    likely_dimension_pattern:
+      evaluation_object_clarity: 3
+      claim_type_alignment: 2
+      criteria_and_measure_quality: 2
+      timing_and_function_fit: 3
+      setting_and_evidence_mode_fit: 2
+      stakeholder_and_audience_alignment: 2
+      validity_threat_identification: 3
+      findings_to_claims_trace: 2
+    likely_decision: major_alignment_revision_needed
+    calibration_note: Can become minor_alignment_gaps if claims are narrowed to simulated feasibility and expert-assessed
+      utility.
+  - case_id: weak_evaluation_alignment_case
+    label: Weak / not ready
+    scenario: A paper says an artifact was evaluated successfully because stakeholders liked the tool. It does not identify
+      artifact version, evaluation object, claim type, criteria, stakeholder role, evidence mode, or specific findings. It
+      claims a reusable design contribution without tracing evidence to design knowledge.
+    likely_dimension_pattern:
+      evaluation_object_clarity: 0
+      claim_type_alignment: 1
+      criteria_and_measure_quality: 0
+      timing_and_function_fit: 1
+      setting_and_evidence_mode_fit: 1
+      stakeholder_and_audience_alignment: 1
+      validity_threat_identification: 0
+      findings_to_claims_trace: 0
+    likely_decision: evaluation_misaligned
+    calibration_note: Floor rules apply because evaluation object and criteria are absent.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use the weighted score as a summary only after checking non-compensatory floor rules.
+    - Dimension scores should be interpreted relative to the stated claim scope and artifact maturity.
+    - A score of 3 indicates adequate alignment for current claims; it does not require all possible evidence modes.
+    - A score of 4 indicates exemplary alignment, traceability, and limitation handling; it does not imply empirical success.
+    what_not_to_infer:
+    - Do not infer that a high evaluation alignment score proves the artifact is useful, effective, adopted, ethical, secure,
+      or generalizable.
+    - Do not infer that naturalistic field evidence is always required; evidence mode must fit the claim.
+    - Do not infer that artificial, analytical, simulation, expert, or artifact-inspection evidence is weak when the claim
+      is appropriately bounded.
+    - Do not infer that more measures automatically improve alignment; irrelevant or invalid measures can weaken the rubric
+      score.
+    - Do not infer that stakeholder satisfaction alone supports design-knowledge contribution claims.
+    - Do not infer that a complete findings-to-claims trace eliminates human judgment about evidence sufficiency.
+    - Do not infer that machine validation can decide adequacy, novelty, ethics, validity threat severity, or contribution
+      quality without reviewer judgment.
+    relationship_to_adjacent_rubrics:
+      requirements_traceability_rubric: Provides upstream trace from problem/context to requirements and evaluation criteria;
+        this rubric checks whether those criteria and evidence modes fit evaluation claims.
+      artifact_specification_quality_rubric: Defines artifact boundary, type, make/use/capacity claims, and instantiation;
+        this rubric checks how those objects are evaluated.
+      demonstration_use_readiness_rubric: Checks whether a demonstration or use setting can produce evidence; this rubric
+        checks whether the evidence design supports claims.
+      contribution_quality_rubric: Uses evaluation evidence and findings-to-claims trace to judge contribution quality after
+        evaluation interpretation.
+      projectability_boundary_conditions_rubric: Uses evaluation scope, setting, findings, and validity threats to judge transfer
+        and reuse boundaries.
+    known_limitations:
+    - The rubric cannot determine statistical power, instrument validity, or qualitative trustworthiness without project-specific
+      methodological review.
+    - The rubric does not replace IRB, privacy, security, accessibility, legal, or governance review.
+    - The rubric may need domain-specific criteria for high-risk technical, clinical, educational, compliance, or safety-critical
+      artifacts.
+    - The rubric is not a rigid sequence; iterative DSR may use it repeatedly across evaluation cycles.
+  quality_control:
+    completeness_check:
+    - all required top-level sections present
+    - all eight required dimensions present
+    - dimension weights sum to 1.0
+    - each dimension has score_0 through score_4 descriptors
+    - required inputs and outputs match prompt_evaluation_alignment_quality_rubric
+    - decision values match permitted values
+    - anti-patterns include evaluation_mismatch, criterion_absence, claim_evidence_gap, overclaim_from_weak_evidence, and
+      stakeholder_mismatch
+    - what_not_to_infer section present
+    ambiguity_check:
+    - flag ambiguous evaluation_object
+    - flag unclear claim_type
+    - flag evidence_mode labels not in controlled vocabulary
+    - flag stakeholder role ambiguity
+    - flag findings not tied to criteria
+    human_review_recommendation:
+    - human review is required whenever floor rules activate
+    - human review is required for overclaiming, source gaps, ethical risk, stakeholder burden, or evidence sufficiency questions
+    - human review is recommended before converting any rubric guidance into hard SHACL violations beyond presence, controlled
+      values, and trace-shape checks
+    source_gap_notes:
+    - Confirm exact Akoka et al. (2017) evaluation-criteria hierarchy labels before using them as hard controlled vocabulary
+      values.
+    - Confirm project-specific Johannesson and Perjons evaluation terminology before enforcing evaluation activity terms.
+    - Confirm software-embedded evaluation source anchors before formalizing analytics-specific validation logic.
+    self_validation:
+      yaml_validated: true
+      weights_sum_to_1_0: true
+      dimension_count: 8
+      required_prompt_outputs_covered: true
+      machine_validation_not_overclaimed: true
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready rubric generated from prompt_evaluation_alignment_quality_rubric and dsr_rubric_generation_spec_v0_1_0.
+    changed_by: gpt_5_5_thinking

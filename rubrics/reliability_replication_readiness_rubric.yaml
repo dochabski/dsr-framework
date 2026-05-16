@@ -1,0 +1,1202 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: reliability_replication_readiness_rubric
+    label: Reliability and Replication Readiness Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/reliability_replication_readiness_rubric.yaml
+    local_file_name: reliability_replication_readiness_rubric.yaml
+    assessment_target: validity_reliability_space
+    priority: recommended
+    lifecycle_phase: validity_reliability_and_accumulation
+    prompt_id: prompt_reliability_replication_readiness_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - contribution_quality_rubric
+    - transparency_trace_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_controlled_values_and_material_availability;
+        adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Can the artifact, method, measure, design knowledge, process, or evaluation be reliably assessed or
+      replicated under stated conditions?
+    when_to_use:
+    - before publication
+    - before repository release
+    - before designing a replication study
+    - before claiming that an artifact, method, measure, evaluation, or design-knowledge contribution is dependable beyond
+      a single undocumented assessment
+    - when preparing cumulative knowledge synthesis, evidence comparison, or meta-replication materials
+    - whenever versioning, procedure, measures, evaluation protocol, implementation context, or boundary conditions materially
+      change
+    when_not_to_use:
+    - do not use before a minimally specified reliability_target exists
+    - do not use as a substitute for contribution_quality_rubric; a reproducible record may still make a weak contribution
+    - do not use as a substitute for transparency_trace_quality_rubric; replication readiness depends on transparency but
+      also evaluates reliability target, materials, procedures, measures, and replication type fit
+    - do not use as proof of artifact utility, statistical validity, generalizability, ethical acceptability, or production
+      readiness
+    - do not require exact reproduction when DSR theory or artifact mutability makes adaptation, update, recreation, or explanation
+      the more appropriate replication mode
+    - do not convert recommended replication materials into hard public-disclosure requirements when privacy, security, intellectual
+      property, or ethical redaction is necessary
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - journal_or_conference_reviewer
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - technical_implementer
+    - artifact_maintainer
+    - replication_or_reuse_reviewer
+    - evidence_synthesis_reviewer
+    unit_of_assessment: one_validity_reliability_space_record_for_a_candidate_or_completed_dsr_study
+    boundary_conditions:
+    - The rubric assesses readiness for reliable assessment or replication under stated conditions, not whether the original
+      study is substantively correct.
+    - Reliability may concern an artifact, method, measure, evaluator process, implementation procedure, evaluation protocol,
+      or design knowledge; the target must be explicit.
+    - Synchronic reliability concerns consistency at a given time or across evaluators, observers, settings, users, or assessment
+      conditions.
+    - Diachronic reliability concerns stability, interpretability, and comparability over time, versions, repeated uses, or
+      changing contexts.
+    - Replication in DSR may involve test, redesign, justification, adaptation, explanation, update, recreation, or meta-replication
+      rather than only exact duplication.
+    - Appropriate evidence depends on artifact type, maturity, risk, claim scope, boundary conditions, and intended replication
+      type.
+    - Machine validation may check field presence, controlled values, identifiers, version links, and material availability;
+      adequacy, sufficiency, and replication-type fit require human review.
+    assumptions:
+    - Reliability is a validity support, not a replacement for validity.
+    - Replication readiness requires codified materials and procedures proportionate to the claim being made.
+    - Reliability claims must not hide context dependence, artifact mutability, or version-specific findings.
+    - Design knowledge accumulates more responsibly when materials, measures, conditions, and variation are documented for
+      comparison and reuse.
+  source_grounding:
+    source_families_to_consult:
+    - storey_baskerville_kaul_2025_reliability_in_design_science_research
+    - brendel_lembcke_muntermann_kolbe_2021_replication_study_types_for_dsr
+    - reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation_dsr
+    - concept_inventory.validity_reliability_terms
+    - dsr_skos_controlled_vocabulary.validity_reliability_terms
+    - dsr_ontology_competency_questions.validity_reliability_and_traceability
+    - dsr_operational_synthesis.validity_reliability_and_accumulation
+    - transparency_trace_quality_rubric
+    - contribution_quality_rubric
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    source_anchor_policy:
+      minimum: Every major reliability, replication, or accumulation rationale should cite a source_anchor_id, framework_anchor,
+        validation_result, repository_artifact, or explicit reviewer_judgment marker.
+      preferred: Use Storey et al. reliability anchors for reliability target and synchronic/diachronic timing; Brendel et
+        al. anchors for replication types; Reining et al. anchors for accumulation and codification; concept-inventory anchors
+        for controlled vocabulary and schema alignment.
+      do_not_do: Do not label a claim as source_supported when it is inferred from reviewer judgment, missing documentation,
+        or local project practice.
+    unsupported_claim_policy:
+      rule: Claims about reliability, reproducibility, replication readiness, transfer, accumulation, or generality must be
+        marked unsupported when they lack evidence or traceable materials.
+      effect: Unsupported claims trigger human_review and may activate non_compensatory_floor_rules.
+    source_supported_claims:
+    - claim_id: src_claim_reliability_targets_and_timing
+      claim: DSR reliability can target artifact, method, measures, or design knowledge and can be considered synchronically
+        or diachronically.
+      source_family: storey_baskerville_kaul_2025_reliability_in_design_science_research
+      source_anchor_ids:
+      - storey_2025:A017
+      - storey_2025:A020
+      - storey_2025:A021
+      - storey_2025:A022
+      - storey_2025:A023
+      obligation_status: source_supported
+    - claim_id: src_claim_replication_types_plural
+      claim: DSR replication includes multiple study types oriented to utility, adaptation, explanation, update, recreation,
+        and cumulative knowledge rather than only exact reproduction.
+      source_family: brendel_lembcke_muntermann_kolbe_2021_replication_study_types_for_dsr
+      source_anchor_ids:
+      - brendel_2021:A06
+      - brendel_2021:A13
+      obligation_status: source_supported
+    - claim_id: src_claim_accumulation_requires_codification
+      claim: Cumulative DSR knowledge is strengthened by codified, comparable, reusable, and traceable design knowledge and
+        evidence.
+      source_family: reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation_dsr
+      source_anchor_ids:
+      - reining_2022:knowledge_accumulation
+      - concept_inventory:validity_reliability_terms
+      obligation_status: source_supported
+    - claim_id: src_claim_validation_limits
+      claim: Machine validation can check presence, controlled values, identifiers, and trace structure, but adequacy and
+        evidence sufficiency require human judgment.
+      source_family: dsr_rubric_generation_spec_v0_1_0
+      source_anchor_ids:
+      - rubric_generation_spec:repo_context_rules
+      - rubric_generation_spec:validation_implications
+      obligation_status: framework_supported
+  construct_definitions:
+  - term_id: validity_reliability_space
+    preferred_label: Validity Reliability Space
+    definition: The documentation region containing reliability targets, validity relationships, replication plans, materials,
+      procedures, measures, versioning, and accumulation-oriented evidence.
+    controlled_vocabulary_source: concept_inventory.validity_reliability_terms
+    distinctions_to_preserve:
+    - validity_vs_reliability
+    - reliability_vs_replication
+    - artifact_reliability_vs_measure_reliability
+    - synchronic_reliability_vs_diachronic_reliability
+  - term_id: reliability_target
+    preferred_label: Reliability Target
+    definition: The object or practice whose consistency, stability, or dependable assessment is at issue, such as artifact,
+      method, measure, evaluator process, implementation, evaluation protocol, or design knowledge.
+    controlled_values:
+    - artifact
+    - method
+    - measure
+    - evaluator_process
+    - implementation
+    - procedure
+    - evaluation_protocol
+    - design_knowledge
+    - mixed
+    terms_not_to_conflate:
+    - evaluation_object
+    - contribution_object
+    - artifact_type
+  - term_id: synchronic_reliability
+    preferred_label: Synchronic Reliability
+    definition: Reliability support for consistent assessment, interpretation, or use at a given time or across evaluators,
+      observers, users, settings, or parallel applications.
+    terms_not_to_conflate:
+    - single_successful_evaluation
+    - popularity
+    - stakeholder_acceptance
+  - term_id: diachronic_reliability
+    preferred_label: Diachronic Reliability
+    definition: Reliability support for stable interpretation, repeated assessment, reuse, or comparable performance over
+      time, versions, studies, settings, or changing conditions.
+    terms_not_to_conflate:
+    - static_documentation
+    - permanent_validity
+    - generalizability_without_evidence
+  - term_id: replication_type
+    preferred_label: Replication Type
+    definition: The kind of DSR replication being pursued or enabled, such as test, redesign, justification, adaptation, explanation,
+      update, recreation, or meta-replication.
+    controlled_values:
+    - test
+    - redesign
+    - justification
+    - adaptation
+    - explanation
+    - update
+    - recreation
+    - meta_replication
+    - not_specified
+    terms_not_to_conflate:
+    - exact_duplication
+    - routine_reuse
+    - implementation_rollout
+  - term_id: replication_readiness
+    preferred_label: Replication Readiness
+    definition: The extent to which a DSR record supplies enough materials, procedures, measures, versioning, boundaries,
+      and traceability for an appropriate replication type to be attempted responsibly.
+    terms_not_to_conflate:
+    - production_readiness
+    - open_source_availability
+    - statistical_power
+  - term_id: accumulation_value
+    preferred_label: Accumulation Value
+    definition: The degree to which the record enables future comparison, synthesis, reuse, design-knowledge codification,
+      or evidence accumulation beyond a local report.
+  required_inputs:
+  - input_field: reliability_target
+    description: 'Explicit object of reliability assessment: artifact, method, measure, evaluator process, implementation,
+      procedure, evaluation protocol, design knowledge, or mixed target.'
+    obligation_status: required
+    accepted_format: controlled_value_plus_short_rationale
+    minimum_evidence: At least one target identifier and statement explaining why reliability matters for the target and claim.
+  - input_field: artifact_or_method_materials
+    description: Materials required to inspect, use, instantiate, evaluate, or replicate the artifact, method, procedure,
+      design knowledge, or evaluation.
+    obligation_status: required
+    accepted_format: list_of_repository_artifacts_or_redacted_materials_with_access_status
+    minimum_evidence: File paths, links, controlled-access references, appendices, templates, code, diagrams, instruments,
+      or reasoned redaction notes.
+  - input_field: procedure
+    description: Stepwise process for using, applying, instantiating, evaluating, or reproducing the target.
+    obligation_status: required
+    accepted_format: numbered_steps_or_protocol_reference
+    minimum_evidence: Procedure includes preconditions, actors, sequence, inputs, outputs, expected decisions, and stopping
+      or review conditions.
+  - input_field: measures
+    description: Measures, criteria, rubrics, indicators, observations, logs, instruments, or analytic procedures used to
+      assess the target.
+    obligation_status: required
+    accepted_format: list_or_table_with_definitions_scales_and_collection_method
+    minimum_evidence: Measure definitions, scoring rules, data sources, assessor roles, and analysis procedures.
+  - input_field: evaluation_protocol
+    description: Protocol linking evaluation object, criteria, timing, setting, evidence mode, stakeholder roles, and findings-to-claims
+      trace.
+    obligation_status: required
+    accepted_format: structured_protocol_or_reference_to_evaluation_space_record
+    minimum_evidence: Evaluation protocol identifier with object, timing, setting, criteria, evidence modes, and claim boundary.
+  - input_field: boundary_conditions
+    description: Conditions under which reliability or replication claims apply, fail, vary, or require adaptation.
+    obligation_status: required
+    accepted_format: structured_boundary_condition_register
+    minimum_evidence: Context, artifact version, user population, setting, implementation environment, data conditions, and
+      known non-applicability conditions.
+  - input_field: versioning
+    description: Version identifiers and change history for artifact, method, procedure, materials, measures, data, code,
+      and evaluation protocol.
+    obligation_status: required
+    accepted_format: semantic_version_or_date_version_plus_change_log
+    minimum_evidence: Stable version IDs, release date or commit/reference, dependencies, changed fields, and compatibility
+      notes.
+  - input_field: source_anchors
+    description: Source anchors, framework anchors, repository evidence, or reviewer-judgment markers supporting reliability
+      and replication claims.
+    obligation_status: recommended
+    accepted_format: list_of_anchor_ids_with_claim_links
+    minimum_evidence: Trace from reliability rationale to source-supported claim, validation result, repository artifact,
+      or reviewer judgment.
+  required_outputs:
+  - output_field: reliability_readiness_rating
+    description: Weighted and floor-rule-adjusted readiness rating for reliable assessment or use.
+    accepted_values:
+    - high
+    - moderate_with_limits
+    - low_revision_needed
+    - not_ready
+  - output_field: replication_readiness_rating
+    description: Decision value indicating whether the record supports an appropriate replication attempt.
+    accepted_values:
+    - replication_ready
+    - replication_ready_with_limits
+    - materials_revision_needed
+    - not_replication_ready
+  - output_field: replication_type_fit
+    description: Reviewer judgment about whether intended replication type matches artifact maturity, materials, variation,
+      and claims.
+    accepted_values:
+    - well_fit
+    - fit_with_limits
+    - mismatched_or_underjustified
+    - not_specified
+  - output_field: missing_materials
+    description: List of missing or inaccessible materials that limit reliability or replication.
+    accepted_values: list_of_material_gap_records
+  - output_field: reliability_risks
+    description: Risk register for non-codified knowledge, measure opacity, version instability, context dependence, unsupported
+      overclaiming, or replication mismatch.
+    accepted_values: list_of_risk_records
+  - output_field: recommended_actions
+    description: Prioritized actions needed before publication, release, replication, or accumulation claim.
+    accepted_values: ordered_list
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical or privacy constraints, evidence insufficiency, overclaiming, or
+      traceability failure.
+    accepted_values:
+    - ambiguity
+    - source_gap
+    - ethical_or_privacy_constraint
+    - evidence_insufficiency
+    - overclaiming
+    - traceability_failure
+    - none
+  assessment_dimensions:
+  - dimension_id: reliability_target_clarity
+    label: Reliability Target Clarity
+    definition: Clarity of whether reliability concerns artifact, method, measure, evaluator, process, implementation, or
+      design knowledge.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Reliability target type, target statement, claim link, and rationale.
+    level_descriptors:
+      score_0_descriptor: No reliability target is identified, or the target is contradictory.
+      score_1_descriptor: A target is named vaguely, but it is not connected to claim type, artifact, method, measure, evaluation,
+        or design knowledge.
+      score_2_descriptor: The target is partly specified, but mixed targets, claim links, or target boundaries remain ambiguous.
+      score_3_descriptor: The target is clearly specified and linked to relevant claims, with only minor ambiguity.
+      score_4_descriptor: The target is explicit, justified, typed with controlled vocabulary, bounded, and traced to claims,
+        materials, measures, and evidence.
+    minimum_evidence: Reliability target type, target statement, claim link, and rationale.
+    high_quality_evidence: Target is typed, bounded, source-anchored or framework-anchored, and connected to materials, measures,
+      and claims.
+    weak_evidence_signals:
+    - target described only as reliability
+    - artifact/method/measure/design knowledge conflated
+    - no claim link
+    calibration_anchor: A reviewer can state exactly what must remain consistent, stable, or assessable and which claim depends
+      on it.
+    common_failure_modes:
+    - ambiguous_target
+    - target_claim_mismatch
+    - mixed_target_without_decomposition
+    - reliability_validity_conflation
+    reviewer_notes: Score mixed targets by the least clearly specified target unless the record decomposes targets explicitly.
+  - dimension_id: synchronic_reliability_support
+    label: Synchronic Reliability Support
+    definition: Support for consistent assessment, interpretation, or use at a given time or across evaluators, observers,
+      settings, users, or parallel applications.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Procedure for same-time consistency, evaluator/observer/user roles, calibration or triangulation evidence
+      when appropriate.
+    level_descriptors:
+      score_0_descriptor: No evidence or procedure supports same-time consistency.
+      score_1_descriptor: Consistency is asserted without observer, evaluator, measure, or setting controls.
+      score_2_descriptor: Some same-time consistency evidence exists, but evaluator roles, measures, triangulation, or setting
+        controls are incomplete.
+      score_3_descriptor: Adequate support exists for consistent assessment or use within stated settings or evaluator groups.
+      score_4_descriptor: Strong support includes clear procedure, calibration, agreement checks, triangulation, multiple
+        observers or measures when appropriate, and bounded interpretation.
+    minimum_evidence: Procedure for same-time consistency, evaluator/observer/user roles, calibration or triangulation evidence
+      when appropriate.
+    high_quality_evidence: Includes calibration protocol, agreement checks, triangulation, multiple observers/measures, or
+      controlled repeated assessment within a setting.
+    weak_evidence_signals:
+    - single evaluator only with no calibration
+    - undefined consistency
+    - same-time variability ignored
+    calibration_anchor: Two competent reviewers or evaluators applying the same procedure at the same stage would likely reach
+      comparable judgments or observations.
+    common_failure_modes:
+    - single_unchecked_assessor
+    - missing_calibration
+    - triangulation_absent_when_needed
+    - setting_variation_ignored
+    reviewer_notes: Do not require quantitative inter-rater reliability when qualitative calibration, triangulation, or expert-review
+      consistency is the appropriate evidence mode.
+  - dimension_id: diachronic_reliability_support
+    label: Diachronic Reliability Support
+    definition: Support for stable interpretation, reuse, or assessment over time, versions, repeated uses, studies, settings,
+      or changing conditions.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Version identifiers, change log, repeated-assessment plan or evidence, and compatibility notes.
+    level_descriptors:
+      score_0_descriptor: No versioning, repeated-assessment logic, or time-sensitive documentation exists.
+      score_1_descriptor: Versioning or time stability is asserted but not documented or linked to findings.
+      score_2_descriptor: Partial version history or repeated-use logic exists, but changes, dependencies, or time boundaries
+        remain unclear.
+      score_3_descriptor: The record adequately documents versions, changes, dependencies, and conditions for repeated assessment
+        or future comparison.
+      score_4_descriptor: The record provides robust diachronic support through versioned materials, changelogs, repeated
+        assessments, compatibility notes, and explicit stability or change expectations.
+    minimum_evidence: Version identifiers, change log, repeated-assessment plan or evidence, and compatibility notes.
+    high_quality_evidence: Includes semantic or date versioning, changelog, compatibility matrix, repeated evidence, and update
+      triggers.
+    weak_evidence_signals:
+    - no version IDs
+    - screenshots only
+    - changed procedure not recorded
+    - future updates ignored
+    calibration_anchor: A future reviewer can tell which version was assessed and how changes affect interpretation.
+    common_failure_modes:
+    - untracked_versioning
+    - time_blind_claims
+    - update_effects_ignored
+    - dependency_drift
+    reviewer_notes: Do not award high diachronic scores for static documentation alone; look for version-aware comparability
+      or repeated assessment logic.
+  - dimension_id: replication_type_fit
+    label: Replication Type Fit
+    definition: Fit of intended DSR replication type, such as test, redesign, justification, adaptation, explanation, update,
+      recreation, or meta-replication.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Controlled replication type value, replication rationale, and mapping to artifact maturity and claim
+      scope.
+    level_descriptors:
+      score_0_descriptor: No replication type is stated despite replication-readiness claims.
+      score_1_descriptor: Replication type is named but mismatched to artifact maturity, claim type, or available materials.
+      score_2_descriptor: A plausible replication type is stated, but the rationale, scope, or required materials are incomplete.
+      score_3_descriptor: Replication type is well matched to artifact maturity, claim scope, materials, and evaluation purpose.
+      score_4_descriptor: Replication type is explicit, justified, source-aligned, and supported by materials, boundaries,
+        and variation guidance for the intended replication mode.
+    minimum_evidence: Controlled replication type value, replication rationale, and mapping to artifact maturity and claim
+      scope.
+    high_quality_evidence: Uses DSR-specific replication type vocabulary and explains why the selected type fits the artifact,
+      method, evaluation, and contribution claim.
+    weak_evidence_signals:
+    - exact replication assumed without rationale
+    - replication type absent
+    - replication mode incompatible with artifact mutability
+    calibration_anchor: The selected replication type matches the record's purpose and materials without over-demanding exact
+      duplication or overclaiming broad generality.
+    common_failure_modes:
+    - replication_type_mismatch
+    - exact_reproduction_bias
+    - adaptation_claim_without_adaptation_logic
+    - meta_replication_without_corpus
+    reviewer_notes: Judge fit relative to DSR replication purposes; adaptation, update, explanation, or recreation may be
+      better than exact duplication.
+  - dimension_id: materials_and_procedure_availability
+    label: Materials and Procedure Availability
+    definition: Completeness of artifacts, data, protocols, code, templates, instructions, and environment notes needed for
+      reliability review or replication.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Materials list with access status, procedure steps, environment/dependency notes, and redaction rationale
+      if needed.
+    level_descriptors:
+      score_0_descriptor: Materials and procedure are absent or inaccessible without rationale.
+      score_1_descriptor: Some materials are listed, but key artifacts, procedure steps, access details, or dependencies are
+        missing.
+      score_2_descriptor: Materials and procedure are partially available, but independent review would require substantial
+        assistance or assumption filling.
+      score_3_descriptor: Materials and procedure are adequate for bounded review or replication, with minor gaps or controlled-access
+        limitations.
+      score_4_descriptor: Materials and procedure are complete, versioned, linked, accessible or responsibly redacted, and
+        sufficient for an appropriate independent replication attempt.
+    minimum_evidence: Materials list with access status, procedure steps, environment/dependency notes, and redaction rationale
+      if needed.
+    high_quality_evidence: Includes repository paths, identifiers, README or protocol, data dictionary, scripts/templates,
+      examples, environment notes, and controlled-access alternatives.
+    weak_evidence_signals:
+    - dead links
+    - missing code or template
+    - no access status
+    - procedure not stepwise
+    - environment unspecified
+    calibration_anchor: An independent reviewer can locate the materials and follow the procedure under stated access and
+      boundary conditions.
+    common_failure_modes:
+    - missing_materials
+    - repository_dump_without_procedure
+    - unusable_redaction
+    - dependency_opacity
+    reviewer_notes: Confidential materials can be acceptable if controlled-access references or redacted substitutes preserve
+      reviewability.
+  - dimension_id: measure_and_evaluation_reproducibility
+    label: Measure and Evaluation Reproducibility
+    definition: Ability to reproduce measures, criteria, instruments, data transformations, analysis, and evaluation procedures.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Defined measures, criteria, instruments or scripts, data sources, analysis procedure, and findings-to-claims
+      trace.
+    level_descriptors:
+      score_0_descriptor: Measures, criteria, instruments, or analysis procedures are absent.
+      score_1_descriptor: Measures are named but undefined; scoring, data sources, or analysis are opaque.
+      score_2_descriptor: Measures and evaluation procedures are partly specified, but important definitions, scales, scripts,
+        criteria, or findings-to-claims links are incomplete.
+      score_3_descriptor: Measures, criteria, data sources, and analysis procedures are adequately specified for reproducible
+        evaluation under stated limits.
+      score_4_descriptor: Measures and evaluation protocol are fully defined, versioned, linked to claims, supported by examples
+        or scripts where appropriate, and reproducible by an independent reviewer.
+    minimum_evidence: Defined measures, criteria, instruments or scripts, data sources, analysis procedure, and findings-to-claims
+      trace.
+    high_quality_evidence: Includes measure dictionary, scoring rules, analytic scripts or reproducible analytic steps, example
+      calculations, and versioned protocol.
+    weak_evidence_signals:
+    - named outcomes only
+    - no scale or scoring rule
+    - opaque analysis
+    - findings detached from measures
+    calibration_anchor: An independent reviewer can reproduce or audit the scoring, analysis, or evaluation logic.
+    common_failure_modes:
+    - measure_opacity
+    - analysis_opacity
+    - criteria_claim_mismatch
+    - undocumented_data_transformations
+    reviewer_notes: If evaluation claims are made, undefined measures should cap this dimension at 1 or 2 depending on severity.
+  - dimension_id: boundary_and_variation_documentation
+    label: Boundary and Variation Documentation
+    definition: Documentation of conditions, expected variation, allowable adaptations, and non-applicability conditions for
+      reliability or replication.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Boundary-condition register, expected variation, acceptable adaptation, and non-applicability notes.
+    level_descriptors:
+      score_0_descriptor: No boundary conditions, variation expectations, or adaptation limits are stated.
+      score_1_descriptor: Boundaries are mentioned generally but not linked to target, procedure, replication type, or claim
+        scope.
+      score_2_descriptor: Some boundaries or variations are documented, but important context, population, version, environment,
+        or non-applicability conditions are missing.
+      score_3_descriptor: Boundaries, expected variation, and acceptable adaptations are clear enough to guide bounded replication
+        or reliability interpretation.
+      score_4_descriptor: Boundary and variation documentation is explicit, traceable, includes non-applicability and adaptation
+        limits, and prevents overgeneralized reliability or replication claims.
+    minimum_evidence: Boundary-condition register, expected variation, acceptable adaptation, and non-applicability notes.
+    high_quality_evidence: Includes context conditions, artifact-network dependencies, version limits, user/setting limits,
+      known failure conditions, and acceptable adaptations.
+    weak_evidence_signals:
+    - generic limitations only
+    - no non-applicability cases
+    - variation treated as noise
+    - adaptation unspecified
+    calibration_anchor: A reviewer can tell where reliability or replication claims apply, where they should not apply, and
+      what variation is acceptable.
+    common_failure_modes:
+    - boundary_condition_absence
+    - variation_unbounded
+    - non_applicability_missing
+    - overgeneralized_reliability
+    reviewer_notes: High scores require negative or limiting conditions, not merely positive transfer conditions.
+  - dimension_id: accumulation_value
+    label: Accumulation Value
+    definition: Contribution to cumulative DSR knowledge through comparability, codification, synthesis, reuse, or future
+      replication.
+    weight: 0.06
+    required: false
+    score_direction: higher_is_better
+    evidence_needed: Comparability logic, codification format, reuse pathway, or synthesis-ready metadata.
+    level_descriptors:
+      score_0_descriptor: No accumulation, comparability, codification, or reuse value is evident.
+      score_1_descriptor: Accumulation value is asserted but not operationalized through comparable fields, reusable materials,
+        or codified design knowledge.
+      score_2_descriptor: Some accumulation pathway exists, but comparability, contribution type, or reuse pathway is underdeveloped.
+      score_3_descriptor: The record supports cumulative knowledge through comparable evidence, codified materials, and traceable
+        contribution claims.
+      score_4_descriptor: The record strongly supports cumulative DSR knowledge through codified design knowledge, reusable
+        materials, comparison-ready evidence, replication-type clarity, and synthesis-ready metadata.
+    minimum_evidence: Comparability logic, codification format, reuse pathway, or synthesis-ready metadata.
+    high_quality_evidence: Includes contribution type, reusable design knowledge representation, cross-study comparability
+      fields, and synthesis pathway.
+    weak_evidence_signals:
+    - local success story only
+    - no codified design knowledge
+    - no comparison fields
+    - no reuse path
+    calibration_anchor: The record can be compared with future records or reused in a synthesis without reconstructing undocumented
+      design knowledge.
+    common_failure_modes:
+    - local_report_only
+    - non_codified_knowledge
+    - no_comparability
+    - unsupported_accumulation_claim
+    reviewer_notes: Because this dimension is optional/recommended and low weight, do not let weak accumulation value alone
+      block a bounded replication-ready decision.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      increments: 1
+      score_0: absent_or_blocked
+      score_1: weak_or_asserted
+      score_2: conditional_or_partially_supported
+      score_3: strong_or_adequately_supported
+      score_4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule: weights_sum_to_1_0
+    missing_evidence_rule: score_0_when_required_dimension_has_no_inspectable_evidence; score_no_higher_than_2_when_evidence_is_present_but_unanchored_or_unreviewable
+    reverse_scoring_rule: none
+    weighted_score_formula: sum(dimension_score * dimension_weight)
+    rounding_rule: retain_two_decimals_for_weighted_score; retain_integer_dimension_scores
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_reliability_target
+      condition: reliability_target_clarity_score == 0
+      maximum_overall_decision: not_replication_ready
+      rationale: Reliability cannot be assessed when the target is absent.
+    - rule_id: floor_missing_materials_or_procedure
+      condition: materials_and_procedure_availability_score <= 1
+      maximum_overall_decision: materials_revision_needed
+      rationale: High scores elsewhere cannot compensate for missing materials or missing procedure.
+    - rule_id: floor_measure_opacity_for_evaluation_claims
+      condition: measure_and_evaluation_reproducibility_score <= 1 and evaluation_or_effectiveness_claim_is_made == true
+      maximum_overall_decision: materials_revision_needed
+      rationale: Evaluation claims require reproducible measures, criteria, and analysis procedures.
+    - rule_id: floor_untracked_versioning
+      condition: diachronic_reliability_support_score <= 1 and version_dependent_claim_is_made == true
+      maximum_overall_decision: replication_ready_with_limits
+      rationale: Version-dependent artifacts, methods, or measures cannot be treated as diachronically reliable without version
+        trace.
+    - rule_id: floor_replication_type_missing
+      condition: replication_type_fit_score == 0 and replication_readiness_claim_is_made == true
+      maximum_overall_decision: not_replication_ready
+      rationale: A replication-readiness claim must state the intended replication type or acceptable replication modes.
+    - rule_id: floor_overgeneralized_reliability
+      condition: boundary_and_variation_documentation_score <= 1 and claim_scope_exceeds_local_context == true
+      maximum_overall_decision: replication_ready_with_limits
+      rationale: Broad reliability, projectability, or accumulation claims require explicit boundary and variation documentation.
+    - rule_id: floor_source_or_trace_gap
+      condition: source_anchors_absent_for_core_reliability_claims == true
+      maximum_overall_decision: materials_revision_needed
+      rationale: Core reliability and replication claims must be distinguishable as source-supported, repository-supported,
+        validation-supported, or reviewer judgment.
+  level_descriptors:
+    score_0: No usable evidence or the required construct is absent, contradictory, inaccessible, or blocked.
+    score_1: The construct is asserted but poorly specified, weakly evidenced, or not traceable enough for review.
+    score_2: Partial evidence exists, but important elements are incomplete, context-bound, ambiguous, or only conditionally
+      usable.
+    score_3: Adequate evidence supports reliable assessment or replication under stated conditions, with manageable gaps and
+      clear limits.
+    score_4: Exemplary evidence, materials, versioning, procedures, and boundary documentation support robust review, appropriate
+      replication, and cumulative knowledge use.
+    anchor_examples:
+      strong: A versioned artifact package includes protocol, measures, data dictionary, scripts, procedure, environment notes,
+        boundary conditions, replication type, and claims limited to the evidence.
+      borderline: A method is well described and has clear measures, but code, example data, or version-specific procedure
+        details are incomplete; replication is feasible only with reviewer assistance.
+      weak: A paper claims replicability but supplies only a narrative description, unversioned artifact screenshots, undefined
+        measures, and no procedure or boundary conditions.
+    borderline_cases:
+    - Confidential or proprietary artifacts may still score well when controlled-access materials, redacted procedures, abstracted
+      pseudo-code, and clear limitation notes are sufficient for responsible review.
+    - Conceptual artifacts may score well without executable code when construct definitions, decision rules, examples, counterexamples,
+      and evaluation procedures are complete.
+    - Early-stage prototypes may be replication_ready_with_limits when exact materials and boundaries are transparent but
+      diachronic reliability or field variation evidence is not yet available.
+  decision_thresholds:
+    replication_ready:
+      weighted_score_minimum: 3.25
+      required_dimension_minimums:
+        reliability_target_clarity: 3
+        materials_and_procedure_availability: 3
+        measure_and_evaluation_reproducibility: 3
+        boundary_and_variation_documentation: 3
+      floor_rules: no_blocking_floor_rule_triggered
+      interpretation: Record is ready for repository release, publication support, or an appropriately scoped replication
+        attempt.
+    replication_ready_with_limits:
+      weighted_score_minimum: 2.5
+      weighted_score_maximum: 3.24
+      required_dimension_minimums:
+        reliability_target_clarity: 2
+        materials_and_procedure_availability: 2
+        replication_type_fit: 2
+      floor_rules: no_more_than_minor_or_moderate_floor_rules_triggered
+      interpretation: Record can support bounded replication or reliability review, but limitations must be stated.
+    materials_revision_needed:
+      weighted_score_minimum: 1.75
+      weighted_score_maximum: 2.49
+      interpretation: Record requires material, procedure, measure, boundary, versioning, or traceability revision before
+        replication-readiness claims are responsible.
+    not_replication_ready:
+      weighted_score_maximum: 1.74
+      interpretation: Record lacks required target, materials, procedure, measures, or replication logic; replication-readiness
+        claims should be withdrawn or reframed.
+    human_review_triggers:
+    - reliability_target_is_mixed_or_ambiguous
+    - replication_type_is_not_explicit
+    - materials_are_confidential_or_redacted
+    - measure_or_analysis_method_is_proprietary
+    - claim_scope_exceeds_evidence_scope
+    - ethical_privacy_security_or_ip_constraints_limit_material_release
+    - synchronic_and_diachronic_reliability_are_conflated
+    - source_supported_claims_are_not_distinguished_from_reviewer_judgment
+    - boundary_conditions_are_missing_for_projectability_or_accumulation_claims
+  calibration_guidance:
+    reviewer_preparation:
+    - Read the contribution_quality_rubric score and claimed contribution object before scoring accumulation value.
+    - Read the transparency_trace_quality_rubric score or trace package before scoring materials, procedures, versioning,
+      and evidence links.
+    - Identify whether the target is artifact, method, measure, process, implementation, evaluation protocol, design knowledge,
+      or mixed.
+    - Identify whether the intended replication mode is test, redesign, justification, adaptation, explanation, update, recreation,
+      or meta_replication.
+    - Separate source-supported claims from repository artifacts, validation results, stakeholder claims, and reviewer judgment.
+    anchor_examples:
+      exemplary_strong: Score high when a record enables an independent reviewer to reproduce the evaluation logic and attempt
+        an appropriate replication using versioned materials, clear procedure, defined measures, boundary conditions, and
+        source/evidence trace.
+      borderline_conditional: Score mid-range when replication is possible only with missing assumptions filled in, controlled-access
+        materials requested, or claim scope narrowed.
+      weak_not_ready: Score low when the record asserts reliability or replication but provides no target, no protocol, undefined
+        measures, unversioned materials, or unsupported generality claims.
+    calibration_rounds:
+    - 'Round 1: independently score two strong and two weak historical DSR records to align interpretation of dimensions.'
+    - 'Round 2: compare dimension-level disagreements greater than one point and document reconciliation logic.'
+    - 'Round 3: rescore one borderline case after applying non-compensatory floor rules.'
+    inter_rater_reconciliation:
+    - Resolve target ambiguity before averaging scores.
+    - When one reviewer sees a missing material and another sees an acceptable redaction, require an explicit controlled-access
+      or redaction rationale.
+    - When replication type is disputed, choose the narrowest type justified by available materials and evidence.
+    - Document whether final decision is based on score threshold, floor rule, or human-review override.
+    drift_checks:
+    - Quarterly compare scored rubrics against updated concept inventory and SKOS reliability terms.
+    - Check whether new replication study types or reliability constructs have been added to the framework.
+    - Review whether machine validation checks are being treated as adequacy judgments; correct if so.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      reliability_target_clarity:
+      - named reliability target
+      - target rationale
+      - claim link
+      synchronic_reliability_support:
+      - same-time consistency evidence or procedure
+      - observer/evaluator/user/setting controls when relevant
+      - triangulation or agreement evidence when applicable
+      diachronic_reliability_support:
+      - version history
+      - change log
+      - repeated assessment or future comparability plan
+      replication_type_fit:
+      - stated replication type
+      - replication rationale
+      - fit to artifact maturity and claim scope
+      materials_and_procedure_availability:
+      - material list
+      - access status
+      - procedure
+      - environment or dependency notes
+      measure_and_evaluation_reproducibility:
+      - measure definitions
+      - criteria
+      - data sources
+      - analysis procedure
+      - findings-to-claims trace
+      boundary_and_variation_documentation:
+      - boundary conditions
+      - expected variation
+      - acceptable adaptations
+      - non-applicability conditions
+      accumulation_value:
+      - comparability logic
+      - codification format
+      - reuse or synthesis pathway
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Use source_anchor for literature-derived reliability, replication, and accumulation concepts.
+    - Use repository_artifact for concrete materials, scripts, data dictionaries, protocols, examples, and templates.
+    - Use validation_result for machine checks of schema, controlled values, identifiers, links, and availability.
+    - Use reviewer_judgment for adequacy, proportionality, claim-scope fit, and evidence sufficiency.
+    evidence_quality_notes:
+    - Narrative claims alone rarely justify scores above 2 for materials, procedure, or measure reproducibility.
+    - Confidential materials may be acceptable when controlled-access references, redacted substitutes, or abstracted procedures
+      are reviewable.
+    - A single context can support synchronic reliability but should not be treated as diachronic reliability without repeated
+      or cross-time evidence.
+    - Replication readiness is stronger when materials include both positive examples and edge cases or failure examples.
+    - Measure reproducibility requires definitions and analytic procedures, not only named outcomes.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: non_codified_knowledge
+    warning_condition: Essential reliability or replication knowledge exists only tacitly with the original designer, evaluator,
+      or implementation team.
+    severity: major_warning
+    recommended_response: Codify procedure, design rationale, decision rules, examples, and known exceptions; mark remaining
+      tacit elements as human_review risks.
+  - anti_pattern_id: missing_materials
+    warning_condition: Artifact, method, protocol, instrument, data dictionary, code, templates, or examples needed for replication
+      are absent or inaccessible without rationale.
+    severity: blocking_issue
+    recommended_response: Provide materials, controlled-access references, or redacted substitutes; activate floor_missing_materials_or_procedure
+      if unresolved.
+  - anti_pattern_id: untracked_versioning
+    warning_condition: Artifact, procedure, measures, scripts, dependencies, or evaluation protocol have changed without version
+      identifiers or change history.
+    severity: major_warning
+    recommended_response: Add version IDs, release notes, compatibility notes, and trace links from findings to the relevant
+      version.
+  - anti_pattern_id: measure_opacity
+    warning_condition: Evaluation criteria, scoring rules, instruments, data transformations, or analysis procedures are unclear
+      or unavailable.
+    severity: blocking_issue
+    recommended_response: Define measures, scales, data sources, scoring rules, scripts, and findings-to-claims trace.
+  - anti_pattern_id: replication_type_mismatch
+    warning_condition: Record claims replication readiness for a type that available materials and evidence cannot support.
+    severity: major_warning
+    recommended_response: Revise intended replication type or add materials and evidence required for the claimed replication
+      mode.
+  - anti_pattern_id: synchronic_diachronic_conflation
+    warning_condition: Record treats one-time consistency evidence as evidence of stable reliability over versions, settings,
+      or time.
+    severity: major_warning
+    recommended_response: Separate same-time consistency claims from longitudinal or cross-context claims; narrow claim scope
+      if needed.
+  - anti_pattern_id: exact_reproduction_bias
+    warning_condition: Reviewer penalizes DSR work for not supporting exact duplication even when adaptation, explanation,
+      update, or recreation is the appropriate replication type.
+    severity: warning
+    recommended_response: Score against the stated and justified DSR replication type, not against inappropriate natural-science
+      exact-replication assumptions.
+  - anti_pattern_id: replication_without_boundaries
+    warning_condition: Record provides materials but no boundary conditions, adaptation limits, variation expectations, or
+      non-applicability conditions.
+    severity: major_warning
+    recommended_response: Add boundary_and_variation_documentation before allowing claims beyond local replication.
+  - anti_pattern_id: repository_dump_without_procedure
+    warning_condition: Files are present, but there is no sequence, use protocol, environment description, or evaluation procedure.
+    severity: major_warning
+    recommended_response: Add procedure and README-level instructions linking materials to replication or reliability tasks.
+  traceability_requirements:
+  - trace_id: trace_reliability_target_to_claim
+    source_node: reliability_target
+    target_node: claim_or_contribution_object
+    required: true
+    description: Every reliability target should link to the claim it supports.
+  - trace_id: trace_materials_to_procedure_steps
+    source_node: artifact_or_method_materials
+    target_node: procedure.step_id
+    required: true
+    description: Materials should be linked to the steps in which they are used.
+  - trace_id: trace_procedure_to_measures
+    source_node: procedure.step_id
+    target_node: measures.measure_id
+    required: true
+    description: Procedure steps should identify the measures or observations they produce.
+  - trace_id: trace_measures_to_evaluation_protocol
+    source_node: measures.measure_id
+    target_node: evaluation_protocol.criteria_or_analysis_id
+    required: true
+    description: Measures should connect to the evaluation protocol and findings-to-claims trace.
+  - trace_id: trace_version_to_findings
+    source_node: versioning.version_id
+    target_node: evaluation_findings.finding_id
+    required: true
+    description: Findings should state which artifact, method, measure, and protocol version they depend on.
+  - trace_id: trace_boundary_to_replication_type
+    source_node: boundary_conditions.condition_id
+    target_node: replication_type
+    required: true
+    description: Replication type should be interpreted under stated boundaries and allowable variation.
+  - trace_id: trace_source_anchor_to_reliability_rationale
+    source_node: source_anchors.anchor_id
+    target_node: reliability_rationale
+    required: recommended
+    description: Conceptual reliability and replication rationales should cite source anchors or mark reviewer judgment.
+  - trace_id: trace_replication_output_to_accumulation_claim
+    source_node: replication_or_reuse_output
+    target_node: accumulation_value
+    required: conditional
+    description: Accumulation claims should link to comparable evidence, codified design knowledge, or synthesis pathway.
+  validation_implications:
+    json_schema_fields:
+    - field_path: validity_reliability_space.reliability_target
+      required: true
+      expected_type: string_or_object
+      controlled_values:
+      - artifact
+      - method
+      - measure
+      - evaluator_process
+      - implementation
+      - procedure
+      - evaluation_protocol
+      - design_knowledge
+      - mixed
+    - field_path: validity_reliability_space.replication_types_addressed
+      required: recommended
+      expected_type: array
+      controlled_values:
+      - test
+      - redesign
+      - justification
+      - adaptation
+      - explanation
+      - update
+      - recreation
+      - meta_replication
+    - field_path: validity_reliability_space.materials
+      required: true
+      expected_type: array_of_material_records
+    - field_path: validity_reliability_space.procedure
+      required: true
+      expected_type: array_of_steps_or_protocol_reference
+    - field_path: validity_reliability_space.measures
+      required: true
+      expected_type: array_of_measure_records
+    - field_path: validity_reliability_space.versioning
+      required: true
+      expected_type: object_or_array
+    - field_path: validity_reliability_space.boundary_conditions
+      required: true
+      expected_type: array_of_boundary_condition_records
+    shacl_shapes_or_warnings:
+    - shape_id: validity_reliability_space_requires_reliability_target_shape
+      severity: violation
+      checks:
+      - min_count_reliability_target_1
+      - controlled_value_or_target_object_present
+    - shape_id: replication_type_controlled_vocabulary_shape
+      severity: warning
+      checks:
+      - replication_type_values_in_dsr_replication_type_vocabulary
+    - shape_id: materials_procedure_trace_shape
+      severity: warning
+      checks:
+      - materials_have_ids
+      - procedure_steps_have_ids
+      - material_ids_referenced_by_steps_when_applicable
+    - shape_id: versioned_findings_shape
+      severity: warning
+      checks:
+      - version_ids_present
+      - findings_reference_version_ids_when_claims_are_version_dependent
+    - shape_id: manual_reliability_adequacy_review_shape
+      severity: info
+      checks:
+      - manual_review_required_for_evidence_sufficiency
+      - manual_review_required_for_replication_type_fit
+      - manual_review_required_for_boundary_condition_adequacy
+    controlled_vocabularies:
+    - vocabulary_id: reliability_target_type
+      values:
+      - artifact
+      - method
+      - measure
+      - evaluator_process
+      - implementation
+      - procedure
+      - evaluation_protocol
+      - design_knowledge
+      - mixed
+    - vocabulary_id: reliability_timing
+      values:
+      - synchronic
+      - diachronic
+      - both
+      - not_specified
+    - vocabulary_id: dsr_replication_type
+      values:
+      - test
+      - redesign
+      - justification
+      - adaptation
+      - explanation
+      - update
+      - recreation
+      - meta_replication
+    - vocabulary_id: replication_readiness_decision
+      values:
+      - replication_ready
+      - replication_ready_with_limits
+      - materials_revision_needed
+      - not_replication_ready
+    python_validation_logic:
+    - check_id: check_weights_sum_to_one
+      logic: sum(dimension.weight for dimension in assessment_dimensions) == 1.0
+      severity: violation
+    - check_id: check_required_inputs_present
+      logic: required input fields are present and non-empty unless redaction_or_not_applicable_rationale is supplied
+      severity: violation
+    - check_id: check_replication_type_values
+      logic: all replication_types_addressed values are in dsr_replication_type vocabulary
+      severity: warning
+    - check_id: check_dimension_scores_in_range
+      logic: dimension scores must be integers in [0,1,2,3,4]
+      severity: violation
+    - check_id: check_floor_rules
+      logic: apply non_compensatory_floor_rules after weighted score is calculated
+      severity: warning
+    - check_id: check_materials_have_access_status
+      logic: every material record includes material_id, material_type, access_status, and path_or_reference_or_redaction_rationale
+      severity: warning
+    - check_id: check_versioned_artifact_claims
+      logic: if claim is version_dependent then versioning.version_id and findings.version_reference must be present
+      severity: warning
+    manual_review_only_checks:
+    - adequacy_of_reliability_target_selection
+    - fit_between_replication_type_and_claim_scope
+    - sufficiency_of_materials_for_independent_replication
+    - proportionality_of_disclosure_vs_privacy_security_or_ip_constraints
+    - quality_of_measure_definitions_and_analysis_procedures
+    - reasonableness_of_boundary_conditions_and_expected_variation
+    - whether accumulation claim is warranted by evidence and codification
+    repository_integration_notes:
+      proposed_file_path: rubrics/reliability_replication_readiness_rubric.yaml
+      related_schema_fields:
+      - validity_reliability_space
+      - validity_reliability_space.reliability_target
+      - validity_reliability_space.reliability_timing
+      - validity_reliability_space.replication_types_addressed
+      - validity_reliability_space.materials
+      - validity_reliability_space.procedure
+      - validity_reliability_space.measures
+      - validity_reliability_space.versioning
+      - validity_reliability_space.boundary_conditions
+      - knowledge_space.accumulation_value
+      - communication_space.transparency_trace
+      likely_shacl_implications:
+      - require reliability target for reliability claims
+      - warn when replication claims lack replication type
+      - warn when version-dependent findings lack version reference
+      - warn when materials or procedure records are missing access status
+      - manual review flag for evidence sufficiency and claim-scope fit
+      source_crosswalk_implications:
+      - map Storey reliability concepts to reliability_target and reliability_timing
+      - map Brendel replication study types to dsr_replication_type vocabulary
+      - map Reining knowledge accumulation concepts to accumulation_value and codification requirements
+      - map transparency trace requirements to evidence and material trace fields
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_repository_release_package
+    label: Exemplary strong case
+    case_summary: A DSR method package includes a versioned method specification, code, templates, evaluator guide, sample
+      data, synthetic test data, measure dictionary, analysis script, evaluation protocol, boundary conditions, changelog,
+      replication type statement, and contribution claim linked to source anchors.
+    likely_scores:
+      reliability_target_clarity: 4
+      synchronic_reliability_support: 4
+      diachronic_reliability_support: 3
+      replication_type_fit: 4
+      materials_and_procedure_availability: 4
+      measure_and_evaluation_reproducibility: 4
+      boundary_and_variation_documentation: 4
+      accumulation_value: 3
+    likely_decision: replication_ready
+    reviewer_notes: Score depends on whether confidential data restrictions are handled with adequate synthetic or controlled-access
+      substitutes.
+  - vignette_id: borderline_proprietary_field_artifact
+    label: Borderline conditional case
+    case_summary: A field-tested higher education workflow artifact has clear reliability target, use procedure, and evaluation
+      criteria, but the implementation scripts are proprietary and only abstracted pseudo-code plus screenshots are available.
+      Version history exists, but boundary conditions are narrow.
+    likely_scores:
+      reliability_target_clarity: 3
+      synchronic_reliability_support: 3
+      diachronic_reliability_support: 2
+      replication_type_fit: 3
+      materials_and_procedure_availability: 2
+      measure_and_evaluation_reproducibility: 3
+      boundary_and_variation_documentation: 3
+      accumulation_value: 2
+    likely_decision: replication_ready_with_limits
+    reviewer_notes: Do not penalize controlled disclosure itself; penalize lack of reviewable substitute materials or absence
+      of redaction rationale.
+  - vignette_id: weak_narrative_claim_without_materials
+    label: Weak not-ready case
+    case_summary: A manuscript claims the artifact can be replicated but provides only a prose overview, unversioned screenshots,
+      undefined success measures, no protocol, no analysis procedure, no material package, and no boundary conditions.
+    likely_scores:
+      reliability_target_clarity: 1
+      synchronic_reliability_support: 1
+      diachronic_reliability_support: 0
+      replication_type_fit: 0
+      materials_and_procedure_availability: 0
+      measure_and_evaluation_reproducibility: 1
+      boundary_and_variation_documentation: 0
+      accumulation_value: 0
+    likely_decision: not_replication_ready
+    reviewer_notes: Floor rules apply for missing materials/procedure and missing replication type.
+  - vignette_id: conceptual_taxonomy_with_reliable_coding_protocol
+    label: Conceptual artifact case
+    case_summary: A DSR taxonomy has no executable code, but it includes definitions, inclusion/exclusion rules, coding sheet,
+      examples, counterexamples, calibration protocol, inter-rater reconciliation guidance, and versioned changes to categories.
+    likely_scores:
+      reliability_target_clarity: 4
+      synchronic_reliability_support: 4
+      diachronic_reliability_support: 3
+      replication_type_fit: 3
+      materials_and_procedure_availability: 4
+      measure_and_evaluation_reproducibility: 3
+      boundary_and_variation_documentation: 3
+      accumulation_value: 4
+    likely_decision: replication_ready
+    reviewer_notes: Conceptual artifacts should be judged by codified rules, examples, and reliability of interpretation rather
+      than by software reproducibility.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use dimension scores diagnostically before interpreting the weighted total.
+    - Apply non-compensatory floor rules after calculating weighted score.
+    - Treat high scores as readiness for an appropriately scoped reliability or replication review, not as proof of success.
+    - Read replication readiness together with contribution quality and transparency trace quality.
+    - Report whether the score supports exact recreation, adaptation, explanation, update, or another DSR replication type.
+    what_not_to_infer:
+    - Do not infer that a high score proves the artifact is useful, effective, ethical, lawful, secure, or production-ready.
+    - Do not infer statistical generalizability from replication readiness unless the evaluation design separately supports
+      statistical inference.
+    - Do not infer diachronic reliability from one-time synchronic reliability evidence.
+    - Do not infer that all materials must be publicly released; controlled access, redaction, or abstracted substitutes may
+      be appropriate.
+    - Do not infer that exact duplication is always the best replication mode for DSR artifacts.
+    - Do not infer contribution significance from reproducibility alone; use contribution_quality_rubric for design-knowledge
+      contribution quality.
+    - Do not infer that machine validation establishes adequacy; validation checks structure and presence, while sufficiency
+      remains human-review dependent.
+    relationship_to_adjacent_rubrics:
+      contribution_quality_rubric: Use after or alongside this rubric to judge whether the reliable or replicable record supports
+        a reusable or projectable design-knowledge contribution.
+      transparency_trace_quality_rubric: Use before or alongside this rubric to judge whether process, problem, solution,
+        build, evaluation, contribution, and source traces are inspectable.
+      evaluation_alignment_quality_rubric: Use when evaluating whether measures, criteria, timing, setting, evidence mode,
+        and findings align with claims.
+      projectability_boundary_conditions_rubric: Use when reliability or replication evidence is being interpreted as support
+        for transfer, reuse, adaptation, or non-applicability claims.
+      repository_documentation_conformance_rubric: Use before committing the rubric or a reliability package to verify repository
+        naming, schema, source-anchor, and validation conformance.
+    known_limitations:
+    - The rubric is a readiness assessment and cannot replace actual replication studies.
+    - Scoring may vary by artifact type; calibration examples should include conceptual, procedural, software, and socio-technical
+      artifacts.
+    - Some DSR projects legitimately protect sensitive materials; reviewers should evaluate adequacy of controlled disclosure
+      rather than demand full public release.
+    - The rubric does not settle contested philosophical questions about reliability, validity, generalization, or replication
+      in DSR.
+    - The accumulation_value dimension has lower weight because accumulation depends partly on future uptake beyond the current
+      record.
+  quality_control:
+    completeness_check:
+    - All required top-level sections are present.
+    - All eight required assessment dimensions are present.
+    - All dimension weights sum to 1.0.
+    - Every dimension has 0, 1, 2, 3, and 4 score descriptors.
+    - Required inputs and outputs match the prompt.
+    - Decision values match the permitted decision values.
+    - Anti-patterns named in the prompt are present.
+    - Non-compensatory floor rules are present.
+    - At least three scoring vignettes are present.
+    - The interpretation_guidance section includes what_not_to_infer.
+    ambiguity_check:
+    - Mixed reliability targets are flagged for human review.
+    - Replication type is explicit or the absence is scored.
+    - Redacted or controlled-access materials include rationale.
+    - Synchronic and diachronic reliability claims are separated.
+    - Version-dependent claims link to version identifiers.
+    - Source-supported claims are separated from reviewer judgment.
+    human_review_recommendation:
+      default: true
+      reason: Reliability target fit, replication type fit, adequacy of materials, evidence sufficiency, and boundary-condition
+        quality require human review even when schema validation passes.
+    source_gap_notes:
+    - Review current Storey et al. reliability extraction before converting reliability timing guidance into hard SHACL violations.
+    - Review Brendel et al. replication study type mapping before freezing the dsr_replication_type controlled vocabulary.
+    - Review Reining et al. accumulation extraction before setting accumulation_value as required rather than recommended.
+    - If repository implementation changes field names for validity_reliability_space, update schema field paths and SHACL
+      shape IDs.
+    release_readiness_checks:
+    - check_id: yaml_parses
+      status: required
+    - check_id: weights_sum_to_one
+      status: required
+    - check_id: snake_case_identifiers
+      status: required
+    - check_id: required_sections_present
+      status: required
+    - check_id: lineage_to_prompt_and_spec
+      status: required
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial generated draft for reliability_replication_readiness_rubric from prompt_reliability_replication_readiness_rubric.
+    changed_by: gpt_5_5_thinking

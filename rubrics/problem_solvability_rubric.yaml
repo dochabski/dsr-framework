@@ -1,0 +1,1342 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: problem_solvability_rubric
+    label: Problem Solvability Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/problem_solvability_rubric.yaml
+    local_file_name: problem_solvability_rubric.yaml
+    assessment_target: problem_space.solvability_assessment
+    priority: core
+    lifecycle_phase: problem_selection_and_framing
+    prompt_id: prompt_problem_solvability_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - problem_research_worthiness_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_and_consistency; adequacy_judgments_remain_human_review
+  assessment_scope:
+    primary_question: Can this DSR problem plausibly be addressed through an artifact, intervention, or design entity under
+      known constraints?
+    when_to_use:
+    - before detailed requirements and artifact design
+    - after an initial problem_instance and problem_class have been stated
+    - after preliminary context, stakeholder, access, resource, and governance conditions have been gathered
+    - after problem_research_worthiness_rubric has been completed or provisionally scored
+    - whenever access, governance, resources, or candidate_evaluation_route materially change
+    when_not_to_use:
+    - do not use as a substitute for problem_research_worthiness_rubric; a solvable project may still be unworthy as DSR
+    - do not use as a full responsible_design_constraints_rubric; ethical, privacy, security, IP, and maintenance issues may
+      require a separate review
+    - do not use to guarantee implementation success or evaluation validity
+    - do not use to turn a local operational improvement into DSR without a plausible design-knowledge route
+    - do not use when the problem_instance, problem_class, or candidate artifact/intervention route is entirely absent
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - project_sponsor
+    unit_of_assessment: one_candidate_dsr_problem_space_record_with_prerequisite_conditions
+    boundary_conditions:
+    - The rubric assumes the project is at problem selection or early problem framing, before detailed artifact specification.
+    - The rubric evaluates plausibility under known constraints, not final artifact quality.
+    - A low solvability score may indicate that prerequisites should be prepared, not that the problem is unimportant.
+    - The rubric can be applied to socio-technical, higher education, information systems, organizational process, compliance,
+      quality assurance, and research-infrastructure problems.
+    - The rubric treats access, governance, resources, operational capacity, and evaluation possibility as prerequisite-space
+      concerns that shape whether artifact-centered inquiry can proceed responsibly.
+  source_grounding:
+    source_families_to_consult:
+    - concept_inventory.solvability_assessment
+    - concept_inventory.prerequisite_space
+    - concept_inventory.problem_space
+    - dsr_externalities_and_prerequisite_space_records
+    - purao_2021_solvability_and_tractability_extraction
+    - maedche_et_al_2019_problem_space_conceptualization_extraction
+    - wicked_problem_workflow
+    - dsr_operational_synthesis.problem_space_and_prerequisite_space_sections
+    - theory_of_design_science_research.consensus_commitments
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - Wicked Problem Workflow.txt
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    source_anchor_policy:
+      minimum: Every major solvability rationale should cite at least one source_anchor_id, framework_anchor, repository_artifact,
+        or reviewer_judgment marker.
+      preferred: Use Hevner and Storey (2021) anchors for externalities/prerequisite space, Purao (2021) anchors for solvability
+        and tractability, and Maedche et al. (2019) anchors for problem-space stakeholders, needs, goals, and requirements.
+      do_not_do: Do not treat preliminary stakeholder optimism or reviewer intuition as source-supported feasibility evidence.
+    unsupported_claim_policy:
+      rule: Claims about feasibility, access, resources, governance, operational capacity, evaluation, risk-payoff, and contribution
+        potential must be marked unsupported when they lack evidence or source anchors.
+      effect: Unsupported claims trigger human_review and may activate non_compensatory_floor_rules.
+    source_supported_claims:
+    - claim_id: src_claim_solvability_ex_ante
+      claim: Solvability should be explored ex ante because DSR requires repeated artifact development and evaluation until
+        positive results are achieved.
+      source_family: purao_2021_solvability_and_tractability_extraction
+      source_anchor_ids:
+      - purao_2021:A16
+      - purao_2021:A20
+      obligation_status: recommended
+      use_in_rubric: justifies the rubric's use before detailed requirements and artifact design
+    - claim_id: src_claim_tractability
+      claim: Tractability is a research-worthiness dimension related to whether a problem can be addressed within reasonable
+        resources.
+      source_family: purao_2021_problem_source_extraction
+      source_anchor_ids:
+      - purao_2021:A03
+      obligation_status: recommended
+      use_in_rubric: supports feasibility and resource_sufficiency dimensions
+    - claim_id: src_claim_externalities
+      claim: Preparation and foresight about externalities affect DSR project success and incomplete understanding of problem,
+        solution, and evaluation constraints.
+      source_family: hevner_storey_2021_externalities_extraction
+      source_anchor_ids:
+      - hevner_storey_2021:A02
+      - hevner_storey_2021:A24
+      obligation_status: recommended
+      use_in_rubric: supports prerequisite-space and non-compensatory floor rules
+    - claim_id: src_claim_prerequisite_space
+      claim: Resources, governance, knowledge bases, and operational intervention are externalities or prerequisite-space
+        elements shaping project feasibility.
+      source_family: hevner_storey_2021_externalities_extraction
+      source_anchor_ids:
+      - hevner_storey_2021:A04
+      - hevner_storey_2021:A22
+      obligation_status: recommended
+      use_in_rubric: supports resource_sufficiency, governance_readiness, operational_intervention_capacity, and knowledge_contribution_potential
+    - claim_id: src_claim_feasibility_dimensions
+      claim: Technical, economic, operational/organizational, schedule, legal/contractual/governance, political, and innovation
+        feasibility dimensions should be considered.
+      source_family: hevner_storey_2021_externalities_extraction
+      source_anchor_ids:
+      - hevner_storey_2021:A12
+      obligation_status: recommended
+      use_in_rubric: supports feasibility, resource_sufficiency, governance_readiness, and operational_intervention_capacity
+    - claim_id: src_claim_operational_intervention
+      claim: Operational intervention planning should match research questions and project goals with opportunities, constraints,
+        evaluation methods, criteria, data sources, and available evaluation skills/tools.
+      source_family: hevner_storey_2021_externalities_extraction
+      source_anchor_ids:
+      - hevner_storey_2021:A17
+      obligation_status: recommended
+      use_in_rubric: supports operational_intervention_capacity and evaluation_possibility
+    - claim_id: src_claim_problem_space_stakeholders
+      claim: Problem-space conceptualization should include needs, goals, requirements, and stakeholders.
+      source_family: maedche_et_al_2019_problem_space_conceptualization
+      source_anchor_ids:
+      - maedche_et_al_2019:A09
+      - maedche_et_al_2019:A13
+      - maedche_et_al_2019:A14
+      obligation_status: recommended
+      use_in_rubric: supports access, operational_intervention_capacity, and traceability to requirements
+    - claim_id: src_claim_option_evaluation
+      claim: Wicked problem work should compare candidate interventions against feasibility, stakeholder acceptability, ethical
+        risk, reversibility, cost, evidence strength, and expected impact.
+      source_family: wicked_problem_workflow
+      source_anchor_ids:
+      - wicked_problem_workflow:phase_6_solution_option_portfolio
+      obligation_status: recommended
+      use_in_rubric: supports risk_payoff_balance and feasibility
+  construct_definitions:
+  - term_id: solvability_assessment
+    preferred_label: Solvability Assessment
+    definition: A bounded assessment of whether a stated DSR problem can plausibly be addressed through an artifact, intervention,
+      or design entity under known access, resource, governance, operational, evaluation, risk, and contribution constraints.
+    source_anchor_ids:
+    - purao_2021:A16
+    - hevner_storey_2021:A04
+    - theory_synthesis:3.1.ontological_layers
+    status: recommended
+    representation:
+    - yaml_field
+    - json_schema_property
+    - manual_review_record
+  - term_id: prerequisite_space
+    preferred_label: Prerequisite Space
+    definition: The resources, governance arrangements, knowledge bases, access conditions, and operational interventions
+      that shape DSR project feasibility.
+    source_anchor_ids:
+    - hevner_storey_2021:A04
+    - hevner_storey_2021:A22
+    - concept_inventory:prerequisite_space
+    status: recommended
+    representation:
+    - ontology_class
+    - yaml_section
+    - review_dimension_family
+  - term_id: blocker
+    preferred_label: Blocker
+    definition: A constraint or missing prerequisite that prevents responsible progression unless removed, mitigated, or used
+      to trigger reframing or deferral.
+    source_anchor_ids:
+    - reviewer_judgment
+    status: conditional
+    representation:
+    - yaml_list
+    - manual_review_flag
+  - term_id: scope_constraint
+    preferred_label: Scope Constraint
+    definition: A bounded limitation on artifact type, intervention setting, evaluation route, stakeholder group, data source,
+      or claim scope that makes a solvability route responsible and reviewable.
+    source_anchor_ids:
+    - hevner_storey_2021:A17
+    - wicked_problem_workflow:phase_6_solution_option_portfolio
+    status: recommended
+    representation:
+    - yaml_list
+    - traceability_note
+  required_inputs:
+  - input_field: problem_instance
+    description: Situated problem statement naming the local context, affected stakeholders, unwanted condition, suspected
+      mechanisms or constraints, and consequences.
+    obligation_status: required
+    accepted_format: structured_text_or_yaml_object
+    minimum_evidence: Must be specific enough to identify what would be intervened on or learned from.
+  - input_field: problem_class
+    description: Generalized recurring class of problems represented by the local instance.
+    obligation_status: required
+    accepted_format: structured_text_or_yaml_object
+    minimum_evidence: Must be specific enough to support possible design-knowledge contribution.
+  - input_field: stakeholders
+    description: Stakeholder roles, including users, affected groups, sponsors, data/system owners, maintainers, reviewers,
+      and governance actors.
+    obligation_status: required
+    accepted_format: list_or_stakeholder_map
+    minimum_evidence: Must identify who controls access, who bears burden, and who can judge utility.
+  - input_field: context
+    description: Organizational, technical, social, regulatory, temporal, cultural, resource, and artifact-network conditions.
+    obligation_status: required
+    accepted_format: structured_context_register
+    minimum_evidence: Must identify conditions relevant to intervention and evaluation.
+  - input_field: resources
+    description: Financial, human, technical, data, infrastructure, expertise, and schedule resources.
+    obligation_status: required
+    accepted_format: resource_inventory
+    minimum_evidence: Must identify critical resources, gaps, and responsible owners.
+  - input_field: governance_conditions
+    description: Decision rights, approvals, accountability, ownership, compliance, privacy, security, IP, maintenance, and
+      escalation conditions.
+    obligation_status: required
+    accepted_format: governance_register
+    minimum_evidence: Must identify required approvals and unresolved governance blockers.
+  - input_field: access_conditions
+    description: Access to people, settings, systems, documents, data, practices, artifacts, and evaluation environments.
+    obligation_status: required
+    accepted_format: access_register
+    minimum_evidence: Must identify current access status and dependencies.
+  - input_field: candidate_evaluation_route
+    description: Preliminary route for evaluating success, utility, failure, learning, or contribution claims.
+    obligation_status: required
+    accepted_format: evaluation_route_matrix_or_structured_text
+    minimum_evidence: Must identify evaluation object, criteria, evidence sources, timing, setting, and claim type.
+  required_outputs:
+  - output_field: overall_solvability_rating
+    description: Weighted 0-4 rating after floor-rule adjustment.
+    accepted_values: number_between_0_and_4
+  - output_field: blockers
+    description: Blocking or near-blocking feasibility, access, resource, governance, operational, evaluation, risk, or contribution
+      issues.
+    accepted_values: list_of_blocker_objects
+  - output_field: mitigations
+    description: Actions required to remove, reduce, work around, or monitor blockers and major gaps.
+    accepted_values: list_of_mitigation_actions
+  - output_field: scope_constraints
+    description: Allowed limits on artifact, intervention, setting, data, stakeholders, evaluation, or contribution claims.
+    accepted_values: list_of_scope_constraint_objects
+  - output_field: decision
+    description: Final decision value after weighted scoring, floor rules, and human review triggers.
+    accepted_values:
+    - proceed
+    - proceed_with_scope_constraints
+    - prepare_prerequisites
+    - reframe
+    - abandon_or_defer
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, overclaiming, or unvalidated assumptions.
+    accepted_values: list_of_flags
+  assessment_dimensions:
+  - dimension_id: feasibility
+    label: Feasibility
+    definition: Plausibility that the problem can be investigated, designed for, demonstrated, and at least partially evaluated
+      under stated time, technical, data, methodological, and contextual constraints.
+    weight: 0.15
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - purao_2021:A03
+    - purao_2021:A16
+    - purao_2021:A20
+    - hevner_storey_2021:A12
+    evidence_needed:
+    - constraint_inventory
+    - candidate_artifact_or_intervention_route
+    - time_and_method_assumptions
+    - feasibility_rationale
+    - known_blockers_and_mitigations
+    level_descriptors:
+      score_0: No plausible artifact, intervention, or design entity route is stated; critical constraints make investigation
+        or design impossible, or feasibility is contradicted by available evidence.
+      score_1: Feasibility is asserted but not demonstrated; major time, technique, data, or methodological constraints are
+        unnamed, underestimated, or treated as someone else's problem.
+      score_2: A plausible route exists but depends on unresolved assumptions, fragile dependencies, partial data, narrow
+        technical capacity, or a large scope reduction.
+      score_3: A credible and bounded route is documented, with known constraints, mitigations, and a reasonable match among
+        problem, method, candidate artifact, and project capacity.
+      score_4: Feasibility is strongly evidenced through prior pilots, comparable implementations, available methods, explicit
+        contingency paths, and a bounded artifact/evaluation plan.
+    minimum_evidence: A stated candidate artifact/intervention route, a constraint inventory, and a rationale explaining why
+      the problem can be worked on within available time and methods.
+    high_quality_evidence:
+    - documented feasibility analysis
+    - comparable prior case or prototype evidence
+    - explicit assumptions and dependencies
+    - risk-adjusted project scope
+    - source anchors or stakeholder confirmations
+    weak_evidence_signals:
+    - generic optimism
+    - unstated technical dependencies
+    - feasibility based only on desire
+    - unbounded problem scope
+    - no fallback if primary route fails
+    calibration_anchor: Score 3 when the problem is feasible enough to justify requirements work but still has ordinary design
+      risk; reserve score 4 for cases with strong evidence and fallback paths.
+    common_failure_modes:
+    - false_feasibility
+    - overbroad_problem_scope
+    - method_capability_mismatch
+    - unbounded_scope
+    - hidden_dependency
+    reviewer_notes: Do not require complete certainty. The question is whether the work is plausibly addressable as DSR under
+      stated constraints, not whether success is guaranteed.
+  - dimension_id: access
+    label: Access
+    definition: Availability and legitimacy of access to people, settings, systems, documents, data, practices, artifacts,
+      or decision contexts needed for problem inquiry, design work, demonstration, and evaluation.
+    weight: 0.15
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - hevner_storey_2021:A07
+    - hevner_storey_2021:A11
+    - hevner_storey_2021:A18
+    - maedche_et_al_2019:A13
+    evidence_needed:
+    - access_conditions
+    - data_and_system_access_plan
+    - participant_or_stakeholder_access
+    - permission_status
+    - access_risks_and_alternatives
+    level_descriptors:
+      score_0: Necessary access is absent, prohibited, unethical, or legally blocked; no alternative data, setting, or stakeholder
+        route is available.
+      score_1: Access is assumed rather than confirmed; key participants, systems, documents, or data are unavailable or controlled
+        by uncommitted parties.
+      score_2: Some access exists, but it is partial, delayed, role-limited, informally granted, or inadequate for either
+        design learning or evaluation evidence.
+      score_3: Necessary access is documented for the current phase, with named access routes, constraints, responsible parties,
+        and alternatives for likely access gaps.
+      score_4: Access is robust, documented, ethically governed, phase-appropriate, and resilient, with multiple evidence
+        sources and clear procedures for access changes.
+    minimum_evidence: Identification of required access objects and current access status for stakeholders, settings, systems,
+      documents, data, and evaluation environments.
+    high_quality_evidence:
+    - permission records
+    - data-use agreements
+    - stakeholder commitments
+    - IRB or ethics notes where relevant
+    - system owner approvals
+    - backup evidence routes
+    weak_evidence_signals:
+    - access promised verbally only
+    - confusion between public information and usable evidence
+    - no data steward
+    - unclear participant burden
+    - undocumented privacy limits
+    calibration_anchor: Score 2 when the project can begin scoping but cannot yet support artifact design or evaluation claims
+      without access remediation.
+    common_failure_modes:
+    - access_assumption
+    - stakeholder_gatekeeper_gap
+    - data_access_gap
+    - privacy_access_conflict
+    - setting_access_fragility
+    reviewer_notes: Distinguish access for problem understanding, access for artifact implementation, and access for evaluation;
+      a project may score differently across these phases.
+  - dimension_id: resource_sufficiency
+    label: Resource Sufficiency
+    definition: Availability and adequacy of financial, human, technical, data, infrastructure, expertise, schedule, and support
+      resources for the bounded DSR effort.
+    weight: 0.15
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - hevner_storey_2021:A04
+    - hevner_storey_2021:A11
+    - hevner_storey_2021:A12
+    - theory_synthesis:3.1.ontological_layers
+    evidence_needed:
+    - resource_inventory
+    - resource_gap_analysis
+    - staffing_and_expertise_plan
+    - budget_or_time_box
+    - technical_infrastructure_plan
+    level_descriptors:
+      score_0: Critical resources are missing and no credible mitigation, scope reduction, or staged approach is identified.
+      score_1: Resources are named only at a high level; important costs, skills, infrastructure, schedule demands, or data
+        preparation needs are unknown.
+      score_2: Resources are partially available but constrained; success depends on a small number of uncertain people, tools,
+        funds, datasets, or schedule windows.
+      score_3: Resources are sufficient for a scoped artifact and evaluation path, with explicit gaps, owners, and mitigation
+        actions.
+      score_4: Resources are strongly aligned to the work, including expertise, budget/time, infrastructure, data, maintenance
+        capacity, and contingency reserves.
+    minimum_evidence: A resource inventory covering people, expertise, time, budget, data, systems, tools, and implementation/evaluation
+      support.
+    high_quality_evidence:
+    - budget/time estimates
+    - named roles
+    - technical environment inventory
+    - skills map
+    - data readiness assessment
+    - maintenance and support assumptions
+    weak_evidence_signals:
+    - assuming volunteer time
+    - unstated data preparation effort
+    - no technical owner
+    - budget treated as irrelevant
+    - schedule compression without scope tradeoff
+    calibration_anchor: Score 3 when resources are adequate for a deliberately bounded DSR iteration, even if not enough for
+      a full mature implementation.
+    common_failure_modes:
+    - resource_optimism
+    - single_person_dependency
+    - budget_blindness
+    - infrastructure_gap
+    - expertise_gap
+    reviewer_notes: Assess sufficiency relative to the proposed scope. A small, well-scoped prototype with modest resources
+      may score higher than an ambitious implementation with vague resources.
+  - dimension_id: governance_readiness
+    label: Governance Readiness
+    definition: Readiness of decision rights, approvals, accountability, ownership, compliance, privacy, security, intellectual-property,
+      maintenance, and escalation structures needed to responsibly design and evaluate the intervention.
+    weight: 0.15
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - hevner_storey_2021:A12
+    - hevner_storey_2021:A13
+    - hevner_storey_2021:A14
+    - hevner_storey_2021:A18
+    evidence_needed:
+    - governance_conditions
+    - approval_status
+    - ownership_and_accountability_map
+    - privacy_security_ip_review
+    - maintenance_and_escalation_plan
+    level_descriptors:
+      score_0: Governance is absent or blocking; required approvals, accountability, privacy, security, legal, ethical, IP,
+        or maintenance conditions make the project not ready.
+      score_1: Governance is acknowledged but vague; decision rights, approvals, risk ownership, or compliance obligations
+        are not assigned.
+      score_2: Governance is partially defined, but important approvals, risk controls, ownership boundaries, or maintenance
+        responsibilities remain unresolved.
+      score_3: Governance is adequate for the proposed phase, with decision owners, approvals, accountability, risk controls,
+        and escalation routes documented.
+      score_4: Governance is robust and anticipatory, including multi-level stakeholder governance, privacy/security/IP controls,
+        auditability, accountability, maintenance ownership, and change control.
+    minimum_evidence: Governance map with decision rights, required approvals, owner roles, risk controls, compliance constraints,
+      and unresolved governance blockers.
+    high_quality_evidence:
+    - RACI or accountability map
+    - approval workflow
+    - privacy/security/IP review
+    - data stewardship plan
+    - maintenance owner
+    - ethics or IRB determination when applicable
+    weak_evidence_signals:
+    - governance treated as administration only
+    - no owner for deployment or maintenance
+    - privacy/security deferred indefinitely
+    - decision authority unclear
+    - compliance obligations unspecified
+    calibration_anchor: Score 3 when governance is sufficient for a bounded prototype or pilot; reserve score 4 for governance
+      that already covers lifecycle, accountability, and responsible release.
+    common_failure_modes:
+    - governance_blind_spot
+    - approval_theater
+    - orphan_ownership
+    - privacy_security_afterthought
+    - maintenance_absence
+    reviewer_notes: Do not convert every governance concern into a blocking rule. Mark unresolved high-risk governance issues
+      as blocking; ordinary documentation gaps may be warnings.
+  - dimension_id: operational_intervention_capacity
+    label: Operational Intervention Capacity
+    definition: Capacity of the target setting to absorb, participate in, run, maintain, or learn from a prototype, pilot,
+      implementation, policy/process change, or other design intervention.
+    weight: 0.15
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - hevner_storey_2021:A17
+    - hevner_storey_2021:A23
+    - wicked_problem_workflow:phase_3_context_system
+    - wicked_problem_workflow:phase_6_solution_option_portfolio
+    evidence_needed:
+    - operational_setting_description
+    - intervention_absorption_assessment
+    - change_readiness_evidence
+    - workflow_or_artifact_network_impact
+    - stakeholder_burden_controls
+    level_descriptors:
+      score_0: The setting cannot absorb or participate in the proposed intervention; implementation would be infeasible,
+        harmful, unauthorized, or operationally meaningless.
+      score_1: Intervention capacity is assumed; workflow impacts, stakeholder burden, training, support, or change constraints
+        are not understood.
+      score_2: The setting may support a limited intervention, but capacity is fragile due to workload, timing, resistance,
+        system constraints, policy limits, or unclear operating roles.
+      score_3: The setting can support a bounded demonstration or pilot, with workflow impacts, roles, burden controls, training/support
+        needs, and operational constraints documented.
+      score_4: The setting has strong intervention capacity, with operational champions, change windows, support processes,
+        artifact-network integration, rollback plans, and learning mechanisms.
+    minimum_evidence: Evidence that the operational environment can host at least a bounded demonstration, prototype, pilot,
+      or intervention without unacceptable disruption.
+    high_quality_evidence:
+    - workflow impact assessment
+    - stakeholder readiness evidence
+    - pilot plan
+    - training/support plan
+    - rollback plan
+    - artifact-network map
+    - burden and resistance analysis
+    weak_evidence_signals:
+    - intervention imagined outside actual workflow
+    - no user participation path
+    - no maintenance/support capacity
+    - unrecognized stakeholder resistance
+    - operational disruption minimized without evidence
+    calibration_anchor: Score 2 when a low-risk demonstration may be possible but a field pilot or implementation would be
+      premature.
+    common_failure_modes:
+    - operational_absorption_gap
+    - stakeholder_burden_externalization
+    - pilot_without_host
+    - workflow_misalignment
+    - change_readiness_blindness
+    reviewer_notes: Separate capacity to demonstrate from capacity to institutionalize. This rubric can permit a bounded demonstration
+      even when full implementation readiness is low.
+  - dimension_id: evaluation_possibility
+    label: Evaluation Possibility
+    definition: Credibility of evaluating artifact success, utility, failure, learning, unintended effects, or design-knowledge
+      claims using available criteria, evidence modes, settings, data, stakeholders, and timing.
+    weight: 0.15
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - hevner_storey_2021:A05
+    - hevner_storey_2021:A08
+    - hevner_storey_2021:A17
+    - purao_2021:A16
+    evidence_needed:
+    - candidate_evaluation_route
+    - evaluation_criteria
+    - evidence_sources
+    - evaluation_setting
+    - measurement_or_judgment_strategy
+    - validity_threats
+    level_descriptors:
+      score_0: No credible evaluation route exists; success cannot be observed, measured, judged, demonstrated, or learned
+        from under available conditions.
+      score_1: Evaluation is named but not operationalized; criteria, evidence sources, timing, stakeholders, or data are
+        vague or mismatched to the claim.
+      score_2: A partial evaluation route exists but has important gaps, such as weak criteria, limited data, artificial-only
+        evidence for a naturalistic claim, or unclear stakeholder judgment.
+      score_3: Evaluation is plausible and aligned with the scoped artifact, with criteria, evidence sources, timing, setting,
+        and known validity threats documented.
+      score_4: Evaluation is strong and multi-faceted, with aligned formative and/or summative evidence, appropriate setting,
+        reliable data capture, stakeholder judgment, and explicit claim boundaries.
+    minimum_evidence: A candidate evaluation route specifying evaluation object, criteria, evidence source, timing, setting,
+      stakeholder/audience, and claim type.
+    high_quality_evidence:
+    - evaluation matrix
+    - acceptance criteria
+    - data collection plan
+    - artifact inspection method
+    - pilot or simulation design
+    - validity threat register
+    - stakeholder review protocol
+    weak_evidence_signals:
+    - success defined as completion only
+    - no baseline or comparison logic when needed
+    - evaluation criteria disconnected from problem
+    - evidence unavailable
+    - overclaiming from weak evaluation
+    calibration_anchor: Score 3 when evaluation can support bounded learning and utility claims; reserve score 4 for evaluation
+      designs that can credibly support contribution claims.
+    common_failure_modes:
+    - unevaluable_problem
+    - evaluation_mismatch
+    - criteria_absence
+    - data_capture_gap
+    - unsupported_utility_claim
+    reviewer_notes: A problem can be solvable for design but not yet evaluable for strong contribution claims. Use scope constraints
+      rather than overclaiming.
+  - dimension_id: risk_payoff_balance
+    label: Risk-Payoff Balance
+    definition: Balance of expected practical, scholarly, stakeholder, or methodological payoff against risk, burden, reversibility,
+      opportunity cost, ethical exposure, and potential negative externalities.
+    weight: 0.05
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - hevner_storey_2021:A02
+    - hevner_storey_2021:A18
+    - wicked_problem_workflow:phase_6_solution_option_portfolio
+    - dsr_operational_synthesis:10.anti_pattern_controls
+    evidence_needed:
+    - risk_register
+    - expected_payoff_statement
+    - burden_assessment
+    - reversibility_or_rollback_plan
+    - opportunity_cost_notes
+    level_descriptors:
+      score_0: Risks, burdens, or opportunity costs clearly outweigh plausible payoff, or serious harms are unmanaged.
+      score_1: Payoff is asserted but risk, burden, reversibility, and opportunity cost are mostly unexamined.
+      score_2: Some payoff is plausible, but risk controls, burden reduction, reversibility, or ethical safeguards are incomplete.
+      score_3: Expected payoff reasonably justifies the bounded risk, with mitigation, reversibility, and burden controls
+        documented.
+      score_4: The risk-payoff profile is compelling, with high expected learning or value, low or well-controlled risk, explicit
+        rollback, and stakeholder-sensitive burden management.
+    minimum_evidence: A risk-payoff statement that names expected benefits, major risks, stakeholder burdens, reversibility,
+      and opportunity costs.
+    high_quality_evidence:
+    - risk register
+    - stakeholder burden analysis
+    - rollback plan
+    - alternative comparison
+    - ethical/privacy/security review
+    - benefit mechanism rationale
+    weak_evidence_signals:
+    - benefit assumed from novelty
+    - stakeholder burden ignored
+    - irreversible pilot with weak evidence
+    - opportunity cost absent
+    - risk controls deferred
+    calibration_anchor: Score 3 when risks are proportionate to a limited pilot or prototype and mitigation is credible.
+    common_failure_modes:
+    - false_payoff
+    - risk_blindness
+    - irreversible_intervention
+    - stakeholder_burden_externalization
+    - opportunity_cost_blindness
+    reviewer_notes: This dimension has lower weight because risk controls also appear in governance, access, and operational
+      capacity; use floor rules for serious unmanaged risk.
+  - dimension_id: knowledge_contribution_potential
+    label: Knowledge Contribution Potential
+    definition: Potential that addressing the problem can yield reusable, projectable, or transferable design knowledge rather
+      than only a local fix, even though final contribution quality is assessed later.
+    weight: 0.05
+    required: true
+    score_direction: higher_is_better
+    source_anchor_ids:
+    - akoka_et_al_2023:A02
+    - akoka_et_al_2023:A07
+    - purao_2021:A02
+    - purao_2021:A13
+    - purao_2021:A14
+    evidence_needed:
+    - candidate_contribution_path
+    - problem_instance_to_class_logic
+    - candidate_design_knowledge_statement
+    - boundary_conditions
+    - relationship_to_research_worthiness_result
+    level_descriptors:
+      score_0: Solving the problem would produce only an isolated local action with no plausible reusable design knowledge,
+        artifact class, principle, method, pattern, or evaluation insight.
+      score_1: Contribution potential is asserted but not connected to problem class, artifact type, prior knowledge, or reusable
+        design insight.
+      score_2: Some projectable learning is possible, but the problem class, artifact/design entity, or contribution path
+        remains underdeveloped.
+      score_3: A plausible contribution path is stated, linking problem class, candidate artifact or intervention, design
+        knowledge, evidence route, and boundary conditions.
+      score_4: The contribution path is strong and well-bounded, with clear potential for reusable design principles, artifact
+        knowledge, method guidance, evaluation insight, or problem-class refinement.
+    minimum_evidence: A candidate explanation of how solving the problem could produce design knowledge beyond the local case.
+    high_quality_evidence:
+    - problem-class abstraction
+    - candidate design knowledge claim
+    - prior research/front linkage
+    - artifact type or design entity candidate
+    - boundary condition statement
+    - dependency on research-worthiness result
+    weak_evidence_signals:
+    - confusing implementation success with design knowledge
+    - no problem class
+    - no artifact/design entity candidate
+    - routine design overclaim
+    - unsupported generalization
+    calibration_anchor: Score 3 when contribution potential is plausible enough to preserve a DSR route, while recognizing
+      final contribution must be judged later.
+    common_failure_modes:
+    - routine_design_overclaim
+    - local_fix_only
+    - contribution_path_absence
+    - overgeneralization
+    - weak_problem_class_abstraction
+    reviewer_notes: This rubric does not replace the contribution_quality_rubric or problem_research_worthiness_rubric. It
+      checks whether a solvability path can still plausibly support design knowledge.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      integer_only: true
+      levels:
+        '0': absent_or_blocked
+        '1': weak_or_asserted
+        '2': conditional_or_partially_supported
+        '3': strong_or_adequately_supported
+        '4': very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule:
+      expected_sum: 1.0
+      actual_sum: 1.0
+      tolerance: 0.0001
+    missing_evidence_rule: If a required input is missing, score affected dimensions no higher than 1 unless an explicit reviewer_judgment
+      explains why the input is not applicable.
+    reverse_scoring_rule: No dimensions are reverse-scored in this rubric.
+    weighted_score_formula: sum(dimension_score * dimension_weight) after applying any dimension score caps; then apply non_compensatory_floor_rules
+      to decision.
+    score_rounding: report weighted score to two decimal places; keep raw dimension scores as integers.
+    non_compensatory_floor_rules:
+    - rule_id: floor_no_problem_instance_or_class
+      condition: problem_instance is missing OR problem_class is missing
+      effect: decision cannot exceed reframe; overall_solvability_rating maximum 1.5
+      rationale: Solvability cannot be assessed without knowing what problem is being addressed and what class it represents.
+    - rule_id: floor_no_artifact_or_intervention_route
+      condition: no plausible artifact, intervention, or design entity route is stated
+      effect: decision cannot exceed reframe; feasibility maximum 1
+      rationale: The rubric is DSR-specific and requires a route toward design action.
+    - rule_id: floor_blocking_access
+      condition: access score equals 0
+      effect: decision must be abandon_or_defer or reframe unless an alternative evidence route is supplied
+      rationale: No access means the problem cannot responsibly support design or evaluation work.
+    - rule_id: floor_blocking_governance
+      condition: governance_readiness score equals 0 OR unresolved legal, ethical, privacy, security, or IP blocker is present
+      effect: decision must be abandon_or_defer, reframe, or prepare_prerequisites
+      rationale: Governance blockers cannot be compensated by high feasibility or resource scores.
+    - rule_id: floor_unevaluable_problem
+      condition: evaluation_possibility score equals 0
+      effect: decision cannot exceed prepare_prerequisites unless the project is explicitly reframed as exploratory problem
+        discovery rather than DSR artifact evaluation
+      rationale: DSR requires credible demonstration or evaluation of artifact/design claims.
+    - rule_id: floor_unmanaged_high_risk
+      condition: risk_payoff_balance score <= 1 AND any ethical, safety, privacy, security, or stakeholder-burden risk is
+        marked major_or_blocking
+      effect: decision cannot exceed prepare_prerequisites
+      rationale: Expected payoff cannot justify unmanaged serious risk at this stage.
+    - rule_id: floor_low_core_prerequisites
+      condition: two or more of feasibility, access, resource_sufficiency, governance_readiness, operational_intervention_capacity,
+        evaluation_possibility score <= 1
+      effect: decision cannot be proceed or proceed_with_scope_constraints
+      rationale: Multiple weak prerequisite dimensions indicate the project is not yet ready for artifact design.
+    - rule_id: floor_no_contribution_path
+      condition: knowledge_contribution_potential score equals 0
+      effect: decision cannot exceed reframe or treat_as_practice_project in adjacent rubrics
+      rationale: A local fix with no plausible design-knowledge path is not ready to proceed as DSR.
+  level_descriptors:
+    score_0: 'absent_or_blocked: no credible evidence, or a blocking condition prevents responsible progress'
+    score_1: 'weak_or_asserted: claim is asserted but weakly evidenced, underdeveloped, or contradicted by important gaps'
+    score_2: 'conditional_or_partially_supported: plausible with important gaps, dependency risks, or required scope constraints'
+    score_3: 'strong_or_adequately_supported: credible for bounded progression with evidence, owners, and mitigations'
+    score_4: 'very_strong_or_exemplary: robust, well-evidenced, resilient, and ready to support a responsible DSR progression'
+    anchor_examples:
+      strong: A bounded problem has confirmed data and stakeholder access, assigned governance owners, available resources,
+        a pilot host, explicit risk controls, and a candidate evaluation matrix.
+      borderline: A meaningful problem has a plausible artifact route but access is informal, evaluation criteria are partial,
+        and governance approval must be secured before design work.
+      weak: A problem is important but framed broadly, access is assumed, resources are unspecified, no owner can approve
+        intervention, and success cannot be evaluated.
+    borderline_cases:
+    - important but not yet accessible problem
+    - feasible prototype but no evaluation setting
+    - available data but no governance approval
+    - strong practice payoff but weak design-knowledge route
+    - research-worthy problem that requires prerequisite preparation before DSR design
+  decision_thresholds:
+    decision_values:
+    - proceed
+    - proceed_with_scope_constraints
+    - prepare_prerequisites
+    - reframe
+    - abandon_or_defer
+    proceed_or_ready_threshold:
+      decision: proceed
+      minimum_weighted_score: 3.25
+      additional_conditions:
+      - no non_compensatory_floor_rule is active
+      - feasibility >= 3
+      - access >= 3
+      - governance_readiness >= 3
+      - evaluation_possibility >= 3
+      - all major risks have mitigations
+      interpretation: The problem is solvable enough to begin detailed requirements and artifact specification.
+    scope_constraint_threshold:
+      decision: proceed_with_scope_constraints
+      minimum_weighted_score: 2.75
+      maximum_weighted_score: 3.24
+      additional_conditions:
+      - no blocking floor rule is active
+      - any dimension scored 2 has a mitigation or scope constraint
+      - evaluation_possibility >= 2
+      - knowledge_contribution_potential >= 2
+      interpretation: Proceed only with explicit limits on artifact scope, intervention setting, access route, evaluation
+        claim, or stakeholder population.
+    prepare_prerequisites_threshold:
+      decision: prepare_prerequisites
+      minimum_weighted_score: 2.0
+      maximum_weighted_score: 2.74
+      additional_conditions:
+      - at least one prerequisite dimension is score 1 or 2
+      - blockers appear remediable without changing the core problem
+      interpretation: Do not proceed to artifact design; first prepare access, resources, governance, operational capacity,
+        or evaluation route.
+    reframe_threshold:
+      decision: reframe
+      minimum_weighted_score: 1.25
+      maximum_weighted_score: 1.99
+      additional_conditions:
+      - problem may be too broad, inaccessible, unevaluable, or locally framed
+      - a narrower problem class or different artifact route may restore solvability
+      interpretation: Revise problem framing, scope, artifact route, or evaluation logic before treating the work as DSR.
+    stop_or_defer_threshold:
+      decision: abandon_or_defer
+      maximum_weighted_score: 1.24
+      additional_conditions:
+      - one or more blocking floor rules are active and not currently remediable
+      - risk-payoff is unacceptable
+      - no credible access, governance, artifact route, or evaluation route exists
+      interpretation: Do not proceed as a DSR project under current conditions.
+    dimension_floor_rules:
+    - No final decision of proceed is permitted when any required dimension score is below 2.
+    - No final decision of proceed or proceed_with_scope_constraints is permitted when any blocking access, governance, or
+      evaluation floor rule is active.
+    - No final decision above prepare_prerequisites is permitted when serious ethical, privacy, security, or stakeholder-burden
+      risk lacks mitigation.
+    human_review_triggers:
+    - ambiguity about whether the problem can be addressed by an artifact or design entity
+    - source gaps for feasibility, access, governance, or evaluation assumptions
+    - ethical, privacy, security, IP, or stakeholder-burden risk
+    - evidence sufficiency depends primarily on stakeholder optimism
+    - evaluation route cannot support the intended contribution claim
+    - problem appears important but may be routine consulting or local process improvement
+    - reviewers disagree by more than one point on any core prerequisite dimension
+  calibration_guidance:
+    reviewer_preparation:
+    - Read the problem_instance, problem_class, context, stakeholder map, and research-worthiness result before scoring.
+    - Identify the candidate artifact, intervention, or design entity route before rating feasibility.
+    - Separate evidence-supported claims from reviewer_judgment.
+    - Check whether a lower scope, different evaluation route, or preparatory project could change the decision.
+    anchor_cases:
+    - case_id: strong_anchor_case
+      label: strong solvability
+      description: The project has confirmed data/system/stakeholder access, committed governance owners, adequate resources,
+        operational host capacity, bounded risk, and a candidate evaluation matrix aligned to artifact claims.
+      expected_scores:
+        feasibility: 3
+        access: 4
+        resource_sufficiency: 3
+        governance_readiness: 3
+        operational_intervention_capacity: 3
+        evaluation_possibility: 3
+        risk_payoff_balance: 3
+        knowledge_contribution_potential: 3
+      typical_decision: proceed
+    - case_id: borderline_anchor_case
+      label: conditional solvability
+      description: The problem and artifact route are plausible, but access is informal, resources are partially available,
+        evaluation criteria are immature, and governance approval is pending.
+      expected_scores:
+        feasibility: 2
+        access: 2
+        resource_sufficiency: 2
+        governance_readiness: 2
+        operational_intervention_capacity: 2
+        evaluation_possibility: 2
+        risk_payoff_balance: 2
+        knowledge_contribution_potential: 3
+      typical_decision: prepare_prerequisites
+    - case_id: weak_anchor_case
+      label: not ready or not solvable under current constraints
+      description: The problem is broad and important, but the team lacks access to the setting and data, no one owns governance
+        approval, resources are speculative, and no credible evaluation route is stated.
+      expected_scores:
+        feasibility: 1
+        access: 0
+        resource_sufficiency: 1
+        governance_readiness: 0
+        operational_intervention_capacity: 1
+        evaluation_possibility: 1
+        risk_payoff_balance: 1
+        knowledge_contribution_potential: 1
+      typical_decision: abandon_or_defer
+    calibration_rounds:
+    - 'Round 1: reviewers independently score each dimension and identify blockers.'
+    - 'Round 2: reviewers compare dimension scores and normalize interpretation of evidence sufficiency.'
+    - 'Round 3: reviewers apply floor rules and reconcile decision value.'
+    - 'Round 4: reviewers record mitigations, scope constraints, and human_review_flags.'
+    inter_rater_reconciliation:
+    - When reviewers differ by more than one point, identify whether disagreement concerns evidence presence, evidence quality,
+      or interpretation of solvability.
+    - Do not average away a blocking issue; decide whether the blocker is real, mitigated, or not applicable.
+    - Preserve minority concerns in human_review_flags when ethical, governance, access, or evaluation risks remain unresolved.
+    drift_checks:
+    - Re-score after material changes in access, governance, resources, project scope, or evaluation route.
+    - Compare decisions across projects to ensure score 3 consistently means bounded readiness rather than ideal readiness.
+    - Review whether recurring score inflation is caused by optimistic stakeholder claims without supporting evidence.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      feasibility: A stated candidate artifact/intervention route, a constraint inventory, and a rationale explaining why
+        the problem can be worked on within available time and methods.
+      access: Identification of required access objects and current access status for stakeholders, settings, systems, documents,
+        data, and evaluation environments.
+      resource_sufficiency: A resource inventory covering people, expertise, time, budget, data, systems, tools, and implementation/evaluation
+        support.
+      governance_readiness: Governance map with decision rights, required approvals, owner roles, risk controls, compliance
+        constraints, and unresolved governance blockers.
+      operational_intervention_capacity: Evidence that the operational environment can host at least a bounded demonstration,
+        prototype, pilot, or intervention without unacceptable disruption.
+      evaluation_possibility: A candidate evaluation route specifying evaluation object, criteria, evidence source, timing,
+        setting, stakeholder/audience, and claim type.
+      risk_payoff_balance: A risk-payoff statement that names expected benefits, major risks, stakeholder burdens, reversibility,
+        and opportunity costs.
+      knowledge_contribution_potential: A candidate explanation of how solving the problem could produce design knowledge
+        beyond the local case.
+    acceptable_evidence_modes:
+    - source_anchor
+    - repository_artifact
+    - stakeholder_commitment
+    - governance_record
+    - access_record
+    - resource_inventory
+    - risk_register
+    - artifact_inspection
+    - evaluation_plan
+    - pilot_plan
+    - workflow_analysis
+    - expert_review
+    - field_observation
+    - conceptual_argument
+    - reviewer_judgment
+    source_anchor_requirements:
+      required_for_scores_3_or_4: At least one source anchor, repository artifact, governance/access record, stakeholder commitment,
+        or explicit reviewer_judgment must support each score of 3 or 4.
+      unsupported_claim_cap: If a dimension is supported only by unsupported assertion, cap the score at 1.
+      conflicting_evidence_rule: When evidence conflicts, record the conflict and score conservatively unless mitigation resolves
+        it.
+    evidence_quality_notes:
+    - Evidence may be lightweight at the early problem-selection stage, but it must be specific.
+    - Evidence should distinguish current fact, planned mitigation, assumption, and reviewer judgment.
+    - Stakeholder claims are useful but insufficient alone for high scores when access, governance, evaluation, or risk is
+      material.
+    - Do not require full implementation plans before detailed artifact design; require enough evidence to judge whether detailed
+      design work is warranted.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: false_feasibility
+    warning_condition: The record treats the problem as feasible because the desired solution seems conceptually attractive,
+      without checking time, method, data, technical, or organizational constraints.
+    severity: major_warning
+    recommended_response: Require feasibility evidence, scope reduction, or prerequisite preparation before artifact design.
+  - anti_pattern_id: access_assumption
+    warning_condition: The record assumes access to stakeholders, systems, settings, documents, or data without permission,
+      governance, or fallback evidence.
+    severity: blocking_issue
+    recommended_response: Document access status and alternatives; cap access score at 1 until confirmed.
+  - anti_pattern_id: governance_blind_spot
+    warning_condition: Decision rights, ownership, approvals, privacy, security, IP, maintenance, or accountability are missing
+      or deferred without a plan.
+    severity: blocking_issue
+    recommended_response: Create a governance register and identify approval owners before proceeding beyond scoping.
+  - anti_pattern_id: unevaluable_problem
+    warning_condition: The problem can be discussed or even acted upon, but success, failure, utility, or learning cannot
+      be credibly evaluated.
+    severity: major_warning
+    recommended_response: Reframe the problem, narrow the artifact claim, or identify an evaluation route before treating
+      it as DSR.
+  - anti_pattern_id: overbroad_problem_scope
+    warning_condition: The problem is framed so broadly that no bounded artifact, intervention, or evaluation route can plausibly
+      address it.
+    severity: major_warning
+    recommended_response: Decompose the problem and select a bounded node in the broader problem network.
+  - anti_pattern_id: resource_optimism
+    warning_condition: The plan depends on unpaid labor, unallocated technical work, unbudgeted tools, unavailable expertise,
+      or unrealistic schedule assumptions.
+    severity: warning
+    recommended_response: Create a resource gap analysis and reduce scope or prepare resources.
+  - anti_pattern_id: pilot_without_host
+    warning_condition: A prototype or pilot is proposed without a setting, user group, workflow window, support process, or
+      operational owner.
+    severity: major_warning
+    recommended_response: Secure an operational host or reframe as artificial demonstration only.
+  - anti_pattern_id: local_fix_only
+    warning_condition: The work is solvable as a practice project but has no plausible design-knowledge route beyond local
+      implementation.
+    severity: warning
+    recommended_response: Cross-reference problem_research_worthiness_rubric and contribution_quality_rubric; reframe or treat
+      as practice project.
+  traceability_requirements:
+  - trace_id: source_to_concept
+    description: Each rubric dimension should be traceable to source anchors, framework concepts, or explicit reviewer_judgment.
+    minimum_record:
+    - dimension_id
+    - source_anchor_ids
+    - claim_or_rationale
+    - obligation_status
+  - trace_id: concept_to_schema_field
+    description: Solvability concepts should map to problem_space.solvability_assessment fields in YAML/JSON Schema.
+    minimum_record:
+    - concept_id
+    - schema_field
+    - validation_status
+  - trace_id: problem_to_requirement
+    description: Blockers and mitigations should indicate which problem factor, stakeholder need, context constraint, or prerequisite
+      condition they affect.
+    minimum_record:
+    - problem_factor_id
+    - prerequisite_or_mitigation_id
+    - requirement_implication
+  - trace_id: requirement_to_design_decision
+    description: Scope constraints and prerequisite mitigations should later trace to design decisions or artifact capacities.
+    minimum_record:
+    - requirement_id
+    - design_decision_id
+    - scope_constraint_id
+  - trace_id: design_decision_to_evaluation
+    description: Candidate artifact route and evaluation possibility should identify how future design decisions could be
+      evaluated.
+    minimum_record:
+    - candidate_design_decision_id
+    - evaluation_criterion_id
+    - evidence_source_id
+  - trace_id: evaluation_to_design_knowledge
+    description: Evaluation route should state what learning or design knowledge it could support.
+    minimum_record:
+    - evaluation_route_id
+    - candidate_design_knowledge_id
+    - claim_boundary
+  - trace_id: design_knowledge_to_contribution
+    description: Knowledge contribution potential should map to a candidate contribution object and boundary conditions.
+    minimum_record:
+    - candidate_design_knowledge_id
+    - candidate_contribution_claim_id
+    - problem_class_id
+    - boundary_condition_id
+  - trace_id: evidence_to_claim
+    description: Scores of 3 or 4 require evidence objects or reviewer_judgment explaining why the rating is warranted.
+    minimum_record:
+    - dimension_id
+    - score
+    - evidence_id
+    - claim_supported
+    - confidence_or_ambiguity
+  validation_implications:
+    json_schema_fields:
+    - field_path: problem_space.solvability_assessment.overall_solvability_rating
+      type: number
+      minimum: 0
+      maximum: 4
+      required: true
+    - field_path: problem_space.solvability_assessment.decision
+      type: string
+      enum:
+      - proceed
+      - proceed_with_scope_constraints
+      - prepare_prerequisites
+      - reframe
+      - abandon_or_defer
+      required: true
+    - field_path: problem_space.solvability_assessment.dimension_scores
+      type: object
+      required_keys:
+      - feasibility
+      - access
+      - resource_sufficiency
+      - governance_readiness
+      - operational_intervention_capacity
+      - evaluation_possibility
+      - risk_payoff_balance
+      - knowledge_contribution_potential
+      value_constraints: integer 0 through 4
+    - field_path: problem_space.solvability_assessment.blockers
+      type: array
+      required: false
+    - field_path: problem_space.solvability_assessment.mitigations
+      type: array
+      required: false
+    - field_path: problem_space.solvability_assessment.scope_constraints
+      type: array
+      required: false
+    - field_path: problem_space.solvability_assessment.human_review_flags
+      type: array
+      required: false
+    shacl_shapes_or_warnings:
+    - shape_id: solvability_assessment_required_fields_shape
+      target_class: dsr:ProblemSpace
+      severity: sh:Warning
+      message: Problem-space records should include a solvability_assessment before detailed artifact design.
+    - shape_id: solvability_decision_value_shape
+      target_class: dsr:SolvabilityAssessment
+      severity: sh:Violation
+      message: If present, solvability decision must use the controlled decision vocabulary.
+    - shape_id: solvability_floor_rule_review_shape
+      target_class: dsr:SolvabilityAssessment
+      severity: sh:Warning
+      message: Low access, governance, feasibility, or evaluation scores should trigger human review and may prevent proceed
+        decisions.
+    - shape_id: solvability_evidence_to_claim_shape
+      target_class: dsr:SolvabilityAssessment
+      severity: sh:Info
+      message: Scores of 3 or 4 should be linked to evidence records or reviewer judgments.
+    controlled_vocabularies:
+      decision_values:
+      - proceed
+      - proceed_with_scope_constraints
+      - prepare_prerequisites
+      - reframe
+      - abandon_or_defer
+      dimension_ids:
+      - feasibility
+      - access
+      - resource_sufficiency
+      - governance_readiness
+      - operational_intervention_capacity
+      - evaluation_possibility
+      - risk_payoff_balance
+      - knowledge_contribution_potential
+      anti_pattern_ids:
+      - false_feasibility
+      - access_assumption
+      - governance_blind_spot
+      - unevaluable_problem
+      - overbroad_problem_scope
+      - resource_optimism
+      - pilot_without_host
+      - local_fix_only
+      severity_values:
+      - info
+      - warning
+      - major_warning
+      - blocking_issue
+    python_validation_logic:
+    - check_required_inputs_present
+    - check_dimension_scores_integer_0_to_4
+    - check_weights_sum_to_1_0
+    - calculate_weighted_score
+    - apply_non_compensatory_floor_rules
+    - check_decision_value_allowed
+    - flag_score_3_or_4_without_evidence
+    - flag_proceed_decision_with_active_blocker
+    - flag_missing_mitigation_for_dimension_score_2_or_lower
+    manual_review_only_checks:
+    - whether evidence is substantively adequate
+    - whether stakeholder access is ethically acceptable
+    - whether governance approval is meaningful rather than ceremonial
+    - whether evaluation route matches the intended claim
+    - whether the problem is better treated as routine practice improvement
+    - whether risk-payoff balance is acceptable
+    - whether contribution potential is plausible
+    source_crosswalk_implications:
+    - Map prerequisite_space to resources, governance, knowledge_bases, and operational_intervention.
+    - Map feasibility and resource_sufficiency to Purao tractability and Hevner feasibility dimensions.
+    - Map access, governance_readiness, and operational_intervention_capacity to Hevner and Storey externalities.
+    - Map evaluation_possibility to evaluation_alignment_quality_rubric fields.
+    - Map knowledge_contribution_potential to problem_research_worthiness_rubric and contribution_quality_rubric.
+  examples_or_scoring_vignettes:
+  - vignette_id: vignette_strong_higher_education_outcomes_mapping
+    label: exemplary_or_strong
+    scenario: A higher education quality-assurance team wants to design a CLO-to-PLO contribution-map artifact for identifying
+      where course outcomes contribute to program-level competency development. The problem instance is bounded to one program
+      cluster; the problem class concerns traceable outcome-alignment evidence for curriculum review.
+    evidence_summary:
+    - Program chair, assessment office, and data owners have granted access to curriculum maps, course outcomes, and review
+      meetings.
+    - Resources include analyst time, available data exports, rubric expertise, and a pilot schedule.
+    - Governance identifies the academic owner, data steward, reviewer group, and maintenance path.
+    - Evaluation route includes artifact inspection, stakeholder review, comparison against existing alignment records, and
+      decision-use evidence.
+    - Risks are low and reversible because the first artifact is a pilot map rather than a policy change.
+    illustrative_scores:
+      feasibility: 4
+      access: 4
+      resource_sufficiency: 3
+      governance_readiness: 3
+      operational_intervention_capacity: 3
+      evaluation_possibility: 3
+      risk_payoff_balance: 4
+      knowledge_contribution_potential: 3
+    weighted_score: 3.45
+    decision: proceed
+    rationale: The project is bounded, accessible, governed, evaluable, and likely to produce reusable design knowledge about
+      outcome-contribution mapping.
+  - vignette_id: vignette_borderline_ai_advising_triage
+    label: borderline_or_conditional
+    scenario: A student-success unit wants to design an AI-supported advising triage method for identifying students who need
+      proactive outreach. The problem is significant, but access to student records is pending, governance and privacy review
+      are incomplete, and evaluation criteria are still provisional.
+    evidence_summary:
+    - Stakeholders agree that the problem matters, but data access and privacy review are not complete.
+    - A prototype could be simulated on de-identified historical records if approved.
+    - Resources are available for a short discovery phase but not yet for field implementation.
+    - Evaluation could begin with artificial evaluation and expert review before naturalistic pilot.
+    illustrative_scores:
+      feasibility: 2
+      access: 1
+      resource_sufficiency: 2
+      governance_readiness: 1
+      operational_intervention_capacity: 2
+      evaluation_possibility: 2
+      risk_payoff_balance: 2
+      knowledge_contribution_potential: 3
+    weighted_score: 1.8
+    decision: prepare_prerequisites
+    rationale: The design route is plausible, but access and governance floors prevent proceeding to artifact design until
+      privacy, data stewardship, and evaluation constraints are resolved.
+  - vignette_id: vignette_weak_institution_wide_engagement_problem
+    label: weak_or_not_ready
+    scenario: A university wants to solve institution-wide student engagement decline with an unspecified platform, dashboard,
+      campaign, and advising workflow. No particular stakeholder group, data source, decision owner, operational setting,
+      or evaluation route has been selected.
+    evidence_summary:
+    - The problem is broad and important but not decomposed into a designable problem instance.
+    - No data owner or intervention setting has granted access.
+    - No governance route exists for student data, advisor workload, or platform implementation.
+    - No evaluation criteria distinguish engagement, retention, satisfaction, advising contact, or learning outcomes.
+    illustrative_scores:
+      feasibility: 1
+      access: 0
+      resource_sufficiency: 1
+      governance_readiness: 0
+      operational_intervention_capacity: 1
+      evaluation_possibility: 0
+      risk_payoff_balance: 1
+      knowledge_contribution_potential: 1
+    weighted_score: 0.65
+    decision: abandon_or_defer
+    rationale: Current framing lacks access, governance, operational capacity, and evaluation possibility. The next action
+      is decomposition and reframing, not artifact development.
+  - vignette_id: vignette_practice_project_not_dsr
+    label: solvable_but_low_dsr_route
+    scenario: An office wants to replace a spreadsheet tracker with a standard commercial project-management template. Access,
+      resources, and governance are adequate, and the improvement is easy to implement.
+    evidence_summary:
+    - The project is locally feasible and useful.
+    - The intervention is a routine application of known techniques.
+    - No reusable design knowledge, problem-class refinement, or evaluation insight is identified.
+    illustrative_scores:
+      feasibility: 4
+      access: 4
+      resource_sufficiency: 4
+      governance_readiness: 3
+      operational_intervention_capacity: 4
+      evaluation_possibility: 3
+      risk_payoff_balance: 4
+      knowledge_contribution_potential: 0
+    weighted_score: 3.35
+    decision: reframe
+    rationale: The work is solvable as practice improvement but not yet plausibly DSR because contribution potential is absent;
+      cross-reference problem_research_worthiness_rubric.
+  interpretation_guidance:
+    how_to_read_scores:
+    - High scores mean the problem is ready enough to proceed toward detailed requirements and artifact design under stated
+      constraints.
+    - Medium scores usually mean the problem may be solvable after scope reduction or prerequisite preparation.
+    - Low scores may mean the problem is important but not currently addressable as artifact-centered DSR.
+    - Dimension scores should be interpreted alongside blockers, mitigations, scope_constraints, and human_review_flags.
+    what_not_to_infer:
+    - Do not infer that a high solvability score proves the problem is research-worthy; use problem_research_worthiness_rubric
+      for that judgment.
+    - Do not infer that a high solvability score guarantees artifact success, organizational adoption, or positive evaluation
+      results.
+    - Do not infer that feasibility under one scope implies feasibility under broader scope.
+    - Do not infer that access to data implies ethical permission to use it.
+    - Do not infer that governance approval implies stakeholder acceptance or low burden.
+    - Do not infer that a plausible evaluation route proves contribution quality.
+    - Do not infer that a low solvability score means the problem lacks importance; it may need prerequisite preparation,
+      reframing, or a different artifact route.
+    relationship_to_adjacent_rubrics:
+    - rubric_id: problem_research_worthiness_rubric
+      relationship: Should normally precede or accompany this rubric; research-worthy problems can still fail solvability,
+        and solvable problems can still be routine practice projects.
+    - rubric_id: problem_framing_quality_rubric
+      relationship: Use when low solvability is caused by vague, overbroad, overlocal, or solution-disguised problem framing.
+    - rubric_id: context_stakeholder_adequacy_rubric
+      relationship: Use when access, governance, operational capacity, or projectability depends on richer context and stakeholder
+        mapping.
+    - rubric_id: requirements_traceability_rubric
+      relationship: Use after a proceed or proceed_with_scope_constraints decision to translate constraints into objectives,
+        requirements, acceptance criteria, and evaluation alignment.
+    - rubric_id: responsible_design_constraints_rubric
+      relationship: Use when governance, ethical risk, privacy, security, IP, maintenance, sustainability, or burden issues
+        require deeper review.
+    - rubric_id: evaluation_alignment_quality_rubric
+      relationship: Use when evaluation_possibility is plausible but the detailed evaluation design needs validation.
+    known_limitations:
+    - Early-stage solvability evidence is often provisional and should be re-scored after access, governance, or resources
+      change.
+    - The rubric cannot automatically determine ethical acceptability or methodological adequacy.
+    - Weights are default recommendations and may require domain-specific calibration.
+    - The rubric assumes a DSR framing; non-DSR practice improvement may be valuable even when the rubric gives a low DSR-solvability
+      decision.
+  quality_control:
+    completeness_check:
+    - all required inputs are present or explicitly marked not_applicable with rationale
+    - all eight required dimensions are scored 0-4
+    - weights sum to 1.0
+    - decision value is from the controlled vocabulary
+    - blockers and mitigations are recorded for all dimensions scored 0, 1, or 2
+    - scope constraints are recorded when decision is proceed_with_scope_constraints
+    - active floor rules are documented
+    - source-supported claims and reviewer_judgment are distinguished
+    - what_not_to_infer is present
+    ambiguity_check:
+    - mark ambiguity high when problem_instance, problem_class, artifact route, access status, governance owner, or evaluation
+      route is unclear
+    - route high-ambiguity cases to human review
+    - do not resolve ambiguity by assigning midpoint scores without rationale
+    human_review_recommendation:
+      default: recommended_for_all_initial_use
+      required_when:
+      - any dimension score is 0 or 1
+      - decision is proceed despite any dimension score of 2
+      - ethical, privacy, security, IP, legal, or stakeholder-burden issue is present
+      - evaluation route is artificial but intended claim is naturalistic
+      - reviewer judgment is the primary evidence for a score of 3 or 4
+    source_gap_notes:
+    - If source anchors for domain-specific solvability are missing, document the source gap rather than inventing evidence.
+    - If a source supports soft guidance, encode it as warning or manual review rather than a hard validation rule.
+    - If the problem depends on institutional policy, confirm current policy separately before final approval.
+    repository_integration_checks:
+    - file name should be problem_solvability_rubric.yaml
+    - intended_file_path should remain rubrics/problem_solvability_rubric.yaml
+    - rubric ID should remain problem_solvability_rubric
+    - dimension IDs should match the prompt and generation spec exactly
+    - decision values should match the prompt exactly
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready YAML rubric generated from prompt_problem_solvability_rubric and dsr_rubric_generation_spec_v0_1_0.
+    changed_by: gpt_5_5_thinking

@@ -1,0 +1,1181 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: requirements_traceability_rubric
+    label: Requirements Traceability Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/requirements_traceability_rubric.yaml
+    local_file_name: requirements_traceability_rubric.yaml
+    assessment_target: design_space.requirements_trace
+    priority: core
+    lifecycle_phase: requirements_and_design_targeting
+    prompt_id: prompt_requirements_traceability_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - problem_framing_quality_rubric
+    - context_stakeholder_adequacy_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_coverage; adequacy_judgments_remain_human_review
+  assessment_scope:
+    primary_question: Are objectives, requirements, acceptance criteria, design decisions, and evaluation criteria traceably derived from the
+      problem and context?
+    when_to_use:
+    - after problem_framing_quality_rubric has accepted the problem framing or identified only manageable framing gaps
+    - after context_stakeholder_adequacy_rubric has identified material stakeholders, contextual constraints, and boundary conditions
+    - before artifact specification is finalized
+    - during artifact specification when requirements, acceptance criteria, design decisions, or evaluation criteria are being added or revised
+    - whenever a requirement, objective, acceptance criterion, design decision, evaluation criterion, or contextual constraint materially changes
+    - before claiming that the artifact design or evaluation is problem-derived, stakeholder-responsive, or evidence-ready
+    when_not_to_use:
+    - do not use before a minimally adequate problem_instance, problem_class, stakeholder_needs, and context record exist
+    - do not use as a substitute for detailed requirements engineering, user research, systems analysis, or evaluation design
+    - do not use as proof that the selected requirements are correct, only that their derivation and downstream alignment are traceable
+    - do not use to approve ethical, privacy, security, or governance adequacy; use responsible_design_constraints_rubric when those risks are
+      material
+    - do not treat trace links as evidence of substantive fit when the linked rationale is weak, circular, or unsupported
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - requirements_analyst
+    - artifact_designer
+    - evaluation_lead
+    unit_of_assessment: one_design_space_requirements_trace_record_for_a_candidate_or_active_dsr_study
+    boundary_conditions:
+    - The rubric assesses traceability from problem/context to objectives, requirements, acceptance criteria, design decisions, and evaluation
+      criteria; it does not independently verify all empirical evidence.
+    - 'Traceability completeness is relative to materiality: trivial implementation details do not require the same trace depth as requirements
+      that drive artifact capacities, evaluation claims, risk, or contribution scope.'
+    - The rubric supports socio-technical, higher education, information systems, compliance, quality assurance, organizational process, and research-infrastructure
+      DSR settings.
+    - Machine validation may detect missing fields, missing identifiers, orphan links, duplicate identifiers, untested requirements, and schema-conformance
+      errors; it cannot determine adequacy, relevance, stakeholder justice, or evidential sufficiency without human review.
+    - Iterative DSR may legitimately revise objectives and requirements; revisions should be versioned and rationalized rather than treated as
+      defects.
+    assumptions:
+    - Objectives bridge problem formulation and artifact build/evaluation rather than functioning as decorative goal statements.
+    - Requirements translate objectives into evaluable design targets that can guide artifact capacities, design decisions, acceptance criteria,
+      and evaluation criteria.
+    - Acceptance criteria should make satisfaction conditions inspectable, testable, or reviewable before evaluation claims are made.
+    - Traceability is both a human reasoning practice and a machine-readable repository structure.
+  source_grounding:
+    source_families_to_consult:
+    - dsr_operational_synthesis.traceability_edges
+    - alismail_zhang_chatterjee_2017_objectives_framework_extraction
+    - maedche_gregor_morana_feine_2019_problem_space_extraction
+    - concept_inventory.objective
+    - concept_inventory.requirement
+    - concept_inventory.acceptance_criterion
+    - concept_inventory.traceability_edge_vocabulary
+    - dsr_ontology_competency_questions.problem_space_and_objectives_requirements
+    - dsr_skos_controlled_vocabulary.traceability_and_requirements_terms
+    - problem_framing_quality_rubric
+    - context_stakeholder_adequacy_rubric
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - dsr_ontology_competency_questions.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - problem_framing_quality_rubric.yaml
+    - context_stakeholder_adequacy_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major traceability judgment should cite at least one source_anchor_id, framework_anchor, repository_artifact, or reviewer_judgment
+        marker.
+      preferred: Use Alismail et al. (2017) anchors for objective-to-build/evaluation alignment, Maedche et al. (2019) anchors for stakeholder/need/goal/requirement
+        problem-space structure, and concept-inventory anchors for traceability edge vocabulary.
+      do_not_do: Do not treat a link identifier, matrix row, checklist checkbox, or repository field presence as source-supported adequacy evidence
+        without a rationale and supporting source or reviewer judgment.
+    unsupported_claim_policy:
+      rule: Claims about objective relevance, requirement derivation, acceptance criterion quality, design decision alignment, evaluation alignment,
+        change rationale, or trace coverage must be marked unsupported when they lack evidence, source anchors, repository artifacts, or explicit
+        reviewer_judgment status.
+      effect: Unsupported traceability claims trigger human_review and may activate non_compensatory_floor_rules, especially when requirements
+        drive core artifact capacities or evaluation/contribution claims.
+    source_supported_claims:
+    - claim_id: src_claim_problem_space_concepts
+      claim: Problem-space conceptualization should include stakeholders, needs, goals, and requirements, with relationships among these concepts.
+      source_family: maedche_gregor_morana_feine_2019_problem_space_extraction
+      source_anchor_ids:
+      - maedche_et_al_2019:A09
+      - maedche_et_al_2019:A10
+      - maedche_et_al_2019:A11
+      - maedche_et_al_2019:A12
+      - maedche_et_al_2019:A13
+      - maedche_et_al_2019:A14
+      obligation_status: recommended
+      use_in_rubric: justifies problem_to_objective_trace and objective_to_requirement_trace dimensions
+    - claim_id: src_claim_requirements_connect_problem_to_artifact
+      claim: Requirements communicate from the problem space toward the solution space and artifacts.
+      source_family: maedche_gregor_morana_feine_2019_problem_space_extraction
+      source_anchor_ids:
+      - maedche_et_al_2019:A14
+      obligation_status: recommended
+      use_in_rubric: justifies requirement_to_design_decision_trace and coverage checks for orphan requirements
+    - claim_id: src_claim_objectives_bridge_problem_design_evaluation
+      claim: Objectives are positioned as a bridge between problem statements and artifact design/evaluation, transforming problems into design
+        specifications and outcomes.
+      source_family: alismail_zhang_chatterjee_2017_objectives_framework_extraction
+      source_anchor_ids:
+      - alismail_et_al_2017:A04
+      - alismail_et_al_2017:A07
+      - alismail_et_al_2017:A08
+      obligation_status: recommended
+      use_in_rubric: justifies the end-to-end trace from problem factors to objectives to requirements to design and evaluation
+    - claim_id: src_claim_weak_objectives_harm_evaluation
+      claim: Fragmented, ambiguous, or incomplete presentation of DSR objectives can contribute to insufficient artifact evaluation.
+      source_family: alismail_zhang_chatterjee_2017_objectives_framework_extraction
+      source_anchor_ids:
+      - alismail_et_al_2017:A05
+      obligation_status: recommended
+      use_in_rubric: justifies non-compensatory rules for missing objective-to-evaluation alignment
+    - claim_id: src_claim_objectives_can_change_iteratively
+      claim: Objectives can change as design and evaluation iterate; changes should be visible rather than hidden.
+      source_family: alismail_zhang_chatterjee_2017_objectives_framework_extraction
+      source_anchor_ids:
+      - alismail_et_al_2017:A09
+      - alismail_et_al_2017:A18
+      obligation_status: recommended
+      use_in_rubric: justifies change_control_and_rationale and versioned traceability requirements
+    - claim_id: src_claim_traceability_edge_vocabulary
+      claim: The framework defines traceability edge types such as problem_to_requirement, requirement_to_design_decision, design_decision_to_evaluation,
+        evaluation_to_design_knowledge, design_knowledge_to_contribution, and evidence_to_claim.
+      source_family: concept_inventory.traceability_edge_vocabulary
+      source_anchor_ids:
+      - concept_inventory:traceability_edge_vocabulary
+      - concept_inventory:problem_to_requirement
+      - concept_inventory:requirement_to_design_decision
+      - concept_inventory:design_decision_to_evaluation
+      obligation_status: recommended
+      use_in_rubric: provides controlled trace edge vocabulary for validation_implications and repository integration
+  construct_definitions:
+  - term_id: objective
+    preferred_label: Objective
+    definition: A desired improvement, utility target, quality target, use goal, make goal, or research target derived from problem, context,
+      stakeholder needs, and input knowledge.
+    source_support:
+    - concept_inventory.objective
+    - alismail_et_al_2017:A04
+    use_in_this_rubric: Intermediate trace object between problem/context evidence and requirements.
+  - term_id: requirement
+    preferred_label: Requirement
+    definition: A functional, nonfunctional, meta-requirement, design requirement, or acceptance condition that translates the problem into an
+      evaluable design target.
+    source_support:
+    - concept_inventory.requirement
+    - maedche_et_al_2019:A12
+    use_in_this_rubric: Primary trace object linking objectives to design decisions, artifact capacities, and evaluation criteria.
+  - term_id: acceptance_criterion
+    preferred_label: Acceptance Criterion
+    definition: An explicit criterion, threshold, observable condition, or reviewable test indicating when an objective or requirement is satisfied.
+    source_support:
+    - concept_inventory.acceptance_criterion
+    - alismail_et_al_2017:A12
+    use_in_this_rubric: Specific satisfaction standard used to judge whether a requirement is met.
+  - term_id: design_decision
+    preferred_label: Design Decision
+    definition: A documented choice about artifact structure, behavior, capacity, boundary, interface, method, data, workflow, governance, or
+      implementation approach.
+    source_support:
+    - concept_inventory.design_space
+    - concept_inventory.traceability_edge_vocabulary
+    use_in_this_rubric: Downstream design commitment that should be justified by requirements and constraints.
+  - term_id: evaluation_criterion
+    preferred_label: Evaluation Criterion
+    definition: A criterion, measure, method, evidence target, or judgment standard used to evaluate artifact utility, quality, feasibility, validity,
+      or satisfaction of requirements.
+    source_support:
+    - concept_inventory.evaluation_criterion
+    - alismail_et_al_2017:A15
+    - alismail_et_al_2017:A18
+    use_in_this_rubric: Evaluation target that should test, inspect, or otherwise assess requirements and acceptance criteria.
+  - term_id: requirements_trace
+    preferred_label: Requirements Trace
+    definition: A machine-readable and reviewer-interpretable chain linking problem/context evidence to objectives, requirements, acceptance criteria,
+      design decisions, artifact capacities, evaluation criteria, and later findings or claims.
+    source_support:
+    - concept_inventory.traceability_edge_vocabulary
+    - dsr_operational_synthesis.traceability_edges
+    use_in_this_rubric: Assessment target for this rubric.
+  - term_id: orphan_requirement
+    preferred_label: Orphan Requirement
+    definition: A requirement that lacks a credible upstream problem/context/objective source or lacks downstream design/evaluation use.
+    source_support:
+    - reviewer_judgment
+    - concept_inventory.traceability_edge_vocabulary
+    use_in_this_rubric: Anti-pattern and machine-detectable coverage issue.
+  - term_id: traceability_theater
+    preferred_label: Traceability Theater
+    definition: A record that contains visible links, matrices, or identifiers but fails to explain substantive derivation, rationale, evidence,
+      or claim support.
+    source_support:
+    - reviewer_judgment
+    - dsr_rubric_generation_spec_v0_1_0.unsupported_claim_policy
+    use_in_this_rubric: Anti-pattern requiring human review because it cannot be detected by link presence alone.
+  distinctions_to_preserve:
+  - stakeholder_need_vs_objective
+  - objective_vs_requirement
+  - requirement_vs_acceptance_criterion
+  - acceptance_criterion_vs_evaluation_criterion
+  - requirement_vs_design_decision
+  - artifact_capacity_vs_design_decision
+  - trace_link_presence_vs_trace_rationale_quality
+  - source_supported_claim_vs_reviewer_judgment
+  - machine_validation_error_vs_human_adequacy_judgment
+  terms_not_to_conflate:
+  - do_not_conflate:
+    - problem_factor
+    - stakeholder_need
+    reason: Problem factors may be structural or contextual; stakeholder needs are actor-relative claims or burdens.
+  - do_not_conflate:
+    - goal
+    - objective
+    reason: Goals may be broad desired states; objectives should be specific enough to guide requirements and evaluation.
+  - do_not_conflate:
+    - requirement
+    - solution_feature
+    reason: A requirement is a justified design target; a feature is one possible implementation response.
+  - do_not_conflate:
+    - acceptance_criterion
+    - evaluation_finding
+    reason: Acceptance criteria specify satisfaction thresholds before or during evaluation; findings report what happened.
+  - do_not_conflate:
+    - traceability_matrix
+    - traceability
+    reason: A matrix can display links, but traceability requires credible rationale, evidence, and coverage.
+  required_inputs:
+  - input_field: problem_factors
+    description: Material problem mechanisms, causes, constraints, harms, risks, or opportunities from the problem framing.
+    obligation_status: required
+    accepted_format: list of structured records with ids and source anchors
+    minimum_evidence: at least one problem_factor_id or problem_instance/context anchor for every core objective
+  - input_field: stakeholder_needs
+    description: Needs, burdens, goals, incentives, constraints, or acceptance concerns from affected stakeholders.
+    obligation_status: required
+    accepted_format: list of stakeholder_need records linked to stakeholder ids
+    minimum_evidence: stakeholder role, need statement, evidence/source, and materiality note
+  - input_field: objectives
+    description: Desired improvements or design/evaluation targets derived from problem factors and stakeholder needs.
+    obligation_status: required
+    accepted_format: structured objective records with ids, rationale, and upstream links
+    minimum_evidence: objective_id, statement, source/problem/context links, and owner/reviewer status
+  - input_field: requirements
+    description: Functional, nonfunctional, design, meta-requirement, or quality requirements translated from objectives.
+    obligation_status: required
+    accepted_format: structured requirement records with type, priority, rationale, upstream objective links, and downstream links
+    minimum_evidence: requirement_id, type, statement, objective link, and design/evaluation relevance
+  - input_field: acceptance_criteria
+    description: Satisfaction conditions or thresholds for requirements and objectives.
+    obligation_status: required_for_core_requirements
+    accepted_format: structured acceptance_criterion records linked to requirement ids
+    minimum_evidence: criterion statement, threshold or review condition, responsible evaluator, and linked requirement
+  - input_field: design_decisions
+    description: Documented choices about artifact design, capacity, boundary, architecture, method, implementation, or use plan.
+    obligation_status: required_for_requirements_that_drive_artifact_design
+    accepted_format: design_decision records with ids, rationale, alternatives when material, and requirement links
+    minimum_evidence: design_decision_id, decision statement, rationale, linked requirement or constraint
+  - input_field: evaluation_criteria
+    description: Criteria, measures, methods, evidence modes, or evaluation questions used to assess requirement satisfaction and artifact claims.
+    obligation_status: required_for_requirements_used_in_evaluation_or_contribution_claims
+    accepted_format: evaluation_criterion records linked to requirement and acceptance_criterion ids
+    minimum_evidence: evaluation criterion/method/measure, linked requirement, evidence plan or finding placeholder
+  - input_field: change_log
+    description: Versioned record of objective, requirement, acceptance criterion, design decision, or evaluation criterion changes.
+    obligation_status: recommended; required when material changes occurred
+    accepted_format: versioned list of change records
+    minimum_evidence: change_id, changed item id, prior value, new value, date/version, rationale, affected links
+  - input_field: traceability_matrix_or_graph
+    description: Repository-readable representation of upstream and downstream links among problem factors, stakeholder needs, objectives, requirements,
+      design decisions, evaluation criteria, and evidence.
+    obligation_status: recommended
+    accepted_format: yaml list, RDF graph, spreadsheet export, or generated trace report
+    minimum_evidence: stable ids and edge types using controlled vocabulary where possible
+  required_outputs:
+  - output_field: traceability_rating
+    description: 'Final decision value: trace_ready, minor_trace_gaps, major_trace_revision_needed, or not_traceable.'
+    obligation_status: required
+  - output_field: weighted_score
+    description: Weighted 0-4 score before non-compensatory floor rules are applied.
+    obligation_status: required
+  - output_field: adjusted_rating_after_floor_rules
+    description: Final rating after floor rules, blocking issues, and human-review triggers are applied.
+    obligation_status: required
+  - output_field: broken_trace_links
+    description: Links whose source or target is missing, invalid, circular without rationale, or inconsistent with the claimed edge type.
+    obligation_status: required
+  - output_field: unjustified_requirements
+    description: Requirements with no credible upstream problem/context/objective rationale.
+    obligation_status: required
+  - output_field: untested_requirements
+    description: Requirements with no acceptance criterion, evaluation criterion, method, measure, or justified reason for deferral.
+    obligation_status: required
+  - output_field: orphan_design_decisions
+    description: Design decisions that affect artifact capacities or evaluation claims but are not linked to requirements or constraints.
+    obligation_status: required
+  - output_field: coverage_gaps
+    description: Coverage findings by upstream problem factor, stakeholder need, objective, requirement, acceptance criterion, design decision,
+      and evaluation criterion.
+    obligation_status: required
+  - output_field: revision_actions
+    description: Prioritized actions needed to repair or strengthen traceability.
+    obligation_status: required
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, overclaiming, or traceability theater.
+    obligation_status: required
+  assessment_dimensions:
+  - dimension_id: problem_to_objective_trace
+    label: Problem-to-Objective Trace
+    definition: Evidence that objectives respond to material problem factors, stakeholder needs, contextual constraints, and boundary conditions
+      rather than appearing as generic project goals or solution preferences.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id001
+    - objective_id
+    - problem_factor_id or stakeholder_need_id links
+    - context or boundary links where material
+    - rationale text
+    - source_anchor_id or reviewer_judgment marker
+    level_descriptors:
+      score_0: No objectives are stated, or stated objectives cannot be connected to problem factors, stakeholder needs, or context.
+      score_1: Objectives are asserted but generic, solution-driven, or only loosely related to the documented problem/context.
+      score_2: Some objectives link to problem factors or stakeholder needs, but coverage is uneven, rationale is thin, or major stakeholder/context
+        inputs are missing.
+      score_3: Most objectives are clearly linked to documented problem factors, stakeholder needs, and material context; gaps are minor and disclosed.
+      score_4: Every core objective has explicit upstream links, rationale, evidence/source anchors, stakeholder/context relevance, and boundary-condition
+        notes where needed.
+    minimum_evidence: *id001
+    high_quality_evidence:
+    - bidirectional trace from objective to problem/context and back
+    - explicit treatment of stakeholder burden and value
+    - clear distinction between broad goals and evaluable objectives
+    - documented non-applicability or deferral rationale for unmatched problem factors
+    weak_evidence_signals:
+    - objectives copied from solution features
+    - objectives stated as slogans
+    - only one stakeholder perspective represented
+    - problem factors not referenced
+    - context treated as background only
+    calibration_anchor: Score 3 when a reviewer can reconstruct why each core objective exists; score 4 only when the trace is complete, sourced,
+      and robust to stakeholder/context challenge.
+    common_failure_modes:
+    - solution_in_disguise
+    - stakeholder_erasure
+    - objective_without_problem_source
+    - context_free_objective
+    reviewer_notes: Review whether objectives would still make sense if the proposed artifact were removed; if not, the record may be solution-led
+      rather than problem-derived.
+  - dimension_id: objective_to_requirement_trace
+    label: Objective-to-Requirement Trace
+    definition: Quality of translation from objectives into clear functional, nonfunctional, design, quality, use, make, or meta-requirements.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id002
+    - requirement_id
+    - linked_objective_id
+    - requirement_type
+    - priority or materiality
+    - rationale
+    - source_anchor_id or reviewer_judgment marker
+    level_descriptors:
+      score_0: No requirements are stated, or requirements are not linked to objectives.
+      score_1: Requirements are mostly features, wishes, or activities with weak connection to objectives.
+      score_2: Requirements partly translate objectives but are unevenly typed, underspecified, duplicative, or missing coverage for material
+        objectives.
+      score_3: Requirements are clear, typed, and linked to objectives; most material objectives have appropriate requirement coverage and minor
+        gaps are explained.
+      score_4: Requirements form a coherent, nonredundant, prioritized, typed set that fully translates objectives into design targets with rationale,
+        constraints, and source/reviewer support.
+    minimum_evidence: *id002
+    high_quality_evidence:
+    - typed requirement set
+    - coverage matrix from objectives to requirements
+    - distinction between requirement and implementation feature
+    - priority rationale
+    - conflict/dependency handling
+    weak_evidence_signals:
+    - feature list with no rationale
+    - requirements written as tasks
+    - objective has no requirements
+    - duplicate requirements
+    - requirements that conflict without resolution
+    calibration_anchor: Score 3 when every core objective has at least one credible requirement and requirements are typed; score 4 when coverage,
+      prioritization, conflicts, and rationale are explicit.
+    common_failure_modes:
+    - orphan_objective
+    - feature_as_requirement
+    - requirement_duplication
+    - requirement_conflict_unresolved
+    reviewer_notes: Check whether each requirement can be read as a necessary or justified response to an objective rather than as a preferred
+      implementation.
+  - dimension_id: acceptance_criterion_quality
+    label: Acceptance Criterion Quality
+    definition: Testability, specificity, feasibility, and relevance of acceptance criteria used to judge whether requirements and objectives
+      are satisfied.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id003
+    - acceptance_criterion_id
+    - linked_requirement_id
+    - criterion statement
+    - threshold or reviewable condition
+    - evidence mode
+    - responsible evaluator or reviewer
+    level_descriptors:
+      score_0: Acceptance criteria are absent for core requirements.
+      score_1: Acceptance criteria are vague, subjective, unactionable, or restate the requirement without a satisfaction condition.
+      score_2: Some criteria are testable or reviewable, but thresholds, evidence modes, evaluator roles, or contextual qualifications are incomplete.
+      score_3: Most core requirements have specific, feasible, reviewable acceptance criteria aligned to intended use and evaluation context.
+      score_4: All core requirements have precise, justified, feasible, context-sensitive acceptance criteria with thresholds, evidence mode,
+        evaluator role, and deferral rationale where direct testing is not yet possible.
+    minimum_evidence: *id003
+    high_quality_evidence:
+    - measurable or inspectable thresholds
+    - clear pass/fail/graded interpretation
+    - stakeholder-informed acceptance where relevant
+    - alignment with later evaluation methods and claims
+    - explicit feasibility and burden notes
+    weak_evidence_signals:
+    - criteria use words like adequate or user-friendly without definition
+    - criteria measure convenience rather than requirement satisfaction
+    - criteria cannot be tested in available context
+    - criteria ignore stakeholder burden
+    calibration_anchor: Score 3 when the criterion would let an evaluator judge satisfaction with limited ambiguity; score 4 when it is also source/rationale-backed
+      and integrated with evaluation planning.
+    common_failure_modes:
+    - acceptance_criteria_absence
+    - untestable_criterion
+    - threshold_absence
+    - criterion_requirement_mismatch
+    reviewer_notes: Acceptance criteria do not have to be purely quantitative; qualitative review criteria can score well when the judgment protocol
+      and evidence basis are explicit.
+  - dimension_id: requirement_to_design_decision_trace
+    label: Requirement-to-Design Decision Trace
+    definition: Links from each key requirement to one or more design decisions, artifact capacities, boundary decisions, make/use plans, or justified
+      non-implementation decisions.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id004
+    - requirement_id
+    - design_decision_id or capacity_id
+    - decision rationale
+    - status
+    - artifact component or boundary affected
+    - source_anchor_id or reviewer_judgment marker
+    level_descriptors:
+      score_0: Design decisions are absent, or requirements have no downstream design response.
+      score_1: Some design decisions are described, but links to requirements are asserted, implicit, or mostly solution-driven.
+      score_2: Several requirements link to design decisions, but important requirements, capacities, alternatives, or constraints are missing
+        or weakly rationalized.
+      score_3: Most key requirements are linked to design decisions or artifact capacities with credible rationale and minor disclosed gaps.
+      score_4: 'Every core requirement has a documented downstream response: implemented design decision, deferred decision, rejected alternative,
+        capacity specification, or scope boundary, with rationale and evidence.'
+    minimum_evidence: *id004
+    high_quality_evidence:
+    - bidirectional trace
+    - design rationale linked to constraints and alternatives
+    - explicit handling of non-implemented requirements
+    - capacity specification alignment
+    - impact analysis for decisions affecting evaluation
+    weak_evidence_signals:
+    - design decisions appear before requirements with no derivation
+    - requirements vanish after being stated
+    - major capacities have no requirement source
+    - decisions lack rationale
+    - all requirements map to one generic design feature
+    calibration_anchor: Score 3 when the reviewer can see how requirements shaped the artifact; score 4 only when alternatives, deferrals, and
+      boundary decisions are also traceable.
+    common_failure_modes:
+    - solution_drift
+    - orphan_requirement
+    - orphan_design_decision
+    - artifact_black_box
+    reviewer_notes: A design decision may respond to multiple requirements; many-to-many links are acceptable when rationale and priority are
+      clear.
+  - dimension_id: requirement_to_evaluation_alignment
+    label: Requirement-to-Evaluation Alignment
+    definition: Links from requirements and acceptance criteria to evaluation criteria, methods, measures, evidence modes, findings, and claim
+      limits.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id005
+    - requirement_id
+    - acceptance_criterion_id where applicable
+    - evaluation_criterion_id
+    - evaluation_method or measure
+    - evidence mode
+    - finding placeholder or result
+    - claim boundary note
+    level_descriptors:
+      score_0: Evaluation criteria are absent, or no requirements are evaluated or planned for evaluation.
+      score_1: Evaluation is described generally but does not test requirement satisfaction or acceptance criteria.
+      score_2: Some requirements are aligned to evaluation criteria or measures, but core requirements, stakeholder claims, or acceptance thresholds
+        remain untested or unsupported.
+      score_3: Most core requirements have aligned evaluation criteria, methods, measures, or justified deferrals; evaluation findings can be
+        traced back to requirements.
+      score_4: All core requirements and acceptance criteria are traceably aligned to evaluation design or justified deferral, including method,
+        evidence mode, measurement/review protocol, stakeholder/audience relevance, findings, and claim boundaries.
+    minimum_evidence: *id005
+    high_quality_evidence:
+    - requirements-to-evaluation matrix or graph
+    - clear handling of formative and summative evaluation
+    - explicit stakeholder/audience alignment
+    - threats/limitations notes
+    - findings-to-claims trace
+    weak_evidence_signals:
+    - evaluation tests artifact convenience but not requirements
+    - success metrics not linked to acceptance criteria
+    - untested requirements used in contribution claims
+    - no negative or inconclusive findings policy
+    calibration_anchor: Score 3 when most evaluation claims can be traced to requirements; score 4 when every core requirement has evaluation
+      coverage or transparent deferral and claim-limiting treatment.
+    common_failure_modes:
+    - untested_requirement
+    - evaluation_mismatch
+    - overclaiming_from_unaligned_evidence
+    - criterion_measure_mismatch
+    reviewer_notes: Deferred evaluation can be acceptable if the requirement is not used to support current claims and the deferral rationale,
+      risk, and future evidence plan are explicit.
+  - dimension_id: change_control_and_rationale
+    label: Change Control and Rationale
+    definition: Trace of changes to objectives, requirements, acceptance criteria, design decisions, or evaluation criteria, including rationale
+      and effects on artifact/evaluation claims.
+    weight: 0.1
+    required: false
+    score_direction: higher_is_better
+    evidence_needed: &id006
+    - change_id
+    - changed_item_id
+    - prior value or version
+    - new value or version
+    - date/version
+    - rationale
+    - affected trace links
+    - reviewer or approval status when material
+    level_descriptors:
+      score_0: Material changes occurred but are undocumented, or current records contradict earlier versions without explanation.
+      score_1: Change history is informal, partial, or limited to dates without rationale or impact analysis.
+      score_2: Some changes have version, rationale, or impact notes, but downstream effects on requirements, design, evaluation, or claims are
+        unevenly tracked.
+      score_3: Material changes are versioned with rationale, affected links, and required updates to design or evaluation records.
+      score_4: 'The trace supports diachronic review: every material change includes trigger, rationale, alternatives considered, affected upstream/downstream
+        links, reviewer/approval status, and consequences for claims and boundary conditions.'
+    minimum_evidence: *id006
+    high_quality_evidence:
+    - impact analysis across trace graph
+    - versioned requirements baseline
+    - explicit treatment of stakeholder/context changes
+    - link repair actions
+    - rationale connected to evidence or evaluation learning
+    weak_evidence_signals:
+    - silent requirement drift
+    - date-only logs
+    - changes justified by convenience only
+    - evaluation not updated after requirement changes
+    - old claims retained after changed requirements
+    calibration_anchor: Score 3 when a reviewer can reconstruct material evolution; score 4 when the trace also supports audit, replication, and
+      claim revision.
+    common_failure_modes:
+    - solution_drift
+    - silent_requirement_change
+    - stale_evaluation_plan
+    - unreviewed_scope_change
+    reviewer_notes: This dimension is not required when no material changes have occurred, but reviewers should require a no_material_changes_attestation
+      rather than leaving the field blank.
+  - dimension_id: coverage_and_gap_analysis
+    label: Coverage and Gap Analysis
+    definition: Detection and interpretation of orphan requirements, orphan objectives, orphan design decisions, untested requirements, broken
+      links, duplicate/conflicting requirements, and unsupported trace claims.
+    weight: 0.08
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: &id007
+    - coverage report or trace matrix
+    - orphan item list
+    - broken link list
+    - untested requirement list
+    - gap severity
+    - revision action
+    level_descriptors:
+      score_0: No coverage analysis is present, and major gaps are visible or likely.
+      score_1: Coverage is asserted but not systematically checked; obvious orphan or untested items remain.
+      score_2: A partial coverage analysis identifies some gaps, but does not classify severity, ownership, or revision action.
+      score_3: Coverage analysis systematically checks upstream and downstream links, identifies gaps, and assigns severity and revision actions
+        for most issues.
+      score_4: Coverage analysis is complete, repeatable, and machine-assisted where possible, with severity, owner, due state, rationale, accepted
+        risks, and retest/update requirements for every gap.
+    minimum_evidence: *id007
+    high_quality_evidence:
+    - automated link integrity checks plus human adequacy review
+    - bidirectional coverage by item type
+    - severity taxonomy
+    - gap disposition
+    - residual risk and claim impact notes
+    weak_evidence_signals:
+    - matrix has no gap column
+    - manual list lacks item ids
+    - orphan design decisions ignored
+    - untested requirements not claim-limited
+    - coverage percentage used without materiality review
+    calibration_anchor: Score 3 when the record identifies and prioritizes coverage gaps; score 4 when analysis is repeatable and linked to revision
+      workflow.
+    common_failure_modes:
+    - traceability_theater
+    - orphan_requirement
+    - untested_requirement
+    - broken_trace_link
+    - coverage_percentage_without_materiality
+    reviewer_notes: Do not reward a high link count. Reward coverage only when links are meaningful, typed, and materially relevant.
+  scoring_model:
+    scale:
+      0: absent_or_blocked
+      1: weak_or_asserted
+      2: conditional_or_partially_supported
+      3: strong_or_adequately_supported
+      4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule: dimension weights must sum to 1.0
+    weights:
+      problem_to_objective_trace: 0.18
+      objective_to_requirement_trace: 0.16
+      acceptance_criterion_quality: 0.16
+      requirement_to_design_decision_trace: 0.16
+      requirement_to_evaluation_alignment: 0.16
+      change_control_and_rationale: 0.1
+      coverage_and_gap_analysis: 0.08
+    weighted_score_formula: sum(score_i * weight_i) for all dimensions; if change_control_and_rationale is not applicable because no material
+      changes occurred, use a documented no_material_changes_attestation and reallocate its 0.10 weight proportionally across the six applicable
+      dimensions only for the weighted_score_before_floor_rules.
+    missing_evidence_rule: If required evidence for a required dimension is absent, score that dimension 0 or 1 even if narrative claims are plausible.
+    reverse_scoring_rule: No dimension is reverse-scored; anti-patterns and floor rules constrain final rating.
+    rounding_rule: Round weighted_score to two decimal places after applying any approved not_applicable reweighting.
+    non_compensatory_floor_rules:
+    - rule_id: floor_no_problem_or_context_basis
+      condition: problem_factors and stakeholder_needs/context inputs are absent or not accepted by prerequisite rubrics
+      maximum_final_decision: not_traceable
+      rationale: requirements cannot be traceably derived from missing or rejected problem/context records
+    - rule_id: floor_no_objectives
+      condition: no objectives are stated or all objectives lack upstream problem/context rationale
+      maximum_final_decision: not_traceable
+      rationale: objectives are the bridge from problem/context to requirements
+    - rule_id: floor_no_requirements
+      condition: no requirements are stated for a purported artifact-centered DSR study
+      maximum_final_decision: not_traceable
+      rationale: requirements_trace cannot exist without requirements or equivalent design targets
+    - rule_id: floor_core_requirements_untested
+      condition: one or more core requirements support artifact utility or contribution claims but have no acceptance criterion, evaluation criterion,
+        or justified deferral
+      maximum_final_decision: major_trace_revision_needed
+      rationale: evaluation and contribution claims cannot rely on untested requirements
+    - rule_id: floor_orphan_core_requirement
+      condition: a core requirement lacks upstream objective/problem/context rationale
+      maximum_final_decision: major_trace_revision_needed
+      rationale: orphan requirements can hide solution drift
+    - rule_id: floor_traceability_theater
+      condition: trace matrix contains links but rationales are circular, unsupported, or merely decorative
+      maximum_final_decision: major_trace_revision_needed
+      rationale: link presence cannot substitute for substantive derivation
+    - rule_id: floor_unsupported_overclaiming
+      condition: record makes design, evaluation, projectability, or contribution claims from requirements with missing evidence or broken trace
+        links
+      maximum_final_decision: major_trace_revision_needed
+      rationale: overclaiming is not compensable by strong documentation elsewhere
+    - rule_id: floor_broken_critical_links
+      condition: critical trace links have missing source/target identifiers or inconsistent edge types
+      maximum_final_decision: minor_trace_gaps
+      rationale: machine-readable trace integrity must be repaired before trace_ready status
+  level_descriptors:
+    score_0: Absent, blocked, contradictory, or not reviewable.
+    score_1: Weak, asserted, generic, or mostly implicit.
+    score_2: Partially supported but incomplete, uneven, or materially ambiguous.
+    score_3: Adequately supported, traceable, and fit for ordinary review with minor gaps.
+    score_4: Exemplary, explicit, source-supported, bidirectional, coverage-checked, and robust to audit or reuse.
+    anchor_examples:
+      score_4: A requirements trace graph links each problem factor and stakeholder need to objectives, requirements, acceptance criteria, design
+        decisions, evaluation criteria, findings, and claim limits, with source anchors and change rationale.
+      score_3: Most core items are linked and rationalized; a few low-materiality requirements or deferred tests are disclosed with revision actions.
+      score_2: The record has a plausible trace matrix but leaves several objectives, requirements, or evaluation criteria underspecified.
+      score_1: The record lists objectives, requirements, and evaluation methods but does not explain derivation.
+      score_0: The record begins with a solution feature list and contains no problem-derived requirements trace.
+    borderline_cases:
+    - A qualitative acceptance criterion can score 3 or 4 when the review protocol, stakeholder role, and evidence basis are explicit.
+    - A deferred evaluation can be acceptable when the requirement is not used for current claims and the deferral rationale and future evidence
+      plan are documented.
+    - A high-level design principle may have fewer implementation-specific requirements, but still needs traceable objectives, capacities, acceptance
+      logic, and evaluation alignment.
+  decision_thresholds:
+    trace_ready:
+      weighted_score_minimum: 3.5
+      required_dimension_minimums:
+        problem_to_objective_trace: 3
+        objective_to_requirement_trace: 3
+        acceptance_criterion_quality: 3
+        requirement_to_design_decision_trace: 3
+        requirement_to_evaluation_alignment: 3
+        coverage_and_gap_analysis: 3
+      additional_conditions:
+      - no blocking_issue anti-patterns active
+      - no unsupported overclaiming active
+      - no broken critical links
+      - human_review_flags either cleared or explicitly accepted with rationale
+    minor_trace_gaps:
+      weighted_score_range: 2.75_to_3.49
+      required_dimension_minimums:
+        problem_to_objective_trace: 2
+        objective_to_requirement_trace: 2
+        acceptance_criterion_quality: 2
+        requirement_to_design_decision_trace: 2
+        requirement_to_evaluation_alignment: 2
+      interpretation: usable for continued artifact specification if identified gaps are low-materiality, owned, and scheduled for repair
+    major_trace_revision_needed:
+      weighted_score_range: 1.75_to_2.74
+      interpretation: do not finalize artifact specification, evaluation design, or contribution claims until major trace gaps are repaired
+    not_traceable:
+      weighted_score_maximum: 1.74
+      interpretation: requirements record is not adequate for DSR design targeting; return to problem/context framing or requirements elicitation
+    dimension_floor_rules:
+    - Any score of 0 in problem_to_objective_trace, objective_to_requirement_trace, or requirement_to_evaluation_alignment prevents trace_ready.
+    - Any score below 2 in coverage_and_gap_analysis prevents trace_ready.
+    - A score below 2 in acceptance_criterion_quality prevents trace_ready unless no core acceptance criteria are due yet and a justified evaluation
+      plan exists.
+    - A score below 2 in requirement_to_design_decision_trace prevents artifact_specification_quality_rubric from being marked specification_ready.
+    human_review_triggers:
+    - trigger_id: ambiguity
+      condition: terms such as objective, goal, requirement, acceptance criterion, evaluation criterion, or design decision are used inconsistently
+    - trigger_id: source_gaps
+      condition: core derivation claims lack source anchors, repository artifacts, field evidence, or explicit reviewer_judgment markers
+    - trigger_id: ethical_risk
+      condition: requirements affect stakeholder burden, privacy, security, access, equity, or governance without responsible-design review
+    - trigger_id: evidence_sufficiency
+      condition: acceptance or evaluation criteria depend on unavailable data, unapproved access, or unvalidated measures
+    - trigger_id: overclaiming
+      condition: requirements or evaluation criteria are used to support claims beyond the evidence and boundary conditions
+    - trigger_id: traceability_theater
+      condition: links exist but rationale is circular, mechanically generated, or semantically unpersuasive
+  calibration_guidance:
+    reviewer_preparation:
+    - Review the latest problem_framing_quality_rubric and context_stakeholder_adequacy_rubric results before scoring.
+    - Inspect the trace graph or matrix before reading narrative rationale so that orphan nodes and broken links are visible.
+    - Separate machine-detectable link integrity from human judgments about substantive derivation and evidence adequacy.
+    - Mark any source-supported claim, repository artifact, or reviewer judgment explicitly; do not mix them silently.
+    anchor_examples:
+      strong: A DSR record for a curriculum-alignment artifact links documented accreditation/compliance gaps and stakeholder needs to objectives,
+        objectives to typed requirements, requirements to acceptance thresholds, thresholds to artifact design decisions, and requirements to
+        evaluation rubrics and evidence capture methods; changes after stakeholder review are versioned and evaluated.
+      borderline: A DSR record has reasonable objectives and requirements, but acceptance criteria are qualitative and incomplete for several
+        nonfunctional requirements; design decisions are linked for core functions, but evaluation alignment is partial and requires a revision
+        plan.
+      weak: A DSR record lists a preferred dashboard, workflow, or taxonomy first, then retrofits broad objectives and requirements without problem-factor,
+        stakeholder-need, design-decision, or evaluation alignment.
+    calibration_rounds:
+    - 'Round 1: two reviewers independently score one strong, one borderline, and one weak case.'
+    - 'Round 2: compare dimension-level disagreements of 2 or more points and reconcile using evidence requirements.'
+    - 'Round 3: revise local scoring notes only if disagreement reflects ambiguous rubric language, not merely disagreement about the case.'
+    inter_rater_reconciliation:
+    - Require reviewers to cite the exact input record or source anchor supporting each dimension score.
+    - When one reviewer scores link presence and another scores rationale quality, treat the lower rationale-quality score as presumptively correct
+      unless evidence is supplied.
+    - Escalate to methodologist review for traceability_theater, ethical risk, or unsupported overclaiming flags.
+    drift_checks:
+    - Quarterly compare scores across at least three recent DSR records to ensure link-count inflation is not replacing adequacy review.
+    - Recalibrate whenever repository schema fields or controlled traceability vocabulary changes.
+    - Re-score affected dimensions after major requirement or evaluation-design changes.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      problem_to_objective_trace:
+      - problem_factor_id
+      - stakeholder_need_id
+      - objective_id
+      - rationale
+      - source_anchor_or_reviewer_judgment
+      objective_to_requirement_trace:
+      - objective_id
+      - requirement_id
+      - requirement_type
+      - rationale
+      - priority_or_materiality
+      acceptance_criterion_quality:
+      - requirement_id
+      - acceptance_criterion_id
+      - threshold_or_review_condition
+      - evidence_mode
+      - evaluator_role
+      requirement_to_design_decision_trace:
+      - requirement_id
+      - design_decision_id_or_capacity_id
+      - decision_status
+      - rationale
+      requirement_to_evaluation_alignment:
+      - requirement_id
+      - evaluation_criterion_id
+      - method_or_measure
+      - evidence_mode
+      - finding_or_future_evidence_plan
+      change_control_and_rationale:
+      - change_id
+      - changed_item_id
+      - prior_version
+      - new_version
+      - rationale
+      - affected_links
+      coverage_and_gap_analysis:
+      - trace_matrix_or_graph
+      - orphan_items
+      - broken_links
+      - untested_requirements
+      - severity
+      - revision_action
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+    - Each source-supported trace claim should include a source_anchor_id or framework_anchor.
+    - Each reviewer-judgment trace claim should be explicitly labeled reviewer_judgment and include reviewer role/date or review record.
+    - Stakeholder claims should not be treated as settled evidence unless triangulated or explicitly labeled as stakeholder_claim.
+    - Machine-generated trace suggestions should be marked proposed until reviewed.
+    evidence_quality_notes:
+    - High-quality evidence explains why the link exists, not merely that a link exists.
+    - Evidence should preserve uncertainty, conflicting stakeholder needs, and boundary conditions rather than hiding them in a clean matrix.
+    - Evaluation alignment should specify what counts as success, partial success, failure, and inconclusive evidence.
+    - Accepted gaps should include impact on artifact specification, evaluation claims, and contribution boundaries.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: solution_drift
+    warning_condition: Design decisions or requirements increasingly reflect preferred solution features rather than documented problem factors,
+      objectives, or stakeholder needs.
+    severity: major_warning
+    recommended_response: Reconstruct upstream links; re-score problem_to_objective_trace and requirement_to_design_decision_trace; update problem/context
+      framing if needed.
+  - anti_pattern_id: orphan_requirement
+    warning_condition: A requirement lacks upstream objective/problem/context rationale or downstream design/evaluation use.
+    severity: major_warning
+    recommended_response: Either supply upstream/downstream rationale, defer with explanation, merge with another requirement, or remove/scope
+      it out.
+  - anti_pattern_id: untested_requirement
+    warning_condition: A requirement has no acceptance criterion, evaluation criterion, measure, method, or justified deferral.
+    severity: major_warning
+    recommended_response: Add acceptance/evaluation criteria or explicitly limit claims that depend on the requirement.
+  - anti_pattern_id: acceptance_criteria_absence
+    warning_condition: Core requirements are present but lack satisfaction thresholds or reviewable conditions.
+    severity: blocking_issue
+    recommended_response: Define acceptance criteria before final artifact specification or evaluation planning.
+  - anti_pattern_id: traceability_theater
+    warning_condition: The record contains a trace matrix or many links, but rationale, evidence, materiality, and claim implications are missing
+      or circular.
+    severity: blocking_issue
+    recommended_response: Human review required; require rationale for sampled high-materiality links and repair or downgrade final decision.
+  - anti_pattern_id: feature_as_requirement
+    warning_condition: Requirements are written as implementation features without explaining the objective or problem need they serve.
+    severity: warning
+    recommended_response: Rewrite requirement statements as design targets; treat features as design decisions or candidate implementations.
+  - anti_pattern_id: evaluation_mismatch
+    warning_condition: Evaluation criteria assess convenience, satisfaction, or availability while core requirements concern validity, reliability,
+      quality, governance, burden, or learning.
+    severity: major_warning
+    recommended_response: Align evaluation criteria to requirement types and acceptance thresholds.
+  - anti_pattern_id: silent_requirement_change
+    warning_condition: Objectives or requirements changed after design/evaluation began without versioning or impact analysis.
+    severity: major_warning
+    recommended_response: Create change records and inspect affected design decisions, evaluation criteria, and claims.
+  traceability_requirements:
+  - trace_id: source_to_concept
+    edge_type: source_to_concept
+    minimum_expectation: source-supported construct definitions and source-supported claims link to source anchors or framework anchors
+    validation_status: machine_check_presence_human_review_adequacy
+  - trace_id: concept_to_schema_field
+    edge_type: concept_to_schema_field
+    minimum_expectation: objective, requirement, acceptance_criterion, design_decision, evaluation_criterion, and traceability edge concepts map
+      to schema/template fields
+    validation_status: machine_check_possible
+  - trace_id: problem_to_objective
+    edge_type: problem_to_requirement
+    minimum_expectation: every core objective links to at least one problem_factor, stakeholder_need, context condition, boundary condition, or
+      input knowledge source; use local edge label problem_to_objective when available
+    validation_status: machine_check_presence_human_review_adequacy
+  - trace_id: objective_to_requirement
+    edge_type: problem_to_requirement
+    minimum_expectation: every core requirement links to at least one objective and requirement type
+    validation_status: machine_check_possible_human_review_adequacy
+  - trace_id: requirement_to_acceptance_criterion
+    edge_type: requirement_to_acceptance_criterion
+    minimum_expectation: every core requirement has at least one acceptance criterion or justified deferral
+    validation_status: machine_check_possible_human_review_adequacy
+  - trace_id: requirement_to_design_decision
+    edge_type: requirement_to_design_decision
+    minimum_expectation: every core requirement links to one or more design decisions, artifact capacities, boundary decisions, or justified non-implementation
+      decisions
+    validation_status: machine_check_possible_human_review_adequacy
+  - trace_id: design_decision_to_evaluation
+    edge_type: design_decision_to_evaluation
+    minimum_expectation: design decisions that support utility or contribution claims link to evaluation criteria or evidence plans where applicable
+    validation_status: machine_check_possible_human_review_adequacy
+  - trace_id: requirement_to_evaluation
+    edge_type: requirement_to_evaluation
+    minimum_expectation: every evaluated or claimed requirement links to evaluation criterion, method, measure, evidence mode, or justified deferral
+    validation_status: machine_check_possible_human_review_adequacy
+  - trace_id: evaluation_to_design_knowledge
+    edge_type: evaluation_to_design_knowledge
+    minimum_expectation: findings from requirement evaluation are later available to support design knowledge records
+    validation_status: recommended_for_later_rubrics
+  - trace_id: design_knowledge_to_contribution
+    edge_type: design_knowledge_to_contribution
+    minimum_expectation: requirements-derived findings used in contribution claims remain linked to evidence and boundary conditions
+    validation_status: recommended_for_later_rubrics
+  - trace_id: evidence_to_claim
+    edge_type: evidence_to_claim
+    minimum_expectation: claims about requirement satisfaction, artifact utility, or contribution include evidence links and claim scope
+    validation_status: machine_check_presence_human_review_adequacy
+  validation_implications:
+    json_schema_fields:
+    - design_space.requirements_trace.objectives[]
+    - design_space.requirements_trace.requirements[]
+    - design_space.requirements_trace.acceptance_criteria[]
+    - design_space.requirements_trace.design_decisions[]
+    - design_space.requirements_trace.evaluation_criteria[]
+    - design_space.requirements_trace.trace_edges[]
+    - design_space.requirements_trace.change_log[]
+    - design_space.requirements_trace.coverage_report
+    json_schema_recommendations:
+    - field: objectives[].objective_id
+      check: required unique string
+    - field: requirements[].requirement_id
+      check: required unique string
+    - field: requirements[].requirement_type
+      check: enum functional_requirement nonfunctional_requirement meta_requirement design_requirement acceptance_condition quality_requirement
+        governance_requirement
+    - field: requirements[].linked_objective_ids
+      check: min_items 1 for core requirements
+    - field: acceptance_criteria[].linked_requirement_id
+      check: required reference to requirements[].requirement_id
+    - field: trace_edges[].edge_type
+      check: controlled vocabulary; include problem_to_requirement requirement_to_design_decision design_decision_to_evaluation evidence_to_claim
+        and local extensions as needed
+    - field: trace_edges[].source_id and target_id
+      check: required for each edge
+    - field: change_log[].affected_trace_edge_ids
+      check: recommended for material changes
+    shacl_shapes_or_warnings:
+    - shape_id: requirements_trace_shape
+      severity: violation
+      condition: requirements_trace node missing when artifact design has requirements-dependent claims
+    - shape_id: objective_has_upstream_trace_warning
+      severity: warning
+      condition: objective lacks source problem_factor stakeholder_need context_condition or input_knowledge reference
+    - shape_id: requirement_has_objective_violation
+      severity: violation
+      condition: core requirement lacks linked objective
+    - shape_id: acceptance_criterion_has_requirement_violation
+      severity: violation
+      condition: acceptance criterion does not point to a requirement
+    - shape_id: requirement_to_design_decision_warning
+      severity: warning
+      condition: core requirement lacks downstream design_decision capacity or deferral
+    - shape_id: requirement_to_evaluation_warning
+      severity: warning
+      condition: core requirement lacks evaluation criterion or justified deferral
+    - shape_id: broken_trace_edge_violation
+      severity: violation
+      condition: trace edge source or target id does not resolve
+    - shape_id: traceability_theater_manual_review_info
+      severity: info
+      condition: many trace edges with missing rationale fields; manual review required
+    controlled_vocabularies:
+    - requirement_type_vocabulary
+    - traceability_edge_vocabulary
+    - evidence_mode_vocabulary
+    - obligation_status_vocabulary
+    - decision_value_vocabulary
+    - anti_pattern_vocabulary
+    python_validation_logic:
+    - verify_unique_ids_for_objectives_requirements_acceptance_criteria_design_decisions_evaluation_criteria
+    - verify_trace_edge_source_and_target_ids_resolve
+    - list_requirements_without_linked_objectives
+    - list_core_requirements_without_acceptance_criteria_or_deferral
+    - list_core_requirements_without_design_decision_or_capacity_links
+    - list_core_requirements_without_evaluation_links_or_deferral
+    - list_design_decisions_without_requirement_or_constraint_links
+    - calculate_coverage_by_objective_requirement_design_decision_and_evaluation_criterion
+    - flag_claims_that_reference_requirements_with_missing_evaluation_coverage
+    manual_review_only_checks:
+    - adequacy of problem-to-objective rationale
+    - semantic quality of requirement wording
+    - fitness of acceptance thresholds to stakeholder needs and context
+    - whether a design decision substantively satisfies a requirement
+    - whether an evaluation method truly tests the requirement
+    - whether traceability links are meaningful or merely decorative
+    - ethical acceptability of requirements and stakeholder burden
+    repository_integration_notes:
+      proposed_file_path: rubrics/requirements_traceability_rubric.yaml
+      related_templates:
+      - dsr-project-template.yaml
+      - dsr-artifact-template.yaml
+      - dsr-evaluation-template.yaml
+      - dsr-transparency-template.yaml
+      related_future_rubrics:
+      - input_knowledge_solution_grounding_rubric
+      - artifact_specification_quality_rubric
+      - evaluation_alignment_quality_rubric
+      - contribution_quality_rubric
+      - transparency_trace_quality_rubric
+      crosswalk_implications: Add crosswalk rows from objective, requirement, acceptance_criterion, design_decision, evaluation_criterion, and
+        traceability_edge concepts to schema fields, SKOS terms, ontology classes/properties, and SHACL shapes.
+  examples_or_scoring_vignettes:
+  - case_id: strong_trace_ready_higher_education_curriculum_alignment
+    case_type: exemplary_strong
+    summary: A DSR record for a CLO-to-PLO contribution-map artifact documents accreditation reporting gaps, faculty workload concerns, reviewer
+      needs, and program assessment boundary conditions. Objectives are linked to these factors; requirements are typed and prioritized; acceptance
+      criteria specify trace completeness, interpretability, and review burden thresholds; design decisions map requirements to graph fields,
+      scoring rules, and reviewer workflow; evaluation criteria test reliability, usability, and audit usefulness. Requirement changes after stakeholder
+      review are versioned.
+    expected_dimension_scores:
+      problem_to_objective_trace: 4
+      objective_to_requirement_trace: 4
+      acceptance_criterion_quality: 4
+      requirement_to_design_decision_trace: 4
+      requirement_to_evaluation_alignment: 4
+      change_control_and_rationale: 4
+      coverage_and_gap_analysis: 4
+    expected_decision: trace_ready
+    reviewer_note: Strong because the trace is bidirectional, rationale-backed, and usable for artifact and evaluation review.
+  - case_id: borderline_minor_gaps_dashboard_artifact
+    case_type: borderline_conditional
+    summary: A DSR record for an academic quality dashboard links most objectives to stakeholder needs and creates typed requirements for data
+      freshness, role-based views, and trend interpretation. Several acceptance criteria remain qualitative, and two nonfunctional requirements
+      lack evaluation measures. Design decisions are mostly traceable, but the change log is thin.
+    expected_dimension_scores:
+      problem_to_objective_trace: 3
+      objective_to_requirement_trace: 3
+      acceptance_criterion_quality: 2
+      requirement_to_design_decision_trace: 3
+      requirement_to_evaluation_alignment: 2
+      change_control_and_rationale: 2
+      coverage_and_gap_analysis: 3
+    expected_decision: minor_trace_gaps
+    reviewer_note: Can continue artifact specification if acceptance/evaluation gaps are repaired before utility or contribution claims are made.
+  - case_id: weak_not_traceable_solution_first_ai_tool
+    case_type: weak_not_ready
+    summary: A DSR record starts with a proposed AI assistant, lists generic objectives such as improve efficiency and improve quality, and creates
+      requirements from desired features. Stakeholders and problem factors are thin; acceptance criteria are absent; evaluation is planned as
+      user satisfaction only; no requirement-to-design or requirement-to-evaluation coverage analysis exists.
+    expected_dimension_scores:
+      problem_to_objective_trace: 1
+      objective_to_requirement_trace: 1
+      acceptance_criterion_quality: 0
+      requirement_to_design_decision_trace: 1
+      requirement_to_evaluation_alignment: 1
+      change_control_and_rationale: 0
+      coverage_and_gap_analysis: 0
+    expected_decision: not_traceable
+    reviewer_note: Return to problem/context framing and requirements elicitation before artifact claims are developed.
+  - case_id: major_revision_traceability_theater
+    case_type: invalid_or_warning_example
+    summary: A record includes a polished traceability matrix with many IDs, but every requirement points to every objective, rationales are copied
+      boilerplate, acceptance criteria repeat requirement statements, and evaluation criteria are generic success metrics. Link integrity is high
+      but semantic value is low.
+    expected_decision: major_trace_revision_needed
+    triggered_anti_patterns:
+    - traceability_theater
+    - criterion_requirement_mismatch
+    - coverage_percentage_without_materiality
+    reviewer_note: Machine validation may pass ID checks; human review should downgrade the score because trace links do not represent credible
+      derivation.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Use the weighted score as a diagnostic summary, not as the final decision when floor rules apply.
+    - Treat dimension scores below 3 as specific repair targets before downstream artifact, evaluation, or contribution rubrics are marked ready.
+    - Distinguish link integrity problems from semantic traceability problems; both matter, but the second requires human judgment.
+    - Use revision_actions to determine whether the next step is link repair, requirement rewriting, acceptance criterion development, evaluation
+      redesign, or problem/context reframing.
+    what_not_to_infer:
+    - Do not infer that a high traceability score proves the artifact will work.
+    - Do not infer that a high traceability score proves the requirements are ethically acceptable, politically feasible, legally compliant, secure,
+      private, or sustainable.
+    - Do not infer that trace_ready means the evaluation design is fully valid; use evaluation_alignment_quality_rubric for that judgment.
+    - Do not infer that a complete trace matrix proves substantive adequacy; traceability_theater remains possible.
+    - Do not infer that low traceability means the project is unimportant; it may mean the record is underdeveloped or the problem/context formulation
+      must be revisited.
+    - Do not infer that every minor implementation detail requires full DSR-level traceability; materiality governs trace depth.
+    - Do not infer that source anchors remove the need for reviewer judgment about fit, sufficiency, and boundary conditions.
+    relationship_to_adjacent_rubrics:
+      problem_framing_quality_rubric: provides accepted problem_instance, problem_class, stakeholder burden, evidence, and boundary-condition
+        inputs that this rubric traces forward
+      context_stakeholder_adequacy_rubric: provides context, stakeholder, artifact-network, and boundary-condition inputs that this rubric traces
+        into objectives and requirements
+      input_knowledge_solution_grounding_rubric: uses requirements trace outputs to test whether input knowledge is connected to design targets
+        and decisions
+      artifact_specification_quality_rubric: uses requirement-to-design-decision links to assess whether the artifact/design entity is specified
+        from justified design targets
+      evaluation_alignment_quality_rubric: extends requirement-to-evaluation alignment into a full evaluation design and reporting adequacy judgment
+      contribution_quality_rubric: uses requirements/evaluation trace outputs to limit contribution claims to what evidence and boundary conditions
+        can support
+    known_limitations:
+    - The rubric is intentionally strict about core traceability and may need tailoring for exploratory or early-concept DSR records.
+    - The rubric does not replace domain-specific regulatory, accessibility, privacy, security, assessment, or engineering standards.
+    - The rubric presumes a repository structure capable of stable identifiers and trace edges; records without that infrastructure may need a
+      simplified worksheet before full YAML/RDF representation.
+    - Soft guidance should not be converted into SHACL violations without reviewing source support and repository policy.
+  quality_control:
+    completeness_check:
+    - All seven required dimensions are present with weights summing to 1.0.
+    - Each dimension includes 0-4 descriptors, evidence requirements, calibration notes, failure modes, and reviewer notes.
+    - The rubric contains required inputs, outputs, scoring model, decision thresholds, evidence requirements, anti-patterns, traceability requirements,
+      validation implications, vignettes, interpretation guidance, quality control, and revision history.
+    - Final decision values are limited to trace_ready, minor_trace_gaps, major_trace_revision_needed, and not_traceable.
+    ambiguity_check:
+    - Check whether objective, goal, requirement, acceptance criterion, evaluation criterion, and design decision are used consistently.
+    - Check whether each local extension to traceability_edge_vocabulary is defined before use.
+    - Check whether qualitative criteria have protocols or review conditions rather than vague adjectives.
+    human_review_recommendation:
+      default: true
+      reason: Traceability includes semantic adequacy, stakeholder relevance, evidence sufficiency, and overclaiming risks that cannot be fully
+        machine-validated.
+    source_gap_notes:
+    - Alismail et al. (2017) strongly supports objective identification and build/evaluation alignment, but repository-specific validation severity
+      remains an operational design choice.
+    - Maedche et al. (2019) supports problem-space concepts and relationships, but this rubric extends those concepts into repository traceability
+      and must label such extensions as framework operationalization or reviewer judgment.
+    - Traceability_theater is a framework anti-pattern and reviewer construct; it should be validated by sampling link rationales rather than
+      by schema rules alone.
+    release_readiness_checks:
+    - YAML parses without errors.
+    - All identifiers use lowercase snake_case.
+    - Weights sum to 1.0.
+    - No raw URLs are required in the rubric body except source identity metadata already managed elsewhere.
+    - No soft recommendation is stated as a hard violation without source/framework support.
+    - what_not_to_infer section is present.
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready draft generated from rubric generation prompt, specification, concept inventory, and DSR extraction
+      corpus.
+    changed_by: gpt_5_5_thinking

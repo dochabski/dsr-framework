@@ -1,0 +1,1187 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: demonstration_use_readiness_rubric
+    label: Demonstration and Use Readiness Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/demonstration_use_readiness_rubric.yaml
+    local_file_name: demonstration_use_readiness_rubric.yaml
+    assessment_target: demonstration_and_use
+    priority: recommended
+    lifecycle_phase: demonstration_and_use
+    prompt_id: prompt_demonstration_use_readiness_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - artifact_specification_quality_rubric
+    - evaluation_alignment_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_readiness_markers; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Is the artifact ready to be demonstrated or used in a setting that can produce meaningful evidence?
+    when_to_use:
+    - before a pilot, scenario demonstration, field use, lab evaluation, proof_of_concept, proof_of_value, or structured walkthrough
+    - after an artifact_instantiation or demonstrable prototype has been identified
+    - after use cases, user roles, use setting, tasks, and support materials have been drafted
+    - before collecting evaluation evidence from users, stakeholders, logs, observations, analytics, interviews, surveys,
+      or expert walkthroughs
+    - whenever the demonstration setting, user group, risk profile, artifact maturity, or evidence capture plan materially
+      changes
+    when_not_to_use:
+    - do not use before the artifact or artifact_instantiation is minimally specified
+    - do not use as a substitute for artifact_specification_quality_rubric; this rubric assesses readiness to demonstrate
+      or use, not the full artifact ontology
+    - do not use as a substitute for evaluation_alignment_quality_rubric; this rubric checks whether use can produce evidence,
+      not whether the full evaluation design supports all claim types
+    - do not use to certify ethical, privacy, safety, security, or legal compliance; use responsible_design_constraints_rubric
+      when those risks are material
+    - do not treat a high readiness score as proof that the artifact is useful, effective, generalizable, or contribution-worthy
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - practice_partner_reviewer
+    - artifact_designer
+    - technical_implementer
+    - evaluation_lead
+    - participant_or_user_representative
+    - artifact_maintainer
+    unit_of_assessment: one_demonstration_and_use_record_for_a_candidate_or_active_dsr_study
+    boundary_conditions:
+    - The rubric assumes an artifact_instantiation, prototype, scenario representation, or field-use candidate exists.
+    - Readiness is judged relative to the intended demonstration purpose and claim scope; a prototype may be ready for an
+      artificial scenario demonstration but not ready for naturalistic field use.
+    - A record can score highly when use is bounded, small-scale, and explicitly controlled, even if the artifact is not production-ready.
+    - Meaningful evidence may be qualitative, quantitative, observational, analytic, expert, field, lab, simulation, or artifact-inspection
+      evidence, but the evidence mode must fit the demonstration setting and intended claims.
+    - Machine validation may check presence, identifiers, trace links, consent/risk fields, and evidence-capture artifacts;
+      readiness, proportionality, burden, and claim-setting fit require human review.
+    assumptions:
+    - Demonstration and use are transition activities between build/specification and evaluation evidence.
+    - A DSR demonstration should make artifact use observable enough to support later evaluation, learning, refinement, or
+      contribution claims.
+    - Use readiness depends on the fit among artifact maturity, task, user role, setting, risk controls, support materials,
+      and evidence capture plan.
+    - The rubric treats users, participants, evaluators, sponsors, affected stakeholders, and maintainers as potentially distinct
+      roles.
+  source_grounding:
+    source_families_to_consult:
+    - johannesson_perjons_2021_demonstration_and_use_sections
+    - weber_2018_dsr_build_and_evaluate_logic
+    - dsr_operational_synthesis.demonstration_and_use
+    - concept_inventory.artifact_instantiation
+    - concept_inventory.use_plan
+    - concept_inventory.evaluation_evidence
+    - concept_inventory.context_space
+    - artifact_specification_quality_rubric
+    - evaluation_alignment_quality_rubric
+    - responsible_design_constraints_rubric_when_available
+    - documentation_protocol
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - artifact_specification_quality_rubric.yaml
+    - evaluation_alignment_quality_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major readiness rationale should cite at least one source_anchor_id, framework_anchor, repository_artifact,
+        or reviewer_judgment marker.
+      preferred: Use Johannesson and Perjons anchors for demonstration and use, Weber anchors for build/evaluate logic, operational
+        synthesis anchors for demonstration/use as an evidence vehicle, and artifact/evaluation rubrics for adjacent checks.
+      do_not_do: Do not treat a successful demonstration, enthusiastic participant response, or smooth walkthrough as source-supported
+        evidence of final artifact utility unless evaluation evidence supports that claim.
+    unsupported_claim_policy:
+      rule: Claims about demonstration readiness, user readiness, artifact maturity, setting fit, evidence capture, and safe-use
+        conditions must be marked unsupported when they lack evidence, trace links, or reviewer judgment notes.
+      effect: Unsupported readiness claims trigger human_review and may activate non_compensatory_floor_rules.
+    source_supported_claims:
+    - claim_id: src_claim_dsr_requires_demonstration_and_evaluation
+      claim: Operational DSR records should connect designed artifacts to demonstration, evaluation evidence, contribution
+        claims, and boundary conditions.
+      source_family: dsr_operational_synthesis.demonstration_and_use
+      source_anchor_ids:
+      - operational_synthesis:2.minimum_dsr_record_architecture
+      - theory_synthesis:1.definitional_nucleus
+      obligation_status: recommended
+      use_in_rubric: justifies checking whether use can produce meaningful evidence rather than only a presentational demo
+    - claim_id: src_claim_artifact_instantiation_as_demonstration_vehicle
+      claim: A concrete artifact instantiation, prototype, proof of concept, or field implementation can function as the vehicle
+        for demonstration and evaluation.
+      source_family: concept_inventory.artifact_instantiation
+      source_anchor_ids:
+      - theory_synthesis:1.definitional_nucleus
+      - operational_synthesis:4.artifact_operationalization
+      obligation_status: conditional
+      use_in_rubric: supports prototype_or_instantiation_maturity and artifact-to-use trace requirements
+    - claim_id: src_claim_evidence_claim_alignment_needed
+      claim: Evidence should be interpreted relative to evaluation object, setting, timing, claim type, stakeholders, and
+        boundary conditions.
+      source_family: evaluation_alignment_quality_rubric
+      source_anchor_ids:
+      - rubric_cross_reference:evaluation_alignment_quality_rubric
+      obligation_status: recommended
+      use_in_rubric: supports setting_fit and evidence_capture_readiness
+    reviewer_judgment_domains:
+    - adequacy of use case specificity
+    - realism of user readiness and support
+    - proportionality of evidence capture
+    - fit between demonstration setting and intended claims
+    - acceptability of risk, privacy, disruption, and stakeholder burden
+  construct_definitions:
+  - term_id: demonstration
+    preferred_label: Demonstration
+    definition: A structured showing, walkthrough, scenario, pilot, prototype use, lab use, field use, or proof activity in
+      which an artifact is used or inspected enough to generate learning or evidence.
+    distinctions_to_preserve:
+    - demonstration is not the same as full summative evaluation
+    - demonstration is not merely a presentation when no task, user role, or evidence capture is present
+    terms_not_to_conflate:
+    - demonstration
+    - evaluation
+    - deployment
+    - communication
+  - term_id: artifact_instantiation
+    preferred_label: Artifact Instantiation
+    definition: A concrete prototype, implementation, proof of concept, proof of value, field implementation, technical object,
+      or scenario representation used for demonstration or evaluation.
+    distinctions_to_preserve:
+    - distinguish reusable artifact_universal or design_entity from the concrete instantiation being demonstrated
+    - distinguish prototype maturity from final production readiness
+    terms_not_to_conflate:
+    - artifact_universal
+    - artifact_instantiation
+    - technical_object
+    - output_knowledge
+  - term_id: use_case
+    preferred_label: Use Case
+    definition: A bounded task, scenario, process, interaction sequence, decision situation, or workflow in which specified
+      users or stakeholders interact with the artifact.
+    distinctions_to_preserve:
+    - use_case is broader than software use case when the artifact is conceptual, methodological, procedural, or socio-technical
+    - use_case should be linked to tasks, roles, setting, and evidence capture
+    terms_not_to_conflate:
+    - use_case
+    - general_benefit_claim
+    - marketing_demo
+  - term_id: use_plan
+    preferred_label: Use Plan
+    definition: The planned sequence of steps, preconditions, materials, roles, supports, controls, and expected interactions
+      by which the artifact will be used in demonstration or field activity.
+    distinctions_to_preserve:
+    - use_plan is not the same as make_plan
+    - use_plan describes interaction and conditions for use, not merely artifact features
+    terms_not_to_conflate:
+    - make_plan
+    - use_plan
+    - evaluation_protocol
+  - term_id: evidence_capture_readiness
+    preferred_label: Evidence Capture Readiness
+    definition: Preparedness to collect, preserve, interpret, and trace observations, measures, feedback, logs, documents,
+      artifacts, or analytic outputs produced by demonstration or use.
+    distinctions_to_preserve:
+    - evidence capture readiness is not evidence sufficiency
+    - capturing evidence does not automatically validate a contribution claim
+    terms_not_to_conflate:
+    - evidence_capture_plan
+    - evaluation_findings
+    - contribution_evidence
+  - term_id: safe_use_conditions
+    preferred_label: Safe Use Conditions
+    definition: Documented controls, constraints, approvals, limits, support practices, privacy protections, burden mitigations,
+      and stop rules required for responsible demonstration or use.
+    distinctions_to_preserve:
+    - safe_use_conditions are readiness constraints, not proof that all responsible-design issues have been resolved
+    - safe use can require limiting users, tasks, settings, data, or claim scope
+    terms_not_to_conflate:
+    - safe_use_conditions
+    - ethical_approval
+    - security_certification
+    - production_release
+  required_inputs:
+  - input_field: artifact_instantiation
+    description: Concrete prototype, implementation, scenario artifact, proof of concept, field-use candidate, or other instantiation
+      to be demonstrated.
+    obligation_status: required
+    accepted_format: structured_yaml_object_with_id_type_version_maturity_status_and_artifact_universal_link
+    minimum_evidence: artifact_instantiation_id, artifact_type, version_or_status, boundary, and trace to artifact_specification
+  - input_field: use_case
+    description: Specific scenario, workflow, task, decision situation, process, or interaction sequence for the demonstration.
+    obligation_status: required
+    accepted_format: structured_yaml_object_or_list_with_use_case_id_name_task_flow_and_claim_scope
+    minimum_evidence: at least one use_case_id with task, actor, setting, preconditions, expected artifact interaction, and
+      intended evidence
+  - input_field: user_roles
+    description: Users, participants, evaluators, sponsors, maintainers, affected stakeholders, or other roles involved in
+      the demonstration or use activity.
+    obligation_status: required
+    accepted_format: list_of_role_objects_with_readiness_status_support_needs_and_burden_notes
+    minimum_evidence: role names, responsibilities, readiness assumptions, and support/training needs
+  - input_field: setting
+    description: Artificial, lab, simulation, workshop, classroom, organizational, field, naturalistic, or other setting for
+      use.
+    obligation_status: required
+    accepted_format: structured_setting_record_with_context_conditions_boundaries_and_evidence_mode
+    minimum_evidence: setting type, location or context category, constraints, realism level, and relation to intended claim
+  - input_field: tasks
+    description: Work, learning, evaluation, decision, or process tasks users will perform with the artifact.
+    obligation_status: required
+    accepted_format: ordered_task_list_or_process_map
+    minimum_evidence: task identifiers, expected inputs/outputs, completion criteria, and artifact interaction points
+  - input_field: use_plan
+    description: Operational steps, preconditions, timing, support materials, facilitation, data collection, contingency steps,
+      and stop rules.
+    obligation_status: required
+    accepted_format: structured_use_protocol_or_yaml_plan
+    minimum_evidence: preconditions, steps, roles, materials, evidence capture points, support contacts, and safe-use constraints
+  - input_field: support_materials
+    description: Instructions, training, onboarding, facilitation guides, scripts, examples, help text, troubleshooting notes,
+      or templates needed for use.
+    obligation_status: required
+    accepted_format: list_of_repository_artifact_refs_or_embedded_material_records
+    minimum_evidence: material identifiers, audience, purpose, and version/status
+  - input_field: risk_controls
+    description: Controls for stakeholder burden, privacy, safety, disruption, misuse, confidentiality, consent, governance,
+      fallback, and unintended effects.
+    obligation_status: required
+    accepted_format: risk_register_or_control_matrix
+    minimum_evidence: identified risks, severity, mitigation, owner, stop/escalation criteria, and residual risk judgment
+  required_outputs:
+  - output_field: demonstration_readiness_rating
+    description: Weighted overall rating and final readiness decision.
+    accepted_values:
+    - ready_for_demonstration
+    - ready_with_controls
+    - revise_before_demonstration
+    - not_ready
+  - output_field: use_gaps
+    description: Identified gaps in use case, setting fit, artifact maturity, task flow, use plan, support materials, or operational
+      preconditions.
+    accepted_format: list_of_gap_objects_with_dimension_id_severity_owner_and_revision_action
+  - output_field: participant_or_user_readiness_gaps
+    description: Gaps in user, participant, evaluator, sponsor, maintainer, or affected-stakeholder readiness.
+    accepted_format: list_of_role_specific_readiness_gaps
+  - output_field: safe_use_conditions
+    description: Conditions under which demonstration may proceed, including boundaries, controls, exclusions, approvals,
+      and stop rules.
+    accepted_format: list_of_condition_objects
+  - output_field: evidence_capture_actions
+    description: Actions required to make demonstration evidence collectable, interpretable, and traceable.
+    accepted_format: list_of_actions_linked_to_evidence_capture_readiness
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical risk, evidence sufficiency, burden, setting mismatch, and overclaiming.
+    accepted_format: list_of_review_flags_with_trigger_and_required_reviewer_role
+  assessment_dimensions:
+  - dimension_id: use_case_clarity
+    label: Use Case Clarity
+    definition: Specificity of the task, scenario, process, workflow, or use case for demonstration.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Named use case with users or roles, task sequence, setting, preconditions, expected interaction, and
+      intended evidence.
+    level_descriptors:
+      score_0: No specific use case, task, scenario, or user interaction is stated.
+      score_1: A broad or promotional demonstration idea is asserted, but task, actor, setting, and interaction details are
+        mostly absent.
+      score_2: A plausible use case is stated, but task flow, preconditions, boundaries, or intended evidence are incomplete.
+      score_3: A clear bounded use case specifies actors, tasks, artifact interactions, setting, and intended evidence with
+        minor gaps.
+      score_4: A complete, bounded, traceable, and role-specific use case is ready for enactment and clearly linked to artifact
+        capacities and evidence capture.
+    minimum_evidence: Named use case with users or roles, task sequence, setting, preconditions, expected interaction, and
+      intended evidence.
+    high_quality_evidence:
+    - use_case_id and version
+    - scenario narrative or process map
+    - task-level sequence with actor/artifact interaction points
+    - clear relation to artifact capacities and intended demonstration claim
+    - explicit exclusions or non-use cases
+    weak_evidence_signals:
+    - demo described only as showing the artifact
+    - generic claims such as users will try it
+    - missing tasks or success/failure conditions
+    - use case imported from prior work without context adaptation
+    calibration_anchor: Score 4 when an independent reviewer could stage the demonstration scenario from the use-case record
+      without asking what users will actually do.
+    common_failure_modes:
+    - demo_without_use_case
+    - task_flow_absence
+    - scenario_claim_mismatch
+    - actor_role_blur
+    reviewer_notes: Do not require software-style use-case notation; conceptual, procedural, educational, and socio-technical
+      artifacts may use scenario tables or process maps.
+  - dimension_id: user_and_stakeholder_readiness
+    label: User and Stakeholder Readiness
+    definition: Preparedness of users, evaluators, sponsors, participants, maintainers, and affected stakeholders to participate
+      in or support demonstration/use.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Role map with readiness assumptions, recruitment or access status, training/support needs, responsibilities,
+      burden notes, and consent/approval status where applicable.
+    level_descriptors:
+      score_0: Material users, participants, or stakeholders are not identified.
+      score_1: Some roles are named, but readiness, access, support, burden, or responsibilities are largely assumed.
+      score_2: Roles and readiness are partially documented, but gaps remain in support, training, burden, consent, access,
+        or evaluator responsibilities.
+      score_3: Key roles are prepared with documented responsibilities, support materials, and manageable burden; minor gaps
+        remain.
+      score_4: All material roles have clear participation conditions, support, training or onboarding, burden controls, escalation
+        paths, and readiness evidence.
+    minimum_evidence: Role map with readiness assumptions, recruitment or access status, training/support needs, responsibilities,
+      burden notes, and consent/approval status where applicable.
+    high_quality_evidence:
+    - stakeholder role table
+    - readiness assessment for each material role
+    - onboarding or training materials
+    - support and escalation plan
+    - burden and incentive assessment
+    - evidence that gatekeepers or sponsors can support the demonstration
+    weak_evidence_signals:
+    - assumes users are available or motivated without evidence
+    - only direct users are described while affected stakeholders are omitted
+    - training and support needs are unaddressed
+    - evaluator role is ambiguous
+    - participant burden is ignored
+    calibration_anchor: Score 4 when users and supporting roles can responsibly participate with understood tasks, support,
+      burden limits, and escalation paths.
+    common_failure_modes:
+    - user_burden_neglect
+    - stakeholder_tokenism
+    - participant_role_ambiguity
+    - unsupported_access_assumption
+    - training_absence
+    reviewer_notes: Readiness may be based on field access, stakeholder agreement, training status, prior experience, or expert
+      facilitation; mark reviewer judgment separately.
+  - dimension_id: setting_fit
+    label: Setting Fit
+    definition: Fit between demonstration setting and intended claim, including realism, control, context, constraints, and
+      evidence mode.
+    weight: 0.12
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Setting description with setting type, context conditions, realism/control level, boundary conditions,
+      claim scope, and rationale for why the setting can produce meaningful evidence.
+    level_descriptors:
+      score_0: No setting is specified or the described setting contradicts the intended claim.
+      score_1: A setting is named but its fit, constraints, and claim limits are not justified.
+      score_2: The setting is plausible but has unresolved mismatch, realism, access, control, or boundary-condition issues.
+      score_3: The setting fits the intended demonstration and claim scope with minor unresolved limitations.
+      score_4: The setting, realism/control level, context conditions, evidence mode, and claim limits are explicitly aligned
+        and well bounded.
+    minimum_evidence: Setting description with setting type, context conditions, realism/control level, boundary conditions,
+      claim scope, and rationale for why the setting can produce meaningful evidence.
+    high_quality_evidence:
+    - setting type such as lab, scenario, workshop, classroom, simulation, artificial, naturalistic, or field
+    - contextual constraints and boundary conditions
+    - fit rationale between setting and claim type
+    - limitations for transfer, generalization, or projectability
+    - record of factors that may bias, constrain, or enable use
+    weak_evidence_signals:
+    - setting chosen by convenience only
+    - naturalistic claims from artificial demonstrations without qualification
+    - missing environmental constraints
+    - ambiguous relation between setting and evidence mode
+    - no boundary conditions
+    calibration_anchor: Score 4 when the setting is explicitly matched to the claim being made and the record states what
+      the setting can and cannot support.
+    common_failure_modes:
+    - setting_claim_mismatch
+    - convenience_setting_unexamined
+    - unsupported_projectability
+    - boundary_condition_absence
+    reviewer_notes: A highly controlled artificial setting can be ready when the claim is limited to feasibility, usability,
+      or mechanism inspection; field-like claims require stronger setting fit.
+  - dimension_id: prototype_or_instantiation_maturity
+    label: Prototype or Instantiation Maturity
+    definition: Adequacy of artifact maturity for the intended demonstration, including stability, completeness, conformance,
+      limitations, and supportability.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Instantiation record with version/status, maturity level, known limitations, conformance to minimum specification,
+      dependencies, test/check results, and demonstration boundaries.
+    level_descriptors:
+      score_0: No demonstrable artifact, instantiation, prototype, scenario representation, or artifact inspection object
+        is available.
+      score_1: An artifact exists, but its maturity, limitations, dependencies, or conformance to minimum use requirements
+        are undocumented or inadequate.
+      score_2: The prototype can support part of the demonstration, but important functions, stability, dependencies, or limitations
+        remain unresolved.
+      score_3: The instantiation is mature enough for the planned use, with known limitations and minor support or conformance
+        gaps.
+      score_4: The instantiation has versioned maturity evidence, conformance checks, limitation boundaries, dependencies,
+        and controls adequate for the intended demonstration.
+    minimum_evidence: Instantiation record with version/status, maturity level, known limitations, conformance to minimum
+      specification, dependencies, test/check results, and demonstration boundaries.
+    high_quality_evidence:
+    - artifact_instantiation_id and version
+    - maturity status such as concept mockup, low_fidelity prototype, high_fidelity prototype, pilot implementation, field
+      implementation
+    - minimum specification conformance check
+    - known limitations and nonfunctional constraints
+    - fallback or recovery plan
+    - dependency and environment notes
+    weak_evidence_signals:
+    - artifact maturity stated only as ready
+    - demo requires unavailable functions
+    - known defects not disclosed
+    - prototype instability likely to invalidate use evidence
+    - prototype used beyond its maturity boundary
+    calibration_anchor: Score 4 when artifact maturity is sufficient for the stated use case and limitations are controlled
+      rather than hidden.
+    common_failure_modes:
+    - prototype_maturity_mismatch
+    - artifact_black_box
+    - capacity_absence
+    - undisclosed_instability
+    - production_readiness_conflation
+    reviewer_notes: This dimension does not require production readiness; it requires maturity appropriate to the demonstration
+      objective and risk level.
+  - dimension_id: use_plan_operationality
+    label: Use Plan Operationality
+    definition: Clarity and executability of demonstration/use steps, preconditions, materials, roles, timing, support, contingencies,
+      and expected interactions.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Operational use plan or protocol with sequence, preconditions, roles, timing, materials, facilitation,
+      support, evidence-capture points, contingencies, and stop rules.
+    level_descriptors:
+      score_0: No use plan or operational protocol is present.
+      score_1: Use plan is mostly aspirational and lacks actionable steps, preconditions, roles, or materials.
+      score_2: Use plan is partially executable but has gaps in sequence, supports, contingencies, timing, or role responsibilities.
+      score_3: Use plan is executable with clear steps, roles, materials, and contingencies; minor details remain to be finalized.
+      score_4: Use plan is fully operational, role-specific, versioned, bounded, supported by materials, and integrated with
+        setup, contingencies, stop rules, and evidence capture.
+    minimum_evidence: Operational use plan or protocol with sequence, preconditions, roles, timing, materials, facilitation,
+      support, evidence-capture points, contingencies, and stop rules.
+    high_quality_evidence:
+    - step-by-step use protocol
+    - role-specific responsibilities
+    - preconditions and setup checklist
+    - support materials and facilitation script
+    - timing and environment requirements
+    - contingency, stop, and escalation rules
+    weak_evidence_signals:
+    - only a general intention to use the artifact
+    - missing preconditions or setup requirements
+    - support materials not versioned or audience-specific
+    - no contingency plan
+    - roles, timing, or task ownership unclear
+    calibration_anchor: Score 4 when a competent facilitator could run the demonstration from the use plan and know what to
+      do if common problems occur.
+    common_failure_modes:
+    - use_plan_absence
+    - operational_step_gap
+    - support_material_gap
+    - facilitation_ambiguity
+    - no_stop_rule
+    reviewer_notes: Use plan operationality is distinct from evaluation protocol; however, evidence-capture steps should be
+      synchronized with later evaluation planning.
+  - dimension_id: evidence_capture_readiness
+    label: Evidence Capture Readiness
+    definition: Ability to capture observations, measures, feedback, logs, artifacts, analytics, or other use evidence from
+      the demonstration.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Evidence capture plan linked to use cases, tasks, evaluation questions or claims, measures/observation
+      modes, data sources, storage, provenance, timing, and interpretation limits.
+    level_descriptors:
+      score_0: No evidence capture plan exists, or the demonstration cannot produce interpretable evidence.
+      score_1: Evidence capture is asserted generally, but instruments, timing, task links, or provenance are missing.
+      score_2: Some evidence can be captured, but gaps remain in measures, observations, logging, instruments, provenance,
+        or claim alignment.
+      score_3: Evidence capture is planned and mostly traceable to tasks and claims, with minor gaps in instrumentation, provenance,
+        or interpretation boundaries.
+      score_4: Evidence capture is fully operational, task-linked, instrumented, provenance-aware, bounded, and aligned with
+        later evaluation interpretation.
+    minimum_evidence: Evidence capture plan linked to use cases, tasks, evaluation questions or claims, measures/observation
+      modes, data sources, storage, provenance, timing, and interpretation limits.
+    high_quality_evidence:
+    - evidence_capture_plan_id
+    - mapping from tasks to observations, measures, logs, feedback, or artifacts
+    - collection instruments such as observation protocol, interview guide, survey, log specification, analytics export, rubric,
+      or checklist
+    - provenance, storage, confidentiality, and retention notes
+    - interpretation limits and claim alignment
+    weak_evidence_signals:
+    - plans to collect feedback without instruments
+    - measures not tied to tasks or claims
+    - no data provenance or storage plan
+    - only success stories expected
+    - missing qualitative coding, log capture, or observation procedures when needed
+    calibration_anchor: Score 4 when the demonstration can produce interpretable evidence that is traceable to use tasks,
+      artifact capacities, and intended claim limits.
+    common_failure_modes:
+    - evidence_capture_gap
+    - measure_opacity
+    - feedback_only_bias
+    - claim_evidence_mismatch
+    - provenance_absence
+    reviewer_notes: Evidence capture readiness is necessary for meaningful learning but does not prove that evidence will
+      be sufficient, valid, or favorable.
+  - dimension_id: risk_and_burden_controls
+    label: Risk and Burden Controls
+    definition: Controls for stakeholder burden, privacy, safety, disruption, misuse, confidentiality, governance, and unintended
+      effects during demonstration or use.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Risk and burden control record with identified risks, affected groups, mitigation controls, owners, approvals
+      where applicable, stop rules, escalation, residual risk, and safe-use conditions.
+    level_descriptors:
+      score_0: Material risks, stakeholder burdens, privacy issues, or safety concerns are absent from the record or uncontrolled.
+      score_1: Risks are named superficially, but mitigations, owners, approvals, burden limits, or stop rules are absent
+        or inadequate.
+      score_2: Risk controls exist for some issues, but important privacy, burden, disruption, consent, or escalation gaps
+        remain.
+      score_3: Risk and burden controls are proportionate and mostly complete, with minor residual-risk or documentation gaps.
+      score_4: Risk and burden controls are comprehensive, proportionate, role-owned, bounded, approved where needed, and
+        linked to safe-use conditions and stop/escalation rules.
+    minimum_evidence: Risk and burden control record with identified risks, affected groups, mitigation controls, owners,
+      approvals where applicable, stop rules, escalation, residual risk, and safe-use conditions.
+    high_quality_evidence:
+    - risk_register or control matrix
+    - stakeholder burden assessment
+    - privacy and confidentiality controls
+    - data minimization and retention notes
+    - safety, disruption, or misuse mitigation
+    - approval, consent, escalation, and stop rules
+    - safe_use_conditions
+    weak_evidence_signals:
+    - risk treated as not applicable without justification
+    - privacy or confidentiality assumed rather than controlled
+    - burden placed on users without mitigation
+    - no stop rule for adverse events or disruption
+    - unsafe field use under prototype uncertainty
+    calibration_anchor: Score 4 when the demonstration is bounded by concrete risk controls, burden limits, responsible-data
+      practices, and stop/escalation rules proportional to the setting.
+    common_failure_modes:
+    - user_burden_neglect
+    - privacy_blindness
+    - safety_risk_uncontrolled
+    - disruption_externalization
+    - stop_rule_absence
+    - risk_as_afterthought
+    reviewer_notes: Any unresolved material safety, privacy, consent, or stakeholder-burden concern should trigger human review
+      and may block demonstration regardless of weighted score.
+  scoring_model:
+    scale:
+      minimum: 0
+      maximum: 4
+      integer_scores_only: true
+      score_0: absent_or_blocked
+      score_1: weak_or_asserted
+      score_2: conditional_or_partially_supported
+      score_3: strong_or_adequately_supported
+      score_4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule:
+      expected_sum: 1.0
+      actual_sum: 1.0
+      tolerance: 0.0001
+    weighted_score_formula: sum(dimension_score * dimension_weight)
+    missing_evidence_rule: If required evidence for a dimension is missing, score that dimension no higher than 1 unless an
+      explicit not_applicable rationale is accepted by human review.
+    reverse_scoring_rule: No dimensions are reverse-scored in this rubric.
+    rounding_rule: Report weighted score to two decimal places; keep raw dimension scores for audit.
+    non_compensatory_floor_rules:
+    - rule_id: floor_no_artifact_instantiation
+      condition: artifact_instantiation is missing or cannot be inspected, enacted, represented, or otherwise demonstrated
+      maximum_decision: not_ready
+      maximum_weighted_score: 1.5
+      rationale: Use readiness cannot be established without a demonstrable artifact object.
+    - rule_id: floor_no_use_case_or_setting
+      condition: use_case_clarity == 0 or setting_fit == 0
+      maximum_decision: not_ready
+      maximum_weighted_score: 1.8
+      rationale: A demonstration without a use case or setting cannot produce interpretable use evidence.
+    - rule_id: floor_evidence_capture_absent
+      condition: evidence_capture_readiness <= 1
+      maximum_decision: revise_before_demonstration
+      maximum_weighted_score: 2.4
+      rationale: A demonstration may be presentational, but it is not DSR evidence-ready if evidence capture is absent or
+        only asserted.
+    - rule_id: floor_uncontrolled_material_risk
+      condition: risk_and_burden_controls <= 1 and material stakeholder, privacy, safety, consent, disruption, or misuse risk
+        is plausible
+      maximum_decision: not_ready
+      maximum_weighted_score: 2.0
+      rationale: Risk and burden controls are non-compensatory for responsible demonstration.
+    - rule_id: floor_maturity_claim_mismatch
+      condition: prototype_or_instantiation_maturity <= 1 and the planned setting involves real users, field operations, sensitive
+        data, or high stakeholder burden
+      maximum_decision: not_ready
+      maximum_weighted_score: 2.0
+      rationale: Low-maturity artifacts should not be used in settings where failure can create material harm or invalid evidence.
+    - rule_id: floor_unsupported_overclaiming
+      condition: record claims naturalistic utility, effectiveness, transferability, or contribution readiness from a narrow
+        demonstration without stated limitations
+      maximum_decision: ready_with_controls
+      maximum_weighted_score: 3.0
+      rationale: Readiness for demonstration is not evidence of final claim validity.
+  level_descriptors:
+    score_0:
+      label: absent_or_blocked
+      general_meaning: The required element is missing, contradicted, or blocked; demonstration should not proceed on this
+        basis.
+    score_1:
+      label: weak_or_asserted
+      general_meaning: The element is mentioned but mostly asserted without operational detail, evidence, traceability, or
+        responsible controls.
+    score_2:
+      label: conditional_or_partially_supported
+      general_meaning: The element is plausible but incomplete; demonstration may proceed only after targeted revision or
+        with substantial controls.
+    score_3:
+      label: strong_or_adequately_supported
+      general_meaning: The element is sufficiently specified, evidenced, and bounded for the planned demonstration, with minor
+        gaps.
+    score_4:
+      label: very_strong_or_exemplary
+      general_meaning: The element is complete, traceable, operational, proportionate, and ready for review or enactment.
+    anchor_examples:
+    - score_4 evidence is concrete enough for a different reviewer or facilitator to run or audit the demonstration.
+    - score_2 evidence may be promising but requires revision before evidence can be interpreted confidently.
+    - score_0 evidence indicates a missing object, uncontrolled risk, or absent use setting that prevents readiness.
+    borderline_cases:
+    - A low-fidelity prototype can score high on maturity when the demonstration is only an expert walkthrough of conceptual
+      fit.
+    - A field pilot with real users should not score high if privacy, consent, disruption, or support controls are only assumed.
+    - A richly scripted demo can still score low if evidence capture is not linked to tasks, claims, or interpretation boundaries.
+  decision_thresholds:
+    ready_threshold:
+      decision: ready_for_demonstration
+      weighted_score_minimum: 3.5
+      dimension_minimums:
+        use_case_clarity: 3
+        user_and_stakeholder_readiness: 3
+        setting_fit: 3
+        prototype_or_instantiation_maturity: 3
+        use_plan_operationality: 3
+        evidence_capture_readiness: 3
+        risk_and_burden_controls: 3
+      additional_conditions:
+      - no blocking non_compensatory_floor_rules triggered
+      - safe_use_conditions are documented
+      - claim_scope is bounded to what the demonstration setting can support
+    ready_with_controls_threshold:
+      decision: ready_with_controls
+      weighted_score_range: 2.75_to_3.49
+      conditions:
+      - no dimension score below 2
+      - no uncontrolled material risk
+      - all required gaps have assigned controls, owners, and completion conditions
+      - demonstration claims are constrained to the evidence that can be captured
+    revise_threshold:
+      decision: revise_before_demonstration
+      weighted_score_range: 2.0_to_2.74
+      conditions:
+      - one or more material readiness elements are incomplete
+      - evidence capture, use plan, setting fit, user readiness, or maturity gaps would weaken evidence interpretation
+      - revision actions are feasible before demonstration
+    not_ready_threshold:
+      decision: not_ready
+      weighted_score_maximum: 1.99
+      conditions:
+      - one or more blocking floor rules triggered
+      - artifact_instantiation, use_case, setting, use_plan, evidence_capture_plan, or risk controls are absent or unusable
+      - demonstration would expose users or stakeholders to unmanaged risk or burden
+      - use would produce uninterpretable or misleading evidence
+    dimension_floor_rules:
+    - Any score_0 on use_case_clarity, setting_fit, evidence_capture_readiness, or risk_and_burden_controls requires not_ready
+      unless human review documents a constrained exception.
+    - Any score_1 on risk_and_burden_controls in a real-user or field setting requires not_ready or revise_before_demonstration.
+    - Any score_1 on evidence_capture_readiness prevents ready_for_demonstration and ready_with_controls.
+    human_review_triggers:
+    - trigger_id: ambiguity_review
+      condition: use case, user role, setting, claim scope, risk severity, or evidence mode is ambiguous
+      required_reviewer_role: methodologist_or_evaluation_lead
+    - trigger_id: source_gap_review
+      condition: readiness rationale relies on reviewer judgment without source anchors, repository artifacts, or field evidence
+      required_reviewer_role: repository_reviewer
+    - trigger_id: ethical_risk_review
+      condition: participants, students, patients, employees, sensitive data, identifiable records, compliance, safety, or
+        material burden are involved
+      required_reviewer_role: ethics_or_governance_reviewer
+    - trigger_id: evidence_sufficiency_review
+      condition: the demonstration will support utility, effectiveness, contribution, transfer, or stakeholder-value claims
+      required_reviewer_role: evaluation_lead
+    - trigger_id: overclaiming_review
+      condition: record uses demonstration success to imply evaluation success, generalizability, or design-knowledge contribution
+      required_reviewer_role: faculty_advisor_or_methodologist
+  calibration_guidance:
+    reviewer_preparation:
+    - Review artifact_specification_quality_rubric results before scoring this rubric.
+    - Review the intended evaluation_alignment_quality_rubric scope if evidence from the demonstration will support evaluation
+      claims.
+    - Identify the claim type being supported before judging setting_fit and evidence_capture_readiness.
+    - Separate source-supported documentation from reviewer judgment and field assumptions.
+    - Check whether responsible_design_constraints_rubric should be applied before field use or sensitive demonstrations.
+    anchor_cases:
+      strong_case:
+        summary: A versioned prototype will be used by trained users in a bounded workshop scenario with documented tasks,
+          role-specific instructions, setup checklist, observation protocol, feedback form, log capture, privacy controls,
+          burden limits, and stop rules.
+        expected_scores:
+          use_case_clarity: 4
+          user_and_stakeholder_readiness: 4
+          setting_fit: 3
+          prototype_or_instantiation_maturity: 3
+          use_plan_operationality: 4
+          evidence_capture_readiness: 4
+          risk_and_burden_controls: 4
+        expected_decision: ready_for_demonstration
+      borderline_case:
+        summary: A prototype is mature enough for expert walkthrough and task simulation, but real users are not trained,
+          evidence capture is limited to notes and post-demo discussion, and privacy controls are incomplete for field data.
+        expected_scores:
+          use_case_clarity: 3
+          user_and_stakeholder_readiness: 2
+          setting_fit: 2
+          prototype_or_instantiation_maturity: 3
+          use_plan_operationality: 2
+          evidence_capture_readiness: 2
+          risk_and_burden_controls: 2
+        expected_decision: revise_before_demonstration_or_ready_with_controls_if_constrained_to_expert_walkthrough
+      weak_case:
+        summary: The team plans to demo the artifact to stakeholders, but no specific use case, user task, setting rationale,
+          evidence capture plan, maturity boundary, or risk controls are recorded.
+        expected_scores:
+          use_case_clarity: 1
+          user_and_stakeholder_readiness: 1
+          setting_fit: 1
+          prototype_or_instantiation_maturity: 1
+          use_plan_operationality: 0
+          evidence_capture_readiness: 0
+          risk_and_burden_controls: 0
+        expected_decision: not_ready
+    calibration_rounds:
+    - 'Round 1: two reviewers independently score the same demonstration_and_use record using only documented evidence.'
+    - 'Round 2: reviewers compare score differences of two or more points and identify whether disagreement is due to missing
+      evidence, ambiguous descriptors, or different claim-scope assumptions.'
+    - 'Round 3: revise scoring notes and add human_review_flags rather than forcing consensus where evidence is genuinely
+      ambiguous.'
+    inter_rater_reconciliation:
+    - Reconcile by anchoring each dimension score to specific evidence fields.
+    - When evidence exists but adequacy is disputed, record reviewer_judgment rather than upgrading source support.
+    - Use the lower score when unmanaged user burden, privacy, safety, or evidence interpretability risk remains unresolved.
+    drift_checks:
+    - Compare current decisions with prior rubric artifacts to ensure 3 and 4 scores are not becoming inflated.
+    - Check that ready_with_controls decisions include explicit controls, owners, and completion criteria.
+    - Audit whether reviewers are treating smooth presentations as evidence-ready demonstrations.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+    - dimension_id: use_case_clarity
+      minimum_required:
+      - use_case_id
+      - actors_or_roles
+      - task_sequence
+      - setting_reference
+      - intended_evidence
+    - dimension_id: user_and_stakeholder_readiness
+      minimum_required:
+      - role_map
+      - readiness_assumptions
+      - support_or_training_needs
+      - burden_notes
+    - dimension_id: setting_fit
+      minimum_required:
+      - setting_type
+      - claim_scope
+      - fit_rationale
+      - boundary_conditions
+    - dimension_id: prototype_or_instantiation_maturity
+      minimum_required:
+      - artifact_instantiation_id
+      - version_or_status
+      - maturity_level
+      - known_limitations
+      - minimum_conformance_check
+    - dimension_id: use_plan_operationality
+      minimum_required:
+      - preconditions
+      - steps
+      - roles
+      - support_materials
+      - contingency_or_stop_rules
+    - dimension_id: evidence_capture_readiness
+      minimum_required:
+      - evidence_capture_plan
+      - task_to_evidence_map
+      - instruments_or_logs
+      - provenance_and_storage_plan
+      - interpretation_limits
+    - dimension_id: risk_and_burden_controls
+      minimum_required:
+      - risk_register
+      - burden_assessment
+      - privacy_or_confidentiality_controls
+      - risk_owner
+      - safe_use_conditions
+      - escalation_or_stop_rules
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - empirical
+    - expert
+    - field
+    - case
+    - simulation
+    - experiment
+    - analytics
+    - artifact_inspection
+    - conceptual_argument
+    - stakeholder_claim
+    - repository_artifact
+    - validation_result
+    - reviewer_judgment
+    source_anchor_requirements:
+      source_supported_claims: Use source anchors for DSR theory, demonstration/use logic, artifact instantiation concepts,
+        evaluation alignment, and risk/control norms when available.
+      repository_artifact_claims: Use repository paths, commit references, file identifiers, or artifact IDs for instantiation,
+        use plan, support materials, evidence capture plans, and controls.
+      reviewer_judgment: Mark claims as reviewer_judgment when adequacy, proportionality, burden, or setting fit cannot be
+        directly validated by source or artifact fields.
+    evidence_quality_notes:
+    - Evidence is stronger when it is role-specific, task-specific, versioned, bounded, and traceable to artifact specification
+      and evaluation claims.
+    - Evidence is weaker when it is generic, promotional, retrospective, unversioned, or unsupported by use artifacts.
+    - Stakeholder enthusiasm should be treated as stakeholder_claim evidence, not as proof of use readiness or artifact utility.
+    - A demonstration that cannot capture evidence may still be useful for communication, but it is not evidence-ready under
+      this rubric.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: demo_without_use_case
+    warning_condition: The record describes showing the artifact but does not specify users, task sequence, setting, or intended
+      evidence.
+    severity: blocking_issue
+    recommended_response: Create a bounded use_case record and task flow before demonstration.
+  - anti_pattern_id: prototype_maturity_mismatch
+    warning_condition: The planned demonstration depends on artifact functions, stability, or data handling beyond the prototype's
+      documented maturity.
+    severity: major_warning
+    recommended_response: Reduce claim scope, constrain the setting, improve the prototype, or postpone use.
+  - anti_pattern_id: evidence_capture_gap
+    warning_condition: The demonstration cannot reliably capture observations, measures, logs, feedback, or artifacts needed
+      for meaningful interpretation.
+    severity: major_warning
+    recommended_response: Add evidence instruments, task-to-evidence mappings, storage/provenance notes, and interpretation
+      limits.
+  - anti_pattern_id: user_burden_neglect
+    warning_condition: User or stakeholder time, cognitive load, risk, disruption, consent, incentive, or support burden is
+      ignored.
+    severity: blocking_issue
+    recommended_response: Add burden assessment, support plan, mitigation, safe-use conditions, and human review.
+  - anti_pattern_id: setting_claim_mismatch
+    warning_condition: The demonstration setting can only support feasibility or illustrative claims, but the record implies
+      naturalistic utility, effectiveness, adoption, or transfer.
+    severity: major_warning
+    recommended_response: Constrain claims or redesign the setting/evidence route.
+  - anti_pattern_id: presentation_confused_with_demonstration
+    warning_condition: A presentation, slide walkthrough, or verbal explanation is treated as use evidence without task enactment
+      or artifact interaction.
+    severity: warning
+    recommended_response: Classify the activity as communication unless use tasks and evidence capture are added.
+  - anti_pattern_id: safe_use_conditions_absent
+    warning_condition: The activity proceeds with real users, sensitive data, or organizational disruption but lacks explicit
+      safe-use conditions.
+    severity: blocking_issue
+    recommended_response: Document risk controls, stop rules, approvals, and constrained-use boundaries before proceeding.
+  traceability_requirements:
+  - trace_id: source_to_concept
+    description: Source anchors or framework anchors should support demonstration, artifact instantiation, use plan, evidence,
+      setting, and risk-control concepts.
+    minimum: Each source_supported_claim used in a readiness rationale should have source_anchor_ids or framework anchors.
+  - trace_id: concept_to_schema_field
+    description: Rubric concepts should map to schema fields in demonstration_and_use, artifact_space, evaluation_space, and
+      responsible_design_constraints.
+    minimum: Each required input should map to a repository field or explicit extension field.
+  - trace_id: problem_to_requirement
+    description: The use case should remain traceable to the problem, objectives, requirements, and stakeholder needs that
+      justify demonstration.
+    minimum: Each use_case should cite at least one objective, requirement, or stakeholder need when available.
+  - trace_id: requirement_to_design_decision
+    description: Artifact capacities used in the demonstration should trace to requirements and design decisions.
+    minimum: Key tasks should identify the artifact capacities or decisions being exercised.
+  - trace_id: design_decision_to_evaluation
+    description: Demonstration tasks and evidence capture should indicate which artifact decisions, capacities, or use claims
+      they expose to observation.
+    minimum: Evidence capture records should link task, artifact function/capacity, and intended observation or measure.
+  - trace_id: evaluation_to_design_knowledge
+    description: Demonstration evidence should not be treated as design knowledge until analyzed and linked to claim scope,
+      boundary conditions, and contribution logic.
+    minimum: Interpretation limits must be recorded when demonstration evidence is used downstream.
+  - trace_id: design_knowledge_to_contribution
+    description: Any contribution claim arising from demonstration should pass through evaluation and contribution rubrics.
+    minimum: Contribution claims should reference evaluation_alignment_quality_rubric and contribution_quality_rubric rather
+      than relying solely on readiness scoring.
+  - trace_id: evidence_to_claim
+    description: Every intended use claim, usage-effect claim, or evaluation claim should be linked to evidence source, setting,
+      task, and boundary condition.
+    minimum: No demonstration-generated claim should lack task-to-evidence and setting-to-claim trace.
+  validation_implications:
+    json_schema_fields:
+    - field_path: demonstration_and_use.artifact_instantiation_id
+      obligation_status: required
+      validation_type: presence_and_reference_integrity
+    - field_path: demonstration_and_use.use_cases[].use_case_id
+      obligation_status: required
+      validation_type: presence_unique_identifier
+    - field_path: demonstration_and_use.user_roles[]
+      obligation_status: required
+      validation_type: non_empty_array
+    - field_path: demonstration_and_use.setting
+      obligation_status: required
+      validation_type: controlled_value_plus_free_text_context
+    - field_path: demonstration_and_use.tasks[]
+      obligation_status: required
+      validation_type: non_empty_array_with_task_ids
+    - field_path: demonstration_and_use.use_plan
+      obligation_status: required
+      validation_type: structured_object_presence
+    - field_path: demonstration_and_use.support_materials[]
+      obligation_status: required
+      validation_type: repository_reference_or_embedded_record
+    - field_path: demonstration_and_use.risk_controls[]
+      obligation_status: required
+      validation_type: risk_control_records
+    - field_path: demonstration_and_use.evidence_capture_plan
+      obligation_status: required
+      validation_type: structured_object_presence
+    - field_path: demonstration_and_use.safe_use_conditions[]
+      obligation_status: conditional
+      validation_type: required_when_real_users_sensitive_data_or_field_setting
+    shacl_shapes_or_warnings:
+    - shape_id: DemonstrationAndUseShape
+      target_class: dsr:DemonstrationAndUse
+      severity: sh:Violation
+      checks:
+      - minCount artifact_instantiation
+      - minCount use_case
+      - minCount setting
+      - minCount use_plan
+      - minCount evidence_capture_plan
+    - shape_id: UseCaseTaskEvidenceTraceShape
+      target_class: dsr:UseCase
+      severity: sh:Warning
+      checks:
+      - use_case should link to task
+      - task should link to evidence_capture_point
+      - task should link to artifact_capacity_or_design_decision when available
+    - shape_id: SafeUseConditionShape
+      target_class: dsr:DemonstrationAndUse
+      severity: sh:Violation
+      checks:
+      - safe_use_conditions required when risk_controls indicate material risk
+      - stop_rule required when real users or field settings are involved
+    - shape_id: SettingClaimFitShape
+      target_class: dsr:DemonstrationAndUse
+      severity: sh:Info
+      checks:
+      - flag naturalistic_claim when setting_type is artificial, scenario, simulation, or expert_walkthrough
+    controlled_vocabularies:
+    - vocabulary_id: demonstration_setting_type
+      suggested_values:
+      - scenario_demonstration
+      - expert_walkthrough
+      - lab_use
+      - simulation
+      - workshop
+      - classroom
+      - pilot
+      - field_use
+      - naturalistic_use
+      - proof_of_concept
+      - proof_of_value
+    - vocabulary_id: artifact_maturity_level
+      suggested_values:
+      - conceptual_representation
+      - low_fidelity_prototype
+      - high_fidelity_prototype
+      - functional_prototype
+      - pilot_implementation
+      - field_implementation
+      - production_candidate
+    - vocabulary_id: demonstration_readiness_decision
+      suggested_values:
+      - ready_for_demonstration
+      - ready_with_controls
+      - revise_before_demonstration
+      - not_ready
+    - vocabulary_id: evidence_capture_mode
+      suggested_values:
+      - observation
+      - interview
+      - survey
+      - artifact_inspection
+      - usage_log
+      - analytics
+      - task_performance_measure
+      - document_review
+      - expert_rating
+      - think_aloud
+      - focus_group
+      - field_note
+    python_validation_logic:
+    - verify dimension weights sum to 1.0
+    - verify required input fields are present and non-empty
+    - verify all use_cases have task links and setting references
+    - verify all evidence_capture_plan records include evidence mode, timing, source, and storage/provenance fields
+    - flag ready_for_demonstration when any required dimension score is below 3
+    - flag ready_with_controls when no safe_use_conditions are listed but risk_controls are present
+    - apply non_compensatory_floor_rules before assigning final decision
+    manual_review_only_checks:
+    - whether the use case is substantively meaningful rather than merely described
+    - whether the setting is adequate for the intended claim
+    - whether user burden and risk controls are proportionate
+    - whether evidence capture is sufficient for learning or evaluation
+    - whether demonstration evidence is being overinterpreted as utility, transfer, or contribution evidence
+    source_crosswalk_implications:
+    - source_family: johannesson_perjons_2021_demonstration_and_use_sections
+      crosswalk_use: support demonstration/use activity vocabulary and relationship to evaluation
+    - source_family: weber_2018_dsr_build_and_evaluate_logic
+      crosswalk_use: support build-evaluate-demonstrate sequencing
+    - source_family: dsr_operational_synthesis.demonstration_and_use
+      crosswalk_use: support repository-ready structure for demonstration and evaluation vehicle
+  examples_or_scoring_vignettes:
+  - vignette_id: strong_readiness_workshop_pilot
+    case_type: exemplary_strong
+    summary: A higher education QA dashboard prototype will be used in a two-hour bounded workshop by trained program-review
+      analysts. The use case specifies reviewing one program outcome alignment exception, recording interpretation notes,
+      and comparing dashboard output with source records. The setting is an artificial-but-realistic workshop aligned to feasibility
+      and usability claims, not final institutional effectiveness claims. Evidence capture includes observation protocol,
+      task completion rubric, think-aloud notes, usage logs, post-task feedback, and provenance-managed artifacts. Risk controls
+      include de-identified data, burden limits, facilitator support, and stop rules.
+    dimension_scores:
+      use_case_clarity: 4
+      user_and_stakeholder_readiness: 4
+      setting_fit: 3
+      prototype_or_instantiation_maturity: 3
+      use_plan_operationality: 4
+      evidence_capture_readiness: 4
+      risk_and_burden_controls: 4
+    weighted_score: 3.72
+    decision: ready_for_demonstration
+    notes: Ready because claim scope is bounded to feasibility, usability, and evidence-generation potential.
+  - vignette_id: borderline_expert_walkthrough
+    case_type: borderline_conditional
+    summary: A method artifact has a partially specified prototype and an expert walkthrough plan. The use case is clear,
+      but user roles beyond expert reviewers are not ready, support materials are incomplete, and evidence capture consists
+      mainly of facilitator notes and a short feedback form. Risk is low because no real operational data or affected students
+      are involved.
+    dimension_scores:
+      use_case_clarity: 3
+      user_and_stakeholder_readiness: 2
+      setting_fit: 3
+      prototype_or_instantiation_maturity: 2
+      use_plan_operationality: 2
+      evidence_capture_readiness: 2
+      risk_and_burden_controls: 3
+    weighted_score: 2.44
+    decision: revise_before_demonstration
+    notes: Could become ready_with_controls after support materials and evidence capture instruments are strengthened and
+      claim scope is limited to expert feedback.
+  - vignette_id: weak_demo_only
+    case_type: weak_not_ready
+    summary: The team plans to demonstrate a new compliance workflow artifact to administrators but has no written use case,
+      no task sequence, no setting rationale, no prototype maturity status, no evidence capture plan, and no burden or privacy
+      controls. The record says stakeholders will provide feedback after seeing the artifact.
+    dimension_scores:
+      use_case_clarity: 1
+      user_and_stakeholder_readiness: 1
+      setting_fit: 1
+      prototype_or_instantiation_maturity: 1
+      use_plan_operationality: 0
+      evidence_capture_readiness: 0
+      risk_and_burden_controls: 0
+    weighted_score: 0.66
+    decision: not_ready
+    notes: This is communication or informal review, not a readiness-scored DSR demonstration capable of meaningful evidence.
+  interpretation_guidance:
+    how_to_read_scores:
+    - The weighted score summarizes readiness for the stated demonstration or use activity, not global artifact quality.
+    - Dimension scores should be interpreted relative to claim scope, setting risk, stakeholder burden, and artifact maturity.
+    - A ready_with_controls decision requires explicit controls, owners, and completion conditions.
+    - Low scores should be translated into concrete revision actions before demonstration is attempted.
+    what_not_to_infer:
+    - Do not infer that the artifact is useful, effective, valid, adopted, scalable, ethical, or contribution-worthy from
+      a high demonstration readiness score.
+    - Do not infer that a successful demonstration provides sufficient evidence for utility, transferability, or design-knowledge
+      contribution without evaluation_alignment_quality_rubric and contribution_quality_rubric review.
+    - Do not infer that stakeholder enthusiasm is evidence of artifact effectiveness.
+    - Do not infer that a field setting automatically produces stronger evidence than an artificial setting; fit depends on
+      claim type and evidence capture.
+    - Do not infer that absence of reported risk means risk is absent; it may indicate risk analysis failure.
+    - Do not infer that prototype maturity implies production readiness unless production readiness is separately assessed.
+    relationship_to_adjacent_rubrics:
+      artifact_specification_quality_rubric: Provides upstream checks for artifact boundary, artifact universal versus instantiation,
+        capacity specification, make plan, use plan, and artifact network fit.
+      evaluation_alignment_quality_rubric: Provides downstream checks that evidence captured from demonstration aligns with
+        evaluation object, claim type, criteria, timing, setting, stakeholders, findings, and contribution claim.
+      responsible_design_constraints_rubric: Should be used when ethical, privacy, security, IP, maintenance, sustainability,
+        or stakeholder-burden constraints are material.
+      design_rationale_build_trace_rubric: Supports whether the instantiation and prototype maturity claims are traceable
+        to build evidence and design rationale.
+      transparency_trace_quality_rubric: Supports whether demonstration/use records are transparent enough for review, reuse,
+        and trust.
+    known_limitations:
+    - The rubric cannot determine whether final evaluation evidence will be favorable.
+    - The rubric cannot replace local approvals, institutional review, data governance, legal review, accessibility review,
+      or safety review.
+    - The rubric may need adaptation for purely conceptual artifacts where demonstration occurs through expert walkthrough,
+      worked example, proof, simulation, or structured critique rather than user field use.
+    - The rubric is sensitive to claim scope; overly broad claims should be constrained rather than rewarded.
+  quality_control:
+    completeness_check:
+    - All required inputs are present or explicitly marked not_applicable with human-review rationale.
+    - All seven assessment dimensions have scores, evidence notes, and gap notes.
+    - Dimension weights sum to 1.0.
+    - Final decision is one of ready_for_demonstration, ready_with_controls, revise_before_demonstration, or not_ready.
+    - At least one use_case is linked to tasks, setting, artifact instantiation, and evidence capture.
+    - Risk controls and safe-use conditions are present when human participants, real users, sensitive data, or field settings
+      are involved.
+    ambiguity_check:
+    - No ambiguous use of demo, pilot, evaluation, field use, proof of concept, or proof of value remains unresolved.
+    - Claim scope distinguishes feasibility, usability, utility, effectiveness, adoption, transfer, and contribution claims.
+    - Setting limitations and boundary conditions are stated.
+    - Source-supported claims and reviewer judgment are separated.
+    human_review_recommendation:
+      default: recommended
+      required_when:
+      - real users or participants are involved
+      - sensitive, identifiable, proprietary, student, patient, employee, or regulated data are involved
+      - stakeholder burden or organizational disruption is material
+      - the planned demonstration is being used to support utility, effectiveness, projectability, or contribution claims
+      - any non_compensatory_floor_rule is triggered or overridden
+    source_gap_notes:
+    - Add precise source anchors from Johannesson and Perjons, Weber, and operational synthesis when integrating into the
+      repository source registry.
+    - Verify terminology against concept_inventory_v2.yaml and SKOS vocabulary before promoting from draft to review_ready.
+    - Add crosswalk entries to artifact_specification_quality_rubric and evaluation_alignment_quality_rubric once those rubrics
+      are finalized.
+    machine_readiness_check:
+    - YAML parses without errors.
+    - Top-level key is rubric.
+    - All identifiers use lowercase snake_case.
+    - No dimension has a missing score descriptor.
+    - No decision values outside controlled list are used.
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial generated draft for demonstration and use readiness assessment.
+    changed_by: gpt_5_5_thinking

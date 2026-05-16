@@ -1,0 +1,1245 @@
+# SPDX-License-Identifier: CC0-1.0
+rubric:
+  rubric_metadata:
+    id: design_rationale_build_trace_rubric
+    label: Design Rationale and Build Trace Rubric
+    version: 0.1.0-draft
+    status: draft
+    generated_on: '2026-05-15'
+    generated_by: gpt_5_5_thinking
+    intended_file_path: rubrics/design_rationale_build_trace_rubric.yaml
+    local_file_name: design_rationale_build_trace_rubric.yaml
+    assessment_target: design_space.design_rationale_and_build_trace
+    priority: recommended
+    lifecycle_phase: design_and_build
+    prompt_id: prompt_design_rationale_build_trace_rubric
+    rubric_generation_spec_id: dsr_rubric_generation_spec_v0_1_0
+    depends_on:
+    - artifact_specification_quality_rubric
+    documentation_protocol_alignment:
+      identifier_policy: stable_ascii_lowercase_snake_case_for_ids_and_keys
+      repository_path_policy: caller_places_file_manually; intended path retained as metadata
+      traceability_policy: source_supported_claims_and_reviewer_judgment_are_distinguished
+      obligation_policy: machine_validation_checks_presence_consistency_trace_shape_and_reproducibility_markers; adequacy_judgments_remain_human_review
+      scope_policy: theory_of_dsr_and_repository_operationalization_are_distinguished
+  assessment_scope:
+    primary_question: Does the record explain why the artifact was designed as it was and how it was built or iterated?
+    when_to_use:
+    - during iterative artifact build cycles
+    - after an artifact specification or provisional design entity has been stated
+    - when design decisions, alternatives, constraints, or build evidence are being documented
+    - when preparing repository transparency materials, scholarly method sections, or handoff documentation
+    - before demonstration, evaluation, reuse, replication, maintenance, or contribution claims rely on the artifact build
+      history
+    - whenever a major design decision, implementation choice, dependency, version, or build method materially changes
+    when_not_to_use:
+    - do not use before the artifact or design entity is at least minimally specified
+    - do not use as a substitute for artifact_specification_quality_rubric; this rubric evaluates rationale and build trace
+      rather than artifact boundary, type, use plan, or capacity specification as such
+    - do not use as a substitute for evaluation_alignment_quality_rubric; build conformance evidence is not the same as utility
+      or effectiveness evidence
+    - do not use to force confidential, proprietary, security-sensitive, or ethically sensitive build details into public
+      release when controlled disclosure or redaction is required
+    - do not treat a complete build log as proof that the artifact is correct, useful, ethical, generalizable, or contribution-worthy
+    intended_users:
+    - dsr_researcher
+    - doctoral_student
+    - faculty_advisor
+    - repository_reviewer
+    - methodologist
+    - quality_assurance_reviewer
+    - artifact_designer
+    - technical_implementer
+    - evaluation_lead
+    - artifact_maintainer
+    - replication_or_reuse_reviewer
+    unit_of_assessment: one_design_space_design_rationale_and_build_trace_record_for_a_candidate_or_active_dsr_study
+    boundary_conditions:
+    - The rubric assesses whether design reasoning and build history are reviewable, not whether the final artifact is successful.
+    - Appropriate build-trace depth depends on artifact risk, claim scope, novelty, stakeholder burden, implementation complexity,
+      and intended reuse.
+    - Conceptual artifacts, methods, taxonomies, frameworks, templates, process models, software prototypes, and socio-technical
+      interventions can all be assessed, but evidence forms differ by artifact type.
+    - Machine validation may check identifiers, required fields, version markers, trace links, and file presence; adequacy,
+      relevance, sufficiency, proportionality, and overclaiming require human review.
+    - A record may protect sensitive details while still giving a reviewable abstracted trace of decisions, alternatives,
+      evidence, versions, and rationale.
+    assumptions:
+    - Design rationale is part of the design-space record and should connect problem, requirements, input knowledge, constraints,
+      alternatives, decisions, and expected mechanisms.
+    - Build trace is a transparency record documenting construction activities, implementation choices, versions, dependencies,
+      conformance checks, and iteration learning.
+    - 'A DSR artifact should not be a black box: reviewers should be able to understand why important choices were made and
+      how the artifact reached its current form.'
+    - Iteration is expected in many DSR projects; changes should be versioned and rationalized rather than retroactively smoothed
+      into a false linear narrative.
+  source_grounding:
+    source_families_to_consult:
+    - hevner_et_al_2024_transparency_in_dsr_extraction
+    - vom_brocke_gau_maedche_2021_journaling_dsr_process_extraction
+    - baskerville_kaul_pries_heje_storey_2019_bounded_creativity_iteration_indicators_extraction
+    - artifact_specification_quality_rubric
+    - concept_inventory.design_space
+    - concept_inventory.design_rationale
+    - concept_inventory.build_trace
+    - concept_inventory.transparency_trace
+    - dsr_skos_controlled_vocabulary.transparency_documentation_terms
+    - documentation_protocol
+    required_framework_files:
+    - concept-inventory_v2.yaml
+    - DSR Operational Synthesis.txt
+    - Theory of Design Science Research.txt
+    - dsr-source-operational-extractions-unified-part001.yaml
+    - dsr-source-operational-extractions-unified-part002.yaml
+    - dsr_skos_controlled_vocabulary.yaml
+    - dsr_ontology_competency_questions.yaml
+    - dsr_rubric_generation_spec_v0_1_0.yaml
+    - dsr_rubric_generation_prompts_v0_1_0.txt
+    - artifact_specification_quality_rubric.yaml
+    source_anchor_policy:
+      minimum: Every major design-rationale or build-trace claim should cite at least one source_anchor_id, framework_anchor,
+        repository_artifact, validation_result, or reviewer_judgment marker.
+      preferred: Use Hevner et al. anchors for process/build transparency, vom Brocke et al. anchors for journaling design-process
+        transparency, and Baskerville et al. anchors for iteration indicators and bounded creativity.
+      do_not_do: Do not treat polished retrospective narratives, commit counts, file existence, or implementation screenshots
+        as sufficient rationale evidence without explicit decision, alternative, constraint, and conformance interpretation.
+    unsupported_claim_policy:
+      rule: Claims about why a design was chosen, what alternatives were rejected, what was learned from iteration, whether
+        the build conforms to specification, or whether another party could reproduce the build must be marked unsupported
+        when they lack evidence or source anchors.
+      effect: Unsupported rationale or build claims trigger human_review and may activate non_compensatory_floor_rules, especially
+        when the artifact supports evaluation, contribution, reuse, safety, compliance, or reproducibility claims.
+    source_supported_claims:
+    - claim_id: src_claim_six_transparency_forms
+      claim: The DSR transparency framework distinguishes process, problem-space, solution-space, build, evaluation, and contribution
+        transparency.
+      source_family: hevner_et_al_2024_transparency_in_dsr_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A01
+      - hevner_et_al_2024:A05
+      obligation_status: recommended
+      use_in_rubric: justifies build_trace as a distinct transparency target while preserving links to process, solution,
+        evaluation, and contribution traces
+    - claim_id: src_claim_process_transparency_includes_actions_reasons_outcomes_context
+      claim: Process transparency includes actions used to generate design artifacts and knowledge, including activities,
+        reasons, outcomes, and context.
+      source_family: hevner_et_al_2024_transparency_in_dsr_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A06
+      obligation_status: recommended
+      use_in_rubric: supports design_decision_identification, rationale_quality, and iteration_and_learning_trace dimensions
+    - claim_id: src_claim_build_transparency_includes_search_reasoning_collaboration
+      claim: Build transparency should make design search, insights, judgments, team composition, collaborative interactions,
+        and construction choices visible at an appropriate level of detail.
+      source_family: hevner_et_al_2024_transparency_in_dsr_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A09
+      obligation_status: recommended
+      use_in_rubric: justifies design rationale, alternative consideration, iteration learning, and transparency balance requirements
+    - claim_id: src_claim_prescriptive_checklists_are_premature
+      claim: Detailed prescriptive transparency checklists should not be converted into rigid universal validation failures
+        without further support.
+      source_family: hevner_et_al_2024_transparency_in_dsr_extraction
+      source_anchor_ids:
+      - hevner_et_al_2024:A13
+      obligation_status: recommended
+      use_in_rubric: supports using JSON Schema and SHACL warnings for adequacy-sensitive checks while leaving substantive
+        judgments to human review
+    - claim_id: src_claim_journaling_making_design_knowledge
+      claim: Journaling the DSR process supports transparency about the making of design knowledge and can capture activities,
+        events, decisions, reflections, and rationale across time.
+      source_family: vom_brocke_gau_maedche_2021_journaling_dsr_process_extraction
+      source_anchor_ids:
+      - vom_brocke_gau_maedche_2021:A03
+      - vom_brocke_gau_maedche_2021:A06
+      obligation_status: recommended
+      use_in_rubric: supports iteration logs, decision records, time-stamped build notes, and reflective rationale fields
+    - claim_id: src_claim_bounded_creativity_iteration_indicators
+      claim: Bounded creativity and bounded rationality can indicate when DSR should iterate backward to earlier problem,
+        theory, design, making, or evaluation stages.
+      source_family: baskerville_kaul_pries_heje_storey_2019_bounded_creativity_iteration_indicators_extraction
+      source_anchor_ids:
+      - baskerville_et_al_2019:A04
+      - baskerville_et_al_2019:A09
+      - baskerville_et_al_2019:A13
+      obligation_status: recommended
+      use_in_rubric: justifies scoring iteration_and_learning_trace as more than chronological logging; reviewers should look
+        for triggers, learning, and design-response logic
+    - claim_id: src_claim_build_trace_is_controlled_vocabulary_term
+      claim: Build trace is a controlled transparency-documentation term covering construction activities, design decisions,
+        versions, implementation choices, and capacity conformance evidence.
+      source_family: dsr_skos_controlled_vocabulary
+      source_anchor_ids:
+      - skos:build_trace
+      - skos:build_transparency_trace
+      obligation_status: recommended
+      use_in_rubric: supports construct definitions, schema fields, and repository integration notes
+  construct_definitions:
+  - term_id: design_rationale
+    preferred_label: Design Rationale
+    definition: The documented reasoning that explains why particular artifact design decisions were made, including links
+      to problem factors, requirements, input knowledge, constraints, expected mechanisms, tradeoffs, and rejected alternatives.
+    source_support:
+    - hevner_et_al_2024:A06
+    - hevner_et_al_2024:A09
+    - concept_inventory.design_rationale
+    use_in_this_rubric: Core construct assessed by rationale_quality and alternative_consideration.
+  - term_id: build_trace
+    preferred_label: Build Trace
+    definition: A documentation trace of artifact construction activities, design decisions, versions, code or materials,
+      implementation choices, dependency conditions, and conformance evidence.
+    source_support:
+    - skos:build_trace
+    - theory_synthesis:12.1.dsr_transparency_framework
+    - operational_synthesis:4.artifact_operationalization
+    use_in_this_rubric: Primary evidence container for build_evidence_and_conformance and versioning_and_reproducibility.
+  - term_id: build_transparency_trace
+    preferred_label: Build Transparency Trace
+    definition: Documentation of creative reasoning, collaboration, artifact construction choices, design search, implementation
+      decisions, and judgments made during build.
+    source_support:
+    - hevner_et_al_2024:A09
+    - skos:build_transparency_trace
+    use_in_this_rubric: Explains why build evidence should be interpretive and decision-oriented, not merely a raw activity
+      log.
+  - term_id: design_decision
+    preferred_label: Design Decision
+    definition: A material choice about artifact form, function, boundary, component, method, architecture, workflow, interface,
+      rule, representation, technology, data structure, process, or implementation strategy.
+    source_support:
+    - hevner_et_al_2024:A06
+    - requirements_traceability_rubric:requirement_to_design_decision_trace
+    use_in_this_rubric: Unit assessed under design_decision_identification and linked to requirements, alternatives, and evidence.
+  - term_id: iteration_log
+    preferred_label: Iteration Log
+    definition: A time-ordered or version-ordered record of build cycles, evaluation inputs, failures, learning, design changes,
+      and rationale for moving forward or returning to earlier stages.
+    source_support:
+    - baskerville_et_al_2019:A09
+    - baskerville_et_al_2019:A13
+    - vom_brocke_gau_maedche_2021:A06
+    use_in_this_rubric: Evidence container for iteration_and_learning_trace.
+  - term_id: build_evidence
+    preferred_label: Build Evidence
+    definition: Evidence that the artifact or prototype was constructed, configured, authored, tested, inspected, reviewed,
+      or otherwise checked against its specification or intended capacity.
+    source_support:
+    - hevner_et_al_2024:A09
+    - artifact_specification_quality_rubric:capacity_specification
+    use_in_this_rubric: Evidence needed for build_evidence_and_conformance.
+  - term_id: transparency_without_overload
+    preferred_label: Transparency Without Overload
+    definition: A proportional documentation condition in which reviewers and reusers can understand material design and build
+      choices without being buried in raw, irrelevant, duplicative, insecure, or unusable detail.
+    source_support:
+    - hevner_et_al_2024:A11
+    - hevner_et_al_2024:A13
+    - skos:transparency_overload
+    use_in_this_rubric: Controls the balance between opacity and excessive documentation burden.
+  required_inputs:
+  - input_field: design_decisions
+    description: List of material artifact design decisions with stable identifiers, decision statements, affected artifact
+      components or capacities, and status.
+    obligation_status: required
+    accepted_format: array_of_objects_with_decision_id_decision_statement_status_component_or_capacity_ids
+    minimum_evidence: At least one major design decision must be explicitly identified for any artifact build under review.
+  - input_field: alternatives_considered
+    description: Rejected, deferred, superseded, or competing alternatives, including reason rejected and evidence basis where
+      available.
+    obligation_status: required
+    accepted_format: array_of_objects_with_alternative_id_description_decision_id_reason_rejected_or_deferred
+    minimum_evidence: At least one plausible alternative or a justified explanation that no realistic alternative was available.
+  - input_field: rationale
+    description: Reasoning that connects decisions to problem factors, requirements, input knowledge, constraints, expected
+      mechanisms, and tradeoffs.
+    obligation_status: required
+    accepted_format: structured_text_or_array_of_rationale_records_with_source_anchors_and_trace_links
+    minimum_evidence: Each major design decision should have a rationale or an explicit gap marker.
+  - input_field: iteration_log
+    description: Versioned record of build-evaluate-learn cycles, triggers, changes, findings, failures, and lessons.
+    obligation_status: required
+    accepted_format: array_of_iteration_records_or_journal_entries_with_dates_or_versions
+    minimum_evidence: At least one iteration record, or a justified one-pass build explanation for low-risk or conceptual
+      artifacts.
+  - input_field: build_evidence
+    description: Artifacts, tests, inspections, screenshots, prototypes, examples, validation results, build outputs, review
+      notes, or conformance matrices showing that the artifact was produced and checked.
+    obligation_status: required
+    accepted_format: array_of_evidence_records_with_evidence_id_evidence_mode_artifact_link_source_anchor_or_repository_path
+    minimum_evidence: Evidence that the current artifact version exists and can be compared to at least minimal specification
+      or capacity claims.
+  - input_field: version_history
+    description: Version identifiers, dates, change summaries, dependency changes, migration notes, release tags, or repository
+      commit references.
+    obligation_status: recommended
+    accepted_format: array_of_version_records_or_repository_links
+    minimum_evidence: Current version identifier and change summary; stronger records include prior versions and reproducible
+      build steps.
+  - input_field: design_constraints
+    description: Constraints shaping the build, including resource, governance, regulatory, technical, privacy, security,
+      stakeholder, maintenance, and time constraints.
+    obligation_status: required
+    accepted_format: array_of_constraint_records_linked_to_design_decisions_or_rationale
+    minimum_evidence: Material constraints should be identified and linked to affected decisions.
+  required_outputs:
+  - output_field: build_trace_rating
+    description: Weighted and floor-rule-adjusted rating of design rationale and build trace quality.
+    obligation_status: required
+    accepted_values:
+    - trace_ready
+    - trace_ready_with_gaps
+    - requires_build_trace_revision
+    - build_trace_missing
+  - output_field: rationale_gaps
+    description: Design decisions whose rationale is absent, weak, unsupported, circular, or disconnected from problem, requirements,
+      knowledge, constraints, or mechanisms.
+    obligation_status: required
+  - output_field: alternative_gaps
+    description: Missing, implausible, or poorly justified alternative search and rejection records.
+    obligation_status: required
+  - output_field: iteration_trace_gaps
+    description: Missing or weak evidence of iteration triggers, learning, versioned changes, and design responses.
+    obligation_status: required
+  - output_field: documentation_actions
+    description: Concrete actions needed to improve design rationale, build evidence, versioning, conformance, reproducibility,
+      or transparency balance.
+    obligation_status: required
+  - output_field: human_review_flags
+    description: Flags for ambiguity, source gaps, ethical or confidentiality risk, evidence sufficiency, overclaiming, ex
+      post rationalization, or transparency overload.
+    obligation_status: required
+  assessment_dimensions:
+  - dimension_id: design_decision_identification
+    label: Design Decision Identification
+    definition: Clarity, completeness, and stable identification of major artifact design decisions, including their scope,
+      status, and affected artifact elements.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Decision list with stable decision_id values, decision statements, affected artifact elements, and decision
+      status.
+    score_0_descriptor: No material design decisions are identified, or the record treats the artifact as an undifferentiated
+      black box.
+    score_1_descriptor: Some decisions are mentioned narratively, but they lack stable identifiers, status, affected components,
+      or distinction from routine implementation tasks.
+    score_2_descriptor: Major decisions are partially identified, but coverage is uneven; some important architectural, methodological,
+      representational, workflow, or implementation choices are missing or unnamed.
+    score_3_descriptor: Major design decisions are clearly listed with identifiers, status, affected components or capacities,
+      and enough context to support review.
+    score_4_descriptor: Design decisions are comprehensively identified, stable, categorized, version-aware, linked to artifact
+      components/capacities, and separated from minor implementation details.
+    minimum_evidence: Decision list with stable decision_id values, decision statements, affected artifact elements, and decision
+      status.
+    high_quality_evidence: Decision records include type, date/version, owner or responsible role, affected requirement/capacity,
+      affected artifact component, dependencies, and trace links.
+    weak_evidence_signals:
+    - only implementation tasks listed
+    - decisions hidden in prose
+    - duplicate or unstable identifiers
+    - major choices absent
+    - no distinction between design decisions and coding/configuration details
+    calibration_anchor: 'A strong record lets a reviewer point to each major artifact choice and ask: what was decided, where
+      does it appear, and what claim or capacity does it affect?'
+    common_failure_modes:
+    - artifact_black_box
+    - decision_fragmentation
+    - identifier_instability
+    - implementation_detail_swamp
+    - missing_material_choice
+    reviewer_notes: Score for material decisions only. Trivial formatting, file naming, clerical cleanup, and routine repository
+      operations do not need full design-decision records unless they affect claims, reproducibility, or interpretation.
+  - dimension_id: rationale_quality
+    label: Rationale Quality
+    definition: Strength of justification for design decisions using problem factors, requirements, input knowledge, constraints,
+      expected mechanisms, tradeoffs, and reviewer-visible reasoning.
+    weight: 0.18
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: 'For each major design decision: rationale statement, linked problem/requirement/input-knowledge/constraint
+      references, and source or reviewer judgment marker.'
+    score_0_descriptor: Rationale is absent, purely asserted, or entirely retrospective; decisions are not justified.
+    score_1_descriptor: Rationale is thin, generic, or slogan-like; it names benefits but does not connect decisions to evidence,
+      requirements, constraints, or mechanisms.
+    score_2_descriptor: Rationale connects some decisions to problem, requirements, input knowledge, or constraints, but explanations
+      are uneven, under-evidenced, or missing expected mechanism/tradeoff logic.
+    score_3_descriptor: Rationale explains major decisions using relevant problem factors, requirements, input knowledge,
+      constraints, and expected mechanisms; tradeoffs are usually explicit.
+    score_4_descriptor: Rationale is robust, traceable, source-aware, mechanism-sensitive, and candid about tradeoffs, uncertainty,
+      limitations, stakeholder implications, and decision confidence.
+    minimum_evidence: 'For each major design decision: rationale statement, linked problem/requirement/input-knowledge/constraint
+      references, and source or reviewer judgment marker.'
+    high_quality_evidence: Rationale records include source anchors, alternative comparison, constraint handling, expected
+      mechanism, boundary conditions, confidence level, and evidence-to-claim limits.
+    weak_evidence_signals:
+    - because it seemed best
+    - best practice without source or context
+    - rationale copied from vendor language
+    - no mechanism explanation
+    - no tradeoff discussion
+    - rationale contradicts requirements
+    calibration_anchor: A score of 3 requires more than a justification label; it requires a visible reasoning chain from
+      problem and knowledge to decision. A score of 4 adds tradeoffs, boundary conditions, and confidence limits.
+    common_failure_modes:
+    - decision_rationale_absence
+    - theory_name_dropping
+    - circular_rationale
+    - constraint_blindness
+    - mechanism_opacity
+    - unsupported_overclaim
+    reviewer_notes: Do not punish the record for using reviewer_judgment or practitioner judgment when scholarly evidence
+      is not available, but the judgment must be labeled and proportionate to the claim.
+  - dimension_id: alternative_consideration
+    label: Alternative Consideration
+    definition: Documentation of plausible rejected, deferred, superseded, or competing design alternatives and the reasons
+      they were not selected.
+    weight: 0.14
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: At least one plausible alternative or a justified no-alternative statement for each major decision or
+      decision cluster.
+    score_0_descriptor: No alternatives are documented, and the selected design is presented as inevitable or self-evident.
+    score_1_descriptor: Alternatives are named only in passing, with no serious comparison, rejection rationale, or relation
+      to problem and constraints.
+    score_2_descriptor: Some alternatives are described and rejected, but coverage is narrow, comparison criteria are unclear,
+      or reasons are weakly linked to requirements, input knowledge, risk, or constraints.
+    score_3_descriptor: Plausible alternatives are documented with decision-linked rejection or deferral reasons, including
+      tradeoffs and constraint considerations.
+    score_4_descriptor: Alternative search is systematic and proportionate, including design-space breadth, rejected/deferred
+      options, evidence basis, stakeholder implications, risk/payoff comparison, and learning from alternatives.
+    minimum_evidence: At least one plausible alternative or a justified no-alternative statement for each major decision or
+      decision cluster.
+    high_quality_evidence: Alternative matrix with alternative_id, linked decision_id, evaluation criteria, benefits, risks,
+      constraints, evidence, reason rejected/deferred, and reuse notes.
+    weak_evidence_signals:
+    - single_solution_fixation
+    - straw alternatives
+    - alternatives after the fact
+    - no rejection criteria
+    - no relation to requirements
+    - all alternatives dismissed without evidence
+    calibration_anchor: A borderline record may list alternatives but not show why they mattered. A strong record shows how
+      alternatives shaped the selected design or future iterations.
+    common_failure_modes:
+    - alternative_blindness
+    - strawman_alternative
+    - selection_bias
+    - premature_convergence
+    - ex_post_rationalization
+    reviewer_notes: The expected breadth of alternatives is proportional to novelty, risk, and claim scope. A simple artifact
+      may need only a small comparison; a high-stakes artifact needs broader solution search.
+  - dimension_id: iteration_and_learning_trace
+    label: Iteration and Learning Trace
+    definition: Trace of build-evaluate-learn cycles, triggers, failures, feedback, design changes, and learning that shaped
+      the artifact over time.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Iteration records with date or version, trigger, change summary, evidence or feedback source, affected
+      decision/requirement, and learning statement.
+    score_0_descriptor: No iteration, learning, change, or build-cycle trace is provided; the artifact appears fully formed
+      without history.
+    score_1_descriptor: A chronological activity list exists, but it does not explain what was learned, what changed, why
+      changes occurred, or how feedback/evidence affected design.
+    score_2_descriptor: Some iterations and changes are documented, but triggers, evidence, learning, or links to design decisions
+      are incomplete.
+    score_3_descriptor: Major iterations are documented with triggers, evidence or feedback, design changes, learning, and
+      links to affected decisions or requirements.
+    score_4_descriptor: 'Iteration trace is rigorous, version-aware, and analytically useful: it shows build-evaluate-learn
+      cycles, failures, pivots, decision revisions, evidence uptake, unresolved issues, and boundary-condition learning.'
+    minimum_evidence: Iteration records with date or version, trigger, change summary, evidence or feedback source, affected
+      decision/requirement, and learning statement.
+    high_quality_evidence: Journaled or versioned build history with evaluation inputs, stakeholder feedback, failure analysis,
+      decision revisions, design-space narrowing or reopening, and carry-forward implications.
+    weak_evidence_signals:
+    - activity log without learning
+    - only final version described
+    - failures omitted
+    - changes not linked to decisions
+    - feedback not connected to design response
+    - linearized retrospective story
+    calibration_anchor: 'A strong iteration trace answers: what happened, what did we learn, what changed, why did it change,
+      and what remains unresolved?'
+    common_failure_modes:
+    - iteration_theater
+    - failure_erasure
+    - feedback_nonuptake
+    - change_without_rationale
+    - retrospective_smoothing
+    reviewer_notes: A one-pass build may score above 0 only if the record explains why iteration was not material or feasible
+      and supplies sufficient conformance and rationale evidence.
+  - dimension_id: build_evidence_and_conformance
+    label: Build Evidence and Conformance
+    definition: Evidence that the artifact, prototype, method, model, template, system, or intervention was built or authored
+      and conforms to its specification, requirements, or claimed capacities.
+    weight: 0.16
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Repository path, artifact output, prototype, screenshot, test result, example, conformance note, validation
+      result, or inspection record linked to artifact specification.
+    score_0_descriptor: No build evidence is provided, or the artifact cannot be inspected, demonstrated, or compared to any
+      specification.
+    score_1_descriptor: Build evidence is minimal or anecdotal; artifacts exist but conformance to specification, requirements,
+      or capacity claims is not shown.
+    score_2_descriptor: Some conformance evidence exists, but it covers only selected components, versions, examples, tests,
+      or requirements; gaps remain material to claims.
+    score_3_descriptor: Build evidence adequately shows that the current artifact version exists and conforms to major specifications,
+      requirements, or capacity claims.
+    score_4_descriptor: Build evidence is comprehensive and claim-aligned, including inspection results, tests, examples,
+      conformance matrix, validation output, review notes, known deviations, and trace to design decisions and artifact specification.
+    minimum_evidence: Repository path, artifact output, prototype, screenshot, test result, example, conformance note, validation
+      result, or inspection record linked to artifact specification.
+    high_quality_evidence: Conformance matrix linking artifact components/capacities to requirements, decisions, tests/inspections,
+      evidence files, deviations, and reviewer judgments.
+    weak_evidence_signals:
+    - screenshots without interpretation
+    - prototype exists but no specification comparison
+    - tests unrelated to claims
+    - conformance asserted but not shown
+    - version mismatch between evidence and artifact
+    calibration_anchor: Score conformance against claims actually made. Do not require production-grade testing for an early
+      prototype unless the record makes production-readiness claims.
+    common_failure_modes:
+    - build_evidence_absence
+    - specification_conformance_gap
+    - evidence_claim_mismatch
+    - prototype_overclaim
+    - unverified_capacity
+    reviewer_notes: This dimension is not an evaluation of utility or impact. It checks whether the built artifact can be
+      compared to what the record says was supposed to be built.
+  - dimension_id: versioning_and_reproducibility
+    label: Versioning and Reproducibility
+    definition: Quality of version history, build steps, dependency documentation, materials, configuration, and conditions
+      needed to reproduce, reuse, inspect, or maintain the artifact build.
+    weight: 0.12
+    required: false
+    score_direction: higher_is_better
+    evidence_needed: Current version identifier, change summary, repository or file path, and minimum dependency or material
+      notes.
+    score_0_descriptor: No current version, change history, dependency information, or reproduction conditions are documented.
+    score_1_descriptor: Current version is named, but build steps, dependency versions, data/materials, configuration, or
+      change history are insufficient for reuse or inspection.
+    score_2_descriptor: Versioning and reproduction notes are partially present, but some dependencies, environment details,
+      release boundaries, or reconstruction steps are missing.
+    score_3_descriptor: Version history and build/reproduction steps are adequate for an informed reviewer or maintainer to
+      inspect or reconstruct the current artifact under stated conditions.
+    score_4_descriptor: 'Versioning and reproducibility support are strong: release tags, changelog, dependencies, environment,
+      build commands or authoring procedures, data/material provenance, known limitations, and maintenance notes are explicit.'
+    minimum_evidence: Current version identifier, change summary, repository or file path, and minimum dependency or material
+      notes.
+    high_quality_evidence: Reproducible build or authoring instructions, release tags, changelog, environment/dependency manifest,
+      test data/materials, configuration settings, provenance, and known non-reproducible elements.
+    weak_evidence_signals:
+    - unlabeled current version
+    - broken links
+    - missing dependencies
+    - no build steps
+    - undocumented data/material provenance
+    - manual steps hidden from record
+    calibration_anchor: A conceptual artifact can score high with reproducible authoring and review materials; software or
+      data artifacts normally require stronger dependency and environment documentation.
+    common_failure_modes:
+    - unreplicable_construction_method
+    - dependency_opacity
+    - version_drift
+    - maintenance_gap
+    - reproducibility_overclaim
+    reviewer_notes: This dimension is marked recommended because not every DSR artifact requires full computational reproducibility;
+      however, weak versioning can cap readiness when reuse, replication, maintenance, or code execution is claimed.
+  - dimension_id: transparency_without_overload
+    label: Transparency Without Overload
+    definition: Appropriateness and proportionality of build-trace detail for review, reuse, accountability, and learning
+      without excessive noise, unsafe disclosure, duplication, or unusable documentation burden.
+    weight: 0.1
+    required: true
+    score_direction: higher_is_better
+    evidence_needed: Structured summary of design decisions, rationale, iterations, evidence, versions, and known gaps with
+      links to detailed records.
+    score_0_descriptor: The record is either opaque or unusably overloaded; reviewers cannot identify material decisions,
+      rationale, evidence, and gaps.
+    score_1_descriptor: Some transparency exists, but important elements are buried, duplicated, unstructured, insecurely
+      exposed, or too thin to support review.
+    score_2_descriptor: Documentation is partially usable, but it either omits some material reasoning/evidence or includes
+      enough irrelevant detail to impair review and maintenance.
+    score_3_descriptor: Documentation is appropriately scoped, structured, and proportionate; material decisions, rationale,
+      alternatives, iterations, evidence, versions, and gaps are findable.
+    score_4_descriptor: 'Transparency is exemplary: layered, audience-aware, source-anchored, privacy/security/IP conscious,
+      reusable, concise at summary level, and rich enough at drill-down level for audit, teaching, maintenance, and replication
+      where appropriate.'
+    minimum_evidence: Structured summary of design decisions, rationale, iterations, evidence, versions, and known gaps with
+      links to detailed records.
+    high_quality_evidence: Layered transparency package separating public summary, technical build details, sensitive/redacted
+      materials, reviewer evidence, and machine-readable trace fields.
+    weak_evidence_signals:
+    - raw log dump without synthesis
+    - excessive screenshots
+    - confidential data exposed
+    - important decisions buried in commit history
+    - summary says nothing
+    - documentation duplicated across unsynchronized files
+    calibration_anchor: A high score requires both enough information and usable organization. More documentation is not automatically
+      better.
+    common_failure_modes:
+    - transparency_overload
+    - transparency_underload
+    - security_or_privacy_overexposure
+    - documentation_sprawl
+    - traceability_noise
+    reviewer_notes: Give credit for responsible redaction when sensitive details are abstracted but reviewable evidence and
+      decision logic remain available to authorized reviewers.
+  scoring_model:
+    scale:
+      minimum_score: 0
+      maximum_score: 4
+      integer_scores_only: true
+      score_0: absent_or_blocked
+      score_1: weak_or_asserted
+      score_2: conditional_or_partially_supported
+      score_3: strong_or_adequately_supported
+      score_4: very_strong_or_exemplary
+    score_direction: higher_is_better
+    weight_sum_rule: assessment_dimension_weights_must_sum_to_1_0
+    weight_sum: 1.0
+    missing_evidence_rule: If evidence for a dimension is absent, score that dimension 0 unless the rubric explicitly allows
+      not_applicable with written justification.
+    not_applicable_policy: Use not_applicable only for versioning_and_reproducibility in narrowly conceptual artifacts or
+      where reproducible build conditions are genuinely irrelevant; redistribute its weight proportionally across required
+      dimensions only with reviewer justification.
+    reverse_scoring_rule: No dimension is reverse-scored in this rubric; anti-pattern severity affects floor rules and human-review
+      flags.
+    weighted_score_formula: sum(dimension_score * dimension_weight) after any approved not_applicable weight redistribution
+    rounding_rule: Round weighted_score to two decimals for reporting; floor rules override rounded score for final decision.
+    non_compensatory_floor_rules:
+    - rule_id: floor_missing_design_decisions
+      condition: design_decision_identification == 0
+      maximum_weighted_score: 1.5
+      maximum_decision: build_trace_missing
+      rationale: A build trace cannot be reviewable if no material design decisions are identified.
+    - rule_id: floor_missing_rationale
+      condition: rationale_quality == 0
+      maximum_weighted_score: 2.0
+      maximum_decision: requires_build_trace_revision
+      rationale: Strong scores elsewhere cannot compensate for absent design rationale.
+    - rule_id: floor_missing_build_evidence
+      condition: build_evidence_and_conformance == 0
+      maximum_weighted_score: 2.0
+      maximum_decision: requires_build_trace_revision
+      rationale: A record cannot be trace_ready when the artifact or build cannot be evidenced against its specification.
+    - rule_id: floor_multiple_required_zeroes
+      condition: two_or_more_required_dimensions_score_0
+      maximum_weighted_score: 1.75
+      maximum_decision: build_trace_missing
+      rationale: Multiple absent required dimensions indicate non-reviewability rather than isolated gaps.
+    - rule_id: floor_ex_post_rationalization
+      condition: evidence_shows_design_rationale_is_primarily_retrofitted_after_completion_without_disclosure
+      maximum_weighted_score: 2.0
+      maximum_decision: requires_build_trace_revision
+      rationale: Retrofitted rationale may be useful as reconstruction only if disclosed; undisclosed ex post rationalization
+        undermines transparency.
+    - rule_id: floor_unresolved_sensitive_disclosure_risk
+      condition: build_trace_discloses_sensitive_security_privacy_ip_or_ethically_risky_details_without_controls
+      maximum_weighted_score: 2.5
+      maximum_decision: trace_ready_with_gaps
+      rationale: Transparency should not create unmanaged harm, confidentiality, security, or governance risk.
+    - rule_id: floor_unreplicable_reuse_claim
+      condition: artifact_claims_reuse_replication_or_maintenance_but_versioning_and_reproducibility <= 1
+      maximum_weighted_score: 2.75
+      maximum_decision: trace_ready_with_gaps
+      rationale: Reuse and replication claims require minimally credible versioning and reproducibility evidence.
+    human_judgment_required_for:
+    - whether rationale is substantively persuasive
+    - whether alternative search was proportionate
+    - whether iteration learning is credible rather than cosmetic
+    - whether build evidence fits artifact type and claim scope
+    - whether transparency is sufficient without overload
+    - whether redaction or non-disclosure is responsible
+  level_descriptors:
+    score_0: Absent, blocked, or not reviewable; essential design-rationale or build-trace evidence is missing.
+    score_1: Weak, asserted, or largely narrative; evidence exists but is too thin, unstable, or disconnected for confident
+      review.
+    score_2: Conditional or partially supported; some useful evidence exists but important traceability, coverage, rationale,
+      or conformance gaps remain.
+    score_3: Strong or adequately supported; major decisions, rationale, alternatives, iterations, conformance evidence, and
+      transparency structure are reviewable.
+    score_4: Very strong or exemplary; trace is robust, proportionate, source-aware, versioned, reusable, candid about uncertainty,
+      and aligned to artifact specification and downstream claims.
+    anchor_examples:
+      score_4_anchor: A versioned artifact package with decision records, rationale links, alternatives matrix, iteration
+        journal, conformance matrix, dependency manifest, validation outputs, and layered transparency summary.
+      score_3_anchor: A clear design log documenting major decisions, rationale, alternatives, iterations, and evidence against
+        specification, with minor reproducibility or formatting gaps.
+      score_2_anchor: A useful but incomplete build narrative with some decisions, rationale, and evidence, but missing alternative
+        analysis, version detail, or learning trace.
+      score_1_anchor: A mostly retrospective description of what was built with little explanation of why choices were made
+        or how the artifact changed.
+      score_0_anchor: No build trace or design rationale beyond the final artifact output.
+    borderline_cases:
+    - A low-risk conceptual taxonomy with strong rationale but no iteration log may score 3 if one-pass construction is justified
+      and versioning is sufficient.
+    - A software prototype with good commit history but no design rationale should not score above 2 overall unless the rationale
+      is reconstructed and disclosed as reconstruction.
+    - A confidential artifact may score high if sensitive details are responsibly abstracted and authorized reviewers can
+      inspect sufficient evidence.
+  decision_thresholds:
+    decision_values:
+    - trace_ready
+    - trace_ready_with_gaps
+    - requires_build_trace_revision
+    - build_trace_missing
+    trace_ready:
+      minimum_weighted_score: 3.25
+      required_dimension_minimums:
+        design_decision_identification: 3
+        rationale_quality: 3
+        alternative_consideration: 2
+        iteration_and_learning_trace: 3
+        build_evidence_and_conformance: 3
+        transparency_without_overload: 3
+      allowed_gaps: Only minor non-blocking documentation or reproducibility gaps.
+      meaning: Design rationale and build trace are sufficiently reviewable for downstream demonstration, evaluation planning,
+        repository documentation, or scholarly communication.
+    trace_ready_with_gaps:
+      minimum_weighted_score: 2.5
+      maximum_weighted_score: 3.24
+      required_dimension_minimums:
+        design_decision_identification: 2
+        rationale_quality: 2
+        build_evidence_and_conformance: 2
+      meaning: The record is usable with documented gaps, but selected rationale, alternative, iteration, conformance, versioning,
+        or transparency issues should be corrected before stronger claims.
+    requires_build_trace_revision:
+      minimum_weighted_score: 1.5
+      maximum_weighted_score: 2.49
+      meaning: The record contains material rationale or build-trace weaknesses that should be revised before relying on the
+        artifact for evaluation, reuse, or contribution claims.
+    build_trace_missing:
+      maximum_weighted_score: 1.49
+      meaning: The build trace is missing or too weak for review; artifact design and build documentation must be reconstructed
+        or newly documented.
+    dimension_floor_rules:
+    - trace_ready requires no required dimension below 2 and no floor-rule override
+    - trace_ready requires rationale_quality >= 3 and build_evidence_and_conformance >= 3
+    - if alternative_consideration <= 1, final decision cannot exceed trace_ready_with_gaps unless a no-alternative justification
+      is accepted by human review
+    - if transparency_without_overload <= 1, final decision cannot exceed trace_ready_with_gaps
+    - if artifact claims reuse, replication, code execution, or maintenance but versioning_and_reproducibility <= 1, final
+      decision cannot exceed trace_ready_with_gaps
+    human_review_triggers:
+    - ambiguity about whether a record describes design rationale or merely implementation chronology
+    - source gaps for major rationale claims
+    - ethical, privacy, security, IP, or confidentiality risk in build details
+    - evidence sufficiency concerns for conformance claims
+    - signs of overclaiming beyond build evidence
+    - rationale reconstructed after the fact without disclosure
+    - large discrepancy between repository artifacts and written build narrative
+    - transparency overload that impairs review or exposes sensitive information
+  calibration_guidance:
+    reviewer_preparation:
+    - Read the artifact specification before scoring this rubric.
+    - Identify the artifact type and current version under review.
+    - List the major design decisions expected for that artifact type before inspecting the submitted trace.
+    - Clarify whether the record is prospective, contemporaneous, reconstructed, or mixed.
+    - Check whether downstream evaluation, reuse, replication, maintenance, or contribution claims depend on the build trace.
+    anchor_cases:
+    - case_id: strong_anchor_case
+      description: A DSR repository artifact includes a design-decision register, requirements-to-decision trace, alternatives
+        matrix, iteration journal, conformance matrix, versioned release notes, dependency manifest, and layered transparency
+        summary.
+      expected_scores:
+        design_decision_identification: 4
+        rationale_quality: 4
+        alternative_consideration: 4
+        iteration_and_learning_trace: 4
+        build_evidence_and_conformance: 4
+        versioning_and_reproducibility: 4
+        transparency_without_overload: 4
+      expected_decision: trace_ready
+    - case_id: borderline_anchor_case
+      description: A prototype has clear major decisions and basic test evidence, but alternatives are thin, iteration learning
+        is mostly chronological, and reproducibility notes omit several dependency versions.
+      expected_scores:
+        design_decision_identification: 3
+        rationale_quality: 2
+        alternative_consideration: 2
+        iteration_and_learning_trace: 2
+        build_evidence_and_conformance: 3
+        versioning_and_reproducibility: 2
+        transparency_without_overload: 3
+      expected_decision: trace_ready_with_gaps
+    - case_id: weak_anchor_case
+      description: A final artifact is present, but the record provides no decision identifiers, no alternatives, no iteration
+        history, and only a claim that the design follows best practice.
+      expected_scores:
+        design_decision_identification: 1
+        rationale_quality: 1
+        alternative_consideration: 0
+        iteration_and_learning_trace: 0
+        build_evidence_and_conformance: 1
+        versioning_and_reproducibility: 1
+        transparency_without_overload: 1
+      expected_decision: build_trace_missing
+    calibration_rounds:
+    - 'Round 1: reviewers independently score one strong, one borderline, and one weak build-trace record.'
+    - 'Round 2: compare dimension-level disagreements and revise shared interpretation of evidence sufficiency.'
+    - 'Round 3: rescore after clarifying artifact type, claim scope, sensitivity constraints, and intended reuse.'
+    inter_rater_reconciliation:
+    - Resolve disagreements first at the level of evidence interpretation, then at level descriptor selection, then at floor-rule
+      application.
+    - Document why a score is based on source-supported evidence, repository artifact evidence, validation result, stakeholder
+      claim, expert judgment, or reviewer judgment.
+    - When reviewers disagree by two or more points on any required dimension, require a reconciliation note.
+    drift_checks:
+    - Every five scored records, compare score distributions for rationale_quality and build_evidence_and_conformance to ensure
+      reviewers are not accepting polished narratives without evidence.
+    - Check that transparency_without_overload is not being scored as a simple proxy for file count or documentation length.
+    - Revisit floor-rule decisions when downstream claims change from prototype demonstration to reuse, replication, production,
+      or contribution claims.
+  evidence_requirements:
+    minimum_evidence_by_dimension:
+      design_decision_identification:
+      - decision_register
+      - decision_ids
+      - decision_scope_or_component_links
+      rationale_quality:
+      - rationale_records
+      - problem_or_requirement_links
+      - input_knowledge_or_constraint_links
+      - expected_mechanism_or_tradeoff_statement
+      alternative_consideration:
+      - alternative_records
+      - rejection_or_deferral_reasons
+      - selection_criteria_or_no_alternative_justification
+      iteration_and_learning_trace:
+      - iteration_log
+      - trigger_or_feedback_source
+      - design_change_record
+      - learning_statement
+      build_evidence_and_conformance:
+      - artifact_or_prototype_reference
+      - specification_or_requirement_reference
+      - conformance_evidence_or_validation_result
+      versioning_and_reproducibility:
+      - current_version
+      - change_summary
+      - build_or_authoring_steps
+      - dependencies_or_materials_where_applicable
+      transparency_without_overload:
+      - structured_summary
+      - trace_links
+      - sensitivity_or_redaction_notes
+      - known_gap_register
+    acceptable_evidence_modes:
+    - source_anchor
+    - literature_synthesis
+    - repository_artifact
+    - artifact_inspection
+    - validation_result
+    - test_result
+    - code_or_configuration_review
+    - prototype_demonstration
+    - field_note
+    - case
+    - stakeholder_claim
+    - expert
+    - reviewer_judgment
+    - version_control_record
+    - journal_entry
+    source_anchor_requirements:
+      rationale_claims: Use source anchors, repository artifact references, or labeled reviewer_judgment for claims about
+        why decisions are justified.
+      alternative_claims: Use trace links showing which alternative was compared to which selected decision and why.
+      iteration_claims: Use dated or versioned records where possible; reconstructed iteration histories must be labeled as
+        reconstructed.
+      conformance_claims: Use artifact evidence and specification links; do not rely only on author assertion.
+    evidence_quality_notes:
+    - Repository artifacts and validation results are stronger when linked to the exact version assessed.
+    - Stakeholder or practitioner claims can support rationale but should be marked separately from source-supported scholarly
+      evidence.
+    - Screenshots, code, or examples should be interpreted in relation to requirements or artifact specification rather than
+      treated as self-explanatory proof.
+    - Omitted sensitive details should be replaced with appropriate abstractions, redaction notes, or authorized-reviewer
+      references when possible.
+  anti_patterns_and_warnings:
+  - anti_pattern_id: artifact_black_box
+    warning_condition: Artifact is presented as a finished object without decisions, rationale, construction trace, or conformance
+      evidence.
+    severity: blocking_issue
+    recommended_response: Create a decision register, artifact component map, build evidence list, and conformance trace before
+      downstream claims rely on the artifact.
+  - anti_pattern_id: decision_rationale_absence
+    warning_condition: Major decisions are listed but not justified through problem, requirements, input knowledge, constraints,
+      mechanisms, or alternatives.
+    severity: major_warning
+    recommended_response: Add rationale records and trace links for each major decision or mark rationale gaps explicitly.
+  - anti_pattern_id: alternative_blindness
+    warning_condition: The selected design is treated as the only possible solution without documenting rejected, deferred,
+      or competing alternatives.
+    severity: major_warning
+    recommended_response: Add a proportionate alternative matrix or a justified no-alternative statement.
+  - anti_pattern_id: ex_post_rationalization
+    warning_condition: Rationale appears reconstructed after the artifact was built but is written as if it guided the build
+      contemporaneously.
+    severity: major_warning
+    recommended_response: Disclose reconstructed rationale, distinguish contemporaneous notes from retrospective interpretation,
+      and identify evidence limits.
+  - anti_pattern_id: transparency_overload
+    warning_condition: Raw logs, screenshots, commits, transcripts, or design notes are dumped without structure, synthesis,
+      sensitivity controls, or relevance filtering.
+    severity: warning
+    recommended_response: 'Create layered documentation: summary trace, decision register, evidence index, detailed appendices,
+      and controlled-access sensitive materials.'
+  - anti_pattern_id: transparency_underload
+    warning_condition: Documentation is so sparse that reviewers cannot understand material design choices or build conformance.
+    severity: major_warning
+    recommended_response: Add minimum decision, rationale, iteration, evidence, and version records.
+  - anti_pattern_id: unreplicable_construction_method
+    warning_condition: The artifact claims reusability, replication, maintenance, or auditability, but build steps, dependencies,
+      materials, or versions are insufficient.
+    severity: major_warning
+    recommended_response: Add reproducible build or authoring instructions, dependency manifest, version history, and known
+      non-reproducible conditions.
+  - anti_pattern_id: evidence_claim_mismatch
+    warning_condition: Build evidence supports existence or appearance but is used to claim utility, effectiveness, validity,
+      or contribution without evaluation evidence.
+    severity: major_warning
+    recommended_response: Separate build conformance claims from demonstration, evaluation, utility, and contribution claims.
+  - anti_pattern_id: failure_erasure
+    warning_condition: Iteration record omits failures, dead ends, negative feedback, or reverted decisions that materially
+      shaped the artifact.
+    severity: warning
+    recommended_response: Add failure and learning notes, including unresolved issues and design changes made in response.
+  - anti_pattern_id: sensitive_detail_overexposure
+    warning_condition: Transparency materials expose private, proprietary, security-sensitive, ethically risky, or governance-restricted
+      details without controls.
+    severity: blocking_issue
+    recommended_response: Redact, abstract, restrict, or separately permission sensitive details while preserving reviewable
+      traceability for authorized reviewers.
+  traceability_requirements:
+  - trace_type: source_to_concept
+    description: Terms such as design_rationale, build_trace, build_transparency_trace, iteration_log, and artifact_black_box
+      should link to concept inventory, SKOS, source extraction, or rubric-defined local concepts.
+    minimum_expectation: Every controlled term used in scoring should have a stable term_id and source_support or reviewer_judgment
+      marker.
+  - trace_type: concept_to_schema_field
+    description: Each core construct should map to proposed schema fields under design_space.design_rationale_and_build_trace
+      or artifact_space.build_trace.
+    minimum_expectation: Schema implication records should list field paths and whether validation can be automatic or manual-review-only.
+  - trace_type: problem_to_requirement
+    description: Rationale should preserve links from relevant problem factors and stakeholder needs to requirements that
+      influenced design decisions.
+    minimum_expectation: Major decisions should not appear disconnected from the problem/context and requirements trace inherited
+      from adjacent rubrics.
+  - trace_type: requirement_to_design_decision
+    description: Each major requirement or capacity claim should link to one or more design decisions, or unresolved gap records
+      should be created.
+    minimum_expectation: No major design decision should be orphaned when it affects a requirement, capacity, use plan, make
+      plan, or evaluation criterion.
+  - trace_type: design_decision_to_alternative
+    description: Selected decisions should link to alternatives considered, rejected, deferred, or superseded when material.
+    minimum_expectation: At least one alternative record or justified no-alternative statement should exist for major decision
+      clusters.
+  - trace_type: design_decision_to_iteration
+    description: Iterations should show which design decisions, requirements, constraints, or artifact components changed
+      and why.
+    minimum_expectation: Major version changes should not appear without learning or rationale records.
+  - trace_type: design_decision_to_evaluation
+    description: Build trace should identify decisions that later require demonstration or evaluation criteria.
+    minimum_expectation: Where a design decision supports a claimed capacity or effect, the record should flag downstream
+      evaluation needs.
+  - trace_type: evaluation_to_design_knowledge
+    description: Learning from build or formative evaluation should be distinguishable from final design knowledge or contribution
+      claims.
+    minimum_expectation: Build learning should not be overstated as evaluated design knowledge unless supported by evaluation
+      evidence.
+  - trace_type: design_knowledge_to_contribution
+    description: Rationale and build trace should support later contribution claims by showing which design choices are reusable,
+      projectable, contextual, or implementation-specific.
+    minimum_expectation: Contribution claims should not rely on undocumented or unexamined artifact construction choices.
+  - trace_type: evidence_to_claim
+    description: Build evidence should support only the claims it can substantiate, such as existence, conformance, reproducibility,
+      maintainability, or inspectability.
+    minimum_expectation: Utility, effectiveness, transferability, and contribution claims require downstream evidence beyond
+      build trace.
+  validation_implications:
+    json_schema_fields:
+    - field_path: design_space.design_rationale_and_build_trace.design_decisions
+      validation: array_min_items_1_when_artifact_specification_exists
+      severity: warning
+      manual_review_note: Schema can require decision records but cannot judge whether listed decisions are material.
+    - field_path: design_space.design_rationale_and_build_trace.design_decisions[].decision_id
+      validation: required_string_stable_ascii_snake_case_or_prefixed_id
+      severity: warning
+      manual_review_note: Identifier stability across versions requires repository review.
+    - field_path: design_space.design_rationale_and_build_trace.design_decisions[].rationale
+      validation: required_when_decision_is_major
+      severity: warning
+      manual_review_note: Rationale adequacy is human-review-only.
+    - field_path: design_space.design_rationale_and_build_trace.alternatives_considered
+      validation: array_or_no_alternative_justification_required
+      severity: info
+      manual_review_note: Alternative breadth depends on artifact risk and design-space complexity.
+    - field_path: design_space.design_rationale_and_build_trace.iteration_log
+      validation: array_of_iteration_records_or_one_pass_build_justification
+      severity: warning
+      manual_review_note: Iteration quality requires human review of triggers and learning.
+    - field_path: design_space.design_rationale_and_build_trace.build_evidence
+      validation: array_min_items_1_with_evidence_id_evidence_mode_and_artifact_or_repository_reference
+      severity: warning
+      manual_review_note: Evidence-to-specification fit is human-review-only.
+    - field_path: design_space.design_rationale_and_build_trace.version_history
+      validation: recommended_array_with_current_version_required_when_reuse_or_reproducibility_claims_are_present
+      severity: warning
+      manual_review_note: Version adequacy depends on artifact type and claim scope.
+    - field_path: design_space.design_rationale_and_build_trace.sensitivity_controls
+      validation: recommended_when_build_trace_contains_sensitive_details
+      severity: warning
+      manual_review_note: Privacy, security, IP, and ethical disclosure controls require human review.
+    shacl_shapes_or_warnings:
+    - shape_id: DesignRationaleBuildTraceShape
+      target_class: dsr:DesignRationaleBuildTrace
+      severity: sh:Warning
+      checks:
+      - has_design_decision
+      - has_rationale_or_gap_marker
+      - has_build_evidence
+      - has_trace_to_artifact_specification
+      manual_review_required: true
+    - shape_id: DesignDecisionShape
+      target_class: dsr:DesignDecision
+      severity: sh:Warning
+      checks:
+      - decision_id_min_count_1
+      - decision_statement_min_count_1
+      - rationale_min_count_or_gap_marker
+      - decision_status_in_controlled_vocab
+      manual_review_required: true
+    - shape_id: BuildEvidenceShape
+      target_class: dsr:BuildEvidence
+      severity: sh:Warning
+      checks:
+      - evidence_id_min_count_1
+      - evidence_mode_in_vocab
+      - supports_claim_or_requirement_reference
+      manual_review_required: true
+    - shape_id: TransparencyOverloadReviewShape
+      target_class: dsr:BuildTransparencyTrace
+      severity: sh:Info
+      checks:
+      - has_summary_trace
+      - has_known_gap_register
+      - has_sensitivity_controls_when_needed
+      manual_review_required: true
+    controlled_vocabularies:
+      decision_status_values:
+      - proposed
+      - accepted
+      - rejected
+      - deferred
+      - superseded
+      - revised
+      - deprecated
+      rationale_status_values:
+      - source_supported
+      - repository_artifact_supported
+      - stakeholder_claim
+      - expert_judgment
+      - reviewer_judgment
+      - unsupported
+      - reconstructed
+      iteration_trigger_values:
+      - requirement_change
+      - evaluation_feedback
+      - stakeholder_feedback
+      - technical_failure
+      - constraint_change
+      - risk_discovery
+      - knowledge_gap
+      - alternative_found
+      - scope_change
+      - maintenance_issue
+      evidence_mode_values:
+      - repository_artifact
+      - artifact_inspection
+      - validation_result
+      - test_result
+      - version_control_record
+      - journal_entry
+      - screenshot
+      - prototype_demonstration
+      - expert_review
+      - stakeholder_feedback
+      - reviewer_judgment
+      transparency_sensitivity_values:
+      - public_ok
+      - redacted_public
+      - controlled_access
+      - confidential_summary_only
+      - not_disclosed_with_reason
+    python_validation_logic:
+    - check_required_sections_present
+    - check_dimension_weights_sum_to_1_0
+    - check_all_major_decisions_have_ids
+    - check_major_decisions_have_rationale_or_gap_marker
+    - check_build_evidence_links_to_artifact_version_or_specification
+    - check_reuse_claims_have_version_history_and_reproducibility_notes
+    - check_no_raw_sensitive_detail_flag_without_sensitivity_controls
+    manual_review_only_checks:
+    - substantive adequacy of design rationale
+    - proportionality of alternative search
+    - credibility of iteration learning
+    - whether conformance evidence fits artifact type and claim scope
+    - whether transparency balance is useful rather than excessive or insufficient
+    - whether reconstructed rationale is responsibly labeled
+    source_crosswalk_implications:
+    - Map build_trace and build_transparency_trace to SKOS transparency_documentation_terms.
+    - Map design_decision and rationale fields to requirements_traceability_rubric and artifact_specification_quality_rubric
+      fields.
+    - Map iteration_log to DSR process/journaling source anchors and bounded-creativity iteration indicators.
+    - Map conformance evidence to artifact specification capacities and downstream evaluation requirements.
+  examples_or_scoring_vignettes:
+  - vignette_id: exemplary_strong_trace
+    label: Exemplary strong build trace
+    scenario: A higher education DSR project produces a curriculum-alignment knowledge graph authoring template and validation
+      workflow. The repository includes an artifact specification, decision register, alternatives matrix comparing RDF-only,
+      property graph, and hybrid approaches, iteration journal from prototype testing, SHACL/JSON validation outputs, versioned
+      releases, dependency notes, and a layered reviewer summary.
+    dimension_scores:
+      design_decision_identification: 4
+      rationale_quality: 4
+      alternative_consideration: 4
+      iteration_and_learning_trace: 4
+      build_evidence_and_conformance: 4
+      versioning_and_reproducibility: 4
+      transparency_without_overload: 4
+    weighted_score: 4.0
+    decision: trace_ready
+    rationale: The record makes material design choices reviewable, shows why alternatives were rejected, links iterations
+      to learning, and provides evidence that the build conforms to specification.
+  - vignette_id: borderline_conditional_trace
+    label: Borderline conditional build trace
+    scenario: A prototype dashboard is documented with major decisions and screenshots. The rationale links to requirements
+      and constraints, but alternatives are thin, iteration notes are mostly chronological, and version history lacks dependency
+      details. Build evidence shows the prototype exists but does not fully map to all stated capacities.
+    dimension_scores:
+      design_decision_identification: 3
+      rationale_quality: 2
+      alternative_consideration: 2
+      iteration_and_learning_trace: 2
+      build_evidence_and_conformance: 2
+      versioning_and_reproducibility: 2
+      transparency_without_overload: 3
+    weighted_score: 2.31
+    decision: requires_build_trace_revision
+    rationale: The record is usable but not yet strong enough for trace_ready_with_gaps because conformance and rationale
+      are both partial; revision should add alternatives, learning trace, and conformance matrix.
+  - vignette_id: weak_not_ready_trace
+    label: Weak or not-ready build trace
+    scenario: A final method template is uploaded with no decision identifiers, no rationale beyond a claim that it follows
+      DSR best practice, no alternative discussion, no iteration history, no versioning, and no evidence that the template
+      conforms to its stated artifact specification.
+    dimension_scores:
+      design_decision_identification: 0
+      rationale_quality: 1
+      alternative_consideration: 0
+      iteration_and_learning_trace: 0
+      build_evidence_and_conformance: 1
+      versioning_and_reproducibility: 0
+      transparency_without_overload: 1
+    weighted_score: 0.44
+    decision: build_trace_missing
+    rationale: The design entity may exist, but reviewers cannot reconstruct why it was built as it was or whether it conforms
+      to any specification.
+  - vignette_id: confidential_artifact_trace
+    label: Controlled-access trace with responsible redaction
+    scenario: A compliance workflow artifact includes sensitive institutional details. The public repository redacts personnel
+      and system identifiers but provides abstracted decision records, rationale, alternatives, iteration summaries, conformance
+      checks, and an authorized-reviewer evidence index.
+    dimension_scores:
+      design_decision_identification: 3
+      rationale_quality: 3
+      alternative_consideration: 3
+      iteration_and_learning_trace: 3
+      build_evidence_and_conformance: 3
+      versioning_and_reproducibility: 2
+      transparency_without_overload: 4
+    weighted_score: 3.12
+    decision: trace_ready_with_gaps
+    rationale: Responsible redaction does not automatically reduce score; the remaining gap is versioning/reproducibility
+      depth for authorized reuse.
+  interpretation_guidance:
+    how_to_read_scores:
+    - Interpret the weighted score only after applying non-compensatory floor rules.
+    - A high score means the design rationale and build trace are reviewable and proportionate to the artifact type and claim
+      scope.
+    - A moderate score usually indicates that the artifact can be reviewed with caveats, but some rationale, alternative,
+      iteration, conformance, or versioning evidence should be strengthened.
+    - A low score means reviewers may be unable to distinguish a designed DSR artifact from an opaque implementation or post
+      hoc narrative.
+    what_not_to_infer:
+    - Do not infer that a high build-trace score means the artifact is useful, effective, valid, ethical, adopted, or contribution-worthy.
+    - Do not infer that a low score means the artifact is poorly designed; it may mean the design and build reasoning was
+      not documented.
+    - Do not infer that more documentation is always better; transparency overload can reduce usability and create risk.
+    - Do not infer that source-supported rationale eliminates the need for evaluation evidence.
+    - Do not infer that repository commits alone provide adequate design rationale or iteration learning.
+    - Do not infer that redacted or controlled-access details are defects when responsible disclosure preserves reviewability.
+    - Do not infer that a reconstructed rationale is invalid; it must be labeled as reconstructed and bounded by available
+      evidence.
+    relationship_to_adjacent_rubrics:
+      artifact_specification_quality_rubric: Primary dependency; this rubric assumes the artifact boundary, type, capacity,
+        make plan, use plan, and artifact network are at least provisionally specified.
+      requirements_traceability_rubric: Provides upstream traces from problem/context to requirements and design decisions.
+      input_knowledge_solution_grounding_rubric: Provides upstream evidence for solution alternatives and source-supported
+        design rationale.
+      demonstration_use_readiness_rubric: Uses build trace to judge whether the artifact is ready for scenario demonstration,
+        field use, or proof of value.
+      evaluation_alignment_quality_rubric: Uses design decisions and build conformance to select evaluation objects, criteria,
+        and evidence modes.
+      transparency_trace_quality_rubric: Generalizes this rubric into broader process, problem, solution, build, evaluation,
+        and contribution transparency.
+    known_limitations:
+    - The rubric cannot determine whether undocumented tacit reasoning was sound.
+    - The rubric may favor projects with stronger documentation infrastructure unless reviewers account for proportionality
+      and artifact type.
+    - The rubric does not replace security, privacy, legal, ethical, IRB, IP, or governance review.
+    - The rubric treats source anchors and validation outputs as evidence but still requires human judgment for adequacy and
+      proportionality.
+  quality_control:
+    completeness_check:
+    - rubric_metadata contains id, label, version, status, generated_on, intended_file_path, assessment_target, priority,
+      lifecycle_phase, prompt_id, and dependency
+    - all required top-level sections from the rubric generation spec are present
+    - all seven required dimensions are present
+    - each dimension has score descriptors for 0, 1, 2, 3, and 4
+    - dimension weights sum to 1.0
+    - decision values match prompt expectations
+    - anti-patterns include artifact_black_box, decision_rationale_absence, alternative_blindness, ex_post_rationalization,
+      and transparency_overload
+    ambiguity_check:
+    - distinguish build evidence from evaluation evidence
+    - distinguish design rationale from implementation chronology
+    - distinguish source-supported claims from reviewer judgment
+    - distinguish contemporaneous rationale from reconstructed rationale
+    - distinguish responsible redaction from missing evidence
+    human_review_recommendation:
+      required: true
+      reason: Adequacy of rationale, alternatives, iteration learning, conformance fit, and transparency burden cannot be
+        fully machine-validated.
+    source_gap_notes:
+    - The Hevner transparency source supports transparency forms and caution against premature rigid checklists; do not harden
+      every recommended field into a violation.
+    - The Baskerville iteration source supports iteration indicators but not universal numeric iteration thresholds.
+    - The journaling source supports process documentation and reflection; local documentation protocol conventions should
+      determine repository-specific file naming and organization.
+    - artifact_specification_quality_rubric is a dependency; if it is unavailable, reviewers should first establish a provisional
+      artifact specification before applying this rubric.
+    machine_readiness_check:
+      yaml_parseable: true
+      stable_ids: true
+      weights_sum_to_1_0: true
+      manual_review_fields_present: true
+  revision_history:
+  - version: 0.1.0-draft
+    date: '2026-05-15'
+    change_summary: Initial repository-ready draft generated from rubric generation prompt, generation spec, DSR transparency,
+      journaling, iteration, controlled vocabulary, and documentation-protocol requirements.
+    changed_by: gpt_5_5_thinking
