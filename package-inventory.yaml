@@ -75,6 +75,7 @@ package_inventory:
     - records/reviews/record-review-claim-traceability-0001-v1-0-0.yaml
     - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     - rubrics/dsr_assessment_rubrics_unified.yaml
+    - rubrics/dsr_assessment_rubrics_unified_sidecar.json
     - scripts/build-rubric-collection.py
   inventory_scope:
     included:
@@ -575,8 +576,8 @@ package_inventory:
       missing_count: 0
   - directory_id: dir_027
     path: rubrics
-    purpose: DSR assessment rubrics and generated unified rubric collection.
-    expected_file_count_from_selection_table: 17
+    purpose: DSR assessment rubrics, generated unified rubric collection, and sidecar integrity manifest.
+    expected_file_count_from_selection_table: 18
     listed_files:
     - rubrics/README.md
     - rubrics/problem_research_worthiness_rubric.yaml
@@ -598,8 +599,24 @@ package_inventory:
     directory_status: exists_files_verified
     existence_audit_date: '2026-05-16'
     listed_file_existence:
-      listed_count: 17
-      present_count: 17
+      listed_count: 18
+      present_count: 18
+      missing_count: 0
+  - directory_id: dir_028
+    path: rubrics/process
+    purpose: Rubric-generation process and provenance files.
+    expected_file_count_from_selection_table: 5
+    listed_files:
+    - rubrics/process/README.md
+    - rubrics/process/dsr_rubric_generation_index_v0_1_0.md
+    - rubrics/process/dsr_rubric_generation_spec_v0_1_0.yaml
+    - rubrics/process/dsr_rubric_generation_prompts_v0_1_0.txt
+    - rubrics/process/prompt_stub_2026-05-15.txt
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-05-16'
+    listed_file_existence:
+      listed_count: 5
+      present_count: 5
       missing_count: 0
   root_file_inventory:
   - path: README.md
@@ -813,6 +830,22 @@ package_inventory:
     - Source SHA-256 values are generated from canonical individual rubric files.
     - Rubric IDs are unique.
     - Missing dependency references are reported as warnings, not silently ignored.
+  - validation_profile_id: vp_rubric_sidecar
+    applies_to: rubrics/dsr_assessment_rubrics_unified_sidecar.json.
+    primary_responsible_role: rubric_steward
+    required_checks:
+    - JSON parses as a single document.
+    - Sidecar identifies the paired unified YAML collection.
+    - Integrity metadata and dependency warnings are retained.
+    - Local absolute paths are not required for repository use.
+  - validation_profile_id: vp_rubric_generation_process
+    applies_to: rubrics/process/* provenance files.
+    primary_responsible_role: rubric_steward
+    required_checks:
+    - Process files parse where applicable.
+    - Process files distinguish generation provenance from canonical rubric artifacts.
+    - Prompt, spec, and index files are traceable to rubric IDs, prompt IDs, output paths, and dependency logic.
+    - Local absolute paths are not required for repository use.
   file_inventory:
   - inventory_entry_id: inv_0001
     file_id: file_readme_md
@@ -7877,6 +7910,188 @@ package_inventory:
     - uses_declared_path_and_extension
     - records_v1_3_0_zenodo_publication_evidence
     - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0212
+    file_id: file_rubrics__dsr_assessment_rubrics_unified_sidecar_json
+    selection_id: dsr_assessment_rubrics_unified_sidecar
+    path: rubrics/dsr_assessment_rubrics_unified_sidecar.json
+    package_section: rubrics
+    portion_type: generated_rubric_collection_sidecar
+    output_format: json
+    purpose: Generated sidecar manifest recording metadata, integrity checks, and dependency references for the unified DSR assessment rubric collection.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - rubrics/dsr_assessment_rubrics_unified.yaml
+    - rubrics/README.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_rubric_sidecar
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - distinguishes_provenance_from_canonical_rubric_artifacts
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0213
+    file_id: file_rubrics__process__README_md
+    selection_id: README
+    path: rubrics/process/README.md
+    package_section: rubrics/process
+    portion_type: process_documentation
+    output_format: markdown
+    purpose: Human-facing guide explaining rubric-generation process and provenance files.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - rubrics/README.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - distinguishes_provenance_from_canonical_rubric_artifacts
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0214
+    file_id: file_rubrics__process__dsr_rubric_generation_index_v0_1_0_md
+    selection_id: dsr_rubric_generation_index_v0_1_0
+    path: rubrics/process/dsr_rubric_generation_index_v0_1_0.md
+    package_section: rubrics/process
+    portion_type: rubric_generation_index
+    output_format: markdown
+    purpose: Rubric-generation index preserving rubric sequence, dependency map, IDs, output paths, and prompt IDs.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - rubrics/process/README.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_rubric_generation_process
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - distinguishes_provenance_from_canonical_rubric_artifacts
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0215
+    file_id: file_rubrics__process__dsr_rubric_generation_spec_v0_1_0_yaml
+    selection_id: dsr_rubric_generation_spec_v0_1_0
+    path: rubrics/process/dsr_rubric_generation_spec_v0_1_0.yaml
+    package_section: rubrics/process
+    portion_type: rubric_generation_specification
+    output_format: yaml
+    purpose: Rubric-generation specification preserving required rubric structure, metadata, scoring rules, traceability, and human-review safeguards.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - rubrics/process/README.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_rubric_generation_process
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - distinguishes_provenance_from_canonical_rubric_artifacts
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0216
+    file_id: file_rubrics__process__dsr_rubric_generation_prompts_v0_1_0_txt
+    selection_id: dsr_rubric_generation_prompts_v0_1_0
+    path: rubrics/process/dsr_rubric_generation_prompts_v0_1_0.txt
+    package_section: rubrics/process
+    portion_type: rubric_generation_prompt_bank
+    output_format: text
+    purpose: Prompt bank used to generate the individual DSR assessment rubric YAML files.
+    default_conformance: l2
+    required_for_package_class: false
+    dependency_basis:
+    - rubrics/process/README.md
+    - rubrics/process/dsr_rubric_generation_index_v0_1_0.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_rubric_generation_process
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - distinguishes_provenance_from_canonical_rubric_artifacts
+    - keeps_l5_outside_v1_scope
+  - inventory_entry_id: inv_0217
+    file_id: file_rubrics__process__prompt_stub_2026_05_15_txt
+    selection_id: prompt_stub_2026_05_15
+    path: rubrics/process/prompt_stub_2026-05-15.txt
+    package_section: rubrics/process
+    portion_type: rubric_generation_prompt_stub
+    output_format: text
+    purpose: Short local handoff stub copied from original source filename Prompt.txt for complete rubric-generation provenance.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - rubrics/process/README.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-16'
+    validation_profile_id: vp_rubric_generation_process
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: validation_workflow
+      evidence_expected:
+      - path_exists
+      - parseable_when_structured_format
+      - no_l5_overclaim
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - distinguishes_provenance_from_canonical_rubric_artifacts
+    - keeps_l5_outside_v1_scope
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -8185,12 +8400,17 @@ package_inventory:
     change: Recorded Zenodo publication DOI 10.5281/zenodo.20238033 for v1.3.0 and added a retained publication-verification record.
     responsible_party: framework_maintainer
     review_status: v1_3_0_zenodo_publication_verified
+  - version: 1.3.0-post-publication
+    date: '2026-05-16'
+    change: Added the DSR rubric unified JSON sidecar and rubric-generation process/provenance files under rubrics/process.
+    responsible_party: framework_maintainer
+    review_status: rubric_sidecar_and_process_provenance_added
   normalization_status:
     status: 1.3.0_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 211
+    controlled_file_inventory_entries: 217
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -8210,6 +8430,8 @@ package_inventory:
     latest_canonical_example_package: examples/canonical-minimal-dsr-package/README.md
     canonical_example_status: synthetic_demonstration_package_present
     latest_rubric_collection: rubrics/dsr_assessment_rubrics_unified.yaml
+    latest_rubric_collection_sidecar: rubrics/dsr_assessment_rubrics_unified_sidecar.json
+    latest_rubric_generation_process: rubrics/process/README.md
     latest_rubric_collection_builder: scripts/build-rubric-collection.py
     rubric_collection_status: individual_rubrics_canonical_unified_collection_generated
     latest_template_checklist_stabilization_review: records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml

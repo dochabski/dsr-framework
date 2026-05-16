@@ -1,0 +1,862 @@
+{
+  "dsr_assessment_rubrics_unified_sidecar": {
+    "sidecar_metadata": {
+      "id": "dsr_assessment_rubrics_unified_sidecar",
+      "title": "DSR Assessment Rubrics Unified Collection Sidecar",
+      "version": "0.1.0-draft",
+      "status": "draft",
+      "generated_on": "2026-05-16",
+      "generated_by": "GPT-5.5 Thinking",
+      "sidecar_role": "machine_readable_metadata_integrity_dependency_manifest",
+      "sidecar_policy": "This sidecar summarizes and validates the unified YAML collection but does not duplicate the full rubric contents and is not the canonical rubric source.",
+      "canonical_source_policy": "individual_files_in_rubrics_directory_are_canonical",
+      "unified_file_policy": "unified_file_is_for_review_search_ingestion_and_distribution",
+      "recommended_repo_path": "rubrics/dsr_assessment_rubrics_unified_sidecar.json",
+      "paired_unified_yaml_repo_path": "rubrics/dsr_assessment_rubrics_unified.yaml"
+    },
+    "source_unified_yaml": {
+      "file_name": "dsr_assessment_rubrics_unified.yaml",
+      "sha256": "465e1a2bd422d8e92dea67c5a1bd92c95e7dad17995361dd8ec60597c1683936",
+      "bytes_utf8": 1165729,
+      "top_level_keys": [
+        "rubric_collection"
+      ],
+      "collection_id": "dsr_assessment_rubrics_unified",
+      "collection_label": "DSR Assessment Rubrics Unified Collection",
+      "collection_version": "0.1.0-draft",
+      "collection_status": "draft",
+      "collection_generated_on": "2026-05-16",
+      "collection_generated_by": "codex"
+    },
+    "collection_summary": {
+      "rubric_count_indexed": 15,
+      "rubric_count_embedded": 15,
+      "source_file_count_declared": 15,
+      "duplicate_rubric_ids_detected": [],
+      "missing_dependency_references": [
+        {
+          "missing_rubric_id": "artifact_specification_quality_rubric",
+          "referenced_by": [
+            "contribution_quality_rubric",
+            "demonstration_use_readiness_rubric",
+            "design_rationale_build_trace_rubric",
+            "evaluation_alignment_quality_rubric",
+            "responsible_design_constraints_rubric"
+          ]
+        }
+      ],
+      "warnings": [
+        "Some rubrics reference dependency rubric IDs not present in this collection; these are reported, not fabricated."
+      ],
+      "source_file_warnings": [],
+      "validation_notes": [
+        "Parsed unified YAML with yaml.safe_load as a single YAML document.",
+        "Verified rubric IDs are unique in rubric_index.",
+        "Verified embedded rubric record count equals indexed rubric count.",
+        "Missing dependency references are reported as warnings and were not fabricated."
+      ]
+    },
+    "dependency_graph": {
+      "depends_on_by_rubric_id": {
+        "problem_research_worthiness_rubric": [],
+        "problem_solvability_rubric": [
+          "problem_research_worthiness_rubric"
+        ],
+        "problem_framing_quality_rubric": [
+          "problem_research_worthiness_rubric",
+          "problem_solvability_rubric"
+        ],
+        "context_stakeholder_adequacy_rubric": [
+          "problem_framing_quality_rubric"
+        ],
+        "requirements_traceability_rubric": [
+          "problem_framing_quality_rubric",
+          "context_stakeholder_adequacy_rubric"
+        ],
+        "input_knowledge_solution_grounding_rubric": [
+          "requirements_traceability_rubric"
+        ],
+        "design_rationale_build_trace_rubric": [
+          "artifact_specification_quality_rubric"
+        ],
+        "demonstration_use_readiness_rubric": [
+          "artifact_specification_quality_rubric",
+          "evaluation_alignment_quality_rubric"
+        ],
+        "evaluation_alignment_quality_rubric": [
+          "requirements_traceability_rubric",
+          "artifact_specification_quality_rubric"
+        ],
+        "contribution_quality_rubric": [
+          "evaluation_alignment_quality_rubric",
+          "artifact_specification_quality_rubric"
+        ],
+        "projectability_boundary_conditions_rubric": [
+          "context_stakeholder_adequacy_rubric",
+          "evaluation_alignment_quality_rubric",
+          "contribution_quality_rubric"
+        ],
+        "reliability_replication_readiness_rubric": [
+          "contribution_quality_rubric",
+          "transparency_trace_quality_rubric"
+        ],
+        "responsible_design_constraints_rubric": [
+          "context_stakeholder_adequacy_rubric",
+          "artifact_specification_quality_rubric",
+          "demonstration_use_readiness_rubric"
+        ],
+        "repository_documentation_conformance_rubric": [
+          "transparency_trace_quality_rubric"
+        ],
+        "transparency_trace_quality_rubric": [
+          "design_rationale_build_trace_rubric",
+          "evaluation_alignment_quality_rubric",
+          "contribution_quality_rubric"
+        ]
+      },
+      "dependents_by_rubric_id": {
+        "context_stakeholder_adequacy_rubric": [
+          "projectability_boundary_conditions_rubric",
+          "requirements_traceability_rubric",
+          "responsible_design_constraints_rubric"
+        ],
+        "contribution_quality_rubric": [
+          "projectability_boundary_conditions_rubric",
+          "reliability_replication_readiness_rubric",
+          "transparency_trace_quality_rubric"
+        ],
+        "demonstration_use_readiness_rubric": [
+          "responsible_design_constraints_rubric"
+        ],
+        "design_rationale_build_trace_rubric": [
+          "transparency_trace_quality_rubric"
+        ],
+        "evaluation_alignment_quality_rubric": [
+          "contribution_quality_rubric",
+          "demonstration_use_readiness_rubric",
+          "projectability_boundary_conditions_rubric",
+          "transparency_trace_quality_rubric"
+        ],
+        "problem_framing_quality_rubric": [
+          "context_stakeholder_adequacy_rubric",
+          "requirements_traceability_rubric"
+        ],
+        "problem_research_worthiness_rubric": [
+          "problem_framing_quality_rubric",
+          "problem_solvability_rubric"
+        ],
+        "problem_solvability_rubric": [
+          "problem_framing_quality_rubric"
+        ],
+        "requirements_traceability_rubric": [
+          "evaluation_alignment_quality_rubric",
+          "input_knowledge_solution_grounding_rubric"
+        ],
+        "transparency_trace_quality_rubric": [
+          "reliability_replication_readiness_rubric",
+          "repository_documentation_conformance_rubric"
+        ]
+      },
+      "missing_dependencies_by_rubric_id": {
+        "design_rationale_build_trace_rubric": [
+          "artifact_specification_quality_rubric"
+        ],
+        "demonstration_use_readiness_rubric": [
+          "artifact_specification_quality_rubric"
+        ],
+        "evaluation_alignment_quality_rubric": [
+          "artifact_specification_quality_rubric"
+        ],
+        "contribution_quality_rubric": [
+          "artifact_specification_quality_rubric"
+        ],
+        "responsible_design_constraints_rubric": [
+          "artifact_specification_quality_rubric"
+        ]
+      }
+    },
+    "rubric_index": [
+      {
+        "sequence": 1,
+        "rubric_id": "problem_research_worthiness_rubric",
+        "label": "Problem Research-Worthiness Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "problem_selection_and_framing",
+        "assessment_target": "problem_space.research_worthiness",
+        "prompt_id": "prompt_problem_research_worthiness_rubric",
+        "source_file": "problem_research_worthiness_rubric.yaml",
+        "intended_file_path": "rubrics/problem_research_worthiness_rubric.yaml",
+        "declared_source_sha256": "a62d75441e6b2b0caf1a8a85741eebf766722c4ec21a5387ace75b24e5c06394",
+        "embedded_rubric_payload_sha256": "13f7c64351e40e08756b0d9bb949694697c44bf095754470f7e0ea879617e2a7",
+        "depends_on": [],
+        "missing_dependencies": [],
+        "dependents_in_collection": [
+          "problem_framing_quality_rubric",
+          "problem_solvability_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 2,
+        "rubric_id": "problem_solvability_rubric",
+        "label": "Problem Solvability Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "problem_selection_and_framing",
+        "assessment_target": "problem_space.solvability_assessment",
+        "prompt_id": "prompt_problem_solvability_rubric",
+        "source_file": "problem_solvability_rubric.yaml",
+        "intended_file_path": "rubrics/problem_solvability_rubric.yaml",
+        "declared_source_sha256": "8d858e2cd50ed9232ddba7c70152727edc68f5cb4cfb94289386ab75712d29ae",
+        "embedded_rubric_payload_sha256": "73ce5639dbc691db33447021c1f3c7bcc3666f1dd902bd3989fc7b87d5479077",
+        "depends_on": [
+          "problem_research_worthiness_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [
+          "problem_framing_quality_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 3,
+        "rubric_id": "problem_framing_quality_rubric",
+        "label": "Problem Framing Quality Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "problem_framing",
+        "assessment_target": "problem_space.problem_framing",
+        "prompt_id": "prompt_problem_framing_quality_rubric",
+        "source_file": "problem_framing_quality_rubric.yaml",
+        "intended_file_path": "rubrics/problem_framing_quality_rubric.yaml",
+        "declared_source_sha256": "c3206282ea1e17f693f1de3e3fceee9297090fbed3473426b39005006629fb96",
+        "embedded_rubric_payload_sha256": "f730261c6626a7360ef5d46d615f8ddf296a4fcc7f1cb56f50d2fc1896a176c0",
+        "depends_on": [
+          "problem_research_worthiness_rubric",
+          "problem_solvability_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [
+          "context_stakeholder_adequacy_rubric",
+          "requirements_traceability_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 4,
+        "rubric_id": "context_stakeholder_adequacy_rubric",
+        "label": "Context and Stakeholder Adequacy Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "contextualization",
+        "assessment_target": "context_space",
+        "prompt_id": "prompt_context_stakeholder_adequacy_rubric",
+        "source_file": "context_stakeholder_adequacy_rubric.yaml",
+        "intended_file_path": "rubrics/context_stakeholder_adequacy_rubric.yaml",
+        "declared_source_sha256": "ea34e32bea74e2ec56763117bc0f793516b269cc68eaa1a397363cdb5219699d",
+        "embedded_rubric_payload_sha256": "a23f9fe97ca361d4752fafa81a7d34ad24d1d223d1ab619bc92ccda3ac80ed91",
+        "depends_on": [
+          "problem_framing_quality_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [
+          "projectability_boundary_conditions_rubric",
+          "requirements_traceability_rubric",
+          "responsible_design_constraints_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 5,
+        "rubric_id": "requirements_traceability_rubric",
+        "label": "Requirements Traceability Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "requirements_and_design_targeting",
+        "assessment_target": "design_space.requirements_trace",
+        "prompt_id": "prompt_requirements_traceability_rubric",
+        "source_file": "requirements_traceability_rubric.yaml",
+        "intended_file_path": "rubrics/requirements_traceability_rubric.yaml",
+        "declared_source_sha256": "52af55953a9d63098053fecbfd7ef1463e068edc58b48cad1d3f90226d24122d",
+        "embedded_rubric_payload_sha256": "4d8fca6b560eedd962e6d964f01f54fafcf3f591a0a0d02483293b5bd2704f88",
+        "depends_on": [
+          "problem_framing_quality_rubric",
+          "context_stakeholder_adequacy_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [
+          "evaluation_alignment_quality_rubric",
+          "input_knowledge_solution_grounding_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "distinctions_to_preserve",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "terms_not_to_conflate",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 6,
+        "rubric_id": "input_knowledge_solution_grounding_rubric",
+        "label": "Input Knowledge and Solution-Grounding Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "solution_space_grounding",
+        "assessment_target": "solution_space.input_knowledge",
+        "prompt_id": "prompt_input_knowledge_solution_grounding_rubric",
+        "source_file": "input_knowledge_solution_grounding_rubric.yaml",
+        "intended_file_path": "rubrics/input_knowledge_solution_grounding_rubric.yaml",
+        "declared_source_sha256": "b914cee89f0310667db84f3c8638ce35f075d1027adf5fd304d98740b6ff4e54",
+        "embedded_rubric_payload_sha256": "e9ab74e61218bf0311930ae2304ac207c428e8e34956da4704493216e522f33f",
+        "depends_on": [
+          "requirements_traceability_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 7,
+        "rubric_id": "design_rationale_build_trace_rubric",
+        "label": "Design Rationale and Build Trace Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "recommended",
+        "lifecycle_phase": "design_and_build",
+        "assessment_target": "design_space.design_rationale_and_build_trace",
+        "prompt_id": "prompt_design_rationale_build_trace_rubric",
+        "source_file": "design_rationale_build_trace_rubric.yaml",
+        "intended_file_path": "rubrics/design_rationale_build_trace_rubric.yaml",
+        "declared_source_sha256": "b339a44f8b8077284d03ba5fd7144279a103db6a37234321c3b5c9ec9b34ad8a",
+        "embedded_rubric_payload_sha256": "cdcafffc55409164618528d84037d8dbef0ff12163d60eae63cc8d92f00e8391",
+        "depends_on": [
+          "artifact_specification_quality_rubric"
+        ],
+        "missing_dependencies": [
+          "artifact_specification_quality_rubric"
+        ],
+        "dependents_in_collection": [
+          "transparency_trace_quality_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 8,
+        "rubric_id": "demonstration_use_readiness_rubric",
+        "label": "Demonstration and Use Readiness Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "recommended",
+        "lifecycle_phase": "demonstration_and_use",
+        "assessment_target": "demonstration_and_use",
+        "prompt_id": "prompt_demonstration_use_readiness_rubric",
+        "source_file": "demonstration_use_readiness_rubric.yaml",
+        "intended_file_path": "rubrics/demonstration_use_readiness_rubric.yaml",
+        "declared_source_sha256": "7423d80ff524f870db7e94cf865ebd2c1ade07f150e74d30a4519b45d3be42ed",
+        "embedded_rubric_payload_sha256": "165746d6bcd4596a94d9deb3db40653a11431c48aecafcc8bd2a64a4b2b6e802",
+        "depends_on": [
+          "artifact_specification_quality_rubric",
+          "evaluation_alignment_quality_rubric"
+        ],
+        "missing_dependencies": [
+          "artifact_specification_quality_rubric"
+        ],
+        "dependents_in_collection": [
+          "responsible_design_constraints_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 9,
+        "rubric_id": "evaluation_alignment_quality_rubric",
+        "label": "Evaluation Alignment Quality Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "evaluation_planning_and_reporting",
+        "assessment_target": "evaluation_space",
+        "prompt_id": "prompt_evaluation_alignment_quality_rubric",
+        "source_file": "evaluation_alignment_quality_rubric.yaml",
+        "intended_file_path": "rubrics/evaluation_alignment_quality_rubric.yaml",
+        "declared_source_sha256": "26f56d7ffcc6f3c296881a26f77769ce20eb93143c96a1e2249bb81a0ee4b643",
+        "embedded_rubric_payload_sha256": "d7310e287bc87612e5edf8f17d2cb4921e35c965a53c63c8881d82dba0c890c6",
+        "depends_on": [
+          "requirements_traceability_rubric",
+          "artifact_specification_quality_rubric"
+        ],
+        "missing_dependencies": [
+          "artifact_specification_quality_rubric"
+        ],
+        "dependents_in_collection": [
+          "contribution_quality_rubric",
+          "demonstration_use_readiness_rubric",
+          "projectability_boundary_conditions_rubric",
+          "transparency_trace_quality_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 10,
+        "rubric_id": "contribution_quality_rubric",
+        "label": "Design-Knowledge Contribution Quality Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "contribution_and_communication",
+        "assessment_target": "knowledge_space.contribution_claim",
+        "prompt_id": "prompt_contribution_quality_rubric",
+        "source_file": "contribution_quality_rubric.yaml",
+        "intended_file_path": "rubrics/contribution_quality_rubric.yaml",
+        "declared_source_sha256": "3756aa8b2d4ac8f0847d759397e539fa3df4e7f1544f7a78628d75ec4c28334e",
+        "embedded_rubric_payload_sha256": "7c071b91a94e6c7f1d4cd1f62bb0595accb435b89c53a6541621a51d76e41123",
+        "depends_on": [
+          "evaluation_alignment_quality_rubric",
+          "artifact_specification_quality_rubric"
+        ],
+        "missing_dependencies": [
+          "artifact_specification_quality_rubric"
+        ],
+        "dependents_in_collection": [
+          "projectability_boundary_conditions_rubric",
+          "reliability_replication_readiness_rubric",
+          "transparency_trace_quality_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 11,
+        "rubric_id": "projectability_boundary_conditions_rubric",
+        "label": "Projectability and Boundary-Conditions Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "recommended",
+        "lifecycle_phase": "contribution_scoping_and_reuse",
+        "assessment_target": "knowledge_space.projectability_statement",
+        "prompt_id": "prompt_projectability_boundary_conditions_rubric",
+        "source_file": "projectability_boundary_conditions_rubric.yaml",
+        "intended_file_path": "rubrics/projectability_boundary_conditions_rubric.yaml",
+        "declared_source_sha256": "107135b3826fd2f39ad29d4a0f9430af5d328a5b0835a8d88e3bb2af0012d73e",
+        "embedded_rubric_payload_sha256": "85898916489a904ec54d0ce945ff244e0ef67c78c6b27ef21b288866ec194b3d",
+        "depends_on": [
+          "context_stakeholder_adequacy_rubric",
+          "evaluation_alignment_quality_rubric",
+          "contribution_quality_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 12,
+        "rubric_id": "reliability_replication_readiness_rubric",
+        "label": "Reliability and Replication Readiness Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "recommended",
+        "lifecycle_phase": "validity_reliability_and_accumulation",
+        "assessment_target": "validity_reliability_space",
+        "prompt_id": "prompt_reliability_replication_readiness_rubric",
+        "source_file": "reliability_replication_readiness_rubric.yaml",
+        "intended_file_path": "rubrics/reliability_replication_readiness_rubric.yaml",
+        "declared_source_sha256": "37dfd5447f60451dbec8037c75e8f18497e9852fa6200c63d1dbbecdfd6c3401",
+        "embedded_rubric_payload_sha256": "5a04f928a2c125927d7182102b1409af7d6953683d81478598adde16bedf1be2",
+        "depends_on": [
+          "contribution_quality_rubric",
+          "transparency_trace_quality_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 13,
+        "rubric_id": "responsible_design_constraints_rubric",
+        "label": "Responsible Design Constraints Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "recommended",
+        "lifecycle_phase": "responsible_design_and_governance",
+        "assessment_target": "responsible_design_constraints",
+        "prompt_id": "prompt_responsible_design_constraints_rubric",
+        "source_file": "responsible_design_constraints_rubric.yaml",
+        "intended_file_path": "rubrics/responsible_design_constraints_rubric.yaml",
+        "declared_source_sha256": "2014f2aad57c4ebc5032b6bd794e1c9350398bd08b92231b46e45e4c6d6f560a",
+        "embedded_rubric_payload_sha256": "7957597b1fdb683024b6f90a1f609eab598238c90deee4d73100caa0c6fe96d4",
+        "depends_on": [
+          "context_stakeholder_adequacy_rubric",
+          "artifact_specification_quality_rubric",
+          "demonstration_use_readiness_rubric"
+        ],
+        "missing_dependencies": [
+          "artifact_specification_quality_rubric"
+        ],
+        "dependents_in_collection": [],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 14,
+        "rubric_id": "repository_documentation_conformance_rubric",
+        "label": "Repository Documentation Conformance Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "advanced",
+        "lifecycle_phase": "repository_packaging_and_validation",
+        "assessment_target": "repository_package",
+        "prompt_id": "prompt_repository_documentation_conformance_rubric",
+        "source_file": "repository_documentation_conformance_rubric.yaml",
+        "intended_file_path": "rubrics/repository_documentation_conformance_rubric.yaml",
+        "declared_source_sha256": "21aae47fb0be14461ba5999b32029191e6fa4203fc0f3292136c92b58488a1be",
+        "embedded_rubric_payload_sha256": "50cf951e502ef933b8c891cb288953fd89b1020aac59b935dd53d7e1c398ccaf",
+        "depends_on": [
+          "transparency_trace_quality_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      },
+      {
+        "sequence": 15,
+        "rubric_id": "transparency_trace_quality_rubric",
+        "label": "Transparency Trace Quality Rubric",
+        "version": "0.1.0-draft",
+        "status": "draft",
+        "priority": "core",
+        "lifecycle_phase": "documentation_and_communication",
+        "assessment_target": "communication_space.transparency_trace",
+        "prompt_id": "prompt_transparency_trace_quality_rubric",
+        "source_file": "transparency_trace_quality_rubric.yaml",
+        "intended_file_path": "rubrics/transparency_trace_quality_rubric.yaml",
+        "declared_source_sha256": "ecc0435f7b8e23d40bf733d2f094ff43eca6e8d026353a58af413bc9bbc6166e",
+        "embedded_rubric_payload_sha256": "015c5e9e273d383b5625286c9886eb780089d0f60fd66335f9ce701b8a6a1bf8",
+        "depends_on": [
+          "design_rationale_build_trace_rubric",
+          "evaluation_alignment_quality_rubric",
+          "contribution_quality_rubric"
+        ],
+        "missing_dependencies": [],
+        "dependents_in_collection": [
+          "reliability_replication_readiness_rubric",
+          "repository_documentation_conformance_rubric"
+        ],
+        "embedded_payload_top_level_keys": [
+          "anti_patterns_and_warnings",
+          "assessment_dimensions",
+          "assessment_scope",
+          "calibration_guidance",
+          "construct_definitions",
+          "decision_thresholds",
+          "evidence_requirements",
+          "examples_or_scoring_vignettes",
+          "interpretation_guidance",
+          "level_descriptors",
+          "quality_control",
+          "required_inputs",
+          "required_outputs",
+          "revision_history",
+          "rubric_metadata",
+          "scoring_model",
+          "source_grounding",
+          "traceability_requirements",
+          "validation_implications"
+        ]
+      }
+    ],
+    "recommended_repository_handling": {
+      "place_sidecar_with_unified_yaml": true,
+      "recommended_directory": "rubrics",
+      "keep_individual_rubrics_canonical": true,
+      "regenerate_after_changes_to_individual_rubrics": true,
+      "include_in_package_inventory": true,
+      "suggested_inventory_validation_checks": [
+        "JSON parses successfully.",
+        "source_unified_yaml.sha256 matches the checked-in dsr_assessment_rubrics_unified.yaml file.",
+        "rubric_count_indexed equals rubric_count_embedded.",
+        "duplicate_rubric_ids_detected is empty.",
+        "missing_dependency_references are reviewed and either resolved or retained as explicit warnings."
+      ]
+    }
+  }
+}
