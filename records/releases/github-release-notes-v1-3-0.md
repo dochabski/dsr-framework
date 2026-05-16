@@ -28,6 +28,12 @@ python scripts/validate-package.py --release-candidate --write-summary
 git diff --check
 ```
 
+## Archival record
+
+Zenodo DOI: [10.5281/zenodo.20238033](https://doi.org/10.5281/zenodo.20238033)
+
+Zenodo record: [https://zenodo.org/records/20238033](https://zenodo.org/records/20238033)
+
 ## Known limitations
 
 - L5 archival/publication-ready status is not claimed.

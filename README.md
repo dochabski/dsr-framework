@@ -218,7 +218,7 @@ Recommended next work should preserve the current L4-not-L5 boundary:
 
 ## Citation and reuse
 
-Use the repository citation metadata in `CITATION.cff`, the repository license notice in `LICENSE`, and the archived-release metadata in `.zenodo.json`. The current v1.3.0 release is the reusable-stable package release. It is not an L5 archival/publication-ready release and it does not certify downstream artifacts merely because they use the framework.
+Use the repository citation metadata in `CITATION.cff`, the repository license notice in `LICENSE`, and the archived-release metadata in `.zenodo.json`. The current v1.3.0 release is archived on Zenodo as DOI `10.5281/zenodo.20238033` and is the reusable-stable package release. It is not an L5 archival/publication-ready release and it does not certify downstream artifacts merely because they use the framework.
 
 ## Maintainer note
 
