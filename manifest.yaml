@@ -89,14 +89,14 @@ manifest:
       latest_white_paper_release_approval: artifacts/dsr-framework-white-paper/records/releases/record-release-approval-whitepaper-v1-0-2.yaml
       latest_white_paper_final_read_edit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
       latest_white_paper_release_notes: artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-2.md
-      latest_white_paper_publication_verification: artifacts/dsr-framework-white-paper/records/releases/record-release-publication-verification-whitepaper-v1-0-1.yaml
+      latest_white_paper_publication_verification: artifacts/dsr-framework-white-paper/records/releases/record-release-publication-verification-whitepaper-v1-0-2.yaml
       white_paper_zenodo_doi: 10.5281/zenodo.20272519
       white_paper_zenodo_record_url: https://zenodo.org/records/20272519
       white_paper_osf_project_url: https://osf.io/wytgc/
       white_paper_metaarxiv_preprint_url: https://osf.io/preprints/metaarxiv/ebf8m_v1
-      white_paper_metaarxiv_preprint_status: pending_v1_0_2_metadata_update_after_publication
-      white_paper_orcid_work_status: pending_v1_0_2_doi_update_after_publication
-      white_paper_package_status: whitepaper_v1_0_2_patch_release_prepared_for_publication
+      white_paper_metaarxiv_preprint_status: metadata_updated_pending_moderation_not_public_until_approval
+      white_paper_orcid_work_status: pending_two_factor_authentication_for_v1_0_2_doi_update
+      white_paper_package_status: whitepaper_v1_0_2_github_released_zenodo_published_metaarxiv_metadata_updated_osf_and_orcid_followup_pending
       latest_wicked_problem_resolution_workflow: docs/wicked-problem-resolution-workflow.md
       wicked_problem_resolution_workflow_status: controlled_process_artifact_present
       latest_rubric_collection: rubrics/dsr_assessment_rubrics_unified.yaml
@@ -906,6 +906,11 @@ manifest:
     to: artifacts/dsr-framework-white-paper/README.md
     relation: approves_and_scopes_white_paper_v1_0_2_table_header_patch_release
     evidence_status: retained_release_record
+  - trace_id: tr_white_paper_v1_0_2_publication_verification_to_zenodo_record
+    from: artifacts/dsr-framework-white-paper/records/releases/record-release-publication-verification-whitepaper-v1-0-2.yaml
+    to: https://zenodo.org/records/20272519
+    relation: verifies_white_paper_v1_0_2_zenodo_publication_and_platform_update_status
+    evidence_status: retained_publication_verification_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -1083,6 +1088,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.4.0-post-publication
+    date: '2026-05-18'
+    change_type: white_paper_v1_0_2_publication_verification
+    description: Recorded the DSR Framework white paper v1.0.2 GitHub release, Zenodo DOI 10.5281/zenodo.20272519, MetaArXiv metadata update, and OSF/ORCID follow-up status.
+    responsible_party: framework_maintainer
+    related_request: publish_white_paper_v1_0_2_github_zenodo_metaarxiv_with_osf_orcid_followup
   - version: 1.4.0-post-publication
     date: '2026-05-18'
     change_type: white_paper_v1_0_2_release_preparation
