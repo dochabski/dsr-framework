@@ -77,6 +77,7 @@ package_inventory:
     - rubrics/dsr_assessment_rubrics_unified.yaml
     - rubrics/dsr_assessment_rubrics_unified_sidecar.json
     - scripts/build-rubric-collection.py
+    - artifacts/dsr-framework-white-paper/README.md
   inventory_scope:
     included:
     - required root files
@@ -557,7 +558,7 @@ package_inventory:
   - directory_id: dir_025
     path: artifacts
     purpose: Nested artifact packages developed inside the DSR Framework repository before standalone release or repository split.
-    expected_file_count_from_selection_table: 25
+    expected_file_count_from_selection_table: 78
     listed_files:
     - artifacts/README.md
     - artifacts/dsr-theory-operational-kernel/README.md
@@ -584,11 +585,64 @@ package_inventory:
     - artifacts/dsr-theory-operational-kernel/validation-targets/documentation-protocol-validation.yaml
     - artifacts/dsr-theory-operational-kernel/validation-targets/dsr-framework-validation.yaml
     - artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+    - artifacts/dsr-framework-white-paper/Makefile
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.html
+    - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+    - artifacts/dsr-framework-white-paper/build/latex-preamble.tex
+    - artifacts/dsr-framework-white-paper/build/pandoc-metadata.yaml
+    - artifacts/dsr-framework-white-paper/build/whitepaper_build_html.log
+    - artifacts/dsr-framework-white-paper/build/whitepaper_build_pdf.log
+    - artifacts/dsr-framework-white-paper/codex_handoff.md
+    - artifacts/dsr-framework-white-paper/llms.txt
+    - artifacts/dsr-framework-white-paper/manual_checklist.md
+    - artifacts/dsr-framework-white-paper/metadata/CITATION.cff
+    - artifacts/dsr-framework-white-paper/metadata/codemeta.json
+    - artifacts/dsr-framework-white-paper/metadata/service-integration-profile.yaml
+    - artifacts/dsr-framework-white-paper/metadata/zenodo-json-template.json
+    - artifacts/dsr-framework-white-paper/package_manifest.json
+    - artifacts/dsr-framework-white-paper/platform_matrix.csv
+    - artifacts/dsr-framework-white-paper/publication_strategy.md
+    - artifacts/dsr-framework-white-paper/records/decisions/record-decision-0001-whitepaper-type-and-platforms.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-checklist-whitepaper.yaml
+    - artifacts/dsr-framework-white-paper/repo_integration/repo-update-checklist.md
+    - artifacts/dsr-framework-white-paper/scripts/assemble_whitepaper.py
+    - artifacts/dsr-framework-white-paper/source_map.json
+    - artifacts/dsr-framework-white-paper/sources/DSR Operational Synthesis.txt
+    - artifacts/dsr-framework-white-paper/sources/Design science research theory synthesis.md
+    - artifacts/dsr-framework-white-paper/sources/Theory of Design Science Research.txt
+    - artifacts/dsr-framework-white-paper/sources/Wicked Problem Workflow.txt
+    - artifacts/dsr-framework-white-paper/sources/concept-inventory_v2.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-part001.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-part002.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-sidecar.json
+    - artifacts/dsr-framework-white-paper/sources/dsr_assessment_rubrics_unified.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr_framework_narrative_review.md
+    - artifacts/dsr-framework-white-paper/sources/dsr_ontology_competency_questions.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr_skos_controlled_vocabulary.yaml
+    - artifacts/dsr-framework-white-paper/sources/operational_synthesis_dsr.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-a-source-basis.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-b-platform-matrix.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-c-codex-build-plan.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-d-repo-update-checklist.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-e-glossary.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/references.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/00-front-matter.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/01-executive-summary.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/02-introduction.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/03-what-dsr-is.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/04-operational-model.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/05-repository-native-operationalization.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/06-how-we-are-operationalizing.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/07-publication-and-dissemination.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/08-limitations-and-roadmap.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/09-conclusion.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
     directory_status: exists_files_verified
     existence_audit_date: '2026-05-05'
     listed_file_existence:
-      listed_count: 25
-      present_count: 25
+      listed_count: 78
+      present_count: 78
       missing_count: 0
   - directory_id: dir_027
     path: rubrics
@@ -634,6 +688,70 @@ package_inventory:
     listed_file_existence:
       listed_count: 5
       present_count: 5
+      missing_count: 0
+  - directory_id: dir_029
+    path: artifacts/dsr-framework-white-paper
+    purpose: Draft repository-native methodological white paper package for DSR Framework theory, operationalization, and publication strategy.
+    expected_file_count_from_selection_table: 53
+    listed_files:
+    - artifacts/dsr-framework-white-paper/Makefile
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.html
+    - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+    - artifacts/dsr-framework-white-paper/build/latex-preamble.tex
+    - artifacts/dsr-framework-white-paper/build/pandoc-metadata.yaml
+    - artifacts/dsr-framework-white-paper/build/whitepaper_build_html.log
+    - artifacts/dsr-framework-white-paper/build/whitepaper_build_pdf.log
+    - artifacts/dsr-framework-white-paper/codex_handoff.md
+    - artifacts/dsr-framework-white-paper/llms.txt
+    - artifacts/dsr-framework-white-paper/manual_checklist.md
+    - artifacts/dsr-framework-white-paper/metadata/CITATION.cff
+    - artifacts/dsr-framework-white-paper/metadata/codemeta.json
+    - artifacts/dsr-framework-white-paper/metadata/service-integration-profile.yaml
+    - artifacts/dsr-framework-white-paper/metadata/zenodo-json-template.json
+    - artifacts/dsr-framework-white-paper/package_manifest.json
+    - artifacts/dsr-framework-white-paper/platform_matrix.csv
+    - artifacts/dsr-framework-white-paper/publication_strategy.md
+    - artifacts/dsr-framework-white-paper/records/decisions/record-decision-0001-whitepaper-type-and-platforms.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-checklist-whitepaper.yaml
+    - artifacts/dsr-framework-white-paper/repo_integration/repo-update-checklist.md
+    - artifacts/dsr-framework-white-paper/scripts/assemble_whitepaper.py
+    - artifacts/dsr-framework-white-paper/source_map.json
+    - artifacts/dsr-framework-white-paper/sources/DSR Operational Synthesis.txt
+    - artifacts/dsr-framework-white-paper/sources/Design science research theory synthesis.md
+    - artifacts/dsr-framework-white-paper/sources/Theory of Design Science Research.txt
+    - artifacts/dsr-framework-white-paper/sources/Wicked Problem Workflow.txt
+    - artifacts/dsr-framework-white-paper/sources/concept-inventory_v2.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-part001.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-part002.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-sidecar.json
+    - artifacts/dsr-framework-white-paper/sources/dsr_assessment_rubrics_unified.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr_framework_narrative_review.md
+    - artifacts/dsr-framework-white-paper/sources/dsr_ontology_competency_questions.yaml
+    - artifacts/dsr-framework-white-paper/sources/dsr_skos_controlled_vocabulary.yaml
+    - artifacts/dsr-framework-white-paper/sources/operational_synthesis_dsr.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-a-source-basis.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-b-platform-matrix.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-c-codex-build-plan.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-d-repo-update-checklist.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-e-glossary.md
+    - artifacts/dsr-framework-white-paper/whitepaper/appendices/references.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/00-front-matter.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/01-executive-summary.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/02-introduction.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/03-what-dsr-is.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/04-operational-model.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/05-repository-native-operationalization.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/06-how-we-are-operationalizing.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/07-publication-and-dissemination.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/08-limitations-and-roadmap.md
+    - artifacts/dsr-framework-white-paper/whitepaper/chapters/09-conclusion.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    directory_status: exists_files_verified
+    existence_audit_date: '2026-05-17'
+    listed_file_existence:
+      listed_count: 53
+      present_count: 53
       missing_count: 0
   root_file_inventory:
   - path: README.md
@@ -8637,6 +8755,1702 @@ package_inventory:
     - records_github_release_and_zenodo_doi
     - keeps_l5_outside_v1_scope
 
+  - inventory_entry_id: inv_0234
+    file_id: file_artifacts_dsr_framework_white_paper_makefile
+    selection_id: artifacts_dsr_framework_white_paper_makefile
+    path: artifacts/dsr-framework-white-paper/Makefile
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: makefile
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0235
+    file_id: file_artifacts_dsr_framework_white_paper_readme_md
+    selection_id: artifacts_dsr_framework_white_paper_readme_md
+    path: artifacts/dsr-framework-white-paper/README.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: artifact_package_readme
+    output_format: markdown
+    purpose: Entry point and package orientation for the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0236
+    file_id: file_artifacts_dsr_framework_white_paper_build_dsr_framework_whitepaper_html
+    selection_id: artifacts_dsr_framework_white_paper_build_dsr_framework_whitepaper_html
+    path: artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.html
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_build_artifact
+    output_format: html
+    purpose: Generated HTML build of the draft DSR Framework white paper.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0237
+    file_id: file_artifacts_dsr_framework_white_paper_build_dsr_framework_whitepaper_pdf
+    selection_id: artifacts_dsr_framework_white_paper_build_dsr_framework_whitepaper_pdf
+    path: artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_build_artifact
+    output_format: pdf
+    purpose: Generated PDF build of the draft DSR Framework white paper.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0238
+    file_id: file_artifacts_dsr_framework_white_paper_build_latex_preamble_tex
+    selection_id: artifacts_dsr_framework_white_paper_build_latex_preamble_tex
+    path: artifacts/dsr-framework-white-paper/build/latex-preamble.tex
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_build_artifact
+    output_format: latex
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_template
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0239
+    file_id: file_artifacts_dsr_framework_white_paper_build_pandoc_metadata_yaml
+    selection_id: artifacts_dsr_framework_white_paper_build_pandoc_metadata_yaml
+    path: artifacts/dsr-framework-white-paper/build/pandoc-metadata.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_build_artifact
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0240
+    file_id: file_artifacts_dsr_framework_white_paper_build_whitepaper_build_html_log
+    selection_id: artifacts_dsr_framework_white_paper_build_whitepaper_build_html_log
+    path: artifacts/dsr-framework-white-paper/build/whitepaper_build_html.log
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_build_artifact
+    output_format: text
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0241
+    file_id: file_artifacts_dsr_framework_white_paper_build_whitepaper_build_pdf_log
+    selection_id: artifacts_dsr_framework_white_paper_build_whitepaper_build_pdf_log
+    path: artifacts/dsr-framework-white-paper/build/whitepaper_build_pdf.log
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_build_artifact
+    output_format: text
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0242
+    file_id: file_artifacts_dsr_framework_white_paper_codex_handoff_md
+    selection_id: artifacts_dsr_framework_white_paper_codex_handoff_md
+    path: artifacts/dsr-framework-white-paper/codex_handoff.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0243
+    file_id: file_artifacts_dsr_framework_white_paper_llms_txt
+    selection_id: artifacts_dsr_framework_white_paper_llms_txt
+    path: artifacts/dsr-framework-white-paper/llms.txt
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: text
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0244
+    file_id: file_artifacts_dsr_framework_white_paper_manual_checklist_md
+    selection_id: artifacts_dsr_framework_white_paper_manual_checklist_md
+    path: artifacts/dsr-framework-white-paper/manual_checklist.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0245
+    file_id: file_artifacts_dsr_framework_white_paper_metadata_citation_cff
+    selection_id: artifacts_dsr_framework_white_paper_metadata_citation_cff
+    path: artifacts/dsr-framework-white-paper/metadata/CITATION.cff
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_metadata_template
+    output_format: cff
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_release_metadata
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0246
+    file_id: file_artifacts_dsr_framework_white_paper_metadata_codemeta_json
+    selection_id: artifacts_dsr_framework_white_paper_metadata_codemeta_json
+    path: artifacts/dsr-framework-white-paper/metadata/codemeta.json
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_metadata_template
+    output_format: json
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_json_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0247
+    file_id: file_artifacts_dsr_framework_white_paper_metadata_service_integration_profile_yaml
+    selection_id: artifacts_dsr_framework_white_paper_metadata_service_integration_profile_yaml
+    path: artifacts/dsr-framework-white-paper/metadata/service-integration-profile.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_metadata_template
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0248
+    file_id: file_artifacts_dsr_framework_white_paper_metadata_zenodo_json_template_json
+    selection_id: artifacts_dsr_framework_white_paper_metadata_zenodo_json_template_json
+    path: artifacts/dsr-framework-white-paper/metadata/zenodo-json-template.json
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_metadata_template
+    output_format: json
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_json_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0249
+    file_id: file_artifacts_dsr_framework_white_paper_package_manifest_json
+    selection_id: artifacts_dsr_framework_white_paper_package_manifest_json
+    path: artifacts/dsr-framework-white-paper/package_manifest.json
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: json
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_json_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0250
+    file_id: file_artifacts_dsr_framework_white_paper_platform_matrix_csv
+    selection_id: artifacts_dsr_framework_white_paper_platform_matrix_csv
+    path: artifacts/dsr-framework-white-paper/platform_matrix.csv
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: csv
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0251
+    file_id: file_artifacts_dsr_framework_white_paper_publication_strategy_md
+    selection_id: artifacts_dsr_framework_white_paper_publication_strategy_md
+    path: artifacts/dsr-framework-white-paper/publication_strategy.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0252
+    file_id: file_artifacts_dsr_framework_white_paper_records_decisions_record_decision_0001_whitepaper_type_and_platforms_yaml
+    selection_id: artifacts_dsr_framework_white_paper_records_decisions_record_decision_0001_whitepaper_type_and_platforms_yaml
+    path: artifacts/dsr-framework-white-paper/records/decisions/record-decision-0001-whitepaper-type-and-platforms.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: decision_record
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0253
+    file_id: file_artifacts_dsr_framework_white_paper_records_releases_record_release_checklist_whitepaper_yaml
+    selection_id: artifacts_dsr_framework_white_paper_records_releases_record_release_checklist_whitepaper_yaml
+    path: artifacts/dsr-framework-white-paper/records/releases/record-release-checklist-whitepaper.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: release_checklist_record
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0254
+    file_id: file_artifacts_dsr_framework_white_paper_repo_integration_repo_update_checklist_md
+    selection_id: artifacts_dsr_framework_white_paper_repo_integration_repo_update_checklist_md
+    path: artifacts/dsr-framework-white-paper/repo_integration/repo-update-checklist.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: repo_integration_checklist
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0255
+    file_id: file_artifacts_dsr_framework_white_paper_scripts_assemble_whitepaper_py
+    selection_id: artifacts_dsr_framework_white_paper_scripts_assemble_whitepaper_py
+    path: artifacts/dsr-framework-white-paper/scripts/assemble_whitepaper.py
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_build_script
+    output_format: python
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_executable_validation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0256
+    file_id: file_artifacts_dsr_framework_white_paper_source_map_json
+    selection_id: artifacts_dsr_framework_white_paper_source_map_json
+    path: artifacts/dsr-framework-white-paper/source_map.json
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_package_file
+    output_format: json
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_json_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0257
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_operational_synthesis_txt
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_operational_synthesis_txt
+    path: artifacts/dsr-framework-white-paper/sources/DSR Operational Synthesis.txt
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: text
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0258
+    file_id: file_artifacts_dsr_framework_white_paper_sources_design_science_research_theory_synthesis_md
+    selection_id: artifacts_dsr_framework_white_paper_sources_design_science_research_theory_synthesis_md
+    path: artifacts/dsr-framework-white-paper/sources/Design science research theory synthesis.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0259
+    file_id: file_artifacts_dsr_framework_white_paper_sources_theory_of_design_science_research_txt
+    selection_id: artifacts_dsr_framework_white_paper_sources_theory_of_design_science_research_txt
+    path: artifacts/dsr-framework-white-paper/sources/Theory of Design Science Research.txt
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: text
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0260
+    file_id: file_artifacts_dsr_framework_white_paper_sources_wicked_problem_workflow_txt
+    selection_id: artifacts_dsr_framework_white_paper_sources_wicked_problem_workflow_txt
+    path: artifacts/dsr-framework-white-paper/sources/Wicked Problem Workflow.txt
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: text
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0261
+    file_id: file_artifacts_dsr_framework_white_paper_sources_concept_inventory_v2_yaml
+    selection_id: artifacts_dsr_framework_white_paper_sources_concept_inventory_v2_yaml
+    path: artifacts/dsr-framework-white-paper/sources/concept-inventory_v2.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0262
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_source_operational_extractions_unified_part001_yaml
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_source_operational_extractions_unified_part001_yaml
+    path: artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-part001.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0263
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_source_operational_extractions_unified_part002_yaml
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_source_operational_extractions_unified_part002_yaml
+    path: artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-part002.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0264
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_source_operational_extractions_unified_sidecar_json
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_source_operational_extractions_unified_sidecar_json
+    path: artifacts/dsr-framework-white-paper/sources/dsr-source-operational-extractions-unified-sidecar.json
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: json
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_json_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0265
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_assessment_rubrics_unified_yaml
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_assessment_rubrics_unified_yaml
+    path: artifacts/dsr-framework-white-paper/sources/dsr_assessment_rubrics_unified.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0266
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_framework_narrative_review_md
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_framework_narrative_review_md
+    path: artifacts/dsr-framework-white-paper/sources/dsr_framework_narrative_review.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0267
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_ontology_competency_questions_yaml
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_ontology_competency_questions_yaml
+    path: artifacts/dsr-framework-white-paper/sources/dsr_ontology_competency_questions.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0268
+    file_id: file_artifacts_dsr_framework_white_paper_sources_dsr_skos_controlled_vocabulary_yaml
+    selection_id: artifacts_dsr_framework_white_paper_sources_dsr_skos_controlled_vocabulary_yaml
+    path: artifacts/dsr-framework-white-paper/sources/dsr_skos_controlled_vocabulary.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: yaml
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_yaml_controlled_file
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0269
+    file_id: file_artifacts_dsr_framework_white_paper_sources_operational_synthesis_dsr_md
+    selection_id: artifacts_dsr_framework_white_paper_sources_operational_synthesis_dsr_md
+    path: artifacts/dsr-framework-white-paper/sources/operational_synthesis_dsr.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_source_context
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0270
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_a_source_basis_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_a_source_basis_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-a-source-basis.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_appendix
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0271
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_b_platform_matrix_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_b_platform_matrix_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-b-platform-matrix.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_appendix
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0272
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_c_codex_build_plan_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_c_codex_build_plan_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-c-codex-build-plan.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_appendix
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0273
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_d_repo_update_checklist_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_d_repo_update_checklist_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-d-repo-update-checklist.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_appendix
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0274
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_e_glossary_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_appendices_appendix_e_glossary_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/appendices/appendix-e-glossary.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_appendix
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0275
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_appendices_references_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_appendices_references_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/appendices/references.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_appendix
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0276
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_00_front_matter_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_00_front_matter_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/00-front-matter.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0277
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_01_executive_summary_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_01_executive_summary_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/01-executive-summary.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0278
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_02_introduction_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_02_introduction_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/02-introduction.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0279
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_03_what_dsr_is_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_03_what_dsr_is_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/03-what-dsr-is.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0280
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_04_operational_model_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_04_operational_model_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/04-operational-model.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0281
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_05_repository_native_operationalization_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_05_repository_native_operationalization_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/05-repository-native-operationalization.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0282
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_06_how_we_are_operationalizing_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_06_how_we_are_operationalizing_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/06-how-we-are-operationalizing.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0283
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_07_publication_and_dissemination_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_07_publication_and_dissemination_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/07-publication-and-dissemination.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0284
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_08_limitations_and_roadmap_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_08_limitations_and_roadmap_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/08-limitations-and-roadmap.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0285
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_chapters_09_conclusion_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_chapters_09_conclusion_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/chapters/09-conclusion.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_chapter
+    output_format: markdown
+    purpose: Controlled file in the draft DSR Framework white paper artifact package.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
+  - inventory_entry_id: inv_0286
+    file_id: file_artifacts_dsr_framework_white_paper_whitepaper_whitepaper_unified_md
+    selection_id: artifacts_dsr_framework_white_paper_whitepaper_whitepaper_unified_md
+    path: artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_unified_markdown
+    output_format: markdown
+    purpose: Unified Markdown manuscript for the draft DSR Framework white paper.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-17'
+    validation_profile_id: vp_markdown_documentation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - draft_white_paper_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_white_paper_draft_status
+    - keeps_l5_outside_current_claim
+
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -8960,12 +10774,17 @@ package_inventory:
     change: Recorded Zenodo publication DOI 10.5281/zenodo.20241016 for v1.4.0 and added a retained publication-verification record.
     responsible_party: framework_maintainer
     review_status: v1_4_0_zenodo_publication_verified
+  - version: 1.4.0-post-publication
+    date: '2026-05-17'
+    change: Added draft DSR Framework white paper package under artifacts/dsr-framework-white-paper, including unified Markdown, HTML/PDF builds, metadata templates, source map, and publication strategy.
+    responsible_party: framework_maintainer
+    review_status: draft_white_paper_package_added_not_released
   normalization_status:
     status: 1.4.0_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 233
+    controlled_file_inventory_entries: 286
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -9019,6 +10838,10 @@ package_inventory:
     latest_minimal_l1_l2_schema: schemas/minimal-l1-l2-documentation.schema.json
     latest_minimal_l1_l2_example: examples/minimal-l1-l2-package/minimal-documentation.yaml
     latest_minimal_l1_l2_validator: scripts/validate-minimal-l1-l2.py
+    latest_white_paper_package: artifacts/dsr-framework-white-paper/README.md
+    latest_white_paper_unified_markdown: artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    latest_white_paper_pdf_build: artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+    white_paper_package_status: draft_repository_native_methodological_white_paper_not_released
     v1_release_record_status: approved_for_github_release
     v1_release_approval_status: approved_for_github_release
     patch_release_status: approved_for_github_release_v1_0_2

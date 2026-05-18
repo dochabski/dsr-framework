@@ -1,0 +1,50 @@
+# Manual Checklist
+
+## Before public release
+
+- Read the unified white paper once end-to-end.
+- Replace all placeholders: date, version, DOI, final title, final license, and release status.
+- Verify ORCID and preferred author metadata.
+- Verify all references, DOI links, and platform links.
+- Remove or rewrite any source-derived text that may be too close to copyrighted sources.
+- Confirm the paper does not claim independent external validation, semantic consensus, or L5 status unless evidence exists.
+
+## GitHub
+
+- Add this package to the DSR Framework repo.
+- Update root README, package inventory, artifact profile, and artifacts index as needed.
+- Commit to a branch and open a PR or self-review issue.
+- Run repository validation scripts.
+- Create a tagged GitHub release only after final human edit.
+
+## Zenodo
+
+- Connect Zenodo to GitHub through the Zenodo GitHub integration.
+- Enable the DSR Framework repository.
+- Create or reserve DOI metadata after the GitHub release exists.
+- Upload or verify release artifacts: PDF, HTML, unified Markdown, source archive, metadata.
+- Confirm title, creators, ORCID, license, related identifiers, keywords, and version.
+
+## OSF
+
+- Create an OSF project for the white paper and DSR Framework materials.
+- Add GitHub and Zenodo links.
+- Upload the PDF and unified Markdown if you want OSF-hosted files.
+- Consider an OSF Preprint only after the manuscript is stable.
+
+## Octopus
+
+- Use only after the paper is stable.
+- Map content to research-process units, for example research problem, method, results/synthesis, interpretation, and real-world application.
+- Link back to GitHub and Zenodo.
+
+## Data repositories
+
+- Use Mendeley Data or Dryad only if publishing a reusable data package, such as curated extraction metadata or a concept-inventory dataset.
+- Do not upload the white paper itself as if it were a dataset.
+- Do not upload source PDFs or excessive third-party quoted text.
+
+## Dissemination profiles
+
+- Add DOI, GitHub release, and OSF links to ORCID, ResearchGate, Academia.edu, LinkedIn, Substack, and personal web pages.
+- Keep all profile text clear that GitHub/Zenodo are canonical.

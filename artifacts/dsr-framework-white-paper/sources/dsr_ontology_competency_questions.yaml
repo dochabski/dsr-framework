@@ -1,0 +1,1910 @@
+dsr_ontology_competency_questions:
+  metadata:
+    id: dsr_ontology_competency_questions_v0_1_0
+    title: Ontology Competency Questions for Semantic Validation of Design Science Research Documentation
+    version: 0.1.0-draft
+    generated_on: '2026-05-05'
+    generated_from:
+    - file: DSR Operational Synthesis.txt
+      role: operational DSR synthesis and validation-rule rationale
+    - file: Theory of Design Science Research.txt
+      role: consensus-theory source anchors and construct definitions
+    - file: concept-inventory_v2.yaml
+      role: normalized classes, properties, controlled vocabularies, validation rules, and anti-patterns
+    purpose: Provide competency questions that an RDF/OWL ontology, SKOS vocabulary, SHACL shape library, and SPARQL query
+      layer should answer for DSR documentation records.
+    identifier_policy: ASCII lowercase snake_case for classes/properties/vocabularies; question IDs use CQ-<DOMAIN>-NNN.
+    priority_values:
+    - core
+    - recommended
+    - advanced
+    - source-dependent
+    question_fields:
+    - question_id
+    - priority
+    - natural_language_question
+    - required_classes
+    - required_properties
+    - required_controlled_values
+    - expected_answer_type
+    - shacl_validation_direct
+    - sparql_query_support_needed
+    - human_judgment_required
+    - validation_notes
+    - source_anchors
+    validation_interpretation:
+      shacl_validation_direct: true when ordinary SHACL node/property shapes can test the minimum condition without custom
+        graph queries or human interpretation
+      sparql_query_support_needed: true when answering the question requires joins, multi-hop paths, negation, aggregation,
+        comparison across records, or report generation
+      human_judgment_required: true when adequacy, relevance, ethical acceptability, novelty, methodological fit, or evidence
+        sufficiency must be reviewed by a person
+  domains:
+  - domain_id: problem_space
+    domain_label: Problem Space
+    domain_description: Competency questions for problem instance, problem class, problem relevance, and problem-to-requirement
+      abstraction.
+    competency_questions:
+    - question_id: CQ-PS-001
+      priority: core
+      natural_language_question: Does every DSR study state both a situated problem instance and an abstract problem class,
+        and is the instance explicitly abstracted to the class?
+      required_classes:
+      - dsr_study
+      - problem_space
+      - problem_instance
+      - problem_class
+      required_properties:
+      - has_problem_space
+      - has_problem_instance
+      - has_problem_class
+      - abstracts_to_problem_class
+      required_controlled_values: []
+      expected_answer_type: boolean plus problem_instance_to_problem_class path
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Minimum cardinality and required edge validation can be tested with SHACL node/property shapes.
+      source_anchors:
+      - vr_dsr_study_requires_problem_instance_and_class
+      - vr_problem_class_abstraction_required
+    - question_id: CQ-PS-002
+      priority: recommended
+      natural_language_question: What evidence or justification supports the practical relevance, severity, or importance
+        of the problem?
+      required_classes:
+      - problem_motivation
+      - stakeholder_evidence
+      - evaluation_evidence
+      required_properties:
+      - relevance_justification
+      - source_anchor_id
+      - supports_claim
+      required_controlled_values:
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - empirical
+        - expert
+        - field
+        - case
+        - literature_synthesis
+        - conceptual_argument
+      expected_answer_type: list of evidence records with source anchors and relevance justification text
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: SHACL can require evidence fields, but adequacy of problem relevance remains a judgment about the
+        evidence-to-claim fit.
+      source_anchors:
+      - vr_problem_relevance_requires_evidence
+    - question_id: CQ-PS-003
+      priority: advanced
+      natural_language_question: Which objectives and requirements are derived from the problem and context, and where is
+        that derivation trace recorded?
+      required_classes:
+      - problem
+      - context
+      - objective
+      - requirement
+      - requirements_design_evaluation_trace
+      required_properties:
+      - derived_from_problem
+      - has_context
+      - has_objective
+      - has_requirement
+      required_controlled_values:
+      - vocabulary: traceability_edge_vocabulary
+        values:
+        - problem_to_requirement
+      expected_answer_type: trace subgraph from problem/context nodes to objectives and requirements
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Requires multi-hop graph traversal and review of whether derivation is semantically persuasive, not
+        merely linked.
+      source_anchors:
+      - vr_requirements_trace_to_problem
+    - question_id: CQ-PS-004
+      priority: source-dependent
+      natural_language_question: When a source characterizes problem origin, wickedness, opportunity type, or domain-specific
+        problem type, is that characterization represented without forcing it into unsupported hard constraints?
+      required_classes:
+      - problem
+      - problem_statement
+      - problem_motivation
+      - boundary_condition
+      required_properties:
+      - problem_statement_text
+      - relevance_justification
+      - source_anchor_id
+      - has_boundary_condition
+      required_controlled_values:
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+        - not_addressed
+      expected_answer_type: annotated problem characterization with provenance and obligation status
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: This is conditional because the inventory does not impose a universal problem-type vocabulary; source-specific
+        terms need human normalization.
+      source_anchors:
+      - sc_problem_class_minimum_evidence
+  - domain_id: context_and_stakeholder_space
+    domain_label: Context and Stakeholder Space
+    domain_description: Competency questions for context, stakeholder roles, boundary conditions, artifact networks, and projectability
+      boundaries.
+    competency_questions:
+    - question_id: CQ-CS-001
+      priority: core
+      natural_language_question: Does the study identify the context, at least one relevant stakeholder, and boundary conditions
+        that delimit the DSR claim?
+      required_classes:
+      - context_space
+      - context
+      - stakeholder
+      - boundary_condition
+      required_properties:
+      - has_context
+      - has_stakeholder
+      - has_boundary_condition
+      required_controlled_values: []
+      expected_answer_type: boolean plus context/stakeholder/boundary-condition node set
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Core completeness can be tested through cardinality constraints on context, stakeholder, and boundary-condition
+        links.
+      source_anchors:
+      - vr_context_boundary_required
+    - question_id: CQ-CS-002
+      priority: recommended
+      natural_language_question: Which stakeholder roles are documented, and are the intended audiences for artifact use,
+        evaluation, and communication distinguished?
+      required_classes:
+      - stakeholder
+      - audience
+      required_properties:
+      - has_stakeholder
+      - communicates_to_audience
+      - stakeholder_role
+      required_controlled_values:
+      - vocabulary: audience_vocabulary
+        values:
+        - researcher
+        - reviewer
+        - practitioner
+        - manager
+        - policy_public
+        - technical_implementer
+        - user
+        - sponsor
+      expected_answer_type: table of stakeholder roles and audience categories
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: SHACL can test controlled audience values; human judgment is needed to decide whether stakeholder
+        coverage is adequate for the claim.
+      source_anchors: []
+    - question_id: CQ-CS-003
+      priority: advanced
+      natural_language_question: Which evaluation findings, projectability statements, and contribution claims are scoped
+        to which contextual boundary conditions?
+      required_classes:
+      - context
+      - boundary_condition
+      - evaluation_finding
+      - projectability_statement
+      - contribution_claim
+      required_properties:
+      - has_context
+      - has_boundary_condition
+      - has_projectability_statement
+      - supports_contribution_claim
+      required_controlled_values:
+      - vocabulary: traceability_edge_vocabulary
+        values:
+        - evidence_to_claim
+        - evaluation_to_design_knowledge
+        - design_knowledge_to_contribution
+      expected_answer_type: context-scoped claim-evidence-boundary graph
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Requires graph traversal across context, evidence, design knowledge, and contribution nodes; adequacy
+        requires reviewer judgment.
+      source_anchors:
+      - vr_contribution_claim_requires_evidence_novelty_scope_boundary
+    - question_id: CQ-CS-004
+      priority: source-dependent
+      natural_language_question: When resources, governance arrangements, artifact networks, or externalities affect feasibility
+        or validity, are they represented as context rather than hidden background assumptions?
+      required_classes:
+      - prerequisite_space
+      - resource
+      - governance
+      - artifact_network
+      - context
+      - boundary_condition
+      required_properties:
+      - has_context
+      - has_boundary_condition
+      - context_description
+      required_controlled_values:
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+        - recommended
+        - not_addressed
+      expected_answer_type: conditional context-extension record with source anchors
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: The ontology can support these nodes, but whether they are relevant depends on source content and
+        study genre.
+      source_anchors: []
+  - domain_id: input_knowledge
+    domain_label: Input Knowledge
+    domain_description: Competency questions for rigor grounding, kernel theory, prior artifacts, practitioner knowledge,
+      and separation of input knowledge from generated design knowledge.
+    competency_questions:
+    - question_id: CQ-IK-001
+      priority: core
+      natural_language_question: Does the study identify the input knowledge used to ground artifact design and evaluation?
+      required_classes:
+      - input_knowledge
+      - kernel_theory
+      - descriptive_knowledge
+      - prior_artifact
+      required_properties:
+      - has_input_knowledge
+      - uses_kernel_theory
+      - uses_prior_artifact
+      - grounded_in_input_knowledge
+      required_controlled_values: []
+      expected_answer_type: set of input-knowledge nodes grouped by type
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Presence of input knowledge and grounding edges can be tested directly with SHACL.
+      source_anchors:
+      - vr_solution_grounding_required
+    - question_id: CQ-IK-002
+      priority: recommended
+      natural_language_question: Which solution alternatives, prior artifacts, theories, or methods were considered, selected,
+        adapted, or rejected?
+      required_classes:
+      - solution_alternative
+      - prior_artifact
+      - kernel_theory
+      - design_rationale
+      required_properties:
+      - uses_prior_artifact
+      - uses_kernel_theory
+      - has_design_rationale
+      - rationale_text
+      required_controlled_values:
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - literature_synthesis
+        - conceptual_argument
+        - expert
+        - repository_trace
+      expected_answer_type: ranked or annotated list of solution alternatives with rationale
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Ontology can retrieve alternatives and rationales; evaluating whether grounding is sufficient requires
+        expert judgment.
+      source_anchors:
+      - vr_solution_grounding_required
+    - question_id: CQ-IK-003
+      priority: advanced
+      natural_language_question: Is input knowledge kept distinct from generated design knowledge and output knowledge throughout
+        the trace?
+      required_classes:
+      - input_knowledge
+      - design_knowledge
+      - output_knowledge
+      required_properties:
+      - has_input_knowledge
+      - produces_design_knowledge
+      - produces_output_knowledge
+      required_controlled_values: []
+      expected_answer_type: boolean plus any suspicious sameAs/duplicate-node conflicts
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: false
+      validation_notes: Direct SHACL can enforce class disjointness or non-equality where represented; SPARQL is useful to
+        find reused identifiers and conflated nodes.
+      source_anchors:
+      - vr_design_knowledge_distinct_from_input_knowledge
+    - question_id: CQ-IK-004
+      priority: source-dependent
+      natural_language_question: When practitioner knowledge, local know-how, or domain expertise is used as input knowledge,
+        is it represented with stakeholder provenance and confidence notes?
+      required_classes:
+      - practitioner_knowledge
+      - stakeholder
+      - stakeholder_evidence
+      - input_knowledge
+      required_properties:
+      - has_input_knowledge
+      - has_stakeholder
+      - source_anchor_id
+      - confidence_percent
+      required_controlled_values:
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - expert
+        - field
+        - case
+      - vocabulary: ambiguity_level_vocabulary
+        values:
+        - low
+        - medium
+        - high
+      expected_answer_type: provenance-qualified practitioner-knowledge record
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Practitioner knowledge is not always present; when present, provenance and confidence should be queryable
+        and reviewed.
+      source_anchors: []
+  - domain_id: objectives_and_requirements
+    domain_label: Objectives and Requirements
+    domain_description: Competency questions for objectives, requirements, acceptance criteria, traceability, and design-decision
+      alignment.
+    competency_questions:
+    - question_id: CQ-OR-001
+      priority: core
+      natural_language_question: Does the study translate the problem into objectives, requirements, and acceptance criteria
+        that can be evaluated?
+      required_classes:
+      - objective
+      - requirement
+      - acceptance_criterion
+      - problem
+      required_properties:
+      - has_objective
+      - has_requirement
+      - derived_from_problem
+      - objective_text
+      - requirement_text
+      - acceptance_threshold
+      required_controlled_values: []
+      expected_answer_type: boolean plus objective-requirement-acceptance table
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Cardinality and datatype presence can be tested with SHACL.
+      source_anchors:
+      - vr_requirements_trace_to_problem
+    - question_id: CQ-OR-002
+      priority: recommended
+      natural_language_question: Are requirements explicitly traced to the problem, context, and relevant input knowledge
+        rather than appearing as unsupported design wishes?
+      required_classes:
+      - requirement
+      - problem
+      - context
+      - input_knowledge
+      required_properties:
+      - derived_from_problem
+      - has_context
+      - grounded_in_input_knowledge
+      - has_requirement
+      required_controlled_values:
+      - vocabulary: traceability_edge_vocabulary
+        values:
+        - problem_to_requirement
+        - concept_to_schema_field
+      expected_answer_type: requirement trace matrix
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Graph completeness can be queried; semantic adequacy of the trace remains a review question.
+      source_anchors:
+      - vr_requirements_trace_to_problem
+    - question_id: CQ-OR-003
+      priority: advanced
+      natural_language_question: Which design decisions satisfy which requirements, and which evaluation criteria later test
+        those decisions?
+      required_classes:
+      - requirement
+      - design_decision
+      - evaluation_criterion
+      - requirements_design_evaluation_trace
+      required_properties:
+      - has_design_decision
+      - satisfies_requirement
+      - uses_evaluation_criterion
+      required_controlled_values:
+      - vocabulary: traceability_edge_vocabulary
+        values:
+        - requirement_to_design_decision
+        - design_decision_to_evaluation
+      expected_answer_type: multi-hop trace from requirement to design decision to evaluation criterion
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Requires multi-hop SPARQL and review of whether the evaluation criterion actually tests the requirement.
+      source_anchors:
+      - vr_design_decisions_trace_to_requirements
+    - question_id: CQ-OR-004
+      priority: source-dependent
+      natural_language_question: When the source distinguishes meta-requirements, design requirements, evaluation requirements,
+        or acceptance thresholds, are those requirement subtypes preserved?
+      required_classes:
+      - requirement
+      - acceptance_criterion
+      - evaluation_criterion
+      required_properties:
+      - requirement_text
+      - acceptance_threshold
+      - uses_evaluation_criterion
+      - source_anchor_id
+      required_controlled_values:
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+        - recommended
+        - not_addressed
+      expected_answer_type: source-preserving requirement subtype annotation
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: The current inventory supports requirements generally; subtype vocabulary may need local extension
+        or SKOS mapping.
+      source_anchors: []
+  - domain_id: artifact_design_entity
+    domain_label: Artifact / Design Entity
+    domain_description: Competency questions for artifact centrality, artifact type, artifact universal, design specification,
+      and artifact boundary.
+    competency_questions:
+    - question_id: CQ-ADE-001
+      priority: core
+      natural_language_question: Does the study identify an artifact universal or design entity, and is its artifact type
+        controlled?
+      required_classes:
+      - design_entity
+      - artifact_universal
+      - artifact_space
+      required_properties:
+      - has_design_entity
+      - has_artifact_universal
+      - artifact_name
+      - artifact_boundary
+      required_controlled_values:
+      - vocabulary: artifact_type_vocabulary
+        values:
+        - construct
+        - model
+        - method
+        - instantiation_class
+        - artifact_instantiation
+        - design_principle
+        - design_pattern
+        - design_theory
+        - framework
+        - taxonomy
+        - ontology
+        - architecture
+        - socio_technical_intervention
+        - process_artifact
+      expected_answer_type: artifact record with controlled artifact type and boundary statement
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: The ontology should directly validate the presence of an artifact/design entity and controlled artifact
+        type.
+      source_anchors:
+      - vr_artifact_universal_required
+    - question_id: CQ-ADE-002
+      priority: recommended
+      natural_language_question: Does the artifact/design entity include a make plan, use plan, and capacity specification?
+      required_classes:
+      - artifact_universal
+      - make_plan
+      - use_plan
+      - capacity_specification
+      required_properties:
+      - has_make_plan
+      - has_use_plan
+      - has_capacity_specification
+      - make_goal
+      - use_goal
+      - capacity_statement
+      required_controlled_values: []
+      expected_answer_type: artifact specification completeness report
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: The inventory treats make/use/capacity specification as validation-ready, although severity may be
+        profiled by genre.
+      source_anchors:
+      - vr_artifact_spec_requires_make_use_capacity
+      - sc_artifact_universal_requirement_strength
+    - question_id: CQ-ADE-003
+      priority: advanced
+      natural_language_question: Is the artifact universal distinct from its instantiations, technical objects, and output
+        knowledge?
+      required_classes:
+      - artifact_universal
+      - artifact_instantiation
+      - design_entity
+      - output_knowledge
+      required_properties:
+      - has_artifact_instantiation
+      - instantiates_artifact_universal
+      - produces_output_knowledge
+      required_controlled_values: []
+      expected_answer_type: boolean plus conflict report for conflated artifact/output/instantiation nodes
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: false
+      validation_notes: Direct SHACL can enforce non-equality; SPARQL helps detect same labels, reused identifiers, or missing
+        instantiation links.
+      source_anchors:
+      - vr_artifact_universal_not_same_as_instantiation
+      - ap_conflated_artifact_and_output_knowledge
+    - question_id: CQ-ADE-004
+      priority: source-dependent
+      natural_language_question: When the artifact depends on an artifact network, lifecycle, maintenance plan, or socio-technical
+        arrangement, are those dependencies represented as part of the artifact boundary?
+      required_classes:
+      - artifact_network
+      - boundary_condition
+      - socio_technical_intervention
+      - context
+      required_properties:
+      - has_boundary_condition
+      - artifact_boundary
+      - maintenance_boundary
+      - context_description
+      required_controlled_values:
+      - vocabulary: artifact_type_vocabulary
+        values:
+        - socio_technical_intervention
+        - architecture
+        - process_artifact
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+        - recommended
+      expected_answer_type: artifact dependency and maintenance-boundary record
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Conditional on artifact type and source claims; needs review to avoid over-scoping the artifact.
+      source_anchors:
+      - ap_artifact_maintenance_neglect
+  - domain_id: instantiation
+    domain_label: Instantiation
+    domain_description: Competency questions for prototypes, implementations, versions, concrete use settings, and instantiation-to-universal
+      links.
+    competency_questions:
+    - question_id: CQ-IN-001
+      priority: core
+      natural_language_question: If an implementation, prototype, or proof-of-concept is reported, is it linked to the artifact
+        universal or design entity it instantiates?
+      required_classes:
+      - artifact_instantiation
+      - artifact_universal
+      - design_entity
+      required_properties:
+      - has_artifact_instantiation
+      - instantiates_artifact_universal
+      - has_design_entity
+      required_controlled_values:
+      - vocabulary: artifact_type_vocabulary
+        values:
+        - artifact_instantiation
+        - instantiation_class
+      expected_answer_type: boolean plus instantiation-to-universal link set
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Conditional cardinality and link validation can be handled directly when an instantiation node exists.
+      source_anchors:
+      - vr_artifact_universal_not_same_as_instantiation
+    - question_id: CQ-IN-002
+      priority: recommended
+      natural_language_question: Does each instantiation record include version, implementation boundary, and use context
+        sufficient for interpretation?
+      required_classes:
+      - artifact_instantiation
+      - context
+      - boundary_condition
+      required_properties:
+      - artifact_version
+      - artifact_boundary
+      - has_context
+      - has_boundary_condition
+      required_controlled_values: []
+      expected_answer_type: instantiation metadata completeness report
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: true
+      validation_notes: SHACL can test metadata presence; sufficiency of implementation detail is a human judgment.
+      source_anchors: []
+    - question_id: CQ-IN-003
+      priority: advanced
+      natural_language_question: Which stated capacities of the instantiation support make claims, use claims, or usage-effect
+        claims?
+      required_classes:
+      - artifact_instantiation
+      - capacity_specification
+      - make_claim
+      - use_claim
+      - usage_effect_claim
+      required_properties:
+      - has_capacity_specification
+      - supports_claim
+      - capacity_statement
+      required_controlled_values:
+      - vocabulary: claim_type_vocabulary
+        values:
+        - make_claim
+        - use_claim
+        - usage_effect_claim
+      expected_answer_type: capacity-to-claim support graph
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Graph query can link capacities to claims; reviewers must assess whether capacities plausibly support
+        claimed effects.
+      source_anchors:
+      - vr_make_claim_requires_build_trace
+      - vr_use_claim_requires_use_plan_and_conditions
+    - question_id: CQ-IN-004
+      priority: source-dependent
+      natural_language_question: When a source labels the instantiation as prototype, proof of concept, proof of value, pilot,
+        field implementation, or local technical object, is that label retained with provenance?
+      required_classes:
+      - artifact_instantiation
+      - demonstration
+      - evaluation_evidence
+      required_properties:
+      - source_anchor_id
+      - artifact_boundary
+      - supports_claim
+      required_controlled_values:
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - proof
+        - field
+        - case
+        - build_evaluate
+        - repository_trace
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+      expected_answer_type: source-preserving instantiation label with evidence mode
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: The controlled inventory does not force one prototype taxonomy, so source terminology should be retained
+        and normalized cautiously.
+      source_anchors: []
+  - domain_id: demonstration
+    domain_label: Demonstration
+    domain_description: Competency questions for artifact demonstration, use cases, users, scenarios, and demonstration-to-evaluation
+      traceability.
+    competency_questions:
+    - question_id: CQ-DEM-001
+      priority: core
+      natural_language_question: Does the study demonstrate the artifact/design entity in at least one use case, scenario,
+        prototype, or implementation context?
+      required_classes:
+      - demonstration
+      - use_case
+      - design_entity
+      - artifact_instantiation
+      required_properties:
+      - demonstrates_artifact
+      - has_use_case
+      - has_artifact_instantiation
+      required_controlled_values: []
+      expected_answer_type: boolean plus demonstration/use-case node set
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Demonstration and use-case presence can be tested with cardinality constraints.
+      source_anchors: []
+    - question_id: CQ-DEM-002
+      priority: recommended
+      natural_language_question: Who participated in or was represented by the demonstration, and what context or task was
+        demonstrated?
+      required_classes:
+      - demonstration
+      - stakeholder
+      - context
+      - use_case
+      required_properties:
+      - has_stakeholder
+      - has_context
+      - has_use_case
+      - context_description
+      required_controlled_values:
+      - vocabulary: audience_vocabulary
+        values:
+        - user
+        - practitioner
+        - manager
+        - technical_implementer
+        - sponsor
+      expected_answer_type: demonstration participant-context-task table
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Controlled stakeholder/audience values can be validated; adequacy of participant representation requires
+        judgment.
+      source_anchors: []
+    - question_id: CQ-DEM-003
+      priority: advanced
+      natural_language_question: Which claims are supported by demonstration evidence, and which still require separate evaluation
+        evidence?
+      required_classes:
+      - demonstration
+      - evaluation_evidence
+      - make_claim
+      - use_claim
+      - usage_effect_claim
+      - contribution_claim
+      required_properties:
+      - supports_claim
+      - supports_contribution_claim
+      - demonstrates_artifact
+      required_controlled_values:
+      - vocabulary: claim_type_vocabulary
+        values:
+        - make_claim
+        - use_claim
+        - usage_effect_claim
+        - contribution_claim
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - build_evaluate
+        - case
+        - field
+        - proof
+      expected_answer_type: claim support matrix distinguishing demonstration from evaluation
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Requires query support to distinguish evidence roles; human review is needed because demonstration
+        does not automatically equal evaluation.
+      source_anchors:
+      - vr_evaluation_claim_alignment
+    - question_id: CQ-DEM-004
+      priority: source-dependent
+      natural_language_question: When the source reports only a conceptual illustration or expository instantiation, is it
+        marked as demonstration rather than overclaimed as naturalistic evaluation?
+      required_classes:
+      - demonstration
+      - artifact_instantiation
+      - evaluation_evidence
+      required_properties:
+      - supports_claim
+      - source_anchor_id
+      required_controlled_values:
+      - vocabulary: evaluation_setting_vocabulary
+        values:
+        - artificial
+        - naturalistic
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - conceptual_argument
+        - proof
+        - case
+      expected_answer_type: classification of demonstration strength and evaluation boundary
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Distinguishing conceptual illustration from evaluation is source- and genre-dependent.
+      source_anchors:
+      - ap_evaluation_mismatch
+  - domain_id: evaluation
+    domain_label: Evaluation
+    domain_description: Competency questions for evaluation coordinates, claim-evidence alignment, evidence limitations, criteria,
+      measures, and findings.
+    competency_questions:
+    - question_id: CQ-EV-001
+      priority: core
+      natural_language_question: Does every evaluation record specify evaluation object, criterion, timing, function, setting,
+        evidence mode, finding, and supported claim type?
+      required_classes:
+      - evaluation_plan
+      - evaluation_evidence
+      - evaluation_object
+      - evaluation_criterion
+      - evaluation_finding
+      required_properties:
+      - has_evaluation_plan
+      - has_evaluation_evidence
+      - evaluates_object
+      - uses_evaluation_criterion
+      - supports_claim
+      - evaluation_result_summary
+      required_controlled_values:
+      - vocabulary: evaluation_timing_vocabulary
+        values:
+        - ex_ante
+        - ex_post
+      - vocabulary: evaluation_function_vocabulary
+        values:
+        - formative
+        - summative
+      - vocabulary: evaluation_setting_vocabulary
+        values:
+        - artificial
+        - naturalistic
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - analytical
+        - empirical
+        - expert
+        - simulation
+        - experiment
+        - field
+        - case
+        - proof
+        - repository_trace
+        - literature_synthesis
+        - conceptual_argument
+        - build_evaluate
+        - replication
+      - vocabulary: claim_type_vocabulary
+        values:
+        - make_claim
+        - use_claim
+        - usage_effect_claim
+        - contribution_claim
+      expected_answer_type: evaluation-coordinate record with controlled values
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Evaluation-coordinate completeness and controlled vocabulary values are direct SHACL targets.
+      source_anchors:
+      - vr_evaluation_record_requires_coordinates
+    - question_id: CQ-EV-002
+      priority: recommended
+      natural_language_question: Is the evaluation evidence appropriate for the type of claim it is used to support?
+      required_classes:
+      - evaluation_evidence
+      - make_claim
+      - use_claim
+      - usage_effect_claim
+      - contribution_claim
+      required_properties:
+      - supports_claim
+      - evaluates_object
+      - uses_evaluation_criterion
+      required_controlled_values:
+      - vocabulary: claim_type_vocabulary
+        values:
+        - make_claim
+        - use_claim
+        - usage_effect_claim
+        - contribution_claim
+      - vocabulary: evaluation_setting_vocabulary
+        values:
+        - artificial
+        - naturalistic
+      - vocabulary: evaluation_criterion_vocabulary
+        values:
+        - utility
+        - efficacy
+        - effectiveness
+        - feasibility
+        - usability
+        - projectability
+        - ethical_acceptability
+      expected_answer_type: claim-evidence alignment assessment
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Some alignment constraints can be encoded as SHACL-SPARQL warnings, but adequacy requires methodological
+        judgment.
+      source_anchors:
+      - vr_evaluation_claim_alignment
+    - question_id: CQ-EV-003
+      priority: advanced
+      natural_language_question: Which contribution or usage-effect claims rely only on ex-ante, artificial, analytical, or
+        expert evidence, and are their evidence limitations recorded?
+      required_classes:
+      - evaluation_evidence
+      - usage_effect_claim
+      - contribution_claim
+      - evaluation_finding
+      required_properties:
+      - supports_claim
+      - evaluation_limitations
+      - evaluation_result_summary
+      required_controlled_values:
+      - vocabulary: evaluation_timing_vocabulary
+        values:
+        - ex_ante
+      - vocabulary: evaluation_setting_vocabulary
+        values:
+        - artificial
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - analytical
+        - expert
+        - simulation
+        - conceptual_argument
+      expected_answer_type: risk report for evidence-strength limitations
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Requires negative/filtered graph queries and human interpretation of evidence sufficiency.
+      source_anchors:
+      - vr_ex_ante_artificial_evidence_limitation
+      - vr_usage_effect_claim_requires_naturalistic_or_strong_contextual_evidence
+    - question_id: CQ-EV-004
+      priority: source-dependent
+      natural_language_question: When the source reports measures, metrics, confidence levels, evaluator judgments, or limitations,
+        are these captured with evaluation findings rather than left as prose only?
+      required_classes:
+      - measure
+      - evaluation_finding
+      - evaluation_evidence
+      - reliability_assessment
+      required_properties:
+      - metric_value
+      - confidence_percent
+      - evaluation_limitations
+      - source_anchor_id
+      required_controlled_values:
+      - vocabulary: evaluation_criterion_vocabulary
+        values:
+        - utility
+        - efficacy
+        - effectiveness
+        - efficiency
+        - robustness
+        - fidelity
+        - simplicity
+        - clarity
+        - consistency
+        - aesthetics
+        - ethical_acceptability
+        - fitness_for_use
+        - fitness_for_evolution
+        - projectability
+        - feasibility
+        - usability
+        - completeness
+        - traceability
+        - novelty
+      expected_answer_type: measure/finding/limitation extraction completeness report
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Presence of metric fields is testable when metrics are claimed; deciding whether omitted metrics matter
+        is source-dependent.
+      source_anchors: []
+  - domain_id: design_knowledge
+    domain_label: Design Knowledge
+    domain_description: Competency questions for generated design knowledge, codification forms, means-end logic, CIMO structure,
+      knowledge paths, and projectability.
+    competency_questions:
+    - question_id: CQ-DK-001
+      priority: core
+      natural_language_question: Does the study produce design knowledge, and is it represented separately from input knowledge
+        and local artifact delivery?
+      required_classes:
+      - design_knowledge
+      - input_knowledge
+      - artifact_universal
+      - output_knowledge
+      required_properties:
+      - produces_design_knowledge
+      - has_input_knowledge
+      - produces_output_knowledge
+      required_controlled_values: []
+      expected_answer_type: boolean plus design-knowledge node set
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: false
+      validation_notes: Core separation can be enforced with SHACL and duplicate/conflation checks can be queried.
+      source_anchors:
+      - vr_design_knowledge_distinct_from_input_knowledge
+    - question_id: CQ-DK-002
+      priority: recommended
+      natural_language_question: 'In what reusable form is the design knowledge codified: design principle, pattern, theory,
+        method, taxonomy, ontology, framework, or CIMO statement?'
+      required_classes:
+      - design_knowledge
+      - design_principle
+      - design_pattern
+      - design_theory
+      - method
+      - taxonomy
+      - ontology
+      - framework
+      - cimo_statement
+      required_properties:
+      - codifies_as
+      - contribution_statement
+      - boundary_condition_text
+      required_controlled_values:
+      - vocabulary: contribution_object_vocabulary
+        values:
+        - design_entity
+        - design_theory
+        - both_design_entity_and_design_theory
+        - methodology
+        - evaluation_framework
+        - taxonomy
+        - ontology
+        - design_principle
+        - design_pattern
+      - vocabulary: artifact_type_vocabulary
+        values:
+        - design_principle
+        - design_pattern
+        - design_theory
+        - method
+        - taxonomy
+        - ontology
+        - framework
+      expected_answer_type: codification-form classification for design knowledge
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Controlled codification types are testable; assessing quality of the codified knowledge is human-reviewed.
+      source_anchors:
+      - vr_design_knowledge_codification_recommended
+    - question_id: CQ-DK-003
+      priority: advanced
+      natural_language_question: Does the design knowledge state context, intervention, mechanism, outcome, and boundary conditions
+        sufficiently for projectability?
+      required_classes:
+      - design_knowledge
+      - cimo_statement
+      - boundary_condition
+      - projectability_statement
+      required_properties:
+      - has_boundary_condition
+      - has_projectability_statement
+      - projectability_scope_text
+      - boundary_condition_text
+      required_controlled_values:
+      - vocabulary: knowledge_scope_vocabulary
+        values:
+        - idiographic_local
+        - projectable_problem_class
+        - analytical_generalization
+        - nomothetic_general
+      expected_answer_type: CIMO/projectability completeness and quality assessment
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Graph queries can retrieve missing elements; sufficiency of mechanism and boundary logic requires
+        expert judgment.
+      source_anchors:
+      - vr_contribution_claim_requires_evidence_novelty_scope_boundary
+    - question_id: CQ-DK-004
+      priority: source-dependent
+      natural_language_question: When the source represents knowledge moments, knowledge paths, or DSR strategies, are knowledge
+        goals, scopes, moments, and path edges explicitly modeled?
+      required_classes:
+      - knowledge_type
+      - knowledge_goal
+      - knowledge_scope
+      - knowledge_moment
+      - knowledge_path
+      - path_of_knowledge_types
+      - dsr_strategy
+      required_properties:
+      - has_knowledge_goal
+      - has_knowledge_scope
+      - has_knowledge_moment
+      - precedes_knowledge_moment
+      - applied_to
+      - implemented_in
+      - evaluated_by
+      - abstracted_into
+      - provides_requirements_for
+      required_controlled_values:
+      - vocabulary: knowledge_goal_vocabulary
+        values:
+        - definitional
+        - descriptive
+        - prescriptive
+        - explanatory
+        - predictive
+        - explanatory_predictive
+        - evaluative
+        - methodological
+        - normative_ethical
+      - vocabulary: knowledge_scope_vocabulary
+        values:
+        - idiographic_local
+        - projectable_problem_class
+        - analytical_generalization
+        - nomothetic_general
+      - vocabulary: dsr_strategy_vocabulary
+        values:
+        - strategy_1a
+        - strategy_1b
+        - strategy_2a
+        - strategy_2b
+        - strategy_3
+        - strategy_4a
+        - strategy_4b
+      expected_answer_type: knowledge-path graph with node and edge classifications
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Source-dependent because not all DSR studies use a knowledge-path framing; edge-label normalization
+        needs review.
+      source_anchors:
+      - sc_knowledge_path_edge_labels
+  - domain_id: contribution
+    domain_label: Contribution
+    domain_description: Competency questions for contribution claims, novelty, scope, maturity, audience, evidence basis,
+      routine-design threshold, and boundary conditions.
+    competency_questions:
+    - question_id: CQ-CON-001
+      priority: core
+      natural_language_question: Does each contribution claim specify contribution object, knowledge goal, knowledge scope,
+        novelty mode, evidence basis, and boundary conditions?
+      required_classes:
+      - contribution_claim
+      - knowledge_goal
+      - knowledge_scope
+      - evaluation_evidence
+      - boundary_condition
+      required_properties:
+      - supports_contribution_claim
+      - has_knowledge_goal
+      - has_knowledge_scope
+      - has_boundary_condition
+      - contribution_statement
+      - novelty_claim
+      required_controlled_values:
+      - vocabulary: contribution_object_vocabulary
+        values:
+        - design_entity
+        - design_theory
+        - both_design_entity_and_design_theory
+        - methodology
+        - evaluation_framework
+        - taxonomy
+        - ontology
+        - design_principle
+        - design_pattern
+      - vocabulary: knowledge_goal_vocabulary
+        values:
+        - definitional
+        - descriptive
+        - prescriptive
+        - explanatory
+        - predictive
+        - explanatory_predictive
+        - evaluative
+        - methodological
+        - normative_ethical
+      - vocabulary: knowledge_scope_vocabulary
+        values:
+        - idiographic_local
+        - projectable_problem_class
+        - analytical_generalization
+        - nomothetic_general
+      - vocabulary: novelty_mode_vocabulary
+        values:
+        - routine_design
+        - improvement
+        - exaptation
+        - invention
+      expected_answer_type: contribution claim record with evidence and classification fields
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Core fields are direct validation targets; contribution significance remains a review judgment.
+      source_anchors:
+      - vr_contribution_claim_requires_evidence_novelty_scope_boundary
+    - question_id: CQ-CON-002
+      priority: recommended
+      natural_language_question: Which audiences are addressed by the contribution, and are scholarly and practitioner communication
+        claims separated?
+      required_classes:
+      - contribution_claim
+      - audience
+      - transparency_trace
+      required_properties:
+      - communicates_to_audience
+      - has_transparency_trace
+      - contribution_statement
+      required_controlled_values:
+      - vocabulary: audience_vocabulary
+        values:
+        - researcher
+        - reviewer
+        - practitioner
+        - manager
+        - policy_public
+        - technical_implementer
+        - user
+        - sponsor
+      expected_answer_type: audience-by-contribution communication matrix
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Audience vocabulary can be validated; adequacy of communication for each audience requires human review.
+      source_anchors: []
+    - question_id: CQ-CON-003
+      priority: advanced
+      natural_language_question: Does any contribution claim appear to be routine design overclaim, overlocalization, overabstraction,
+        or non-codified knowledge?
+      required_classes:
+      - contribution_claim
+      - design_knowledge
+      - problem_class
+      - boundary_condition
+      - evaluation_evidence
+      required_properties:
+      - novelty_claim
+      - has_problem_class
+      - has_boundary_condition
+      - supports_contribution_claim
+      - codifies_as
+      required_controlled_values:
+      - vocabulary: novelty_mode_vocabulary
+        values:
+        - routine_design
+        - improvement
+        - exaptation
+        - invention
+      - vocabulary: maturity_vocabulary
+        values:
+        - nascent
+        - emerging
+        - mature
+        - replicated
+        - codified
+      expected_answer_type: anti-pattern risk report for contribution claims
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Can flag patterns by query, but final anti-pattern classification is a human validity judgment.
+      source_anchors:
+      - vr_routine_design_requires_extra_knowledge_contribution
+      - ap_routine_design_overclaim
+      - ap_overlocalization
+      - ap_overabstraction
+      - ap_non_codified_knowledge
+    - question_id: CQ-CON-004
+      priority: source-dependent
+      natural_language_question: When a source uses a genre-specific contribution framing, is the framing retained and mapped
+        without enforcing a single DSR publication template?
+      required_classes:
+      - contribution_claim
+      - design_knowledge
+      - dsr_grid_summary
+      - audience
+      required_properties:
+      - contribution_statement
+      - communicates_to_audience
+      - source_anchor_id
+      required_controlled_values:
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+        - contested
+        - recommended
+      - vocabulary: maturity_vocabulary
+        values:
+        - nascent
+        - emerging
+        - mature
+        - replicated
+        - codified
+      expected_answer_type: genre-sensitive contribution mapping record
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Contribution validation should be profiled by DSR genre; this question should not be a hard universal
+        violation.
+      source_anchors:
+      - vr_genre_sensitive_validation
+      - sc_genre_specific_validation_profiles
+  - domain_id: transparency_trace
+    domain_label: Transparency Trace
+    domain_description: Competency questions for process, problem-space, solution-space, build, evaluation, and contribution
+      transparency, DSR Grid reporting, and traceability edges.
+    competency_questions:
+    - question_id: CQ-TT-001
+      priority: core
+      natural_language_question: Does the study include a transparency trace covering process, problem-space, solution-space,
+        build, evaluation, and contribution transparency, at least at a proportional level?
+      required_classes:
+      - transparency_trace
+      - process_transparency_trace
+      - problem_space_transparency_trace
+      - solution_space_transparency_trace
+      - build_transparency_trace
+      - evaluation_transparency_trace
+      - contribution_transparency_trace
+      required_properties:
+      - has_transparency_trace
+      - trace_description
+      required_controlled_values:
+      - vocabulary: transparency_form_vocabulary
+        values:
+        - process
+        - problem_space
+        - solution_space
+        - build
+        - evaluation
+        - contribution
+      expected_answer_type: six-form transparency coverage report
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Presence of forms is testable; proportionality and over-disclosure balance require human judgment.
+      source_anchors:
+      - vr_six_transparency_forms_addressed
+    - question_id: CQ-TT-002
+      priority: recommended
+      natural_language_question: Does the study provide a DSR Grid summary over problem, input knowledge, research process,
+        key concepts, solution, and output knowledge?
+      required_classes:
+      - dsr_grid_summary
+      - problem
+      - input_knowledge
+      - design_entity
+      - output_knowledge
+      required_properties:
+      - includes_dsr_grid_dimension
+      required_controlled_values:
+      - vocabulary: dsr_grid_dimension_vocabulary
+        values:
+        - problem
+        - input_knowledge
+        - research_process
+        - key_concepts
+        - solution
+        - output_knowledge
+      expected_answer_type: DSR Grid coverage table
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: false
+      validation_notes: DSR Grid dimension coverage can be validated by controlled values and queried for omissions.
+      source_anchors:
+      - vr_dsr_grid_dimensions_recommended
+    - question_id: CQ-TT-003
+      priority: advanced
+      natural_language_question: Can the ontology trace a claim chain from problem to requirement to design decision to evaluation
+        evidence to design knowledge to contribution claim?
+      required_classes:
+      - requirements_design_evaluation_trace
+      - problem
+      - requirement
+      - design_decision
+      - evaluation_evidence
+      - design_knowledge
+      - contribution_claim
+      required_properties:
+      - derived_from_problem
+      - satisfies_requirement
+      - supports_claim
+      - produces_design_knowledge
+      - supports_contribution_claim
+      required_controlled_values:
+      - vocabulary: traceability_edge_vocabulary
+        values:
+        - problem_to_requirement
+        - requirement_to_design_decision
+        - design_decision_to_evaluation
+        - evaluation_to_design_knowledge
+        - design_knowledge_to_contribution
+        - evidence_to_claim
+      expected_answer_type: multi-hop traceability path or missing-edge report
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: This is a graph-path competency question; SPARQL property paths are the natural support mechanism.
+      source_anchors:
+      - vr_requirements_trace_to_problem
+      - vr_design_decisions_trace_to_requirements
+      - vr_contribution_claim_requires_evidence_novelty_scope_boundary
+    - question_id: CQ-TT-004
+      priority: source-dependent
+      natural_language_question: When confidentiality, security, intellectual-property, stakeholder-burden, or maintenance
+        constraints limit transparency, are omissions and redactions documented responsibly?
+      required_classes:
+      - transparency_trace
+      - responsible_design_constraint
+      - boundary_condition
+      - repository_package
+      required_properties:
+      - has_transparency_trace
+      - has_responsible_design_constraint
+      - has_boundary_condition
+      - repository_path
+      - maintenance_boundary
+      required_controlled_values:
+      - vocabulary: validity_type_vocabulary
+        values:
+        - ethical_responsible_validity
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+        - recommended
+      expected_answer_type: responsible-transparency exception and governance record
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Sensitive disclosure boundaries require human governance review; ontology can only ensure that constraints
+        are represented.
+      source_anchors:
+      - vr_responsible_transparency_balance
+      - ap_transparency_overload
+  - domain_id: reliability
+    domain_label: Reliability
+    domain_description: Competency questions for reliability targets, synchronic/diachronic timing, reliability evidence,
+      evaluator agreement, process reliability, and reproducible measures.
+    competency_questions:
+    - question_id: CQ-REL-001
+      priority: core
+      natural_language_question: If a reliability assessment or reliability claim is present, does it specify the reliability
+        target and whether the assessment is synchronic or diachronic?
+      required_classes:
+      - reliability_assessment
+      - evaluation_evidence
+      required_properties:
+      - has_reliability_assessment
+      - supports_claim
+      - source_anchor_id
+      required_controlled_values:
+      - vocabulary: reliability_target_vocabulary
+        values:
+        - artifact
+        - method
+        - measure
+        - design_knowledge
+        - evaluator
+        - process
+        - implementation
+      - vocabulary: reliability_timing_vocabulary
+        values:
+        - synchronic
+        - diachronic
+      expected_answer_type: conditional reliability assessment completeness report
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: 'The rule is conditional: when reliability is claimed, target and timing can be required by SHACL.'
+      source_anchors:
+      - vr_reliability_claim_requires_target_and_timing
+    - question_id: CQ-REL-002
+      priority: recommended
+      natural_language_question: What evidence supports method, measure, evaluator, artifact, process, implementation, or
+        design-knowledge reliability?
+      required_classes:
+      - reliability_assessment
+      - evaluation_evidence
+      - measure
+      - evaluation_finding
+      required_properties:
+      - has_reliability_assessment
+      - supports_claim
+      - metric_value
+      - confidence_percent
+      required_controlled_values:
+      - vocabulary: reliability_target_vocabulary
+        values:
+        - artifact
+        - method
+        - measure
+        - design_knowledge
+        - evaluator
+        - process
+        - implementation
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - empirical
+        - experiment
+        - field
+        - case
+        - repository_trace
+        - replication
+      expected_answer_type: evidence table by reliability target
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: SPARQL can assemble the evidence table; assessing reliability strength remains a methodological judgment.
+      source_anchors:
+      - vr_reliability_claim_requires_target_and_timing
+    - question_id: CQ-REL-003
+      priority: advanced
+      natural_language_question: Can synchronic and diachronic reliability evidence be compared across artifact versions,
+        evaluators, measures, or repeated study cycles?
+      required_classes:
+      - reliability_assessment
+      - artifact_instantiation
+      - measure
+      - process_log
+      - evaluation_evidence
+      required_properties:
+      - has_reliability_assessment
+      - artifact_version
+      - metric_value
+      - confidence_percent
+      - trace_description
+      required_controlled_values:
+      - vocabulary: reliability_timing_vocabulary
+        values:
+        - synchronic
+        - diachronic
+      - vocabulary: reliability_target_vocabulary
+        values:
+        - artifact
+        - method
+        - measure
+        - evaluator
+        - process
+        - implementation
+      expected_answer_type: comparative reliability graph over time, version, or evaluator
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Requires aggregation and comparison across repeated nodes; quality of comparison requires human review.
+      source_anchors: []
+    - question_id: CQ-REL-004
+      priority: source-dependent
+      natural_language_question: When a source reports inter-rater agreement, classification robustness, measurement calibration,
+        logs, code, or repeated runs, are these captured as reliability evidence rather than generic evaluation prose?
+      required_classes:
+      - reliability_assessment
+      - measure
+      - evaluation_evidence
+      - repository_package
+      - process_log
+      required_properties:
+      - metric_value
+      - confidence_percent
+      - repository_path
+      - trace_description
+      - source_anchor_id
+      required_controlled_values:
+      - vocabulary: reliability_target_vocabulary
+        values:
+        - evaluator
+        - measure
+        - method
+        - process
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - repository_trace
+        - replication
+        - experiment
+        - build_evaluate
+      expected_answer_type: source-specific reliability evidence extraction report
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Reliability evidence is often reported under different names; source-specific interpretation is needed.
+      source_anchors:
+      - sc_reliability_target_extensions
+  - domain_id: replication
+    domain_label: Replication
+    domain_description: Competency questions for replication type, replication function, artifact/evaluation linkage, boundary
+      testing, recreation, and accumulation.
+    competency_questions:
+    - question_id: CQ-REP-001
+      priority: core
+      natural_language_question: If the study includes a replication record or replication claim, is the replication type
+        identified with a controlled value?
+      required_classes:
+      - replication_study
+      - evaluation_evidence
+      required_properties:
+      - has_replication_type
+      - supports_claim
+      - source_anchor_id
+      required_controlled_values:
+      - vocabulary: replication_type_vocabulary
+        values:
+        - test
+        - redesign
+        - justification
+        - adaptation
+        - explanation
+        - update
+        - recreation
+        - meta_replication
+        - differentiated_replication
+        - conceptual_replication
+      expected_answer_type: conditional replication classification record
+      shacl_validation_direct: true
+      sparql_query_support_needed: false
+      human_judgment_required: false
+      validation_notes: Replication type is conditionally required when a replication record is present.
+      source_anchors:
+      - vr_replication_record_requires_type_and_function
+    - question_id: CQ-REP-002
+      priority: recommended
+      natural_language_question: Does the replication record link to the artifact/design entity, evaluation evidence, input
+        knowledge, and design knowledge it tests, adapts, updates, or recreates?
+      required_classes:
+      - replication_study
+      - artifact_universal
+      - evaluation_evidence
+      - input_knowledge
+      - design_knowledge
+      required_properties:
+      - has_replication_type
+      - evaluates_object
+      - has_input_knowledge
+      - produces_design_knowledge
+      - supports_claim
+      required_controlled_values:
+      - vocabulary: traceability_edge_vocabulary
+        values:
+        - evidence_to_claim
+        - evaluation_to_design_knowledge
+        - design_knowledge_to_contribution
+      expected_answer_type: replication linkage graph
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Multi-node traceability requires query support; the knowledge function of a replication needs review.
+      source_anchors:
+      - vr_replication_record_requires_type_and_function
+    - question_id: CQ-REP-003
+      priority: advanced
+      natural_language_question: Does the replication test or extend boundary conditions, projectability, problem-class fit,
+        or context transferability?
+      required_classes:
+      - replication_study
+      - boundary_condition
+      - projectability_statement
+      - problem_class
+      - context
+      required_properties:
+      - has_boundary_condition
+      - has_projectability_statement
+      - has_problem_class
+      - has_context
+      required_controlled_values:
+      - vocabulary: knowledge_scope_vocabulary
+        values:
+        - idiographic_local
+        - projectable_problem_class
+        - analytical_generalization
+        - nomothetic_general
+      - vocabulary: replication_type_vocabulary
+        values:
+        - adaptation
+        - differentiated_replication
+        - conceptual_replication
+        - test
+      expected_answer_type: boundary/projectability comparison across original and replication contexts
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Requires comparison across records and expert judgment about contextual similarity or meaningful differentiation.
+      source_anchors:
+      - sc_replication_type_extensions
+    - question_id: CQ-REP-004
+      priority: source-dependent
+      natural_language_question: When recreation, update, or repository-based replication is claimed, are code, data, templates,
+        examples, or process logs available as repository paths?
+      required_classes:
+      - repository_package
+      - build_trace
+      - process_log
+      - artifact_instantiation
+      - replication_study
+      required_properties:
+      - repository_path
+      - trace_description
+      - artifact_version
+      - has_replication_type
+      required_controlled_values:
+      - vocabulary: replication_type_vocabulary
+        values:
+        - recreation
+        - update
+        - meta_replication
+      - vocabulary: evidence_mode_vocabulary
+        values:
+        - repository_trace
+        - replication
+      expected_answer_type: repository-readiness report for replication/recreation
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: File/path existence can be mechanically checked outside OWL; adequacy of materials requires review.
+      source_anchors:
+      - vr_repository_package_for_publication
+  - domain_id: responsible_ethical_validity
+    domain_label: Responsible / Ethical Validity
+    domain_description: Competency questions for responsible design constraints, ethical validity, stakeholder burden, privacy/security/IP
+      boundaries, and transparency balance.
+    competency_questions:
+    - question_id: CQ-REV-001
+      priority: core
+      natural_language_question: When ethical, responsible-design, privacy, security, intellectual-property, stakeholder-burden,
+        or maintenance constraints are relevant, are they represented as responsible-design constraints and validity considerations?
+      required_classes:
+      - responsible_design_constraint
+      - validity_assessment
+      - boundary_condition
+      required_properties:
+      - has_responsible_design_constraint
+      - has_validity_assessment
+      - has_boundary_condition
+      - boundary_condition_text
+      required_controlled_values:
+      - vocabulary: validity_type_vocabulary
+        values:
+        - ethical_responsible_validity
+      - vocabulary: obligation_status_vocabulary
+        values:
+        - conditional
+        - recommended
+      expected_answer_type: conditional responsible-validity constraint record
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: The ontology can test the presence of responsible-design constraint nodes; relevance and sufficiency
+        require human governance review.
+      source_anchors:
+      - vr_responsible_transparency_balance
+      - sc_responsible_design_constraints_scope
+    - question_id: CQ-REV-002
+      priority: recommended
+      natural_language_question: Are responsible or ethical concerns included in evaluation criteria and findings when they
+        affect artifact fitness for use?
+      required_classes:
+      - evaluation_criterion
+      - evaluation_evidence
+      - evaluation_finding
+      - responsible_design_constraint
+      required_properties:
+      - uses_evaluation_criterion
+      - has_evaluation_evidence
+      - evaluation_result_summary
+      - has_responsible_design_constraint
+      required_controlled_values:
+      - vocabulary: evaluation_criterion_vocabulary
+        values:
+        - ethical_acceptability
+        - fitness_for_use
+        - fitness_for_evolution
+        - usability
+        - projectability
+      - vocabulary: validity_type_vocabulary
+        values:
+        - ethical_responsible_validity
+        - pragmatic_validity
+        - evaluation_validity
+      expected_answer_type: responsible-evaluation coverage report
+      shacl_validation_direct: true
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Controlled criteria can be validated; sufficiency and ethical acceptability remain contextual judgments.
+      source_anchors: []
+    - question_id: CQ-REV-003
+      priority: advanced
+      natural_language_question: Does the transparency trace balance auditability and reuse against confidentiality, security,
+        intellectual-property, and stakeholder-burden constraints?
+      required_classes:
+      - transparency_trace
+      - repository_package
+      - responsible_design_constraint
+      - stakeholder
+      - boundary_condition
+      required_properties:
+      - has_transparency_trace
+      - repository_path
+      - has_responsible_design_constraint
+      - has_stakeholder
+      - has_boundary_condition
+      required_controlled_values:
+      - vocabulary: transparency_form_vocabulary
+        values:
+        - process
+        - problem_space
+        - solution_space
+        - build
+        - evaluation
+        - contribution
+      - vocabulary: validity_type_vocabulary
+        values:
+        - ethical_responsible_validity
+      - vocabulary: audience_vocabulary
+        values:
+        - reviewer
+        - practitioner
+        - technical_implementer
+        - user
+        - sponsor
+      expected_answer_type: responsible transparency balance assessment
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: This is not directly decidable by SHACL because too much and too little disclosure are both risks.
+      source_anchors:
+      - vr_responsible_transparency_balance
+      - ap_transparency_overload
+    - question_id: CQ-REV-004
+      priority: source-dependent
+      natural_language_question: When a domain-specific source raises safety, accessibility, privacy, monitoring, consent,
+        environmental, ESG, or public-impact concerns, are those concerns preserved as source-specific responsible-validity
+        constraints?
+      required_classes:
+      - responsible_design_constraint
+      - stakeholder_evidence
+      - boundary_condition
+      - validity_assessment
+      required_properties:
+      - has_responsible_design_constraint
+      - source_anchor_id
+      - boundary_condition_text
+      - confidence_percent
+      required_controlled_values:
+      - vocabulary: validity_type_vocabulary
+        values:
+        - ethical_responsible_validity
+        - external_context_validity
+        - pragmatic_validity
+      - vocabulary: ambiguity_level_vocabulary
+        values:
+        - low
+        - medium
+        - high
+      expected_answer_type: source-specific ethical/responsible constraint inventory
+      shacl_validation_direct: false
+      sparql_query_support_needed: true
+      human_judgment_required: true
+      validation_notes: Domain-specific responsible design concerns should be preserved even when they are outside the core
+        vocabulary.
+      source_anchors:
+      - sc_responsible_design_constraints_scope
+  summary_counts:
+    domain_count: 14
+    question_count: 56
+    questions_by_priority:
+      core: 14
+      recommended: 14
+      advanced: 14
+      source-dependent: 14
+  quality_control:
+    yaml_syntax_validated: true
+    concept_inventory_identifier_check:
+      unknown_required_classes: []
+      unknown_required_properties: []
+      unknown_controlled_vocabularies: []
+      unknown_controlled_values: []
+      unknown_source_anchors: []
+    notes: Questions are intended as ontology competency questions. A true value for shacl_validation_direct only means the
+      minimum structural condition can be tested; it does not imply that scholarly adequacy is automatically decidable.

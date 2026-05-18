@@ -1,0 +1,588 @@
+# Theory of Design Science Research
+
+**Source basis.** This synthesis uses the uploaded JSON sidecar/manifest and the consolidated YAML extraction corpus as its source layer: manifest JSON fileciteturn0file0 and primary YAML extraction file fileciteturn0file1. I treated the YAML `source_identity`, `citation_information`, `systematic_review_evidence`, `normalized_master_table_fields`, `citation_anchors`, and `source_specific_extensions` fields as the citation and concept source of record. One extraction record, Pekkola (2023), was malformed after partial bibliographic parsing, so it is not used for substantive claims.
+
+## 1. Definitional nucleus
+
+**Design Science Research (DSR)** is an artifact-centered, problem-solving, knowledge-producing research paradigm in which researchers **design, develop, demonstrate, evaluate, theorize, and communicate artifacts** that address relevant practical problems and generate transferable or projectable **design knowledge**. In the consensus synthesis, DSR is neither ordinary systems development nor conventional behavioral/explanatory research: it is a research logic in which **utility, artifact novelty, rigorous evaluation, problem relevance, and design-knowledge contribution** must be jointly established (Weber, 2018; vom Brocke, Hevner, & Maedche, 2020; Johannesson & Perjons, 2021; Hevner et al., 2024).
+
+A compact formalization:
+
+\[
+DSR = \langle P, C, Rq, K_{in}, O, A, I, E, DK, K_{out}, T \rangle
+\]
+
+| Symbol | Construct | Technical meaning | Canonical DSR role |
+|---:|---|---|---|
+| \(P\) | Problem | Problem instance and problem class; often wicked, socio-technical, managerial, technical, or transdisciplinary | Relevance anchor |
+| \(C\) | Context | Stakeholders, organization, application domain, resources, governance, constraints, boundary conditions, artifact network | Projectability and evaluation boundary |
+| \(Rq\) | Research question | Problem-, objective-, artifact-, design-, evaluation-, or knowledge-oriented inquiry formulation | Inquiry structure |
+| \(K_{in}\) | Input knowledge | Kernel theories, descriptive knowledge, design theories, prior artifacts, technologies, methods, design patterns, practitioner knowledge | Rigor anchor |
+| \(O\) | Objectives/requirements | Meta-requirements, design requirements, improvement goals, acceptance criteria, use goals, make goals | Design target |
+| \(A\) | Artifact universal/design entity | Construct, model, method, instantiation class, design theory, design principle, architecture, socio-technical intervention, process artifact | Designed solution class |
+| \(I\) | Instantiation/use case | Implemented artifact, prototype, field implementation, proof of concept, proof of value | Demonstration/evaluation vehicle |
+| \(E\) | Evaluation evidence | Ex ante, ex post, formative, summative, artificial, naturalistic, analytical, empirical, expert, field, simulation, experiment, case, proof | Validity, utility, reliability support |
+| \(DK\) | Design knowledge | Prescriptive means-end knowledge connecting problem space, solution space, mechanisms, effects, and boundary conditions | Main scientific contribution |
+| \(K_{out}\) | Output knowledge | Artifact knowledge, design principles, design theory, design patterns, evaluation findings, reusable requirements, methods, taxonomies | Knowledge-base contribution |
+| \(T\) | Transparency trace | Process log, problem-space trace, solution-space trace, build rationale, evaluation trace, contribution statement | Reuse, trust, review, replication |
+
+This structure integrates the DSR Grid’s six dimensions—problem, input knowledge, research process, key concepts, solution, output knowledge—with the newer six transparency forms—process, problem space, solution space, build, evaluation, contribution (vom Brocke & Maedche, 2019; vom Brocke, Hevner, & Maedche, 2020; Hevner et al., 2024).
+
+---
+
+## 2. Consensus commitments
+
+| Consensus commitment | Technical statement | Boundary against non-DSR | Main sources |
+|---|---|---|---|
+| Artifact centrality | DSR requires a designed artifact or design entity, broadly including constructs, models, methods, instantiations, design principles, design theories, architectures, processes, interventions, taxonomies, frameworks, and methods. | Pure explanation, pure critique, or local consulting without artifact/design-knowledge contribution is insufficient. | Weber (2018); vom Brocke, Hevner, & Maedche (2020); Johannesson & Perjons (2021); Weigand et al. (2021) |
+| Practical problem relevance | DSR starts from or is justified by a relevant problem in an environment, application domain, stakeholder practice, or problem class. | Abstract artifact construction detached from a relevant problem has weak DSR status. | Maedche et al. (2019); Purao (2021); zur Heiden (2020); vom Brocke et al. (2021) |
+| Rigor through knowledge base | Artifact design and evaluation must be grounded in descriptive knowledge, prescriptive knowledge, kernel theories, prior artifacts, design patterns, methods, and evaluation frameworks. | Unjustified invention without traceable knowledge grounding is weakly rigorous. | Weber (2018); Feine et al. (2019); Leimeister et al. (2021); Trigo (2026) |
+| Build/evaluate logic | DSR iteratively builds and evaluates artifacts; design and evaluation are coupled rather than sequentially separable in practice. | Undemonstrated design claims or unevaluated artifact assertions are incomplete. | Weber (2018); Johannesson & Perjons (2021); Tuunanen et al. (2024) |
+| Design knowledge contribution | DSR must contribute reusable, projectable, or generalizable design knowledge, not merely a local artifact. | Routine application of known techniques to a single local problem is routine design, not sufficient DSR. | Baskerville et al. (2018); Akoka et al. (2023); Reining et al. (2022) |
+| Evaluation validity | Evaluation must align with problem, objectives, artifact maturity, context, use setting, and intended knowledge claim. | Evaluation method mismatch undermines DSR validity. | Akoka et al. (2017); Weber (2018); Johannesson & Perjons (2021); Sjöström et al. (2018) |
+| Communication | DSR must communicate problem, artifact, method, evaluation, contribution, and applicability to scholarly and practitioner audiences. | Artifact delivery without research communication is not sufficient. | vom Brocke & Maedche (2019); Johannesson & Perjons (2021); Hevner et al. (2024) |
+| Accumulation | DSR knowledge should be codified, traceable, reusable, replicable, and extendable across studies. | Isolated, non-projectable artifact reports impede cumulative science. | Brendel et al. (2021); Reining et al. (2022); Dickhaut et al. (2022); Storey et al. (2025) |
+| Genre plurality | DSR is not a single publication template; contribution, theory role, artifact type, evaluation, and process vary by genre. | A single universal reviewer criterion creates false negatives and theory gatekeeping. | Peffers et al. (2018); Ågerfalk (2018); Iivari (2020); Baskerville et al. (2018) |
+
+---
+
+## 3. System ontology of DSR
+
+```mermaid
+flowchart LR
+    ENV[Environment / Practice / Problem Space] -->|needs, goals, constraints| P[Problem Class + Problem Instance]
+    ENV --> C[Context + Stakeholders + Artifact Network]
+    KB[Knowledge Base] -->|kernel theories, design theories, prior artifacts, methods| K[Input Knowledge]
+    P --> O[Objectives + Requirements]
+    C --> O
+    K --> O
+    O --> B[Design + Build Activity]
+    K --> B
+    B --> A[Artifact Universal / Design Entity]
+    A --> I[Instantiation / Prototype / Intervention]
+    I --> D[Demonstration]
+    D --> E[Evaluation Evidence]
+    C --> E
+    E --> DK[Design Knowledge]
+    A --> DK
+    DK --> KB2[Output Knowledge / Updated Knowledge Base]
+    E --> R[Communication + Transparency Trace]
+    DK --> R
+    R --> ENV
+    R --> KB2
+```
+
+### 3.1 Ontological layers
+
+| Layer | DSR construct | Formal content | Required trace |
+|---|---|---|---|
+| Environment | Application domain; organizational field; social/technical setting | Stakeholders, goals, resources, governance, opportunities, constraints | Context description; stakeholder analysis; boundary conditions |
+| Problem space | Problem instance and problem class | Need, pain point, wickedness, gap, severity, solvability, novelty, feasibility | Problem statement; problem motivation; class abstraction |
+| Prerequisite space | Externalities shaping project feasibility | Resources, governance, knowledge bases, operational intervention | Project-preparation trace; externality mitigation |
+| Solution space | Candidate design alternatives and design knowledge | Existing artifacts, theories, technologies, design patterns, methods | Literature/evidence trace; solution alternatives |
+| Design space | Search and construction space | Objectives, requirements, design rationale, make plan, use plan, capacities | Design log; requirements-design trace |
+| Artifact space | Artifact universal and instances | Construct/model/method/instantiation/design theory/design principle/socio-technical intervention | Artifact specification; make/use claim |
+| Evaluation space | Evaluation setting, timing, criteria, evidence | Ex ante/ex post, formative/summative, artificial/naturalistic, analytical/empirical | Evaluation protocol; measures; findings; limitations |
+| Knowledge space | Generated design knowledge | Design principles, design theories, patterns, mechanisms, evaluation findings, boundary conditions | Contribution statement; output knowledge; applicability |
+| Communication space | Research and practitioner dissemination | Scholarly article, practitioner guide, repository, code/materials, diagrams, cases | DSR Grid; transparency framework; repository artifacts |
+
+The **prerequisite space** extends the classic problem/solution/knowledge-base framing by adding resources, governance, knowledge bases, and operational intervention as externalities that determine project success (Hevner & Storey, 2021). The **artifact network** view prevents isolated artifact reasoning by requiring attention to the neighboring artifacts, infrastructures, practices, use plans, and evolving sociotechnical arrangements in which the artifact functions (Weigand et al., 2021).
+
+---
+
+## 4. Artifact theory
+
+### 4.1 Artifact ontology
+
+| Artifact category | Technical definition | DSR function | Evaluation focus |
+|---|---|---|---|
+| Construct | Conceptual vocabulary or symbolic representation used to describe a problem or solution domain | Conceptualization; semantic precision; shared language | Semantic validity; definitional adequacy |
+| Model | Abstraction of relationships, structures, processes, states, or mechanisms | Representation; explanation; prediction; design reasoning | Internal coherence; fidelity; explanatory adequacy |
+| Method | Procedure, algorithm, process, technique, or methodology for accomplishing a design or evaluation task | Prescriptive action guidance | Usability; effectiveness; repeatability; applicability |
+| Instantiation | Implemented artifact, prototype, system, architecture, organizational intervention, process implementation | Demonstration and empirical grounding | Utility; efficacy; effectiveness; robustness |
+| Design principle | Context-intervention-mechanism-outcome or prescriptive rule-like knowledge statement | Transferable guidance | Projectability; boundary clarity; mechanism plausibility |
+| Design pattern | Reusable problem-solution schema including context, forces, rationale, consequences, and implementation guidance | Bridge between problem space and solution space | Reusability; comprehensibility; fit |
+| Design theory | Structured prescriptive theory including purpose/scope, constructs, principles, artifact mutability, testable propositions, justificatory knowledge, implementation principles, and expository instantiation | High-level design knowledge | Completeness; testability; explanatory/prescriptive power |
+| Framework/taxonomy | Organizing structure for classes, dimensions, criteria, or relationships | Classification, coordination, research design, reporting | Completeness; parsimony; discriminating power |
+| Socio-technical intervention | Human, organizational, technical, and process configuration | Practice change and situated utility | Adoption; stakeholder outcomes; side effects; sustainability |
+
+The artifact can be understood broadly through the classic DSR artifact families, but Weigand et al. (2021) refine the ontology by distinguishing **artifact universals** from individual **technical objects or instantiations**. In that stricter ontology, the DSR artifact is a reusable artifact kind with a formal design specification, including at least a **make plan**, **use plan**, and **capacity specification**. Instantiations then generate evaluation knowledge about the artifact universal rather than constituting the full scientific artifact by themselves (Weigand et al., 2021).
+
+### 4.2 Make/use claim structure
+
+| Claim type | Formal expression | Evidence type | Validity threat |
+|---|---|---|---|
+| Make claim | Executing make plan \(M\) yields artifact instance \(I\) with capacities \(Cap\) satisfying make goal \(G_m\). | Build trace, conformance testing, proof, code/materials, prototype inspection | Missing build rationale; undocumented implementation; capacity mismatch |
+| Use claim | Executing use plan \(U\) with artifact instance \(I\) under use conditions \(C_u\) yields use effect \(Eff_u\) satisfying use goal \(G_u\). | Demonstration, artificial evaluation, field evaluation, usage analytics, expert review | Confounding, context mismatch, usage-effect attribution error |
+| Usage-effect claim | Use of \(I\) in practice \(Pr\) contributes to broader organizational/social/technical effect \(Eff_p\). | Naturalistic evaluation, case study, longitudinal field evidence | Over-attribution to artifact; neglect of practice and artifact network |
+
+This make/use distinction is critical because DSR artifacts are evaluated not only as built objects but as **capacities-in-use** embedded in practice (Weigand et al., 2021).
+
+---
+
+## 5. Problem-space theory
+
+DSR problem formulation is not merely topic selection. It is the construction of a **relevant, researchable, designable, and evaluable problem class**. Problem-space theory requires explicit representation of stakeholders, needs, goals, requirements, context, boundary conditions, and significance (Maedche et al., 2019; Purao, 2021; zur Heiden, 2020).
+
+| Problem-space component | Technical content | Output artifact | Source convergence |
+|---|---|---|---|
+| Stakeholders | Users, designers, makers, sponsors, practitioners, reviewers, policy/public actors | Stakeholder map | Maedche et al. (2019); Gregor & Zwikael (2024); Hevner et al. (2024) |
+| Need/problem | Local pain point, organizational deficiency, technical gap, wicked problem, societal need | Problem statement | Purao (2021); Johannesson & Perjons (2021) |
+| Problem class | Abstract class of similar problems beyond the local case | Generalized problem frame | van Aken et al. (2016); Akoka et al. (2023) |
+| Goals/objectives | Desired improvement, utility target, quality target, use goal, make goal | Objective statement | Alismail et al. (2017); Maedche et al. (2019) |
+| Requirements | Functional, nonfunctional, meta-requirements, design requirements, evaluation criteria | Requirements specification | Maedche et al. (2019); Tuunanen et al. (2024) |
+| Context | Organizational, technological, social, regulatory, temporal, cultural, artifact-network factors | Context model | zur Heiden (2020); Hevner et al. (2024) |
+| Solvability | Feasibility, access, resources, operational intervention, governance | Feasibility assessment | Hevner & Storey (2021); Purao (2021) |
+| Relevance | Practical importance, stakeholder value, societal value, practitioner acceptance | Relevance justification | vom Brocke et al. (2021); Gregor & Zwikael (2024) |
+
+Problem-space transparency requires documentation of scope, application context, improvement goals, timeframe, stakeholders, resources, constraints, and boundary conditions (Hevner et al., 2024). Context must be traceable to design decisions and evaluation claims, because projectability depends on knowing **where** and **under what conditions** the design knowledge can travel (zur Heiden, 2020).
+
+---
+
+## 6. Knowledge theory
+
+### 6.1 Design knowledge as means-end knowledge
+
+DSR produces **prescriptive design knowledge** linking problem conditions, artifact features, mechanisms, use conditions, effects, and evaluation evidence. In DSR terminology, this is often treated as **lambda knowledge**, distinguished from **omega knowledge** such as descriptive, explanatory, or predictive knowledge (vom Brocke & Maedche, 2019; vom Brocke, Hevner, & Maedche, 2020).
+
+| Knowledge type | DSR role | Typical representation | Evaluation criterion |
+|---|---|---|---|
+| Definitional | Concept creation, construct clarification | Constructs, taxonomies, ontologies | Semantic clarity, completeness, discriminating power |
+| Descriptive | Problem/context/artifact description | Context models, problem descriptions, state models | Fidelity, accuracy, relevance |
+| Prescriptive | Design guidance | Design principles, methods, patterns, requirements, artifact specifications | Utility, applicability, actionability |
+| Explanatory | Mechanism articulation | Mechanism models, justificatory theory, causal logic | Plausibility, explanatory adequacy |
+| Predictive | Anticipated artifact effects | Propositions, simulations, forecasts, hypotheses | Predictive accuracy, calibration |
+| Explanatory-predictive | Mechanism plus expected outcome | Design theory, theory-grounded evaluation model | Generality, testability, robustness |
+| Evaluative | Assessment knowledge | Evaluation criteria, metrics, test results | Validity, reliability, credibility |
+| Methodological | Knowledge about how to conduct DSR | Methods, frameworks, checklists, grids | Usability, coherence, completeness |
+| Normative/ethical | Values and governance | Responsible design criteria, risk controls | Acceptability, accountability, harm mitigation |
+
+Akoka et al. (2017) integrate evaluation criteria across knowledge types; Akoka et al. (2023) extend this into **paths of knowledge types**, representing DSR projects as sequences of knowledge moments rather than single static contributions.
+
+### 6.2 Knowledge path strategies
+
+| Strategy | Generic contribution path | Main contribution logic |
+|---|---|---|
+| 1a | Build and instantiate artifact | Local solution plus artifact evidence |
+| 1b | Build and instantiate artifact + definitional/descriptive knowledge | Artifact plus conceptual/contextual knowledge |
+| 2a | Build and generalize from instantiations | Generalization from evaluated instances |
+| 2b | Build and generalize from theory-grounded instantiations | Theory-grounded artifact plus generalized design knowledge |
+| 3 | Hypothesize and test propositions | Boundary between DSR and explanatory/predictive theory testing |
+| 4a | Build design theory | Prescriptive theory construction |
+| 4b | Build design theory + design-relevant explanatory/predictive theory | Integration of design theory with explanatory/predictive theory |
+
+These strategies support initiation and progression of DSR projects: examine context, select a strategy, inspect prototypes/exemplars, match the traveled path, and switch strategy where necessary (Akoka et al., 2023).
+
+### 6.3 Artifact–theory balance
+
+DSR contribution theory rejects two extremes: artifact-only localism and theory-only gatekeeping. Novel and useful artifacts can embody knowledge; design theorizing is reflection on artifact, process, mechanism, context, evaluation, and contribution. However, DSR should not require every contribution to be framed as conventional descriptive theory (Baskerville et al., 2018; Siponen & Klaavuniemi, 2021; Iivari, 2020).
+
+| Contribution stance | Valid DSR form | Risk |
+|---|---|---|
+| Artifact contribution | Novel/effective artifact with rigorous evaluation and articulated knowledge contribution | Local utility without generalizable knowledge |
+| Design principle contribution | Context-sensitive prescriptive rules with mechanisms and boundaries | Overgeneralization |
+| Design theory contribution | Formal design theory or substantive technological theory | Theory fetish; premature formalization |
+| Methodological contribution | DSR method, evaluation framework, reporting grid, reliability framework, replication typology | Under-evaluated method artifact |
+| Genre contribution | Genre-specific criteria, publication guidance, process model | Fragmentation or inconsistent review standards |
+| Domain extension | Operations management, project management, mobility, psychology, OPEX, digital science, healthcare, education | Consulting-like application without research contribution |
+
+---
+
+## 7. Process theory
+
+DSR process models are **logically ordered but iteratively enacted**. The common process architecture is:
+
+```mermaid
+flowchart TD
+    A[Problem Identification + Motivation] --> B[Objectives / Requirements]
+    B --> C[Design + Development]
+    C --> D[Demonstration]
+    D --> E[Evaluation]
+    E --> F[Communication]
+    E -->|iteration| B
+    E -->|redesign| C
+    F --> G[Knowledge Accumulation]
+    G -->|new problem class / new context| A
+```
+
+| Process activity | Inputs | Outputs | Evaluation/trace requirement |
+|---|---|---|---|
+| Problem identification | Practice problem, literature gap, stakeholder need, anomaly, opportunity | Motivated problem class and problem instance | Importance, novelty, feasibility |
+| Objective/requirement definition | Problem, context, input knowledge, stakeholder goals | Requirements, meta-requirements, success criteria | Traceability to problem and evaluation |
+| Design and development | Requirements, solution-space knowledge, design patterns, theories, technologies | Artifact/design entity, design rationale, make/use plan | Build transparency; design rationale; intermediate artifacts |
+| Demonstration | Artifact, problem instance, scenario, use case | Proof of concept, prototype use, pilot, case demonstration | Feasibility evidence |
+| Evaluation | Artifact, context, objectives, measures, comparison/baseline | Utility/effectiveness/evidence; validity/reliability assessment | Evaluation transparency; limitations |
+| Communication | Problem, artifact, method, evaluation, contribution | Scholarly report, practitioner guidance, repository trace | DSR Grid; transparency framework; contribution statement |
+| Accumulation | Reported design knowledge, replication, reuse, codification | Updated knowledge base | Projectability; replication; codification |
+
+The Peffers-style six-activity sequence is widely synthesized in the corpus, while Johannesson and Perjons provide a five-activity method framework: explicate problem, define requirements, design/develop artifact, demonstrate artifact, evaluate artifact. The latter stresses that these are dependency-structured research activities rather than waterfall stages (vom Brocke, Hevner, & Maedche, 2020; Johannesson & Perjons, 2021; Johannesson & Perjons, 2021, ch. 11).
+
+### 7.1 Echeloned DSR for complexity
+
+Complex DSR projects can be structured through **design echelons**, each producing an intermediate artifact and validation checkpoint:
+
+| Echelon | Intermediate artifact | Validation logic |
+|---|---|---|
+| Problem analysis | Problem statement | Problem validity |
+| Objectives and requirements definition | Design requirements | Requirements validity |
+| Design and development | Solution design | Design validity |
+| Demonstration | Proof of concept | Feasibility validity |
+| Evaluation | Proof of value | Utility/effectiveness validity |
+
+This echeloned architecture is designed for complex DSR projects where intermediate artifacts require explicit validation rather than one terminal evaluation event (Tuunanen et al., 2024).
+
+---
+
+## 8. Evaluation theory
+
+DSR evaluation is the disciplined assessment of artifact, method, design knowledge, and contribution claims relative to problem, objectives, context, and intended use. Evaluation must fit the artifact maturity, evidence need, and knowledge claim (Weber, 2018; Akoka et al., 2017; Johannesson & Perjons, 2021).
+
+### 8.1 Evaluation coordinate system
+
+| Dimension | Values | Technical question |
+|---|---|---|
+| Timing | Ex ante; ex post | Is evaluation before or after full development/use? |
+| Function | Formative; summative | Does evaluation improve the artifact or judge final value? |
+| Setting | Artificial; naturalistic | Is evaluation controlled/contrived or real-world? |
+| Object | Problem; requirements; design; instantiation; use; contribution | What is being evaluated? |
+| Evidence mode | Analytical; empirical; expert; simulation; experiment; field; case; proof; repository trace | What evidence justifies the claim? |
+| Criterion | Utility; efficacy; effectiveness; efficiency; robustness; fidelity; simplicity; clarity; consistency; aesthetics; ethical acceptability; fitness for use/evolution | Against what standard is success judged? |
+| Stakeholder | Researcher; practitioner; user; organization; reviewer; public | Whose confidence or value judgment is at stake? |
+
+### 8.2 Evaluation matrix
+
+|  | Artificial setting | Naturalistic setting |
+|---|---|---|
+| **Ex ante** | Expert review, formal proof, simulation, analytical evaluation, prototype walkthrough, design rationale review | Stakeholder scenario validation, prospective field assessment, contextualized requirement validation |
+| **Ex post** | Controlled experiment, lab test, benchmarking, usability test, simulation with implemented artifact | Field experiment, case study, action design research intervention, longitudinal use study, organizational deployment |
+
+Artificial evaluation tends to support internal validity and efficacy; naturalistic evaluation supports external validity, effectiveness, adoption, side effects, and boundary-condition learning (Johannesson & Perjons, 2021). Software-embedded evaluation can integrate data collection into artifacts, increasing evaluation scalability and trace granularity (Sjöström et al., 2018).
+
+### 8.3 Evaluation object hierarchy
+
+| Evaluation object | Criteria | Evidence examples |
+|---|---|---|
+| Problem identification | Importance; novelty; feasibility | Stakeholder evidence, literature gap, practitioner need, problem-class analysis |
+| Objectives/requirements | Completeness; consistency; traceability; stakeholder fit | Requirements review, focus groups, expert judgment, CIMO trace |
+| Solution design | Simplicity; clarity; consistency; mechanism plausibility | Design rationale, model review, design pattern comparison |
+| Instantiation | Ease of use; robustness; fidelity; technical performance | Prototype test, benchmarking, unit/integration tests, expert inspection |
+| Solution-in-use | Effectiveness; efficiency; external consistency; acceptance; side effects | Field evaluation, case study, usage analytics, interviews, experiments |
+| Design knowledge | Generality; projectability; usefulness; testability; codifiability | Replication, cross-case comparison, design principle validation |
+| Contribution | Novelty; utility; rigor; relevance; theoretical/practical significance | Contribution matrix, publication argument, practitioner relevance evidence |
+
+Aesthetics can be an evaluation and contribution dimension where artifact experience, elegance, fit, or symbolic quality affects utility, acceptance, or design knowledge (Baskerville, Kaul, & Storey, 2018).
+
+---
+
+## 9. Validity, reliability, and replication theory
+
+### 9.1 Validity taxonomy
+
+| Validity type | DSR meaning | Threat | Mitigation |
+|---|---|---|---|
+| Semantic validity | Core constructs and artifact descriptions mean what they claim | Ambiguous concepts, overloaded artifact terms | Definitions, ontology, DSR Grid key concepts |
+| Problem validity | Problem is real, relevant, significant, and framed at an appropriate abstraction level | Triviality, overlocalization, false problem | Stakeholder evidence, problem-class abstraction |
+| Requirements validity | Requirements follow from problem, context, goals, and knowledge base | Requirements drift, untraceable objectives | Requirements traceability |
+| Artifact validity | Artifact has specified form, function, capacities, and use plan | Undocumented design, capacity mismatch | Make/use specification and build trace |
+| Evaluation validity | Evaluation method fits artifact, context, claim, and criterion | Method-claim mismatch | Evaluation strategy justification |
+| Internal validity | Observed effects plausibly follow from artifact under evaluation conditions | Confounding, uncontrolled variables | Artificial evaluation, experiment, proof, triangulation |
+| External/context validity | Findings transfer or project to relevant contexts | Context underreporting | Boundary conditions, context model |
+| Pragmatic validity | Artifact works in practice and supports intended change | Laboratory-only efficacy | Naturalistic evaluation and practitioner assessment |
+| Contribution validity | Claimed knowledge contribution is novel, useful, and situated in knowledge base | Routine design, overstated theory claim | Contribution positioning, genre-specific criteria |
+| Ethical/responsible validity | Artifact and DSR process handle harms, values, privacy, security, and accountability | Harm, surveillance, inequity, IP/security leakage | Responsible design controls and transparency-risk governance |
+
+### 9.2 Reliability framework
+
+Storey et al. (2025) organize DSR reliability by **target** and **timing**:
+
+| Reliability target | Synchronic reliability | Diachronic reliability |
+|---|---|---|
+| Artifact | Artifact behaves consistently across equivalent conditions at a time | Artifact remains dependable across time, versions, maintenance, and environment changes |
+| Method | Method can be applied consistently by comparable researchers/evaluators | Method remains stable or appropriately adaptable over time |
+| Measures | Measures produce consistent results at a point in time | Measures remain calibrated and meaningful over time |
+| Design knowledge | Design principles/theories are interpreted consistently across users | Design knowledge remains applicable or evolves transparently across contexts and time |
+
+Formula: **reliability target + assessment timing → appropriate reliability technique** (Storey et al., 2025).
+
+### 9.3 Replication and accumulation
+
+| Replication type | Activity | Knowledge function |
+|---:|---|---|
+| 1. Test | Prove utility | Confidence in artifact utility |
+| 2. Redesign | Ideate additional designs | Design improvement |
+| 3. Justification | Generalize findings | Design-theory strengthening |
+| 4. Adaptation | Increase utility | Contextual extension |
+| 5. Explanation | Elucidate design | Mechanism articulation |
+| 6. Update | Suggest design | Revision under new conditions |
+| 7. Recreation | Redo entire study | Full process robustness |
+| 8. Meta-replication | Review artifacts | Field-level accumulation |
+
+Replication in DSR is not merely exact reproduction. Because artifacts alter environments and contexts vary, DSR replication often means adaptation, explanation, update, recreation, or meta-replication oriented toward utility and design knowledge accumulation (Brendel et al., 2021; Hevner et al., 2024).
+
+Knowledge accumulation requires relevance, novelty/reuse balance, testability, usefulness, transparent design knowledge codification, and traceability from problem to artifact to evaluation (Reining et al., 2022; Dickhaut et al., 2022; Trigo, 2026).
+
+---
+
+## 10. Contribution theory
+
+### 10.1 Contribution dimensions
+
+| Dimension | Values | DSR significance |
+|---|---|---|
+| Contribution object | Design entity; design theory; both; methodology; evaluation framework; taxonomy; ontology; design principle; design pattern | What kind of knowledge enters the knowledge base |
+| Knowledge goal | Definitional; descriptive; prescriptive; explanatory; predictive; explanatory-predictive; evaluative; methodological; normative | What kind of knowledge is produced |
+| Knowledge scope | Idiographic/local; projectable to problem class; analytical generalization; nomothetic/general | How far knowledge can travel |
+| Novelty mode | Routine design; improvement; exaptation; invention | Contribution significance |
+| Maturity | Nascent; emerging; mature; replicated; codified | Accumulation state |
+| Audience | Researcher; reviewer; practitioner; manager; policy/public; technical implementer | Communication requirements |
+| Evidence basis | Literature synthesis; conceptual argument; build/evaluate; case; experiment; simulation; field; replication | Confidence level |
+| Boundary conditions | Context, use conditions, stakeholder class, artifact network, time, domain | Projectability limits |
+
+### 10.2 Contribution matrix
+
+|  | Low solution maturity | High solution maturity |
+|---|---|---|
+| **Low problem/domain maturity** | Invention: new problem, new solution; high novelty, high uncertainty | Exaptation: known solution transferred to new problem/domain |
+| **High problem/domain maturity** | Improvement: better solution for known problem | Routine design: likely insufficient unless new knowledge emerges |
+
+Routine design is not automatically excluded from practice, but it is weak DSR unless it generates design knowledge through novelty, evaluation, abstraction, theory-building, method extension, or replication (vom Brocke, Hevner, & Maedche, 2020; Smuts et al., 2022; Baskerville et al., 2018).
+
+---
+
+## 11. Genre theory
+
+DSR is a **pluralistic research family**. Genre determines artifact expectations, theory expectations, evaluation expectations, reporting norms, and reviewer criteria (Peffers et al., 2018; Ågerfalk, 2018).
+
+| DSR genre prototype | Primary focus | Artifact role | Theory role | Evaluation expectation |
+|---|---|---|---|---|
+| Information Systems Design Theory | Prescriptive theory for artifact class | Artifact class or design theory | Central | Theory completeness and artifact grounding |
+| Design Science Research Methodology | Method for conducting/evaluating DSR | Method/framework/taxonomy | Methodological | Demonstrated usefulness, coherence, often conceptual or empirical validation |
+| Design-Oriented Information Systems Research | Practical artifact development | Artifact central | May be limited or emergent | Utility and situated evaluation |
+| Explanatory Design Theory | Explanation of why design works | Artifact as empirical/theoretical object | Explanatory-predictive | Mechanism and proposition testing |
+| Action Design Research | Artifact co-created in organizational intervention | Emergent artifact in practice | Intervention-grounded theory | Concurrent building, intervention, evaluation, reflection |
+
+Genre plurality blocks one-size-fits-all evaluation. Operations management DSR, project management DSR, digital science, transdisciplinary DSR, and applied psychology DSR extend the consensus core into different evidence norms and practical-relevance regimes (van Aken et al., 2016; Storey & Baskerville, 2021; Gregor & Zwikael, 2024; Bagni et al., 2025; Antony et al., 2024).
+
+---
+
+## 12. Transparency, documentation, and publication theory
+
+### 12.1 DSR transparency framework
+
+| Transparency form | Required content | Main risk if absent |
+|---|---|---|
+| Process transparency | Actual activities, reasoning, sequence, iterations, emergent decisions, design log | Ex-post DSR-ification; unverifiable process |
+| Problem-space transparency | Context, stakeholders, scope, goals, timeframe, boundary conditions | Weak relevance; unprojectable findings |
+| Solution-space transparency | Search strategy, grounding theories, prior artifacts, design alternatives, technologies | Weak rigor; reinvented solution |
+| Build transparency | Design rationale, creative reasoning, collaboration, artifact construction choices | Black-box artifact |
+| Evaluation transparency | Methods, criteria, evidence, measures, formative/summative results, fitness for use/evolution | Low stakeholder confidence |
+| Contribution transparency | Scientific/practical contribution, design knowledge, descriptive/prescriptive knowledge, audience-specific communication | Overclaiming; underuse by practice |
+
+Transparency must be proportionate. The corpus flags risks: ex-post DSR-ification, uniqueness of artifact instantiations and contexts, overly abstract language, artifact maintenance/update costs, proprietary/privacy/security risks, and publication-process burdens (Hevner et al., 2024).
+
+### 12.2 Reporting architecture: DSR Grid × transparency
+
+| DSR Grid dimension | Core question | Transparency linkage |
+|---|---|---|
+| Problem description | What problem class and instance are addressed, and why do they matter? | Problem-space transparency |
+| Input knowledge | What descriptive/prescriptive/practitioner knowledge grounds the project? | Solution-space transparency |
+| Research process | How did the study proceed, iterate, decide, and evaluate? | Process transparency |
+| Key concepts | What constructs, definitions, and assumptions structure the study? | Semantic transparency |
+| Solution description | What artifact/design entity was produced, specified, instantiated, or theorized? | Build transparency |
+| Output knowledge | What design knowledge, evaluation evidence, and contribution enter the knowledge base? | Evaluation and contribution transparency |
+
+The DSR Grid can structure abstracts, appendices, project documentation, reviewer summaries, and repository metadata (vom Brocke & Maedche, 2019; vom Brocke, Hevner, & Maedche, 2020). Journaling strengthens process transparency by recording design knowledge production concurrently rather than reconstructing it after the fact (vom Brocke, Gau, & Mädche, 2021).
+
+---
+
+## 13. Design-knowledge codification theory
+
+Reusable DSR knowledge should be codified as more than prose. High-value codification artifacts include:
+
+| Codification artifact | Content | Use |
+|---|---|---|
+| Design principle | Context, intervention/action, mechanism/rationale, outcome, boundary condition | Projectable prescription |
+| Design pattern | Problem, context, forces, solution, rationale, consequences, implementation | Reusable solution schema |
+| Knowledge contribution diagram | Component-level contribution map | Complex artifact contribution communication |
+| Path of knowledge types | Directed sequence of knowledge moments | Contribution progression and accumulation |
+| CIMO statement | Context, intervention, mechanism, outcome | Management/applied design science bridge |
+| Requirements-design-evaluation trace | Literature/problem-derived requirement → design decision → evaluation criterion | Auditability |
+| DSR Grid | Six-dimension summary | Planning/review/communication |
+| Repository package | Data, code, screenshots, simulations, logs, instruments, models, documentation | Reuse/replication/transparency |
+
+Design patterns bridge problem space and solution space by packaging context, requirements, rationale, consequences, and solution guidance (Leimeister et al., 2021). Knowledge contribution diagrams help represent multi-component contributions in complex artifacts (Schwartz & Yahav, 2021). Narrative and systematic evidence syntheses can support DSR when traceably linked to requirements, design decisions, and evaluation criteria (Opdenakker & Talmar, 2021; Trigo, 2026).
+
+---
+
+## 14. Practitioner relevance and co-creation theory
+
+High-relevance DSR requires practitioner engagement without collapsing into consulting. The researcher-practitioner relationship is itself a quality dimension when DSR seeks societal or organizational impact (vom Brocke et al., 2021; Gregor & Zwikael, 2024).
+
+| Relevance mechanism | Technical requirement |
+|---|---|
+| Practice-based problem review | Explicitly review problem knowledge from the practice perspective |
+| Solution knowledge review | Review existing practitioner and scholarly solution knowledge |
+| Relationship quality | Report researcher-practitioner engagement quality |
+| Co-creation | Include stakeholders in problem framing, design, evaluation, and reflection where appropriate |
+| Practice contribution | Explain how design knowledge advances extant practice |
+| Societal value | Relate artifact/design knowledge to real-world problems and broader impacts |
+| Activity log | Provide design-process trace where feasible |
+| Plain-language applicability | Translate abstract design knowledge into usable practitioner guidance |
+
+Focus groups, co-design, co-creation, action design research, and project-management co-creation methods are legitimate DSR mechanisms when integrated with artifact creation, evaluation, and knowledge contribution rather than used as standalone consultation techniques (Suero Montero & Kapinga, 2019; Henriques & O’Neill, 2023; Gregor & Zwikael, 2024).
+
+---
+
+## 15. Research-question theory
+
+DSR questions can be framed by **way of knowing**, **way of framing**, and **way of designing**. The corpus indicates that many DSR papers start from stated problems, but explicit knowledge-oriented questions are underused (Thuan et al., 2019).
+
+| Question class | Example form | DSR function |
+|---|---|---|
+| Problem-oriented | What practical problem requires artifact intervention? | Relevance framing |
+| Objective-oriented | What objectives/requirements must a solution satisfy? | Requirements framing |
+| Artifact-oriented | What artifact should be designed/developed? | Design target |
+| Process-oriented | How should the artifact be designed, built, or adapted? | Method/process knowledge |
+| Evaluation-oriented | How well does the artifact solve/support the problem? | Utility/effectiveness evidence |
+| Knowledge-oriented | What design knowledge is produced, refined, or invalidated? | Scientific contribution |
+| Context-oriented | Under what conditions does the artifact work? | Boundary/projectability |
+| Mechanism-oriented | Why and through what mechanism does the artifact generate effects? | Explanatory design knowledge |
+
+A complete DSR formulation should include at least one question or objective that makes the **knowledge contribution** explicit, not only the artifact construction task (Thuan et al., 2019; Akoka et al., 2023).
+
+---
+
+## 16. Boundary conditions and anti-patterns
+
+| Anti-pattern | Failure mode | Correction |
+|---|---|---|
+| Ex-post DSR-ification | Retrospectively dressing a development/consulting project as DSR | Process transparency; explicit DSR logic from initiation |
+| Routine design overclaim | Applying known technique locally without new knowledge | Contribution positioning; problem-class abstraction; evaluation |
+| Artifact black box | Reporting only output artifact without build rationale | Build transparency; design log; make/use specification |
+| Weak problem grounding | Artifact exists but problem relevance unclear | Problem-space transparency; stakeholder evidence |
+| Weak solution grounding | Design lacks literature/theory/prior-artifact grounding | Solution-space transparency; evidence synthesis |
+| Evaluation mismatch | Evaluation method does not support claim | Evaluation strategy alignment |
+| Theory fetish | Treating “theory” as mandatory label for all scientific contribution | Artifact-theory balance; precise contribution vocabulary |
+| Overlocalization | Findings are inseparable from one implementation/context | Context modeling; boundary conditions; replication |
+| Overabstraction | Design principles too abstract for practitioner use | Design pattern/CIMO/detail; examples |
+| Non-codified knowledge | Design knowledge buried in narrative | Diagrams, grids, design principles, patterns, repository trace |
+| Transparency overload | Excessive demands expose IP/security or burden authors | Proportionate transparency; risk governance |
+| Artifact maintenance neglect | Shared software/artifacts decay | Versioning, archive, executable scope statement, maintenance boundary |
+
+---
+
+## 17. Formal propositions of the consensus theory
+
+| ID | Proposition |
+|---:|---|
+| P1 | A DSR study is valid only if the artifact/design entity is traceably related to a relevant problem class and problem instance. |
+| P2 | A DSR artifact becomes scientific through evaluated design knowledge, not through construction alone. |
+| P3 | Design knowledge is strongest when it links context, intervention/artifact feature, mechanism/rationale, outcome, and boundary condition. |
+| P4 | Evaluation quality depends on alignment among artifact maturity, claim type, evaluation timing, evaluation setting, criterion, and stakeholder confidence requirement. |
+| P5 | Ex ante/artificial evaluation supports feasibility and efficacy claims; ex post/naturalistic evaluation supports effectiveness, adoption, and projectability claims. |
+| P6 | Artifact utility without contribution articulation produces weak DSR; contribution articulation without artifact/evaluation grounding produces weak DSR. |
+| P7 | DSR knowledge accumulation requires codification, transparency, replication/adaptation, and clear boundary conditions. |
+| P8 | Artifact universals/design entities provide the abstraction layer for reusable DSR knowledge; instantiations provide evidence about those abstractions. |
+| P9 | DSR process models are dependency structures and inquiry heuristics, not rigid waterfall prescriptions. |
+| P10 | DSR rigor is produced by both knowledge-base grounding and evaluation discipline; relevance is produced by problem/context/stakeholder grounding. |
+| P11 | DSR genres require differentiated publication and review criteria because artifact, theory, method, intervention, and evaluation roles vary by genre. |
+| P12 | Practitioner co-creation increases relevance only when integrated with explicit design knowledge production and rigorous evaluation. |
+| P13 | Context transparency is a precondition for projectability, replication, and responsible design. |
+| P14 | Reliability in DSR must be assessed across artifact, method, measures, and design knowledge, with synchronic and diachronic distinctions. |
+| P15 | Responsible DSR requires balancing transparency with confidentiality, security, intellectual property, maintenance cost, stakeholder burden, and social accountability. |
+
+---
+
+## References
+
+Akoka, J., Comyn-Wattiau, I., Prat, N., & Storey, V. C. (2017). Evaluating knowledge types in design science research: An integrated framework. In A. Maedche et al. (Eds.), *Design Science Research in Information Systems and Technology* (LNCS 10243, pp. 201–217). Springer. https://doi.org/10.1007/978-3-319-59144-5_12
+
+Akoka, J., Comyn-Wattiau, I., Prat, N., & Storey, V. C. (2023). Knowledge contributions in design science research: Paths of knowledge types. *Decision Support Systems, 166*, 113898. https://doi.org/10.1016/j.dss.2022.113898
+
+Alismail, S., Zhang, H., & Chatterjee, S. (2017). A framework for identifying design science research objectives for building and evaluating IT artifacts. In A. Maedche et al. (Eds.), *Design Science Research. DESRIST 2017* (LNCS 10243, pp. 218–230). Springer. https://doi.org/10.1007/978-3-319-59144-5_13
+
+Antony, J., Sony, M., Lameijer, B., Bhat, S., Jayaraman, R., & Gutierrez, L. (2024). Towards a design science research (DSR) methodology for operational excellence (OPEX) initiatives. *The TQM Journal, 36*(8), 2383–2397. https://doi.org/10.1108/TQM-01-2023-0017
+
+Ågerfalk, P. J. (2018). Whither design science research? *European Journal of Information Systems, 27*(2), 127–128. https://doi.org/10.1080/0960085X.2018.1458065
+
+Bagni, G., Godinho Filho, M., Finne, M., & Thürer, M. (2025). Design science research in operations management: Is there a single type? *Production Planning & Control, 36*(6), 789–807. https://doi.org/10.1080/09537287.2024.2310230
+
+Baskerville, R., Baiyere, A., Gregor, S., Hevner, A., & Rossi, M. (2018). Design science research contributions: Finding a balance between artifact and theory. *Journal of the Association for Information Systems, 19*(5), 358–376. https://doi.org/10.17705/1jais.00495
+
+Baskerville, R. L., Kaul, M., & Storey, V. C. (2018). Aesthetics in design science research. *European Journal of Information Systems, 27*(2), 140–153. https://doi.org/10.1080/0960085X.2017.1395545
+
+Brendel, A. B., Lembcke, T.-B., Muntermann, J., & Kolbe, L. M. (2021). Toward replication study types for design science research. *Journal of Information Technology, 36*(3), 198–215. https://doi.org/10.1177/02683962211006429
+
+Dickhaut, E., Janson, A., & Leimeister, J. M. (2022). Analyzing design knowledge representation in design science research and deriving recommendations to support design knowledge codification. In A. Drechsler et al. (Eds.), *Design Science Research: DESRIST 2022* (LNCS 13229, pp. 417–428). Springer. https://doi.org/10.1007/978-3-031-06516-3_31
+
+Drechsler, A., Gerber, A., & Hevner, A. (Eds.). (2022). *The transdisciplinary reach of design science research: 17th International Conference on Design Science Research in Information Systems and Technology, DESRIST 2022, St Petersburg, FL, USA, June 1–3, 2022, proceedings*. Springer. https://doi.org/10.1007/978-3-031-06516-3
+
+Feine, J., Morana, S., & Maedche, A. (2019). Leveraging machine-executable descriptive knowledge in design science research – The case of designing socially-adaptive chatbots. In B. Tulu et al. (Eds.), *DESRIST 2019* (LNCS 11491, pp. 76–91). Springer. https://doi.org/10.1007/978-3-030-19504-5_6
+
+Gregor, S., & Zwikael, O. (2024). Design science research and the co-creation of project management knowledge. *International Journal of Project Management, 42*, 102584. https://doi.org/10.1016/j.ijproman.2024.102584
+
+Henriques, T. A., & O’Neill, H. (2023). Design science research with focus groups – A pragmatic meta-model. *International Journal of Managing Projects in Business, 16*(1), 119–140. https://doi.org/10.1108/IJMPB-01-2020-0015
+
+Hevner, A. R., Parsons, J., Brendel, A. B., Lukyanenko, R., Tiefenbeck, V., Tremblay, M. C., & vom Brocke, J. (2024). Transparency in design science research. *Decision Support Systems, 182*, Article 114236. https://doi.org/10.1016/j.dss.2024.114236
+
+Hevner, A. R., & Storey, V. C. (2021). Externalities of design science research: Preparation for project success. In L. Chandra Kruse et al. (Eds.), *Design Science Research. DESRIST 2021* (LNCS 12807, pp. 118–130). Springer. https://doi.org/10.1007/978-3-030-82405-1_14
+
+Iivari, J. (2020). Editorial: A critical look at theories in design science research. *Journal of the Association for Information Systems, 21*(3), 502–519. https://doi.org/10.17705/1jais.00610
+
+Johannesson, P., & Perjons, E. (2021). *An introduction to design science* (2nd ed.). Springer. https://doi.org/10.1007/978-3-030-78132-3
+
+Johannesson, P., & Perjons, E. (2021). Systems development and the method framework for design science research. In *An Introduction to Design Science* (pp. 161–169). Springer. https://doi.org/10.1007/978-3-030-78132-3_11
+
+Leimeister, J. M., Dickhaut, E., & Janson, A. (2021). Design pattern as a bridge between problem-space and solution-space. In S. Aier et al. (Eds.), *Engineering the Transformation of the Enterprise* (pp. 137–150). Springer. https://doi.org/10.1007/978-3-030-84655-8_9
+
+Maedche, A., Gregor, S., Morana, S., & Feine, J. (2019). Conceptualization of the problem space in design science research. In B. Tulu et al. (Eds.), *Design Science Research. Cases: DESRIST 2019* (LNCS 11491, pp. 18–31). Springer. https://doi.org/10.1007/978-3-030-19504-5_2
+
+Möller, F., Chandra Kruse, L., Schoormann, T., & Otto, B. (2022). Design principles for boundary spanning in transdisciplinary design science research. In A. Drechsler et al. (Eds.), *The Next Wave of Sociotechnical Design: DESRIST 2022* (LNCS 13229, pp. 42–54). Springer. https://doi.org/10.1007/978-3-031-06516-3_4
+
+Opdenakker, R., & Talmar, M. (2021). What to consider in a systematic literature review: Three examples from design science research. In A. P. Cardoso Ermel et al. (Eds.), *Literature Reviews* (pp. 191–199). Springer. https://doi.org/10.1007/978-3-030-75722-9_8
+
+Peffers, K., Tuunanen, T., & Niehaves, B. (2018). Design science research genres: Introduction to the special issue on exemplars and criteria for applicable design science research. *European Journal of Information Systems, 27*(2), 129–139. https://doi.org/10.1080/0960085X.2018.1458066
+
+Purao, S. (2021). Design science research problems … Where do they come from? In L. Chandra Kruse et al. (Eds.), *DESRIST 2021* (LNCS 12807, pp. 99–111). Springer. https://doi.org/10.1007/978-3-030-82405-1_12
+
+Reining, S., Ahlemann, F., Mueller, B., & Thakurta, R. (2022). Knowledge accumulation in design science research: Ways to foster scientific progress. *The DATA BASE for Advances in Information Systems, 53*(1), 10–24.
+
+Schwartz, D. G., & Yahav, I. (2021). Knowledge contribution diagrams for design science research: A novel graphical technique. In L. Chandra Kruse et al. (Eds.), *DESRIST 2021* (LNCS 12807, pp. 174–187). Springer. https://doi.org/10.1007/978-3-030-82405-1_19
+
+Siponen, M., & Klaavuniemi, T. (2021). The primary scientific contribution is hardly a theory in design science research. In L. Chandra Kruse et al. (Eds.), *DESRIST 2021* (LNCS 12807, pp. 137–146). Springer. https://doi.org/10.1007/978-3-030-82405-1_16
+
+Sjöström, J., Chandra Kruse, L., Haj-Bolouri, A., & Flensburg, P. (2018). Software-embedded evaluation support in design science research. In S. Chatterjee et al. (Eds.), *Design Science Research in Information Systems and Technologies, DESRIST 2018* (LNCS 10844, pp. 348–362). Springer. https://doi.org/10.1007/978-3-319-91800-6_23
+
+Smuts, H., Winter, R., Gerber, A., & van der Merwe, A. (2022). “Designing” design science research – A taxonomy for supporting study design decisions. In A. Drechsler et al. (Eds.), *Design Science Research: DESRIST 2022* (LNCS 13229, pp. 483–495). Springer. https://doi.org/10.1007/978-3-031-06516-3_36
+
+Storey, V. C., Baskerville, R. L., & Kaul, M. (2025). Reliability in design science research. *Information Systems Journal, 35*(3), 984–1014. https://doi.org/10.1111/isj.12564
+
+Storey, V. C., & Baskerville, R. L. (2021). The digital science field of design science research. In L. Chandra Kruse et al. (Eds.), *DESRIST 2021* (LNCS 12807, pp. 343–355). Springer. https://doi.org/10.1007/978-3-030-82405-1_33
+
+Suero Montero, C., & Kapinga, A. F. (2019). Design science research strengthened: Integrating co-creation and co-design. In P. Nielsen & H. C. Kimaro (Eds.), *ICT4D 2019* (IFIP AICT 551, pp. 486–495). Springer. https://doi.org/10.1007/978-3-030-18400-1_40
+
+Thuan, N. H., Drechsler, A., & Antunes, P. (2019). Construction of design science research questions. *Communications of the Association for Information Systems, 44*, 332–363. https://doi.org/10.17705/1CAIS.04420
+
+Trigo, A. (2026). Artefact-driven narrative literature review (ART-NLR): Supporting evidence synthesis for design science research. *Journal of Documentation*. https://doi.org/10.1108/JD-01-2026-0013
+
+Tuunanen, T., Winter, R., & vom Brocke, J. (2024). Dealing with complexity in design science research: A methodology using design echelons. *MIS Quarterly, 48*(2), 427–458. https://doi.org/10.25300/MISQ/2023/16700
+
+van Aken, J., Chandrasekaran, A., & Halman, J. (2016). Conducting and publishing design science research: Inaugural essay of the design science department of the Journal of Operations Management. *Journal of Operations Management, 47–48*, 1–8. https://doi.org/10.1016/j.jom.2016.06.004
+
+van der Merwe, A., Gerber, A., & Smuts, H. (2020). Guidelines for conducting design science research in information systems. In B. Tait et al. (Eds.), *Communications in Computer and Information Science* (Vol. 1136, pp. 163–178). Springer. https://doi.org/10.1007/978-3-030-35629-3_11
+
+vom Brocke, J., Gau, M., & Mädche, A. (2021). Journaling the design science research process: Transparency about the making of design knowledge. In L. Chandra Kruse et al. (Eds.), *Design Science Research in Information Systems and Technology, DESRIST 2021* (LNCS 12807, pp. 131–136). Springer. https://doi.org/10.1007/978-3-030-82405-1_15
+
+vom Brocke, J., Hevner, A., & Maedche, A. (Eds.). (2020). *Design Science Research. Cases*. Springer. https://doi.org/10.1007/978-3-030-46781-4
+
+vom Brocke, J., Hevner, A., & Maedche, A. (2020). Introduction to design science research. In J. vom Brocke, A. Hevner, & A. Maedche (Eds.), *Design Science Research. Cases* (pp. 1–13). Springer. https://doi.org/10.1007/978-3-030-46781-4_1
+
+vom Brocke, J., & Maedche, A. (2019). The DSR grid: Six core dimensions for effectively planning and communicating design science research projects. *Electronic Markets, 29*, 379–385. https://doi.org/10.1007/s12525-019-00358-7
+
+vom Brocke, J., Weber, M., & Grisold, T. (2021). Design science research of high practical relevance: Dancing through space and time. In S. Aier et al. (Eds.), *Engineering the Transformation of the Enterprise* (pp. 115–135). Springer. https://doi.org/10.1007/978-3-030-84655-8_8
+
+Weber, R. (2018). Design-science research. In *Research Methods: Information, Systems, and Contexts* (pp. 267–288). Elsevier. https://doi.org/10.1016/B978-0-08-102220-7.00011-X
+
+Weigand, H., Johannesson, P., & Andersson, B. (2021). An artifact ontology for design science research. *Data & Knowledge Engineering, 133*, 101878. https://doi.org/10.1016/j.datak.2021.101878
+
+zur Heiden, P. (2020). Considering context in design science research: A systematic literature review. In S. Hofmann et al. (Eds.), *Design Science Research. Cases* (LNCS 12388, pp. 223–234). Springer. https://doi.org/10.1007/978-3-030-64823-7_21

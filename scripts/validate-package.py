@@ -173,7 +173,8 @@ def validate_parseability(run: ValidationRun) -> None:
         rpath = rel(path)
         try:
             if path.suffix in {".yaml", ".yml"} or path.name == "CITATION.cff":
-                load_yaml_file(path)
+                with path.open("r", encoding="utf-8") as handle:
+                    list(yaml.safe_load_all(handle))
                 yaml_count += 1
             elif path.suffix == ".json":
                 json.loads(path.read_text(encoding="utf-8"))
