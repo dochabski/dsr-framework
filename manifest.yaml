@@ -84,7 +84,12 @@ manifest:
       latest_white_paper_reference_bibliography: artifacts/dsr-framework-white-paper/whitepaper/references.bib
       latest_white_paper_build_check: artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
       latest_white_paper_build_audit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
-      white_paper_package_status: draft_repository_native_methodological_white_paper_not_released
+      latest_white_paper_release_record: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-0.yaml
+      latest_white_paper_metadata_freeze: artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-0.yaml
+      latest_white_paper_release_approval: artifacts/dsr-framework-white-paper/records/releases/record-release-approval-whitepaper-v1-0-0.yaml
+      latest_white_paper_final_read_edit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
+      latest_white_paper_release_notes: artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-0.md
+      white_paper_package_status: whitepaper_v1_0_0_released_pending_zenodo_publication_verification
       latest_wicked_problem_resolution_workflow: docs/wicked-problem-resolution-workflow.md
       wicked_problem_resolution_workflow_status: controlled_process_artifact_present
       latest_rubric_collection: rubrics/dsr_assessment_rubrics_unified.yaml
@@ -874,6 +879,11 @@ manifest:
     to: artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
     relation: documents_and_checks_citation_metadata_and_heading_numbering_fixes
     evidence_status: retained_build_review_record
+  - trace_id: tr_white_paper_release_record_to_white_paper_package
+    from: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-0.yaml
+    to: artifacts/dsr-framework-white-paper/README.md
+    relation: approves_and_scopes_white_paper_v1_0_0_release
+    evidence_status: retained_release_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -912,6 +922,11 @@ manifest:
     - artifacts/dsr-framework-white-paper/whitepaper/references.bib
     - artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
     - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
+    - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-0.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-approval-whitepaper-v1-0-0.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-0.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-0.md
     - records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
     - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     - records/reviews/record-review-0002-completeness-v1-0-0.yaml
@@ -1045,6 +1060,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.4.0-post-publication
+    date: '2026-05-18'
+    change_type: white_paper_v1_0_0_release_preparation
+    description: Prepared the DSR Framework white paper v1.0.0 release with metadata freeze, final read/edit, release, approval, and GitHub release notes while keeping the root framework package at v1.4.0.
+    responsible_party: framework_maintainer
+    related_request: publish_white_paper_github_zenodo_osf_orcid
   - version: 1.4.0-post-publication
     date: '2026-05-18'
     change_type: draft_white_paper_open_rights_clarification

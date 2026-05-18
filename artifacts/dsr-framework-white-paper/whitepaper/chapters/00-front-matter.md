@@ -3,9 +3,9 @@ title: "From Design Science Research Theory to Repository-Native Operationalizat
 subtitle: "A White Paper for the DSR Framework"
 author: "David Ochabski"
 orcid: "0009-0000-9117-0651"
-date: "2026-05-17"
-version: "0.2.0-draft"
-status: "working white paper draft - citation and build audit revision"
+date: "2026-05-18"
+version: "1.0.0"
+status: "released white paper"
 repository: "https://github.com/dochabski/dsr-framework"
 related_repository: "https://github.com/dochabski/documentation-protocol"
 canonical_source_policy: "GitHub source of truth plus Zenodo DOI release for archival citation"
@@ -18,7 +18,7 @@ link-bibliography: true
 
 # Version note {.unnumbered}
 
-This draft is prepared as an open artifact white paper. It is designed to be readable as a normal human-facing paper and also structured enough for repository automation, AI ingestion, archival deposit, and future validation work.
+This release is prepared as an open artifact white paper. It is designed to be readable as a normal human-facing paper and also structured enough for repository automation, AI ingestion, archival deposit, and future validation work.
 
 Original project-authored white paper content and metadata are intended for CC0-1.0 dedication, matching the repository's maximally open non-code licensing policy. Citation is appreciated for scholarly traceability, but it is not a license condition for CC0 content.
 
@@ -32,6 +32,6 @@ Design Science Research (DSR) is an artifact-centered research tradition in whic
 
 Design Science Research; design knowledge; artifact ontology; DSR evaluation; DSR transparency; repository-native research; research artifact packaging; GitHub; Zenodo; Open Science Framework; Octopus; FAIR; AI-legible documentation.
 
-# Recommended citation placeholder {.unnumbered}
+# Recommended citation {.unnumbered}
 
-Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 0.2.0-draft). DSR Framework. DOI pending.
+Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 1.0.0). DSR Framework. GitHub release: https://github.com/dochabski/dsr-framework/releases/tag/whitepaper-v1.0.0. DOI pending Zenodo publication verification.

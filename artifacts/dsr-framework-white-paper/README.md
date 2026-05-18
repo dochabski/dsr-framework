@@ -1,6 +1,6 @@
 # DSR Framework White Paper Package
 
-This package contains a draft white paper and release-preparation scaffold for turning the DSR theory synthesis materials into a citable, repository-native white paper.
+This package contains the v1.0.0 DSR Framework white paper and release-preparation scaffold for turning the DSR theory synthesis materials into a citable, repository-native white paper.
 
 ## Decision
 
@@ -8,7 +8,7 @@ Use a **repository-native methodological white paper with an open artifact packa
 
 1. GitHub repository package as living source of truth.
 2. Zenodo archive of a versioned GitHub release for DOI citation.
-3. OSF project/preprint as discovery hub after the GitHub draft is stable.
+3. OSF project/preprint as discovery hub after the GitHub release and Zenodo DOI are available.
 4. Octopus modular record after stable sections can be mapped to research-process publication types.
 5. Mendeley Data or Dryad only for data packages, not for the white paper itself.
 6. ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, and personal pages as dissemination links, not canonical sources.

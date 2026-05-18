@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: CC0-1.0
+release_approval_record:
+  record_id: record_release_approval_whitepaper_v1_0_0
+  record_class: release_approval
+  item_type: record
+  title: DSR Framework White Paper v1.0.0 Release Approval
+  status: approved
+  version: "1.0.0"
+  approval_date: "2026-05-18"
+  responsible_party: framework_maintainer
+  target_release: whitepaper-v1.0.0
+  l5_claimed: false
+
+  approved_commit:
+    commit_sha: pending_until_release_commit
+    branch: main
+    approval_scope_note: >
+      The final approved release commit is the main-branch commit tagged as
+      whitepaper-v1.0.0. The interim commit value is retained before the
+      release preparation commit exists and may be superseded by the Git tag.
+
+  approval_basis:
+    release_record: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-0.yaml
+    metadata_freeze: artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-0.yaml
+    final_read_edit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
+    citation_and_build_audit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
+    validation_summary: records/validation/validation-summary-latest.json
+
+  approval_statement: >
+    The DSR Framework white paper v1.0.0 is approved for GitHub release and
+    Zenodo archival publication under CC0-1.0 for original project-authored
+    white paper content and metadata. The approval does not claim L5
+    archival/publication-ready conformance for the DSR Framework package,
+    independent external peer review, or empirical validation of framework
+    effectiveness.
+
+  post_release_actions:
+    - tag release commit as whitepaper-v1.0.0
+    - create GitHub release using artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-0.md
+    - archive release on Zenodo
+    - update repository with Zenodo DOI publication verification
+    - create or update OSF project or preprint with GitHub and Zenodo links
+    - add DOI work to ORCID
+
+  outcome:
+    result: approved_for_github_whitepaper_release
+    approved_claims:
+      - whitepaper_v1_0_0
+      - cc0_original_project_authored_whitepaper_content
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - independent_external_peer_review
+      - empirical_framework_effectiveness_validation

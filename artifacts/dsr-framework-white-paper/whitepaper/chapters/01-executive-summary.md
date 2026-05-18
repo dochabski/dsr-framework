@@ -1,6 +1,6 @@
 # Executive summary {.unnumbered}
 
-This white paper should be framed as a **repository-native methodological white paper with an open artifact package**. It is not mainly a policy brief, a promotional white paper, a dataset descriptor, or a conventional literature review. Its contribution is partly conceptual, partly methodological, and partly infrastructural: it explains what DSR is, how DSR can be operationalized, and how the DSR Framework repository is operationalizing it.
+This white paper is framed as a **repository-native methodological white paper with an open artifact package**. It is not mainly a policy brief, a promotional white paper, a dataset descriptor, or a conventional literature review. Its contribution is partly conceptual, partly methodological, and partly infrastructural: it explains what DSR is, how DSR can be operationalized, and how the DSR Framework repository is operationalizing it.
 
 The central thesis is:
 
