@@ -11,6 +11,7 @@
 - Clarified maximally open CC0-1.0 rights posture for original white paper package content and metadata.
 - Prepared DSR Framework white paper v1.0.0 release records, final read/edit record, metadata freeze, release approval, and GitHub release notes.
 - Recorded Zenodo DOI `10.5281/zenodo.20264299` and publication verification for the DSR Framework white paper v1.0.0 release.
+- Recorded public OSF project `https://osf.io/wytgc/` and ORCID DOI work dissemination for the DSR Framework white paper v1.0.0 release.
 
 ## [1.4.0] - 2026-05-16
 
