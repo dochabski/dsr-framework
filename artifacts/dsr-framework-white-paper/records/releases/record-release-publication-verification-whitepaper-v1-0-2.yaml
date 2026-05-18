@@ -101,16 +101,23 @@ release_publication_verification_record:
       peer_reviewed_publication_doi: https://doi.org/10.5281/zenodo.20272519
       publication_citation: "Ochabski, D. (2026). From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework (Version 1.0.2). DSR Framework. https://doi.org/10.5281/zenodo.20272519"
     orcid_work:
-      status: pending_two_factor_authentication
+      status: updated
       orcid_id: 0009-0000-9117-0651
       orcid_profile_url: https://orcid.org/0009-0000-9117-0651
-      intended_work_type: Report
-      intended_doi: 10.5281/zenodo.20272519
-      intended_doi_url: https://doi.org/10.5281/zenodo.20272519
+      work_visibility: Everyone
+      work_type: Report
+      doi: 10.5281/zenodo.20272519
+      doi_url: https://doi.org/10.5281/zenodo.20272519
+      prior_doi: 10.5281/zenodo.20271949
+      updated_fields:
+        - work_url
+        - bibtex_citation
+        - citation_description
+        - doi_identifier_value
+        - doi_identifier_url
       update_note: >
-        ORCID sign-in reached the two-factor authentication step. The work
-        record still needs to be updated manually, or with a fresh two-factor
-        code in an authenticated browser session.
+        The existing ORCID work record was updated from the v1.0.1 Zenodo DOI
+        to the v1.0.2 Zenodo DOI and remained visible to Everyone.
 
   verification_basis:
     release_record: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-2.yaml
@@ -135,23 +142,22 @@ release_publication_verification_record:
     The DSR Framework white paper v1.0.2 GitHub release has been published and
     archived on Zenodo as a DOI-backed report record. MetaArXiv metadata now
     points to the v1.0.2 Zenodo DOI while remaining under OSF Preprints
-    pre-moderation. OSF project file replacement and ORCID work update remain
-    follow-up actions because the browser automation session could not upload
-    OSF files and ORCID required two-factor authentication.
+    pre-moderation. The ORCID work record now points to the v1.0.2 Zenodo DOI.
+    OSF project file replacement remains a follow-up action because the browser
+    automation session could not upload OSF files.
 
   conformance_impact:
-    result: publication_verified_with_osf_file_update_and_orcid_followup_pending
+    result: publication_verified_with_osf_file_update_followup_pending
     supported_claims:
       - whitepaper_v1_0_2_published
       - zenodo_doi_archived_whitepaper_patch_release
       - metaarxiv_preprint_metadata_updated_pending_moderation
+      - orcid_doi_work_updated
       - cc0_original_project_authored_whitepaper_content_and_metadata
     follow_up_needed:
       - update_osf_project_pdf_and_markdown_copies_to_v1_0_2
-      - update_orcid_work_to_v1_0_2_doi_after_two_factor_authentication
     not_supported_claims:
       - osf_project_files_updated_to_v1_0_2
-      - orcid_work_updated_to_v1_0_2
       - metaarxiv_preprint_moderator_approved
       - metaarxiv_preprint_doi_assigned
       - l5_archival_publication_ready
