@@ -7,6 +7,7 @@
 - Recorded Zenodo DOI `10.5281/zenodo.20241016` and publication verification for v1.4.0.
 - Added draft DSR Framework white paper package under `artifacts/dsr-framework-white-paper/`.
 - Added white paper Markdown chapters, unified Markdown, HTML/PDF builds, metadata templates, source map, publication strategy, and manual platform checklist.
+- Fixed draft white paper Pandoc metadata, heading numbering, citeproc references, and build regression checks.
 
 ## [1.4.0] - 2026-05-16
 

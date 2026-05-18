@@ -1,4 +1,4 @@
-# 8. Conclusion
+# Conclusion
 
 Design Science Research needs more than persuasive prose. It needs a way to preserve the relations among problem, context, requirements, artifact, design rationale, evaluation, contribution, boundary conditions, and reuse. The DSR Framework addresses that need by operationalizing DSR as a repository-native artifact package.
 

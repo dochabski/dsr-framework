@@ -19,12 +19,15 @@ Use a **repository-native methodological white paper with an open artifact packa
 |---|---|
 | `whitepaper/chapters/` | Separate Markdown chapters for editing. |
 | `whitepaper/whitepaper_unified.md` | Single Markdown manuscript for compilation and upload. |
+| `whitepaper/references.bib` | BibTeX source used by Pandoc citeproc for the main reference list. |
+| `whitepaper/appendices/parsed-source-bibliography.md` | Supplemental parsed-source bibliography retained outside the main reference list. |
 | `publication_strategy.md` | Human-facing platform strategy. |
 | `codex_handoff.md` | Token-efficient Codex prompt and execution plan. |
 | `manual_checklist.md` | Actions that require manual platform access or judgment. |
 | `metadata/` | Citation, Zenodo, CodeMeta, service-profile, and release metadata templates. |
 | `repo_integration/repo-update-checklist.md` | DSR Framework repository update checklist. |
 | `sources/` | Source reviews and supporting structured materials copied from the working context. |
+| `scripts/check_whitepaper_build.py` | Regression check for title-page metadata, heading numbering, citation setup, and PDF text defects. |
 | `llms.txt` | AI-legible summary and file map. |
 
 ## Build
@@ -33,6 +36,7 @@ Use a **repository-native methodological white paper with an open artifact packa
 python scripts/assemble_whitepaper.py
 make html
 make pdf
+python scripts/check_whitepaper_build.py
 ```
 
-If Pandoc or LaTeX is unavailable, the canonical source remains `whitepaper/whitepaper_unified.md`.
+If `make` is unavailable, run the equivalent Pandoc commands directly with `--citeproc`. If Pandoc or LaTeX is unavailable, the canonical source remains `whitepaper/whitepaper_unified.md`.

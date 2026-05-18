@@ -1,4 +1,4 @@
-# 6. Publication and Dissemination Strategy
+# Publication and dissemination strategy
 
 The publication strategy should maximize visibility without creating multiple competing sources of truth. The recommended architecture is:
 
@@ -11,6 +11,8 @@ Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine
 Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, personal website
 Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials
 ```
+
+This strategy follows a repository-artifact logic rather than a scatter-and-mirror logic. The living source, archived release, and dissemination links should have distinct roles.
 
 ## Recommended platform roles
 

@@ -29,7 +29,7 @@ docs/white-papers/dsr-framework-operationalization/
 1. Create branch `whitepaper/dsr-framework-operationalization`.
 2. Copy this package into the integration target.
 3. Run `python scripts/assemble_whitepaper.py` from the package root.
-4. If Pandoc is available, run `make html` and `make pdf`; otherwise skip PDF and record that in a build note.
+4. If Pandoc is available, run `make html`, `make pdf`, and `python scripts/check_whitepaper_build.py`. If `make` is unavailable, run the equivalent Pandoc commands directly with `--citeproc`; if PDF generation is unavailable, keep the Markdown/HTML outputs and record that in a build note.
 5. Update root README with one short entry pointing to the white paper package.
 6. Update package inventory and artifacts index only if those files currently track bounded artifacts.
 7. Add the decision record and release checklist from this package to the appropriate repository records path, or keep them in the subpackage if that is the repository convention.

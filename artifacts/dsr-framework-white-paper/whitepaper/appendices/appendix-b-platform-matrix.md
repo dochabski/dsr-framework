@@ -1,4 +1,4 @@
-# Appendix B. Platform Matrix
+# Appendix B: Platform matrix {.unnumbered}
 
 | Platform | Canonical? | Best object to post | Recommended timing | Notes |
 |---|---:|---|---|---|
