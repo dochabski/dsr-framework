@@ -61,6 +61,12 @@ python scripts/validate-minimal-l1-l2.py examples/minimal-l1-l2-package --level 
 
 This pathway does not certify downstream artifacts as L3, L4, or L5. It exists to preserve basic DSR distinctions, traceability, evidence boundaries, and tailoring rationale before users need the full package structure.
 
+## White paper draft package
+
+The repository includes a draft white paper package at [artifacts/dsr-framework-white-paper/README.md](artifacts/dsr-framework-white-paper/README.md). It presents DSR theory, repository-native operationalization, and the role of the DSR Framework and Documentation Protocol repositories in that operationalization.
+
+The white paper package is retained as a draft artifact package for review and editing. It includes separate Markdown chapters, a unified Markdown manuscript, HTML/PDF build outputs, publication strategy notes, metadata templates, and manual publication checklists. It is not a tagged white-paper release and does not add an L5 archival/publication-ready claim.
+
 ## Scope boundary
 
 The purpose of this repository is to operationalize the canonical Design Science Research (DSR) paradigm as a GitHub-native artifact package.

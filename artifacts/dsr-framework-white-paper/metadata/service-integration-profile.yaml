@@ -1,0 +1,38 @@
+service_integration_profile:
+  id: dsr_framework_whitepaper_service_profile_v0_1_0
+  status: draft
+  canonical_source:
+    service: GitHub
+    role: living_source_of_truth
+    repository: https://github.com/dochabski/dsr-framework
+  archival_snapshot:
+    service: Zenodo
+    role: versioned_doi_release
+    action: connect_github_to_zenodo_and_archive_release
+  discovery_hub:
+    service: OSF
+    role: project_page_or_preprint_after_stable_draft
+  modular_publication:
+    service: Octopus
+    role: optional_research_process_record_after_stable_sections
+  data_repositories:
+    mendeley_data:
+      role: optional_data_package_only
+      not_for: canonical_whitepaper
+    dryad:
+      role: optional_curated_data_package_only
+      not_for: canonical_whitepaper
+  dissemination_profiles:
+    - ORCID
+    - ResearchGate
+    - Academia.edu
+    - LinkedIn
+    - Substack
+    - personal_website
+  oer_derivatives:
+    - OER Commons
+    - VIVA Open
+  non_goals:
+    - multiple_competing_whitepaper_dois
+    - source_pdf_publication_without_rights_review
+    - overclaiming_l5_status

@@ -78,6 +78,10 @@ manifest:
       latest_nested_artifact_validation_record: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0001-local-preflight.yaml
       latest_nested_artifact_self_application_record: artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
       latest_nested_artifact_coverage_crosswalk: artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
+      latest_white_paper_package: artifacts/dsr-framework-white-paper/README.md
+      latest_white_paper_unified_markdown: artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+      latest_white_paper_pdf_build: artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+      white_paper_package_status: draft_repository_native_methodological_white_paper_not_released
       latest_wicked_problem_resolution_workflow: docs/wicked-problem-resolution-workflow.md
       wicked_problem_resolution_workflow_status: controlled_process_artifact_present
       latest_rubric_collection: rubrics/dsr_assessment_rubrics_unified.yaml
@@ -857,6 +861,11 @@ manifest:
     to: rubrics/README.md
     relation: preserves_generation_process_provenance_for
     evidence_status: retained_process_provenance
+  - trace_id: tr_white_paper_package_to_manifest
+    from: artifacts/dsr-framework-white-paper/README.md
+    to: manifest.yaml
+    relation: registers_draft_white_paper_artifact_package
+    evidence_status: draft_artifact_package_registered
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -889,6 +898,9 @@ manifest:
     - artifacts/dsr-theory-operational-kernel/README.md
     - artifacts/dsr-theory-operational-kernel/crosswalks/concept-to-ontology-coverage.yaml
     - artifacts/dsr-theory-operational-kernel/records/validation/record-validation-0002-self-application.yaml
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
     - records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
     - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     - records/reviews/record-review-0002-completeness-v1-0-0.yaml
@@ -1022,6 +1034,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.4.0-post-publication
+    date: '2026-05-17'
+    change_type: draft_white_paper_package_added
+    description: Added a draft repository-native methodological white paper package under artifacts/dsr-framework-white-paper without tagging or publishing a white-paper release.
+    responsible_party: framework_maintainer
+    related_request: dsr_framework_white_paper_integration
   - version: 1.4.0-post-publication
     date: '2026-05-16'
     change_type: zenodo_publication_verification
