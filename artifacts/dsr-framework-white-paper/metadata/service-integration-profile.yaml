@@ -1,6 +1,6 @@
 service_integration_profile:
   id: dsr_framework_whitepaper_service_profile_v1_0_1
-  status: patch_release_prepared
+  status: patch_release_published
   canonical_source:
     service: GitHub
     role: living_source_of_truth
@@ -8,7 +8,7 @@ service_integration_profile:
   archival_snapshot:
     service: Zenodo
     role: versioned_doi_release
-    status: reserved_for_patch_publication
+    status: published
     doi: 10.5281/zenodo.20271949
     doi_url: https://doi.org/10.5281/zenodo.20271949
     record_url: https://zenodo.org/records/20271949
@@ -19,7 +19,7 @@ service_integration_profile:
   discovery_hub:
     service: OSF
     role: public_project_page_with_supplemental_files_after_github_release_and_zenodo_doi
-    status: published
+    status: updated_with_v1_0_1_files
     project_url: https://osf.io/wytgc/
     visibility: public
     license: CC0 1.0 Universal
@@ -29,7 +29,7 @@ service_integration_profile:
   preprint:
     service: MetaArXiv
     platform: OSF Preprints
-    status: submitted_pending_moderation
+    status: metadata_updated_pending_moderation
     preprint_url: https://osf.io/preprints/metaarxiv/ebf8m_v1
     version: 1
     submitted_date: "2026-05-18"
@@ -38,6 +38,8 @@ service_integration_profile:
     preprint_doi_status: doi_created_after_moderator_approval
     license: CC0 1.0 Universal
     supplemental_materials: https://osf.io/wytgc/
+    peer_reviewed_publication_doi: https://doi.org/10.5281/zenodo.20271949
+    publication_citation: "Ochabski, D. (2026). From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework (Version 1.0.1). DSR Framework. https://doi.org/10.5281/zenodo.20271949"
   modular_publication:
     service: Octopus
     role: optional_research_process_record_after_stable_sections
@@ -57,12 +59,14 @@ service_integration_profile:
     - personal_website
   completed_dissemination:
     orcid:
-      status: pending_update_after_v1_0_1_publication
+      status: updated
       orcid_id: 0009-0000-9117-0651
       profile_url: https://orcid.org/0009-0000-9117-0651
       work_visibility: Everyone
+      work_type: Report
       doi: 10.5281/zenodo.20271949
       doi_url: https://doi.org/10.5281/zenodo.20271949
+      update_note: Existing ORCID work record was updated from the v1.0.0 Zenodo DOI to the v1.0.1 Zenodo DOI.
   oer_derivatives:
     - OER Commons
     - VIVA Open
