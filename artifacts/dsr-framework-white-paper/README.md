@@ -1,8 +1,8 @@
 # DSR Framework White Paper Package
 
-This package contains the v1.0.0 DSR Framework white paper and release-preparation scaffold for turning the DSR theory synthesis materials into a citable, repository-native white paper.
+This package contains the v1.0.1 DSR Framework white paper and release-preparation scaffold for turning the DSR theory synthesis materials into a citable, repository-native white paper.
 
-Canonical DOI: https://doi.org/10.5281/zenodo.20264299
+Canonical DOI: https://doi.org/10.5281/zenodo.20271949
 
 ## Decision
 
