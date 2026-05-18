@@ -47,6 +47,31 @@ release_publication_verification_record:
         - file_name: dsr-framework-whitepaper-package-whitepaper-v1.0.0.zip
           size_bytes: 2463697
           sha256: 171f262925dddc00d25836882385bae2849a513281be77225cc1d88855bf378a
+    osf_project:
+      status: published
+      project_url: https://osf.io/wytgc/
+      visibility: public
+      license: CC0 1.0 Universal
+      role: discovery_hub_with_supplemental_pdf_and_markdown_copies
+      uploaded_files:
+        - dsr-framework-whitepaper.pdf
+        - whitepaper_unified.md
+      tags:
+        - design science research
+        - DSR framework
+        - GitHub
+        - open artifact
+        - white paper
+        - Zenodo
+    orcid_work:
+      status: added
+      orcid_id: 0009-0000-9117-0651
+      orcid_profile_url: https://orcid.org/0009-0000-9117-0651
+      work_visibility: Everyone
+      work_type: Report
+      doi: 10.5281/zenodo.20264299
+      doi_url: https://doi.org/10.5281/zenodo.20264299
+      title: "From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework"
 
   verification_basis:
     release_record: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-0.yaml
@@ -68,15 +93,18 @@ release_publication_verification_record:
 
   publication_statement: >
     The DSR Framework white paper v1.0.0 GitHub release has been archived on
-    Zenodo as a DOI-backed report record. This verification records publication
-    evidence for the white-paper artifact release without changing the
-    whitepaper-v1.0.0 Git tag.
+    Zenodo as a DOI-backed report record, linked through a public OSF discovery
+    project, and added to the maintainer ORCID record as a DOI work. This
+    verification records publication and dissemination evidence for the
+    white-paper artifact release without changing the whitepaper-v1.0.0 Git tag.
 
   conformance_impact:
     result: publication_verified
     supported_claims:
       - whitepaper_v1_0_0_published
       - zenodo_doi_archived_whitepaper_release
+      - osf_public_discovery_hub_published
+      - orcid_doi_work_added
       - cc0_original_project_authored_whitepaper_content_and_metadata
     not_supported_claims:
       - l5_archival_publication_ready
