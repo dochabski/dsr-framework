@@ -28,10 +28,10 @@
 
 ## OSF
 
-- Create an OSF project for the white paper and DSR Framework materials.
-- Add GitHub and Zenodo links.
-- Upload the PDF and unified Markdown if you want OSF-hosted files.
-- Consider an OSF Preprint only after the GitHub release and Zenodo DOI are available.
+- OSF project created at `https://osf.io/wytgc/` with GitHub and Zenodo links.
+- PDF and unified Markdown uploaded to the OSF project.
+- MetaArXiv preprint submitted at `https://osf.io/preprints/metaarxiv/ebf8m_v1`.
+- Watch for OSF Preprints moderation approval; the preprint is not public/searchable and has no preprint DOI until approved.
 
 ## Octopus
 
