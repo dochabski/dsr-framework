@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: CC0-1.0
+metadata_freeze_record:
+  record_id: record_metadata_freeze_whitepaper_v1_0_2
+  record_class: metadata_freeze
+  item_type: record
+  title: DSR Framework White Paper v1.0.2 Metadata Freeze
+  status: approved
+  version: "1.0.2"
+  freeze_date: "2026-05-18"
+  responsible_party: framework_maintainer
+  target_release: whitepaper-v1.0.2
+  l5_claimed: false
+
+  frozen_fields:
+    release_version: "1.0.2"
+    release_status: whitepaper_v1_0_2_table_header_patch
+    repository: https://github.com/dochabski/dsr-framework
+    release_tag: whitepaper-v1.0.2
+    zenodo_doi: 10.5281/zenodo.20272519
+    license: CC0-1.0
+    archival_publication_ready: false
+
+  frozen_files:
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+    - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.html
+    - artifacts/dsr-framework-white-paper/build/latex-preamble.tex
+    - artifacts/dsr-framework-white-paper/scripts/build_whitepaper_pdf.py
+    - artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
+    - artifacts/dsr-framework-white-paper/metadata/CITATION.cff
+    - artifacts/dsr-framework-white-paper/metadata/codemeta.json
+    - artifacts/dsr-framework-white-paper/metadata/zenodo-json-template.json
+    - artifacts/dsr-framework-white-paper/metadata/service-integration-profile.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-2.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-2.md
+
+  change_scope:
+    - pdf_table_header_styling
+    - generated_longtable_header_legibility
+    - retained_table_row_legibility
+    - build_guardrail_for_table_header_regressions
+    - metadata_version_update_to_1_0_2
+
+  outcome:
+    result: metadata_frozen_for_whitepaper_v1_0_2_patch_release
+    supports: whitepaper_patch_release_publication
+    does_not_support:
+      - l5_archival_publication_ready
+      - independent_external_peer_review
+

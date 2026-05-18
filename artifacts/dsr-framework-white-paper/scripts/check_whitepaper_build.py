@@ -84,11 +84,18 @@ if pdf_log_path.exists():
     if overfull:
         details = '; '.join(overfull[:5])
         errors.append('PDF build log contains overfull hbox warnings that may indicate content running off the page: ' + details)
-    row_rule_match = re.search(r'\[OK\] inserted (\d+) table row rules across (\d+) longtable blocks\.', pdf_log)
-    if not row_rule_match:
-        errors.append('PDF build log should record table row-rule insertion for human-legible table separation.')
-    elif int(row_rule_match.group(1)) <= 0 or int(row_rule_match.group(2)) <= 0:
-        errors.append('PDF build should insert visible row rules into at least one table.')
+    table_layout_match = re.search(
+        r'\[OK\] styled (\d+) table headers and inserted (\d+) table row rules across (\d+) longtable blocks\.',
+        pdf_log,
+    )
+    if not table_layout_match:
+        errors.append('PDF build log should record table header styling and row-rule insertion for human-legible table separation.')
+    elif (
+        int(table_layout_match.group(1)) <= 0
+        or int(table_layout_match.group(2)) <= 0
+        or int(table_layout_match.group(3)) <= 0
+    ):
+        errors.append('PDF build should style table headers and insert visible row rules into at least one table.')
 
 pdf_path = ROOT / 'build' / 'dsr-framework-whitepaper.pdf'
 pdf_text_path = ROOT / 'build' / 'dsr-framework-whitepaper.txt'

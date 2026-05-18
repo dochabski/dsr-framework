@@ -32,25 +32,46 @@ def run_capture(cmd: list[str], cwd: Path) -> tuple[int, str]:
     return result.returncode, result.stdout
 
 
-def add_longtable_row_rules(latex: str) -> tuple[str, int, int]:
-    """Insert a visible rule after each generated longtable body row."""
+def harden_longtable_layout(latex: str) -> tuple[str, int, int, int]:
+    """Style generated longtable headers and insert body row rules."""
 
     table_count = 0
+    header_count = 0
     rule_count = 0
 
     def patch_table(match: re.Match[str]) -> str:
-        nonlocal table_count, rule_count
+        nonlocal table_count, header_count, rule_count
         table = match.group(0)
-        if "whitepaper-row-rule-patched" in table:
+        if "whitepaper-table-layout-patched" in table:
             return table
-        head, marker, tail = table.partition("\\endlastfoot")
-        if not marker:
+        header, head_marker, after_head = table.partition("\\endhead")
+        if not head_marker:
+            return table
+        head, lastfoot_marker, tail = after_head.partition("\\endlastfoot")
+        if not lastfoot_marker:
             return table
         body, end_marker, rest = tail.partition("\\end{longtable}")
         if not end_marker:
             return table
 
-        patched_lines: list[str] = ["% whitepaper-row-rule-patched"]
+        styled_header = header
+        styled_header = styled_header.replace(
+            "\\toprule\\noalign{}\n",
+            "\\toprule\\noalign{}\n\\rowcolor{whitepaperheader}\n",
+            1,
+        )
+        styled_header = re.sub(
+            r"(\\begin\{minipage\}\[b\]\{\\linewidth\}\\raggedright)\n",
+            r"\1\\bfseries\n",
+            styled_header,
+        )
+        styled_header = styled_header.replace(
+            "\\midrule\\noalign{}\n",
+            "\\specialrule{0.7pt}{0pt}{0pt}\n",
+            1,
+        )
+
+        patched_lines: list[str] = ["% whitepaper-table-layout-patched"]
         inserted = 0
         for line in body.splitlines():
             patched_lines.append(line)
@@ -59,8 +80,9 @@ def add_longtable_row_rules(latex: str) -> tuple[str, int, int]:
                 inserted += 1
 
         table_count += 1
+        header_count += 1
         rule_count += inserted
-        return head + marker + "\n".join(patched_lines) + "\n" + end_marker + rest
+        return styled_header + head_marker + head + lastfoot_marker + "\n".join(patched_lines) + "\n" + end_marker + rest
 
     patched = re.sub(
         r"\\begin\{longtable\}.*?\\end\{longtable\}",
@@ -68,7 +90,7 @@ def add_longtable_row_rules(latex: str) -> tuple[str, int, int]:
         latex,
         flags=re.DOTALL,
     )
-    return patched, table_count, rule_count
+    return patched, table_count, header_count, rule_count
 
 
 def main() -> int:
@@ -111,9 +133,11 @@ def main() -> int:
             return code
 
         latex = tex_path.read_text(encoding="utf-8")
-        patched, table_count, rule_count = add_longtable_row_rules(latex)
+        patched, table_count, header_count, rule_count = harden_longtable_layout(latex)
         tex_path.write_text(patched, encoding="utf-8", newline="\n")
-        lines.append(f"[OK] inserted {rule_count} table row rules across {table_count} longtable blocks.")
+        lines.append(
+            f"[OK] styled {header_count} table headers and inserted {rule_count} table row rules across {table_count} longtable blocks."
+        )
 
         if PDF.exists():
             PDF.unlink()
@@ -130,7 +154,7 @@ def main() -> int:
         lines.append(f"[WARN] PDF engine returned {code}, but PDF output was produced; inspect warnings above.")
 
     lines.append(
-        f"[OK] built build/dsr-framework-whitepaper.pdf with row-rule table patching on {dt.date.today().isoformat()}"
+        f"[OK] built build/dsr-framework-whitepaper.pdf with table header styling and row-rule patching on {dt.date.today().isoformat()}"
     )
     LOG.write_text("\n".join(lines), encoding="utf-8")
     return 0

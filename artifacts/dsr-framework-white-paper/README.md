@@ -1,8 +1,8 @@
 # DSR Framework White Paper Package
 
-This package contains the v1.0.1 DSR Framework white paper and release-preparation scaffold for turning the DSR theory synthesis materials into a citable, repository-native white paper.
+This package contains the v1.0.2 DSR Framework white paper and release-preparation scaffold for turning the DSR theory synthesis materials into a citable, repository-native white paper.
 
-Canonical DOI: https://doi.org/10.5281/zenodo.20271949
+Canonical DOI: https://doi.org/10.5281/zenodo.20272519
 
 ## Decision
 
@@ -29,8 +29,8 @@ Use a **repository-native methodological white paper with an open artifact packa
 | `metadata/` | Citation, Zenodo, CodeMeta, service-profile, and release metadata templates. |
 | `repo_integration/repo-update-checklist.md` | DSR Framework repository update checklist. |
 | `sources/` | Source reviews and supporting structured materials copied from the working context. |
-| `scripts/build_whitepaper_pdf.py` | PDF build path that wraps long display content and injects visible row rules into generated LaTeX tables. |
-| `scripts/check_whitepaper_build.py` | Regression check for title-page metadata, heading numbering, citation setup, and PDF text defects. |
+| `scripts/build_whitepaper_pdf.py` | PDF build path that wraps long display content, styles generated table headers, and injects visible row rules into generated LaTeX tables. |
+| `scripts/check_whitepaper_build.py` | Regression check for title-page metadata, heading numbering, citation setup, table layout hardening, and PDF text defects. |
 | `llms.txt` | AI-legible summary and file map. |
 
 ## License and rights
