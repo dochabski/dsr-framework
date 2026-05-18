@@ -29,6 +29,7 @@ Use a **repository-native methodological white paper with an open artifact packa
 | `metadata/` | Citation, Zenodo, CodeMeta, service-profile, and release metadata templates. |
 | `repo_integration/repo-update-checklist.md` | DSR Framework repository update checklist. |
 | `sources/` | Source reviews and supporting structured materials copied from the working context. |
+| `scripts/build_whitepaper_pdf.py` | PDF build path that wraps long display content and injects visible row rules into generated LaTeX tables. |
 | `scripts/check_whitepaper_build.py` | Regression check for title-page metadata, heading numbering, citation setup, and PDF text defects. |
 | `llms.txt` | AI-legible summary and file map. |
 
@@ -47,4 +48,4 @@ make pdf
 python scripts/check_whitepaper_build.py
 ```
 
-If `make` is unavailable, run the equivalent Pandoc commands directly with `--citeproc`. If Pandoc or LaTeX is unavailable, the canonical source remains `whitepaper/whitepaper_unified.md`.
+If `make` is unavailable, run `python scripts/build_whitepaper_pdf.py --pdf-engine <path-to-tectonic-or-other-engine>` for the PDF path so table row rules and overflow checks remain active. If Pandoc or LaTeX is unavailable, the canonical source remains `whitepaper/whitepaper_unified.md`.

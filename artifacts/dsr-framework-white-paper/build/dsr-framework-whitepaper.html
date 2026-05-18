@@ -330,8 +330,9 @@ FAIR; AI-legible documentation.</p>
 citation</h1>
 <p>Ochabski, D. (2026). <em>From Design Science Research Theory to
 Repository-Native Operationalization: A White Paper for the DSR
-Framework</em> (Version 1.0.0). DSR Framework.
-https://doi.org/10.5281/zenodo.20264299</p>
+Framework</em> (Version 1.0.0). DSR Framework. <a
+href="https://doi.org/10.5281/zenodo.20264299"
+class="uri">https://doi.org/10.5281/zenodo.20264299</a></p>
 <hr />
 <h1 class="unnumbered" id="executive-summary">Executive summary</h1>
 <p>This white paper is framed as a <strong>repository-native
@@ -709,8 +710,13 @@ contribution transparency</td>
 <p>This architecture turns DSR into a linked system rather than a linear
 narrative. The key spaces are problem space, context space, solution
 space, design space, artifact space, evaluation space, knowledge space,
-and communication/transparency space. The most important edges are:</p>
-<pre class="text"><code>problem -&gt; objective -&gt; requirement -&gt; design decision -&gt; artifact -&gt; demonstration -&gt; evaluation -&gt; contribution claim -&gt; design knowledge -&gt; reuse boundary</code></pre>
+and communication/transparency space. The most important edge chain
+is:</p>
+<blockquote>
+<p>problem -&gt; objective -&gt; requirement -&gt; design decision -&gt;
+artifact -&gt; demonstration -&gt; evaluation -&gt; contribution claim
+-&gt; design knowledge -&gt; reuse boundary</p>
+</blockquote>
 <p>Operationalization should not over-formalize every judgment. Some
 checks can be automated, such as whether a study has a problem class,
 artifact, evaluation plan, and contribution claim. Other checks require
@@ -914,13 +920,19 @@ dissemination strategy</h1>
 <p>The publication strategy should maximize visibility without creating
 multiple competing sources of truth. The recommended architecture
 is:</p>
-<pre class="text"><code>Canonical living source: GitHub
-Archival citation snapshot: Zenodo DOI release
-Project/discovery hub: OSF project, optional OSF Preprint
-Research-process publication: Octopus, optional after stable modularization
-Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package
-Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, personal website
-Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials</code></pre>
+<ul>
+<li>Canonical living source: GitHub.</li>
+<li>Archival citation snapshot: Zenodo DOI release.</li>
+<li>Project/discovery hub: OSF project, optional OSF Preprint.</li>
+<li>Research-process publication: Octopus, optional after stable
+modularization.</li>
+<li>Data-only secondary deposits: Mendeley Data or Dryad only if
+releasing a genuine data package.</li>
+<li>Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn,
+Substack, ORCID, and personal website.</li>
+<li>Teaching/OER derivative: OER Commons or VIVA Open only after
+adapting the paper into learning materials.</li>
+</ul>
 <p>This strategy follows a repository-artifact logic rather than a
 scatter-and-mirror logic. The living source, archived release, and
 dissemination links should have distinct roles.</p>
@@ -1017,14 +1029,15 @@ paper.</td>
 <td>arXiv</td>
 <td>Preprint only if a suitable category and format fit.</td>
 <td style="text-align: right;">Probably no</td>
-<td>DSR framework/methodology may fit better on OSF Preprints or SSRN
-unless there is a clear computing/information-science framing.</td>
+<td>DSR framework and methodology may fit better on OSF Preprints or
+SSRN unless there is a clear computing or information science
+framing.</td>
 </tr>
 <tr>
-<td>bioRxiv / medRxiv</td>
+<td>bioRxiv and medRxiv</td>
 <td>Not relevant.</td>
 <td style="text-align: right;">No</td>
-<td>The paper is not a life-science or medical preprint.</td>
+<td>The paper is not a life science or medical preprint.</td>
 </tr>
 <tr>
 <td>HAL</td>
@@ -1264,15 +1277,15 @@ supplemental files</td>
 <td style="text-align: right;">No</td>
 <td>Modular research-process records</td>
 <td>After stable paper</td>
-<td>Publish problem/method/results/interpretation/application chain if
-useful.</td>
+<td>Publish problem, method, results, interpretation, and application
+records if useful.</td>
 </tr>
 <tr>
 <td>SSRN</td>
 <td style="text-align: right;">No</td>
 <td>Preprint PDF</td>
 <td>Optional</td>
-<td>Use if you want social-science/management/IS preprint
+<td>Use if you want social science, management, and IS preprint
 discovery.</td>
 </tr>
 <tr>
@@ -1305,7 +1318,7 @@ curation.</td>
 <td>Use for visibility.</td>
 </tr>
 <tr>
-<td>OER Commons / VIVA Open</td>
+<td>OER Commons and VIVA Open</td>
 <td style="text-align: right;">No</td>
 <td>Teaching derivative, workbook, module</td>
 <td>Later</td>
@@ -1319,7 +1332,7 @@ curation.</td>
 <td>Use only if scope fits.</td>
 </tr>
 <tr>
-<td>bioRxiv / medRxiv</td>
+<td>bioRxiv and medRxiv</td>
 <td style="text-align: right;">No</td>
 <td>None</td>
 <td>Never for this paper</td>
@@ -1368,11 +1381,11 @@ necessary repository index files. Do not tag, create a GitHub release,
 publish to Zenodo, or publish externally until final human edit and
 metadata freeze.</p>
 <h2 class="unnumbered" id="build-commands">Build commands</h2>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/assemble_whitepaper.py</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> html</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> pdf</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/check_whitepaper_build.py</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/assemble_whitepaper.py</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> html</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> pdf</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/check_whitepaper_build.py</span></code></pre></div>
 <p>If LaTeX is not available, skip PDF and produce HTML plus unified
 Markdown.</p>
 <hr />

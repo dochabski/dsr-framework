@@ -3,5 +3,18 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{enumitem}
+\usepackage{fvextra}
+\usepackage{xurl}
+\usepackage{colortbl}
 \setlist{nosep}
-\emergencystretch=2em
+\RecustomVerbatimEnvironment{Highlighting}{Verbatim}{
+  commandchars=\\\{\},
+  breaklines,
+  breakanywhere,
+  fontsize=\small
+}
+\setlength{\emergencystretch}{4em}
+\AtBeginEnvironment{longtable}{%
+  \arrayrulecolor{black!28}%
+  \setlength{\arrayrulewidth}{0.3pt}%
+}

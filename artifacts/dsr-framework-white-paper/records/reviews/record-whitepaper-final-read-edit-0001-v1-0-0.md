@@ -15,6 +15,8 @@ This record retains the final pre-release editorial pass for the DSR Framework w
 - Markdown headings do not carry manual numbering while Pandoc section numbering is enabled.
 - The title is not repeated as a numbered body section.
 - Citation keys resolve through `whitepaper/references.bib` and Pandoc citeproc.
+- Long display content wraps within the PDF page.
+- PDF tables include visible row separation for human legibility.
 - Original white paper text and metadata are marked for CC0-1.0 release.
 - Third-party sources, cited works, source PDFs, trademarks, and source-derived quotations are not relicensed.
 - The paper does not claim independent external validation, semantic consensus, empirical utility proof, or L5 archival/publication-ready status.

@@ -9,6 +9,7 @@ md_path = ROOT / 'whitepaper' / 'whitepaper_unified.md'
 meta_path = ROOT / 'build' / 'pandoc-metadata.yaml'
 bib_path = ROOT / 'whitepaper' / 'references.bib'
 make_path = ROOT / 'Makefile'
+pdf_log_path = ROOT / 'build' / 'whitepaper_build_pdf.log'
 
 errors = []
 text = md_path.read_text(encoding='utf-8') if md_path.exists() else ''
@@ -52,6 +53,42 @@ else:
 
 if 'References and parsed source bibliography' in text:
     errors.append('Manual parsed bibliography is still in the main manuscript; move it to a supplement/source registry.')
+
+in_fence = False
+fence_start = 0
+long_fenced_lines = []
+for n, line in enumerate(text.splitlines(), 1):
+    if line.startswith('```'):
+        if in_fence:
+            in_fence = False
+            fence_start = 0
+        else:
+            in_fence = True
+            fence_start = n
+        continue
+    if in_fence and len(line) > 88:
+        long_fenced_lines.append((n, len(line), line[:80]))
+if long_fenced_lines:
+    details = '; '.join(f'L{n} ({length} chars): {sample}' for n, length, sample in long_fenced_lines[:8])
+    errors.append('Long fenced-code lines can run off PDF pages; wrap or convert them to prose/lists: ' + details)
+
+if '```text\nproblem -> objective' in text:
+    errors.append('Long DSR edge chain should not be inside a fenced code block; use wrapped prose or a block quote.')
+
+if 'personal website\nTeaching/OER derivative' in text or 'personal websiteTeaching/OER derivative' in text:
+    errors.append('Publication architecture display still risks the website/Teaching line collision; use wrapped list items.')
+
+if pdf_log_path.exists():
+    pdf_log = pdf_log_path.read_text(encoding='utf-8', errors='replace')
+    overfull = re.findall(r'Overfull \\\\hbox .*', pdf_log)
+    if overfull:
+        details = '; '.join(overfull[:5])
+        errors.append('PDF build log contains overfull hbox warnings that may indicate content running off the page: ' + details)
+    row_rule_match = re.search(r'\[OK\] inserted (\d+) table row rules across (\d+) longtable blocks\.', pdf_log)
+    if not row_rule_match:
+        errors.append('PDF build log should record table row-rule insertion for human-legible table separation.')
+    elif int(row_rule_match.group(1)) <= 0 or int(row_rule_match.group(2)) <= 0:
+        errors.append('PDF build should insert visible row rules into at least one table.')
 
 pdf_path = ROOT / 'build' / 'dsr-framework-whitepaper.pdf'
 pdf_text_path = ROOT / 'build' / 'dsr-framework-whitepaper.txt'

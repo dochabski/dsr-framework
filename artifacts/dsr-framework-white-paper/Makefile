@@ -11,8 +11,7 @@ html: md
 	pandoc whitepaper/whitepaper_unified.md $(PANDOC_COMMON) -o build/dsr-framework-whitepaper.html
 
 pdf: md
-	mkdir -p build
-	pandoc whitepaper/whitepaper_unified.md $(PANDOC_COMMON) --pdf-engine="$(PDF_ENGINE)" --include-in-header=build/latex-preamble.tex -o build/dsr-framework-whitepaper.pdf
+	python scripts/build_whitepaper_pdf.py --pdf-engine "$(PDF_ENGINE)"
 
 check: md
 	python scripts/check_whitepaper_build.py

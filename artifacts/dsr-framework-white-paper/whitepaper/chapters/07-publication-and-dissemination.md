@@ -2,15 +2,13 @@
 
 The publication strategy should maximize visibility without creating multiple competing sources of truth. The recommended architecture is:
 
-```text
-Canonical living source: GitHub
-Archival citation snapshot: Zenodo DOI release
-Project/discovery hub: OSF project, optional OSF Preprint
-Research-process publication: Octopus, optional after stable modularization
-Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package
-Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, personal website
-Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials
-```
+- Canonical living source: GitHub.
+- Archival citation snapshot: Zenodo DOI release.
+- Project/discovery hub: OSF project, optional OSF Preprint.
+- Research-process publication: Octopus, optional after stable modularization.
+- Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package.
+- Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, and personal website.
+- Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials.
 
 This strategy follows a repository-artifact logic rather than a scatter-and-mirror logic. The living source, archived release, and dissemination links should have distinct roles.
 
@@ -28,8 +26,8 @@ This strategy follows a repository-artifact logic rather than a scatter-and-mirr
 | ResearchGate | Profile dissemination link or licensed full-text mirror. | Optional | Good for visibility, not canonicality. Link to GitHub/Zenodo. |
 | Academia.edu | Profile dissemination link or licensed full-text mirror. | Optional | Good for visibility, not canonicality. Link to GitHub/Zenodo. |
 | OER Commons / VIVA Open | Teaching derivative or workbook. | Not yet | Use after making an instructional version, not for the primary white paper. |
-| arXiv | Preprint only if a suitable category and format fit. | Probably no | DSR framework/methodology may fit better on OSF Preprints or SSRN unless there is a clear computing/information-science framing. |
-| bioRxiv / medRxiv | Not relevant. | No | The paper is not a life-science or medical preprint. |
+| arXiv | Preprint only if a suitable category and format fit. | Probably no | DSR framework and methodology may fit better on OSF Preprints or SSRN unless there is a clear computing or information science framing. |
+| bioRxiv and medRxiv | Not relevant. | No | The paper is not a life science or medical preprint. |
 | HAL | Optional institutional/open archive mirror. | Optional | Consider only if you want a European open-archive mirror and can maintain metadata consistency. |
 
 The main rule is simple: do not scatter the white paper as unrelated uploads. Create one canonical GitHub release, archive it through Zenodo, then point all other platforms to that release or deposit a clearly labeled derivative.
