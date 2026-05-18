@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_whitepaper_v1_0_1
+  record_class: release_record
+  item_type: record
+  title: DSR Framework White Paper v1.0.1 Release Record
+  status: approved
+  version: "1.0.1"
+  release_date: "2026-05-18"
+  responsible_party: framework_maintainer
+  release_tag: whitepaper-v1.0.1
+  release_status: whitepaper_v1_0_1_layout_patch
+  prior_release: whitepaper-v1.0.0
+  zenodo_doi: 10.5281/zenodo.20271949
+  l5_claimed: false
+
+  release_scope:
+    included:
+      - corrected_pdf_build
+      - corrected_html_build
+      - unified_markdown_manuscript
+      - pdf_layout_build_script
+      - build_regression_checks
+      - release_metadata
+    excluded:
+      - l5_archival_publication_ready_claim
+      - independent_external_peer_review_claim
+      - empirical_framework_effectiveness_validation
+      - substantive theory rewrite
+      - source_pdf_redistribution
+
+  whitepaper_release_blockers: []
+
+  retained_evidence:
+    metadata_freeze: artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-1.yaml
+    prior_release_record: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-0.yaml
+    citation_and_build_audit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
+    validation_summary: records/validation/validation-summary-latest.json
+    release_notes: artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-1.md
+
+  validation:
+    required_commands:
+      - python artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass
+
+  outcome:
+    result: ready_for_github_release_and_zenodo_patch_publication
+    approved_claims:
+      - whitepaper_v1_0_1_layout_patch_release
+      - corrected_pdf_build
+      - cc0_original_project_authored_content
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - independent_external_peer_review
+      - empirical_external_reuse_validation
+
