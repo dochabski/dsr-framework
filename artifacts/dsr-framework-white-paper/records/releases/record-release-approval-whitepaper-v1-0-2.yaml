@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: CC0-1.0
+release_approval_record:
+  record_id: record_release_approval_whitepaper_v1_0_2
+  record_class: release_approval
+  item_type: record
+  title: DSR Framework White Paper v1.0.2 Release Approval
+  status: approved
+  version: "1.0.2"
+  approval_date: "2026-05-18"
+  responsible_party: framework_maintainer
+  target_release: whitepaper-v1.0.2
+  approved_release_tag: whitepaper-v1.0.2
+  approved_zenodo_doi: 10.5281/zenodo.20272519
+  l5_claimed: false
+
+  approval_basis:
+    release_record: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-2.yaml
+    metadata_freeze: artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-2.yaml
+    citation_and_build_audit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
+    validation_summary: records/validation/validation-summary-latest.json
+
+  validation_commands:
+    - command: python artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
+      required_result: pass
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  approval_statement: >
+    The DSR Framework white paper v1.0.2 patch release is approved for GitHub
+    release, Zenodo publication, and OSF/MetaArXiv update as a corrected PDF
+    table-header layout version. The release is not approved as L5
+    archival/publication-ready.
+
+  post_release_actions:
+    - tag release commit as whitepaper-v1.0.2
+    - create GitHub release using artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-2.md
+    - publish Zenodo new version using DOI 10.5281/zenodo.20272519
+    - update OSF project files
+    - update MetaArXiv preprint metadata if platform workflow allows
+    - update ORCID work to the v1.0.2 DOI
+    - add retained publication verification record after external publication
+
+  outcome:
+    result: approved_for_patch_release_publication
+    approved_claims:
+      - whitepaper_v1_0_2
+      - corrected_pdf_table_header_layout
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - independent_external_peer_review
+      - empirical_external_reuse_validation
+

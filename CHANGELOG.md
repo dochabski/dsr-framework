@@ -16,6 +16,8 @@
 - Fixed white paper PDF layout by wrapping long display content, adding visible table row separation, and making the PDF build check fail on overlong fenced lines or overfull hbox warnings.
 - Prepared white paper v1.0.1 patch release metadata for corrected GitHub, Zenodo, OSF, and MetaArXiv publication.
 - Recorded white paper v1.0.1 publication verification for GitHub release `whitepaper-v1.0.1`, Zenodo DOI `10.5281/zenodo.20271949`, OSF project file updates, MetaArXiv metadata update, and ORCID work update.
+- Fixed white paper PDF table headers by adding a systemic longtable header styling patch and build regression check.
+- Prepared white paper v1.0.2 patch release metadata for corrected GitHub, Zenodo, OSF, MetaArXiv, and ORCID publication.
 
 ## [1.4.0] - 2026-05-16
 
