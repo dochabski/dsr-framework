@@ -60,25 +60,29 @@ release_publication_verification_record:
           size_bytes: 2489991
           sha256: 2c836e602537859258b692e49529cea7243ec3bf8defc6b833769ab8d35990be
     osf_project:
-      status: not_updated_for_v1_0_2
+      status: updated_for_v1_0_2
       project_url: https://osf.io/wytgc/
       visibility: public
       license: CC0 1.0 Universal
       role: discovery_hub_with_supplemental_pdf_and_markdown_copies
-      current_files_observed:
+      update_method: OSF API file-version replacement from authenticated Chrome session
+      temporary_upload_token_status: revoked_after_use
+      files_verified:
         - file_name: dsr-framework-whitepaper.pdf
-          size_bytes_observed_on_osf: 113137
-          sha256_observed_on_osf: 76b69163b7f7a7e59e57ac557d816aab11dfdcd1d3f245f1d2f42919b7ee56dd
-          observed_version: v1.0.1
+          osf_file_id: 6a0a98df88484adfa8df2bd4
+          size_bytes_observed_on_osf: 114345
+          sha256_observed_on_osf: f39fde5e847cd00ab76e325cf348232e8b107df125c86ba961d9f248996d3fa9
+          observed_version: v1.0.2
+          modified_utc: "2026-05-18T15:26:25+00:00"
         - file_name: whitepaper_unified.md
+          osf_file_id: 6a0a98de5763cf3cdf089955
           size_bytes_observed_on_osf: 38612
-          sha256_observed_on_osf: 7a5a268fd74660fc3b8098d1c5b21c1fbaf64b34e398f7628f094a4bdc7de235
-          observed_version: v1.0.1
-      update_blocker: >
-        The OSF project was accessible in the browser, but the available
-        browser automation surface did not expose a file-upload operation and
-        no local OSF API token was available. The canonical corrected assets
-        are available through the GitHub release and Zenodo DOI.
+          sha256_observed_on_osf: 2f10f6a17a7580d4ac9e300701bcab31e622569bbf6b5e0a39e9bbeb6bd88a2d
+          observed_version: v1.0.2
+          modified_utc: "2026-05-18T15:26:20+00:00"
+      verification_note: >
+        The OSF project file list and OSF API both show the v1.0.2 PDF and
+        unified Markdown as current supplemental file copies.
     metaarxiv_preprint:
       status: metadata_updated_pending_moderation
       service: MetaArXiv
@@ -143,21 +147,20 @@ release_publication_verification_record:
     archived on Zenodo as a DOI-backed report record. MetaArXiv metadata now
     points to the v1.0.2 Zenodo DOI while remaining under OSF Preprints
     pre-moderation. The ORCID work record now points to the v1.0.2 Zenodo DOI.
-    OSF project file replacement remains a follow-up action because the browser
-    automation session could not upload OSF files.
+    The OSF project supplemental PDF and unified Markdown copies have been
+    replaced with v1.0.2 file versions.
 
   conformance_impact:
-    result: publication_verified_with_osf_file_update_followup_pending
+    result: publication_verified
     supported_claims:
       - whitepaper_v1_0_2_published
       - zenodo_doi_archived_whitepaper_patch_release
+      - osf_project_files_updated_to_v1_0_2
       - metaarxiv_preprint_metadata_updated_pending_moderation
       - orcid_doi_work_updated
       - cc0_original_project_authored_whitepaper_content_and_metadata
-    follow_up_needed:
-      - update_osf_project_pdf_and_markdown_copies_to_v1_0_2
+    follow_up_needed: []
     not_supported_claims:
-      - osf_project_files_updated_to_v1_0_2
       - metaarxiv_preprint_moderator_approved
       - metaarxiv_preprint_doi_assigned
       - l5_archival_publication_ready
