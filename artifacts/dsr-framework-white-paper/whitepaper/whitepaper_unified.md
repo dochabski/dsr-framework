@@ -3,9 +3,9 @@ title: "From Design Science Research Theory to Repository-Native Operationalizat
 subtitle: "A White Paper for the DSR Framework"
 author: "David Ochabski"
 orcid: "0009-0000-9117-0651"
-date: "2026-05-17"
-version: "0.2.0-draft"
-status: "working white paper draft - citation and build audit revision"
+date: "2026-05-18"
+version: "1.0.0"
+status: "released white paper"
 repository: "https://github.com/dochabski/dsr-framework"
 related_repository: "https://github.com/dochabski/documentation-protocol"
 canonical_source_policy: "GitHub source of truth plus Zenodo DOI release for archival citation"
@@ -18,7 +18,7 @@ link-bibliography: true
 
 # Version note {.unnumbered}
 
-This draft is prepared as an open artifact white paper. It is designed to be readable as a normal human-facing paper and also structured enough for repository automation, AI ingestion, archival deposit, and future validation work.
+This release is prepared as an open artifact white paper. It is designed to be readable as a normal human-facing paper and also structured enough for repository automation, AI ingestion, archival deposit, and future validation work.
 
 Original project-authored white paper content and metadata are intended for CC0-1.0 dedication, matching the repository's maximally open non-code licensing policy. Citation is appreciated for scholarly traceability, but it is not a license condition for CC0 content.
 
@@ -32,15 +32,15 @@ Design Science Research (DSR) is an artifact-centered research tradition in whic
 
 Design Science Research; design knowledge; artifact ontology; DSR evaluation; DSR transparency; repository-native research; research artifact packaging; GitHub; Zenodo; Open Science Framework; Octopus; FAIR; AI-legible documentation.
 
-# Recommended citation placeholder {.unnumbered}
+# Recommended citation {.unnumbered}
 
-Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 0.2.0-draft). DSR Framework. DOI pending.
+Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 1.0.0). DSR Framework. GitHub release: https://github.com/dochabski/dsr-framework/releases/tag/whitepaper-v1.0.0. DOI pending Zenodo publication verification.
 
 ---
 
 # Executive summary {.unnumbered}
 
-This white paper should be framed as a **repository-native methodological white paper with an open artifact package**. It is not mainly a policy brief, a promotional white paper, a dataset descriptor, or a conventional literature review. Its contribution is partly conceptual, partly methodological, and partly infrastructural: it explains what DSR is, how DSR can be operationalized, and how the DSR Framework repository is operationalizing it.
+This white paper is framed as a **repository-native methodological white paper with an open artifact package**. It is not mainly a policy brief, a promotional white paper, a dataset descriptor, or a conventional literature review. Its contribution is partly conceptual, partly methodological, and partly infrastructural: it explains what DSR is, how DSR can be operationalized, and how the DSR Framework repository is operationalizing it.
 
 The central thesis is:
 
@@ -194,7 +194,7 @@ This is the most direct example of DSR theory becoming operational: it translate
 
 ## Layer 3: White paper and release package
 
-This white paper should remain a bounded artifact package under:
+This white paper remains a bounded artifact package under:
 
 ```text
 artifacts/dsr-framework-white-paper/
@@ -216,7 +216,7 @@ records/releases/record-release-checklist-whitepaper.yaml
 repo_integration/repo-update-checklist.md
 ```
 
-The repository update should preserve the same non-overclaiming discipline as the root framework: mark the white paper as draft or reviewable until human edit, citation review, build validation, and release decisions are retained.
+This v1.0.0 white paper release preserves the same non-overclaiming discipline as the root framework: it is a citable methodological white paper and artifact package, not a claim of independent external validation, semantic consensus, or L5 archival/publication-ready status.
 
 ---
 
@@ -242,7 +242,7 @@ This strategy follows a repository-artifact logic rather than a scatter-and-mirr
 |---|---|---:|---|
 | GitHub | Canonical living source and source-of-truth repository. | Yes | Best fit for Markdown, metadata, version control, issue review, release records, schemas, validation scripts, and repo-native DSR logic. |
 | Zenodo | DOI-bearing archival snapshot of GitHub release. | Yes | Best fit for citable release snapshot and long-term scholarly reference. |
-| OSF | Project/discovery hub; optional preprint and linked materials. | Yes, after GitHub draft is stable | Useful for open-science visibility, supplemental files, and discovery. Keep GitHub/Zenodo canonical. |
+| OSF | Project/discovery hub; optional preprint and linked materials. | Yes, after GitHub release and Zenodo DOI are available | Useful for open-science visibility, supplemental files, and discovery. Keep GitHub/Zenodo canonical. |
 | Octopus | Modular research-process record. | Optional | Useful if you want to publish problem, method, results/synthesis, interpretation, and application as linked units. Do after the paper is stable. |
 | SSRN | Discipline-facing preprint for IS/management/social-science audiences. | Optional | Consider if you want social-science and management discovery; do not make it canonical. |
 | Mendeley Data | Data package only. | Optional later | Use only for source extraction corpus, concept inventory, or artifact data that can be openly licensed and safely shared. |
@@ -329,7 +329,7 @@ Do not publish copyrighted source PDFs or extraction records containing excessiv
 |---|---:|---|---|---|
 | GitHub | Yes | Markdown source, build files, metadata, release records | First | Use as living source of truth. |
 | Zenodo | Yes for archival snapshot | GitHub release archive, PDF, unified Markdown, metadata | After GitHub release | Use DOI-bearing snapshot. |
-| OSF | No | Project page, optional preprint, links to GitHub/Zenodo, supplemental files | After draft is stable | Use for discovery and open-science hub. |
+| OSF | No | Project page, optional preprint, links to GitHub/Zenodo, supplemental files | After GitHub release and Zenodo DOI | Use for discovery and open-science hub. |
 | Octopus | No | Modular research-process records | After stable paper | Publish problem/method/results/interpretation/application chain if useful. |
 | SSRN | No | Preprint PDF | Optional | Use if you want social-science/management/IS preprint discovery. |
 | Mendeley Data | No | Data package, not paper | Optional later | Use only for data/materials that are safe and legal to share. |

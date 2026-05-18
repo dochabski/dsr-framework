@@ -1,9 +1,9 @@
 # Manual Checklist
 
-## Before public release
+## Release and post-publication checklist
 
 - Read the unified white paper once end-to-end.
-- Replace all placeholders: date, version, DOI, final title, and release status.
+- Confirm date, version, final title, release status, and DOI status are current.
 - Keep the final license maximally open: CC0-1.0 for original project-authored white paper content and metadata, with executable tooling following the repository code-license policy.
 - Verify ORCID and preferred author metadata.
 - Verify all references, DOI links, and platform links.
@@ -16,7 +16,7 @@
 - Update root README, package inventory, artifact profile, and artifacts index as needed.
 - Commit to a branch and open a PR or self-review issue.
 - Run repository validation scripts.
-- Create a tagged GitHub release only after final human edit.
+- Create a tagged GitHub release only after final human edit and metadata freeze.
 
 ## Zenodo
 
@@ -31,7 +31,7 @@
 - Create an OSF project for the white paper and DSR Framework materials.
 - Add GitHub and Zenodo links.
 - Upload the PDF and unified Markdown if you want OSF-hosted files.
-- Consider an OSF Preprint only after the manuscript is stable.
+- Consider an OSF Preprint only after the GitHub release and Zenodo DOI are available.
 
 ## Octopus
 

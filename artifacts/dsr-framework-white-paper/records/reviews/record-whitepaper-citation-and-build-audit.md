@@ -1,6 +1,6 @@
 # White paper citation and build audit record
 
-Status: draft review record
+Status: approved review record
 Date: 2026-05-18
 Package: `artifacts/dsr-framework-white-paper/`
 

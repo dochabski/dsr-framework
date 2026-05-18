@@ -1,4 +1,6 @@
-# Codex Handoff Prompt
+# Historical Codex Handoff Prompt
+
+This file is retained as provenance for the initial white paper package integration. It is not the active release instruction for `whitepaper-v1.0.0`; current release authority is carried by the retained release, metadata-freeze, approval, and publication-verification records.
 
 You are working in the `dochabski/dsr-framework` repository. Your task is to integrate and build a white paper package prepared from the DSR theory synthesis materials.
 
@@ -7,7 +9,7 @@ You are working in the `dochabski/dsr-framework` repository. Your task is to int
 - Preserve the distinction between DSR theory and this repository's operationalization of DSR.
 - Do not claim L5 archival/publication-ready status unless the repository already contains explicit L5 release evidence.
 - Treat GitHub as the living source of truth and Zenodo as the archival DOI release.
-- Do not publish to external platforms. Prepare files and checklists only.
+- Use retained release records for any external publication action; this historical handoff only governed the initial package import.
 - Minimize token usage: read the package README, this handoff, the unified white paper, and the repository update checklist before reading any large source files.
 
 ## Integration target
@@ -33,7 +35,7 @@ docs/white-papers/dsr-framework-operationalization/
 5. Update root README with one short entry pointing to the white paper package.
 6. Update package inventory and artifacts index only if those files currently track bounded artifacts.
 7. Add the decision record and release checklist from this package to the appropriate repository records path, or keep them in the subpackage if that is the repository convention.
-8. Check for overclaiming: replace any accidental L5/validated/peer-reviewed claims with draft/reviewable language.
+8. Check for overclaiming: replace any accidental L5, independently validated, or externally peer-reviewed claims with scoped release language.
 9. Prepare a concise commit.
 
 ## Do not do unless explicitly requested

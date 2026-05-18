@@ -4,7 +4,7 @@
 |---|---:|---|---|---|
 | GitHub | Yes | Markdown source, build files, metadata, release records | First | Use as living source of truth. |
 | Zenodo | Yes for archival snapshot | GitHub release archive, PDF, unified Markdown, metadata | After GitHub release | Use DOI-bearing snapshot. |
-| OSF | No | Project page, optional preprint, links to GitHub/Zenodo, supplemental files | After draft is stable | Use for discovery and open-science hub. |
+| OSF | No | Project page, optional preprint, links to GitHub/Zenodo, supplemental files | After GitHub release and Zenodo DOI | Use for discovery and open-science hub. |
 | Octopus | No | Modular research-process records | After stable paper | Publish problem/method/results/interpretation/application chain if useful. |
 | SSRN | No | Preprint PDF | Optional | Use if you want social-science/management/IS preprint discovery. |
 | Mendeley Data | No | Data package, not paper | Optional later | Use only for data/materials that are safe and legal to share. |

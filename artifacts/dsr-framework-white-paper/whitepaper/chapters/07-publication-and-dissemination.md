@@ -20,7 +20,7 @@ This strategy follows a repository-artifact logic rather than a scatter-and-mirr
 |---|---|---:|---|
 | GitHub | Canonical living source and source-of-truth repository. | Yes | Best fit for Markdown, metadata, version control, issue review, release records, schemas, validation scripts, and repo-native DSR logic. |
 | Zenodo | DOI-bearing archival snapshot of GitHub release. | Yes | Best fit for citable release snapshot and long-term scholarly reference. |
-| OSF | Project/discovery hub; optional preprint and linked materials. | Yes, after GitHub draft is stable | Useful for open-science visibility, supplemental files, and discovery. Keep GitHub/Zenodo canonical. |
+| OSF | Project/discovery hub; optional preprint and linked materials. | Yes, after GitHub release and Zenodo DOI are available | Useful for open-science visibility, supplemental files, and discovery. Keep GitHub/Zenodo canonical. |
 | Octopus | Modular research-process record. | Optional | Useful if you want to publish problem, method, results/synthesis, interpretation, and application as linked units. Do after the paper is stable. |
 | SSRN | Discipline-facing preprint for IS/management/social-science audiences. | Optional | Consider if you want social-science and management discovery; do not make it canonical. |
 | Mendeley Data | Data package only. | Optional later | Use only for source extraction corpus, concept inventory, or artifact data that can be openly licensed and safely shared. |

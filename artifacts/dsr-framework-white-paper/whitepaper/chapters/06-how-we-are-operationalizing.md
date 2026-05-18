@@ -16,7 +16,7 @@ This is the most direct example of DSR theory becoming operational: it translate
 
 ## Layer 3: White paper and release package
 
-This white paper should remain a bounded artifact package under:
+This white paper remains a bounded artifact package under:
 
 ```text
 artifacts/dsr-framework-white-paper/
@@ -38,4 +38,4 @@ records/releases/record-release-checklist-whitepaper.yaml
 repo_integration/repo-update-checklist.md
 ```
 
-The repository update should preserve the same non-overclaiming discipline as the root framework: mark the white paper as draft or reviewable until human edit, citation review, build validation, and release decisions are retained.
+This v1.0.0 white paper release preserves the same non-overclaiming discipline as the root framework: it is a citable methodological white paper and artifact package, not a claim of independent external validation, semantic consensus, or L5 archival/publication-ready status.

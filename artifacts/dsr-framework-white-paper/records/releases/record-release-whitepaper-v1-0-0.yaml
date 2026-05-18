@@ -1,0 +1,68 @@
+# SPDX-License-Identifier: CC0-1.0
+release_record:
+  record_id: record_release_whitepaper_v1_0_0
+  record_class: release_record
+  item_type: record
+  title: DSR Framework White Paper v1.0.0 Release Record
+  status: approved
+  version: "1.0.0"
+  release_date: "2026-05-18"
+  responsible_party: framework_maintainer
+  release_tag: whitepaper-v1.0.0
+  release_status: whitepaper_v1_0_0_released
+  l5_claimed: false
+
+  release_scope:
+    included:
+      - whitepaper_markdown_chapters
+      - unified_markdown_manuscript
+      - html_build
+      - pdf_build
+      - citation_metadata
+      - bibtex_references
+      - parsed_source_bibliography_supplement
+      - publication_strategy
+      - release_notes
+      - metadata_freeze_record
+      - final_read_edit_record
+    excluded:
+      - l5_archival_publication_ready_claim
+      - independent_external_peer_review_claim
+      - empirical_framework_effectiveness_validation
+      - source_pdf_redistribution
+      - relicensing_third_party_sources_or_trademarks
+
+  whitepaper_release_blockers: []
+
+  retained_evidence:
+    metadata_freeze: artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-0.yaml
+    final_read_edit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
+    citation_and_build_audit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
+    validation_summary: records/validation/validation-summary-latest.json
+    release_notes: artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-0.md
+
+  validation:
+    required_commands:
+      - python artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
+      - python scripts/validate-package.py --write-summary
+      - python scripts/validate-package.py --release-candidate --write-summary
+      - git diff --check
+    required_result: pass
+
+  known_limitations:
+    - DOI is pending until Zenodo archives the GitHub release.
+    - OSF and ORCID entries are post-DOI dissemination steps.
+    - L5 archival/publication-ready status is not claimed.
+    - Independent external scholarly peer review is not claimed.
+    - Empirical validation of framework effectiveness is not claimed.
+
+  outcome:
+    result: ready_for_github_release_and_zenodo_archival_publication
+    approved_claims:
+      - whitepaper_v1_0_0_release
+      - repository_native_methodological_white_paper
+      - cc0_original_project_authored_content
+    not_approved_claims:
+      - l5_archival_publication_ready
+      - independent_external_peer_review
+      - empirical_external_reuse_validation
