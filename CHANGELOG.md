@@ -8,6 +8,7 @@
 - Added draft DSR Framework white paper package under `artifacts/dsr-framework-white-paper/`.
 - Added white paper Markdown chapters, unified Markdown, HTML/PDF builds, metadata templates, source map, publication strategy, and manual platform checklist.
 - Fixed draft white paper Pandoc metadata, heading numbering, citeproc references, and build regression checks.
+- Clarified maximally open CC0-1.0 rights posture for original white paper package content and metadata.
 
 ## [1.4.0] - 2026-05-16
 

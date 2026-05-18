@@ -30,6 +30,12 @@ Use a **repository-native methodological white paper with an open artifact packa
 | `scripts/check_whitepaper_build.py` | Regression check for title-page metadata, heading numbering, citation setup, and PDF text defects. |
 | `llms.txt` | AI-legible summary and file map. |
 
+## License and rights
+
+Original project-authored white paper text, metadata, and package materials are intended to follow the repository's maximally open non-code policy: CC0-1.0. Citation is appreciated for scholarly traceability but is not a license condition. Executable tooling follows the repository code-license policy, currently Apache-2.0 unless otherwise marked.
+
+Third-party sources, cited works, trademarks, source PDFs, and source-derived quotations are not relicensed by this package. Before public deposit, review source-derived text and remove or rewrite anything that is too close to copyrighted source material.
+
 ## Build
 
 ```bash

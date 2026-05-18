@@ -3,10 +3,11 @@
 ## Before public release
 
 - Read the unified white paper once end-to-end.
-- Replace all placeholders: date, version, DOI, final title, final license, and release status.
+- Replace all placeholders: date, version, DOI, final title, and release status.
+- Keep the final license maximally open: CC0-1.0 for original project-authored white paper content and metadata, with executable tooling following the repository code-license policy.
 - Verify ORCID and preferred author metadata.
 - Verify all references, DOI links, and platform links.
-- Remove or rewrite any source-derived text that may be too close to copyrighted sources.
+- Remove or rewrite any source-derived text that may be too close to copyrighted sources; CC0 can apply only to rights the project controls.
 - Confirm the paper does not claim independent external validation, semantic consensus, or L5 status unless evidence exists.
 
 ## GitHub
@@ -23,7 +24,7 @@
 - Enable the DSR Framework repository.
 - Create or reserve DOI metadata after the GitHub release exists.
 - Upload or verify release artifacts: PDF, HTML, unified Markdown, source archive, metadata.
-- Confirm title, creators, ORCID, license, related identifiers, keywords, and version.
+- Confirm title, creators, ORCID, CC0-1.0 license metadata, related identifiers, keywords, and version.
 
 ## OSF
 
