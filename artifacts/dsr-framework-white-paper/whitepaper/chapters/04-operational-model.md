@@ -19,11 +19,9 @@ The operational problem is to convert DSR commitments into a record architecture
 | Reliability, replication, accumulation | Support cumulative DSR. | reliability target, replication type, reuse conditions, projectability statement |
 | Transparency and responsible disclosure | Support trust without overload. | process, problem-space, solution-space, build, evaluation, and contribution transparency |
 
-This architecture turns DSR into a linked system rather than a linear narrative. The key spaces are problem space, context space, solution space, design space, artifact space, evaluation space, knowledge space, and communication/transparency space. The most important edges are:
+This architecture turns DSR into a linked system rather than a linear narrative. The key spaces are problem space, context space, solution space, design space, artifact space, evaluation space, knowledge space, and communication/transparency space. The most important edge chain is:
 
-```text
-problem -> objective -> requirement -> design decision -> artifact -> demonstration -> evaluation -> contribution claim -> design knowledge -> reuse boundary
-```
+> problem -> objective -> requirement -> design decision -> artifact -> demonstration -> evaluation -> contribution claim -> design knowledge -> reuse boundary
 
 Operationalization should not over-formalize every judgment. Some checks can be automated, such as whether a study has a problem class, artifact, evaluation plan, and contribution claim. Other checks require human review, such as whether the problem is important, whether the artifact is novel enough, whether the evidence adequately supports the claim, and whether boundary conditions are credible [@hevner_2024_transparency; @brendel_lembcke_muntermann_kolbe_2021_replication; @storey_baskerville_kaul_2025_reliability].
 

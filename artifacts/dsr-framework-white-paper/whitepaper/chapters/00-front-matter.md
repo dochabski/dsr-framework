@@ -35,4 +35,4 @@ Design Science Research; design knowledge; artifact ontology; DSR evaluation; DS
 
 # Recommended citation {.unnumbered}
 
-Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 1.0.0). DSR Framework. https://doi.org/10.5281/zenodo.20264299
+Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 1.0.0). DSR Framework. <https://doi.org/10.5281/zenodo.20264299>

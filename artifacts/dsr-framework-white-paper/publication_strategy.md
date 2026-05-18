@@ -2,15 +2,13 @@
 
 The publication strategy should maximize visibility without creating multiple competing sources of truth. The recommended architecture is:
 
-```text
-Canonical living source: GitHub
-Archival citation snapshot: Zenodo DOI release
-Project/discovery hub: OSF project, optional OSF Preprint
-Research-process publication: Octopus, optional after stable modularization
-Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package
-Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, personal website
-Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials
-```
+- Canonical living source: GitHub.
+- Archival citation snapshot: Zenodo DOI release.
+- Project/discovery hub: OSF project, optional OSF Preprint.
+- Research-process publication: Octopus, optional after stable modularization.
+- Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package.
+- Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, and personal website.
+- Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials.
 
 ## Recommended platform roles
 
@@ -26,8 +24,8 @@ Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper 
 | ResearchGate | Profile dissemination link or licensed full-text mirror. | Optional | Good for visibility, not canonicality. Link to GitHub/Zenodo. |
 | Academia.edu | Profile dissemination link or licensed full-text mirror. | Optional | Good for visibility, not canonicality. Link to GitHub/Zenodo. |
 | OER Commons / VIVA Open | Teaching derivative or workbook. | Not yet | Use after making an instructional version, not for the primary white paper. |
-| arXiv | Preprint only if a suitable category and format fit. | Probably no | DSR framework/methodology may fit better on OSF Preprints or SSRN unless there is a clear computing/information-science framing. |
-| bioRxiv / medRxiv | Not relevant. | No | The paper is not a life-science or medical preprint. |
+| arXiv | Preprint only if a suitable category and format fit. | Probably no | DSR framework and methodology may fit better on OSF Preprints or SSRN unless there is a clear computing or information science framing. |
+| bioRxiv and medRxiv | Not relevant. | No | The paper is not a life science or medical preprint. |
 | HAL | Optional institutional/open archive mirror. | Optional | Consider only if you want a European open-archive mirror and can maintain metadata consistency. |
 
 The main rule is simple: do not scatter the white paper as unrelated uploads. Create one canonical GitHub release, archive it through Zenodo, then point all other platforms to that release or deposit a clearly labeled derivative.
@@ -40,15 +38,15 @@ The main rule is simple: do not scatter the white paper as unrelated uploads. Cr
 | GitHub | Yes | Markdown source, build files, metadata, release records | First | Use as living source of truth. |
 | Zenodo | Yes for archival snapshot | GitHub release archive, PDF, unified Markdown, metadata | After GitHub release | Use DOI-bearing snapshot. |
 | OSF | No | Project page, optional preprint, links to GitHub/Zenodo, supplemental files | After GitHub release and DOI | Use for discovery and open-science hub. |
-| Octopus | No | Modular research-process records | After stable paper | Publish problem/method/results/interpretation/application chain if useful. |
-| SSRN | No | Preprint PDF | Optional | Use if you want social-science/management/IS preprint discovery. |
+| Octopus | No | Modular research-process records | After stable paper | Publish problem, method, results, interpretation, and application records if useful. |
+| SSRN | No | Preprint PDF | Optional | Use if you want social science, management, and IS preprint discovery. |
 | Mendeley Data | No | Data package, not paper | Optional later | Use only for data/materials that are safe and legal to share. |
 | Dryad | No | Curated data package, not paper | Usually not needed | Consider only for reusable data requiring data repository curation. |
 | ResearchGate | No | Link or licensed full-text mirror | After DOI | Use for visibility. |
 | Academia.edu | No | Link or licensed full-text mirror | After DOI | Use for visibility. |
-| OER Commons / VIVA Open | No | Teaching derivative, workbook, module | Later | Create after adapting for instruction. |
+| OER Commons and VIVA Open | No | Teaching derivative, workbook, module | Later | Create after adapting for instruction. |
 | arXiv | No | Preprint if category fit is clear | Optional, probably not first | Use only if scope fits. |
-| bioRxiv / medRxiv | No | None | Never for this paper | Not relevant. |
+| bioRxiv and medRxiv | No | None | Never for this paper | Not relevant. |
 | HAL | No | Archive mirror or preprint | Optional | Consider only with metadata consistency plan. |
 
 Decision: keep GitHub + Zenodo as the canonical pair. Everything else should point back to that pair or be clearly labeled as a derivative.

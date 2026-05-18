@@ -558,7 +558,7 @@ package_inventory:
   - directory_id: dir_025
     path: artifacts
     purpose: Nested artifact packages developed inside the DSR Framework repository before standalone release or repository split.
-    expected_file_count_from_selection_table: 88
+    expected_file_count_from_selection_table: 89
     listed_files:
     - artifacts/README.md
     - artifacts/dsr-theory-operational-kernel/README.md
@@ -614,6 +614,7 @@ package_inventory:
     - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
     - artifacts/dsr-framework-white-paper/repo_integration/repo-update-checklist.md
     - artifacts/dsr-framework-white-paper/scripts/assemble_whitepaper.py
+    - artifacts/dsr-framework-white-paper/scripts/build_whitepaper_pdf.py
     - artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
     - artifacts/dsr-framework-white-paper/source_map.json
     - artifacts/dsr-framework-white-paper/sources/DSR Operational Synthesis.txt
@@ -651,8 +652,8 @@ package_inventory:
     directory_status: exists_files_verified
     existence_audit_date: '2026-05-05'
     listed_file_existence:
-      listed_count: 88
-      present_count: 88
+      listed_count: 89
+      present_count: 89
       missing_count: 0
   - directory_id: dir_027
     path: rubrics
@@ -702,7 +703,7 @@ package_inventory:
   - directory_id: dir_029
     path: artifacts/dsr-framework-white-paper
     purpose: Versioned repository-native methodological white paper package for DSR Framework theory, operationalization, publication strategy, and Zenodo DOI verification.
-    expected_file_count_from_selection_table: 63
+    expected_file_count_from_selection_table: 64
     listed_files:
     - artifacts/dsr-framework-white-paper/Makefile
     - artifacts/dsr-framework-white-paper/README.md
@@ -733,6 +734,7 @@ package_inventory:
     - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
     - artifacts/dsr-framework-white-paper/repo_integration/repo-update-checklist.md
     - artifacts/dsr-framework-white-paper/scripts/assemble_whitepaper.py
+    - artifacts/dsr-framework-white-paper/scripts/build_whitepaper_pdf.py
     - artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
     - artifacts/dsr-framework-white-paper/source_map.json
     - artifacts/dsr-framework-white-paper/sources/DSR Operational Synthesis.txt
@@ -770,8 +772,8 @@ package_inventory:
     directory_status: exists_files_verified
     existence_audit_date: '2026-05-17'
     listed_file_existence:
-      listed_count: 63
-      present_count: 63
+      listed_count: 64
+      present_count: 64
       missing_count: 0
   root_file_inventory:
   - path: README.md
@@ -10795,6 +10797,40 @@ package_inventory:
     - preserves_whitepaper_release_status
     - keeps_l5_outside_current_claim
 
+  - inventory_entry_id: inv_0297
+    file_id: file_artifacts_dsr_framework_white_paper_scripts_build_whitepaper_pdf_py
+    selection_id: artifacts_dsr_framework_white_paper_scripts_build_whitepaper_pdf_py
+    path: artifacts/dsr-framework-white-paper/scripts/build_whitepaper_pdf.py
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_pdf_build_script
+    output_format: python
+    purpose: White paper PDF build script that injects table row rules and renders the Pandoc/LaTeX output reproducibly.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/README.md
+    - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    - artifacts/dsr-framework-white-paper/build/latex-preamble.tex
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-18'
+    validation_profile_id: vp_executable_validation
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      - dsr_methodology_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - whitepaper_pdf_tables_have_row_rules
+      - whitepaper_v1_release_scope_preserved
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_whitepaper_release_status
+    - keeps_l5_outside_current_claim
+
 
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
@@ -11135,7 +11171,7 @@ package_inventory:
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 296
+    controlled_file_inventory_entries: 297
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass

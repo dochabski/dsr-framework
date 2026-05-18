@@ -35,7 +35,7 @@ Design Science Research; design knowledge; artifact ontology; DSR evaluation; DS
 
 # Recommended citation {.unnumbered}
 
-Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 1.0.0). DSR Framework. https://doi.org/10.5281/zenodo.20264299
+Ochabski, D. (2026). *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* (Version 1.0.0). DSR Framework. <https://doi.org/10.5281/zenodo.20264299>
 
 ---
 
@@ -133,11 +133,9 @@ The operational problem is to convert DSR commitments into a record architecture
 | Reliability, replication, accumulation | Support cumulative DSR. | reliability target, replication type, reuse conditions, projectability statement |
 | Transparency and responsible disclosure | Support trust without overload. | process, problem-space, solution-space, build, evaluation, and contribution transparency |
 
-This architecture turns DSR into a linked system rather than a linear narrative. The key spaces are problem space, context space, solution space, design space, artifact space, evaluation space, knowledge space, and communication/transparency space. The most important edges are:
+This architecture turns DSR into a linked system rather than a linear narrative. The key spaces are problem space, context space, solution space, design space, artifact space, evaluation space, knowledge space, and communication/transparency space. The most important edge chain is:
 
-```text
-problem -> objective -> requirement -> design decision -> artifact -> demonstration -> evaluation -> contribution claim -> design knowledge -> reuse boundary
-```
+> problem -> objective -> requirement -> design decision -> artifact -> demonstration -> evaluation -> contribution claim -> design knowledge -> reuse boundary
 
 Operationalization should not over-formalize every judgment. Some checks can be automated, such as whether a study has a problem class, artifact, evaluation plan, and contribution claim. Other checks require human review, such as whether the problem is important, whether the artifact is novel enough, whether the evidence adequately supports the claim, and whether boundary conditions are credible [@hevner_2024_transparency; @brendel_lembcke_muntermann_kolbe_2021_replication; @storey_baskerville_kaul_2025_reliability].
 
@@ -225,15 +223,13 @@ This v1.0.0 white paper release preserves the same non-overclaiming discipline a
 
 The publication strategy should maximize visibility without creating multiple competing sources of truth. The recommended architecture is:
 
-```text
-Canonical living source: GitHub
-Archival citation snapshot: Zenodo DOI release
-Project/discovery hub: OSF project, optional OSF Preprint
-Research-process publication: Octopus, optional after stable modularization
-Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package
-Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, personal website
-Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials
-```
+- Canonical living source: GitHub.
+- Archival citation snapshot: Zenodo DOI release.
+- Project/discovery hub: OSF project, optional OSF Preprint.
+- Research-process publication: Octopus, optional after stable modularization.
+- Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package.
+- Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, and personal website.
+- Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials.
 
 This strategy follows a repository-artifact logic rather than a scatter-and-mirror logic. The living source, archived release, and dissemination links should have distinct roles.
 
@@ -251,8 +247,8 @@ This strategy follows a repository-artifact logic rather than a scatter-and-mirr
 | ResearchGate | Profile dissemination link or licensed full-text mirror. | Optional | Good for visibility, not canonicality. Link to GitHub/Zenodo. |
 | Academia.edu | Profile dissemination link or licensed full-text mirror. | Optional | Good for visibility, not canonicality. Link to GitHub/Zenodo. |
 | OER Commons / VIVA Open | Teaching derivative or workbook. | Not yet | Use after making an instructional version, not for the primary white paper. |
-| arXiv | Preprint only if a suitable category and format fit. | Probably no | DSR framework/methodology may fit better on OSF Preprints or SSRN unless there is a clear computing/information-science framing. |
-| bioRxiv / medRxiv | Not relevant. | No | The paper is not a life-science or medical preprint. |
+| arXiv | Preprint only if a suitable category and format fit. | Probably no | DSR framework and methodology may fit better on OSF Preprints or SSRN unless there is a clear computing or information science framing. |
+| bioRxiv and medRxiv | Not relevant. | No | The paper is not a life science or medical preprint. |
 | HAL | Optional institutional/open archive mirror. | Optional | Consider only if you want a European open-archive mirror and can maintain metadata consistency. |
 
 The main rule is simple: do not scatter the white paper as unrelated uploads. Create one canonical GitHub release, archive it through Zenodo, then point all other platforms to that release or deposit a clearly labeled derivative.
@@ -331,15 +327,15 @@ Do not publish copyrighted source PDFs or extraction records containing excessiv
 | GitHub | Yes | Markdown source, build files, metadata, release records | First | Use as living source of truth. |
 | Zenodo | Yes for archival snapshot | GitHub release archive, PDF, unified Markdown, metadata | After GitHub release | Use DOI-bearing snapshot. |
 | OSF | No | Project page, optional preprint, links to GitHub/Zenodo, supplemental files | After GitHub release and Zenodo DOI | Use for discovery and open-science hub. |
-| Octopus | No | Modular research-process records | After stable paper | Publish problem/method/results/interpretation/application chain if useful. |
-| SSRN | No | Preprint PDF | Optional | Use if you want social-science/management/IS preprint discovery. |
+| Octopus | No | Modular research-process records | After stable paper | Publish problem, method, results, interpretation, and application records if useful. |
+| SSRN | No | Preprint PDF | Optional | Use if you want social science, management, and IS preprint discovery. |
 | Mendeley Data | No | Data package, not paper | Optional later | Use only for data/materials that are safe and legal to share. |
 | Dryad | No | Curated data package, not paper | Usually not needed | Consider only for reusable data requiring data repository curation. |
 | ResearchGate | No | Link or licensed full-text mirror | After DOI | Use for visibility. |
 | Academia.edu | No | Link or licensed full-text mirror | After DOI | Use for visibility. |
-| OER Commons / VIVA Open | No | Teaching derivative, workbook, module | Later | Create after adapting for instruction. |
+| OER Commons and VIVA Open | No | Teaching derivative, workbook, module | Later | Create after adapting for instruction. |
 | arXiv | No | Preprint if category fit is clear | Optional, probably not first | Use only if scope fits. |
-| bioRxiv / medRxiv | No | None | Never for this paper | Not relevant. |
+| bioRxiv and medRxiv | No | None | Never for this paper | Not relevant. |
 | HAL | No | Archive mirror or preprint | Optional | Consider only with metadata consistency plan. |
 
 Decision: keep GitHub + Zenodo as the canonical pair. Everything else should point back to that pair or be clearly labeled as a derivative.
