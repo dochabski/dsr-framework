@@ -63,6 +63,20 @@ release_publication_verification_record:
         - open artifact
         - white paper
         - Zenodo
+    metaarxiv_preprint:
+      status: submitted_pending_moderation
+      service: MetaArXiv
+      platform: OSF Preprints
+      preprint_url: https://osf.io/preprints/metaarxiv/ebf8m_v1
+      version: 1
+      submitted_date: "2026-05-18"
+      file_name: dsr-framework-whitepaper.pdf
+      license: CC0 1.0 Universal
+      moderation_policy: pre_moderation
+      public_search_status: not_public_or_searchable_until_moderator_approval
+      preprint_doi_status: doi_created_after_moderator_approval
+      supplemental_materials: https://osf.io/wytgc/
+      peer_reviewed_publication_doi: https://doi.org/10.5281/zenodo.20264299
     orcid_work:
       status: added
       orcid_id: 0009-0000-9117-0651
@@ -94,8 +108,9 @@ release_publication_verification_record:
   publication_statement: >
     The DSR Framework white paper v1.0.0 GitHub release has been archived on
     Zenodo as a DOI-backed report record, linked through a public OSF discovery
-    project, and added to the maintainer ORCID record as a DOI work. This
-    verification records publication and dissemination evidence for the
+    project, submitted to MetaArXiv through OSF Preprints for moderation, and
+    added to the maintainer ORCID record as a DOI work. This verification
+    records publication and dissemination evidence for the
     white-paper artifact release without changing the whitepaper-v1.0.0 Git tag.
 
   conformance_impact:
@@ -104,9 +119,12 @@ release_publication_verification_record:
       - whitepaper_v1_0_0_published
       - zenodo_doi_archived_whitepaper_release
       - osf_public_discovery_hub_published
+      - metaarxiv_preprint_submitted_pending_moderation
       - orcid_doi_work_added
       - cc0_original_project_authored_whitepaper_content_and_metadata
     not_supported_claims:
+      - metaarxiv_preprint_moderator_approved
+      - metaarxiv_preprint_doi_assigned
       - l5_archival_publication_ready
       - independent_external_peer_review
       - empirical_framework_effectiveness_validation
