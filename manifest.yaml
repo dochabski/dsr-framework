@@ -81,6 +81,9 @@ manifest:
       latest_white_paper_package: artifacts/dsr-framework-white-paper/README.md
       latest_white_paper_unified_markdown: artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
       latest_white_paper_pdf_build: artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+      latest_white_paper_reference_bibliography: artifacts/dsr-framework-white-paper/whitepaper/references.bib
+      latest_white_paper_build_check: artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
+      latest_white_paper_build_audit: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
       white_paper_package_status: draft_repository_native_methodological_white_paper_not_released
       latest_wicked_problem_resolution_workflow: docs/wicked-problem-resolution-workflow.md
       wicked_problem_resolution_workflow_status: controlled_process_artifact_present
@@ -866,6 +869,11 @@ manifest:
     to: manifest.yaml
     relation: registers_draft_white_paper_artifact_package
     evidence_status: draft_artifact_package_registered
+  - trace_id: tr_white_paper_build_audit_to_white_paper_package
+    from: artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
+    to: artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
+    relation: documents_and_checks_citation_metadata_and_heading_numbering_fixes
+    evidence_status: retained_build_review_record
   related_items:
     upstream:
     - dsr-framework-generation-spec.yaml
@@ -901,6 +909,9 @@ manifest:
     - artifacts/dsr-framework-white-paper/README.md
     - artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
     - artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
+    - artifacts/dsr-framework-white-paper/whitepaper/references.bib
+    - artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
+    - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
     - records/reviews/record-review-template-checklist-stabilization-0001-v1-0-0.yaml
     - records/reviews/record-review-schema-hardening-0001-v1-0-0.yaml
     - records/reviews/record-review-0002-completeness-v1-0-0.yaml
@@ -1034,6 +1045,12 @@ manifest:
     blocking_release: false
     assigned_to: project_maintainer
   change_history:
+  - version: 1.4.0-post-publication
+    date: '2026-05-18'
+    change_type: draft_white_paper_citation_build_fix
+    description: Fixed draft white paper author metadata, heading numbering, citeproc bibliography setup, and build regression checks without tagging or externally publishing the white paper.
+    responsible_party: framework_maintainer
+    related_request: dsr_framework_white_paper_pdf_heading_and_citation_fix
   - version: 1.4.0-post-publication
     date: '2026-05-17'
     change_type: draft_white_paper_package_added

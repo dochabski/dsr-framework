@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="David Ochabski" />
   <meta name="dcterms.date" content="2026-05-17" />
   <title>From Design Science Research Theory to Repository-Native Operationalization</title>
   <style>
@@ -232,24 +233,40 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">From Design Science Research Theory to
 Repository-Native Operationalization</h1>
 <p class="subtitle">A White Paper for the DSR Framework</p>
-<p class="author">true</p>
+<p class="author">David Ochabski</p>
 <p class="date">2026-05-17</p>
 </header>
 <nav id="TOC" role="doc-toc">
 
 </nav>
-<h1
-id="from-design-science-research-theory-to-repository-native-operationalization">From
-Design Science Research Theory to Repository-Native
-Operationalization</h1>
-<h2 id="version-note">Version note</h2>
+<h1 class="unnumbered" id="version-note">Version note</h1>
 <p>This draft is prepared as an open artifact white paper. It is
 designed to be readable as a normal human-facing paper and also
 structured enough for repository automation, AI ingestion, archival
@@ -257,20 +274,42 @@ deposit, and future validation work.</p>
 <p>The paper should not claim independent external validation, semantic
 consensus, or L5 archival/publication-ready status until those events
 are explicitly recorded in the DSR Framework repository.</p>
-<h2 id="abstract">Abstract</h2>
+<h1 class="unnumbered" id="abstract">Abstract</h1>
 <p>Design Science Research (DSR) is an artifact-centered research
 tradition in which researchers identify a relevant problem, design and
 instantiate an artifact or design entity, evaluate that artifact against
 explicit objectives and criteria, and communicate reusable or
-projectable design knowledge. The challenge addressed by this white
-paper is operational: DSR theory provides rich guidance, but DSR work is
-often documented in prose that obscures artifact boundaries,
-problem-to-requirement traces, evaluation alignment, contribution
-claims, and reuse conditions. This paper synthesizes the DSR theory base
-and explains how the DSR Framework repository operationalizes it as a
-GitHub-native artifact package. The framework treats DSR documentation
-as a structured, traceable, validation-ready system that includes
-models, vocabularies, schemas, templates, checklists, records,
+projectable design knowledge <span class="citation"
+data-cites="march_smith_1995_design hevner_2004_design peffers_2007_dsr_methodology gregor_hevner_2013_positioning vom_brocke_hevner_maedche_2020_intro hevner_2024_transparency">(<a
+href="#ref-march_smith_1995_design" role="doc-biblioref">March and Smith
+1995</a>; <a href="#ref-hevner_2004_design" role="doc-biblioref">Hevner
+et al. 2004</a>, <a href="#ref-hevner_2024_transparency"
+role="doc-biblioref">2024</a>; <a
+href="#ref-peffers_2007_dsr_methodology" role="doc-biblioref">Peffers et
+al. 2007</a>; <a href="#ref-gregor_hevner_2013_positioning"
+role="doc-biblioref">Gregor and Hevner 2013</a>; <a
+href="#ref-vom_brocke_hevner_maedche_2020_intro"
+role="doc-biblioref">vom Brocke, Hevner, and Maedche 2020</a>)</span>.
+The challenge addressed by this white paper is operational: DSR theory
+provides rich guidance, but DSR work is often documented in prose that
+obscures artifact boundaries, problem-to-requirement traces, evaluation
+alignment, contribution claims, and reuse conditions <span
+class="citation"
+data-cites="vom_brocke_maedche_2019_dsr_grid weigand_johannesson_andersson_2021_artifact_ontology hevner_2024_transparency">(<a
+href="#ref-vom_brocke_maedche_2019_dsr_grid" role="doc-biblioref">vom
+Brocke and Maedche 2019</a>; <a
+href="#ref-weigand_johannesson_andersson_2021_artifact_ontology"
+role="doc-biblioref">Weigand, Johannesson, and Andersson 2021</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>)</span>. This paper synthesizes the DSR theory base and
+explains how the DSR Framework repository operationalizes it as a
+GitHub-native artifact package <span class="citation"
+data-cites="ochabski_2026_dsr_framework ochabski_2026_documentation_protocol">(<a
+href="#ref-ochabski_2026_dsr_framework" role="doc-biblioref">Ochabski
+2026a</a>, <a href="#ref-ochabski_2026_documentation_protocol"
+role="doc-biblioref">2026b</a>)</span>. The framework treats DSR
+documentation as a structured, traceable, validation-ready system that
+includes models, vocabularies, schemas, templates, checklists, records,
 crosswalks, rubrics, examples, and nested artifacts. The paper positions
 the repository as a compound DSR artifact: a framework for producing,
 reviewing, releasing, citing, and reusing DSR artifact packages. It also
@@ -278,18 +317,18 @@ proposes a publication and dissemination strategy that preserves a
 single canonical source of truth while increasing human and machine
 discoverability through GitHub, Zenodo, OSF, Octopus, and selected
 profile/dissemination channels.</p>
-<h2 id="keywords">Keywords</h2>
+<h1 class="unnumbered" id="keywords">Keywords</h1>
 <p>Design Science Research; design knowledge; artifact ontology; DSR
 evaluation; DSR transparency; repository-native research; research
 artifact packaging; GitHub; Zenodo; Open Science Framework; Octopus;
 FAIR; AI-legible documentation.</p>
-<h2 id="recommended-citation-placeholder">Recommended citation
-placeholder</h2>
+<h1 class="unnumbered" id="recommended-citation-placeholder">Recommended
+citation placeholder</h1>
 <p>Ochabski, D. (2026). <em>From Design Science Research Theory to
 Repository-Native Operationalization: A White Paper for the DSR
-Framework</em> (Version 0.1.0-draft). DSR Framework. DOI pending.</p>
+Framework</em> (Version 0.2.0-draft). DSR Framework. DOI pending.</p>
 <hr />
-<h1 id="executive-summary">Executive Summary</h1>
+<h1 class="unnumbered" id="executive-summary">Executive summary</h1>
 <p>This white paper should be framed as a <strong>repository-native
 methodological white paper with an open artifact package</strong>. It is
 not mainly a policy brief, a promotional white paper, a dataset
@@ -312,18 +351,39 @@ records, and preservation metadata.</p>
 artifact-centered inquiry that connects a practically significant
 problem, a designed artifact or design entity, rigorous grounding in
 prior knowledge, demonstration and evaluation, and reusable design
-knowledge.</p>
+knowledge <span class="citation"
+data-cites="march_smith_1995_design hevner_2004_design peffers_2007_dsr_methodology johannesson_perjons_2021_intro">(<a
+href="#ref-march_smith_1995_design" role="doc-biblioref">March and Smith
+1995</a>; <a href="#ref-hevner_2004_design" role="doc-biblioref">Hevner
+et al. 2004</a>; <a href="#ref-peffers_2007_dsr_methodology"
+role="doc-biblioref">Peffers et al. 2007</a>; <a
+href="#ref-johannesson_perjons_2021_intro"
+role="doc-biblioref">Johannesson and Perjons 2021</a>)</span>.</p>
 <p>Second, DSR needs operational structure. A complete DSR record should
 capture the problem instance, problem class, context, stakeholders,
 input knowledge, objectives, requirements, artifact/design entity, build
 trace, demonstration/use trace, evaluation evidence, contribution claim,
-design knowledge, boundary conditions, and transparency trace.</p>
+design knowledge, boundary conditions, and transparency trace <span
+class="citation"
+data-cites="vom_brocke_maedche_2019_dsr_grid maedche_gregor_morana_feine_2019_problem_space weigand_johannesson_andersson_2021_artifact_ontology hevner_2024_transparency">(<a
+href="#ref-vom_brocke_maedche_2019_dsr_grid" role="doc-biblioref">vom
+Brocke and Maedche 2019</a>; <a
+href="#ref-maedche_gregor_morana_feine_2019_problem_space"
+role="doc-biblioref">Maedche et al. 2019</a>; <a
+href="#ref-weigand_johannesson_andersson_2021_artifact_ontology"
+role="doc-biblioref">Weigand, Johannesson, and Andersson 2021</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>)</span>.</p>
 <p>Third, the DSR Framework repository is a credible attempt to
 implement that structure. Its strongest contribution is traceability
 discipline: it treats GitHub not simply as a host but as a research
 artifact stewardship environment where files, versions, metadata,
 validation records, release records, and crosswalks carry methodological
-evidence.</p>
+evidence <span class="citation"
+data-cites="ochabski_2026_dsr_framework ochabski_2026_documentation_protocol">(<a
+href="#ref-ochabski_2026_dsr_framework" role="doc-biblioref">Ochabski
+2026a</a>, <a href="#ref-ochabski_2026_documentation_protocol"
+role="doc-biblioref">2026b</a>)</span>.</p>
 <p>The recommended publication architecture is intentionally
 conservative: use GitHub as the canonical living source, Zenodo as the
 DOI-bearing archival release, OSF as a project/discovery hub or optional
@@ -333,23 +393,41 @@ LinkedIn, Substack, and similar services for dissemination only. Use
 Mendeley Data or Dryad only for genuine data packages, not as the
 canonical home for the white paper itself.</p>
 <hr />
-<h1 id="introduction">1. Introduction</h1>
+<h1 id="introduction">Introduction</h1>
 <p>Design Science Research has an operational problem beneath its
 theoretical richness. The field gives researchers a strong paradigm:
 identify relevant problems, design artifacts, evaluate them, and
-contribute design knowledge. Yet many DSR outputs remain hard to inspect
-because their most important relations are buried in narrative. A reader
-may see an artifact but not the problem class it addresses, an
-evaluation but not the claim it supports, or a contribution statement
-but not the boundary conditions that make the claim reusable rather than
-overgeneralized.</p>
+contribute design knowledge <span class="citation"
+data-cites="hevner_2004_design peffers_2007_dsr_methodology gregor_hevner_2013_positioning vom_brocke_hevner_maedche_2020_intro">(<a
+href="#ref-hevner_2004_design" role="doc-biblioref">Hevner et al.
+2004</a>; <a href="#ref-peffers_2007_dsr_methodology"
+role="doc-biblioref">Peffers et al. 2007</a>; <a
+href="#ref-gregor_hevner_2013_positioning" role="doc-biblioref">Gregor
+and Hevner 2013</a>; <a href="#ref-vom_brocke_hevner_maedche_2020_intro"
+role="doc-biblioref">vom Brocke, Hevner, and Maedche 2020</a>)</span>.
+Yet many DSR outputs remain hard to inspect because their most important
+relations are buried in narrative. A reader may see an artifact but not
+the problem class it addresses, an evaluation but not the claim it
+supports, or a contribution statement but not the boundary conditions
+that make the claim reusable rather than overgeneralized <span
+class="citation"
+data-cites="maedche_gregor_morana_feine_2019_problem_space baskerville_baiyere_gregor_hevner_rossi_2018_contributions hevner_2024_transparency">(<a
+href="#ref-maedche_gregor_morana_feine_2019_problem_space"
+role="doc-biblioref">Maedche et al. 2019</a>; <a
+href="#ref-baskerville_baiyere_gregor_hevner_rossi_2018_contributions"
+role="doc-biblioref">Baskerville et al. 2018</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>)</span>.</p>
 <p>This paper treats DSR documentation as a design problem in its own
 right. If DSR is artifact-centered inquiry, then a framework for
 documenting DSR artifacts can itself be designed, evaluated, reviewed,
 released, and improved as a DSR artifact. The DSR Framework repository
-follows that logic. It attempts to translate DSR theory into structured
-repository products: models, vocabularies, schemas, templates, rubrics,
-records, checklists, examples, and crosswalks.</p>
+follows that logic by translating DSR theory into structured repository
+products: models, vocabularies, schemas, templates, rubrics, records,
+checklists, examples, and crosswalks <span class="citation"
+data-cites="ochabski_2026_dsr_framework">(<a
+href="#ref-ochabski_2026_dsr_framework" role="doc-biblioref">Ochabski
+2026a</a>)</span>.</p>
 <p>The paper distinguishes two layers that should not be conflated.</p>
 <ol type="1">
 <li><strong>DSR theory</strong>: the scholarly and professional
@@ -358,7 +436,10 @@ grounding, build/evaluate logic, contribution, evaluation, transparency,
 reliability, replication, projectability, and publication.</li>
 <li><strong>Repository operationalization</strong>: the specific
 implementation of those ideas in the DSR Framework repository and its
-related Documentation Protocol repository.</li>
+related Documentation Protocol repository <span class="citation"
+data-cites="ochabski_2026_documentation_protocol">(<a
+href="#ref-ochabski_2026_documentation_protocol"
+role="doc-biblioref">Ochabski 2026b</a>)</span>.</li>
 </ol>
 <p>The purpose is not to replace the DSR literature with a single
 repository template. The purpose is narrower and more practical: to show
@@ -379,15 +460,24 @@ A software paper would be too narrow. The right genre is a white paper
 that explains the theory, states the operational model, and points to a
 versioned repository artifact.</p>
 <hr />
-<h1 id="what-design-science-research-is">2. What Design Science Research
+<h1 id="what-design-science-research-is">What Design Science Research
 Is</h1>
 <p>Design Science Research is an artifact-centered research paradigm.
 Its central operation is not observation alone and not implementation
 alone, but the disciplined transformation of a relevant problem into an
-evaluated artifact and codified design knowledge. A DSR study therefore
-needs a problem, context, input knowledge, objectives, artifact,
-instantiation or demonstration, evaluation evidence, contribution claim,
-and transparency trace.</p>
+evaluated artifact and codified design knowledge <span class="citation"
+data-cites="simon_1996_sciences march_smith_1995_design hevner_2004_design">(<a
+href="#ref-simon_1996_sciences" role="doc-biblioref">Simon 1996</a>; <a
+href="#ref-march_smith_1995_design" role="doc-biblioref">March and Smith
+1995</a>; <a href="#ref-hevner_2004_design" role="doc-biblioref">Hevner
+et al. 2004</a>)</span>. A DSR study therefore needs a problem, context,
+input knowledge, objectives, artifact, instantiation or demonstration,
+evaluation evidence, contribution claim, and transparency trace <span
+class="citation"
+data-cites="vom_brocke_maedche_2019_dsr_grid hevner_2024_transparency">(<a
+href="#ref-vom_brocke_maedche_2019_dsr_grid" role="doc-biblioref">vom
+Brocke and Maedche 2019</a>; <a href="#ref-hevner_2024_transparency"
+role="doc-biblioref">Hevner et al. 2024</a>)</span>.</p>
 <p>A compact formalization is useful:</p>
 <pre class="text"><code>DSR = &lt;P, C, Rq, K_in, O, A, I, E, DK, K_out, T&gt;</code></pre>
 <p>where <code>P</code> is the problem, <code>C</code> the context,
@@ -397,7 +487,30 @@ knowledge, <code>O</code> the objectives and requirements,
 instantiation or use case, <code>E</code> the evaluation evidence,
 <code>DK</code> the generated design knowledge, <code>K_out</code> the
 output knowledge, and <code>T</code> the transparency trace.</p>
-<p>The field’s consensus commitments can be summarized as follows.</p>
+<p><strong>Table 1. Consensus commitments in DSR.</strong> This
+synthesis draws from foundational and recent DSR methodology,
+contribution, evaluation, artifact-ontology, and transparency sources
+<span class="citation"
+data-cites="march_smith_1995_design hevner_2004_design peffers_2007_dsr_methodology gregor_hevner_2013_positioning venable_priesheje_baskerville_2016_feds baskerville_baiyere_gregor_hevner_rossi_2018_contributions weber_2018_design_science vom_brocke_hevner_maedche_2020_intro johannesson_perjons_2021_intro weigand_johannesson_andersson_2021_artifact_ontology hevner_2024_transparency">(<a
+href="#ref-march_smith_1995_design" role="doc-biblioref">March and Smith
+1995</a>; <a href="#ref-hevner_2004_design" role="doc-biblioref">Hevner
+et al. 2004</a>, <a href="#ref-hevner_2024_transparency"
+role="doc-biblioref">2024</a>; <a
+href="#ref-peffers_2007_dsr_methodology" role="doc-biblioref">Peffers et
+al. 2007</a>; <a href="#ref-gregor_hevner_2013_positioning"
+role="doc-biblioref">Gregor and Hevner 2013</a>; <a
+href="#ref-venable_priesheje_baskerville_2016_feds"
+role="doc-biblioref">Venable, Pries-Heje, and Baskerville 2016</a>; <a
+href="#ref-baskerville_baiyere_gregor_hevner_rossi_2018_contributions"
+role="doc-biblioref">Baskerville et al. 2018</a>; <a
+href="#ref-weber_2018_design_science" role="doc-biblioref">Weber
+2018</a>; <a href="#ref-vom_brocke_hevner_maedche_2020_intro"
+role="doc-biblioref">vom Brocke, Hevner, and Maedche 2020</a>; <a
+href="#ref-johannesson_perjons_2021_intro"
+role="doc-biblioref">Johannesson and Perjons 2021</a>; <a
+href="#ref-weigand_johannesson_andersson_2021_artifact_ontology"
+role="doc-biblioref">Weigand, Johannesson, and Andersson
+2021</a>)</span>.</p>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -469,14 +582,37 @@ template.</td>
 <p>This interpretation sets the boundary between DSR and ordinary
 consulting or software delivery. A local implementation may be useful,
 but a DSR contribution requires explicit design knowledge, evaluation
-evidence, and boundary conditions.</p>
+evidence, and boundary conditions <span class="citation"
+data-cites="gregor_hevner_2013_positioning baskerville_baiyere_gregor_hevner_rossi_2018_contributions akoka_comyn_wattiau_prat_storey_2023_knowledge">(<a
+href="#ref-gregor_hevner_2013_positioning" role="doc-biblioref">Gregor
+and Hevner 2013</a>; <a
+href="#ref-baskerville_baiyere_gregor_hevner_rossi_2018_contributions"
+role="doc-biblioref">Baskerville et al. 2018</a>; <a
+href="#ref-akoka_comyn_wattiau_prat_storey_2023_knowledge"
+role="doc-biblioref">Akoka et al. 2023</a>)</span>.</p>
 <hr />
-<h1 id="how-dsr-can-be-operationalized">3. How DSR Can Be
+<h1 id="how-dsr-can-be-operationalized">How DSR Can Be
 Operationalized</h1>
 <p>The operational problem is to convert DSR commitments into a record
 architecture that can be reviewed, validated, reused, and cited. This
 paper proposes a minimum DSR record architecture with twelve required
-modules.</p>
+modules. The architecture integrates the DSR Grid, problem-space
+conceptualization, artifact ontology, evaluation alignment, contribution
+theory, transparency guidance, and reliability/replication concerns
+<span class="citation"
+data-cites="vom_brocke_maedche_2019_dsr_grid maedche_gregor_morana_feine_2019_problem_space weigand_johannesson_andersson_2021_artifact_ontology venable_priesheje_baskerville_2016_feds hevner_2024_transparency storey_baskerville_kaul_2025_reliability">(<a
+href="#ref-vom_brocke_maedche_2019_dsr_grid" role="doc-biblioref">vom
+Brocke and Maedche 2019</a>; <a
+href="#ref-maedche_gregor_morana_feine_2019_problem_space"
+role="doc-biblioref">Maedche et al. 2019</a>; <a
+href="#ref-weigand_johannesson_andersson_2021_artifact_ontology"
+role="doc-biblioref">Weigand, Johannesson, and Andersson 2021</a>; <a
+href="#ref-venable_priesheje_baskerville_2016_feds"
+role="doc-biblioref">Venable, Pries-Heje, and Baskerville 2016</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>; <a href="#ref-storey_baskerville_kaul_2025_reliability"
+role="doc-biblioref">Storey, Baskerville, and Kaul 2025</a>)</span>.</p>
+<p><strong>Table 2. Minimum DSR record architecture.</strong></p>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -575,7 +711,15 @@ checks can be automated, such as whether a study has a problem class,
 artifact, evaluation plan, and contribution claim. Other checks require
 human review, such as whether the problem is important, whether the
 artifact is novel enough, whether the evidence adequately supports the
-claim, and whether boundary conditions are credible.</p>
+claim, and whether boundary conditions are credible <span
+class="citation"
+data-cites="hevner_2024_transparency brendel_lembcke_muntermann_kolbe_2021_replication storey_baskerville_kaul_2025_reliability">(<a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>; <a
+href="#ref-brendel_lembcke_muntermann_kolbe_2021_replication"
+role="doc-biblioref">Brendel et al. 2021</a>; <a
+href="#ref-storey_baskerville_kaul_2025_reliability"
+role="doc-biblioref">Storey, Baskerville, and Kaul 2025</a>)</span>.</p>
 <h2 id="evaluation-alignment">Evaluation alignment</h2>
 <p>A DSR evaluation record should distinguish timing, function, setting,
 object, evidence mode, criterion, stakeholder, and claim supported.
@@ -583,20 +727,46 @@ Demonstration is not evaluation unless criteria, evidence, and claims
 are defined. Evaluation evidence should be represented separately from
 contribution claims: evaluation says whether and under what conditions
 the artifact works; contribution explains what reusable knowledge has
-been added.</p>
+been added <span class="citation"
+data-cites="venable_priesheje_baskerville_2016_feds johannesson_perjons_2021_intro hevner_2024_transparency">(<a
+href="#ref-venable_priesheje_baskerville_2016_feds"
+role="doc-biblioref">Venable, Pries-Heje, and Baskerville 2016</a>; <a
+href="#ref-johannesson_perjons_2021_intro"
+role="doc-biblioref">Johannesson and Perjons 2021</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>)</span>.</p>
 <h2 id="contribution-alignment">Contribution alignment</h2>
 <p>A strong design-knowledge claim links context, intervention,
 mechanism or rationale, outcome, and boundary condition. This makes the
 contribution portable enough to be useful while still bounded enough to
-avoid overgeneralization.</p>
+avoid overgeneralization <span class="citation"
+data-cites="baskerville_baiyere_gregor_hevner_rossi_2018_contributions akoka_comyn_wattiau_prat_storey_2023_knowledge reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation">(<a
+href="#ref-baskerville_baiyere_gregor_hevner_rossi_2018_contributions"
+role="doc-biblioref">Baskerville et al. 2018</a>; <a
+href="#ref-akoka_comyn_wattiau_prat_storey_2023_knowledge"
+role="doc-biblioref">Akoka et al. 2023</a>; <a
+href="#ref-reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation"
+role="doc-biblioref">Reining et al. 2022</a>)</span>.</p>
 <hr />
-<h1 id="repository-native-operationalization">4. Repository-Native
-Operationalization</h1>
+<h1 id="repository-native-operationalization">Repository-native
+operationalization</h1>
 <p>The DSR Framework repository operationalizes DSR by making
 methodological evidence structural. Instead of asking authors only to
 write a narrative, it gives them repository locations and controlled
-information items for the claims a DSR study needs to support.</p>
-<p>The repository-native model has five design principles.</p>
+information items for the claims a DSR study needs to support. This
+repository-native design aligns with DSR calls for artifact
+traceability, design knowledge codification, transparency, and
+accumulation <span class="citation"
+data-cites="vom_brocke_maedche_2019_dsr_grid dickhaut_janson_leimeister_2022_design_knowledge hevner_2024_transparency reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation">(<a
+href="#ref-vom_brocke_maedche_2019_dsr_grid" role="doc-biblioref">vom
+Brocke and Maedche 2019</a>; <a
+href="#ref-dickhaut_janson_leimeister_2022_design_knowledge"
+role="doc-biblioref">Dickhaut, Janson, and Leimeister 2022</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>; <a
+href="#ref-reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation"
+role="doc-biblioref">Reining et al. 2022</a>)</span>.</p>
+<p><strong>Table 3. Repository-native design principles.</strong></p>
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -641,14 +811,25 @@ decisions.</td>
 <p>The repository is therefore not just a static guide. It is a compound
 artifact package containing specifications, models, vocabularies,
 schemas, templates, checklists, rubrics, records, crosswalks, examples,
-documentation, metadata, release controls, and nested artifacts.</p>
+documentation, metadata, release controls, and nested artifacts <span
+class="citation" data-cites="ochabski_2026_dsr_framework">(<a
+href="#ref-ochabski_2026_dsr_framework" role="doc-biblioref">Ochabski
+2026a</a>)</span>.</p>
 <h2 id="the-role-of-github">The role of GitHub</h2>
 <p>GitHub is useful here because the artifact is file-based and
 versioned. A repository can retain commits, releases, tags, issue
 discussions, pull requests, review records, validation scripts, package
 inventories, and citation metadata. That does not make GitHub an archive
 by itself. It makes GitHub the living source-of-truth environment that
-should be paired with an archival DOI-bearing release repository.</p>
+should be paired with an archival DOI-bearing release repository. This
+distinction is consistent with the broader principle that research
+software and research artifacts need both working repositories and
+citable release/preservation metadata <span class="citation"
+data-cites="fair4rs_2022 acm_2020_artifact_badging">(<a
+href="#ref-fair4rs_2022" role="doc-biblioref">FAIR for Research Software
+Working Group 2022</a>; <a href="#ref-acm_2020_artifact_badging"
+role="doc-biblioref">Association for Computing Machinery
+2020</a>)</span>.</p>
 <h2 id="the-role-of-the-documentation-protocol">The role of the
 Documentation Protocol</h2>
 <p>The Documentation Protocol supplies the meta-protocol:
@@ -657,12 +838,16 @@ controls, preservation logic, citation metadata, licensing, and service
 integration. The DSR Framework applies that meta-protocol to the DSR
 domain. This relationship should be stated explicitly so readers
 understand why the framework is packaged as a repository artifact rather
-than only as a prose methodology paper.</p>
+than only as a prose methodology paper <span class="citation"
+data-cites="ochabski_2026_documentation_protocol">(<a
+href="#ref-ochabski_2026_documentation_protocol"
+role="doc-biblioref">Ochabski 2026b</a>)</span>.</p>
 <hr />
-<h1 id="how-we-are-operationalizing-dsr-through-the-repositories">5. How
-We Are Operationalizing DSR Through the Repositories</h1>
+<h1 id="how-we-are-operationalizing-dsr-through-the-repositories">How we
+are operationalizing DSR through the repositories</h1>
 <p>The current operationalization can be described as a three-layer
-artifact system.</p>
+artifact system. The layers should be presented as an evolving DSR
+artifact package, not as final evidence of field-wide validation.</p>
 <h2 id="layer-1-the-dsr-framework-repository">Layer 1: The DSR Framework
 repository</h2>
 <p>The root DSR Framework repository defines the general framework for
@@ -670,7 +855,10 @@ planning, documenting, evaluating, reviewing, and publishing DSR
 artifacts. It includes package-control files, metadata, artifact
 profiles, conformance declarations, specs, models, vocabularies,
 schemas, templates, checklists, rubrics, records, crosswalks, examples,
-and documentation.</p>
+and documentation <span class="citation"
+data-cites="ochabski_2026_dsr_framework">(<a
+href="#ref-ochabski_2026_dsr_framework" role="doc-biblioref">Ochabski
+2026a</a>)</span>.</p>
 <p>Its core claim should remain bounded: it is a reusable-stable DSR
 documentation and review framework. It should not yet claim independent
 external validation, universal disciplinary standard status, or
@@ -681,32 +869,33 @@ theory operational kernel</h2>
 synthesis into machine-readable and reviewable materials: concept
 inventory, competency questions, ontology, SKOS vocabulary, SHACL
 shapes, JSON Schema, YAML templates, crosswalks, source-basis records,
-and validation records.</p>
-<p>This is the most direct example of DSR theory becoming operational.
-It translates concepts such as artifact universal, artifact
-instantiation, problem class, evaluation evidence, contribution claim,
-transparency trace, reliability, replication, and anti-patterns into
-controlled terms and validation targets.</p>
+and validation records. This layer operationalizes DSR concepts such as
+artifact universal, artifact instantiation, problem class, evaluation
+evidence, contribution claim, transparency trace, reliability,
+replication, and anti-patterns <span class="citation"
+data-cites="weigand_johannesson_andersson_2021_artifact_ontology hevner_2024_transparency storey_baskerville_kaul_2025_reliability">(<a
+href="#ref-weigand_johannesson_andersson_2021_artifact_ontology"
+role="doc-biblioref">Weigand, Johannesson, and Andersson 2021</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>; <a href="#ref-storey_baskerville_kaul_2025_reliability"
+role="doc-biblioref">Storey, Baskerville, and Kaul 2025</a>)</span>.</p>
+<p>This is the most direct example of DSR theory becoming operational:
+it translates concepts into controlled terms, file structures,
+validation targets, and review questions.</p>
 <h2 id="layer-3-white-paper-and-release-package">Layer 3: White paper
 and release package</h2>
-<p>This white paper should be added as its own bounded artifact package
-or documentation package. Recommended location:</p>
+<p>This white paper should remain a bounded artifact package under:</p>
 <pre class="text"><code>artifacts/dsr-framework-white-paper/</code></pre>
-<p>or, if you want it to be a public-facing documentation product rather
-than an internal artifact package:</p>
-<pre class="text"><code>docs/white-papers/dsr-framework-operationalization/</code></pre>
-<p>For consistency with the repository’s artifact-package logic, the
-stronger choice is <code>artifacts/dsr-framework-white-paper/</code>
-with a short public link from the root <code>README.md</code> and
-possibly a rendered copy under <code>docs/</code>.</p>
 <p>Recommended retained files include:</p>
 <pre class="text"><code>README.md
 whitepaper/chapters/*.md
 whitepaper/whitepaper_unified.md
+whitepaper/references.bib
 metadata/CITATION.cff
 metadata/zenodo-json-template.json
 metadata/service-integration-profile.yaml
 records/decisions/record-decision-0001-whitepaper-type-and-platforms.yaml
+records/reviews/record-whitepaper-citation-and-build-audit.md
 records/releases/record-release-checklist-whitepaper.yaml
 repo_integration/repo-update-checklist.md</code></pre>
 <p>The repository update should preserve the same non-overclaiming
@@ -714,8 +903,8 @@ discipline as the root framework: mark the white paper as draft or
 reviewable until human edit, citation review, build validation, and
 release decisions are retained.</p>
 <hr />
-<h1 id="publication-and-dissemination-strategy">6. Publication and
-Dissemination Strategy</h1>
+<h1 id="publication-and-dissemination-strategy">Publication and
+dissemination strategy</h1>
 <p>The publication strategy should maximize visibility without creating
 multiple competing sources of truth. The recommended architecture
 is:</p>
@@ -726,6 +915,9 @@ Research-process publication: Octopus, optional after stable modularization
 Data-only secondary deposits: Mendeley Data or Dryad only if releasing a genuine data package
 Profile/dissemination mirrors: ResearchGate, Academia.edu, LinkedIn, Substack, ORCID, personal website
 Teaching/OER derivative: OER Commons or VIVA Open only after adapting the paper into learning materials</code></pre>
+<p>This strategy follows a repository-artifact logic rather than a
+scatter-and-mirror logic. The living source, archived release, and
+dissemination links should have distinct roles.</p>
 <h2 id="recommended-platform-roles">Recommended platform roles</h2>
 <table>
 <colgroup>
@@ -841,8 +1033,8 @@ uploads. Create one canonical GitHub release, archive it through Zenodo,
 then point all other platforms to that release or deposit a clearly
 labeled derivative.</p>
 <hr />
-<h1 id="limitations-evaluation-and-roadmap">7. Limitations, Evaluation,
-and Roadmap</h1>
+<h1 id="limitations-evaluation-and-roadmap">Limitations, evaluation, and
+roadmap</h1>
 <p>The DSR Framework should be presented favorably but bounded. The
 available materials support a strong claim about conceptual synthesis,
 repository design, traceability, and self-application. They do not yet
@@ -852,15 +1044,36 @@ adequacy, downstream empirical utility, or field-wide consensus.</p>
 <ol type="1">
 <li>The framework preserves DSR’s identity boundary: artifact-centered
 inquiry, problem relevance, rigorous grounding, evaluation, and design
-knowledge.</li>
-<li>It operationalizes traceability instead of merely recommending
-it.</li>
+knowledge <span class="citation"
+data-cites="hevner_2004_design peffers_2007_dsr_methodology gregor_hevner_2013_positioning">(<a
+href="#ref-hevner_2004_design" role="doc-biblioref">Hevner et al.
+2004</a>; <a href="#ref-peffers_2007_dsr_methodology"
+role="doc-biblioref">Peffers et al. 2007</a>; <a
+href="#ref-gregor_hevner_2013_positioning" role="doc-biblioref">Gregor
+and Hevner 2013</a>)</span>.</li>
+<li>It operationalizes traceability instead of merely recommending it
+<span class="citation"
+data-cites="vom_brocke_maedche_2019_dsr_grid hevner_2024_transparency">(<a
+href="#ref-vom_brocke_maedche_2019_dsr_grid" role="doc-biblioref">vom
+Brocke and Maedche 2019</a>; <a href="#ref-hevner_2024_transparency"
+role="doc-biblioref">Hevner et al. 2024</a>)</span>.</li>
 <li>It distinguishes demonstration from evaluation and artifact utility
-from knowledge contribution.</li>
+from knowledge contribution <span class="citation"
+data-cites="venable_priesheje_baskerville_2016_feds baskerville_baiyere_gregor_hevner_rossi_2018_contributions">(<a
+href="#ref-venable_priesheje_baskerville_2016_feds"
+role="doc-biblioref">Venable, Pries-Heje, and Baskerville 2016</a>; <a
+href="#ref-baskerville_baiyere_gregor_hevner_rossi_2018_contributions"
+role="doc-biblioref">Baskerville et al. 2018</a>)</span>.</li>
 <li>It includes a theory operational kernel with ontology, SKOS, SHACL,
-schemas, competency questions, and concept inventory artifacts.</li>
+schemas, competency questions, and concept inventory artifacts <span
+class="citation" data-cites="ochabski_2026_dsr_framework">(<a
+href="#ref-ochabski_2026_dsr_framework" role="doc-biblioref">Ochabski
+2026a</a>)</span>.</li>
 <li>It uses conformance and release controls to avoid premature L5
-claims.</li>
+claims <span class="citation"
+data-cites="ochabski_2026_documentation_protocol">(<a
+href="#ref-ochabski_2026_documentation_protocol"
+role="doc-biblioref">Ochabski 2026b</a>)</span>.</li>
 </ol>
 <h2 id="current-limitations">Current limitations</h2>
 <ol type="1">
@@ -930,9 +1143,18 @@ records.</td>
 </tbody>
 </table>
 <p>The roadmap should be published as a plan, not as evidence already
-completed.</p>
+completed. Reliability, replication, and transparency concerns should
+remain part of the evaluation agenda rather than being treated as solved
+by repository packaging alone <span class="citation"
+data-cites="brendel_lembcke_muntermann_kolbe_2021_replication storey_baskerville_kaul_2025_reliability hevner_2024_transparency">(<a
+href="#ref-brendel_lembcke_muntermann_kolbe_2021_replication"
+role="doc-biblioref">Brendel et al. 2021</a>; <a
+href="#ref-storey_baskerville_kaul_2025_reliability"
+role="doc-biblioref">Storey, Baskerville, and Kaul 2025</a>; <a
+href="#ref-hevner_2024_transparency" role="doc-biblioref">Hevner et al.
+2024</a>)</span>.</p>
 <hr />
-<h1 id="conclusion">8. Conclusion</h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Design Science Research needs more than persuasive prose. It needs a
 way to preserve the relations among problem, context, requirements,
 artifact, design rationale, evaluation, contribution, boundary
@@ -952,8 +1174,9 @@ link it through OSF, and use secondary services only as discovery or
 derivative channels. That path protects canonicality while making the
 work visible to both human readers and AI/repository systems.</p>
 <hr />
-<h1 id="appendix-a.-source-basis-and-provenance">Appendix A. Source
-Basis and Provenance</h1>
+<h1 class="unnumbered"
+id="appendix-a-source-basis-and-provenance">Appendix A: Source basis and
+provenance</h1>
 <p>This white paper was prepared from three primary review/synthesis
 files in the Dropbox <code>DSR Theory Synthesis</code> folder:</p>
 <ol type="1">
@@ -974,20 +1197,21 @@ directory.</li>
 <code>sources/</code>, including the concept inventory, competency
 questions, SKOS vocabulary, unified extraction sidecar, unified
 extraction chunks, rubrics, and wicked-problem workflow.</p>
-<h2 id="source-use-rule">Source-use rule</h2>
+<h2 class="unnumbered" id="source-use-rule">Source-use rule</h2>
 <p>The white paper should cite the review/synthesis documents as working
 synthesis materials only when needed. For publication, core DSR claims
 should cite the underlying literature listed in the references rather
 than treating the generated synthesis files as independent scholarly
 authorities.</p>
-<h2 id="copyright-and-publication-caution">Copyright and publication
-caution</h2>
+<h2 class="unnumbered" id="copyright-and-publication-caution">Copyright
+and publication caution</h2>
 <p>Do not publish copyrighted source PDFs or extraction records
 containing excessive verbatim source text unless rights have been
 checked. Publish derived metadata, citation records, concept
 inventories, and original synthesis text only after human review.</p>
 <hr />
-<h1 id="appendix-b.-platform-matrix">Appendix B. Platform Matrix</h1>
+<h1 class="unnumbered" id="appendix-b-platform-matrix">Appendix B:
+Platform matrix</h1>
 <table>
 <colgroup>
 <col style="width: 18%" />
@@ -1107,19 +1331,22 @@ curation.</td>
 should point back to that pair or be clearly labeled as a
 derivative.</p>
 <hr />
-<h1 id="appendix-c.-codex-build-plan">Appendix C. Codex Build Plan</h1>
+<h1 class="unnumbered" id="appendix-c-codex-build-plan">Appendix C:
+Codex build plan</h1>
 <p>This package is optimized so Codex can finish the release with
 minimal token use.</p>
-<h2 id="files-codex-should-read-first">Files Codex should read
-first</h2>
+<h2 class="unnumbered" id="files-codex-should-read-first">Files Codex
+should read first</h2>
 <ol type="1">
 <li><code>README.md</code></li>
 <li><code>codex_handoff.md</code></li>
 <li><code>whitepaper/whitepaper_unified.md</code></li>
+<li><code>whitepaper/references.bib</code></li>
 <li><code>publication_strategy.md</code></li>
 <li><code>repo_integration/repo-update-checklist.md</code></li>
 </ol>
-<h2 id="files-codex-should-avoid-reading-unless-necessary">Files Codex
+<h2 class="unnumbered"
+id="files-codex-should-avoid-reading-unless-necessary">Files Codex
 should avoid reading unless necessary</h2>
 <ol type="1">
 <li><code>sources/dsr-source-operational-extractions-unified-part001.yaml</code></li>
@@ -1127,48 +1354,53 @@ should avoid reading unless necessary</h2>
 <li>Any full extraction YAML unless revising source registry
 appendices.</li>
 </ol>
-<h2 id="first-codex-task">First Codex task</h2>
-<p>Create a branch in the DSR Framework repo, add this package under
-<code>artifacts/dsr-framework-white-paper/</code>, run the Markdown
-assembly script, render HTML and PDF if Pandoc/LaTeX are available, and
-update only the necessary repository index files.</p>
-<h2 id="build-commands">Build commands</h2>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/assemble_whitepaper.py</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> html</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> pdf</span></code></pre></div>
+<h2 class="unnumbered" id="first-codex-task">First Codex task</h2>
+<p>Apply the citation/build patch, run the Markdown assembly script,
+render HTML and PDF if Pandoc/LaTeX are available, and update only the
+necessary repository index files. Do not tag, create a GitHub release,
+publish to Zenodo, or publish externally until final human edit and
+metadata freeze.</p>
+<h2 class="unnumbered" id="build-commands">Build commands</h2>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/assemble_whitepaper.py</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> html</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> pdf</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/check_whitepaper_build.py</span></code></pre></div>
 <p>If LaTeX is not available, skip PDF and produce HTML plus unified
 Markdown.</p>
 <hr />
-<h1 id="appendix-d.-repository-update-checklist">Appendix D. Repository
-Update Checklist</h1>
+<h1 class="unnumbered"
+id="appendix-d-repository-update-checklist">Appendix D: Repository
+update checklist</h1>
 <ul>
-<li>Create branch:
-<code>whitepaper/dsr-framework-operationalization</code>.</li>
-<li>Add package under <code>artifacts/dsr-framework-white-paper/</code>
-unless you decide it belongs under <code>docs/white-papers/</code>.</li>
-<li>Add or update package README.</li>
-<li>Add white paper entry to root <code>README.md</code> under
-repository map or publication artifacts.</li>
-<li>Add item to <code>package-inventory.yaml</code> if the repo
-inventory tracks white paper artifacts.</li>
-<li>Add item to <code>artifacts/README.md</code> if present.</li>
-<li>Add artifact profile or subpackage profile for the white paper
-package.</li>
-<li>Preserve decision record: white paper type and platform
-strategy.</li>
-<li>Preserve release checklist and metadata freeze record before DOI
-release.</li>
+<li>Create branch: <code>whitepaper/citation-build-fix</code>.</li>
+<li>Preserve the package under
+<code>artifacts/dsr-framework-white-paper/</code>.</li>
+<li>Update chapter source files, not only
+<code>whitepaper/whitepaper_unified.md</code>, because the assembly
+script regenerates the unified manuscript.</li>
+<li>Replace the manual numbered reference list with
+<code>whitepaper/references.bib</code> plus Pandoc citeproc.</li>
+<li>Preserve the full parsed source bibliography as a source registry or
+supplement, not as the main reference list.</li>
+<li>Use simple scalar author metadata so the PDF title page prints
+<code>David Ochabski</code>, not <code>true</code>.</li>
+<li>Remove the duplicate body H1 that repeats the document title.</li>
+<li>Remove manual leading numbers from Markdown headings when
+<code>numbersections: true</code> is enabled.</li>
+<li>Add unnumbered attributes to front matter, executive summary,
+appendices, and references.</li>
 <li>Run YAML/JSON/CFF validation already used by the repository.</li>
 <li>Render unified Markdown, HTML, and PDF if tooling exists.</li>
 <li>Confirm no L5 claims are introduced unless L5 release evidence is
 completed.</li>
 <li>Commit with a clear message:
-<code>Add DSR Framework white paper package</code>.</li>
+<code>Fix white paper citations and PDF heading build</code>.</li>
 <li>Tag only after final human edit and metadata freeze.</li>
 </ul>
 <hr />
-<h1 id="appendix-e.-glossary">Appendix E. Glossary</h1>
+<h1 class="unnumbered" id="appendix-e-glossary">Appendix E:
+Glossary</h1>
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -1241,356 +1473,168 @@ artifact, evaluation, contribution, and reuse conditions.</td>
 </tbody>
 </table>
 <hr />
-<h1 id="references-and-parsed-source-bibliography">References and parsed
-source bibliography</h1>
-<p>The following APA-style list includes the individual literature
-citations parsed from the DSR source registry, plus repository and
-professional sources cited in the narrative review.</p>
-<ol type="1">
-<li>Akoka, J., Comyn-Wattiau, I., Prat, N., &amp; Storey, V. C. (2017).
-Evaluating knowledge types in design science research: An integrated
-framework. In A. Maedche et al. (Eds.), Design Science Research in
-Information Systems and Technology (LNCS 10243, pp. 201-217). Springer.
-https://doi.org/10.1007/978-3-319-59144-5_12</li>
-<li>Akoka, J., Comyn-Wattiau, I., Prat, N., &amp; Storey, V. C. (2023).
-Knowledge contributions in design science research: Paths of knowledge
-types. Decision Support Systems, 166, 113898.
-https://doi.org/10.1016/j.dss.2022.113898</li>
-<li>Alismail, S., Zhang, H., &amp; Chatterjee, S. (2017). A framework
-for identifying design science research objectives for building and
-evaluating IT artifacts. In A. Maedche et al. (Eds.), Design Science
-Research (LNCS 10243, pp. 218-230). Springer.
-https://doi.org/10.1007/978-3-319-59144-5_13</li>
-<li>Antony, J., Sony, M., Lameijer, B., Bhat, S., Jayaraman, R., &amp;
-Gutierrez, L. (2024). Towards a design science research (DSR)
-methodology for operational excellence (OPEX) initiatives. The TQM
-Journal, 36(8), 2383-2397. https://doi.org/10.1108/TQM-01-2023-0017</li>
-<li>Association for Computing Machinery. (2020). <em>Artifact review and
-badging policy</em> (Version 1.1).
-https://www.acm.org/publications/policies/artifact-review-badging</li>
-<li>Bagni, G., Godinho Filho, M., Finne, M., &amp; Thurer, M. (2025).
-Design science research in operations management: Is there a single
-type? Production Planning &amp; Control, 36(6), 789-807.
-https://doi.org/10.1080/09537287.2024.2310230</li>
-<li>Baskerville, R. L., Kaul, M., &amp; Storey, V. C. (2018). Aesthetics
-in design science research. European Journal of Information Systems,
-27(2), 140-153. https://doi.org/10.1080/0960085X.2017.1395545</li>
-<li>Baskerville, R., Baiyere, A., Gregor, S., Hevner, A., &amp; Rossi,
-M. (2018). Design science research contributions: Finding a balance
-between artifact and theory. Journal of the Association for Information
-Systems, 19(5), 358-376. https://doi.org/10.17705/1jais.00495</li>
-<li>Baskerville, R., Kaul, M., Pries-Heje, J., &amp; Storey, V. (2019).
-Inducing creativity in design science research. In B. Tulu, S. Djamasbi,
-&amp; G. Leroy (Eds.), Extending the boundaries of design science theory
-and practice: 14th International Conference on Design Science Research
-in Information Systems and Technology, DESRIST 2019, Proceedings (LNCS
-11491, pp. 3-17). Springer.
-https://doi.org/10.1007/978-3-030-19504-5_1</li>
-<li>Beinke, J. H., Fitte, C., &amp; Teuteberg, F. (2019). Towards a
-stakeholder-oriented blockchain-based architecture for electronic health
-records: Design science research study. Journal of Medical Internet
-Research, 21(10), e13585. https://doi.org/10.2196/13585</li>
-<li>Benfell, A. (2021). Modeling functional requirements using tacit
-knowledge: A design science research methodology informed approach.
-Requirements Engineering, 26, 25-42.
-https://doi.org/10.1007/s00766-020-00330-4</li>
-<li>Brendel, A. B. (2017). C - Synthesis of a design science research
-framework and methodology. In Applied design science research in the
-context of smart and sustainable mobility: The case of vehicle supply
-and demand management in shared vehicle services (p. 119). Cuvillier
-Verlag.</li>
-<li>Brendel, A. B., Lembcke, T.-B., Muntermann, J., &amp; Kolbe, L. M.
-(2021). Toward replication study types for design science research.
-Journal of Information Technology, 36(3), 198-215.
-https://doi.org/10.1177/02683962211006429</li>
-<li>Bub, U. (2018). Towards an integrated method for the engineering of
-digital innovation and design science research. In A. Benczur et
-al. (Eds.), Advances in Databases and Information Systems (CCIS 909,
-pp. 327-338). Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-00063-9_31</li>
-<li>Cauffman, L., &amp; Weggeman, M. (2024). Solution-focused applied
-psychology: A design science research based protocol. Routledge.
-https://doi.org/10.4324/9781003404477</li>
-<li>Contell, J. P., Diaz, O., &amp; Venable, J. R. (2017). DScaffolding:
-A tool to support learning and conducting design science research. In A.
-Maedche et al. (Eds.), DESRIST 2017, Lecture Notes in Computer Science,
-10243, 441-446. Springer.
-https://doi.org/10.1007/978-3-319-59144-5_28</li>
-<li>De Sordi, J. O. (2021). Design Science Research Methodology: Theory
-Development from Artifacts. Palgrave Macmillan.
-https://doi.org/10.1007/978-3-030-82156-2</li>
-<li>Dickhaut, E., Janson, A., &amp; Leimeister, J. M. (2022). Analyzing
-design knowledge representation in design science research and deriving
-recommendations to support design knowledge codification. In A.
-Drechsler et al. (Eds.), Design Science Research: DESRIST 2022, LNCS
-13229 (pp. 417-428). Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-031-06516-3_31</li>
-<li>Drechsler, A., Gerber, A., &amp; Hevner, A. (Eds.). (2022). The
-transdisciplinary reach of design science research: 17th International
-Conference on Design Science Research in Information Systems and
-Technology, DESRIST 2022, St Petersburg, FL, USA, June 1-3, 2022,
-Proceedings. Springer. https://doi.org/10.1007/978-3-031-06516-3</li>
-<li>FAIR for Research Software Working Group. (2022). <em>FAIR
-principles for research software (FAIR4RS principles).</em> Research
-Data Alliance. https://doi.org/10.15497/RDA00068</li>
-<li>Feine, J., Morana, S., &amp; Maedche, A. (2019). Leveraging
-machine-executable descriptive knowledge in design science research -
-The case of designing socially-adaptive chatbots. In B. Tulu et
-al. (Eds.), DESRIST 2019, LNCS 11491 (pp. 76-91). Springer.
-https://doi.org/10.1007/978-3-030-19504-5_6</li>
-<li>Gadola, S., Trabucchi, D., &amp; Buganza, T. (2026). Enhancing
-collaboration and knowledge sharing through intra-organizational
-platforms: A design science research study. Review of Managerial
-Science. https://doi.org/10.1007/s11846-026-00996-0</li>
-<li>Garayo Maiztegui, F. (2023). Design Cycle and Operationalisation of
-Design Science Research. In Design and Evaluation of an E-Learning
-Artefact for the Implementation of SAP S/4 Hana (pp. 85-133). Springer
-Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-40731-5_5</li>
-<li>Gregor, S., &amp; Hevner, A. R. (2013). Positioning and presenting
-design science research for maximum impact. <em>MIS Quarterly,
-37</em>(2), 337-355. https://doi.org/10.25300/MISQ/2013/37.2.01</li>
-<li>Gregor, S., &amp; Zwikael, O. (2024). Design science research and
-the co-creation of project management knowledge. International Journal
-of Project Management, 42, 102584.
-https://doi.org/10.1016/j.ijproman.2024.102584</li>
-<li>Hansen, M. R. P., &amp; Pries-Heje, J. (2020). A situational
-knowledge network nexus: Exploring kernel theory extensions using design
-science research. In J. vom Brocke et al. (Eds.), Design Science
-Research. Cases (Progress in IS, pp. 261-288). Springer.
-https://doi.org/10.1007/978-3-030-46781-4_11</li>
-<li>Henriques, T. A., &amp; O’Neill, H. (2023). Design science research
-with focus groups - a pragmatic meta-model. International Journal of
-Managing Projects in Business, 16(1), 119-140.
-https://doi.org/10.1108/IJMPB-01-2020-0015</li>
-<li>Hevner, A. R., &amp; Storey, V. C. (2021). Externalities of design
-science research: Preparation for project success. In L. Chandra Kruse
-et al. (Eds.), Design Science Research in Information Systems and
-Technology (LNCS 12807, pp. 118-130). Springer.
-https://doi.org/10.1007/978-3-030-82405-1_14</li>
-<li>Hevner, A. R., March, S. T., Park, J., &amp; Ram, S. (2004). Design
-science in information systems research. <em>MIS Quarterly, 28</em>(1),
-75-105.</li>
-<li>Hevner, A. R., Parsons, J., Brendel, A. B., Lukyanenko, R.,
-Tiefenbeck, V., Tremblay, M. C., &amp; vom Brocke, J. (2024).
-Transparency in design science research. Decision Support Systems, 182,
-Article 114236. https://doi.org/10.1016/j.dss.2024.114236</li>
-<li>Hofmann, S., Mueller, O., &amp; Rossi, M. (Eds.). (2020). Designing
-for Digital Transformation: Co-Creating Services with Citizens and
-Industry: 15th International Conference on Design Science Research in
-Information Systems and Technology, DESRIST 2020, Kristiansand, Norway,
-December 2-4, 2020, Proceedings (LNCS 12388). Springer.
-https://doi.org/10.1007/978-3-030-64823-7</li>
-<li>Hunziker, S., &amp; Blankenagel, M. (2021). Design science research
-design. In Research Design in Business and Management (pp. 97-116).
-Springer Fachmedien Wiesbaden.
-https://doi.org/10.1007/978-3-658-34357-6_6</li>
-<li>Iivari, J. (2020). Editorial: A critical look at theories in design
-science research. Journal of the Association for Information Systems,
-21(3), 502-519. https://doi.org/10.17705/1jais.00610</li>
-<li>ISO/IEC/IEEE. (2015). <em>Systems and software engineering-System
-life cycle processes</em> (ISO/IEC/IEEE Standard No. 15288:2015).
-International Organization for Standardization.</li>
-<li>ISO/IEC/IEEE. (2019). <em>Systems and software engineering-Content
-of life-cycle information items</em> (ISO/IEC/IEEE Standard
-No. 15289:2019). International Organization for Standardization.</li>
-<li>ISO/IEC/IEEE. (2022). <em>Software, systems and
-enterprise-Architecture description</em> (ISO/IEC/IEEE Standard
-No. 42010:2022). International Organization for Standardization.</li>
-<li>Johannesson, P., &amp; Perjons, E. (2021). An introduction to design
-science (2nd ed.). Springer.
-https://doi.org/10.1007/978-3-030-78132-3</li>
-<li>Johannesson, P., &amp; Perjons, E. (2021). Systems development and
-the method framework for design science research. In An Introduction to
-Design Science (pp. 161-169). Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-78132-3_11</li>
-<li>Krasikov, P., Legner, C., &amp; Eurich, M. (2021). Sourcing the
-right open data: A design science research approach for the enterprise
-context. In L. Chandra Kruse et al. (Eds.), Design Science Research in
-Information Systems and Technologies: DESRIST 2021 (LNCS 12807,
-pp. 313-327). Springer.
-https://doi.org/10.1007/978-3-030-82405-1_31</li>
-<li>Leimeister, J. M., Dickhaut, E., &amp; Janson, A. (2021). Design
-pattern as a bridge between problem-space and solution-space. In S. Aier
-et al. (Eds.), Engineering the Transformation of the Enterprise
-(pp. 137-150). Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-84655-8_9</li>
-<li>Maedche, A., Gregor, S., Morana, S., &amp; Feine, J. (2019).
-Conceptualization of the problem space in design science research. In B.
-Tulu et al. (Eds.), Design Science Research. Cases: DESRIST 2019 (LNCS
-11491, pp. 18-31). Springer.
-https://doi.org/10.1007/978-3-030-19504-5_2</li>
-<li>March, S. T., &amp; Smith, G. F. (1995). Design and natural science
-research on information technology. <em>Decision Support Systems,
-15</em>(4), 251-266. https://doi.org/10.1016/0167-9236(94)00041-2</li>
-<li>Meijer, K., Nijssen, M., &amp; Bulles, J. (2018). An evaluation of a
-design science research artefact in the field of agile enterprise
-design. In C. Debruyne et al. (Eds.), On the Move to Meaningful Internet
-Systems. OTM 2017 Workshops (LNCS 10697, pp. 212-219). Springer.
-https://doi.org/10.1007/978-3-319-73805-5_22</li>
-<li>Moeller, F., Chandra Kruse, L., Schoormann, T., &amp; Otto, B.
-(2022). Design principles for boundary spanning in transdisciplinary
-design science research. In A. Drechsler et al. (Eds.), The Next Wave of
-Sociotechnical Design (LNCS 13229, pp. 42-54). Springer.
-https://doi.org/10.1007/978-3-031-06516-3_4</li>
-<li>Mohammad, J., &amp; Husamaldin, L. (2025). Sustainable project
-portfolio management - A design science research approach. International
-Journal of Business Science and Applied Management, 20(3), 38-54.</li>
-<li>Mullarkey, M. T., Hevner, A. R., Gill, T. G., &amp; Dutta, K.
-(2019). Citizen data scientist: A design science research method for the
-conduct of data science projects. In B. Tulu et al. (Eds.), DESRIST
-2019, Lecture Notes in Computer Science, 11491, 191-205. Springer.
-https://doi.org/10.1007/978-3-030-19504-5_13</li>
-<li>Nagle, T., Sammon, D., &amp; Doyle, C. (2017). Insights into
-practitioner design science research. In A. Maedche et al. (Eds.),
-Design Science Research: DESRIST 2017 (LNCS 10243, pp. 414-428).
-Springer. https://doi.org/10.1007/978-3-319-59144-5_25</li>
-<li>National Information Standards Organization. (2021).
-<em>Reproducibility badging and definitions: A recommended practice</em>
-(NISO RP-31-2021). https://doi.org/10.3789/niso-rp-31-2021</li>
-<li>Ochabski, D. (2026a). <em>Design Science Research Framework</em>
-(Version 1.3.0) [Computer software]. Zenodo.
-https://doi.org/10.5281/zenodo.20238033</li>
-<li>Ochabski, D. (2026b). <em>Documentation Protocol</em> (Version
-1.0.1) [Computer software]. GitHub.
-https://github.com/dochabski/documentation-protocol/releases/tag/v1.0.1</li>
-<li>Opdenakker, R., &amp; Talmar, M. (2021). What to consider in a
-systematic literature review: Three examples from design science
-research. In A. P. Cardoso Ermel et al. (Eds.), Literature Reviews
-(pp. 191-199). Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-75722-9_8</li>
-<li>Peffers, K., Tuunanen, T., &amp; Niehaves, B. (2018). Design science
-research genres: Introduction to the special issue on exemplars and
-criteria for applicable design science research. European Journal of
-Information Systems, 27(2), 129–139.
-https://doi.org/10.1080/0960085X.2018.1458066</li>
-<li>Peffers, K., Tuunanen, T., Rothenberger, M. A., &amp; Chatterjee, S.
-(2007). A design science research methodology for information systems
-research. <em>Journal of Management Information Systems, 24</em>(3),
-45-77. https://doi.org/10.2753/MIS0742-1222240302</li>
-<li>Pekkola, S. (2023). Reflections on supervising the postgraduate
-students’ design science research thesis. Journal of Information Systems
-Education, 34(3), 326-332.</li>
-<li>Purao, S. (2021). Design science research problems … Where do they
-come from? In L. Chandra Kruse et al. (Eds.), Lecture Notes in Computer
-Science: Vol. 12807. DESRIST 2021 (pp. 99-111). Springer Nature
-Switzerland AG. https://doi.org/10.1007/978-3-030-82405-1_12</li>
-<li>Reining, S., Ahlemann, F., Mueller, B., &amp; Thakurta, R. (2022).
-Knowledge accumulation in design science research: Ways to foster
-scientific progress. The DATA BASE for Advances in Information Systems,
-53(1), 10-24.</li>
-<li>Schmid, A. (2022). Design Science Research Methodology. In
-Gamification of Electronic Negotiation Training (pp. 51-58). Springer
-Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-38261-2_3</li>
-<li>Schwartz, D. G., &amp; Yahav, I. (2021). Knowledge Contribution
-Diagrams for Design Science Research: A Novel Graphical Technique. In L.
-Chandra Kruse et al. (Eds.), Design Science Research: The Next Wave of
-Sociotechnical Design (LNCS 12807, pp. 174-187). Springer.
-https://doi.org/10.1007/978-3-030-82405-1_19</li>
-<li>Siedhoff, S. (2019). Design science research. In Seizing Business
-Model Patterns for Disruptive Innovations (pp. 29-43). Springer
-Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-26336-2_3</li>
-<li>Silva, D. M. A. da, Berkenbrock, G. R., &amp; Berkenbrock, C. D. M.
-(2017). An approach using the Design Science Research for the
-development of a collaborative assistive system. In C. Gutwin et
-al. (Eds.), Collaboration and Technology (LNCS 10391, pp. 180-195).
-Springer. https://doi.org/10.1007/978-3-319-63874-4_14</li>
-<li>Simon, H. A. (1996). <em>The sciences of the artificial</em> (3rd
-ed.). MIT Press.</li>
-<li>Siponen, M., &amp; Klaavuniemi, T. (2021). The primary scientific
-contribution is hardly a theory in design science research. In L.
-Chandra Kruse et al. (Eds.), DESRIST 2021, Lecture Notes in Computer
-Science, 12807, 137-146. Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-82405-1_16</li>
-<li>Sjöström, J., Chandra Kruse, L., Haj-Bolouri, A., &amp; Flensburg,
-P. (2018). Software-embedded evaluation support in design science
-research. In S. Chatterjee et al. (Eds.), Design Science Research in
-Information Systems and Technologies, DESRIST 2018, Lecture Notes in
-Computer Science, 10844, 348-362. Springer.
-https://doi.org/10.1007/978-3-319-91800-6_23</li>
-<li>Skalli, D., Cherrafi, A., Charkaoui, A., Chiarini, A., Shokri, A.,
-Antony, J., Garza-Reyes, J. A., &amp; Foster, M. (2025). Integrating
-Lean Six Sigma and Industry 4.0: Developing a design science
-research-based LSS4.0 framework for operational excellence. Production
-Planning &amp; Control, 36(8), 1060-1086.
-https://doi.org/10.1080/09537287.2024.2341698</li>
-<li>Smuts, H., Winter, R., Gerber, A., &amp; van der Merwe, A. (2022).
-“Designing” design science research: A taxonomy for supporting study
-design decisions. In A. Drechsler et al. (Eds.), The Transdisciplinary
-Reach of Design Science Research (LNCS 13229, pp. 483-495). Springer.
-https://doi.org/10.1007/978-3-031-06516-3_36</li>
-<li>Storey, V. C., &amp; Baskerville, R. L. (2021). The digital science
-field of design science research. In L. Chandra Kruse et al. (Eds.),
-DESRIST 2021, Lecture Notes in Computer Science, 12807, 343-355.
-Springer. https://doi.org/10.1007/978-3-030-82405-1_33</li>
-<li>Storey, V. C., Baskerville, R. L., &amp; Kaul, M. (2025).
-Reliability in design science research. Information Systems Journal,
-35(3), 984-1014. https://doi.org/10.1111/isj.12564</li>
-<li>Suero Montero, C., &amp; Kapinga, A. F. (2019). Design science
-research strengthened: Integrating co-creation and co-design. In P.
-Nielsen &amp; H. C. Kimaro (Eds.), ICT4D 2019, IFIP Advances in
-Information and Communication Technology (Vol. 551, pp. 486-495).
-Springer. https://doi.org/10.1007/978-3-030-18400-1_40</li>
-<li>Thuan, N. H., Drechsler, A., &amp; Antunes, P. (2019). Construction
-of design science research questions. Communications of the Association
-for Information Systems, 44, 332-363.
-https://doi.org/10.17705/1CAIS.04420</li>
-<li>Trigo, A. (2026). Artefact-driven narrative literature review
-(ART-NLR): Supporting evidence synthesis for design science research.
-Journal of Documentation. https://doi.org/10.1108/JD-01-2026-0013</li>
-<li>Tuunanen, T., Winter, R., &amp; vom Brocke, J. (2024). Dealing with
-complexity in design science research: A methodology using design
-echelons. MIS Quarterly, 48(2), 427-458.
-https://doi.org/10.25300/MISQ/2023/16700</li>
-<li>van Aken, J., Chandrasekaran, A., &amp; Halman, J. (2016).
-Conducting and publishing design science research: Inaugural essay of
-the design science department of the Journal of Operations Management.
-Journal of Operations Management, 47-48, 1-8.
-https://doi.org/10.1016/j.jom.2016.06.004</li>
-<li>van der Merwe, A., Gerber, A., &amp; Smuts, H. (2020). Guidelines
-for conducting design science research in information systems. In B.
-Tait et al. (Eds.), Communications in Computer and Information Science
-(Vol. 1136, pp. 163-178). Springer.
-https://doi.org/10.1007/978-3-030-35629-3_11</li>
-<li>Venable, J., Pries-Heje, J., &amp; Baskerville, R. (2016). FEDS: A
-framework for evaluation in design science research. <em>European
-Journal of Information Systems, 25</em>(1), 77-89.
-https://doi.org/10.1057/ejis.2014.36</li>
-<li>vom Brocke, J., &amp; Maedche, A. (2019). The DSR grid: Six core
-dimensions for effectively planning and communicating design science
-research projects. Electronic Markets, 29, 379-385.
-https://doi.org/10.1007/s12525-019-00358-7</li>
-<li>vom Brocke, J., Gau, M., &amp; Maedche, A. (2021). Journaling the
-design science research process: Transparency about the making of design
-knowledge. In L. Chandra Kruse et al. (Eds.), Design Science Research
-(LNCS 12807, pp. 131-136). Springer.
-https://doi.org/10.1007/978-3-030-82405-1_15</li>
-<li>vom Brocke, J., Hevner, A., &amp; Maedche, A. (2020). Introduction
-to design science research. In J. vom Brocke, A. Hevner, &amp; A.
-Maedche (Eds.), Design Science Research. Cases (Progress in IS,
-pp. 1-13). Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-46781-4_1</li>
-<li>vom Brocke, J., Hevner, A., &amp; Maedche, A. (Eds.). (2020). Design
-Science Research. Cases. Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-46781-4</li>
-<li>vom Brocke, J., Weber, M., &amp; Grisold, T. (2021). Design science
-research of high practical relevance: Dancing through space and time. In
-S. Aier et al. (Eds.), Engineering the Transformation of the Enterprise
-(pp. 115-135). Springer Nature Switzerland AG.
-https://doi.org/10.1007/978-3-030-84655-8_8</li>
-<li>Weber, R. (2018). Design-science research. In Research Methods:
-Information, Systems, and Contexts (pp. 267-288). Elsevier.
-https://doi.org/10.1016/B978-0-08-102220-7.00011-X</li>
-<li>Weigand, H., Johannesson, P., &amp; Andersson, B. (2021). An
-artifact ontology for design science research. Data &amp; Knowledge
-Engineering, 133, 101878.
-https://doi.org/10.1016/j.datak.2021.101878</li>
-<li>zur Heiden, P. (2020). Considering context in design science
-research: A systematic literature review. In S. Hofmann et al. (Eds.),
-Design Science Research. Cases (LNCS 12388, pp. 223-234). Springer.
-https://doi.org/10.1007/978-3-030-64823-7_21</li>
-<li>Ågerfalk, P. J. (2018). Whither design science research? European
-Journal of Information Systems, 27(2), 127-128.
-https://doi.org/10.1080/0960085X.2018.1458065</li>
-</ol>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-akoka_comyn_wattiau_prat_storey_2023_knowledge"
+class="csl-entry" role="listitem">
+Akoka, Jacky, Isabelle Comyn-Wattiau, Nicolas Prat, and Veda C. Storey.
+2023. <span>“Knowledge Contributions in Design Science Research: Paths
+of Knowledge Types.”</span> <em>Decision Support Systems</em> 166:
+113898. <a
+href="https://doi.org/10.1016/j.dss.2022.113898">https://doi.org/10.1016/j.dss.2022.113898</a>.
+</div>
+<div id="ref-acm_2020_artifact_badging" class="csl-entry"
+role="listitem">
+Association for Computing Machinery. 2020. <span>“Artifact Review and
+Badging Policy.”</span> <a
+href="https://www.acm.org/publications/policies/artifact-review-badging">https://www.acm.org/publications/policies/artifact-review-badging</a>.
+</div>
+<div id="ref-baskerville_baiyere_gregor_hevner_rossi_2018_contributions"
+class="csl-entry" role="listitem">
+Baskerville, Richard, Abayomi Baiyere, Shirley Gregor, Alan Hevner, and
+Matti Rossi. 2018. <span>“Design Science Research Contributions: Finding
+a Balance Between Artifact and Theory.”</span> <em>Journal of the
+Association for Information Systems</em> 19 (5): 358–76. <a
+href="https://doi.org/10.17705/1jais.00495">https://doi.org/10.17705/1jais.00495</a>.
+</div>
+<div id="ref-brendel_lembcke_muntermann_kolbe_2021_replication"
+class="csl-entry" role="listitem">
+Brendel, Alfred Benedikt, Tim-Benjamin Lembcke, Jan Muntermann, and Lutz
+M. Kolbe. 2021. <span>“Toward Replication Study Types for Design Science
+Research.”</span> <em>Journal of Information Technology</em> 36 (3):
+198–215. <a
+href="https://doi.org/10.1177/02683962211006429">https://doi.org/10.1177/02683962211006429</a>.
+</div>
+<div id="ref-dickhaut_janson_leimeister_2022_design_knowledge"
+class="csl-entry" role="listitem">
+Dickhaut, Ernestine, Andreas Janson, and Jan Marco Leimeister. 2022.
+<span>“Analyzing Design Knowledge Representation in Design Science
+Research and Deriving Recommendations to Support Design Knowledge
+Codification.”</span> In <em>Design Science Research: DESRIST 2022</em>,
+417–28. Springer Nature Switzerland. <a
+href="https://doi.org/10.1007/978-3-031-06516-3_31">https://doi.org/10.1007/978-3-031-06516-3_31</a>.
+</div>
+<div id="ref-fair4rs_2022" class="csl-entry" role="listitem">
+FAIR for Research Software Working Group. 2022. <span>“FAIR Principles
+for Research Software (FAIR4RS Principles).”</span> <a
+href="https://doi.org/10.15497/RDA00068">https://doi.org/10.15497/RDA00068</a>.
+</div>
+<div id="ref-gregor_hevner_2013_positioning" class="csl-entry"
+role="listitem">
+Gregor, Shirley, and Alan R. Hevner. 2013. <span>“Positioning and
+Presenting Design Science Research for Maximum Impact.”</span> <em>MIS
+Quarterly</em> 37 (2): 337–55. <a
+href="https://doi.org/10.25300/MISQ/2013/37.2.01">https://doi.org/10.25300/MISQ/2013/37.2.01</a>.
+</div>
+<div id="ref-hevner_2004_design" class="csl-entry" role="listitem">
+Hevner, Alan R., Salvatore T. March, Jinsoo Park, and Sudha Ram. 2004.
+<span>“Design Science in Information Systems Research.”</span> <em>MIS
+Quarterly</em> 28 (1): 75–105.
+</div>
+<div id="ref-hevner_2024_transparency" class="csl-entry"
+role="listitem">
+Hevner, Alan R., Jeffrey Parsons, Alfred Benedikt Brendel, Roman
+Lukyanenko, Verena Tiefenbeck, Monica Chiarini Tremblay, and Jan vom
+Brocke. 2024. <span>“Transparency in Design Science Research.”</span>
+<em>Decision Support Systems</em> 182: 114236. <a
+href="https://doi.org/10.1016/j.dss.2024.114236">https://doi.org/10.1016/j.dss.2024.114236</a>.
+</div>
+<div id="ref-johannesson_perjons_2021_intro" class="csl-entry"
+role="listitem">
+Johannesson, Paul, and Erik Perjons. 2021. <em>An Introduction to Design
+Science</em>. 2nd ed. Springer. <a
+href="https://doi.org/10.1007/978-3-030-78132-3">https://doi.org/10.1007/978-3-030-78132-3</a>.
+</div>
+<div id="ref-maedche_gregor_morana_feine_2019_problem_space"
+class="csl-entry" role="listitem">
+Maedche, Alexander, Shirley Gregor, Stefan Morana, and Jasper Feine.
+2019. <span>“Conceptualization of the Problem Space in Design Science
+Research.”</span> In <em>Design Science Research. Cases: DESRIST
+2019</em>, 18–31. Springer. <a
+href="https://doi.org/10.1007/978-3-030-19504-5_2">https://doi.org/10.1007/978-3-030-19504-5_2</a>.
+</div>
+<div id="ref-march_smith_1995_design" class="csl-entry" role="listitem">
+March, Salvatore T., and Gerald F. Smith. 1995. <span>“Design and
+Natural Science Research on Information Technology.”</span> <em>Decision
+Support Systems</em> 15 (4): 251–66. <a
+href="https://doi.org/10.1016/0167-9236(94)00041-2">https://doi.org/10.1016/0167-9236(94)00041-2</a>.
+</div>
+<div id="ref-ochabski_2026_dsr_framework" class="csl-entry"
+role="listitem">
+Ochabski, David. 2026a. <span>“Design Science Research
+Framework.”</span> <a
+href="https://doi.org/10.5281/zenodo.20241016">https://doi.org/10.5281/zenodo.20241016</a>.
+</div>
+<div id="ref-ochabski_2026_documentation_protocol" class="csl-entry"
+role="listitem">
+———. 2026b. <span>“Documentation Protocol.”</span> <a
+href="https://github.com/dochabski/documentation-protocol/releases/tag/v1.0.1">https://github.com/dochabski/documentation-protocol/releases/tag/v1.0.1</a>.
+</div>
+<div id="ref-peffers_2007_dsr_methodology" class="csl-entry"
+role="listitem">
+Peffers, Ken, Tuure Tuunanen, Marcus A. Rothenberger, and Samir
+Chatterjee. 2007. <span>“A Design Science Research Methodology for
+Information Systems Research.”</span> <em>Journal of Management
+Information Systems</em> 24 (3): 45–77. <a
+href="https://doi.org/10.2753/MIS0742-1222240302">https://doi.org/10.2753/MIS0742-1222240302</a>.
+</div>
+<div
+id="ref-reining_ahlemann_mueller_thakurta_2022_knowledge_accumulation"
+class="csl-entry" role="listitem">
+Reining, Stefan, Frederik Ahlemann, Benjamin Mueller, and Rahul
+Thakurta. 2022. <span>“Knowledge Accumulation in Design Science
+Research: Ways to Foster Scientific Progress.”</span> <em>The DATA BASE
+for Advances in Information Systems</em> 53 (1): 10–24.
+</div>
+<div id="ref-simon_1996_sciences" class="csl-entry" role="listitem">
+Simon, Herbert A. 1996. <em>The Sciences of the Artificial</em>. 3rd ed.
+MIT Press.
+</div>
+<div id="ref-storey_baskerville_kaul_2025_reliability" class="csl-entry"
+role="listitem">
+Storey, Veda C., Richard L. Baskerville, and Mala Kaul. 2025.
+<span>“Reliability in Design Science Research.”</span> <em>Information
+Systems Journal</em> 35 (3): 984–1014. <a
+href="https://doi.org/10.1111/isj.12564">https://doi.org/10.1111/isj.12564</a>.
+</div>
+<div id="ref-venable_priesheje_baskerville_2016_feds" class="csl-entry"
+role="listitem">
+Venable, John, Jan Pries-Heje, and Richard Baskerville. 2016.
+<span>“FEDS: A Framework for Evaluation in Design Science
+Research.”</span> <em>European Journal of Information Systems</em> 25
+(1): 77–89. <a
+href="https://doi.org/10.1057/ejis.2014.36">https://doi.org/10.1057/ejis.2014.36</a>.
+</div>
+<div id="ref-vom_brocke_hevner_maedche_2020_intro" class="csl-entry"
+role="listitem">
+vom Brocke, Jan, Alan Hevner, and Alexander Maedche. 2020.
+<span>“Introduction to Design Science Research.”</span> In <em>Design
+Science Research. Cases</em>, 1–13. Springer Nature Switzerland. <a
+href="https://doi.org/10.1007/978-3-030-46781-4_1">https://doi.org/10.1007/978-3-030-46781-4_1</a>.
+</div>
+<div id="ref-vom_brocke_maedche_2019_dsr_grid" class="csl-entry"
+role="listitem">
+vom Brocke, Jan, and Alexander Maedche. 2019. <span>“The DSR Grid: Six
+Core Dimensions for Effectively Planning and Communicating Design
+Science Research Projects.”</span> <em>Electronic Markets</em> 29:
+379–85. <a
+href="https://doi.org/10.1007/s12525-019-00358-7">https://doi.org/10.1007/s12525-019-00358-7</a>.
+</div>
+<div id="ref-weber_2018_design_science" class="csl-entry"
+role="listitem">
+Weber, Ron. 2018. <span>“Design-Science Research.”</span> In
+<em>Research Methods: Information, Systems, and Contexts</em>, 267–88.
+Elsevier. <a
+href="https://doi.org/10.1016/B978-0-08-102220-7.00011-X">https://doi.org/10.1016/B978-0-08-102220-7.00011-X</a>.
+</div>
+<div id="ref-weigand_johannesson_andersson_2021_artifact_ontology"
+class="csl-entry" role="listitem">
+Weigand, Hans, Paul Johannesson, and Bo Andersson. 2021. <span>“An
+Artifact Ontology for Design Science Research.”</span> <em>Data &amp;
+Knowledge Engineering</em> 133: 101878. <a
+href="https://doi.org/10.1016/j.datak.2021.101878">https://doi.org/10.1016/j.datak.2021.101878</a>.
+</div>
+</div>
 </body>
 </html>

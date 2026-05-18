@@ -1,14 +1,14 @@
-# 7. Limitations, Evaluation, and Roadmap
+# Limitations, evaluation, and roadmap
 
 The DSR Framework should be presented favorably but bounded. The available materials support a strong claim about conceptual synthesis, repository design, traceability, and self-application. They do not yet support a strong claim about external adoption, independent semantic adequacy, downstream empirical utility, or field-wide consensus.
 
 ## Current strengths
 
-1. The framework preserves DSR's identity boundary: artifact-centered inquiry, problem relevance, rigorous grounding, evaluation, and design knowledge.
-2. It operationalizes traceability instead of merely recommending it.
-3. It distinguishes demonstration from evaluation and artifact utility from knowledge contribution.
-4. It includes a theory operational kernel with ontology, SKOS, SHACL, schemas, competency questions, and concept inventory artifacts.
-5. It uses conformance and release controls to avoid premature L5 claims.
+1. The framework preserves DSR's identity boundary: artifact-centered inquiry, problem relevance, rigorous grounding, evaluation, and design knowledge [@hevner_2004_design; @peffers_2007_dsr_methodology; @gregor_hevner_2013_positioning].
+2. It operationalizes traceability instead of merely recommending it [@vom_brocke_maedche_2019_dsr_grid; @hevner_2024_transparency].
+3. It distinguishes demonstration from evaluation and artifact utility from knowledge contribution [@venable_priesheje_baskerville_2016_feds; @baskerville_baiyere_gregor_hevner_rossi_2018_contributions].
+4. It includes a theory operational kernel with ontology, SKOS, SHACL, schemas, competency questions, and concept inventory artifacts [@ochabski_2026_dsr_framework].
+5. It uses conformance and release controls to avoid premature L5 claims [@ochabski_2026_documentation_protocol].
 
 ## Current limitations
 
@@ -29,4 +29,4 @@ The DSR Framework should be presented favorably but bounded. The available mater
 | Downstream pilot | Use the framework in one or more DSR studies or teaching contexts. | Pilot package, evaluation report, revised rubrics. |
 | Archival release | Freeze a release, mint DOI, preserve metadata, and update citation records. | GitHub release, Zenodo DOI, metadata freeze record. |
 
-The roadmap should be published as a plan, not as evidence already completed.
+The roadmap should be published as a plan, not as evidence already completed. Reliability, replication, and transparency concerns should remain part of the evaluation agenda rather than being treated as solved by repository packaging alone [@brendel_lembcke_muntermann_kolbe_2021_replication; @storey_baskerville_kaul_2025_reliability; @hevner_2024_transparency].

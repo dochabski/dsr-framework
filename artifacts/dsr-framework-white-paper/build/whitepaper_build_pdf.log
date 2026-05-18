@@ -1,5 +1,5 @@
 python scripts/assemble_whitepaper.py
 [OK] assembled whitepaper/whitepaper_unified.md
-pandoc whitepaper/whitepaper_unified.md --standalone --metadata-file build/pandoc-metadata.yaml --pdf-engine=<bundled tectonic> --include-in-header=build/latex-preamble.tex -o build/dsr-framework-whitepaper.pdf
-[OK] built build/dsr-framework-whitepaper.pdf with Pandoc 3.7.0.2 and bundled Tectonic on 2026-05-17
-[WARN] Tectonic reported layout warnings for several overfull/underfull boxes; PDF output was produced.
+pandoc whitepaper/whitepaper_unified.md --standalone --metadata-file build/pandoc-metadata.yaml --citeproc --pdf-engine=<bundled tectonic> --include-in-header=build/latex-preamble.tex -o build/dsr-framework-whitepaper.pdf
+[OK] built build/dsr-framework-whitepaper.pdf with Pandoc 3.7.0.2, citeproc, and bundled Tectonic on 2026-05-17
+[WARN] Tectonic reported layout warnings for several overfull boxes and a fontconfig warning; PDF output was produced.

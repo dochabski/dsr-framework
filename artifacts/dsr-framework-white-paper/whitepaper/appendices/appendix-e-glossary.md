@@ -1,4 +1,4 @@
-# Appendix E. Glossary
+# Appendix E: Glossary {.unnumbered}
 
 | Term | Working meaning |
 |---|---|
