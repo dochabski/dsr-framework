@@ -1,0 +1,88 @@
+# SPDX-License-Identifier: CC0-1.0
+release_publication_verification_record:
+  record_id: record_release_publication_verification_whitepaper_v1_0_0
+  record_class: release_publication_verification
+  item_type: record
+  title: DSR Framework White Paper v1.0.0 Publication Verification
+  status: approved
+  version: "1.0.0"
+  verification_date: "2026-05-18"
+  responsible_party: framework_maintainer
+  target_release: whitepaper-v1.0.0
+  release_tag: whitepaper-v1.0.0
+  package_conformance: whitepaper_artifact_release
+  l5_claimed: false
+
+  publication_targets:
+    github_release:
+      status: published
+      release_url: https://github.com/dochabski/dsr-framework/releases/tag/whitepaper-v1.0.0
+      tag_commit: ee86c5b1e0c760e6298551a253dfcb5964fa1d20
+      release_title: DSR Framework White Paper v1.0.0
+      prerelease: false
+    zenodo_release:
+      status: published
+      deposition_id: 20264299
+      record_url: https://zenodo.org/records/20264299
+      doi: 10.5281/zenodo.20264299
+      doi_url: https://doi.org/10.5281/zenodo.20264299
+      concept_record_id: 20264298
+      published_version: "1.0.0"
+      license_id: cc-zero
+      access_right: open
+      creator_orcid: 0009-0000-9117-0651
+      deposited_files:
+        - file_name: dsr-framework-whitepaper.pdf
+          size_bytes: 106356
+          sha256: a4987ec102b940c442ba2173bb10aeb38f379d04370362f739fc2e3e77430197
+        - file_name: dsr-framework-whitepaper.html
+          size_bytes: 71684
+          sha256: 39740059509fd377baa581e23f11f4322c522671d495f5bb0945a6226a42fb96
+        - file_name: whitepaper_unified.md
+          size_bytes: 38639
+          sha256: b8ed6b1baa2d92a108c0c267511288bfb2fadf1b1489460779ba3065c39d76de
+        - file_name: github-release-notes-whitepaper-v1-0-0.md
+          size_bytes: 1959
+          sha256: 7b872f770c3ca057949a9ce145230ad080e8c7ceb31d6f9fda25e332ab22ad75
+        - file_name: dsr-framework-whitepaper-package-whitepaper-v1.0.0.zip
+          size_bytes: 2463697
+          sha256: 171f262925dddc00d25836882385bae2849a513281be77225cc1d88855bf378a
+
+  verification_basis:
+    release_record: artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-0.yaml
+    release_approval: artifacts/dsr-framework-white-paper/records/releases/record-release-approval-whitepaper-v1-0-0.yaml
+    metadata_freeze: artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-0.yaml
+    github_release_notes: artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-0.md
+    validation_summary: records/validation/validation-summary-latest.json
+    zenodo_archive_source: GitHub release assets and white paper package ZIP for tag whitepaper-v1.0.0
+
+  validation_commands:
+    - command: python artifacts/dsr-framework-white-paper/scripts/check_whitepaper_build.py
+      required_result: pass
+    - command: python scripts/validate-package.py --write-summary
+      required_result: pass
+    - command: python scripts/validate-package.py --release-candidate --write-summary
+      required_result: pass
+    - command: git diff --check
+      required_result: pass
+
+  publication_statement: >
+    The DSR Framework white paper v1.0.0 GitHub release has been archived on
+    Zenodo as a DOI-backed report record. This verification records publication
+    evidence for the white-paper artifact release without changing the
+    whitepaper-v1.0.0 Git tag.
+
+  conformance_impact:
+    result: publication_verified
+    supported_claims:
+      - whitepaper_v1_0_0_published
+      - zenodo_doi_archived_whitepaper_release
+      - cc0_original_project_authored_whitepaper_content_and_metadata
+    not_supported_claims:
+      - l5_archival_publication_ready
+      - independent_external_peer_review
+      - empirical_framework_effectiveness_validation
+
+  retention_rule:
+    retention_period: permanent_while_package_is_active
+    supersession_rule: Supersede only with a later retained publication-verification record for the same white paper release.

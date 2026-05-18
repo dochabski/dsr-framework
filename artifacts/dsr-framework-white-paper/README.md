@@ -2,6 +2,8 @@
 
 This package contains the v1.0.0 DSR Framework white paper and release-preparation scaffold for turning the DSR theory synthesis materials into a citable, repository-native white paper.
 
+Canonical DOI: https://doi.org/10.5281/zenodo.20264299
+
 ## Decision
 
 Use a **repository-native methodological white paper with an open artifact package**. The canonical release path should be:

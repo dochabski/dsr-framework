@@ -2,6 +2,8 @@
 
 This release publishes *From Design Science Research Theory to Repository-Native Operationalization: A White Paper for the DSR Framework* as a repository-native methodological white paper and open artifact package.
 
+Zenodo DOI: https://doi.org/10.5281/zenodo.20264299
+
 ## Included artifacts
 
 - Unified Markdown manuscript: `artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md`
@@ -40,4 +42,4 @@ git diff --check
 
 ## DOI
 
-Zenodo DOI metadata is pending until the GitHub release is archived and publication verification is retained in the repository.
+This release is archived on Zenodo as DOI: https://doi.org/10.5281/zenodo.20264299
