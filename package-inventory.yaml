@@ -558,7 +558,7 @@ package_inventory:
   - directory_id: dir_025
     path: artifacts
     purpose: Nested artifact packages developed inside the DSR Framework repository before standalone release or repository split.
-    expected_file_count_from_selection_table: 98
+    expected_file_count_from_selection_table: 99
     listed_files:
     - artifacts/README.md
     - artifacts/dsr-theory-operational-kernel/README.md
@@ -619,6 +619,7 @@ package_inventory:
     - artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-2.yaml
     - artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-2.yaml
     - artifacts/dsr-framework-white-paper/records/releases/record-release-approval-whitepaper-v1-0-2.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-publication-verification-whitepaper-v1-0-2.yaml
     - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
     - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
     - artifacts/dsr-framework-white-paper/repo_integration/repo-update-checklist.md
@@ -661,8 +662,8 @@ package_inventory:
     directory_status: exists_files_verified
     existence_audit_date: '2026-05-05'
     listed_file_existence:
-      listed_count: 98
-      present_count: 98
+      listed_count: 99
+      present_count: 99
       missing_count: 0
   - directory_id: dir_027
     path: rubrics
@@ -712,7 +713,7 @@ package_inventory:
   - directory_id: dir_029
     path: artifacts/dsr-framework-white-paper
     purpose: Versioned repository-native methodological white paper package for DSR Framework theory, operationalization, publication strategy, and Zenodo DOI verification.
-    expected_file_count_from_selection_table: 73
+    expected_file_count_from_selection_table: 74
     listed_files:
     - artifacts/dsr-framework-white-paper/Makefile
     - artifacts/dsr-framework-white-paper/README.md
@@ -748,6 +749,7 @@ package_inventory:
     - artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-2.yaml
     - artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-2.yaml
     - artifacts/dsr-framework-white-paper/records/releases/record-release-approval-whitepaper-v1-0-2.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-publication-verification-whitepaper-v1-0-2.yaml
     - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-citation-and-build-audit.md
     - artifacts/dsr-framework-white-paper/records/reviews/record-whitepaper-final-read-edit-0001-v1-0-0.md
     - artifacts/dsr-framework-white-paper/repo_integration/repo-update-checklist.md
@@ -790,8 +792,8 @@ package_inventory:
     directory_status: exists_files_verified
     existence_audit_date: '2026-05-17'
     listed_file_existence:
-      listed_count: 73
-      present_count: 73
+      listed_count: 74
+      present_count: 74
       missing_count: 0
   root_file_inventory:
   - path: README.md
@@ -11135,6 +11137,43 @@ package_inventory:
 
 
 
+  - inventory_entry_id: inv_0307
+    file_id: file_artifacts_dsr_framework_white_paper_records_releases_record_release_publication_verification_whitepaper_v1_0_2_yaml
+    selection_id: artifacts_dsr_framework_white_paper_records_releases_record_release_publication_verification_whitepaper_v1_0_2_yaml
+    path: artifacts/dsr-framework-white-paper/records/releases/record-release-publication-verification-whitepaper-v1-0-2.yaml
+    package_section: artifacts/dsr-framework-white-paper
+    portion_type: whitepaper_publication_verification_record
+    output_format: yaml
+    purpose: Publication verification record for the DSR Framework white paper v1.0.2 GitHub release, Zenodo DOI, MetaArXiv metadata update, ORCID work update, and OSF file-update follow-up status.
+    default_conformance: l1
+    required_for_package_class: false
+    dependency_basis:
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-whitepaper-v1-0-2.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-release-approval-whitepaper-v1-0-2.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/record-metadata-freeze-whitepaper-v1-0-2.yaml
+    - artifacts/dsr-framework-white-paper/records/releases/github-release-notes-whitepaper-v1-0-2.md
+    inventory_status: present_at_declared_path
+    exists: true
+    existence_audit_date: '2026-05-18'
+    validation_profile_id: vp_controlled_record
+    validation_responsibility:
+      primary_role: framework_maintainer
+      review_roles:
+      - repository_quality_reviewer
+      automation_role: manual_or_build_script
+      evidence_expected:
+      - path_exists
+      - no_l5_overclaim
+      - whitepaper_v1_release_scope_preserved
+      - publication_targets_status_recorded
+    minimum_acceptance_criteria:
+    - uses_declared_path_and_extension
+    - preserves_whitepaper_release_status
+    - keeps_l5_outside_current_claim
+    - records_zenodo_doi_and_platform_update_status
+
+
+
   cross_file_validation_rules:
   - rule_id: pkg_inv_rule_001
     rule: Every controlled file listed in file_inventory must use a path compatible with repository naming rules.
@@ -11479,12 +11518,17 @@ package_inventory:
     change: Prepared DSR Framework white paper v1.0.2 patch release records after systemic PDF table-header styling and build-check hardening.
     responsible_party: framework_maintainer
     review_status: white_paper_v1_0_2_release_prepared
+  - version: 1.4.0-post-publication
+    date: '2026-05-18'
+    change: Recorded DSR Framework white paper v1.0.2 publication verification after GitHub release, Zenodo publication, MetaArXiv metadata update, ORCID work update, and OSF file-update follow-up identification.
+    responsible_party: framework_maintainer
+    review_status: white_paper_v1_0_2_publication_verified_with_osf_followup_pending
   normalization_status:
     status: 1.4.0_stable_metadata_frozen
     normalization_date: '2026-04-27'
     organized_package_root: C:\Users\docha\Dropbox (Personal)\David's Stuff\Professional Development\Open Artifacts\DSR Framework\Framework_Files_Organized
     required_root_files: all_present_as_draft_or_controlled_files
-    controlled_file_inventory_entries: 306
+    controlled_file_inventory_entries: 307
     auxiliary_files_not_in_product_catalog: 0
     yaml_json_cff_parse_status: pass
     schema_meta_validation_status: pass
@@ -11541,7 +11585,7 @@ package_inventory:
     latest_white_paper_package: artifacts/dsr-framework-white-paper/README.md
     latest_white_paper_unified_markdown: artifacts/dsr-framework-white-paper/whitepaper/whitepaper_unified.md
     latest_white_paper_pdf_build: artifacts/dsr-framework-white-paper/build/dsr-framework-whitepaper.pdf
-    white_paper_package_status: whitepaper_v1_0_2_patch_release_prepared_for_publication
+    white_paper_package_status: whitepaper_v1_0_2_github_released_zenodo_published_metaarxiv_metadata_updated_orcid_updated_osf_followup_pending
     v1_release_record_status: approved_for_github_release
     v1_release_approval_status: approved_for_github_release
     patch_release_status: approved_for_github_release_v1_0_2
