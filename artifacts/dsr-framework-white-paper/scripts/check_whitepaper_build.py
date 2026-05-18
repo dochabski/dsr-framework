@@ -22,6 +22,12 @@ front_matter = text.split('---', 2)[1] if text.startswith('---') and text.count(
 if 'author: "David Ochabski"' not in front_matter and 'author: David Ochabski' not in front_matter:
     errors.append('whitepaper front matter should use scalar author: "David Ochabski"')
 
+if 'license: "CC0-1.0"' not in front_matter and 'license: CC0-1.0' not in front_matter:
+    errors.append('whitepaper front matter should declare license: "CC0-1.0" for original project-authored content.')
+
+if 'CC0-1.0' not in front_matter or 'Third-party sources' not in front_matter:
+    errors.append('whitepaper front matter should distinguish CC0 project-authored content from third-party sources/cited works.')
+
 manual_numbered = []
 for n, line in enumerate(text.splitlines(), 1):
     if re.match(r'^#{1,6}\s+(\d+\.|Appendix\s+[A-Z]\.)\s+', line):

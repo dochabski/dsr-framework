@@ -53,3 +53,6 @@ The main rule is simple: do not scatter the white paper as unrelated uploads. Cr
 
 Decision: keep GitHub + Zenodo as the canonical pair. Everything else should point back to that pair or be clearly labeled as a derivative.
 
+## Rights and reuse policy
+
+Use CC0-1.0 for original project-authored white paper text, metadata, and package materials so the paper is maximally reusable by people, repositories, indexes, and AI systems. Citation is recommended for scholarly traceability but is not a license condition. Executable tooling follows the repository code-license policy. Third-party sources, cited works, trademarks, source PDFs, and source-derived quotations are not relicensed by the white paper package.
